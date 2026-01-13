@@ -1,3 +1,5 @@
+﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+
 const snapshot = [
   {
     title: "Project",
@@ -47,6 +49,11 @@ const stage2Unlock = [
 export default function Stage1Page() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
+      <StageBreadcrumb
+        stage="Stage 1"
+        trail={[{ label: "Overview", href: "/" }, { label: "Stage 1" }]}
+      />
+
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
           Stage 1: Incubation

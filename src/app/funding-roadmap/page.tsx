@@ -1,6 +1,13 @@
-﻿export default function FundingRoadmapPage() {
+﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+
+export default function FundingRoadmapPage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
+      <StageBreadcrumb
+        stage="Stage 1"
+        trail={[{ label: "Overview", href: "/" }, { label: "Stage 1", href: "/stage-1" }, { label: "Funding Roadmap" }]}
+      />
+
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
           Stage 1 Execution Plan

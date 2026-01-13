@@ -1,3 +1,5 @@
+﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+
 const stage2Focus = [
   "Finalize MRV system and validation partners.",
   "Secure delivery partners and operating capacity.",
@@ -15,6 +17,11 @@ const stage2Artifacts = [
 export default function Stage2Page() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
+      <StageBreadcrumb
+        stage="Stage 2"
+        trail={[{ label: "Overview", href: "/" }, { label: "Stage 2" }]}
+      />
+
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
           Stage 2: Implementation

@@ -1,3 +1,5 @@
+﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+
 const stages = [
   {
     title: "Stage 1: Incubation",
@@ -65,6 +67,8 @@ const stage1Priorities = [
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
+      <StageBreadcrumb stage="Capital Continuum" trail={[{ label: "Overview" }]} />
+
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
           HISAGEN Capital Continuum

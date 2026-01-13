@@ -1,3 +1,5 @@
+﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+
 const stage4Focus = [
   "Institutional capital readiness and long-term governance.",
   "Taxonomy alignment and portfolio-grade reporting.",
@@ -13,6 +15,11 @@ const stage4Artifacts = [
 export default function Stage4Page() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
+      <StageBreadcrumb
+        stage="Stage 4"
+        trail={[{ label: "Overview", href: "/" }, { label: "Stage 4" }]}
+      />
+
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
           Stage 4: Maturity
