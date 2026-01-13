@@ -134,6 +134,16 @@ export default function HomePage() {
         </ul>
       </section>
 
+      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
+        <p className="text-xs uppercase tracking-[0.2em] text-slate">Why Capital Continuum</p>
+        <p className="mt-3 text-sm text-slate">
+          HISAGEN needs stage-appropriate capital, not generic funding advice. The Capital
+          Continuum keeps the project anchored in its current stage, pairs the right capital
+          instruments with evolving risks, and uses the five-pillar readiness lens to surface
+          the exact gaps that must be solved before scaling.
+        </p>
+      </section>
+
       <section className="mt-12">
         <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 1 Workbench</p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
