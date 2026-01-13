@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../../../components/StageBreadcrumb";
 
 export default function CommsSummaryPage() {
   return (
@@ -29,3 +29,4 @@ export default function CommsSummaryPage() {
     </div>
   );
 }
+

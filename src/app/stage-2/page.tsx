@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
 
 const stage2Focus = [
   "Finalize MRV system and validation partners.",
@@ -56,3 +56,4 @@ export default function Stage2Page() {
     </div>
   );
 }
+

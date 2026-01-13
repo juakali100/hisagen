@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
 
 const snapshot = [
   {
@@ -168,3 +168,4 @@ export default function Stage1Page() {
     </div>
   );
 }
+

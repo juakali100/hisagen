@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
 
 const resources = [
   {
@@ -58,3 +58,4 @@ export default function ResourcesPage() {
     </div>
   );
 }
+

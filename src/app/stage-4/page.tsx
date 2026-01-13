@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
 
 const stage4Focus = [
   "Institutional capital readiness and long-term governance.",
@@ -54,3 +54,4 @@ export default function Stage4Page() {
     </div>
   );
 }
+

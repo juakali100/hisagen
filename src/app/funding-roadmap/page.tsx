@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
 
 export default function FundingRoadmapPage() {
   return (
@@ -96,3 +96,4 @@ export default function FundingRoadmapPage() {
     </div>
   );
 }
+

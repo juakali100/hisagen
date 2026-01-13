@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
 
 const stage3Focus = [
   "Prove consistent delivery and revenue stability.",
@@ -54,3 +54,4 @@ export default function Stage3Page() {
     </div>
   );
 }
+

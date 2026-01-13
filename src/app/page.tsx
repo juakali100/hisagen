@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../components/StageBreadcrumb";
 
 const stages = [
   {
@@ -166,3 +166,4 @@ export default function HomePage() {
     </div>
   );
 }
+

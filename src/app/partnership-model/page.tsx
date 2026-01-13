@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "@/components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
 
 export default function PartnershipModelPage() {
   return (
@@ -43,3 +43,5 @@ export default function PartnershipModelPage() {
     </div>
   );
 }
+
+
