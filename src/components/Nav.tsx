@@ -1,0 +1,38 @@
+﻿import Link from "next/link";
+
+const links = [
+  { href: "/", label: "Overview" },
+  { href: "/start-here", label: "Start Here" },
+  { href: "/evidence", label: "Evidence" },
+  { href: "/funding-roadmap", label: "Funding Roadmap" },
+  { href: "/funding-roadmap/capital-continuum", label: "Capital Continuum" },
+  { href: "/funding-roadmap/grant-proposal", label: "Grant Playbook" },
+  { href: "/partnership-model", label: "Partnership Model" },
+  { href: "/resources", label: "Resources" },
+];
+
+export default function Nav() {
+  return (
+    <header className="mx-auto mb-10 flex w-full max-w-5xl flex-wrap items-center justify-between gap-4 border-b border-mist pb-4 text-sm text-slate">
+      <div className="flex items-center gap-3">
+        <Link href="/" className="text-xs font-medium uppercase tracking-[0.3em] text-secondary">
+          HISAGEN Portal
+        </Link>
+        <span className="rounded-full border border-mist bg-white px-3 py-1 text-xs font-medium text-slate">
+          Stage: Incubation
+        </span>
+      </div>
+      <nav className="flex flex-wrap gap-4">
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="text-sm text-slate transition hover:text-primary"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
+    </header>
+  );
+}
