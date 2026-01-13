@@ -5,6 +5,7 @@ type TimelineEntry = {
   channel: string;
   title: string;
   file?: string;
+  summary?: string;
   notes?: string;
 };
 
@@ -14,6 +15,8 @@ const timeline: TimelineEntry[] = [
     channel: "Call",
     title: "Initial discovery call",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/call-notes-2025-11-07.md",
+    summary:
+      "Discussed four ventures, agreed HISAGEN is the priority, and confirmed grant funding need.",
     notes: "HISAGEN identified as priority; grant funding need confirmed.",
   },
   {
@@ -143,18 +146,25 @@ export default function ResourcesPage() {
         <p className="text-xs uppercase tracking-[0.2em] text-slate">Communications Timeline</p>
         <div className="mt-4 space-y-4 text-sm text-slate">
           {timeline.map((entry) => (
-            <div key={`${entry.date}-${entry.title}`} className="rounded-lg border border-mist/60 bg-white p-4">
-              <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate">
+            <details
+              key={`${entry.date}-${entry.title}`}
+              className="group rounded-lg border border-mist/60 bg-white p-4"
+            >
+              <summary className="flex cursor-pointer list-none flex-wrap items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate">
                 <span>{entry.date}</span>
                 <span className="text-slate/50">•</span>
                 <span>{entry.channel}</span>
-              </div>
-              <p className="mt-2 text-sm font-semibold text-secondary">{entry.title}</p>
-              {entry.notes ? <p className="mt-1 text-sm text-slate">{entry.notes}</p> : null}
-              {entry.file ? (
-                <p className="mt-2 text-xs text-slate">Source: {entry.file}</p>
+                <span className="text-slate/50">•</span>
+                <span className="text-secondary">{entry.title}</span>
+              </summary>
+              {entry.summary ? (
+                <p className="mt-3 text-sm text-slate">{entry.summary}</p>
               ) : null}
-            </div>
+              {entry.notes ? <p className="mt-2 text-sm text-slate">{entry.notes}</p> : null}
+              {entry.file ? (
+                <p className="mt-3 text-xs text-slate">Source: {entry.file}</p>
+              ) : null}
+            </details>
           ))}
         </div>
       </section>
