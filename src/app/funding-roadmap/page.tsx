@@ -3,85 +3,55 @@
     <div className="mx-auto max-w-5xl text-ink">
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
-          Funding Roadmap
+          Stage 1 Execution Plan
         </p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          Sequenced Funding Pathways
+          Incubation funding roadmap for HISAGEN
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-          A staged approach that aligns HISAGEN's readiness with the right type of capital,
-          balancing near-term grants with longer-term strategic positioning.
+          This page translates Stage 1 needs into specific actions, outputs, and funding
+          targets. It is intentionally narrow so we finish Incubation before moving to Stage 2.
         </p>
       </section>
 
       <section className="mt-12 grid gap-6 lg:grid-cols-2">
-        <div className="space-y-4">
-          <div className="flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-secondary">
-            <span className="h-px w-12 bg-mist" />
-            Near-Term Targets
-          </div>
-          <ul className="space-y-3 text-sm text-slate">
-            <li>Accelerators with strong ag-tech fit and low application friction.</li>
-            <li>Grants aligned to pilot outcomes and early-stage validation.</li>
-            <li>Strategic positioning for longer-cycle philanthropic funds.</li>
-            <li>Corporate co-investment aligned to supply chain decarbonization.</li>
+        <div className="rounded-xl border border-mist bg-white p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 1 Objectives</p>
+          <ul className="mt-4 space-y-2 text-sm text-slate">
+            <li>Compile verified pilot outcomes and MRV pathway.</li>
+            <li>Clarify legal structure, carbon rights, and land tenure.</li>
+            <li>Draft unit economics and Stage 1 funding ask.</li>
+            <li>Define the target funder segment and shortlist.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Readiness Milestones</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 1 Outputs</p>
           <ul className="mt-4 space-y-2 text-sm text-slate">
-            <li>Finalize unit economics and budget model.</li>
-            <li>Confirm trial metrics and verification partners.</li>
-            <li>Clarify legal structure and governance.</li>
-            <li>Define carbon methodology pathway and measurement plan.</li>
+            <li>Evidence summary and data table (pilot).</li>
+            <li>Stage 1 funding brief (1-2 pages).</li>
+            <li>Updated concept note with filled gaps.</li>
+            <li>Funder shortlist with eligibility notes.</li>
           </ul>
         </div>
       </section>
 
-      <section className="mt-12 space-y-6">
-        <div className="flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-secondary">
-          <span className="h-px w-12 bg-mist" />
-          Roadmap Snapshot
+      <section className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="rounded-xl border border-mist bg-white p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Capital Fit (Stage 1)</p>
+          <ul className="mt-4 space-y-2 text-sm text-slate">
+            <li>Grants and catalytic capital only.</li>
+            <li>Accelerators where pilot evidence is sufficient.</li>
+            <li>Blended finance and commercial capital are premature.</li>
+          </ul>
         </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            {
-              title: "Phase 1: Validation",
-              detail: "Grant-ready capital to fund trials and regulatory approval.",
-            },
-            {
-              title: "Phase 2: Scale Prep",
-              detail: "Pilot expansion, financial model, and system readiness.",
-            },
-            {
-              title: "Phase 3: Strategic Capital",
-              detail: "Position for larger philanthropic or blended finance.",
-            },
-          ].map((card) => (
-            <div key={card.title} className="rounded-xl border border-mist bg-white p-6">
-              <h3 className="text-lg font-semibold text-secondary">{card.title}</h3>
-              <p className="mt-2 text-sm text-slate">{card.detail}</p>
-            </div>
-          ))}
+        <div className="rounded-xl border border-mist bg-white p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Decision Gates</p>
+          <ul className="mt-4 space-y-2 text-sm text-slate">
+            <li>Do we have enough evidence to approach funders?</li>
+            <li>Is the funding ask sized to Stage 1 reality?</li>
+            <li>Do legal and governance risks have a mitigation path?</li>
+          </ul>
         </div>
-        <div className="border-l-4 border-primary bg-primary/5 px-4 py-3 text-sm text-secondary">
-          Assessment snapshot: current readiness aligns best with grant and accelerator funding,
-          with strategic positioning underway for larger philanthropic opportunities.
-        </div>
-      </section>
-
-      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">Capital Continuum</p>
-        <p className="mt-3 text-sm text-slate">
-          We use the Capital Continuum playbook to position HISAGEN across four development
-          stages and assess the five pillars of investment readiness.
-        </p>
-        <a
-          href="/funding-roadmap/capital-continuum"
-          className="mt-3 inline-block text-sm text-primary hover:text-primary/80 underline"
-        >
-          Open the Capital Continuum playbook
-        </a>
       </section>
 
       <section className="mt-12 grid gap-4 md:grid-cols-3">
@@ -89,11 +59,10 @@
           href="/funding-roadmap/grant-proposal"
           className="rounded-xl border border-mist bg-white p-6 transition hover:border-primary/50"
         >
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Grant Proposal</p>
-          <h2 className="mt-3 text-lg font-semibold text-secondary">v0 Summary + Gaps</h2>
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Grant Playbook</p>
+          <h2 className="mt-3 text-lg font-semibold text-secondary">Stage 1 Proposal</h2>
           <p className="mt-2 text-sm text-slate">
-            A concise overview of the v0 proposal foundation and the highest-priority inputs
-            needed to tailor funder-specific submissions.
+            Update the v0 grant package and fill critical gaps.
           </p>
         </a>
         <a
@@ -103,7 +72,7 @@
           <p className="text-xs uppercase tracking-[0.2em] text-slate">Funding Lifecycle</p>
           <h2 className="mt-3 text-lg font-semibold text-secondary">Phase Alignment</h2>
           <p className="mt-2 text-sm text-slate">
-            Expand each phase to see status, completed work, gaps, and the next step.
+            Track readiness across the full grant lifecycle.
           </p>
         </a>
         <a
@@ -111,9 +80,9 @@
           className="rounded-xl border border-mist bg-white p-6 transition hover:border-primary/50"
         >
           <p className="text-xs uppercase tracking-[0.2em] text-slate">Capital Continuum</p>
-          <h2 className="mt-3 text-lg font-semibold text-secondary">4 Stages + 5 Pillars</h2>
+          <h2 className="mt-3 text-lg font-semibold text-secondary">Stage Logic</h2>
           <p className="mt-2 text-sm text-slate">
-            Use the playbook template to align project stage, gaps, and capital fit.
+            Use the five pillars to validate Stage 1 readiness.
           </p>
         </a>
       </section>
