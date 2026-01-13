@@ -70,14 +70,14 @@ export default function HomePage() {
       <StageBreadcrumb stage="HISAGEN" trail={[{ label: "Overview" }]} />
 
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">HISAGEN private portal</p>
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">HISAGEN Agri-Carbon Program</p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          HISAGEN is a nature-plus-technology venture unlocking carbon finance for rural landscapes.
+          HISAGEN is building an agri-carbon platform that unlocks carbon finance for working landscapes.
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-          This site is the internal working hub we share with the core team and the client. It captures the capital
-          strategy, partner context, and pilot evidence that will inform the Uganda proof of concept and the broader
-          HISAGEN program.
+          This internal portal documents the HISAGEN Agri-Carbon Program, keeping the capital strategy, partner
+          context, and pilot evidence shared with the client and core team as we mature the Uganda proof of concept
+          and build the wider organisational story.
         </p>
         <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-slate">
           <span className="rounded-full border border-mist bg-white px-3 py-1">Type: Private portal</span>
@@ -91,9 +91,9 @@ export default function HomePage() {
           <p className="text-xs uppercase tracking-[0.2em] text-slate">HISAGEN company story</p>
           <h2 className="mt-2 text-2xl font-semibold text-secondary">Our organisational journey</h2>
           <p className="mt-3 text-sm text-slate">
-            HISAGEN is building a platform to finance nature-based carbon solutions through blended capital, community-integrated
-            delivery, and transparent partner networks. This portal is the working version of that platform; it documents the capital
-            continuum logic, partner briefs, and the evidence piles as we shape the wider business.
+            HISAGEN is building the Agri-Carbon Program to finance nature-based solutions through blended capital, community-integrated
+            delivery, and transparent partner networks. This portal is the working hub for that program; it documents the capital
+            continuum logic, partner briefs, and the evidence piles that shape HISAGEN and future projects.
           </p>
         </div>
         <div className="rounded-xl border border-mist bg-white p-6">
@@ -103,7 +103,7 @@ export default function HomePage() {
             <li>Location: Uganda, maize trials for nature-based carbon and community resilience.</li>
             <li>Partners: Locus AG (Product + Carbon Now initiative) and Keir’s Carbon Marketplace venture.</li>
             <li>Deliverables: carbon rights clarity, pilot data (MRV), community engagement, and a funder-ready proposal.</li>
-            <li>Objective: prove the HISAGEN method before replicating across landscapes.</li>
+            <li>Objective: prove the HISAGEN Agri-Carbon Program method before replicating across landscapes.</li>
           </ul>
         </div>
         <div className="rounded-xl border border-mist bg-white p-6">
@@ -111,7 +111,7 @@ export default function HomePage() {
           <p className="mt-2 text-sm text-slate">
             Locus AG contributes commercial product depth and the Carbon Now program, while Keir’s carbon marketplace organisation
             is shaping downstream demand and buyer narratives. This portal keeps those relationships transparent through the
-            communications timeline, attachments, and partner pages.
+            communications timeline, attachments, and partner pages that support the HISAGEN Agri-Carbon Program narrative.
           </p>
         </div>
       </section>
