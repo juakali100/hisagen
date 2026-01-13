@@ -5,7 +5,7 @@ const stages = [
     focus: "Foundations and proof of concept.",
     capital: "Grants, philanthropy, sweat equity.",
     needs: ["Pilot evidence compiled", "Unit economics draft", "Carbon rights clarity"],
-    href: "/start-here",
+    href: "/stage-1",
   },
   {
     title: "Stage 2: Implementation",
@@ -36,7 +36,7 @@ const stage1Links = [
   {
     title: "Stage 1 Brief",
     description: "Project summary, knowns, gaps, and current decision points.",
-    href: "/start-here",
+    href: "/stage-1",
   },
   {
     title: "Evidence Review",

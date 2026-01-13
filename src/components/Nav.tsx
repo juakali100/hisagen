@@ -2,12 +2,10 @@
 
 const links = [
   { href: "/", label: "Overview" },
-  { href: "/start-here", label: "Stage 1 Brief" },
-  { href: "/evidence", label: "Evidence" },
-  { href: "/funding-roadmap", label: "Funding Roadmap" },
-  { href: "/funding-roadmap/capital-continuum", label: "Capital Continuum" },
-  { href: "/funding-roadmap/grant-proposal", label: "Grant Playbook" },
-  { href: "/partnership-model", label: "Partnership Model" },
+  { href: "/stage-1", label: "Stage 1" },
+  { href: "/stage-2", label: "Stage 2" },
+  { href: "/stage-3", label: "Stage 3" },
+  { href: "/stage-4", label: "Stage 4" },
   { href: "/resources", label: "Resources" },
 ];
 
