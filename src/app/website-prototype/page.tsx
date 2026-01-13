@@ -3,34 +3,34 @@ import { stages } from "../funding-roadmap/capital-continuum/variables";
 
 const prototypeSections = [
   {
-    label: "Hero & mission",
+    label: "Company story",
     description:
-      "Introduce HISAGEN, the pilot focus on Uganda, and orient visitors to the Capital Continuum spine right from the homepage.",
-    purpose: "Stage 1 narrative + proof of concept spotlight",
+      "Explain HISAGEN’s organisational mission (nature-plus-tech carbon stewardship) and position the portal, pilot, and partners as part of a larger entity.",
+    purpose: "Frame HISAGEN as a standalone company with strategy, values, and leadership.",
   },
   {
-    label: "Programs & pilots",
+    label: "Uganda pilot spotlight",
     description:
-      "Surface the workstreams (nature-based credits, community restoration, learning partnerships) and link to evidence and cohort partners.",
-    purpose: "Detail what gets delivered in incubation and how progress is tracked",
+      "Show the Uganda project as the flagship case—its objectives, community partners, and the way it fits into the broader capital strategy.",
+    purpose: "Give the pilot a front-and-centre presence while clarifying that it is the first of many initiatives.",
   },
   {
-    label: "Capital Continuum map",
+    label: "Services & programs",
     description:
-      "Explain how the four stages align with specific funding asks (grants, blended finance, structured debt, institutional capital).",
-    purpose: "Educate visitors on the staged capital thesis and where HISAGEN sits today",
+      "Outline the delivery model (grant writing, carbon finance structuring, co-design, and community engagement) with links to execution artifacts.",
+    purpose: "Tell visitors how HISAGEN works with funders, landowners, and investors.",
   },
   {
     label: "Partners & resources",
     description:
-      "Showcase partner PDFs, communications, and the resources timeline so the story stays grounded in documented context.",
-    purpose: "Provide transparency on collaborators and source materials",
+      "List the collaborators, attach the comms/attachment registry, and signpost the portal’s evidence pages so transparency is maintained.",
+    purpose: "Surface provenance for every claim and keep the documentation accessible.",
   },
   {
     label: "Updates & next steps",
     description:
-      "A news-style stream that links to live portal entries, funding proposals, and upcoming engagements so the website feels alive.",
-    purpose: "Turn the portal’s rhythm into a live-fed newsroom",
+      "Turn portal updates into a live newsroom or progress journal that explains the next funding asks and milestones.",
+    purpose: "Make the site feel active without tying every message strictly to the continuum.",
   },
 ];
 
@@ -65,11 +65,11 @@ export default function WebsitePrototypePage() {
           HISAGEN Draft Web Experience
         </p>
         <h1 className="mt-4 text-4xl font-semibold text-secondary">
-          Build an early-entry website that mirrors the portal’s Capital Continuum intelligence.
+          Showcase HISAGEN as a company, with the Uganda pilot as the first proof point.
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-          Use this prototype space to script what a standalone HISAGEN site might feel like—complete with a hero narrative,
-          program storytelling, a capital-stage map, and living evidence that pulls from the portal.
+          Build a lightweight marketing site that tells the organisational story, highlights the capital strategy where relevant,
+          and gives visitors a sense of the work underway in Uganda before layering in additional pilots.
         </p>
       </section>
 
@@ -86,8 +86,23 @@ export default function WebsitePrototypePage() {
         </div>
       </section>
 
+      <section className="mt-10 rounded-xl border border-mist bg-white p-6">
+        <p className="text-xs uppercase tracking-[0.2em] text-slate">Pilot spotlight</p>
+        <h2 className="mt-2 text-2xl font-semibold text-secondary">Uganda as the flagship HISAGEN project</h2>
+        <p className="mt-2 text-sm text-slate">
+          Position the Uganda pilot as the first live manifestation of the company’s nature-based carbon thesis.
+          Outline key partners (Locus AG, carbon rights stakeholders), pilot objectives (maize trials, community mapping, financial model),
+          and the ask (grant funding to finalize the proof of concept).
+        </p>
+        <ul className="mt-3 space-y-2 text-sm text-slate">
+          <li>Project stage: Incubation with managed pilots and community engagement under the Capital Continuum Stage 1 focus.</li>
+          <li>Deliverables: carbon rights clarity, MRV roadmap, pilot data (maize trials) and capital structure narrative.</li>
+          <li>Next move: translate this story into a proposal page, dedicated resource downloads, and a donor-friendly narrative.</li>
+        </ul>
+      </section>
+
       <section className="mt-10 space-y-4 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">Capital Continuum anchors</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-slate">Capital Continuum anchors (supporting context)</p>
         <div className="grid gap-4 md:grid-cols-2">
           {stages.map((stage) => (
             <div key={stage.title} className="rounded-xl border border-mist p-5">
@@ -125,9 +140,9 @@ export default function WebsitePrototypePage() {
       <section className="mt-10 rounded-xl border border-mist bg-white p-6">
         <p className="text-xs uppercase tracking-[0.2em] text-slate">Next steps for the prototype</p>
         <ol className="mt-4 space-y-2 text-sm text-slate">
-          <li>Turn each prototype section into a dedicated page within this app, mirroring the nav hierarchy.</li>
-          <li>Feed live data (communications, attachments, capital scores) into the prototype cards via shared JSON or markdown sources.</li>
-          <li>Keep the site refreshed by linking updates to the portal’s news/timeline so it stays consistent with the operating context.</li>
+          <li>Develop dedicated pages for the hero/company story, Uganda pilot, and service menu so the website feels like a standalone destination.</li>
+          <li>Use the portal’s resources to keep partner information, attachments, and communications up to date without duplicating content.</li>
+          <li>Offer clear CTAs for funders (grant pipeline) and partners (contact, collaboration brief) so the site supports next funding asks.</li>
         </ol>
       </section>
     </div>
