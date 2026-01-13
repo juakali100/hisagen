@@ -2,6 +2,7 @@
 
 const links = [
   { href: "/", label: "Overview" },
+  { href: "/funding-roadmap/capital-continuum", label: "Capital Continuum" },
   { href: "/stage-1", label: "Stage 1" },
   { href: "/stage-2", label: "Stage 2" },
   { href: "/stage-3", label: "Stage 3" },

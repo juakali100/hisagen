@@ -67,25 +67,52 @@ const stage1Priorities = [
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb stage="Capital Continuum" trail={[{ label: "Overview" }]} />
+      <StageBreadcrumb stage="HISAGEN" trail={[{ label: "Overview" }]} />
 
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
-          HISAGEN Capital Continuum
-        </p>
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">HISAGEN private portal</p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          Capital Continuum dashboard for the HISAGEN opportunity
+          HISAGEN is a nature-plus-technology venture unlocking carbon finance for rural landscapes.
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-          Use the four-stage continuum to keep the work focused. The only goal right now is
-          to complete Stage 1 so the funding path becomes obvious.
+          This site is the internal working hub we share with the core team and the client. It captures the capital
+          strategy, partner context, and pilot evidence that will inform the Uganda proof of concept and the broader
+          HISAGEN program.
         </p>
         <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-slate">
-          <span className="rounded-full border border-mist bg-white px-3 py-1">Stage: Incubation</span>
-          <span className="rounded-full border border-mist bg-white px-3 py-1">Focus: Uganda pilot</span>
-          <span className="rounded-full border border-mist bg-white px-3 py-1">
-            Status: Stage 1 work in progress
-          </span>
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Type: Private portal</span>
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Focus: HISAGEN company</span>
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Pilot: Uganda (Stage 1)</span>
+        </div>
+      </section>
+
+      <section className="mt-12 space-y-6">
+        <div className="rounded-xl border border-mist bg-white p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">HISAGEN company story</p>
+          <h2 className="mt-2 text-2xl font-semibold text-secondary">Our organisational journey</h2>
+          <p className="mt-3 text-sm text-slate">
+            HISAGEN is building a platform to finance nature-based carbon solutions through blended capital, community-integrated
+            delivery, and transparent partner networks. This portal is the working version of that platform; it documents the capital
+            continuum logic, partner briefs, and the evidence piles as we shape the wider business.
+          </p>
+        </div>
+        <div className="rounded-xl border border-mist bg-white p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Uganda pilot spotlight</p>
+          <h2 className="mt-2 text-2xl font-semibold text-secondary">Flagship project for HISAGEN</h2>
+          <ul className="mt-3 space-y-2 text-sm text-slate">
+            <li>Location: Uganda, maize trials for nature-based carbon and community resilience.</li>
+            <li>Partners: Locus AG (Product + Carbon Now initiative) and Keir’s Carbon Marketplace venture.</li>
+            <li>Deliverables: carbon rights clarity, pilot data (MRV), community engagement, and a funder-ready proposal.</li>
+            <li>Objective: prove the HISAGEN method before replicating across landscapes.</li>
+          </ul>
+        </div>
+        <div className="rounded-xl border border-mist bg-white p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Partners & products</p>
+          <p className="mt-2 text-sm text-slate">
+            Locus AG contributes commercial product depth and the Carbon Now program, while Keir’s carbon marketplace organisation
+            is shaping downstream demand and buyer narratives. This portal keeps those relationships transparent through the
+            communications timeline, attachments, and partner pages.
+          </p>
         </div>
       </section>
 
@@ -95,9 +122,7 @@ export default function HomePage() {
           {stages.map((stage) => (
             <div
               key={stage.title}
-              className={`rounded-xl border p-6 ${
-                stage.status ? stageStyles[stage.status] : stageStyles.default
-              }`}
+              className={`rounded-xl border p-6 ${stage.status ? stageStyles[stage.status] : stageStyles.default}`}
             >
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-lg font-semibold text-secondary">{stage.title}</h3>
@@ -130,25 +155,37 @@ export default function HomePage() {
       </section>
 
       <section className="mt-12 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 1 Priorities</p>
-        <ul className="mt-4 space-y-2 text-sm text-slate">
-          {stage1Priorities.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+        <p className="text-xs uppercase tracking-[0.2em] text-slate">Capital Continuum overview</p>
+        <p className="mt-3 text-sm text-slate">
+          Capital Continuum is the spine of our funding strategy. Start at the dedicated overview page, then browse the stage links
+          (1-4) in the navigation as the project grows.
+        </p>
+        <div className="mt-4 grid gap-3 text-xs font-semibold uppercase tracking-[0.3em]">
+          <a href="/funding-roadmap/capital-continuum" className="text-secondary underline-offset-4 hover:underline">
+            Open Capital Continuum overview
+          </a>
+          <span>Stage 1: /stage-1</span>
+          <span>Stage 2: /stage-2</span>
+          <span>Stage 3: /stage-3</span>
+          <span>Stage 4: /stage-4</span>
+        </div>
       </section>
 
       <section className="mt-12 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">Why Capital Continuum</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-slate">Resources (cross-cutting)</p>
         <p className="mt-3 text-sm text-slate">
-          HISAGEN needs stage-appropriate capital, not generic funding advice. The Capital
-          Continuum keeps the project anchored in its current stage, pairs the right capital
-          instruments with evolving risks, and uses the five-pillar readiness lens to surface
-          the exact gaps that must be solved before scaling.
+          The Resources page pulls comms, attachments, and partner summaries. Think of it as the evidence vault behind this portal—always
+          in sync with what we present to clients and partners.
         </p>
+        <a
+          href="/resources"
+          className="mt-3 inline-flex items-center rounded-full border border-mist bg-white px-4 py-2 text-xs font-medium text-secondary hover:border-primary/50"
+        >
+          Open Resources
+        </a>
       </section>
 
-      <section className="mt-12">
+      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
         <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 1 Workbench</p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           {stage1Links.map((card) => (
@@ -162,8 +199,15 @@ export default function HomePage() {
             </a>
           ))}
         </div>
+        <div className="mt-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 1 priorities</p>
+          <ul className="mt-3 space-y-2 text-sm text-slate">
+            {stage1Priorities.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
       </section>
     </div>
   );
 }
-
