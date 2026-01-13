@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import { pillars, stages } from "./variables";
 
 export default function CapitalContinuumPlaybookPage() {
@@ -191,4 +191,5 @@ export default function CapitalContinuumPlaybookPage() {
     </div>
   );
 }
+
 

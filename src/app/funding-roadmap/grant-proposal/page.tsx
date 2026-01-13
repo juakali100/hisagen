@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../../../components/StageBreadcrumb";
 
 export default function GrantProposalPage() {
   return (
@@ -43,4 +43,5 @@ export default function GrantProposalPage() {
     </div>
   );
 }
+
 

@@ -1,4 +1,4 @@
-﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
+﻿import StageBreadcrumb from "../../../components/StageBreadcrumb";
 
 const phases = [
   {
@@ -183,4 +183,5 @@ export default function FundingLifecyclePage() {
     </div>
   );
 }
+
 
