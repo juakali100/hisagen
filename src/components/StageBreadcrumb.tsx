@@ -1,4 +1,6 @@
-﻿type BreadcrumbItem = {
+﻿import Link from "next/link";
+
+type BreadcrumbItem = {
   label: string;
   href?: string;
 };
