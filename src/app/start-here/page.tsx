@@ -1,36 +1,47 @@
 const snapshot = [
   {
-    title: "What it is",
+    title: "Project",
     detail:
-      "An integrated agriculture and carbon project combining microbial biofertilizers, soil carbon credits, and a digital farmer platform.",
+      "Integrated agriculture and carbon model combining microbial biofertilizers, soil carbon credits, and a digital farmer platform.",
   },
   {
-    title: "Who it serves",
-    detail: "Smallholder farmers in East Africa, starting with Uganda.",
+    title: "Primary focus",
+    detail: "Uganda pilot (Kenya expansion deferred).",
   },
   {
-    title: "Key partners",
+    title: "Core partners",
     detail: "Locus AG (technology), Uganda NARO (research validation), 3Degrees (carbon pathway).",
   },
   {
-    title: "Current status",
-    detail: "Pilot underway, evidence incomplete, funding path not yet confirmed.",
+    title: "Stage 1 status",
+    detail: "Pilot underway; evidence and financial model not yet compiled.",
   },
 ];
 
-const known = [
+const stage1Objectives = [
+  "Confirm pilot evidence and MRV pathway.",
+  "Clarify legal and governance structure (carbon rights, land tenure).",
+  "Draft unit economics and the Stage 1 funding ask.",
+  "Define the target funder segment for Stage 1 capital.",
+];
+
+const evidenceOnHand = [
   "Concept note and v0 grant package exist.",
-  "Pilot results are described as encouraging, but data is not compiled.",
-  "Uganda is the focus; Kenya expansion is deferred.",
+  "Pilot progress described as encouraging, but data is not compiled.",
   "Capital Continuum assessment scored 13/25 (grant-ready).",
 ];
 
-const gaps = [
+const stage1Gaps = [
+  "Verified pilot metrics and outcomes summary.",
+  "Unit economics and 3-5 year financial model.",
+  "Carbon rights clarity and farmer agreement structure.",
   "Clear program narrative and theory of change.",
-  "Verified pilot metrics and MRV plan.",
-  "Legal clarity on carbon rights and land tenure.",
-  "Unit economics and a 3-5 year financial model.",
-  "Defined target funder segment and outreach plan.",
+];
+
+const stage2Unlock = [
+  "MRV operational and verifiable.",
+  "First credits issued or pathway confirmed with timelines.",
+  "Delivery partners and operating capacity in place.",
 ];
 
 export default function StartHerePage() {
@@ -38,19 +49,19 @@ export default function StartHerePage() {
     <div className="mx-auto max-w-5xl text-ink">
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
-          Start Here
+          Stage 1 Brief
         </p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          HISAGEN Project Definition
+          Incubation summary for HISAGEN
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-          This page orients the project before any funding strategy is chosen. Use it to
-          confirm what HISAGEN is, what is known, and what is missing.
+          Stage 1 is about proving the pilot, clarifying legal and financial foundations, and
+          defining the right Stage 1 capital ask.
         </p>
         <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-slate">
           <span className="rounded-full border border-mist bg-white px-3 py-1">Stage: Incubation</span>
-          <span className="rounded-full border border-mist bg-white px-3 py-1">Geography: Uganda pilot</span>
-          <span className="rounded-full border border-mist bg-white px-3 py-1">Audience: internal + partner view</span>
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Focus: Uganda pilot</span>
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Readiness: 13/25</span>
         </div>
       </section>
 
@@ -65,66 +76,75 @@ export default function StartHerePage() {
 
       <section className="mt-12 grid gap-6 md:grid-cols-2">
         <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">What We Know</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 1 Objectives</p>
           <ul className="mt-4 space-y-2 text-sm text-slate">
-            {known.map((item) => (
+            {stage1Objectives.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
         </div>
         <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">What We Still Need</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Evidence on Hand</p>
           <ul className="mt-4 space-y-2 text-sm text-slate">
-            {gaps.map((item) => (
+            {evidenceOnHand.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">Capital Direction</p>
-        <p className="mt-3 text-sm text-slate">
-          Funding choices should follow the project stage, not lead it. Use the Capital
-          Continuum playbook to confirm the right capital type before moving into the
-          grant lifecycle or investor outreach.
-        </p>
-        <div className="mt-4 flex flex-wrap gap-3 text-sm">
-          <a
-            href="/funding-roadmap/capital-continuum"
-            className="rounded-full border border-mist bg-white px-4 py-2 text-secondary hover:border-primary/50"
-          >
-            Open Capital Continuum Playbook
-          </a>
-          <a
-            href="/funding-roadmap/lifecycle"
-            className="rounded-full border border-mist bg-white px-4 py-2 text-secondary hover:border-primary/50"
-          >
-            Funding Lifecycle Alignment
-          </a>
+      <section className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="rounded-xl border border-mist bg-white p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 1 Gaps</p>
+          <ul className="mt-4 space-y-2 text-sm text-slate">
+            {stage1Gaps.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="rounded-xl border border-mist bg-white p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate">Capital Fit</p>
+          <p className="mt-3 text-sm text-slate">
+            Stage 1 capital should be grant or catalytic. Blended finance and commercial
+            capital are premature until evidence, legal clarity, and unit economics are in place.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium text-slate">
+            <span className="rounded-full border border-mist bg-white px-3 py-1">Grant-ready</span>
+            <span className="rounded-full border border-mist bg-white px-3 py-1">Catalytic capital</span>
+            <span className="rounded-full border border-mist bg-white px-3 py-1">Not blended-ready</span>
+          </div>
         </div>
       </section>
 
-      <section className="mt-12 grid gap-6 md:grid-cols-3">
+      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
+        <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 2 Unlock Criteria</p>
+        <ul className="mt-4 space-y-2 text-sm text-slate">
+          {stage2Unlock.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mt-12 grid gap-4 md:grid-cols-2">
         {[
           {
-            title: "Evidence",
-            description: "Pilot outcomes, documents, and proof points.",
-            href: "/evidence",
+            title: "Capital Continuum Playbook",
+            description: "Stage logic, five pillars, and readiness assessment template.",
+            href: "/funding-roadmap/capital-continuum",
           },
           {
             title: "Funding Roadmap",
-            description: "Sequence of capital options and readiness checkpoints.",
+            description: "Stage 1 sequencing and grant workflow.",
             href: "/funding-roadmap",
           },
           {
-            title: "Partnership Model",
-            description: "Collaboration pathways and delivery roles.",
-            href: "/partnership-model",
+            title: "Evidence Review",
+            description: "Pilot outcomes and source materials.",
+            href: "/evidence",
           },
           {
             title: "Resources",
-            description: "Source materials, PDFs, and working notes.",
+            description: "PDFs, links, and working notes.",
             href: "/resources",
           },
         ].map((card) => (
