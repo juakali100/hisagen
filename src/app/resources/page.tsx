@@ -2,23 +2,50 @@
 
 const resources = [
   {
-    title: "Strategic Briefs",
-    description: "Foundational documents, synthesis notes, and internal framing.",
+    title: "Core Narrative",
+    description: "One-page summaries and the project story in its current form.",
     items: [
-      "HISAGEN Strategic Fundraising Foundation",
-      "HISAGEN 5-Pillar Investment Readiness Assessment",
-      "Capital Continuum Framework source notes",
+      "Concept Note (v0)",
+      "Executive Summary draft",
+      "Stage 1 Brief (Incubation)",
     ],
   },
   {
-    title: "Source Materials",
-    description: "External PDFs, emails, and data extracts provided by Keir.",
-    items: ["Locus AG partnership materials", "Uganda trial reports", "Email threads"],
+    title: "Evidence & Data",
+    description: "Pilot evidence, trial reports, and outcome metrics (in progress).",
+    items: [
+      "Uganda trial reports",
+      "Pilot metrics table (to compile)",
+      "Farmer adoption and engagement notes",
+    ],
   },
   {
-    title: "Working Drafts",
-    description: "Draft outputs used for grant or partner conversations.",
-    items: ["Concept Note (v0)", "Grant Proposal (v0)", "Funder Alignment Matrix"],
+    title: "Capital Continuum",
+    description: "Stage framing and readiness assessment materials.",
+    items: [
+      "Capital Continuum playbook",
+      "HISAGEN 5-Pillar Investment Readiness Assessment",
+      "Funding lifecycle alignment",
+    ],
+  },
+  {
+    title: "Grant Work",
+    description: "Draft grant materials and supporting matrices.",
+    items: ["Grant Proposal (v0)", "Funder Alignment Matrix", "Grant playbook notes"],
+  },
+  {
+    title: "Partnerships",
+    description: "Key partners, roles, and collaboration inputs.",
+    items: [
+      "Locus AG partnership materials",
+      "Uganda NARO collaboration notes",
+      "3Degrees carbon pathway notes",
+    ],
+  },
+  {
+    title: "Comms & Updates",
+    description: "Timeline and communications for traceability.",
+    items: ["Email threads", "WhatsApp updates", "Comms summary page"],
   },
 ];
 
@@ -35,14 +62,15 @@ export default function ResourcesPage() {
           Resources
         </p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          Source materials and working drafts
+          Complete reference library for HISAGEN
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-          This section indexes source documents, PDFs, and draft outputs used during Stage 1.
+          This is the master index for all source materials, drafts, and working notes. Each
+          section corresponds to a Stage 1 deliverable or evidence requirement.
         </p>
       </section>
 
-      <section className="mt-12 grid gap-6 md:grid-cols-3">
+      <section className="mt-12 grid gap-6 md:grid-cols-2">
         {resources.map((section) => (
           <div key={section.title} className="rounded-xl border border-mist bg-white p-6">
             <p className="text-xs uppercase tracking-[0.2em] text-slate">{section.title}</p>
@@ -55,7 +83,14 @@ export default function ResourcesPage() {
           </div>
         ))}
       </section>
+
+      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
+        <p className="text-xs uppercase tracking-[0.2em] text-slate">Need Something Specific?</p>
+        <p className="mt-3 text-sm text-slate">
+          If a document is missing, add it to the appropriate section above and note the gap in
+          the Stage 1 brief. This keeps the funding pathway aligned to real evidence.
+        </p>
+      </section>
     </div>
   );
 }
-
