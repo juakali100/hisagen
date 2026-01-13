@@ -2,9 +2,9 @@
 
 const navItems = [
   {
-    label: "Program",
+    label: "HISAGEN Agri-Carbon Program",
+    href: "/program",
     dropdown: [
-      { href: "/program", label: "HISAGEN Agri-Carbon Program" },
       { href: "/project/hisagen-uganda", label: "HISAGEN Uganda Pilot" },
     ],
   },
@@ -31,12 +31,15 @@ export default function Nav() {
         {navItems.map((item) =>
           item.dropdown ? (
             <div key={item.label} className="relative inline-flex group">
-              <span className="flex cursor-pointer items-center gap-1 text-sm font-semibold uppercase text-secondary tracking-[0.2em]">
+              <Link
+                href={item.href}
+                className="flex items-center gap-1 text-sm font-semibold uppercase text-secondary tracking-[0.2em]"
+              >
                 {item.label}
                 <span aria-hidden className="text-xs">
                   ▾
                 </span>
-              </span>
+              </Link>
               <div className="pointer-events-none absolute top-full z-10 mt-2 hidden w-56 flex-col rounded-xl border border-mist bg-white py-3 px-4 shadow-lg transition duration-200 group-hover:flex group-hover:pointer-events-auto group-focus-within:flex">
                 {item.dropdown.map((link) => (
                   <Link
