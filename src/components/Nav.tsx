@@ -6,6 +6,7 @@ const links = [
   { href: "/stage-2", label: "Stage 2" },
   { href: "/stage-3", label: "Stage 3" },
   { href: "/stage-4", label: "Stage 4" },
+  { href: "/website-prototype", label: "Site Prototype" },
   { href: "/resources", label: "Resources" },
 ];
 
