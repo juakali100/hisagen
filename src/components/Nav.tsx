@@ -1,8 +1,13 @@
 ﻿import Link from "next/link";
 
-const links = [
-  { href: "/program", label: "HISAGEN Agri-Carbon Program" },
-  { href: "/project/hisagen-uganda", label: "HISAGEN Uganda Pilot" },
+const navItems = [
+  {
+    label: "Program",
+    dropdown: [
+      { href: "/program", label: "HISAGEN Agri-Carbon Program" },
+      { href: "/project/hisagen-uganda", label: "HISAGEN Uganda Pilot" },
+    ],
+  },
   { href: "/funding-roadmap/capital-continuum", label: "Capital Continuum" },
   { href: "/stage-1", label: "Stage 1" },
   { href: "/stage-2", label: "Stage 2" },
@@ -22,16 +27,38 @@ export default function Nav() {
           Program: Agri-Carbon
         </span>
       </div>
-      <nav className="flex flex-wrap gap-4">
-        {links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="text-sm text-slate transition hover:text-primary"
-          >
-            {link.label}
-          </Link>
-        ))}
+      <nav className="flex flex-wrap items-start gap-4">
+        {navItems.map((item) =>
+          item.dropdown ? (
+            <div key={item.label} className="relative inline-flex group">
+              <span className="flex cursor-pointer items-center gap-1 text-sm font-semibold uppercase text-secondary tracking-[0.2em]">
+                {item.label}
+                <span aria-hidden className="text-xs">
+                  ▾
+                </span>
+              </span>
+              <div className="pointer-events-none absolute top-full z-10 mt-2 hidden w-56 flex-col rounded-xl border border-mist bg-white py-3 px-4 shadow-lg transition duration-200 group-hover:flex group-hover:pointer-events-auto group-focus-within:flex">
+                {item.dropdown.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm font-medium text-slate transition hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm text-slate transition hover:text-primary"
+            >
+              {item.label}
+            </Link>
+          )
+        )}
       </nav>
     </header>
   );
