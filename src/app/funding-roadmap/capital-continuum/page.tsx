@@ -1,4 +1,5 @@
-﻿import StageBreadcrumb from "../../../components/StageBreadcrumb";
+﻿import Image from "next/image";
+import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import { pillars, stages } from "./variables";
 
 export default function CapitalContinuumPlaybookPage() {
@@ -21,6 +22,30 @@ export default function CapitalContinuumPlaybookPage() {
           and assessing investment readiness through five pillars. Use alongside the Funding
           Lifecycle Alignment page to track progress and gaps.
         </p>
+      </section>
+
+      <section className="mt-8 rounded-2xl border border-mist bg-white p-6 shadow-sm shadow-mist/40">
+        <div className="space-y-3">
+          <Image
+            src="https://static1.squarespace.com/static/66350a8282caba1fcc6be72e/67d063d8688f107c1998573f/68d2e82c46497d779bfa8b76/1762186863231/CC2.jpg?format=1500w"
+            alt="Capital Continuum cover: Unlocking finance for nature-based carbon projects along the continuum"
+            width={900}
+            height={700}
+            className="w-full rounded-xl border border-mist object-cover"
+          />
+          <p className="text-xs uppercase tracking-[0.3em] text-slate">Source</p>
+          <p className="text-sm text-slate">
+            Credit:
+            <a
+              href="https://capital-continuum.com/resources/the-capital-continuum-fsg-7nj4f"
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-secondary underline-offset-4 hover:underline"
+            >
+              Unlocking finance for Nature-based Carbon projects along the Capital Continuum - Capital Continuum Advisers
+            </a>
+          </p>
+        </div>
       </section>
 
       <section className="mt-10 rounded-xl border border-mist bg-white p-6">
