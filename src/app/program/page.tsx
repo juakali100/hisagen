@@ -15,18 +15,27 @@ const programHighlights: Highlight[] = [
   {
     title: "Operating Model",
     body: (
-      <>
-        HISAGEN acts as the 'Aggregator and Optimizer'. We find the landscapes, bring the technical partners, and structure the capital using the{" "}
-        <a
-          href="https://capital-continuum.com/resources/the-capital-continuum-fsg-7nj4f"
-          target="_blank"
-          rel="noreferrer"
-          className="underline decoration-secondary/30 hover:decoration-secondary transition-colors"
-        >
-          Capital Continuum
-        </a>{" "}
-        framework.
-      </>
+      <div className="space-y-3">
+        <p>
+          HISAGEN acts as the 'Aggregator and Optimizer'. We find the landscapes, bring the technical partners, and structure the capital using the{" "}
+          <a
+            href="https://capital-continuum.com/resources/the-capital-continuum-fsg-7nj4f"
+            target="_blank"
+            rel="noreferrer"
+            className="underline decoration-secondary/30 hover:decoration-secondary transition-colors"
+          >
+            Capital Continuum
+          </a>{" "}
+          framework.
+        </p>
+        <div className="pt-2 border-t border-mist/50 space-y-1.5 text-[11px] leading-relaxed">
+          <p><strong>1. Originator:</strong> Deep Six Consulting (Opportunity & Tech-Settle)</p>
+          <p><strong>2. Implementation:</strong> Locus AG / HISAGEN (Soil Ops & Data Collection)</p>
+          <p><strong>3. Certification:</strong> 3Degrees (Methodology & Accreditation)</p>
+          <p><strong>4. Monetization:</strong> CZMP (Market Exchange & Sales)</p>
+          <p className="italic text-secondary/60">Systems Architecture: Pandion Studio</p>
+        </div>
+      </div>
     ),
   },
   {
@@ -230,31 +239,31 @@ export default function ProgramPage() {
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                phase: "1. The Origin",
+                phase: "1. Originator",
                 org: "Deep Six Consulting",
-                role: "Venture Origination",
-                deliverables: ["Tech-Settle Strategy", "Site Identification", "Strategic Framing"],
+                role: "Opportunity & Tech-Settle",
+                deliverables: ["Market Identification", "Lead Origination", "Strategic Settlement"],
                 color: "bg-blue-50"
               },
               {
-                phase: "2. The Engine",
-                org: "Locus AG / Pilots",
-                role: "Implementation & Ops",
-                deliverables: ["Soil Microbe Deployment", "Biomass Monitoring", "Yield Ground-Truth"],
+                phase: "2. Implementation",
+                org: "Locus AG / HISAGEN",
+                role: "Soil Ops & Data Collection",
+                deliverables: ["Biological Deployment", "Ground-Truth Sampling", "Field Data Pipeline"],
                 color: "bg-emerald-50"
               },
               {
-                phase: "3. The Validator",
+                phase: "3. Certification",
                 org: "3Degrees",
-                role: "Design & Certification",
-                deliverables: ["Methodology Design", "Accreditation PDD", "Compliance Audit"],
+                role: "Methodology & Accreditation",
+                deliverables: ["PDD Development", "Validation Support", "VVB Coordination"],
                 color: "bg-amber-50"
               },
               {
-                phase: "4. The Exit",
+                phase: "4. Monetization",
                 org: "CZMP",
-                role: "Monetization & Sale",
-                deliverables: ["Retail Marketplace", "Wholesale Trading", "Proceeds Distribution"],
+                role: "Market Exchange & Sales",
+                deliverables: ["Credit Listing", "Wholesale Offtake", "Retail Storefront"],
                 color: "bg-indigo-50"
               }
             ].map((p, idx) => (
@@ -281,10 +290,10 @@ export default function ProgramPage() {
                 <div className="h-12 w-12 rounded-lg bg-secondary flex items-center justify-center text-xl">🏗️</div>
               </div>
               <div>
-                <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.1em]">Connective Tissue: Systems Architecture</h4>
+                <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.1em]">Systems Architecture</h4>
                 <p className="text-xs text-secondary mt-1 font-bold">Pandion Studio</p>
                 <p className="text-[11px] text-slate mt-2 leading-relaxed">
-                  Responsible for the project’s <strong>Digital Twin</strong> and <strong>Funding Blueprint</strong>. Pandion provides the synthesis and scaffolding required to coordinate these specialized partners and prepare the program for Stage 2 (Institutional Scale) capital.
+                  Responsible for the <strong>Connective Systems</strong> and <strong>Funding Blueprints</strong> across all phases. Pandion provides the synthesis and scaffolding required to coordinate these specialized partners and prepare the program for Stage 2 capital.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {["Funding Continuum", "Intelligence Ledger", "Strategic Synthesis", "MRV Tooling"].map((tag) => (
