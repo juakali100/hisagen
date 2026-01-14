@@ -61,6 +61,29 @@ export default function ProgramPage() {
         </p>
       </section>
 
+      <section className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="rounded-xl border border-mist bg-white p-6 shadow-sm">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="h-8 w-8 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center text-lg">📁</span>
+            <h3 className="text-sm font-bold text-secondary uppercase tracking-wider">Program Strategy</h3>
+          </div>
+          <p className="text-sm text-slate leading-relaxed">
+            A <strong>Program</strong> is a thematic framework and long-term operating "Skeleton". It defines the technology stack, the methodology (PDD), and the capital structure that can be applied across multiple geographies.
+          </p>
+          <p className="text-xs text-secondary mt-3 font-medium italic">Example: The Hisagen Agri-Carbon Program</p>
+        </div>
+        <div className="rounded-xl border border-mist bg-white p-6 shadow-sm">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="h-8 w-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg">📍</span>
+            <h3 className="text-sm font-bold text-secondary uppercase tracking-wider">Project Execution</h3>
+          </div>
+          <p className="text-sm text-slate leading-relaxed">
+            A <strong>Project</strong> is a specific, time-bound implementation of a Program’s skeleton in a precise location. It involves local landholders, specific ground-truth data, and a dedicated capital allocation.
+          </p>
+          <p className="text-xs text-emerald-600 mt-3 font-medium italic">Example: The Uganda Maize Pilot (Stage 1)</p>
+        </div>
+      </section>
+
       <section className="mt-10 grid gap-4 md:grid-cols-3">
         {programHighlights.map((highlight) => (
           <div

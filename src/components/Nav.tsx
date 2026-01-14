@@ -7,13 +7,7 @@ const navItems = [
     href: "/program",
     dropdown: [
       { href: "/partnership-model", label: "Partnership Model" },
-    ],
-  },
-  {
-    label: "Project",
-    href: "/project/hisagen-uganda",
-    dropdown: [
-      { href: "/project/hisagen-uganda", label: "Uganda Pilot" },
+      { href: "/project/hisagen-uganda", label: "Uganda Pilot (Current Project)" },
       { href: "/evidence", label: "Evidence Review" },
     ],
   },
