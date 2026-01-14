@@ -67,6 +67,7 @@ export default function Stage1Page() {
         </p>
         <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-slate">
           <span className="rounded-full border border-mist bg-white px-3 py-1">Stage: Incubation</span>
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Timeline: Years 1-3</span>
           <span className="rounded-full border border-mist bg-white px-3 py-1">Focus: Uganda pilot</span>
           <span className="rounded-full border border-mist bg-white px-3 py-1">Readiness: 13/25</span>
         </div>
@@ -137,7 +138,7 @@ export default function Stage1Page() {
 
       <section className="mt-12 grid gap-6 md:grid-cols-2">
         <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 1 Gaps</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Stage 1 Gaps</p>
           <ul className="mt-4 space-y-2 text-sm text-slate">
             {stage1Gaps.map((item) => (
               <li key={item}>{item}</li>
@@ -145,15 +146,15 @@ export default function Stage1Page() {
           </ul>
         </div>
         <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Capital Fit</p>
-          <p className="mt-3 text-sm text-slate">
-            Stage 1 capital should be grant or catalytic. Blended finance and commercial
-            capital are premature until evidence, legal clarity, and unit economics are in place.
+          <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Capital Fit</p>
+          <p className="mt-3 text-sm text-slate leading-relaxed">
+            Stage 1 utilizes <strong>Concessional Capital</strong> (Grants, Philanthropy, Sweat Equity).
+            Funding focuses on securing land rights, technical baselines, and community Free, Prior and Informed Consent (FPIC).
           </p>
           <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium text-slate">
+            <span className="rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-emerald-700">Concessional Capital</span>
             <span className="rounded-full border border-mist bg-white px-3 py-1">Grant-ready</span>
-            <span className="rounded-full border border-mist bg-white px-3 py-1">Catalytic capital</span>
-            <span className="rounded-full border border-mist bg-white px-3 py-1">Not blended-ready</span>
+            <span className="rounded-full border border-mist bg-white px-3 py-1">Catalytic</span>
           </div>
         </div>
       </section>

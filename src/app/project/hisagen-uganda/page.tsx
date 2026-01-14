@@ -151,8 +151,9 @@ export default function PilotPage() {
             <div className="p-8">
               <div className="flex flex-col md:flex-row gap-10">
                 <div className="md:w-1/3">
-                  <div className="inline-block px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-widest rounded mb-3">Target Capital: Grants & Philanthropy</div>
+                  <div className="inline-block px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold uppercase tracking-widest rounded mb-3">Target: Concessional (Grants, Philanthropy)</div>
                   <h3 className="text-2xl font-bold text-secondary">Stage 1: Incubation</h3>
+                  <p className="text-[10px] font-bold text-slate/50 uppercase tracking-widest mt-0.5">Years 1-3</p>
                   <p className="mt-3 text-sm text-slate leading-relaxed italic">"Establishing the Ground Truth and securing the social license to operate."</p>
                   <div className="mt-6 flex flex-col gap-3">
                     <a href="/stage-1" className="text-xs font-bold text-secondary hover:underline flex items-center gap-2">
@@ -183,8 +184,9 @@ export default function PilotPage() {
           <div className="rounded-2xl border border-mist bg-white shadow-sm p-8 transition-all hover:border-secondary/20">
             <div className="flex flex-col md:flex-row gap-10">
               <div className="md:w-1/3">
-                <div className="inline-block px-2 py-1 bg-mist/20 text-slate text-[10px] font-bold uppercase tracking-widest rounded mb-3">Target Capital: Blended Finance</div>
+                <div className="inline-block px-2 py-1 bg-mist/20 text-slate text-[10px] font-bold uppercase tracking-widest rounded mb-3">Target: Carbon Finance (Prepayments, Streaming)</div>
                 <h3 className="text-2xl font-bold text-secondary">Stage 2: Implementation</h3>
+                <p className="text-[10px] font-bold text-slate/50 uppercase tracking-widest mt-0.5">Years 4-8</p>
                 <p className="mt-2 text-sm text-slate leading-relaxed italic">"The Delivery Gap: Bridging technical success to large-scale operational rollout."</p>
                 <div className="mt-4">
                   <a href="/stage-2" className="text-[10px] font-bold text-slate hover:text-secondary hover:underline">
@@ -212,8 +214,9 @@ export default function PilotPage() {
           <div className="rounded-2xl border border-mist bg-slate/5 shadow-sm p-8 opacity-80">
             <div className="flex flex-col md:flex-row gap-10">
               <div className="md:w-1/3">
-                <div className="inline-block px-2 py-1 bg-mist/20 text-slate text-[10px] font-bold uppercase tracking-widest rounded mb-3">Target Capital: Impact Debt/Equity</div>
+                <div className="inline-block px-2 py-1 bg-mist/20 text-slate text-[10px] font-bold uppercase tracking-widest rounded mb-3">Target: Commercial (SPV Preferred Equity, Loans)</div>
                 <h3 className="text-2xl font-bold text-secondary">Stage 3: Stabilization</h3>
+                <p className="text-[10px] font-bold text-slate/50 uppercase tracking-widest mt-0.5">Years 9-15</p>
                 <p className="mt-2 text-sm text-slate leading-relaxed italic">"The Revenue Engine: Credits are issued and the Soil-to-Sale cycle is merchantable."</p>
                 <div className="mt-4">
                   <a href="/stage-3" className="text-[10px] font-bold text-slate hover:text-secondary hover:underline">
@@ -241,8 +244,9 @@ export default function PilotPage() {
           <div className="rounded-2xl border border-mist bg-slate/5 shadow-sm p-8 opacity-60">
             <div className="flex flex-col md:flex-row gap-10">
               <div className="md:w-1/3">
-                <div className="inline-block px-2 py-1 bg-mist/20 text-slate text-[10px] font-bold uppercase tracking-widest rounded mb-3">Target Capital: Institutional / Green Bonds</div>
+                <div className="inline-block px-2 py-1 bg-mist/20 text-slate text-[10px] font-bold uppercase tracking-widest rounded mb-3">Target: Commercial (Institutional Debt, Green Bonds)</div>
                 <h3 className="text-2xl font-bold text-secondary">Stage 4: Maturity</h3>
+                <p className="text-[10px] font-bold text-slate/50 uppercase tracking-widest mt-0.5">Years 16+</p>
                 <p className="mt-2 text-sm text-slate leading-relaxed italic">"Regional Expansion: The model is bankable for sovereign-backed scaling."</p>
                 <div className="mt-4">
                   <a href="/stage-4" className="text-[10px] font-bold text-slate hover:text-secondary hover:underline">

@@ -1,5 +1,6 @@
 ﻿export type Stage = {
   title: string;
+  years: string;
   focus: string;
   capital: string;
   milestones: string[];
@@ -16,32 +17,36 @@ export type Pillar = {
 const stages: Stage[] = [
   {
     title: "Stage 1: Incubation",
-    focus: "Foundations and proof of concept.",
-    capital: "Grants, philanthropy, sweat equity.",
+    years: "Years 1-3",
+    focus: "Foundations and proof of concept. The most fragile period, requiring non-repayable capital.",
+    capital: "Concessional Capital (Grants, Philanthropy, Sweat Equity)",
     milestones: ["Feasibility complete", "Draft PDD or equivalent", "Pilot activity underway"],
     ecosystemDomains: ["Originator", "Systems Architecture"],
     status: "Active (Hisagen Uganda Pilot)",
   },
   {
     title: "Stage 2: Implementation",
-    focus: "Operational rollout and early delivery.",
-    capital: "Blended finance, impact investors.",
+    years: "Years 4-8",
+    focus: "Operational rollout and early delivery. Focus on technical feasibility and MRV setup.",
+    capital: "Blended Finance (Repayable Grants, Below-market Loans, Carbon Prepayment)",
     milestones: ["First credits issued", "MRV operational", "Delivery partners secured"],
     ecosystemDomains: ["Implementation", "Systems Architecture"],
     status: "Targeting Q3 2026",
   },
   {
     title: "Stage 3: Stabilization",
-    focus: "Consistent performance and predictable delivery.",
-    capital: "Private equity, structured debt.",
+    years: "Years 9-15",
+    focus: "Consistent performance and predictable delivery. Carbon credits function as loan collateral.",
+    capital: "Impact & Commercial Capital (Carbon Collateralized Debt, Preferred Equity)",
     milestones: ["Multi-year track record", "Stable cashflows", "Scaled governance"],
     ecosystemDomains: ["Certification", "Monetization"],
     status: "Strategic Backlog",
   },
   {
     title: "Stage 4: Maturity",
-    focus: "Institutional capital readiness.",
-    capital: "Green bonds, securities, public equity.",
+    years: "Years 16+",
+    focus: "Institutional capital readiness. Full transition to commercial and institutional instruments.",
+    capital: "Commercial Capital (Institutional Debt, Green Bonds, Public Equity)",
     milestones: ["10+ years performance", "Taxonomy eligible", "Institutional investors active"],
     ecosystemDomains: ["Monetization"],
     status: "Strategic Backlog",

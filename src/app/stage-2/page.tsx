@@ -33,11 +33,16 @@ export default function Stage2Page() {
           Stage 2 focuses on operational rollout, MRV readiness, and delivery capacity. This
           section will be filled once Stage 1 evidence is complete.
         </p>
+        <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-slate">
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Stage: Implementation</span>
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Timeline: Years 4-8</span>
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Focus: Operational Rollout</span>
+        </div>
       </section>
 
       <section className="mt-12 grid gap-6 md:grid-cols-2">
         <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 2 Focus</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Stage 2 Focus</p>
           <ul className="mt-4 space-y-2 text-sm text-slate">
             {stage2Focus.map((item) => (
               <li key={item}>{item}</li>
@@ -45,15 +50,27 @@ export default function Stage2Page() {
           </ul>
         </div>
         <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Required Artifacts</p>
-          <ul className="mt-4 space-y-2 text-sm text-slate">
-            {stage2Artifacts.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Capital Fit</p>
+          <p className="mt-3 text-sm text-slate leading-relaxed">
+            Stage 2 utilizes <strong>Carbon Finance</strong> (Prepayment contracts, Carbon streaming, Carbon-collateralized loans).
+            Funding bridges the "Delivery Gap" between technical success and large-scale operational rollout.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium text-slate">
+            <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-emerald-800">Carbon Finance</span>
+            <span className="rounded-full border border-mist bg-white px-3 py-1">Blended Finance</span>
+            <span className="rounded-full border border-mist bg-white px-3 py-1">Pre-financing</span>
+          </div>
         </div>
+      </section>
+
+      <section className="mt-8 rounded-xl border border-mist bg-white p-6 mb-20">
+        <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Required Artifacts</p>
+        <ul className="mt-4 space-y-2 text-sm text-slate">
+          {stage2Artifacts.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
       </section>
     </div>
   );
 }
-

@@ -31,11 +31,16 @@ export default function Stage4Page() {
           Stage 4 represents full maturity and institutional capital readiness. This section
           is a placeholder for future work once Stage 3 stabilization is complete.
         </p>
+        <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-slate">
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Stage: Maturity</span>
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Timeline: Years 16+</span>
+          <span className="rounded-full border border-mist bg-white px-3 py-1">Focus: Institutional Scale</span>
+        </div>
       </section>
 
       <section className="mt-12 grid gap-6 md:grid-cols-2">
         <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 4 Focus</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Stage 4 Focus</p>
           <ul className="mt-4 space-y-2 text-sm text-slate">
             {stage4Focus.map((item) => (
               <li key={item}>{item}</li>
@@ -43,15 +48,27 @@ export default function Stage4Page() {
           </ul>
         </div>
         <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Required Artifacts</p>
-          <ul className="mt-4 space-y-2 text-sm text-slate">
-            {stage4Artifacts.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Capital Fit</p>
+          <p className="mt-3 text-sm text-slate leading-relaxed">
+            Stage 4 utilizes <strong>Commercial Capital</strong> (Institutional Debt, Green Bonds, Public Equity).
+            Funding focuses on long-term institutional ownership and large-scale portfolio expansion.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium text-slate">
+            <span className="rounded-full border border-slate-300 bg-slate-100 px-3 py-1 text-slate-900 font-bold">Institutional Capital</span>
+            <span className="rounded-full border border-mist bg-white px-3 py-1">Green Bonds</span>
+            <span className="rounded-full border border-mist bg-white px-3 py-1">Public Equity</span>
+          </div>
         </div>
+      </section>
+
+      <section className="mt-8 rounded-xl border border-mist bg-white p-6 mb-20">
+        <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Required Artifacts</p>
+        <ul className="mt-4 space-y-2 text-sm text-slate">
+          {stage4Artifacts.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
       </section>
     </div>
   );
 }
-
