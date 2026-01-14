@@ -41,6 +41,11 @@ export default function OrganizationPage() {
                 <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate italic font-medium">
                     HISAGEN is a strategic platform born from the intersection of agricultural operations and systems design.
                 </p>
+                <div className="mt-8 pt-6 border-t border-mist/50">
+                    <p className="text-[10px] text-slate/60 uppercase tracking-[0.3em] text-center">
+                        High Impact Soil/Seed Application for Greener Environments
+                    </p>
+                </div>
             </section>
 
             <section className="mt-12">
