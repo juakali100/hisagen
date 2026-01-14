@@ -2,12 +2,13 @@
 
 type IntelligenceEntry = {
   domain: "Context" | "Evidence" | "Ecosystem" | "Frameworks";
-  format: "Email" | "PDF" | "Excel" | "Call" | "Doc" | "Link";
+  format: "Email" | "PDF" | "Excel" | "Call" | "Doc" | "Link" | "WhatsApp";
   date: string;
   title: string;
   detail: string;
   file?: string;
   tags: string[];
+  synthesis?: string[];
 };
 
 const intelligenceLedger: IntelligenceEntry[] = [
@@ -19,7 +20,12 @@ const intelligenceLedger: IntelligenceEntry[] = [
     title: "Initial Discovery Session",
     detail: "Defined HISAGEN as the priority venture. Focus on agriculture-first carbon sequestration and grant funding needs.",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/call-notes-2025-11-07.md",
-    tags: ["Strategy", "Priority", "Grant"]
+    tags: ["Strategy", "Priority", "Grant"],
+    synthesis: [
+      "HISAGEN identified as the highest-priority venture among four candidates.",
+      "Agreed on an agriculture-first thesis for carbon sequestration.",
+      "Identified critical need for grant funding to bridge Phase 1 incubation.",
+    ]
   },
   {
     domain: "Context",
@@ -28,16 +34,57 @@ const intelligenceLedger: IntelligenceEntry[] = [
     title: "Project Sequencing & Context",
     detail: "Overview from Keir on Locus AG partnership, Uganda pilot context, and sequencing of the four ventures.",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-07-email-1-followup.md",
-    tags: ["Locus AG", "Uganda", "Operations"]
+    tags: ["Locus AG", "Uganda", "Operations"],
+    synthesis: [
+      "HISAGEN incorporated in US + Uganda entity with local partners established.",
+      "Formal partnership with Locus AG (microbial products) confirmed for Africa.",
+      "Uganda maize trial results described as 'very encouraging'.",
+      "K is actively fundraising; currently cash-constrained but in investor talks.",
+    ]
+  },
+  {
+    domain: "Context",
+    format: "WhatsApp",
+    date: "2025-12-23",
+    title: "Uganda Progress Update",
+    detail: "End-of-year update on operational progress and government relations.",
+    tags: ["WhatsApp", "Timeline", "Uganda"],
+    synthesis: [
+      "Progress remains strong on the Uganda microbes business development.",
+      "Expect formal government approval for Uganda operations by mid-February 2026.",
+      "Shifted focus to scheduling follow-up strategy sessions for early January.",
+    ]
+  },
+  {
+    domain: "Context",
+    format: "Email",
+    date: "2025-11-07",
+    title: "Marketplace & Partner Background",
+    detail: "Technical and scientific background on Ken Alibek, Locus AG tech, and the Carbon Neutral Marketplace vision.",
+    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-07-email-2-followup.md",
+    tags: ["Partners", "Scientific", "Marketplace"],
+    synthesis: [
+      "Scientific foundation led by Ken Alibek (former bioweapons researcher turned pioneer in microbial biotech).",
+      "Locus AG flagship tech (Rhizolizer® Duo) improves nutrient uptake and soil health via beneficial microbes.",
+      "Carbon Neutral Marketplace (Keir's platform) identified as the primary downstream exit for carbon credits.",
+      "3-Degrees confirmed as the accreditation partner for Verra/Gold Standard pathways.",
+    ]
   },
   {
     domain: "Context",
     format: "Email",
     date: "2025-11-10",
-    title: "Partnership Framework Offer",
-    detail: "Deep Six and Pandion's collaboration framework and role definition for HISAGEN's build phase.",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-10-email-3-k-partnership-offer.md",
-    tags: ["Partnership", "Structure"]
+    title: "Uganda Maize Trials Results",
+    detail: "Operational update confirming results of the first Uganda maize trial and expansion to NARO zones.",
+    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-10-email-4-k-uganda-maize-trials.md",
+    tags: ["Data", "NARO", "Trial Results"],
+    synthesis: [
+      "Rhizolizer Duo maize trial in Uganda completed with 'very promising' results.",
+      "National Agricultural Research Organization (NARO) independently testing across 5 Ugandan zones.",
+      "Product testing expanded to potatoes and peanuts; focus is purely agricultural (no agroforestry yet).",
+      "Commercial strategy: Get product approval/sales in Uganda to cover project overheads.",
+      "Kenya expansion currently stalled due to local broker fee demands ($10k).",
+    ]
   },
 
   // EVIDENCE
@@ -48,7 +95,11 @@ const intelligenceLedger: IntelligenceEntry[] = [
     title: "Locus AG Company Overview",
     detail: "Technical brief on microbial solutions (Rhizolizer® Duo) and their impact on soil health/yields.",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-002-locus-ag-overview-jun24.pdf",
-    tags: ["Technical", "Locus AG", "Product"]
+    tags: ["Technical", "Locus AG", "Product"],
+    synthesis: [
+      "Core technology: Rhizolizer® Duo microbial blend for nutrient uptake.",
+      "Commercial program: 'CarbonNOW' provides a path for soil carbon sequestration credits.",
+    ]
   },
   {
     domain: "Evidence",
@@ -158,9 +209,9 @@ export default function ResourcesPage() {
                     <div className="flex-1 space-y-2">
                       <div className="flex items-center gap-3">
                         <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${item.format === 'Email' ? 'bg-blue-100 text-blue-700' :
-                            item.format === 'PDF' ? 'bg-red-100 text-red-700' :
-                              item.format === 'Excel' ? 'bg-emerald-100 text-emerald-700' :
-                                'bg-slate-100 text-slate-700'
+                          item.format === 'PDF' ? 'bg-red-100 text-red-700' :
+                            item.format === 'Excel' ? 'bg-emerald-100 text-emerald-700' :
+                              'bg-slate-100 text-slate-700'
                           }`}>
                           {item.format}
                         </span>
@@ -170,6 +221,22 @@ export default function ResourcesPage() {
                       <p className="text-sm text-slate leading-relaxed max-w-3xl">
                         {item.detail}
                       </p>
+                      {item.synthesis && (
+                        <div className="mt-4 p-4 rounded-lg bg-secondary/5 border border-secondary/10">
+                          <p className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2 flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                            Key Context Synthesis
+                          </p>
+                          <ul className="space-y-1.5">
+                            {item.synthesis.map((bullet, idx) => (
+                              <li key={idx} className="text-xs text-slate flex gap-2">
+                                <span className="text-secondary/50">•</span>
+                                <span>{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                       <div className="flex flex-wrap gap-2 pt-1">
                         {item.tags.map(tag => (
                           <span key={tag} className="text-[9px] bg-parchment px-1.5 py-0.5 rounded text-slate/60 font-medium">#{tag}</span>
