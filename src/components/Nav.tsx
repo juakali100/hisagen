@@ -6,7 +6,6 @@ const navItems = [
     label: "Agri-Carbon Program",
     href: "/program",
     dropdown: [
-      { href: "/partnership-model", label: "Partnership Model" },
       {
         label: "Uganda Pilot",
         href: "/project/hisagen-uganda",
