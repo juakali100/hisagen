@@ -4,7 +4,7 @@ const coreTeam = [
     {
         name: "Deep Six Consulting",
         role: "Operational Oversight",
-        detail: "Strategic advisory, client relationship management, and local operational oversight for the Uganda pilot. Deep Six brings the 'ground-truth' experience required to navigate complex sub-Saharan landscapes."
+        detail: "Strategic advisory, client relationship management, and local operational oversight. Starting with the Uganda flagship, Deep Six brings the 'ground-truth' experience required to navigate complex agricultural landscapes."
     },
     {
         name: "Pandion Studio",
@@ -15,8 +15,8 @@ const coreTeam = [
 
 const foundingPrinciples = [
     {
-        title: "Smallholder-First",
-        body: "We believe that for nature-based solutions to be permanent, they must be profitable for the individuals managing the land. Our model prioritizes yield increases and recurring income for farmers."
+        title: "Steward-First",
+        body: "We believe that for nature-based solutions to be permanent, they must be profitable for the individuals managing the land. Our model prioritizes yield increases and recurring income for producers, from smallholders to large estates."
     },
     {
         title: "Scientific Integrity",

@@ -3,19 +3,19 @@ import StageBreadcrumb from "../../components/StageBreadcrumb";
 const strategyPillars = [
     {
         title: "Mission",
-        content: "To unlock the climate and commercial potential of sub-Saharan soil through high-integrity carbon stewardship and regenerative agricultural systems."
+        content: "To unlock the climate and commercial potential of global soil through high-integrity carbon stewardship and regenerative agricultural systems."
     },
     {
         title: "Vision",
-        content: "A future where smallholder farmers are a primary engine of global carbon sequestration, supported by bankable, technology-driven ecological systems."
+        content: "A future where land stewards are the primary engine of global carbon sequestration, supported by bankable, technology-driven ecological systems."
     },
     {
         title: "The Problem",
-        content: "Agricultural carbon is often unbankable due to high MRV costs, fragmented land holdings, and lack of verified soil-health data. This keeps smallholders locked out of the global carbon economy."
+        content: "Agricultural carbon is often unbankable due to high MRV costs and a lack of verified soil-health data. This gap prevents producers—from smallholders to large estates—from participating in the global carbon economy."
     },
     {
         title: "The Theory of Change",
-        content: "By integrating cutting-edge microbial technology (Nature) with robust digital systems architecture (Tech), we can lower the cost of carbon verification and increase crop yields simultaneously, creating a self-sustaining cycle of ecological and economic value."
+        content: "By integrating cutting-edge microbial technology (Nature) with robust digital systems architecture (Tech), we can lower the cost of carbon verification and increase yields globally, creating a universal model for ecological and economic value."
     }
 ];
 
@@ -89,9 +89,9 @@ export default function StrategyPage() {
             <section className="mt-16 p-12 rounded-2xl bg-secondary text-parchment relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32" />
                 <div className="relative z-10">
-                    <h2 className="text-2xl font-bold mb-6">Smallholder-First Approach</h2>
+                    <h2 className="text-2xl font-bold mb-6">Steward-First Approach</h2>
                     <p className="text-lg opacity-90 leading-relaxed max-w-3xl mb-8">
-                        Our model ensures that the majority of carbon value flows back to the farmer. By increasing yields through microbial technology, we provide immediate economic relief while the multi-year carbon accreditation process matures.
+                        Our model ensures that carbon value flows back to the producer. By increasing yields through microbial technology, we provide immediate economic relief while the multi-year carbon accreditation process matures.
                     </p>
                     <div className="grid gap-4 md:grid-cols-3">
                         <div className="p-4 rounded-lg bg-white/10 border border-white/20">

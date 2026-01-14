@@ -33,8 +33,8 @@ const executionTracks = [
 const homeStats = [
   { label: "Phase", value: "Founding" },
   { label: "Focus", value: "Agri-Carbon" },
-  { label: "Pilot", value: "Uganda" },
-  { label: "Market", value: "Sub-Saharan" },
+  { label: "Flagship", value: "Uganda Pilot" },
+  { label: "Market", value: "Global / SSA" },
 ];
 
 export default function HomePage() {
@@ -49,10 +49,10 @@ export default function HomePage() {
           <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-secondary/40">Founding Stewardship Portal</p>
           <h1 className="mt-8 text-6xl font-black leading-tight text-secondary tracking-tight">
             Regenerative Carbon <br />
-            <span className="text-primary italic">for Sub-Saharan Agriculture</span>
+            <span className="text-primary italic">for Global Agriculture</span>
           </h1>
           <p className="mt-8 mx-auto max-w-2xl text-xl leading-relaxed text-slate font-medium">
-            HISAGEN is a systems architect for the agricultural transition, building the infrastructure to make soil carbon bankable at scale.
+            HISAGEN is a systems architect for the agricultural transition, starting in sub-Saharan landscapes to prove the model for universal deployment.
           </p>
 
           <div className="mt-12 flex justify-center gap-4">
@@ -118,7 +118,7 @@ export default function HomePage() {
             "We are not just a carbon developer. We are a platform company that integrates capital, technology, and community."
           </h2>
           <p className="text-lg opacity-80 leading-relaxed mb-10">
-            Our objective is to prove the HISAGEN method in Uganda before replicating across high-potential landscapes globally. This portal serves as the live blueprint for our first proof point.
+            Our objective is to prove the HISAGEN platform through our Uganda flagship before replicating across high-potential landscapes globally—addressing both smallholders and landscape-scale commercial estates.
           </p>
           <div className="flex flex-wrap gap-4">
             <a href="/strategy" className="px-6 py-3 bg-parchment text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white transition-colors">
