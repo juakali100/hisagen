@@ -72,6 +72,41 @@ export default function Stage1Page() {
         </div>
       </section>
 
+      <section className="mt-8 rounded-2xl border border-secondary/20 bg-secondary/5 p-8 shadow-sm">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="md:w-3/5">
+            <h2 className="text-xl font-bold text-secondary">Strategic Context: Laying the Foundations</h2>
+            <p className="mt-4 text-sm leading-relaxed text-slate">
+              The incubation stage is the most fragile period in a project’s lifecycle. Projects are not yet commercially viable
+              and must rely on non-repayable funding such as grants, philanthropy, or official development assistance.
+              At this stage, risks are high and private capital is scarce, with contributions typically limited to developer
+              “sweat equity.”
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-slate italic border-l-2 border-secondary/20 pl-4">
+              The focus is on establishing project foundations: area definition, feasibility assessments, carbon methodology
+              selection, stakeholder engagement, and clarifying land/carbon tenure rights.
+            </p>
+          </div>
+          <div className="md:w-2/5 rounded-xl bg-white p-6 border border-mist">
+            <h3 className="text-xs font-bold text-secondary uppercase tracking-widest mb-4">De-risking Milestones</h3>
+            <ul className="space-y-3">
+              {[
+                "Project proponent & local implementing partners identified",
+                "Stakeholders mapped & preliminary consultations conducted",
+                "Early government endorsement secured",
+                "Remote sensing completed & carbon potential curve developed",
+                "Preliminary budget prepared"
+              ].map((milestone) => (
+                <li key={milestone} className="flex gap-3 text-xs text-slate leading-tight">
+                  <span className="text-emerald-500 font-bold">✓</span>
+                  {milestone}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-12 grid gap-6 md:grid-cols-2">
         {snapshot.map((item) => (
           <div key={item.title} className="rounded-xl border border-mist bg-white p-6">
