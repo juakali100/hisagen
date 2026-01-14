@@ -7,11 +7,8 @@ export default function CapitalContinuumPlaybookPage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
-        stage="Capital Strategy"
-        trail={[
-          { label: "Foundation & Evidence Vault", href: "/resources" },
-          { label: "Capital Continuum" },
-        ]}
+        stage="Capital Continuum"
+        trail={[{ label: "Capital" }]}
       />
 
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-8">

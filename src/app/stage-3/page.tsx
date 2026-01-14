@@ -17,7 +17,10 @@ export default function Stage3Page() {
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
         stage="Stage 3"
-        trail={[{ label: "Overview", href: "/" }, { label: "Stage 3" }]}
+        trail={[
+          { label: "Agri-Carbon Program", href: "/program" },
+          { label: "Uganda Pilot", href: "/project/hisagen-uganda" },
+        ]}
       />
 
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">

@@ -28,7 +28,7 @@ const homeStats = [
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb stage="HISAGEN" trail={[{ label: "The Founding Dashboard" }]} />
+      <StageBreadcrumb stage="Dashboard" />
 
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-16 text-center">
         <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/60">Agri-Carbon Platform</p>
@@ -119,4 +119,3 @@ export default function HomePage() {
     </div>
   );
 }
-

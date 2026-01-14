@@ -4,8 +4,8 @@ export default function FundingRoadmapPage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
-        stage="Stage 1"
-        trail={[{ label: "Overview", href: "/" }, { label: "Stage 1", href: "/stage-1" }, { label: "Funding Roadmap" }]}
+        stage="Funding Roadmap"
+        trail={[{ label: "Capital", href: "/funding-roadmap/capital-continuum" }]}
       />
 
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">

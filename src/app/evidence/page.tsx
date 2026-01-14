@@ -43,8 +43,8 @@ export default function EvidencePage() {
       <StageBreadcrumb
         stage="Evidence Review"
         trail={[
-          { label: "HISAGEN Uganda Pilot", href: "/project/hisagen-uganda" },
-          { label: "Evidence Dossier" },
+          { label: "Agri-Carbon Program", href: "/program" },
+          { label: "Uganda Pilot", href: "/project/hisagen-uganda" },
         ]}
       />
 

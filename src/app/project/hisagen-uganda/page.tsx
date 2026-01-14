@@ -22,11 +22,8 @@ export default function PilotPage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
-        stage="HISAGEN Uganda Pilot"
-        trail={[
-          { label: "HISAGEN Agri-Carbon Program", href: "/program" },
-          { label: "HISAGEN Uganda Pilot" },
-        ]}
+        stage="Uganda Pilot"
+        trail={[{ label: "Agri-Carbon Program", href: "/program" }]}
       />
 
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">

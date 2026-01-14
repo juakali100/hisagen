@@ -14,10 +14,9 @@ export default async function PartnerProfilePage({ params }: { params: Promise<{
     return (
         <div className="mx-auto max-w-5xl text-ink">
             <StageBreadcrumb
-                stage="Ecosystem"
+                stage="Dossier"
                 trail={[
-                    { label: "Overview", href: "/" },
-                    { label: "Foundation & Evidence Vault", href: "/resources" },
+                    { label: "Resources", href: "/resources" },
                     { label: partner.name }
                 ]}
             />
