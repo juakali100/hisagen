@@ -19,35 +19,40 @@ const strategyPillars = [
     },
     {
         title: "Strategic Positioning",
-        content: "HISAGEN operates as a 'Full-Stack Navigator' within the global sustainability system. We connect the biophysical reality of the soil (L1-L2) to the strategic requirements of corporate action and regulatory disclosure (L4-L5)."
+        content: "HISAGEN operates as a 'Full-Stack Navigator' within the global sustainability system. We connect the biophysical reality of the soil and local landscape management to the strategic requirements of corporate action and regulatory disclosure."
     }
 ];
 
 const systemicStack = [
     {
-        layer: "L5: Corporate Action",
-        focus: "Execution & Strategy",
-        detail: "Providing the high-integrity credits and supply-chain data required for corporate transition plans and carbon targets."
+        icon: "🔬",
+        layer: "Soil Science & Technology",
+        focus: "Biophysical Foundation",
+        detail: "Everything anchors in soil science. We deploy proven microbial technology (Rhizolizer® Duo) to restore nutrient cycles, improve soil health, and sequester atmospheric carbon."
     },
     {
-        layer: "L4: Policy & Governance",
-        focus: "The Rules of the Game",
-        detail: "Aligning with mandatory disclosure (CSRD/EUDR) and voluntary standards (SBTi/TNFD) to ensure future-proof compliance."
-    },
-    {
-        layer: "L3: Ecosystem Services",
-        focus: "Value Translation",
-        detail: "Converting soil health (Regulating Services) and crop yields (Provisioning Services) into bankable economic value."
-    },
-    {
-        layer: "L2: Landscapes",
+        icon: "🗺️",
+        layer: "On-the-Ground Operations",
         focus: "Ground-Truth Reality",
-        detail: "Direct management of pilot zones (e.g. Uganda) where environmental and social outcomes actually happen."
+        detail: "We manage pilot zones (starting in Uganda) where regenerative agriculture actually happens. This is where MRV data is captured, community relationships are built, and real environmental impact occurs."
     },
     {
-        layer: "L1: Foundations",
-        focus: "Planetary Boundaries",
-        detail: "Anchoring the model in biophysical science—restoring nutrient cycles and soil biomes to stay within safe operating limits."
+        icon: "🌱",
+        layer: "Ecological Outcomes",
+        focus: "Value Creation",
+        detail: "We convert soil health improvements and carbon sequestration into measurable, verifiable outcomes. Our technology increases crop yields (immediate value) while building soil carbon (long-term assets)."
+    },
+    {
+        icon: "📜",
+        layer: "Standards & Compliance",
+        focus: "The Rules of the Game",
+        detail: "We align with global carbon standards, verification protocols, and regulatory frameworks to ensure our credits meet institutional buyer requirements and future-proof compliance."
+    },
+    {
+        icon: "💼",
+        layer: "Corporate Buyers",
+        focus: "Strategy & Execution",
+        detail: "We provide corporations with high-integrity carbon credits and supply-chain traceability data to meet climate targets, transition plans, and mandatory disclosure requirements."
     }
 ];
 
@@ -103,18 +108,17 @@ export default function StrategyPage() {
             <section className="mt-20">
                 <div className="mb-12 text-center">
                     <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/40 mb-4">Vertical Integration</h2>
-                    <h3 className="text-4xl font-bold text-secondary">The Systemic Stack</h3>
+                    <h3 className="text-4xl font-bold text-secondary">From Soil to Markets</h3>
                     <p className="mt-4 text-slate max-w-2xl mx-auto font-medium italic">
-                        "HISAGEN solves the strategy-execution gap by operating across every layer of the sustainability system."
+                        "HISAGEN bridges the gap between ground-truth ecological outcomes and institutional-grade carbon assets."
                     </p>
                 </div>
 
                 <div className="space-y-4">
-                    {systemicStack.map((s, idx) => (
+                    {systemicStack.map((s) => (
                         <div key={s.layer} className="relative flex flex-col md:flex-row gap-6 p-8 rounded-2xl border border-mist bg-white hover:border-primary/30 transition-all group shadow-sm">
-                            <div className="md:w-px h-full bg-mist absolute left-12 top-0 -z-10 hidden md:block" />
-                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-secondary text-parchment flex items-center justify-center font-bold text-xs relative z-10 shadow-lg group-hover:bg-primary transition-colors">
-                                {5 - idx}
+                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-secondary/5 flex items-center justify-center text-2xl relative z-10 group-hover:bg-primary/10 transition-colors">
+                                {s.icon}
                             </div>
                             <div className="flex-1">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
@@ -155,7 +159,26 @@ export default function StrategyPage() {
                 </div>
             </section>
 
-            <section className="mt-16 p-12 rounded-2xl bg-secondary text-parchment relative overflow-hidden">
+            <section className="mt-20">
+                <div className="mb-10 text-center">
+                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/40 mb-4">Execution Framework</h2>
+                    <h3 className="text-4xl font-bold text-secondary">The HISAGEN Methodology</h3>
+                    <p className="mt-4 text-slate max-w-xl mx-auto font-medium italic">How we translate strategy into landscape-scale execution.</p>
+                </div>
+
+                <div className="grid gap-6 md:grid-cols-4">
+                    {methodology.map((m) => (
+                        <div key={m.step} className="p-6 rounded-xl border border-mist bg-parchment/10 relative overflow-hidden group hover:bg-white transition-colors">
+                            <span className="text-5xl font-black text-secondary/5 absolute -right-2 top-0 group-hover:text-secondary/10 transition-colors uppercase">{m.step.split('.')[1]}</span>
+                            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-3">{m.step}</p>
+                            <h3 className="text-sm font-bold text-secondary mb-2">{m.title}</h3>
+                            <p className="text-[11px] text-slate leading-relaxed">{m.detail}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="mt-20 p-12 rounded-2xl bg-secondary text-parchment relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32" />
                 <div className="relative z-10">
                     <h2 className="text-2xl font-bold mb-6">Steward-First Approach</h2>
