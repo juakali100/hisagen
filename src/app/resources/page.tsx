@@ -1,202 +1,124 @@
 ﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
 
-type TimelineEntry = {
+type IntelligenceEntry = {
+  domain: "Context" | "Evidence" | "Ecosystem" | "Frameworks";
+  format: "Email" | "PDF" | "Excel" | "Call" | "Doc" | "Link";
   date: string;
-  channel: string;
   title: string;
+  detail: string;
   file?: string;
-  summary?: string;
-  notes?: string;
+  tags: string[];
 };
 
-const timeline: TimelineEntry[] = [
+const intelligenceLedger: IntelligenceEntry[] = [
+  // CONTEXT
   {
+    domain: "Context",
+    format: "Call",
     date: "2025-11-07",
-    channel: "Call",
-    title: "Initial discovery call",
+    title: "Initial Discovery Session",
+    detail: "Defined HISAGEN as the priority venture. Focus on agriculture-first carbon sequestration and grant funding needs.",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/call-notes-2025-11-07.md",
-    summary:
-      "Discussed four ventures, agreed HISAGEN is the priority, and confirmed grant funding need.",
-    notes: "HISAGEN identified as priority; grant funding need confirmed.",
+    tags: ["Strategy", "Priority", "Grant"]
   },
   {
+    domain: "Context",
+    format: "Email",
     date: "2025-11-07",
-    channel: "Email",
-    title: "K follow-up email #1",
+    title: "Project Sequencing & Context",
+    detail: "Overview from Keir on Locus AG partnership, Uganda pilot context, and sequencing of the four ventures.",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-07-email-1-followup.md",
-    notes: "Locus AG partnership and Uganda pilot context; attachments DSC-001/002.",
+    tags: ["Locus AG", "Uganda", "Operations"]
   },
   {
-    date: "2025-11-07",
-    channel: "Email",
-    title: "K follow-up email #2",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-07-email-2-followup.md",
-    notes: "Additional HISAGEN / Carbon Zero details and sequencing notes.",
-  },
-  {
-    date: "2025-11-07",
-    channel: "Email",
-    title: "Pandion initial response draft",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-07-email-2-n-initial-response.md",
-  },
-  {
-    date: "2025-11-09",
-    channel: "Draft",
-    title: "Response email draft",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/drafts/2025-11-09-response-email-draft.md",
-  },
-  {
+    domain: "Context",
+    format: "Email",
     date: "2025-11-10",
-    channel: "Email",
-    title: "K partnership offer",
+    title: "Partnership Framework Offer",
+    detail: "Deep Six and Pandion's collaboration framework and role definition for HISAGEN's build phase.",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-10-email-3-k-partnership-offer.md",
+    tags: ["Partnership", "Structure"]
   },
-  {
-    date: "2025-11-10",
-    channel: "Email",
-    title: "Uganda maize trials results",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-10-email-4-k-uganda-maize-trials.md",
-    notes: "Trial data attachments DSC-003/004/005.",
-  },
-  {
-    date: "2025-11-10",
-    channel: "Draft",
-    title: "Corporate pitch deck questions",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/drafts/2025-11-10-corporate-pitch-deck-questions.md",
-  },
-  {
-    date: "2025-11-14",
-    channel: "Draft",
-    title: "Partnership response (consolidated)",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/drafts/2025-11-14-partnership-response-CONSOLIDATED.md",
-  },
-  {
-    date: "2025-12-23",
-    channel: "WhatsApp",
-    title: "K update: Uganda approval expected mid-Feb",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/README.md",
-    notes: "Awaiting scheduling reply.",
-  },
-];
 
-const attachmentHighlights = [
+  // EVIDENCE
   {
-    id: "DSC-002",
-    title: "Locus AG Company Overview (Jun 2024)",
-    source: "Email-1 (2025-11-07)",
+    domain: "Evidence",
+    format: "PDF",
+    date: "2024-06-01",
+    title: "Locus AG Company Overview",
+    detail: "Technical brief on microbial solutions (Rhizolizer® Duo) and their impact on soil health/yields.",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-002-locus-ag-overview-jun24.pdf",
+    tags: ["Technical", "Locus AG", "Product"]
   },
   {
-    id: "DSC-003",
-    title: "Uganda Maize Trials Phase 2 Data (May 2025)",
-    source: "Email-4 (2025-11-10)",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-003-uganda-maize-trials-phase2-may.pdf",
-  },
-  {
-    id: "DSC-004",
-    title: "Uganda Maize Trials Results 1 (PDF)",
-    source: "Email-4 (2025-11-10)",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-004-uganda-maize-trials-results1.pdf",
-  },
-  {
-    id: "DSC-005",
-    title: "Uganda Maize Trials Results 1 (Excel)",
-    source: "Email-4 (2025-11-10)",
+    domain: "Evidence",
+    format: "Excel",
+    date: "2025-05-01",
+    title: "Uganda Maize Trials Phase 2 Data",
+    detail: "Raw yield data comparing Rhizolizer-treated plots vs. control plots in Uganda.",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-005-uganda-maize-trials-results1.xlsx",
+    tags: ["Data", "Uganda", "Yield"]
   },
-];
+  {
+    domain: "Evidence",
+    format: "PDF",
+    date: "2025-11-10",
+    title: "Maize Trials Results Summary",
+    detail: "Synthesized report of the phase 2 trial outcomes and technical conclusions.",
+    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-004-uganda-maize-trials-results1.pdf",
+    tags: ["Synthesis", "Uganda", "Technical"]
+  },
 
-const referenceLinks = [
+  // ECOSYSTEM
   {
-    title: "Communications Hub",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/README.md",
+    domain: "Ecosystem",
+    format: "Doc",
+    date: "2025-11-30",
+    title: "Partner Dossier: Locus AG",
+    detail: "Overview of microbial tech + 'CarbonNOW' farmer sequestration program in the USA.",
+    tags: ["Partner", "Microbial", "Agri-Carbon"]
   },
   {
-    title: "Attachment Registry",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/ATTACHMENT-REGISTRY.md",
+    domain: "Ecosystem",
+    format: "Doc",
+    date: "2025-11-30",
+    title: "Partner Dossier: 3-Degrees",
+    detail: "Strategic advisory for carbon offset program design and Verra/Gold Standard accreditation.",
+    tags: ["Accreditation", "Standards"]
   },
   {
-    title: "Comms Summary",
-    file: "/resources/comms-summary",
+    domain: "Ecosystem",
+    format: "Doc",
+    date: "2025-11-30",
+    title: "Partner Dossier: Carbon Neutral Marketplace",
+    detail: "Keir's platform for credit exchange. Current focus on tech stack upgrades and reforestation questionnaires.",
+    tags: ["Marketplace", "Tech Upgrade"]
   },
-];
 
-const foundationalKnowledge = [
+  // FRAMEWORKS
   {
-    category: "Organization Strategy",
-    status: "Drafting",
-    items: [
-      { title: "Founding Mission & Purpose", detail: "The long-term vision for HISAGEN as a systems architect." },
-      { title: "Deep Six & Pandion Partnership", detail: "Collaboration framework and roles." },
-      { title: "Governance DNA", detail: "Ethics and community-first principles (Social Promise)." },
-    ],
-  },
-  {
-    category: "Program Design",
-    status: "Active Research",
-    items: [
-      { title: "Agri-Carbon Thesis", detail: "Regenerative agriculture as a scalable sequestration tech." },
-      { title: "Revenue Wheel Model", detail: "Scenario modeling for fees, equity, and credit upside." },
-      { title: "MRV Tooling Stack", detail: "Remote sensing vs. ground-truth data strategy." },
-    ],
-  },
-  {
-    category: "Project Intelligence",
-    status: "Evidence Compiling",
-    items: [
-      { title: "Uganda Maize Trials (Phase 2)", detail: "Actual vs. Control yield data (DSC-003)." },
-      { title: "Carbon Rights Analysis", detail: "Local land tenure and registry mapping." },
-      { title: "Partner Dossiers", detail: "Locus AG and Keir's Marketplace alignment." },
-    ],
-  },
-];
-
-const fundingBlueprints = [
-  {
+    domain: "Frameworks",
+    format: "Doc",
+    date: "Current",
     title: "The Capital Continuum Spine",
-    description: "The 4-Stage framework guiding the project from Incubation to Maturity.",
-    href: "/funding-roadmap/capital-continuum",
+    detail: "The 4-Stage framework guiding projects from Incubation (Stage 1) to Institutional Maturity (Stage 4).",
+    file: "/funding-roadmap/capital-continuum",
+    tags: ["Funding", "Strategy", "Blueprints"]
   },
   {
+    domain: "Frameworks",
+    format: "Doc",
+    date: "Current",
     title: "Grant Funding Lifecycle",
-    description: "An 11-phase roadmap nested under Stage 1 & 2 for grant-specific journeys.",
-    href: "/funding-roadmap/lifecycle",
-  },
-  {
-    title: "Early Pitch Templates",
-    description: "Foundational narratives for donor and seed-stage accelerator engagement.",
-    href: "#",
-  },
-];
-
-const partnerEcosystem = [
-  {
-    name: "Locus Agricultural Solutions (Locus AG)",
-    role: "Technical Product Partner",
-    details: "Innovative Agritech company providing microbial solutions (Rhizolizer® Duo) that increase yields and soil health. Their 'CarbonNOW' program empowers farmers to sequester carbon and generate credits.",
-    context: "Flagship microbe blends improve nutrient uptake and stress resilience. HISAGEN acts as the conduit for Locus AG tests in Africa.",
-  },
-  {
-    name: "Carbon Neutral Marketplace",
-    role: "Downstream Marketplace Innovator",
-    details: "Platform for facilitating high-integrity carbon credit exchange. Serves as the primary marketplace for credits generated through HISAGEN's sustainable agriculture initiatives.",
-    context: "Currently undergoing upgrades to improve the tech stack and questionnaire functionality for reforestation and sustainable ag projects.",
-  },
-  {
-    name: "3-Degrees",
-    role: "Accreditation & Design Partner",
-    details: "Specialized consultancy for carbon offset program design. Guiding HISAGEN through Verra or Gold Standard accreditation pathways.",
-    context: "Ensures programmatic integrity and compliance with international carbon standards for institutional bankability.",
-  },
-  {
-    name: "Pandion Studio",
-    role: "Systems & Infrastructure architect",
-    details: "Engineering the foundational frameworks, digital portal, and Capital Continuum alignment required to scale.",
-    context: "Provides the technical spine and organizational design required to move projects from Stage 1 to Stage 4.",
-  },
+    detail: "An 11-phase roadmap for grant-specific journeys nested within Stage 1 & 2.",
+    file: "/funding-roadmap/lifecycle",
+    tags: ["Grant", "Operations", "Timeline"]
+  }
 ];
 
 export default function ResourcesPage() {
+  const domains = ["Context", "Evidence", "Ecosystem", "Frameworks"];
+
   return (
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
@@ -210,99 +132,77 @@ export default function ResourcesPage() {
           Foundation & Evidence Vault
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate italic">
-          "This is the source of truth for the HISAGEN DNA. We consolidate foundational intelligence here to inform the organization, program, and project strategy."
+          "This is the institutional source of truth. We consolidate every email, data trial, and technical brief into this dossier to inform HISAGEN's growth."
         </p>
       </section>
 
-      <section className="mt-12 space-y-8">
-        <div className="grid gap-6 md:grid-cols-3">
-          {foundationalKnowledge.map((track) => (
-            <div key={track.category} className="rounded-xl border border-mist bg-white p-6 shadow-sm">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-secondary">{track.category}</h3>
-                <span className="text-[9px] bg-secondary/5 text-secondary px-2 py-0.5 rounded uppercase font-bold">{track.status}</span>
-              </div>
-              <ul className="space-y-4">
-                {track.items.map((item) => (
-                  <li key={item.title}>
-                    <p className="text-sm font-semibold text-secondary">{item.title}</p>
-                    <p className="text-xs text-slate mt-1">{item.detail}</p>
-                  </li>
+      <div className="mt-12 space-y-16">
+        {domains.map((domain) => (
+          <section key={domain} className="space-y-6">
+            <div className="flex items-center gap-4">
+              <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.2em]">{domain}</h2>
+              <div className="h-px flex-1 bg-mist" />
+              <span className="text-[10px] text-slate font-medium uppercase tracking-widest">
+                {intelligenceLedger.filter(i => i.domain === domain).length} Items
+              </span>
+            </div>
+
+            <div className="grid gap-4">
+              {intelligenceLedger
+                .filter((item) => item.domain === domain)
+                .map((item) => (
+                  <div
+                    key={item.title}
+                    className="group relative flex flex-col md:flex-row md:items-center justify-between gap-6 p-5 rounded-xl border border-mist bg-white hover:border-secondary/40 transition-all hover:shadow-sm"
+                  >
+                    <div className="flex-1 space-y-2">
+                      <div className="flex items-center gap-3">
+                        <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${item.format === 'Email' ? 'bg-blue-100 text-blue-700' :
+                            item.format === 'PDF' ? 'bg-red-100 text-red-700' :
+                              item.format === 'Excel' ? 'bg-emerald-100 text-emerald-700' :
+                                'bg-slate-100 text-slate-700'
+                          }`}>
+                          {item.format}
+                        </span>
+                        <span className="text-[10px] text-slate/40">{item.date}</span>
+                      </div>
+                      <h3 className="text-base font-bold text-secondary">{item.title}</h3>
+                      <p className="text-sm text-slate leading-relaxed max-w-3xl">
+                        {item.detail}
+                      </p>
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {item.tags.map(tag => (
+                          <span key={tag} className="text-[9px] bg-parchment px-1.5 py-0.5 rounded text-slate/60 font-medium">#{tag}</span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {item.file && (
+                      <a
+                        href={item.file}
+                        target={item.file.startsWith('http') ? "_blank" : "_self"}
+                        className="flex-shrink-0 flex items-center justify-center h-10 px-4 rounded-lg bg-secondary text-parchment text-[10px] uppercase tracking-widest font-bold hover:bg-secondary/90 transition-colors"
+                      >
+                        {item.format === 'Link' ? 'Open Link' : 'View Item'}
+                      </a>
+                    )}
+                  </div>
                 ))}
-              </ul>
             </div>
-          ))}
-        </div>
-
-        <div className="rounded-xl border border-mist bg-secondary text-parchment p-8">
-          <p className="text-xs uppercase tracking-[0.3em] font-bold mb-6">Funding & Capital Strategy</p>
-          <div className="grid gap-4 md:grid-cols-3 text-center">
-            {fundingBlueprints.map((blueprint) => (
-              <a
-                key={blueprint.title}
-                href={blueprint.href}
-                className="p-4 border border-parchment/20 rounded-lg bg-parchment/5 hover:bg-parchment/10 transition-colors"
-              >
-                <h4 className="text-sm font-bold mb-2 uppercase tracking-tighter">{blueprint.title}</h4>
-                <p className="text-[10px] opacity-70 leading-relaxed">{blueprint.description}</p>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4">The Audit Trail (Comms & Attachments)</p>
-          <p className="text-sm text-slate mb-6">
-            The chronological record of all partner communications, emails, and source spreadsheets identifying the HISAGEN journey.
-          </p>
-          <div className="space-y-3">
-            {timeline.slice(0, 5).map((entry) => (
-              <div key={entry.title} className="flex items-center justify-between p-3 border border-mist/50 rounded-lg text-xs">
-                <div className="flex items-center gap-3">
-                  <span className="text-slate/40">{entry.date}</span>
-                  <span className="font-bold text-secondary">{entry.title}</span>
-                </div>
-                <span className="text-[10px] uppercase text-slate/60">{entry.channel}</span>
-              </div>
-            ))}
-            <div className="text-center pt-2">
-              <button className="text-[10px] font-bold uppercase tracking-widest text-secondary border-b border-secondary">View Full Comms Timeline</button>
-            </div>
-          </div>
-        </div>
-
-        <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-6">Key Partner Ecosystem (Synthesized Intelligence)</p>
-          <div className="grid gap-6 md:grid-cols-2">
-            {partnerEcosystem.map((partner) => (
-              <div key={partner.name} className="p-5 border border-mist/50 rounded-xl bg-parchment/5">
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="text-sm font-bold text-secondary">{partner.name}</h4>
-                  <span className="text-[9px] uppercase tracking-widest bg-secondary text-parchment px-2 py-0.5 rounded font-bold">{partner.role}</span>
-                </div>
-                <p className="text-xs text-slate leading-relaxed">{partner.details}</p>
-                <div className="mt-4 pt-4 border-t border-mist/40">
-                  <p className="text-[10px] text-slate/50 italic"><span className="font-bold uppercase tracking-tighter not-italic mr-1">Strategic Context:</span> {partner.context}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="rounded-xl border border-mist bg-white p-6">
-      </section>
+          </section>
+        ))}
+      </div>
 
       <section className="my-16 flex flex-col items-center text-center p-12 rounded-2xl bg-parchment/30 border border-mist border-dashed">
         <h2 className="text-xl font-bold text-secondary mb-4 uppercase tracking-[0.2em]">Strategy Gaps & Discovery</h2>
         <p className="text-sm text-slate max-w-2xl leading-relaxed mb-6">
-          We have significant "white space" in our organizational and program strategy. The vault above identifies what we have—but our next phase is to use AI synthesis to fill these gaps.
+          The Intelligence Ledger above identifies what we have verified—the "white space" in our strategy will be filled through active AI synthesis based on these sources.
         </p>
         <div className="flex gap-4">
-          <span className="text-[10px] font-bold uppercase tracking-widest bg-secondary/10 text-secondary px-3 py-1 rounded">Next: Org Ethics Synthesis</span>
-          <span className="text-[10px] font-bold uppercase tracking-widest bg-secondary/10 text-secondary px-3 py-1 rounded">Next: Revenue Model Analysis</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest bg-secondary/10 text-secondary px-3 py-1 rounded">Next: Revenue Model Scenarios</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest bg-secondary/10 text-secondary px-3 py-1 rounded">Next: Legal Structure Synthesis</span>
         </div>
       </section>
     </div>
   );
 }
-
