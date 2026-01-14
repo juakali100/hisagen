@@ -123,12 +123,120 @@ export default function PilotPage() {
         </div>
       </section>
 
-      <section className="mt-10 border-t border-mist pt-6">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-secondary mb-4">Jump To Stage</p>
-        <div className="flex flex-wrap gap-3">
-          <a href="/stage-1" className="px-4 py-2 border border-mist rounded-full text-[10px] font-bold uppercase tracking-widest text-slate hover:bg-parchment/50 transition-colors">Stage 1: Incubation</a>
-          <a href="/funding-roadmap/capital-continuum" className="px-4 py-2 border border-mist rounded-full text-[10px] font-bold uppercase tracking-widest text-slate hover:bg-parchment/50 transition-colors">Capital Strategy</a>
-          <a href="/resources" className="px-4 py-2 border border-mist rounded-full text-[10px] font-bold uppercase tracking-widest text-slate hover:bg-parchment/50 transition-colors">Evidence Vault</a>
+      <section className="mt-16 border-t border-mist pt-12 mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] font-bold text-secondary">Uganda Implementation</p>
+            <h2 className="mt-2 text-3xl font-bold text-secondary">Roadmap & Ecosystem Alignment</h2>
+            <p className="mt-2 text-sm text-slate max-w-xl">
+              Applying the <strong>Capital Continuum</strong> framework to the specific partner workstreams required for the Uganda Pilot.
+            </p>
+          </div>
+          <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-widest text-nowrap">Current: Stage 1</span>
+          </div>
+        </div>
+
+        <div className="grid gap-8">
+          {/* STAGE 1 */}
+          <div className="relative overflow-hidden rounded-2xl border-2 border-secondary bg-white shadow-md shadow-secondary/5">
+            <div className="absolute top-0 right-0 bg-secondary text-parchment px-4 py-1 text-[10px] font-bold uppercase tracking-widest">Active Phase</div>
+            <div className="p-6">
+              <div className="flex flex-col md:flex-row gap-8">
+                <div className="md:w-1/3">
+                  <span className="text-[10px] font-bold text-secondary uppercase tracking-[0.2em]">Stage 1</span>
+                  <h3 className="text-2xl font-bold text-secondary">Incubation</h3>
+                  <p className="mt-2 text-sm text-slate leading-relaxed">Focus on feasibility, local trust, and technical baselining.</p>
+                </div>
+                <div className="flex-1 space-y-4">
+                  <p className="text-[10px] font-bold text-secondary uppercase tracking-widest border-b border-mist pb-1">Primary Deliverables & Partners</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="p-3 bg-parchment/30 rounded-lg border border-mist/50">
+                      <p className="text-[10px] font-bold text-secondary uppercase">Domain 1: Originator</p>
+                      <p className="text-xs text-slate mt-1 italic"><strong>Deep Six</strong>: Securing land rights, community MOUs, and local government alignment in Uganda.</p>
+                    </div>
+                    <div className="p-3 bg-parchment/30 rounded-lg border border-mist/50">
+                      <p className="text-[10px] font-bold text-secondary uppercase">Domain 5: Systems Architecture</p>
+                      <p className="text-xs text-slate mt-1 italic"><strong>Pandion</strong>: Designing the funding bridge, data orchestration, and "Digital Twin" of the pilot.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* STAGE 2 */}
+          <div className="rounded-2xl border border-mist bg-white shadow-sm p-6 transition-all hover:border-secondary/20">
+            <div className="flex flex-col md:flex-row gap-8">
+              <div className="md:w-1/3">
+                <span className="text-[10px] font-bold text-slate uppercase tracking-[0.2em]">Stage 2</span>
+                <h3 className="text-2xl font-bold text-secondary">Implementation</h3>
+                <p className="mt-2 text-sm text-slate leading-relaxed">Scaling from 500 farmers to full district coverage with biological tech.</p>
+              </div>
+              <div className="flex-1 space-y-4">
+                <p className="text-[10px] font-bold text-slate uppercase tracking-widest border-b border-mist pb-1">Primary Deliverables & Partners</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-3 bg-mist/5 rounded-lg border border-mist/50">
+                    <p className="text-[10px] font-bold text-slate uppercase">Domain 2: Implementation</p>
+                    <p className="text-xs text-slate mt-1 italic"><strong>Locus AG / HISAGEN</strong>: Field deployment of soil microbial technology and real-time MRV data collection.</p>
+                  </div>
+                  <div className="p-3 bg-mist/5 rounded-lg border border-mist/50">
+                    <p className="text-[10px] font-bold text-slate uppercase">Domain 3: Certification</p>
+                    <p className="text-xs text-slate mt-1 italic"><strong>3Degrees</strong>: Drafting the Project Design Document (PDD) and coordinating with global registries (Verra/Gold Standard).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* STAGE 3 */}
+          <div className="rounded-2xl border border-mist bg-slate/5 shadow-sm p-6 opacity-80">
+            <div className="flex flex-col md:flex-row gap-8">
+              <div className="md:w-1/3">
+                <span className="text-[10px] font-bold text-slate uppercase tracking-[0.2em]">Stage 3</span>
+                <h3 className="text-2xl font-bold text-secondary">Stabilization</h3>
+                <p className="mt-2 text-sm text-slate leading-relaxed">Credits are issued and the "Soil-to-Sale" revenue engine is operational.</p>
+              </div>
+              <div className="flex-1 space-y-4">
+                <p className="text-[10px] font-bold text-slate uppercase tracking-widest border-b border-mist pb-1">Primary Deliverables & Partners</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="p-3 bg-white/80 rounded-lg border border-mist/50">
+                    <p className="text-[10px] font-bold text-slate uppercase">Domain 4: Monetization</p>
+                    <p className="text-xs text-slate mt-1 italic"><strong>CZMP</strong>: Listing credits on the global marketplace and managing wholesale offtake contracts.</p>
+                  </div>
+                  <div className="p-3 bg-white/80 rounded-lg border border-mist/50">
+                    <p className="text-[10px] font-bold text-slate uppercase">Domain 2: Field Ops (Steady State)</p>
+                    <p className="text-xs text-slate mt-1 italic"><strong>Hisagen</strong>: Managing the ongoing "biological harvest" and ensuring community dividend payouts.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* STAGE 4 */}
+          <div className="rounded-2xl border border-mist bg-slate/5 shadow-sm p-6 opacity-60">
+            <div className="flex flex-col md:flex-row gap-8">
+              <div className="md:w-1/3">
+                <span className="text-[10px] font-bold text-slate uppercase tracking-[0.2em]">Stage 4</span>
+                <h3 className="text-2xl font-bold text-secondary">Maturity</h3>
+                <p className="mt-2 text-sm text-slate leading-relaxed">Institutional exit or sovereign-backed scaling across East Africa.</p>
+              </div>
+              <div className="flex-1 space-y-4">
+                <p className="text-[10px] font-bold text-slate uppercase tracking-widest border-b border-mist pb-1">Primary Deliverables & Partners</p>
+                <div className="p-3 bg-white/50 rounded-lg border border-mist/50">
+                  <p className="text-[10px] font-bold text-slate uppercase">Domain 4: Institutional Monetization</p>
+                  <p className="text-xs text-slate mt-1 italic"><strong>HISAGEN / CZMP</strong>: Packaging pilot performance data for Green Bond issuance or sovereign portfolio inclusion.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 p-6 rounded-xl border border-secondary/20 bg-secondary/5 text-center">
+          <p className="text-sm text-secondary font-medium">
+            Accountability within each domain ensures the <strong>Uganda Pilot</strong> transforms from a grant-funded incubation into a bankable institutional asset.
+          </p>
         </div>
       </section>
     </div>

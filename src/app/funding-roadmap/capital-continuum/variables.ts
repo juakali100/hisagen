@@ -1,31 +1,54 @@
-﻿const stages = [
+﻿export type Stage = {
+  title: string;
+  focus: string;
+  capital: string;
+  milestones: string[];
+  ecosystemDomains: string[];
+  status: string;
+};
+
+export type Pillar = {
+  title: string;
+  focus: string;
+  prompts: string[];
+};
+
+const stages: Stage[] = [
   {
     title: "Stage 1: Incubation",
     focus: "Foundations and proof of concept.",
     capital: "Grants, philanthropy, sweat equity.",
     milestones: ["Feasibility complete", "Draft PDD or equivalent", "Pilot activity underway"],
+    ecosystemDomains: ["Originator", "Systems Architecture"],
+    status: "Active (Hisagen Uganda Pilot)",
   },
   {
     title: "Stage 2: Implementation",
     focus: "Operational rollout and early delivery.",
     capital: "Blended finance, impact investors.",
     milestones: ["First credits issued", "MRV operational", "Delivery partners secured"],
+    ecosystemDomains: ["Implementation", "Systems Architecture"],
+    status: "Targeting Q3 2026",
   },
   {
     title: "Stage 3: Stabilization",
     focus: "Consistent performance and predictable delivery.",
     capital: "Private equity, structured debt.",
     milestones: ["Multi-year track record", "Stable cashflows", "Scaled governance"],
+    ecosystemDomains: ["Certification", "Monetization"],
+    status: "Strategic Backlog",
   },
   {
     title: "Stage 4: Maturity",
     focus: "Institutional capital readiness.",
     capital: "Green bonds, securities, public equity.",
     milestones: ["10+ years performance", "Taxonomy eligible", "Institutional investors active"],
+    ecosystemDomains: ["Monetization"],
+    status: "Strategic Backlog",
   },
 ];
 
-const pillars = [
+const pillars: Pillar[] = [
   {
     title: "Counterparty",
     focus: "Track record, delivery capability, governance.",

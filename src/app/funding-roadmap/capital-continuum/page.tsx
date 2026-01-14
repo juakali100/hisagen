@@ -72,19 +72,69 @@ export default function CapitalContinuumPlaybookPage() {
         </div>
         <div className="grid gap-4 md:grid-cols-2">
           {stages.map((stage) => (
-            <div key={stage.title} className="rounded-xl border border-mist bg-white p-6">
-              <h2 className="text-lg font-semibold text-secondary">{stage.title}</h2>
-              <p className="mt-2 text-sm text-slate">{stage.focus}</p>
-              <p className="mt-3 text-xs uppercase tracking-[0.2em] text-slate">Capital Fit</p>
-              <p className="mt-2 text-sm text-slate">{stage.capital}</p>
-              <p className="mt-3 text-xs uppercase tracking-[0.2em] text-slate">Key Milestones</p>
-              <ul className="mt-2 space-y-1 text-sm text-slate">
-                {stage.milestones.map((milestone) => (
-                  <li key={milestone}>{milestone}</li>
-                ))}
-              </ul>
+            <div key={stage.title} className="rounded-xl border border-mist bg-white p-6 flex flex-col">
+              <div className="flex justify-between items-start">
+                <h2 className="text-lg font-semibold text-secondary">{stage.title}</h2>
+                <span className="text-[10px] font-bold uppercase tracking-widest bg-secondary/10 text-secondary px-2 py-0.5 rounded">
+                  {stage.status}
+                </span>
+              </div>
+              <p className="mt-2 text-sm text-slate flex-grow">{stage.focus}</p>
+
+              <div className="mt-4 pt-4 border-t border-mist/50">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-slate font-bold">Capital Fit</p>
+                <p className="mt-1 text-sm text-secondary font-medium">{stage.capital}</p>
+              </div>
+
+              <div className="mt-3">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-slate font-bold">Ecosystem Focus</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {stage.ecosystemDomains.map((domain) => (
+                    <span key={domain} className="text-[9px] font-bold uppercase tracking-widest px-2 py-1 rounded bg-parchment border border-mist text-slate">
+                      {domain}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-slate font-bold">Key Milestones</p>
+                <ul className="mt-2 space-y-1 text-[13px] text-slate leading-relaxed">
+                  {stage.milestones.map((milestone) => (
+                    <li key={milestone} className="flex gap-2">
+                      <span className="text-secondary/40">•</span>
+                      {milestone}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mt-12 rounded-2xl border border-secondary/20 bg-secondary/5 p-8 shadow-sm">
+        <div className="flex flex-col md:flex-row gap-8 items-start">
+          <div className="flex-1">
+            <p className="text-xs uppercase tracking-[0.3em] font-bold text-secondary">Strategic Intelligence</p>
+            <h2 className="mt-3 text-2xl font-bold text-secondary">Lifecycle Alignment & Revenue Lag</h2>
+            <p className="mt-4 text-sm text-slate leading-relaxed">
+              It is critical to recognize that <strong>Monetization (Domain 4)</strong> and <strong>Certification (Domain 3)</strong> primarily mature during <strong>Stage 3 (Stabilization)</strong> and <strong>Stage 4 (Maturity)</strong>.
+            </p>
+            <p className="mt-3 text-sm text-slate leading-relaxed">
+              In Stages 1 and 2, the "revenue" from carbon credits is a future-dated asset. Funding during these phases must rely on <strong>Blended Finance</strong>: high-risk philanthropic or grant capital (Stage 1) and impact-driven debt/equity (Stage 2) that bridge the gap until carbon credits are issued and merchantable.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-3 w-full md:w-80">
+            <div className="p-4 bg-white rounded-xl border border-secondary/10">
+              <p className="text-[10px] font-bold text-secondary uppercase tracking-widest">Stage 1-2 Gap</p>
+              <p className="mt-1 text-xs text-slate">"Unbankable" phase. Requires grants to secure Land Rights and baseline Technical data (MRV setup).</p>
+            </div>
+            <div className="p-4 bg-white rounded-xl border border-secondary/10">
+              <p className="text-[10px] font-bold text-secondary uppercase tracking-widest">Stage 3-4 Inflection</p>
+              <p className="mt-1 text-xs text-slate">Marketplace (CZMP) and 3Degrees issuance creates the "Revenue Engine" for Institutional scaling.</p>
+            </div>
+          </div>
         </div>
       </section>
 
