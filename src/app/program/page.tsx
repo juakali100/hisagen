@@ -172,41 +172,83 @@ export default function ProgramPage() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-xl border border-mist bg-white p-6 text-ink">
-        <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold">Partner Ecosystem Strategy</p>
-        <p className="mt-4 text-sm text-slate">
-          The program scales by integrating specialized partners into a unified value chain:
-        </p>
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <div className="flex gap-4">
-              <span className="h-6 w-6 rounded bg-secondary/10 text-secondary text-[10px] font-bold flex items-center justify-center shrink-0">1</span>
-              <div>
-                <p className="text-xs font-bold text-secondary">Discovery & Tech-Settle</p>
-                <p className="text-[10px] text-slate mt-1 italic">Deep Six Consulting + Locus AG</p>
+      <section className="mt-10 rounded-xl border border-mist bg-white overflow-hidden shadow-sm">
+        <div className="bg-secondary p-6 text-white text-center">
+          <p className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-70">Infrastructure</p>
+          <h2 className="mt-2 text-xl font-bold tracking-tight">Integrated Operating Architecture</h2>
+        </div>
+
+        <div className="p-8">
+          <p className="text-sm text-slate leading-relaxed text-center max-w-2xl mx-auto italic">
+            "The program’s resilience comes from its vertical integration. We have secured Tier-1 partners for every segment of the carbon value chain, from soil microbes to global markets."
+          </p>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                phase: "1. The Origin",
+                org: "Deep Six Consulting",
+                role: "Venture Origination",
+                deliverables: ["Tech-Settle Strategy", "Site Identification", "Strategic Framing"],
+                color: "bg-blue-50"
+              },
+              {
+                phase: "2. The Engine",
+                org: "Locus AG / Pilots",
+                role: "Implementation & Ops",
+                deliverables: ["Soil Microbe Deployment", "Biomass Monitoring", "Yield Ground-Truth"],
+                color: "bg-emerald-50"
+              },
+              {
+                phase: "3. The Validator",
+                org: "3Degrees",
+                role: "Design & Certification",
+                deliverables: ["Methodology Design", "Accreditation PDD", "Compliance Audit"],
+                color: "bg-amber-50"
+              },
+              {
+                phase: "4. The Exit",
+                org: "CZMP",
+                role: "Monetization & Sale",
+                deliverables: ["Retail Marketplace", "Wholesale Trading", "Proceeds Distribution"],
+                color: "bg-indigo-50"
+              }
+            ].map((p, idx) => (
+              <div key={idx} className={`rounded-xl border border-mist p-5 flex flex-col ${p.color}/30`}>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-secondary/40">{p.phase}</span>
+                <h3 className="mt-2 text-base font-bold text-secondary">{p.org}</h3>
+                <p className="text-xs font-medium text-slate/70 mt-1 uppercase tracking-wider">{p.role}</p>
+                <div className="h-px bg-mist my-4 w-full" />
+                <ul className="space-y-2 flex-grow">
+                  {p.deliverables.map((d, dIdx) => (
+                    <li key={dIdx} className="text-[11px] text-slate flex gap-2 items-start">
+                      <span className="text-secondary/30 mt-0.5">•</span>
+                      {d}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-            <div className="flex gap-4">
-              <span className="h-6 w-6 rounded bg-secondary/10 text-secondary text-[10px] font-bold flex items-center justify-center shrink-0">2</span>
-              <div>
-                <p className="text-xs font-bold text-secondary">Operational Scaffolding</p>
-                <p className="text-[10px] text-slate mt-1 italic">Pandion Studio</p>
-              </div>
-            </div>
+            ))}
           </div>
-          <div className="space-y-4">
-            <div className="flex gap-4">
-              <span className="h-6 w-6 rounded bg-secondary/10 text-secondary text-[10px] font-bold flex items-center justify-center shrink-0">3</span>
-              <div>
-                <p className="text-xs font-bold text-secondary">Accreditation Architecture</p>
-                <p className="text-[10px] text-slate mt-1 italic">3Degrees</p>
+
+          <div className="mt-8 p-6 rounded-xl border-2 border-dashed border-secondary/20 bg-secondary/5">
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="shrink-0">
+                <div className="h-12 w-12 rounded-lg bg-secondary flex items-center justify-center text-xl">🏗️</div>
               </div>
-            </div>
-            <div className="flex gap-4">
-              <span className="h-6 w-6 rounded bg-secondary/10 text-secondary text-[10px] font-bold flex items-center justify-center shrink-0">4</span>
               <div>
-                <p className="text-xs font-bold text-secondary">Direct Monetization</p>
-                <p className="text-[10px] text-slate mt-1 italic">Carbon Neutral Marketplace</p>
+                <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.1em]">Connective Tissue: Systems Architecture</h4>
+                <p className="text-xs text-secondary mt-1 font-bold">Pandion Studio</p>
+                <p className="text-[11px] text-slate mt-2 leading-relaxed">
+                  Responsible for the project’s <strong>Digital Twin</strong> and <strong>Funding Blueprint</strong>. Pandion provides the synthesis and scaffolding required to coordinate these specialized partners and prepare the program for Stage 2 (Institutional Scale) capital.
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {["Funding Continuum", "Intelligence Ledger", "Strategic Synthesis", "MRV Tooling"].map((tag) => (
+                    <span key={tag} className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border border-secondary/20 text-secondary/60 bg-white">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
