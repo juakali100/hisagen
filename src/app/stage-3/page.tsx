@@ -38,6 +38,40 @@ export default function Stage3Page() {
         </div>
       </section>
 
+      <section className="mt-8 rounded-2xl border border-secondary/20 bg-secondary/5 p-8 shadow-sm">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="md:w-3/5">
+            <h2 className="text-xl font-bold text-secondary">Strategic Context: Scaling & Stability</h2>
+            <p className="mt-4 text-sm leading-relaxed text-slate">
+              At stabilization, projects demonstrate consistent performance and a reliable track record in credit issuance.
+              Private capital now dominates the mix, including private equity, structured debt, and securitization of
+              future revenues. The integrity of structures established during implementation becomes critical for sustaining
+              scale and social outcomes.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-slate italic border-l-2 border-secondary/20 pl-4">
+              Investors look for transparency in cashflow allocation, durability in benefit-sharing, and governance
+              mechanisms that protect results as projects expand.
+            </p>
+          </div>
+          <div className="md:w-2/5 rounded-xl bg-white p-6 border border-mist text-ink">
+            <h3 className="text-xs font-bold text-secondary uppercase tracking-widest mb-4">Stabilization Milestones</h3>
+            <ul className="space-y-3">
+              {[
+                "Verified credits issued with multi-year track record",
+                "Robust financial forecasts informed by historic data",
+                "Strong legal stability for carbon rights in country",
+                "Third-party ESG audits confirming performance"
+              ].map((milestone) => (
+                <li key={milestone} className="flex gap-3 text-xs text-slate leading-tight">
+                  <span className="text-emerald-500 font-bold">✓</span>
+                  {milestone}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-12 grid gap-6 md:grid-cols-2">
         <div className="rounded-xl border border-mist bg-white p-6">
           <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Stage 3 Focus</p>

@@ -38,6 +38,39 @@ export default function Stage4Page() {
         </div>
       </section>
 
+      <section className="mt-8 rounded-2xl border border-secondary/20 bg-secondary/5 p-8 shadow-sm">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="md:w-3/5">
+            <h2 className="text-xl font-bold text-secondary">Strategic Context: Institutional Capital & Long-term Exits</h2>
+            <p className="mt-4 text-sm leading-relaxed text-slate">
+              At maturity, projects become fully investable assets capable of attracting long-term institutional capital.
+              With 10+ years of stable performance, projects can access green bonds, carbon-backed securities, or public
+              equity. High-integrity structuring enables entry at scale without eroding additionality or community trust.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-slate italic border-l-2 border-secondary/20 pl-4">
+              Transparent governance and compliance with international taxonomies (e.g., EU Sustainable Finance) ensure
+              credibility is maintained over decades.
+            </p>
+          </div>
+          <div className="md:w-2/5 rounded-xl bg-white p-6 border border-mist text-ink">
+            <h3 className="text-xs font-bold text-secondary uppercase tracking-widest mb-4">Maturity Milestones</h3>
+            <ul className="space-y-3">
+              {[
+                "Min 3-5 year track record of stable returns",
+                "Transparent reporting with full ESG compliance",
+                "Eligibility confirmed under finance taxonomies",
+                "Portfolio-level strategy alignment"
+              ].map((milestone) => (
+                <li key={milestone} className="flex gap-3 text-xs text-slate leading-tight">
+                  <span className="text-emerald-500 font-bold">✓</span>
+                  {milestone}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-12 grid gap-6 md:grid-cols-2">
         <div className="rounded-xl border border-mist bg-white p-6">
           <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Stage 4 Focus</p>

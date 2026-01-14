@@ -40,6 +40,40 @@ export default function Stage2Page() {
         </div>
       </section>
 
+      <section className="mt-8 rounded-2xl border border-secondary/20 bg-secondary/5 p-8 shadow-sm">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="md:w-3/5">
+            <h2 className="text-xl font-bold text-secondary">Strategic Context: Demonstrating Viability</h2>
+            <p className="mt-4 text-sm leading-relaxed text-slate">
+              Once feasibility milestones are achieved, projects move into registration with carbon standards.
+              This stage focuses on establishing the Special Purpose Vehicle (SPV), scaling field activities, and
+              deploying full MRV systems. Credits begin to be issued, and while revenues remain variable,
+              private capital engagement increases through prepayment agreements or blended finance.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-slate italic border-l-2 border-secondary/20 pl-4">
+              Structuring integrity is central: the design of the SPV and the governance of benefit-sharing determine
+              investor trust and long-term scalability.
+            </p>
+          </div>
+          <div className="md:w-2/5 rounded-xl bg-white p-6 border border-mist text-ink">
+            <h3 className="text-xs font-bold text-secondary uppercase tracking-widest mb-4">Implementation Milestones</h3>
+            <ul className="space-y-3">
+              {[
+                "First carbon credits generated and issued",
+                "Community agreements formalized & carbon rights secured",
+                "Verified MRV systems fully operational",
+                "Initial and ongoing carbon credit sales executed"
+              ].map((milestone) => (
+                <li key={milestone} className="flex gap-3 text-xs text-slate leading-tight">
+                  <span className="text-emerald-500 font-bold">✓</span>
+                  {milestone}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-12 grid gap-6 md:grid-cols-2">
         <div className="rounded-xl border border-mist bg-white p-6">
           <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Stage 2 Focus</p>
