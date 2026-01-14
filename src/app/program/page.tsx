@@ -1,13 +1,33 @@
 import StageBreadcrumb from "../../components/StageBreadcrumb";
 
-const programHighlights = [
+import { ReactNode } from "react";
+
+type Highlight = {
+  title: string;
+  body: ReactNode;
+};
+
+const programHighlights: Highlight[] = [
   {
     title: "The Agri-Carbon Thesis",
     body: "We believe that agriculture is the most scalable carbon sequestration technology. By providing the tools and capital for regenerative transitions, we unlock high-integrity credits and resilient community livelihoods.",
   },
   {
     title: "Operating Model",
-    body: "HISAGEN acts as the 'Aggregator and Optimizer'. We find the landscapes, bring the technical partners, and structure the capital using our Capital Continuum framework.",
+    body: (
+      <>
+        HISAGEN acts as the 'Aggregator and Optimizer'. We find the landscapes, bring the technical partners, and structure the capital using the{" "}
+        <a
+          href="https://capital-continuum.com/resources/the-capital-continuum-fsg-7nj4f"
+          target="_blank"
+          rel="noreferrer"
+          className="underline decoration-secondary/30 hover:decoration-secondary transition-colors"
+        >
+          Capital Continuum
+        </a>{" "}
+        framework.
+      </>
+    ),
   },
   {
     title: "Scalability",
