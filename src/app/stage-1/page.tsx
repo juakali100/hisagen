@@ -4,19 +4,19 @@ const snapshot = [
   {
     title: "Project",
     detail:
-      "Integrated agriculture and carbon model combining microbial biofertilizers, soil carbon credits, and a digital farmer platform.",
+      "Integrated agriculture and carbon model combining microbial biofertilizers with soil carbon verification.",
   },
   {
-    title: "Primary focus",
-    detail: "Uganda pilot (Kenya expansion deferred).",
+    title: "Product Scope",
+    detail: "Rhizolizer® Duo (Maize) + new testing on Sweet/Irish Potatoes and Peanuts.",
   },
   {
-    title: "Core partners",
-    detail: "Locus AG (technology), Uganda NARO (research validation), 3Degrees (carbon pathway).",
+    title: "Pilot Reach",
+    detail: "Uganda NARO independent trials across 5 agro-ecological zones.",
   },
   {
-    title: "Stage 1 status",
-    detail: "Pilot underway; evidence and financial model not yet compiled.",
+    title: "Commercial Goal",
+    detail: "Secure UNBS approval and generate local sales income to cover operational overheads.",
   },
 ];
 
@@ -41,9 +41,9 @@ const decisionGates = [
 ];
 
 const evidenceOnHand = [
-  "Concept note and v0 grant package exist.",
-  "Pilot progress described as encouraging, but data is not compiled.",
-  "Capital Continuum assessment scored 13/25 (grant-ready).",
+  "Phase 1 Maize Trial completed (v. promising results).",
+  "NARO independent trials active in 5 zones (results pending).",
+  "Regulatory pathway with UNBS identified for commercial entry.",
 ];
 
 const stage1Gaps = [

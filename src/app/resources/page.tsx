@@ -154,17 +154,36 @@ const intelligenceLedger: IntelligenceEntry[] = [
   {
     domain: "Context",
     format: "Email",
-    date: "2025-11-10",
-    title: "Uganda Maize Trials Results",
-    detail: "Operational update confirming results of the first Uganda maize trial and expansion to NARO zones.",
-    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-10-email-4-k-uganda-maize-trials.md",
-    tags: ["Data", "NARO", "Trial Results"],
+    date: "2025-11-07",
+    title: "Strategic Inquiry: Pilot Scaling & Corporate Framework",
+    detail: "Direct follow-up to Keir with a structured list of questions regarding pilot metrics, cost per farmer, and carbon credit ownership models.",
+    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-07-email-3-pandion-followup.md",
+    tags: ["Strategy", "Inquiry", "Corporate"],
     synthesis: [
-      "Rhizolizer Duo maize trial in Uganda completed with 'very promising' results.",
-      "National Agricultural Research Organization (NARO) independently testing across 5 Ugandan zones.",
-      "Product testing expanded to potatoes and peanuts; focus is purely agricultural (no agroforestry yet).",
-      "Commercial strategy: Get product approval/sales in Uganda to cover project overheads.",
-      "Kenya expansion currently stalled due to local broker fee demands ($10k).",
+      "Objective: To define the 'Minimum Viable Model' for corporate supply chain partnerships (e.g., Nestlé/Starbucks).",
+      "Gaps Identified: Need to define credit ownership (Corporate vs. Farmer) and upfront vs. outcome-based funding.",
+      "Scope Extension: Questioned the integration of agroforestry vs. pure microbial fertilizer reduction.",
+    ]
+  },
+  {
+    domain: "Context",
+    format: "Email",
+    date: "2025-11-10",
+    title: "Operational Status & Commercial Shift",
+    detail: "Keir's reply clarifying the early-stage nature of the project and the immediate shift toward a commercial/self-sustaining model in Uganda.",
+    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-10-email-4-reply-commercial.md",
+    attachments: [
+      { title: "Uganda Maize Trials Results (Summary)", file: "DSC-004-uganda-maize-trials-results1.pdf", format: "PDF" },
+      { title: "Uganda Maize Phase 2 Data Collection", file: "DSC-006-uganda-maize-phase2-data.pdf", format: "PDF" },
+      { title: "Uganda Maize Trials Results 1 (Raw)", file: "DSC-005-uganda-maize-trials-results1.xlsx", format: "Excel" }
+    ],
+    tags: ["Pivot", "Commercial", "NARO", "Kenya"],
+    synthesis: [
+      "Strategic Pivot: Focus is on UNBS approval and selling microbial product in Uganda to generate income and cover site costs. 'This is a commercial venture.'",
+      "Technical Expansion: Rhizolizer® Duo success led to new NARO trials across 5 zones (results pending) and expansion to sweet/Irish potatoes and peanuts.",
+      "Agroforestry: Purely ag-focused for now; no agroforestry components designed yet ('No agroforestry even in USA').",
+      "Kenya Blocker: Expansion stalled due to $10k 'review fee' (bribe) requested by local brokers.",
+      "Data Sequencing: Formal modeling of cost-per-farmer and corporate frameworks deferred until harvest data is finalized.",
     ]
   },
 
@@ -190,6 +209,15 @@ const intelligenceLedger: IntelligenceEntry[] = [
     detail: "Raw yield data comparing Rhizolizer-treated plots vs. control plots in Uganda.",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-005-uganda-maize-trials-results1.xlsx",
     tags: ["Data", "Uganda", "Yield"]
+  },
+  {
+    domain: "Evidence",
+    format: "PDF",
+    date: "2025-11-10",
+    title: "Uganda Maize Phase 2 Data Collection",
+    detail: "Standardized field data sheets and collection parameters used for the Uganda pilot.",
+    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-006-uganda-maize-phase2-data.pdf",
+    tags: ["Data", "Uganda", "Field Sheets"],
   },
   {
     domain: "Evidence",

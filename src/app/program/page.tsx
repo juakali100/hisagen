@@ -45,6 +45,10 @@ const programGaps = [
     area: "MRV Tooling Stack",
     description: "Evaluating the trade-offs between remote sensing (satellite) and ground-truth data collection for the Locus AG product line.",
   },
+  {
+    area: "Regional Expansion Blocker",
+    description: "Expansion into Kenya currently stalled due to local 'review fee' (extortion) demands. Need to identify cleaner regulatory and broker-free pathways.",
+  },
 ];
 
 export default function ProgramPage() {
