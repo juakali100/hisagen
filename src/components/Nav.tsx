@@ -3,7 +3,7 @@
 const navItems = [
   { href: "/organization", label: "Organization" },
   {
-    label: "Program",
+    label: "Agri-Carbon Program",
     href: "/program",
     dropdown: [
       { href: "/partnership-model", label: "Partnership Model" },
