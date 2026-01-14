@@ -233,8 +233,18 @@ const intelligenceLedger: IntelligenceEntry[] = [
     format: "Doc",
     date: "2025-11-30",
     title: "Partner Dossier: Carbon Neutral Marketplace",
-    detail: "Keir's platform for credit exchange. Current focus on tech stack upgrades and reforestation questionnaires.",
+    detail: "Keir's platform for credit exchange. Analysis includes a potential pivot from general NBS exchange to dedicated 'Hisagen Storefront'.",
+    file: "/ecosystem/czmp",
     tags: ["Marketplace", "Tech Upgrade"]
+  },
+  {
+    domain: "Ecosystem",
+    format: "Doc",
+    date: "Current",
+    title: "Partner Dossier: Pandion Studio",
+    detail: "Strategic venture architecture firm. Responsible for operational scaffolding, funding blueprints, and field intelligence synthesis.",
+    file: "/ecosystem/pandion",
+    tags: ["Scaffolding", "Strategy", "Systems Architect"]
   },
 
   // FRAMEWORKS

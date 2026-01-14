@@ -80,5 +80,62 @@ export const partners: Partner[] = [
                 format: "PDF"
             }
         ]
+    },
+    {
+        id: "czmp",
+        name: "Carbon Neutral Marketplace",
+        role: "Marketplace & Monetization Layer",
+        category: "Marketplace",
+        website: "https://www.carbonneutralmarketplace.com/",
+        websiteReview: "The site positions itself as a 'Curated Marketplace' for Nature-Based Solutions (NBS). Currently in 'maintenance-first' mode; requires significant UI/UX upgrades and a fix for the project questionnaire logic to align with modern VCM standards.",
+        personnel: [
+            {
+                name: "K A-B",
+                role: "Founder",
+                bio: "Leveraging background in financial quant strategy to build a transparent, traceable exchange for nature-based carbon as a verified asset class."
+            }
+        ],
+        organizationSummary: "Originally conceived as a broad-spectrum NBS exchange, CZMP acts as the commercial 'wrapper' and primary monetization portal for the HISAGEN pipeline.",
+        strategicContext: [
+            "Project Origin: The entity that facilitated the initial connection between Keir and Locus AG.",
+            "Boutique Pivot: Potential evolution from general marketplace to a dedicated 'Hisagen Storefront' and Investor Transparency Hub.",
+            "Vertical Integration: Enables the project to own the 'last mile' from African soil data to buyer retirement accounts.",
+            "Technical Debt: Identified as a critical Stage 2/3 workstream; currently a functional blocker for credit onboarding."
+        ],
+        keyResources: [
+            {
+                title: "Nature-Based Solutions Vision Deck",
+                file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-001-carbon-zero-pitch-jun23.pdf",
+                format: "PDF"
+            }
+        ]
+    },
+    {
+        id: "pandion",
+        name: "Pandion Studio",
+        role: "Systems Architect & Performance Partner",
+        category: "Operations",
+        website: "https://pandion.studio",
+        websiteReview: "Clean, strategy-focused site emphasizing AI, Capability, and Sustainability. Positions the firm as a partner for organizations needing to navigate the 'Stage Shift' from incubation to institutional scale.",
+        personnel: [
+            {
+                name: "Nic C",
+                role: "Principal & Architect",
+                bio: "Specializes in venture architecture and strategic synthesis. Responsible for building the operational Digital Twins and funding frameworks for complex climate assets."
+            }
+        ],
+        organizationSummary: "A strategic venture architecture firm providing the systems, software, and funding blueprints required to move HISAGEN from scientific verification to global scale.",
+        strategicContext: [
+            "Operational Scaffolding: Building and managing the project's digital foundation and tactical intelligence ledger.",
+            "Funding Blueprint: Coordinating the capital continuum and 12-lead fundraising pipeline.",
+            "Strategic Synthesis: Managing the 'Bridge'—ensuring field intelligence is translated into high-level strategic assets for stakeholders."
+        ],
+        keyResources: [
+            {
+                title: "The Capital Continuum Framework",
+                file: "/funding-roadmap/capital-continuum",
+                format: "Link"
+            }
+        ]
     }
 ];
