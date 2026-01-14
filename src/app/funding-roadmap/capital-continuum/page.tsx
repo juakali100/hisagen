@@ -6,46 +6,53 @@ export default function CapitalContinuumPlaybookPage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
-        stage="Stage 1"
-        trail={[{ label: "Overview", href: "/" }, { label: "Stage 1", href: "/stage-1" }, { label: "Capital Continuum" }]}
+        stage="Capital Strategy"
+        trail={[
+          { label: "Foundation & Evidence Vault", href: "/resources" },
+          { label: "Capital Continuum" },
+        ]}
       />
 
-      <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
-          Funding Roadmap
-        </p>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          Capital Continuum Playbook
-        </h1>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-          A structured template for staging nature-based projects across the Capital Continuum
-          and assessing investment readiness through five pillars. Use alongside the Funding
-          Lifecycle Alignment page to track progress and gaps.
-        </p>
-      </section>
-
-      <section className="mt-8 rounded-2xl border border-mist bg-white p-6 shadow-sm shadow-mist/40">
-        <div className="space-y-3">
-          <Image
-            src="https://static1.squarespace.com/static/66350a8282caba1fcc6be72e/67d063d8688f107c1998573f/68d2e82c46497d779bfa8b76/1762186863231/CC2.jpg?format=1500w"
-            alt="Capital Continuum cover: Unlocking finance for nature-based carbon projects along the continuum"
-            width={900}
-            height={700}
-            className="w-full rounded-xl border border-mist object-cover"
-          />
-          <p className="text-xs uppercase tracking-[0.3em] text-slate">Source</p>
-          <p className="text-sm text-slate">
-            Credit:
+      <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="flex-1">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
+            Funding Roadmap
+          </p>
+          <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
+            Capital Continuum Playbook
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
+            A structured template for staging nature-based projects across the Capital Continuum
+            and assessing investment readiness through five pillars. Use alongside the Funding
+            Lifecycle Alignment page to track progress and gaps.
+          </p>
+          <div className="mt-6 flex items-center gap-2">
+            <span className="text-[10px] uppercase tracking-widest text-slate/60 font-medium">Source:</span>
             <a
               href="https://capital-continuum.com/resources/the-capital-continuum-fsg-7nj4f"
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-secondary underline-offset-4 hover:underline"
+              className="text-[10px] uppercase tracking-widest font-bold text-secondary underline decoration-secondary/30 underline-offset-4 hover:decoration-secondary"
             >
-              Unlocking finance for Nature-based Carbon projects along the Capital Continuum - Capital Continuum Advisers
+              Capital Continuum Advisers
             </a>
-          </p>
+          </div>
         </div>
+
+        <a
+          href="https://hisagen.pandion.studio/funding-roadmap/capital-continuum"
+          target="_blank"
+          rel="noreferrer"
+          className="w-32 h-44 flex-shrink-0 group relative overflow-hidden rounded-lg border border-mist transition-transform hover:scale-105 shadow-sm"
+        >
+          <Image
+            src="https://static1.squarespace.com/static/66350a8282caba1fcc6be72e/67d063d8688f107c1998573f/68d2e82c46497d779bfa8b76/1762186863231/CC2.jpg?format=1500w"
+            alt="Capital Continuum Playbook"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-secondary/10 group-hover:bg-transparent transition-colors" />
+        </a>
       </section>
 
       <section className="mt-10 rounded-xl border border-mist bg-white p-6">
@@ -102,7 +109,7 @@ export default function CapitalContinuumPlaybookPage() {
       </section>
 
       <section className="mt-12 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">HISAGEN Draft Assessment</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold">HISAGEN Draft Assessment</p>
         <div className="mt-4 grid gap-4 text-sm text-slate md:grid-cols-3">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-secondary">Stage</p>
@@ -166,8 +173,8 @@ export default function CapitalContinuumPlaybookPage() {
         </p>
       </section>
 
-      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">Assessment Template</p>
+      <section className="mt-12 rounded-xl border border-mist bg-white p-6 mb-12">
+        <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold">Assessment Template</p>
         <div className="mt-4 grid gap-4 text-sm text-slate md:grid-cols-2">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-secondary">Project</p>
@@ -216,5 +223,3 @@ export default function CapitalContinuumPlaybookPage() {
     </div>
   );
 }
-
-
