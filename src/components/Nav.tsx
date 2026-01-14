@@ -1,68 +1,90 @@
 ﻿import Link from "next/link";
 
 const navItems = [
+  { href: "/organization", label: "Organization" },
   {
-    label: "HISAGEN Agri-Carbon Program",
+    label: "Program",
     href: "/program",
     dropdown: [
-      { href: "/project/hisagen-uganda", label: "HISAGEN Uganda Pilot" },
+      { href: "/program", label: "Program Overview" },
+      { href: "/partnership-model", label: "Partnership Model" },
     ],
   },
-  { href: "/funding-roadmap/capital-continuum", label: "Capital Continuum" },
-  { href: "/stage-1", label: "Stage 1" },
-  { href: "/stage-2", label: "Stage 2" },
-  { href: "/stage-3", label: "Stage 3" },
-  { href: "/stage-4", label: "Stage 4" },
+  {
+    label: "Project",
+    href: "/project/hisagen-uganda",
+    dropdown: [
+      { href: "/project/hisagen-uganda", label: "Uganda Pilot" },
+      { href: "/evidence", label: "Evidence Review" },
+    ],
+  },
+  {
+    label: "Capital",
+    href: "/funding-roadmap/capital-continuum",
+    dropdown: [
+      { href: "/funding-roadmap/capital-continuum", label: "Capital Continuum" },
+      { href: "/funding-roadmap", label: "Funding Roadmap" },
+      { href: "/stage-1", label: "Stage 1: Incubation" },
+      { href: "/stage-2", label: "Stage 2: Implementation" },
+      { href: "/stage-3", label: "Stage 3: Stabilization" },
+      { href: "/stage-4", label: "Stage 4: Maturity" },
+    ],
+  },
   { href: "/resources", label: "Resources" },
 ];
 
 export default function Nav() {
   return (
-    <header className="mx-auto mb-10 flex w-full max-w-5xl flex-wrap items-center justify-between gap-4 border-b border-mist pb-4 text-sm text-slate">
-      <div className="flex items-center gap-3">
-        <Link href="/" className="text-xs font-medium uppercase tracking-[0.3em] text-secondary">
-          HISAGEN
-        </Link>
-        <span className="rounded-full border border-mist bg-white px-3 py-1 text-xs font-medium text-slate">
-          Program: Agri-Carbon
-        </span>
-      </div>
-      <nav className="flex flex-wrap items-start gap-4">
-        {navItems.map((item) =>
-          item.dropdown ? (
-            <div key={item.label} className="relative inline-flex group">
+    <header className="mx-auto mb-10 border-b border-mist pb-4">
+      <div className="flex w-full max-w-5xl flex-wrap items-center justify-between gap-4 py-2">
+        <div className="flex items-center gap-3">
+          <Link href="/" className="text-sm font-bold uppercase tracking-[0.4em] text-secondary hover:text-primary transition-colors">
+            HISAGEN
+          </Link>
+          <div className="hidden sm:flex items-center gap-2">
+            <span className="h-4 w-px bg-mist"></span>
+            <span className="rounded-full border border-mist bg-parchment/50 px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-slate">
+              Founding Portal
+            </span>
+          </div>
+        </div>
+        <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          {navItems.map((item) =>
+            item.dropdown ? (
+              <div key={item.label} className="relative inline-flex group py-1">
+                <button
+                  className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors"
+                >
+                  {item.label}
+                  <span aria-hidden className="text-[10px] opacity-50 group-hover:rotate-180 transition-transform duration-200">
+                    ▼
+                  </span>
+                </button>
+                <div className="pointer-events-none absolute top-full left-0 z-50 mt-1 hidden min-w-[200px] flex-col rounded-xl border border-mist bg-white py-2 shadow-xl shadow-secondary/5 group-hover:flex group-hover:pointer-events-auto">
+                  {item.dropdown.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="px-4 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-slate hover:bg-parchment/50 hover:text-primary transition-all"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
               <Link
+                key={item.href}
                 href={item.href}
-                className="flex items-center gap-1 text-sm font-semibold uppercase text-secondary tracking-[0.2em]"
+                className="py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-slate hover:text-primary transition-colors"
               >
                 {item.label}
-                <span aria-hidden className="text-xs">
-                  ▾
-                </span>
               </Link>
-              <div className="pointer-events-none absolute top-full z-10 mt-2 hidden w-56 flex-col rounded-xl border border-mist bg-white py-3 px-4 shadow-lg transition duration-200 group-hover:flex group-hover:pointer-events-auto group-focus-within:flex">
-                {item.dropdown.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-sm font-medium text-slate transition hover:text-primary"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm text-slate transition hover:text-primary"
-            >
-              {item.label}
-            </Link>
-          )
-        )}
-      </nav>
+            )
+          )}
+        </nav>
+      </div>
     </header>
   );
 }
+

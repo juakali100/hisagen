@@ -1,213 +1,122 @@
 ﻿import StageBreadcrumb from "../components/StageBreadcrumb";
 
-const stages = [
+const foundingPillars = [
   {
-    title: "Stage 1: Incubation",
-    status: "Current",
-    focus: "Foundations and proof of concept.",
-    capital: "Grants, philanthropy, sweat equity.",
-    needs: ["Pilot evidence compiled", "Unit economics draft", "Carbon rights clarity"],
-    href: "/stage-1",
+    title: "01. Organization",
+    description: "The founding mission, team governance, and strategic DNA of HISAGEN.",
+    href: "/organization",
   },
   {
-    title: "Stage 2: Implementation",
-    focus: "Operational rollout and early delivery.",
-    capital: "Blended finance, impact investors.",
-    needs: ["MRV operational", "Delivery partners secured", "First credits issued"],
+    title: "02. Program",
+    description: "The Agri-Carbon operating model, revenue wheel, and partner ecosystem.",
+    href: "/program",
   },
   {
-    title: "Stage 3: Stabilization",
-    focus: "Consistent performance and predictable delivery.",
-    capital: "Private equity, structured debt.",
-    needs: ["Multi-year track record", "Stable cashflows", "Scaled governance"],
-  },
-  {
-    title: "Stage 4: Maturity",
-    focus: "Institutional capital readiness.",
-    capital: "Green bonds, securities, public equity.",
-    needs: ["10+ years performance", "Institutional capital fit", "Taxonomy alignment"],
+    title: "03. Project",
+    description: "Real-world execution starting with the Uganda Agri-Carbon Pilot.",
+    href: "/project/hisagen-uganda",
   },
 ];
 
-const stageStyles: Record<string, string> = {
-  Current: "border-primary/60 bg-primary/5",
-  default: "border-mist bg-white",
-};
-
-const stage1Links = [
-  {
-    title: "Stage 1 Brief",
-    description: "Project summary, knowns, gaps, and current decision points.",
-    href: "/stage-1",
-  },
-  {
-    title: "Evidence Review",
-    description: "Pilot data, proof points, and source materials.",
-    href: "/evidence",
-  },
-  {
-    title: "Funding Roadmap",
-    description: "Capital sequencing and Stage 1 grant workflow.",
-    href: "/funding-roadmap",
-  },
-  {
-    title: "Capital Continuum",
-    description: "Stage logic, five pillars, and readiness assessment.",
-    href: "/funding-roadmap/capital-continuum",
-  },
-];
-
-const stage1Priorities = [
-  "Compile verified pilot data and MRV pathway.",
-  "Clarify carbon rights and land tenure structure.",
-  "Draft a simple unit economics model.",
-  "Define the target funder segment for Stage 1.",
+const homeStats = [
+  { label: "Phase", value: "Founding" },
+  { label: "Focus", value: "Agri-Carbon" },
+  { label: "Pilot", value: "Uganda" },
+  { label: "Pillar", value: "3-Track" },
 ];
 
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb stage="HISAGEN" trail={[{ label: "Overview" }]} />
+      <StageBreadcrumb stage="HISAGEN" trail={[{ label: "The Founding Dashboard" }]} />
 
-      <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">HISAGEN Agri-Carbon Program</p>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          HISAGEN is building an agri-carbon platform that unlocks carbon finance for working landscapes.
+      <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-16 text-center">
+        <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/60">Agri-Carbon Platform</p>
+        <h1 className="mt-6 text-5xl font-bold leading-tight text-secondary">
+          Architecting HISAGEN
         </h1>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-          This internal portal documents the HISAGEN Agri-Carbon Program, keeping the capital strategy, partner
-          context, and pilot evidence shared with the client and core team as we mature the Uganda proof of concept
-          and build the wider organisational story.
+        <p className="mt-6 mx-auto max-w-2xl text-lg leading-relaxed text-slate italic font-medium">
+          "We are building the crane while lifting the load. This portal is the live blueprint for the HISAGEN organization, program, and projects."
         </p>
-        <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium text-slate">
-          <span className="rounded-full border border-mist bg-white px-3 py-1">Type: Private portal</span>
-          <span className="rounded-full border border-mist bg-white px-3 py-1">Focus: HISAGEN company</span>
-          <span className="rounded-full border border-mist bg-white px-3 py-1">Pilot: Uganda (Stage 1)</span>
-        </div>
-      </section>
-
-      <section className="mt-12 space-y-6">
-        <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">HISAGEN company story</p>
-          <h2 className="mt-2 text-2xl font-semibold text-secondary">Our organisational journey</h2>
-          <p className="mt-3 text-sm text-slate">
-            HISAGEN is building the Agri-Carbon Program to finance nature-based solutions through blended capital, community-integrated
-            delivery, and transparent partner networks. This portal is the working hub for that program; it documents the capital
-            continuum logic, partner briefs, and the evidence piles that shape HISAGEN and future projects.
-          </p>
-        </div>
-        <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Uganda pilot spotlight</p>
-          <h2 className="mt-2 text-2xl font-semibold text-secondary">Flagship project for HISAGEN</h2>
-          <ul className="mt-3 space-y-2 text-sm text-slate">
-            <li>Location: Uganda, maize trials for nature-based carbon and community resilience.</li>
-            <li>Partners: Locus AG (Product + Carbon Now initiative) and Keir’s Carbon Marketplace venture.</li>
-            <li>Deliverables: carbon rights clarity, pilot data (MRV), community engagement, and a funder-ready proposal.</li>
-            <li>Objective: prove the HISAGEN Agri-Carbon Program method before replicating across landscapes.</li>
-          </ul>
-        </div>
-        <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Partners & products</p>
-          <p className="mt-2 text-sm text-slate">
-            Locus AG contributes commercial product depth and the Carbon Now program, while Keir’s carbon marketplace organisation
-            is shaping downstream demand and buyer narratives. This portal keeps those relationships transparent through the
-            communications timeline, attachments, and partner pages that support the HISAGEN Agri-Carbon Program narrative.
-          </p>
-        </div>
-      </section>
-
-      <section className="mt-12">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">Capital Continuum Stages</p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {stages.map((stage) => (
-            <div
-              key={stage.title}
-              className={`rounded-xl border p-6 ${stage.status ? stageStyles[stage.status] : stageStyles.default}`}
-            >
-              <div className="flex items-center justify-between gap-3">
-                <h3 className="text-lg font-semibold text-secondary">{stage.title}</h3>
-                {stage.status ? (
-                  <span className="rounded-full border border-primary/40 bg-white px-3 py-1 text-xs font-medium text-secondary">
-                    {stage.status}
-                  </span>
-                ) : null}
-              </div>
-              <p className="mt-2 text-sm text-slate">{stage.focus}</p>
-              <p className="mt-4 text-xs uppercase tracking-[0.2em] text-slate">Capital fit</p>
-              <p className="mt-2 text-sm text-slate">{stage.capital}</p>
-              <p className="mt-4 text-xs uppercase tracking-[0.2em] text-slate">Key needs</p>
-              <ul className="mt-2 space-y-1 text-sm text-slate">
-                {stage.needs.map((need) => (
-                  <li key={need}>{need}</li>
-                ))}
-              </ul>
-              {stage.href ? (
-                <a
-                  href={stage.href}
-                  className="mt-4 inline-flex items-center rounded-full border border-mist bg-white px-4 py-2 text-xs font-medium text-secondary hover:border-primary/50"
-                >
-                  Open Stage 1 Brief
-                </a>
-              ) : null}
+        <div className="mt-10 flex justify-center gap-4">
+          {homeStats.map((stat) => (
+            <div key={stat.label} className="px-4 py-2 rounded-lg border border-mist bg-white/50">
+              <p className="text-[9px] font-bold uppercase tracking-widest text-slate/60">{stat.label}</p>
+              <p className="text-sm font-bold text-secondary">{stat.value}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">Capital Continuum overview</p>
-        <p className="mt-3 text-sm text-slate">
-          Capital Continuum is the spine of our funding strategy. Start at the dedicated overview page, then browse the stage links
-          (1-4) in the navigation as the project grows.
-        </p>
-        <div className="mt-4 grid gap-3 text-xs font-semibold uppercase tracking-[0.3em]">
-          <a href="/funding-roadmap/capital-continuum" className="text-secondary underline-offset-4 hover:underline">
-            Open Capital Continuum overview
+      <section className="mt-12 grid gap-6 md:grid-cols-3">
+        {foundingPillars.map((pillar) => (
+          <a
+            key={pillar.title}
+            href={pillar.href}
+            className="group rounded-xl border border-mist bg-white p-8 transition-all hover:bg-parchment/30 hover:shadow-xl hover:shadow-secondary/5"
+          >
+            <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-4 group-hover:text-primary transition-colors">
+              {pillar.title}
+            </h2>
+            <p className="text-base text-slate leading-relaxed">
+              {pillar.description}
+            </p>
+            <div className="mt-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
+              Explore Pillar →
+            </div>
           </a>
-          <span>Stage 1: /stage-1</span>
-          <span>Stage 2: /stage-2</span>
-          <span>Stage 3: /stage-3</span>
-          <span>Stage 4: /stage-4</span>
+        ))}
+      </section>
+
+      <section className="mt-12 space-y-6">
+        <div className="rounded-xl border border-mist bg-white p-8">
+          <div className="flex items-center justify-between mb-6">
+            <p className="text-xs uppercase tracking-[0.3em] text-secondary font-bold">The Founding Narrative</p>
+            <span className="text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded font-bold uppercase tracking-widest">Master Strategy</span>
+          </div>
+          <p className="text-lg text-slate leading-relaxed">
+            HISAGEN is more than a carbon developer. We are a **systems architect** for the agricultural transition. By acting as founders, we are designing a platform that integrates capital, technology, and community to make regenerative agriculture bankable at scale.
+          </p>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            <div className="p-6 rounded-lg bg-parchment/20 border border-mist/50">
+              <h3 className="font-bold text-secondary uppercase text-xs tracking-widest mb-3">Our Objective</h3>
+              <p className="text-sm text-slate">To prove the HISAGEN Agri-Carbon method in Uganda before replicating across sub-Saharan landscapes and beyond.</p>
+            </div>
+            <div className="p-6 rounded-lg bg-parchment/20 border border-mist/50">
+              <h3 className="font-bold text-secondary uppercase text-xs tracking-widest mb-3">The Partnership</h3>
+              <p className="text-sm text-slate">A collaboration between Deep Six Consulting (Operations) and Pandion Studio (Systems) to build a global leader in agri-carbon.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">Resources (cross-cutting)</p>
-        <p className="mt-3 text-sm text-slate">
-          The Resources page pulls comms, attachments, and partner summaries. Think of it as the evidence vault behind this portal—always
-          in sync with what we present to clients and partners.
+      <section className="mt-12 rounded-xl border border-mist bg-secondary text-parchment p-12 text-center">
+        <h2 className="text-3xl font-bold mb-4">Ready for Stage 1: Incubation</h2>
+        <p className="max-w-2xl mx-auto opacity-80 text-lg mb-8 italic">
+          "We are currently consolidating pilot data, clarifying carbon rights, and drafting the unit economics that will anchor our first funding ask."
         </p>
-        <a
-          href="/resources"
-          className="mt-3 inline-flex items-center rounded-full border border-mist bg-white px-4 py-2 text-xs font-medium text-secondary hover:border-primary/50"
-        >
-          Open Resources
-        </a>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="/stage-1" className="px-6 py-3 bg-parchment text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white transition-colors">
+            View Stage 1 Brief
+          </a>
+          <a href="/funding-roadmap/capital-continuum" className="px-6 py-3 border border-parchment/30 text-parchment rounded-full font-bold uppercase tracking-widest text-xs hover:bg-parchment/10 transition-colors">
+            Capital Continuum
+          </a>
+        </div>
       </section>
 
-      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 1 Workbench</p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {stage1Links.map((card) => (
-            <a
-              key={card.title}
-              href={card.href}
-              className="rounded-xl border border-mist bg-white p-6 transition hover:border-primary/50"
-            >
-              <h3 className="text-lg font-semibold text-secondary">{card.title}</h3>
-              <p className="mt-2 text-sm text-slate">{card.description}</p>
-            </a>
-          ))}
-        </div>
-        <div className="mt-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Stage 1 priorities</p>
-          <ul className="mt-3 space-y-2 text-sm text-slate">
-            {stage1Priorities.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+      <section className="my-16 border-t border-mist pt-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-xs text-slate font-medium">
+            &copy; 2026 HISAGEN. Built using the Self-Building Crane Protocol.
+          </p>
+          <div className="flex gap-4">
+            <a href="/resources" className="text-xs font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors">Resources</a>
+            <a href="/website-prototype" className="text-xs font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors">Website Prototype</a>
+          </div>
         </div>
       </section>
     </div>
   );
 }
+
