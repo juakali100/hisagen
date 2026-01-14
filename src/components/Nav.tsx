@@ -60,15 +60,15 @@ export default function Nav() {
                   </span>
                 </Link>
                 {/* The "before" pseudo-element on this absolute div acts as a bridge to prevent hover loss */}
-                <div className="pointer-events-none absolute top-full left-0 z-50 hidden min-w-[200px] flex-col pt-3 group-hover:flex group-hover:pointer-events-auto before:absolute before:inset-0 before:h-3 before:w-full before:-top-3 before:content-['']">
+                <div className="pointer-events-none absolute top-full left-0 z-50 hidden min-w-[260px] flex-col pt-3 group-hover:flex group-hover:pointer-events-auto before:absolute before:inset-0 before:h-3 before:w-full before:-top-3 before:content-['']">
                   <div className="flex flex-col rounded-xl border border-mist bg-white py-2 shadow-xl shadow-secondary/5">
                     {item.dropdown.map((link: any) => (
                       <div key={link.href || link.label} className="flex flex-col">
                         <Link
                           href={link.href || "#"}
                           className={`px-4 py-2 text-sm transition-all ${link.subItems
-                              ? "font-bold text-secondary bg-parchment/30 py-2.5"
-                              : "font-medium text-slate hover:bg-parchment/50 hover:text-primary"
+                            ? "font-bold text-secondary bg-parchment/30 py-2.5"
+                            : "font-medium text-slate hover:bg-parchment/50 hover:text-primary"
                             }`}
                         >
                           {link.label}
