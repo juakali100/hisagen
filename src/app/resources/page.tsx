@@ -1,5 +1,11 @@
 ﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
 
+type Attachment = {
+  title: string;
+  file: string;
+  format: "PDF" | "Excel" | "Doc" | "Link";
+};
+
 type IntelligenceEntry = {
   domain: "Context" | "Evidence" | "Ecosystem" | "Frameworks";
   format: "Email" | "PDF" | "Excel" | "Call" | "Doc" | "Link" | "WhatsApp";
@@ -7,6 +13,7 @@ type IntelligenceEntry = {
   title: string;
   detail: string;
   file?: string;
+  attachments?: Attachment[];
   tags: string[];
   synthesis?: string[];
 };
@@ -93,12 +100,26 @@ const intelligenceLedger: IntelligenceEntry[] = [
     title: "Project Sequencing & Context",
     detail: "Overview from Keir on Locus AG partnership, Uganda pilot context, and sequencing of the four ventures.",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-07-email-1-followup.md",
+    attachments: [
+      {
+        title: "Carbon Zero Pitch Deck",
+        file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-001-carbon-zero-pitch-jun23.pdf",
+        format: "PDF"
+      },
+      {
+        title: "Locus AG Company Overview",
+        file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-002-locus-ag-overview-jun24.pdf",
+        format: "PDF"
+      }
+    ],
     tags: ["Locus AG", "Uganda", "Operations"],
     synthesis: [
-      "HISAGEN incorporated in US + Uganda entity with local partners established.",
-      "Formal partnership with Locus AG (microbial products) confirmed for Africa.",
-      "Uganda maize trial results described as 'very encouraging'.",
-      "K is actively fundraising; currently cash-constrained but in investor talks.",
+      "Follow-up from initial phone call confirming HISAGEN (High Impact Soil/Seed Application for Greener Environments) incorporation.",
+      "Keir is actively in talks with potential investors but currently cash-constrained ('hold onto the day job for now').",
+      "Partnership with Locus AG confirmed, starting with a test pilot of microbial products in Uganda.",
+      "Core strategy: Leverage Scope 3 carbon credits via CarbonNow to record, capture, and trade credits.",
+      "Kenya identified as a high-value target for coffee, tea, and roses; proposed pilot with AgriTecno leading to a formal JV.",
+      "Integration: Carbon credits generated will be sold via Keir's US entity, the Carbon Zero Marketplace.",
     ]
   },
   {
@@ -184,8 +205,18 @@ const intelligenceLedger: IntelligenceEntry[] = [
     domain: "Ecosystem",
     format: "Doc",
     date: "2025-11-30",
+    title: "Partner Dossier: Deep Six Consulting",
+    detail: "Core venture building partner and strategic lead. Dossier on digital transformation expertise and HISAGEN origin.",
+    file: "/ecosystem/deep-six",
+    tags: ["Strategy", "Venture Builder"]
+  },
+  {
+    domain: "Ecosystem",
+    format: "Doc",
+    date: "2025-11-30",
     title: "Partner Dossier: Locus AG",
-    detail: "Overview of microbial tech + 'CarbonNOW' farmer sequestration program in the USA.",
+    detail: "Microbial technology partner. Detailed profile on Rhizolizer tech and 'CarbonNOW' methodology.",
+    file: "/ecosystem/locus-ag",
     tags: ["Partner", "Microbial", "Agri-Carbon"]
   },
   {
@@ -296,6 +327,25 @@ export default function ResourcesPage() {
                           </ul>
                         </div>
                       )}
+                      {item.attachments && (
+                        <div className="mt-4 flex flex-wrap gap-3">
+                          <p className="w-full text-[10px] font-bold uppercase tracking-widest text-secondary/40 mb-1">Related Evidence</p>
+                          {item.attachments.map((attachment) => (
+                            <a
+                              key={attachment.title}
+                              href={attachment.file}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-mist/30 border border-mist hover:border-secondary/20 transition-all"
+                            >
+                              <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded ${attachment.format === 'PDF' ? 'bg-red-100 text-red-600' : 'bg-secondary/10 text-secondary'}`}>
+                                {attachment.format}
+                              </span>
+                              <span className="text-xs font-medium text-secondary">{attachment.title}</span>
+                            </a>
+                          ))}
+                        </div>
+                      )}
                       <div className="flex flex-wrap gap-2 pt-1">
                         {item.tags.map(tag => (
                           <span key={tag} className="text-[9px] bg-parchment px-1.5 py-0.5 rounded text-slate/60 font-medium">#{tag}</span>
@@ -304,13 +354,13 @@ export default function ResourcesPage() {
                     </div>
 
                     {item.file && (
-                      <a
+                      <Link
                         href={item.file}
                         target={item.file.startsWith('http') ? "_blank" : "_self"}
                         className="flex-shrink-0 flex items-center justify-center h-10 px-4 rounded-lg bg-secondary text-parchment text-[10px] uppercase tracking-widest font-bold hover:bg-secondary/90 transition-colors"
                       >
-                        {item.format === 'Link' ? 'Open Link' : 'View Item'}
-                      </a>
+                        {item.format === 'Link' ? 'Open Link' : item.domain === 'Ecosystem' ? 'View Dossier' : 'View Item'}
+                      </Link>
                     )}
                   </div>
                 ))}
