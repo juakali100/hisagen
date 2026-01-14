@@ -36,19 +36,19 @@ const prototypeSections = [
 
 const referenceAssets = [
   {
-    title: "Funding Roadmap",
-    detail: "Lifecycle alignment + capital continuum reference.",
-    href: "/funding-roadmap",
+    title: "Stage 1 Brief",
+    detail: "Execution plan, de-risking milestones, and capital fit.",
+    href: "/stage-1",
   },
   {
-    title: "Resources timeline",
+    title: "Resources Timeline",
     detail: "Chronological comms, attachments, and discovery summaries.",
     href: "/resources",
   },
   {
-    title: "Grant playbook",
-    detail: "Stage 1 grant logic that could animate an application page.",
-    href: "/funding-roadmap/grant-proposal",
+    title: "Program Strategy",
+    detail: "Operating architecture and partner ecosystem.",
+    href: "/program",
   },
 ];
 

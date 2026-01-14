@@ -1,9 +1,10 @@
 ﻿import Link from "next/link";
 
 const navItems = [
-  { href: "/organization", label: "Organization" },
+  { href: "/organization", label: "Who We Are" },
+  { href: "/strategy", label: "What We Do" },
   {
-    label: "Agri-Carbon Program",
+    label: "Programs",
     href: "/program",
     dropdown: [
       {
@@ -19,7 +20,7 @@ const navItems = [
       },
     ],
   },
-  { href: "/resources", label: "Resources" },
+  { href: "/resources", label: "Evidence Vault" },
 ];
 
 export default function Nav() {

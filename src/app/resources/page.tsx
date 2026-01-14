@@ -258,15 +258,6 @@ const intelligenceLedger: IntelligenceEntry[] = [
     file: "/funding-roadmap/capital-continuum",
     tags: ["Funding", "Strategy", "Blueprints"]
   },
-  {
-    domain: "Frameworks",
-    format: "Doc",
-    date: "Current",
-    title: "Grant Funding Lifecycle",
-    detail: "An 11-phase roadmap for grant-specific journeys nested within Stage 1 & 2.",
-    file: "/funding-roadmap/lifecycle",
-    tags: ["Grant", "Operations", "Timeline"]
-  }
 ];
 
 export default function ResourcesPage() {
