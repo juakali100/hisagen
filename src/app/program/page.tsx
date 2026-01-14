@@ -84,6 +84,27 @@ export default function ProgramPage() {
         </div>
       </section>
 
+      <section className="mt-10 rounded-xl border border-mist bg-parchment/10 p-8 text-center">
+        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40 mb-4">Venture Architecture</p>
+        <h2 className="text-xl font-bold text-secondary mb-6 italic">"The Venture Triad"</h2>
+        <div className="grid gap-8 md:grid-cols-3">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-secondary">The Product</p>
+            <p className="mt-2 text-sm font-semibold text-slate">Agri-Carbon Program</p>
+          </div>
+          <div className="hidden md:block text-2xl text-mist">+</div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-secondary">The Location</p>
+            <p className="mt-2 text-sm font-semibold text-slate">Uganda Pilot Project</p>
+          </div>
+          <div className="hidden md:block text-2xl text-mist">+</div>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-secondary">The Fuel</p>
+            <p className="mt-2 text-sm font-semibold text-slate">Capital Continuum</p>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-10 grid gap-4 md:grid-cols-3">
         {programHighlights.map((highlight) => (
           <div

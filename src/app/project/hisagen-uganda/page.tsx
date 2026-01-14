@@ -48,6 +48,34 @@ export default function PilotPage() {
         ))}
       </section>
 
+      <section className="mt-10 rounded-2xl border border-secondary/20 bg-secondary/5 p-8 flex flex-col md:flex-row items-center gap-8 shadow-sm">
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">Current Funding Status</p>
+          </div>
+          <h2 className="text-2xl font-bold text-secondary">Stage 1: Incubation</h2>
+          <p className="mt-3 text-sm text-slate leading-relaxed">
+            This project is currently executing the <strong>Incubation Phase</strong> of the HISAGEN Capital Continuum. We are securing foundational data, local partnerships, and initial "Soil-to-Sale" proof points.
+          </p>
+        </div>
+        <div className="flex flex-col gap-3 w-full md:w-auto">
+          <a
+            href="/stage-1"
+            className="inline-flex items-center justify-center rounded-full bg-secondary px-6 py-3 text-sm font-bold text-parchment hover:bg-secondary/90 transition-all shadow-md group"
+          >
+            Review Stage 1 Criteria
+            <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+          <a
+            href="/funding-roadmap/capital-continuum"
+            className="inline-flex items-center justify-center rounded-full border border-secondary/20 bg-white px-6 py-3 text-sm font-bold text-secondary hover:bg-parchment/50 transition-all shadow-sm"
+          >
+            Institutional Blueprint
+          </a>
+        </div>
+      </section>
+
       <section className="mt-10 rounded-xl border border-mist bg-white p-6">
         <div className="flex items-center justify-between mb-4">
           <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold">Project Strategic Gaps</p>
