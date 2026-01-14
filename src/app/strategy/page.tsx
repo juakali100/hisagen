@@ -15,7 +15,39 @@ const strategyPillars = [
     },
     {
         title: "The Theory of Change",
-        content: "By integrating cutting-edge microbial technology (Nature) with robust digital systems architecture (Tech), we can lower the cost of carbon verification and increase yields globally, creating a universal model for ecological and economic value."
+        content: "By integrating cutting-edge microbial technology (Nature) with robust digital systems architecture (Tech), we can lower the cost of carbon verification and increase yields globally. We create the vertical integration required to turn landscape-level outcomes into institutional-grade assets."
+    },
+    {
+        title: "Strategic Positioning",
+        content: "HISAGEN operates as a 'Full-Stack Navigator' within the global sustainability system. We connect the biophysical reality of the soil (L1-L2) to the strategic requirements of corporate action and regulatory disclosure (L4-L5)."
+    }
+];
+
+const systemicStack = [
+    {
+        layer: "L5: Corporate Action",
+        focus: "Execution & Strategy",
+        detail: "Providing the high-integrity credits and supply-chain data required for corporate transition plans and carbon targets."
+    },
+    {
+        layer: "L4: Policy & Governance",
+        focus: "The Rules of the Game",
+        detail: "Aligning with mandatory disclosure (CSRD/EUDR) and voluntary standards (SBTi/TNFD) to ensure future-proof compliance."
+    },
+    {
+        layer: "L3: Ecosystem Services",
+        focus: "Value Translation",
+        detail: "Converting soil health (Regulating Services) and crop yields (Provisioning Services) into bankable economic value."
+    },
+    {
+        layer: "L2: Landscapes",
+        focus: "Ground-Truth Reality",
+        detail: "Direct management of pilot zones (e.g. Uganda) where environmental and social outcomes actually happen."
+    },
+    {
+        layer: "L1: Foundations",
+        focus: "Planetary Boundaries",
+        detail: "Anchoring the model in biophysical science—restoring nutrient cycles and soil biomes to stay within safe operating limits."
     }
 ];
 
@@ -68,21 +100,58 @@ export default function StrategyPage() {
                 ))}
             </section>
 
-            <section className="mt-16">
-                <div className="mb-10 text-center">
-                    <h2 className="text-3xl font-bold text-secondary">The HISAGEN Methodology</h2>
-                    <p className="mt-4 text-slate max-w-xl mx-auto italic">How we translate strategy into landscape-scale execution.</p>
+            <section className="mt-20">
+                <div className="mb-12 text-center">
+                    <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/40 mb-4">Vertical Integration</h2>
+                    <h3 className="text-4xl font-bold text-secondary">The Systemic Stack</h3>
+                    <p className="mt-4 text-slate max-w-2xl mx-auto font-medium italic">
+                        "HISAGEN solves the strategy-execution gap by operating across every layer of the sustainability system."
+                    </p>
                 </div>
 
-                <div className="grid gap-6 md:grid-cols-4">
-                    {methodology.map((m) => (
-                        <div key={m.step} className="p-6 rounded-xl border border-mist bg-parchment/10 relative overflow-hidden group hover:bg-white transition-colors">
-                            <span className="text-5xl font-black text-secondary/5 absolute -right-2 top-0 group-hover:text-secondary/10 transition-colors uppercase">{m.step.split('.')[1]}</span>
-                            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-3">{m.step}</p>
-                            <h3 className="text-sm font-bold text-secondary mb-2">{m.title}</h3>
-                            <p className="text-[11px] text-slate leading-relaxed">{m.detail}</p>
+                <div className="space-y-4">
+                    {systemicStack.map((s, idx) => (
+                        <div key={s.layer} className="relative flex flex-col md:flex-row gap-6 p-8 rounded-2xl border border-mist bg-white hover:border-primary/30 transition-all group shadow-sm">
+                            <div className="md:w-px h-full bg-mist absolute left-12 top-0 -z-10 hidden md:block" />
+                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-secondary text-parchment flex items-center justify-center font-bold text-xs relative z-10 shadow-lg group-hover:bg-primary transition-colors">
+                                {5 - idx}
+                            </div>
+                            <div className="flex-1">
+                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+                                    <h4 className="text-lg font-bold text-secondary">{s.layer}</h4>
+                                    <span className="text-[10px] font-black uppercase tracking-widest text-primary/60">{s.focus}</span>
+                                </div>
+                                <p className="text-sm text-slate leading-relaxed">{s.detail}</p>
+                            </div>
                         </div>
                     ))}
+                </div>
+            </section>
+
+            <section className="mt-20 p-12 rounded-3xl border border-mist bg-parchment/10">
+                <div className="grid gap-12 md:grid-cols-2">
+                    <div>
+                        <h3 className="text-2xl font-bold text-secondary mb-6 lowercase tracking-tight">The Data Flow<span className="text-primary font-black uppercase tracking-widest text-[9px] ml-3">producers → investors</span></h3>
+                        <p className="text-sm text-slate leading-relaxed mb-6">
+                            Evidence flows up through our system. We capture ground-truth MRV at the farm level, verify it through technical certifiers, and deliver it as a source of truth for corporate disclosure and ESG reporting.
+                        </p>
+                        <div className="flex gap-2">
+                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">Measurement</span>
+                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">Verification</span>
+                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">Disclosure</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 className="text-2xl font-bold text-secondary mb-6 lowercase tracking-tight">The Capital Flow<span className="text-primary font-black uppercase tracking-widest text-[9px] ml-3">investors → stewards</span></h3>
+                        <p className="text-sm text-slate leading-relaxed mb-6">
+                            Capital flows down through our system. We aggregate investment and de-risking funding from global markets, shaping it through high-integrity frameworks to reach the land stewards who drive sequestration.
+                        </p>
+                        <div className="flex gap-2">
+                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">Blended Finance</span>
+                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">Insetting</span>
+                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">PES</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
