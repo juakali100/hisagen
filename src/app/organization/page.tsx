@@ -11,7 +11,7 @@ const foundingPillars = [
     },
     {
         title: "The Partnership Model",
-        body: "We don't work alone. HISAGEN is a partnership between Deep Six Consulting, technical product partners (Locus AG), and downstream marketplace innovators. This site maps those intersections.",
+        body: "We don't work alone. HISAGEN is a partnership between Deep Six Consulting, technical product partners (Locus AG), downstream marketplace innovators, and Pandion Studio as the systems architect. This site maps those intersections.",
     },
 ];
 
@@ -77,7 +77,7 @@ export default function OrganizationPage() {
                             </div>
                             <div className="flex items-center gap-2">
                                 <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wider ${gap.status === 'Research Needed' ? 'bg-amber-100 text-amber-700' :
-                                        gap.status === 'In Progress' ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-600'
+                                    gap.status === 'In Progress' ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-600'
                                     }`}>
                                     {gap.status}
                                 </span>

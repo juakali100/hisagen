@@ -169,6 +169,33 @@ const fundingBlueprints = [
   },
 ];
 
+const partnerEcosystem = [
+  {
+    name: "Locus Agricultural Solutions (Locus AG)",
+    role: "Technical Product Partner",
+    details: "Innovative Agritech company providing microbial solutions (Rhizolizer® Duo) that increase yields and soil health. Their 'CarbonNOW' program empowers farmers to sequester carbon and generate credits.",
+    context: "Flagship microbe blends improve nutrient uptake and stress resilience. HISAGEN acts as the conduit for Locus AG tests in Africa.",
+  },
+  {
+    name: "Carbon Neutral Marketplace",
+    role: "Downstream Marketplace Innovator",
+    details: "Platform for facilitating high-integrity carbon credit exchange. Serves as the primary marketplace for credits generated through HISAGEN's sustainable agriculture initiatives.",
+    context: "Currently undergoing upgrades to improve the tech stack and questionnaire functionality for reforestation and sustainable ag projects.",
+  },
+  {
+    name: "3-Degrees",
+    role: "Accreditation & Design Partner",
+    details: "Specialized consultancy for carbon offset program design. Guiding HISAGEN through Verra or Gold Standard accreditation pathways.",
+    context: "Ensures programmatic integrity and compliance with international carbon standards for institutional bankability.",
+  },
+  {
+    name: "Pandion Studio",
+    role: "Systems & Infrastructure architect",
+    details: "Building the 'Self-Building Crane'—engineering the frameworks, digital portal, and Capital Continuum alignment required to scale.",
+    context: "Provides the technical spine and organizational design required to move projects from Stage 1 to Stage 4.",
+  },
+];
+
 export default function ResourcesPage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -245,17 +272,24 @@ export default function ResourcesPage() {
         </div>
 
         <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4">Core Attachments List</p>
-          <div className="grid gap-4 md:grid-cols-2">
-            {attachmentHighlights.map((item) => (
-              <div key={item.id} className="p-4 border border-mist/50 rounded-lg">
-                <p className="text-xs font-bold text-secondary uppercase tracking-widest">{item.id}</p>
-                <p className="text-sm text-slate mt-1">{item.title}</p>
-                <p className="text-[10px] text-slate/40 mt-2 italic">Ref: {item.source}</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-6">Key Partner Ecosystem (Synthesized Intelligence)</p>
+          <div className="grid gap-6 md:grid-cols-2">
+            {partnerEcosystem.map((partner) => (
+              <div key={partner.name} className="p-5 border border-mist/50 rounded-xl bg-parchment/5">
+                <div className="flex items-center justify-between mb-3">
+                  <h4 className="text-sm font-bold text-secondary">{partner.name}</h4>
+                  <span className="text-[9px] uppercase tracking-widest bg-secondary text-parchment px-2 py-0.5 rounded font-bold">{partner.role}</span>
+                </div>
+                <p className="text-xs text-slate leading-relaxed">{partner.details}</p>
+                <div className="mt-4 pt-4 border-t border-mist/40">
+                  <p className="text-[10px] text-slate/50 italic"><span className="font-bold uppercase tracking-tighter not-italic mr-1">Strategic Context:</span> {partner.context}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
+
+        <div className="rounded-xl border border-mist bg-white p-6">
       </section>
 
       <section className="my-16 flex flex-col items-center text-center p-12 rounded-2xl bg-parchment/30 border border-mist border-dashed">
