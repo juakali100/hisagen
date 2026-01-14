@@ -63,6 +63,87 @@ export default function PilotPage() {
           </div>
         </div>
 
+        <div className="mb-12 rounded-2xl overflow-hidden border border-mist bg-slate-50 shadow-sm">
+          {/* Stage Headers */}
+          <div className="grid grid-cols-4 border-b border-mist">
+            {[
+              { years: "Years 1-3", stage: "Incubation" },
+              { years: "Years 4-8", stage: "Implementation" },
+              { years: "Years 9-15", stage: "Stabilization" },
+              { years: "Years 16+", stage: "Maturity" }
+            ].map((s, i) => (
+              <div key={i} className={`p-4 text-center ${i < 3 ? 'border-r border-mist' : ''}`}>
+                <p className="text-[10px] font-bold text-slate/60 uppercase tracking-widest">{s.years}</p>
+                <p className="text-xs font-bold text-secondary uppercase tracking-tighter mt-1">{s.stage}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Chart Area */}
+          <div className="relative h-48 bg-gradient-to-r from-emerald-50 via-emerald-100 to-emerald-800">
+            <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+              {/* Vertical Dividers */}
+              <line x1="25%" y1="0" x2="25%" y2="100%" stroke="rgba(255,255,255,0.2)" />
+              <line x1="50%" y1="0" x2="50%" y2="100%" stroke="rgba(255,255,255,0.2)" />
+              <line x1="75%" y1="0" x2="75%" y2="100%" stroke="rgba(255,255,255,0.2)" />
+
+              {/* Risk Curve (High to Low) */}
+              <path
+                d="M 0 30 C 250 30, 750 160, 1000 160"
+                fill="none"
+                stroke="#000"
+                strokeWidth="4"
+                vectorEffect="non-scaling-stroke"
+              />
+              {/* Value Curve (Low to High) */}
+              <path
+                d="M 0 160 C 250 160, 750 30, 1000 30"
+                fill="none"
+                stroke="#fff"
+                strokeWidth="4"
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+
+            {/* Floating Labels */}
+            <div className="absolute top-4 left-4 bg-black text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">High Risk</div>
+            <div className="absolute bottom-4 right-4 bg-black text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg border border-white/20">Low Risk</div>
+            <div className="absolute bottom-4 left-4 bg-white text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">Low Value</div>
+            <div className="absolute top-4 right-4 bg-white text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg border border-secondary/20">High Value</div>
+          </div>
+
+          {/* Funding Labels */}
+          <div className="grid grid-cols-4 bg-secondary text-parchment text-[10px] font-bold uppercase tracking-[0.1em]">
+            {[
+              "Grants & Concessions",
+              "Blended Finance",
+              "Impact & Equity",
+              "Bonds & Equity"
+            ].map((label, i) => (
+              <div key={i} className={`p-3 text-center ${i < 3 ? 'border-r border-parchment/10' : ''}`}>
+                {label}
+              </div>
+            ))}
+          </div>
+
+          {/* Activity / Capital Summary */}
+          <div className="grid grid-cols-4 text-[9px] text-slate/80 bg-white">
+            {[
+              { act: "Feasibility, FPIC, Theory of Change", cap: "Grants, Dev Equity" },
+              { act: "Nursery, Planting, Registration", cap: "Carbon Finance, Mezzanine" },
+              { act: "First Verification, Ongoing MRV", cap: "Working Capital, Impact Debt" },
+              { act: "Scale-up, Regional Exit", cap: "Green Bonds, SPV Balance Sheet" }
+            ].map((item, i) => (
+              <div key={i} className={`p-4 ${i < 3 ? 'border-r border-mist' : ''}`}>
+                <p className="font-bold text-secondary mb-1">Activities:</p>
+                <p className="leading-tight mb-2">{item.act}</p>
+                <p className="font-bold text-secondary mb-1">Best Fit:</p>
+                <p className="leading-tight">{item.cap}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="grid gap-10">
           {/* STAGE 1 */}
           <div className="relative overflow-hidden rounded-2xl border-2 border-secondary bg-white shadow-xl shadow-secondary/10">
