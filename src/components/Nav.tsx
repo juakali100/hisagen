@@ -19,14 +19,6 @@ const navItems = [
       },
     ],
   },
-  {
-    label: "Capital",
-    href: "/funding-roadmap/capital-continuum",
-    dropdown: [
-      { href: "/funding-roadmap/capital-continuum", label: "Capital Continuum" },
-      { href: "/funding-roadmap", label: "Funding Roadmap" },
-    ],
-  },
   { href: "/resources", label: "Resources" },
 ];
 
