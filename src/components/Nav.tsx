@@ -6,7 +6,6 @@ const navItems = [
     label: "Program",
     href: "/program",
     dropdown: [
-      { href: "/program", label: "Program Overview" },
       { href: "/partnership-model", label: "Partnership Model" },
     ],
   },
@@ -52,24 +51,28 @@ export default function Nav() {
           {navItems.map((item) =>
             item.dropdown ? (
               <div key={item.label} className="relative inline-flex group py-1">
-                <button
+                <Link
+                  href={item.href || "#"}
                   className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors"
                 >
                   {item.label}
                   <span aria-hidden className="text-[10px] opacity-50 group-hover:rotate-180 transition-transform duration-200">
                     ▼
                   </span>
-                </button>
-                <div className="pointer-events-none absolute top-full left-0 z-50 mt-1 hidden min-w-[200px] flex-col rounded-xl border border-mist bg-white py-2 shadow-xl shadow-secondary/5 group-hover:flex group-hover:pointer-events-auto">
-                  {item.dropdown.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="px-4 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-slate hover:bg-parchment/50 hover:text-primary transition-all"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                </Link>
+                {/* The "before" pseudo-element on this absolute div acts as a bridge to prevent hover loss */}
+                <div className="pointer-events-none absolute top-full left-0 z-50 hidden min-w-[200px] flex-col pt-3 group-hover:flex group-hover:pointer-events-auto before:absolute before:inset-0 before:h-3 before:w-full before:-top-3 before:content-['']">
+                  <div className="flex flex-col rounded-xl border border-mist bg-white py-2 shadow-xl shadow-secondary/5">
+                    {item.dropdown.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="px-4 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-slate hover:bg-parchment/50 hover:text-primary transition-all"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             ) : (
