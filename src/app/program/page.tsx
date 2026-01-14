@@ -135,7 +135,7 @@ export default function ProgramPage() {
                 <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.1em]">Systems Architecture & Frameworks</h4>
                 <p className="text-xs text-secondary mt-1 font-bold">Pandion Studio</p>
                 <p className="text-[11px] text-slate mt-2 leading-relaxed">
-                  Responsible for the <strong>Connective Tissue</strong> (Data & Capital flows) and <strong>Systemic Scaffolding</strong> (L1-L5) across all phases. Pandion provides the synthesis required to coordinate these specialized partners and prepare the program for Stage 2 capital.
+                  Responsible for the <strong>Connective Tissue</strong> (Data & Capital flows) and <strong>Systemic Scaffolding</strong> (from soil health to corporate targets) across all phases. Pandion provides the synthesis required to coordinate these specialized partners and prepare the program for Stage 2 capital.
                 </p>
               </div>
             </div>
