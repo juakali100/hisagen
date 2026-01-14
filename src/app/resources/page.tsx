@@ -17,14 +17,73 @@ const intelligenceLedger: IntelligenceEntry[] = [
     domain: "Context",
     format: "Call",
     date: "2025-11-07",
-    title: "Initial Discovery Session",
-    detail: "Defined HISAGEN as the priority venture. Focus on agriculture-first carbon sequestration and grant funding needs.",
+    title: "Venture Portfolio Analysis",
+    detail: "Analysis of the four parallel ventures (Deep 6, HISAGEN, Carbon Zero, Iced Coffee) and prioritization of HISAGEN.",
     file: "03-pandion-business/operations/del/clients/deep-six-consulting/call-notes-2025-11-07.md",
-    tags: ["Strategy", "Priority", "Grant"],
+    tags: ["Strategy", "Prioritization", "Portfolio"],
     synthesis: [
-      "HISAGEN identified as the highest-priority venture among four candidates.",
-      "Agreed on an agriculture-first thesis for carbon sequestration.",
-      "Identified critical need for grant funding to bridge Phase 1 incubation.",
+      "Venture 1: Deep 6 Consulting (AI Testing for LexisNexis) - Stability & Revenue track.",
+      "Venture 2: HISAGEN (Microbes) - Highest potential for growth and grant funding.",
+      "Venture 3: Carbon Zero Marketplace (B2C) - Passion project requiring downstream scale.",
+      "Venture 4: Iced Coffee US - Side venture emerging from coffee bush carbon exploration.",
+      "Strategy: HISAGEN is the 'Tip of the Spear' to build institutional credibility.",
+    ]
+  },
+  {
+    domain: "Context",
+    format: "Doc",
+    date: "2025-11-14",
+    title: "Pandion Partnership Framework",
+    detail: "Consolidated response defining the performance-based partnership model and role of Pandion as systems architect.",
+    file: "03-pandion-business/operations/del/clients/deep-six-consulting/communications/drafts/2025-11-14-partnership-response-CONSOLIDATED.md",
+    tags: ["Partnership", "Operating Model", "Success Fee"],
+    synthesis: [
+      "Pandion's role defined as Systems Architect and operational support (grants & strategy).",
+      "Established 12 immediate funding leads (Carbon Thirteen, YC, Bezos Earth Fund).",
+      "Model: Performance-based success fees + small equity pool in HISAGEN.",
+      "Identified 'Carbon Thirteen' as a top-priority early-stage accelerator with warm intro.",
+    ]
+  },
+  {
+    domain: "Evidence",
+    format: "Doc",
+    date: "2025-11-08",
+    title: "Workstream 1: Grant Landscape",
+    detail: "Initial findings from scanning 100+ global and regional climate/ag-tech funds.",
+    file: "03-pandion-business/operations/del/clients/deep-six-consulting/research/workstream-1-grant-landscape-findings.md",
+    tags: ["Research", "Grants", "Landscape"],
+    synthesis: [
+      "Identified EU FLC (€100k) as highest urgency (Nov 30 deadline).",
+      "AfDB ACCF ($200k) identified as high fit for 'readiness' grants.",
+      "Strategic gap: Need for civil society/NGO partners to qualify for certain institutional funds.",
+    ]
+  },
+  {
+    domain: "Evidence",
+    format: "Doc",
+    date: "2025-11-08",
+    title: "Workstream 2: AgriTecno Validation",
+    detail: "Due diligence on the proposed Kenya distribution partner and sector fit.",
+    file: "03-pandion-business/operations/del/clients/deep-six-consulting/research/workstream-2-agritecno-validation-findings.md",
+    tags: ["Due Diligence", "Partners", "Kenya"],
+    synthesis: [
+      "Validation of 'Agritecno East Africa Ltd' as a mid-tier Kenya distributor.",
+      "Strong fit for coffee/tea sectors but limited public footprint requires further vetting.",
+      "Identified alternative partners (Hygrow, Safi Organics) if AgriTecno fails DD.",
+    ]
+  },
+  {
+    domain: "Evidence",
+    format: "Doc",
+    date: "2025-11-08",
+    title: "Workstream 3: Kenya Landscape Analysis",
+    detail: "Mapping of Nyeri/Murang'a coffee and Nandi/Kericho tea regions for landscape scale.",
+    file: "03-pandion-business/operations/del/clients/deep-six-consulting/research/workstream-3-kenya-landscape-findings.md",
+    tags: ["Landscape", "Kenya", "Coffee/Tea"],
+    synthesis: [
+      "Priority 1: Nyeri-Murang'a Coffee Belt (20k-50k ha) - High density, strong cooperatives.",
+      "Priority 2: Rift Valley Tea Belt (100k+ ha) - Massive scale potential via KTDA factories.",
+      "Corporate Targets: Starbucks C.A.F.E. Practices and Unilever Tea Estates identified as insetting partners.",
     ]
   },
   {
