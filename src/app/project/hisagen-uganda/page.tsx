@@ -74,7 +74,7 @@ export default function PilotPage() {
                   <h3 className="text-2xl font-bold text-secondary">Stage 1: Incubation</h3>
                   <p className="mt-3 text-sm text-slate leading-relaxed italic">"Establishing the Ground Truth and securing the social license to operate."</p>
                   <div className="mt-6 flex flex-col gap-3">
-                    <a href="/funding-roadmap/capital-continuum" className="text-xs font-bold text-secondary hover:underline flex items-center gap-2">
+                    <a href="/stage-1" className="text-xs font-bold text-secondary hover:underline flex items-center gap-2">
                       Review Full Stage 1 Criteria <span>→</span>
                     </a>
                   </div>
@@ -105,6 +105,11 @@ export default function PilotPage() {
                 <div className="inline-block px-2 py-1 bg-mist/20 text-slate text-[10px] font-bold uppercase tracking-widest rounded mb-3">Target Capital: Blended Finance</div>
                 <h3 className="text-2xl font-bold text-secondary">Stage 2: Implementation</h3>
                 <p className="mt-2 text-sm text-slate leading-relaxed italic">"The Delivery Gap: Bridging technical success to large-scale operational rollout."</p>
+                <div className="mt-4">
+                  <a href="/stage-2" className="text-[10px] font-bold text-slate hover:text-secondary hover:underline">
+                    View Stage 2 Readiness Criteria →
+                  </a>
+                </div>
               </div>
               <div className="flex-1 space-y-6">
                 <p className="text-[10px] font-bold text-slate uppercase tracking-widest mb-2 border-b border-mist pb-2">Primary Workstreams & Partners</p>
@@ -129,6 +134,11 @@ export default function PilotPage() {
                 <div className="inline-block px-2 py-1 bg-mist/20 text-slate text-[10px] font-bold uppercase tracking-widest rounded mb-3">Target Capital: Impact Debt/Equity</div>
                 <h3 className="text-2xl font-bold text-secondary">Stage 3: Stabilization</h3>
                 <p className="mt-2 text-sm text-slate leading-relaxed italic">"The Revenue Engine: Credits are issued and the Soil-to-Sale cycle is merchantable."</p>
+                <div className="mt-4">
+                  <a href="/stage-3" className="text-[10px] font-bold text-slate hover:text-secondary hover:underline">
+                    View Stage 3 Readiness Criteria →
+                  </a>
+                </div>
               </div>
               <div className="flex-1 space-y-6">
                 <p className="text-[10px] font-bold text-slate uppercase tracking-widest mb-2 border-b border-mist pb-2">Primary Workstreams & Partners</p>
@@ -153,6 +163,11 @@ export default function PilotPage() {
                 <div className="inline-block px-2 py-1 bg-mist/20 text-slate text-[10px] font-bold uppercase tracking-widest rounded mb-3">Target Capital: Institutional / Green Bonds</div>
                 <h3 className="text-2xl font-bold text-secondary">Stage 4: Maturity</h3>
                 <p className="mt-2 text-sm text-slate leading-relaxed italic">"Regional Expansion: The model is bankable for sovereign-backed scaling."</p>
+                <div className="mt-4">
+                  <a href="/stage-4" className="text-[10px] font-bold text-slate hover:text-secondary hover:underline">
+                    View Stage 4 Readiness Criteria →
+                  </a>
+                </div>
               </div>
               <div className="flex-1 space-y-6">
                 <p className="text-[10px] font-bold text-slate uppercase tracking-widest mb-2 border-b border-mist pb-2">Primary Workstreams & Partners</p>
