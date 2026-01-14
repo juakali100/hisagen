@@ -99,7 +99,7 @@ export default function OrganizationPage() {
                     </div>
                     <div className="p-4 rounded-lg bg-parchment/30 border border-mist/50">
                         <h4 className="font-semibold text-secondary italic">Pandion Studio</h4>
-                        <p className="text-xs text-slate mt-2">Building the 'Self-Building Crane'—designing the systems, frameworks (Capital Continuum), and technical infrastructure.</p>
+                        <p className="text-xs text-slate mt-2">Systems design and operational architecture—engineering the frameworks (Capital Continuum), digital portal, and technical infrastructure.</p>
                     </div>
                 </div>
             </section>

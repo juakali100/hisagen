@@ -191,7 +191,7 @@ const partnerEcosystem = [
   {
     name: "Pandion Studio",
     role: "Systems & Infrastructure architect",
-    details: "Building the 'Self-Building Crane'—engineering the frameworks, digital portal, and Capital Continuum alignment required to scale.",
+    details: "Engineering the foundational frameworks, digital portal, and Capital Continuum alignment required to scale.",
     context: "Provides the technical spine and organizational design required to move projects from Stage 1 to Stage 4.",
   },
 ];
