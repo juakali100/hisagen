@@ -121,78 +121,154 @@ const referenceLinks = [
   },
 ];
 
+const foundationalKnowledge = [
+  {
+    category: "Organization Strategy",
+    status: "Drafting",
+    items: [
+      { title: "Founding Mission & Purpose", detail: "The long-term vision for HISAGEN as a systems architect." },
+      { title: "Deep Six & Pandion Partnership", detail: "Collaboration framework and roles." },
+      { title: "Governance DNA", detail: "Ethics and community-first principles (Social Promise)." },
+    ],
+  },
+  {
+    category: "Program Design",
+    status: "Active Research",
+    items: [
+      { title: "Agri-Carbon Thesis", detail: "Regenerative agriculture as a scalable sequestration tech." },
+      { title: "Revenue Wheel Model", detail: "Scenario modeling for fees, equity, and credit upside." },
+      { title: "MRV Tooling Stack", detail: "Remote sensing vs. ground-truth data strategy." },
+    ],
+  },
+  {
+    category: "Project Intelligence",
+    status: "Evidence Compiling",
+    items: [
+      { title: "Uganda Maize Trials (Phase 2)", detail: "Actual vs. Control yield data (DSC-003)." },
+      { title: "Carbon Rights Analysis", detail: "Local land tenure and registry mapping." },
+      { title: "Partner Dossiers", detail: "Locus AG and Keir's Marketplace alignment." },
+    ],
+  },
+];
+
+const fundingBlueprints = [
+  {
+    title: "The Capital Continuum Spine",
+    description: "The 4-Stage framework guiding the project from Incubation to Maturity.",
+    href: "/funding-roadmap/capital-continuum",
+  },
+  {
+    title: "Grant Funding Lifecycle",
+    description: "An 11-phase roadmap nested under Stage 1 & 2 for grant-specific journeys.",
+    href: "/funding-roadmap/lifecycle",
+  },
+  {
+    title: "Early Pitch Templates",
+    description: "Foundational narratives for donor and seed-stage accelerator engagement.",
+    href: "#",
+  },
+];
+
 export default function ResourcesPage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
         stage="Resources"
-        trail={[{ label: "Overview", href: "/" }, { label: "Resources" }]}
+        trail={[{ label: "Overview", href: "/" }, { label: "Foundation & Evidence Vault" }]}
       />
 
       <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
-          Resources
-        </p>
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">Resources</p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          Communications timeline and source index
+          Foundation & Evidence Vault
         </h1>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-          This page is the chronological record of key communications plus the index of core
-          attachments and reference documents.
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate italic">
+          "This is the source of truth for the HISAGEN DNA. We consolidate foundational intelligence here to inform the organization, program, and project strategy."
         </p>
       </section>
 
-      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-slate">Communications Timeline</p>
-        <div className="mt-4 space-y-4 text-sm text-slate">
-          {timeline.map((entry) => (
-            <details
-              key={`${entry.date}-${entry.title}`}
-              className="group rounded-lg border border-mist/60 bg-white p-4"
-            >
-              <summary className="flex cursor-pointer list-none flex-wrap items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate">
-                <span>{entry.date}</span>
-                <span className="text-slate/50">•</span>
-                <span>{entry.channel}</span>
-                <span className="text-slate/50">•</span>
-                <span className="text-secondary">{entry.title}</span>
-              </summary>
-              {entry.summary ? (
-                <p className="mt-3 text-sm text-slate">{entry.summary}</p>
-              ) : null}
-              {entry.notes ? <p className="mt-2 text-sm text-slate">{entry.notes}</p> : null}
-              {entry.file ? (
-                <p className="mt-3 text-xs text-slate">Source: {entry.file}</p>
-              ) : null}
-            </details>
+      <section className="mt-12 space-y-8">
+        <div className="grid gap-6 md:grid-cols-3">
+          {foundationalKnowledge.map((track) => (
+            <div key={track.category} className="rounded-xl border border-mist bg-white p-6 shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-secondary">{track.category}</h3>
+                <span className="text-[9px] bg-secondary/5 text-secondary px-2 py-0.5 rounded uppercase font-bold">{track.status}</span>
+              </div>
+              <ul className="space-y-4">
+                {track.items.map((item) => (
+                  <li key={item.title}>
+                    <p className="text-sm font-semibold text-secondary">{item.title}</p>
+                    <p className="text-xs text-slate mt-1">{item.detail}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
+
+        <div className="rounded-xl border border-mist bg-secondary text-parchment p-8">
+          <p className="text-xs uppercase tracking-[0.3em] font-bold mb-6">Funding & Capital Strategy</p>
+          <div className="grid gap-4 md:grid-cols-3 text-center">
+            {fundingBlueprints.map((blueprint) => (
+              <a
+                key={blueprint.title}
+                href={blueprint.href}
+                className="p-4 border border-parchment/20 rounded-lg bg-parchment/5 hover:bg-parchment/10 transition-colors"
+              >
+                <h4 className="text-sm font-bold mb-2 uppercase tracking-tighter">{blueprint.title}</h4>
+                <p className="text-[10px] opacity-70 leading-relaxed">{blueprint.description}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-mist bg-white p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4">The Audit Trail (Comms & Attachments)</p>
+          <p className="text-sm text-slate mb-6">
+            The chronological record of all partner communications, emails, and source spreadsheets identifying the HISAGEN journey.
+          </p>
+          <div className="space-y-3">
+            {timeline.slice(0, 5).map((entry) => (
+              <div key={entry.title} className="flex items-center justify-between p-3 border border-mist/50 rounded-lg text-xs">
+                <div className="flex items-center gap-3">
+                  <span className="text-slate/40">{entry.date}</span>
+                  <span className="font-bold text-secondary">{entry.title}</span>
+                </div>
+                <span className="text-[10px] uppercase text-slate/60">{entry.channel}</span>
+              </div>
+            ))}
+            <div className="text-center pt-2">
+              <button className="text-[10px] font-bold uppercase tracking-widest text-secondary border-b border-secondary">View Full Comms Timeline</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-mist bg-white p-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4">Core Attachments List</p>
+          <div className="grid gap-4 md:grid-cols-2">
+            {attachmentHighlights.map((item) => (
+              <div key={item.id} className="p-4 border border-mist/50 rounded-lg">
+                <p className="text-xs font-bold text-secondary uppercase tracking-widest">{item.id}</p>
+                <p className="text-sm text-slate mt-1">{item.title}</p>
+                <p className="text-[10px] text-slate/40 mt-2 italic">Ref: {item.source}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      <section className="mt-12 grid gap-6 md:grid-cols-2">
-        <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Attachment Highlights</p>
-          <ul className="mt-4 space-y-3 text-sm text-slate">
-            {attachmentHighlights.map((item) => (
-              <li key={item.id}>
-                <p className="font-semibold text-secondary">{item.id}: {item.title}</p>
-                <p className="text-xs text-slate">Source: {item.source}</p>
-                <p className="text-xs text-slate">File: {item.file}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-xl border border-mist bg-white p-6">
-          <p className="text-xs uppercase tracking-[0.2em] text-slate">Reference Index</p>
-          <ul className="mt-4 space-y-2 text-sm text-slate">
-            {referenceLinks.map((item) => (
-              <li key={item.title}>
-                <span className="font-semibold text-secondary">{item.title}:</span> {item.file}
-              </li>
-            ))}
-          </ul>
+      <section className="my-16 flex flex-col items-center text-center p-12 rounded-2xl bg-parchment/30 border border-mist border-dashed">
+        <h2 className="text-xl font-bold text-secondary mb-4 uppercase tracking-[0.2em]">Strategy Gaps & Discovery</h2>
+        <p className="text-sm text-slate max-w-2xl leading-relaxed mb-6">
+          We have significant "white space" in our organizational and program strategy. The vault above identifies what we have—but our next phase is to use AI synthesis to fill these gaps.
+        </p>
+        <div className="flex gap-4">
+          <span className="text-[10px] font-bold uppercase tracking-widest bg-secondary/10 text-secondary px-3 py-1 rounded">Next: Org Ethics Synthesis</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest bg-secondary/10 text-secondary px-3 py-1 rounded">Next: Revenue Model Analysis</span>
         </div>
       </section>
     </div>
   );
 }
+
