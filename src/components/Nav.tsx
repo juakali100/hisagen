@@ -7,8 +7,17 @@ const navItems = [
     href: "/program",
     dropdown: [
       { href: "/partnership-model", label: "Partnership Model" },
-      { href: "/project/hisagen-uganda", label: "Uganda Pilot (Current Project)" },
-      { href: "/evidence", label: "Evidence Review" },
+      {
+        label: "Uganda Pilot",
+        href: "/project/hisagen-uganda",
+        subItems: [
+          { href: "/stage-1", label: "Stage 1: Incubation" },
+          { href: "/stage-2", label: "Stage 2: Implementation" },
+          { href: "/stage-3", label: "Stage 3: Stabilization" },
+          { href: "/stage-4", label: "Stage 4: Maturity" },
+          { href: "/evidence", label: "Evidence Review" },
+        ]
+      },
     ],
   },
   {
@@ -17,10 +26,6 @@ const navItems = [
     dropdown: [
       { href: "/funding-roadmap/capital-continuum", label: "Capital Continuum" },
       { href: "/funding-roadmap", label: "Funding Roadmap" },
-      { href: "/stage-1", label: "Stage 1: Incubation" },
-      { href: "/stage-2", label: "Stage 2: Implementation" },
-      { href: "/stage-3", label: "Stage 3: Stabilization" },
-      { href: "/stage-4", label: "Stage 4: Maturity" },
     ],
   },
   { href: "/resources", label: "Resources" },
@@ -57,14 +62,32 @@ export default function Nav() {
                 {/* The "before" pseudo-element on this absolute div acts as a bridge to prevent hover loss */}
                 <div className="pointer-events-none absolute top-full left-0 z-50 hidden min-w-[200px] flex-col pt-3 group-hover:flex group-hover:pointer-events-auto before:absolute before:inset-0 before:h-3 before:w-full before:-top-3 before:content-['']">
                   <div className="flex flex-col rounded-xl border border-mist bg-white py-2 shadow-xl shadow-secondary/5">
-                    {item.dropdown.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="px-4 py-2.5 text-sm font-medium text-slate hover:bg-parchment/50 hover:text-primary transition-all"
-                      >
-                        {link.label}
-                      </Link>
+                    {item.dropdown.map((link: any) => (
+                      <div key={link.href || link.label} className="flex flex-col">
+                        <Link
+                          href={link.href || "#"}
+                          className={`px-4 py-2 text-sm transition-all ${link.subItems
+                              ? "font-bold text-secondary bg-parchment/30 py-2.5"
+                              : "font-medium text-slate hover:bg-parchment/50 hover:text-primary"
+                            }`}
+                        >
+                          {link.label}
+                        </Link>
+                        {link.subItems && (
+                          <div className="flex flex-col bg-white border-b border-mist/30 last:border-0 pt-1 pb-2">
+                            {link.subItems.map((sub: any) => (
+                              <Link
+                                key={sub.href}
+                                href={sub.href}
+                                className="px-7 py-1.5 text-[11px] font-bold uppercase tracking-wider text-slate/60 hover:text-primary transition-all flex items-center gap-2"
+                              >
+                                <span className="h-0.5 w-2 bg-mist/50"></span>
+                                {sub.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
                 </div>
