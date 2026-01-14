@@ -40,7 +40,7 @@ export default function CapitalContinuumPlaybookPage() {
         </div>
 
         <a
-          href="https://hisagen.pandion.studio/funding-roadmap/capital-continuum"
+          href="https://capital-continuum.com/resources/the-capital-continuum-fsg-7nj4f"
           target="_blank"
           rel="noreferrer"
           className="w-32 h-44 flex-shrink-0 group relative overflow-hidden rounded-lg border border-mist transition-transform hover:scale-105 shadow-sm"
