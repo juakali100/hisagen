@@ -1,4 +1,5 @@
 ﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
+import Link from "next/link";
 
 type Attachment = {
   title: string;

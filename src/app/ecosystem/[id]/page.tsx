@@ -3,8 +3,9 @@ import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export default function PartnerProfilePage({ params }: { params: { id: string } }) {
-    const partner = partners.find((p) => p.id === params.id);
+export default async function PartnerProfilePage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
+    const partner = partners.find((p) => p.id === id);
 
     if (!partner) {
         notFound();
