@@ -73,6 +73,65 @@ export default function ProgramPage() {
         ))}
       </section>
 
+      <section className="mt-10 rounded-xl border border-mist bg-white p-8">
+        <div className="flex items-center justify-between mb-8">
+          <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold">Tactical Roadmap: The 'Soil-to-Sale' Journey</p>
+          <span className="text-[10px] bg-secondary/10 text-secondary px-2 py-0.5 rounded uppercase tracking-widest font-bold">Uganda Pilot Scenario</span>
+        </div>
+
+        <div className="relative">
+          {/* Connector Line */}
+          <div className="absolute left-[15px] top-4 bottom-4 w-px bg-mist md:left-1/2 md:-ml-px md:block" />
+
+          <div className="space-y-12">
+            {[
+              {
+                stage: "1. Biological Deployment",
+                actor: "Locus AG / Hisagen",
+                detail: "Rhizolizer® Duo is applied to smallholder maize plots in Uganda to kickstart sequestration.",
+                icon: "🌱"
+              },
+              {
+                stage: "2. Ground-Truth MRV",
+                actor: "Local Partners",
+                detail: "Field data and yield comparisons are captured to establish the carbon baseline.",
+                icon: "📊"
+              },
+              {
+                stage: "3. Methodology Audit",
+                actor: "3Degrees",
+                detail: "Captured data is translated into a formal Verra/Gold Standard program design.",
+                icon: "⚖️"
+              },
+              {
+                stage: "4. Digital Issuance",
+                actor: "Pandion / CZMP",
+                detail: "Verified credits are issued and listed on the Carbon Neutral Marketplace storefront.",
+                icon: "💻"
+              },
+              {
+                stage: "5. Monetization & Feedback",
+                actor: "Global Buyers",
+                detail: "Credits are sold; proceeds flow back to the project to fund expansion to Kenya.",
+                icon: "💰"
+              }
+            ].map((step, idx) => (
+              <div key={idx} className={`relative flex items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                <div className="flex-1 hidden md:block" />
+                <div className="z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-mist bg-white text-xs font-bold shadow-sm">
+                  {step.icon}
+                </div>
+                <div className="flex-1 rounded-xl border border-mist bg-parchment/5 p-5 hover:border-secondary/20 transition-colors">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/40">{step.actor}</p>
+                  <h3 className="text-sm font-bold text-secondary mt-1">{step.stage}</h3>
+                  <p className="text-xs text-slate mt-2 leading-relaxed">{step.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="mt-10 rounded-xl border border-mist bg-white p-6">
         <div className="flex items-center justify-between mb-4">
           <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold">Programmatic Strategic Gaps</p>
@@ -113,25 +172,45 @@ export default function ProgramPage() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-xl border border-mist bg-white p-6">
+      <section className="mt-10 rounded-xl border border-mist bg-white p-6 text-ink">
         <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold">Partner Ecosystem Strategy</p>
         <p className="mt-4 text-sm text-slate">
-          The program scales by integrating specialized partners into the HISAGEN framework:
+          The program scales by integrating specialized partners into a unified value chain:
         </p>
-        <ul className="mt-4 space-y-3 text-sm text-slate">
-          <li className="flex gap-3">
-            <span className="text-secondary opacity-50 font-bold">01</span>
-            <span><strong>Locus AG:</strong> Biological products + data pipelines for soil carbon.</span>
-          </li>
-          <li className="flex gap-3">
-            <span className="text-secondary opacity-50 font-bold">02</span>
-            <span><strong>Keir’s Marketplace:</strong> Distribution channels for high-integrity credits.</span>
-          </li>
-          <li className="flex gap-3">
-            <span className="text-secondary opacity-50 font-bold">03</span>
-            <span><strong>Capital Partners:</strong> Aligned funders for each stage of the continuum.</span>
-          </li>
-        </ul>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div className="flex gap-4">
+              <span className="h-6 w-6 rounded bg-secondary/10 text-secondary text-[10px] font-bold flex items-center justify-center shrink-0">1</span>
+              <div>
+                <p className="text-xs font-bold text-secondary">Discovery & Tech-Settle</p>
+                <p className="text-[10px] text-slate mt-1 italic">Deep Six Consulting + Locus AG</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <span className="h-6 w-6 rounded bg-secondary/10 text-secondary text-[10px] font-bold flex items-center justify-center shrink-0">2</span>
+              <div>
+                <p className="text-xs font-bold text-secondary">Operational Scaffolding</p>
+                <p className="text-[10px] text-slate mt-1 italic">Pandion Studio</p>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-4">
+            <div className="flex gap-4">
+              <span className="h-6 w-6 rounded bg-secondary/10 text-secondary text-[10px] font-bold flex items-center justify-center shrink-0">3</span>
+              <div>
+                <p className="text-xs font-bold text-secondary">Accreditation Architecture</p>
+                <p className="text-[10px] text-slate mt-1 italic">3Degrees</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <span className="h-6 w-6 rounded bg-secondary/10 text-secondary text-[10px] font-bold flex items-center justify-center shrink-0">4</span>
+              <div>
+                <p className="text-xs font-bold text-secondary">Direct Monetization</p>
+                <p className="text-[10px] text-slate mt-1 italic">Carbon Neutral Marketplace</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

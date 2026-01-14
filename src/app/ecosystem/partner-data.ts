@@ -137,5 +137,28 @@ export const partners: Partner[] = [
                 format: "Link"
             }
         ]
+    },
+    {
+        id: "3-degrees",
+        name: "3Degrees",
+        role: "Accreditation & Carbon Program Design Partner",
+        category: "Accreditation",
+        website: "https://3degreesinc.com/",
+        websiteReview: "Sophisticated and institutional. Expertise in 'Market-Based Solutions' and high-quality environmental project design. They position themselves as an institutional bridge to global carbon capital markets.",
+        personnel: [
+            {
+                name: "Pending",
+                role: "Technical Lead",
+                bio: "Specific 3Degrees personnel contact and bio to be confirmed from upcoming engagement overview."
+            }
+        ],
+        organizationSummary: "A global market leader in environmental commodities. 3Degrees provides the technical advisory and program architecture required to certify the Ugandan and Kenyan projects.",
+        strategicContext: [
+            "Institutional Bridge: Conduit for HISAGEN to formal Voluntary Carbon Markets (VCM).",
+            "Certification Moat: Responsible for Verra (VCS) or Gold Standard accreditation.",
+            "Methodology Design: Turning experimental soil results into bankable, institutional-grade carbon assets.",
+            "Technical Oversight: Ensures project methodologies are defensible under global audit standards."
+        ],
+        keyResources: []
     }
 ];

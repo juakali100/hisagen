@@ -224,9 +224,10 @@ const intelligenceLedger: IntelligenceEntry[] = [
     domain: "Ecosystem",
     format: "Doc",
     date: "2025-11-30",
-    title: "Partner Dossier: 3-Degrees",
-    detail: "Strategic advisory for carbon offset program design and Verra/Gold Standard accreditation.",
-    tags: ["Accreditation", "Standards"]
+    title: "Partner Dossier: 3Degrees",
+    detail: "Technical auditor and program designer for Verra/Gold Standard accreditation.",
+    file: "/ecosystem/3-degrees",
+    tags: ["Accreditation", "Standards", "Validator"]
   },
   {
     domain: "Ecosystem",
@@ -298,6 +299,32 @@ export default function ResourcesPage() {
                 {intelligenceLedger.filter(i => i.domain === domain).length} Items
               </span>
             </div>
+
+            {domain === 'Ecosystem' && (
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 pb-8">
+                {[
+                  { phase: "1. Originator", org: "Deep Six Consulting", detail: "Opportunity & Tech-Settle" },
+                  { phase: "2. Implementation", org: "Locus AG / HISAGEN", detail: "Soil Ops & Data Collection" },
+                  { phase: "3. Certification", org: "3Degrees", detail: "Methodology & Accreditation" },
+                  { phase: "4. Monetization", org: "CZMP", detail: "Market Exchange & Sales" }
+                ].map((step, idx) => (
+                  <div key={idx} className="p-4 rounded-xl bg-parchment/30 border border-mist border-dashed relative group">
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-secondary/40 whitespace-nowrap">{step.phase}</p>
+                    <p className="text-xs font-bold text-secondary mt-1">{step.org}</p>
+                    <p className="text-[10px] text-slate mt-1 leading-tight">{step.detail}</p>
+                    {idx < 3 && (
+                      <div className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 text-mist group-hover:text-secondary/20 transition-colors">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
+                      </div>
+                    )}
+                  </div>
+                ))}
+                <div className="md:col-span-4 p-3 rounded-lg bg-secondary/5 border border-secondary/10 flex items-center gap-3">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-secondary">Systems Architecture:</span>
+                  <span className="text-[10px] text-secondary/70 italic">Pandion Studio provides the connective systems and funding blueprints across all phases.</span>
+                </div>
+              </div>
+            )}
 
             <div className="grid gap-4">
               {intelligenceLedger
