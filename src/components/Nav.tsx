@@ -37,12 +37,12 @@ export default function Nav() {
     <header className="mx-auto mb-10 border-b border-mist pb-4">
       <div className="flex w-full max-w-5xl flex-wrap items-center justify-between gap-4 py-2">
         <div className="flex items-center gap-3">
-          <Link href="/" className="text-sm font-bold uppercase tracking-[0.4em] text-secondary hover:text-primary transition-colors">
-            HISAGEN
+          <Link href="/" className="text-lg font-bold text-secondary hover:text-primary transition-colors">
+            Hisagen
           </Link>
           <div className="hidden sm:flex items-center gap-2">
             <span className="h-4 w-px bg-mist"></span>
-            <span className="rounded-full border border-mist bg-parchment/50 px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-slate">
+            <span className="rounded-full border border-mist bg-parchment/50 px-3 py-0.5 text-[10px] font-bold text-slate">
               Founding Portal
             </span>
           </div>
@@ -53,7 +53,7 @@ export default function Nav() {
               <div key={item.label} className="relative inline-flex group py-1">
                 <Link
                   href={item.href || "#"}
-                  className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors"
+                  className="flex items-center gap-1.5 text-sm font-semibold text-secondary hover:text-primary transition-colors"
                 >
                   {item.label}
                   <span aria-hidden className="text-[10px] opacity-50 group-hover:rotate-180 transition-transform duration-200">
@@ -67,7 +67,7 @@ export default function Nav() {
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="px-4 py-2.5 text-[11px] font-semibold uppercase tracking-wider text-slate hover:bg-parchment/50 hover:text-primary transition-all"
+                        className="px-4 py-2.5 text-sm font-medium text-slate hover:bg-parchment/50 hover:text-primary transition-all"
                       >
                         {link.label}
                       </Link>
@@ -79,7 +79,7 @@ export default function Nav() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-slate hover:text-primary transition-colors"
+                className="py-1 text-sm font-semibold text-slate hover:text-primary transition-colors"
               >
                 {item.label}
               </Link>
