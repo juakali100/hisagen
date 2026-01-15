@@ -58,17 +58,7 @@ export default function HomePage() {
       </section>
 
       <div className="mx-auto max-w-5xl">
-        <section className="mt-10 rounded-3xl border border-mist bg-white shadow-sm overflow-hidden">
-          <div className="relative px-8 py-14">
-            <Image
-              src="/healthy-roots-soil-sample.jpeg"
-              alt="Healthy roots and soil sample"
-              fill
-              className="object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-white/85" />
-
-            <div className="relative">
+        <section className="mt-10 rounded-3xl border border-mist bg-white px-8 py-14 shadow-sm">
               <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-secondary/40 animate-fade-in">Founding Stewardship Portal</p>
               <h1 className="mt-8 text-6xl font-black leading-tight text-secondary tracking-tight">
                 Regenerative Carbon <br />
@@ -89,9 +79,6 @@ export default function HomePage() {
                     <p className="text-sm font-bold text-secondary uppercase tracking-wider">{stat.value}</p>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
         </section>
 
         <section className="mt-16 grid gap-6 md:grid-cols-2">

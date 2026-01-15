@@ -1,4 +1,5 @@
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
+import Image from "next/image";
 
 const pilotFocus = [
   { label: "Location", value: "Uganda (Primary Landscapes)" },
@@ -25,6 +26,22 @@ export default function PilotPage() {
         stage="Uganda Pilot"
         trail={[{ label: "Agri-Carbon Program", href: "/program" }]}
       />
+
+      <section className="mt-4 rounded-2xl border border-mist bg-white overflow-hidden shadow-sm">
+        <div className="relative h-64 md:h-80">
+          <Image
+            src="/healthy-roots-soil-sample.jpeg"
+            alt="Healthy roots and soil sample"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
+        <div className="border-t border-mist px-6 py-3 flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/60">Field Evidence</p>
+          <p className="text-xs text-slate">Roots, soil structure, and sampling integrity are the foundation of MRV credibility.</p>
+        </div>
+      </section>
 
       <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">Project</p>
