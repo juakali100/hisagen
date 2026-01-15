@@ -48,7 +48,7 @@ export default function HomePage() {
       <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] border-y border-mist bg-white overflow-hidden">
         <div className="relative h-[52vh] min-h-[360px]">
           <Image
-            src="/hisagen-hero-female-farmer-mrv.jpeg"
+            src="/images/heroes/hisagen-hero-female-farmer-mrv.jpeg"
             alt="Female farmer in-field (MRV context)"
             fill
             priority

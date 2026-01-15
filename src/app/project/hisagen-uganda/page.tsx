@@ -30,7 +30,7 @@ export default function PilotPage() {
       <section className="mt-4 rounded-2xl border border-mist bg-white overflow-hidden shadow-sm">
         <div className="relative h-64 md:h-80">
           <Image
-            src="/healthy-roots-soil-sample.jpeg"
+            src="/images/features/healthy-roots-soil-sample.jpeg"
             alt="Healthy roots and soil sample"
             fill
             className="object-cover object-center"
