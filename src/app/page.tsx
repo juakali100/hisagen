@@ -79,6 +79,7 @@ export default function HomePage() {
                     <p className="text-sm font-bold text-secondary uppercase tracking-wider">{stat.value}</p>
                   </div>
                 ))}
+              </div>
         </section>
 
         <section className="mt-16 grid gap-6 md:grid-cols-2">
