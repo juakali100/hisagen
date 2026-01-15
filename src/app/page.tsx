@@ -1,4 +1,5 @@
-﻿import StageBreadcrumb from "../components/StageBreadcrumb";
+﻿import Image from "next/image";
+import StageBreadcrumb from "../components/StageBreadcrumb";
 
 const strategicFocus = [
   {
@@ -43,6 +44,14 @@ export default function HomePage() {
       <StageBreadcrumb stage="Dashboard" />
 
       <section className="relative rounded-3xl border border-mist bg-white overflow-hidden shadow-2xl shadow-secondary/10">
+        <Image
+          src="/hisagen-hero-female-farmer-mrv.jpeg"
+          alt="Farmer in-field with MRV context"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-white/75" />
         <div className="absolute inset-0 bg-parchment/40" />
         <div className="absolute inset-0 opacity-40">
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
