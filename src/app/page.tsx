@@ -58,28 +58,114 @@ export default function HomePage() {
       </section>
 
       <div className="mx-auto max-w-5xl">
-        <section className="mt-10 rounded-3xl border border-mist bg-white px-8 py-14 shadow-sm">
-              <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-secondary/40 animate-fade-in">Founding Stewardship Portal</p>
-              <h1 className="mt-8 text-6xl font-black leading-tight text-secondary tracking-tight">
-                Regenerative Carbon <br />
+        <section className="relative isolate mt-20 overflow-hidden rounded-3xl border border-mist bg-white shadow-md shadow-secondary/5">
+          <svg
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 size-full mask-[radial-gradient(110%_90%_at_top_right,white,transparent)] stroke-mist"
+          >
+            <defs>
+              <pattern
+                x="50%"
+                y={-1}
+                id="home-portal-grid"
+                width={200}
+                height={200}
+                patternUnits="userSpaceOnUse"
+              >
+                <path d="M.5 200V.5H200" fill="none" />
+              </pattern>
+            </defs>
+            <svg x="50%" y={-1} className="overflow-visible fill-parchment/30">
+              <path
+                d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+                strokeWidth={0}
+              />
+            </svg>
+            <rect fill="url(#home-portal-grid)" width="100%" height="100%" strokeWidth={0} />
+          </svg>
+
+          <div className="px-8 py-14 lg:flex lg:items-start lg:gap-12 lg:px-12 lg:py-16">
+            <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:pt-2">
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                <span className="rounded-full border border-primary/15 bg-parchment/40 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.28em] text-primary">
+                  Founding Stewardship Portal
+                </span>
+                <a href="/stage-1" className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-slate hover:text-secondary transition-colors">
+                  <span>Current Ops: Stage 1</span>
+                  <span aria-hidden="true" className="text-slate/60 group-hover:text-secondary transition-colors">
+                    →
+                  </span>
+                </a>
+              </div>
+
+              <h1 className="mt-10 text-5xl font-black tracking-tight text-balance text-secondary sm:text-6xl">
+                Regenerative Carbon{" "}
                 <span className="text-primary italic">for Global Agriculture</span>
               </h1>
-              <p className="mt-8 mx-auto max-w-2xl text-xl leading-relaxed text-slate font-medium">
-                HISAGEN is a systems architect for the agricultural transition, starting in sub-Saharan landscapes to prove the model for universal deployment.
+              <p className="mt-7 text-lg font-medium leading-relaxed text-pretty text-slate sm:text-xl">
+                HISAGEN is a systems architect for the agricultural transition, starting in East African landscapes to prove the model for universal deployment.
               </p>
 
-              <div className="mt-12 flex justify-center gap-4 flex-wrap">
-                {homeStats.map((stat, index) => (
-                  <div
-                    key={stat.label}
-                    className="px-5 py-3 rounded-xl border border-mist bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate/40 mb-1">{stat.label}</p>
-                    <p className="text-sm font-bold text-secondary uppercase tracking-wider">{stat.value}</p>
+              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <a
+                  href="/program"
+                  className="rounded-md bg-secondary px-4 py-2.5 text-sm font-bold text-parchment shadow-sm hover:bg-secondary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-colors"
+                >
+                  Explore programs
+                </a>
+                <a href="/resources" className="text-sm font-bold text-secondary hover:text-primary transition-colors">
+                  Evidence Vault <span aria-hidden="true">→</span>
+                </a>
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                {homeStats.map((stat) => (
+                  <div key={stat.label} className="rounded-xl border border-mist bg-white/90 px-4 py-3 shadow-sm">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate/50">{stat.label}</p>
+                    <p className="mt-1 text-sm font-bold uppercase tracking-wider text-secondary">{stat.value}</p>
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div className="mx-auto mt-12 max-w-2xl lg:mt-0 lg:mr-0 lg:ml-auto lg:max-w-none lg:flex-none">
+              <div className="max-w-xl rounded-2xl border border-mist bg-white shadow-lg shadow-secondary/5">
+                <div className="border-b border-mist px-6 py-5">
+                  <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate/60">Evidence-ready delivery</p>
+                  <p className="mt-2 text-lg font-bold text-secondary">Institutional-grade MRV, without the noise.</p>
+                </div>
+                <div className="px-6 py-6">
+                  <div className="grid gap-3">
+                    {[
+                      { title: "Soil & practice data capture", detail: "Field-first, farmer-aligned", tone: "text-primary" },
+                      { title: "Verification & audit trail", detail: "Standards-aligned evidence vault", tone: "text-sky-teal" },
+                      { title: "Credit issuance & buyer readiness", detail: "Commercial value with integrity", tone: "text-accent" },
+                    ].map((row) => (
+                      <div key={row.title} className="rounded-xl border border-mist bg-white px-4 py-4">
+                        <p className="text-sm font-bold text-secondary">{row.title}</p>
+                        <p className={`mt-1 text-xs font-bold uppercase tracking-[0.18em] ${row.tone}`}>
+                          {row.detail}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-6 rounded-xl border border-mist bg-parchment/40 px-4 py-4">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/60">Next step</p>
+                    <p className="mt-2 text-sm font-bold text-secondary">
+                      Review documents and data in the Evidence Vault.
+                    </p>
+                    <a
+                      href="/resources"
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-secondary transition-colors"
+                    >
+                      Open Evidence Vault <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section className="mt-16 grid gap-6 md:grid-cols-2">
