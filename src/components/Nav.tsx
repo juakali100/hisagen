@@ -86,37 +86,50 @@ export default function Nav() {
 
               return (
                 <div key={item.label} ref={dropdownRef} className="relative inline-flex py-1">
-                  <button
-                    type="button"
-                    aria-haspopup="menu"
-                    aria-expanded={isProgramsOpen}
-                    aria-controls={dropdownId}
-                    onClick={() => setIsProgramsOpen((open) => !open)}
-                    className={[
-                      "flex items-center gap-2 text-sm font-semibold transition-colors rounded-md px-1.5 py-1",
-                      isActive ? "text-secondary" : "text-slate hover:text-primary",
-                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-parchment",
-                      "motion-reduce:transition-none",
-                    ].join(" ")}
-                  >
-                    {item.label}
-                    <svg
-                      aria-hidden
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
+                  <div className="flex items-center">
+                    <Link
+                      href={item.href}
+                      aria-current={pathname === item.href ? "page" : undefined}
                       className={[
-                        "h-4 w-4 opacity-60 transition-transform duration-200",
-                        isProgramsOpen ? "rotate-180" : "",
-                        "motion-reduce:transition-none motion-reduce:transform-none",
+                        "text-sm font-semibold transition-colors rounded-md px-1.5 py-1",
+                        isActive ? "text-secondary" : "text-slate hover:text-primary",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-parchment",
+                        "motion-reduce:transition-none",
                       ].join(" ")}
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.168l3.71-3.938a.75.75 0 1 1 1.08 1.04l-4.24 4.5a.75.75 0 0 1-1.08 0l-4.24-4.5a.75.75 0 0 1 .02-1.06Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
+                      {item.label}
+                    </Link>
+                    <button
+                      type="button"
+                      aria-label="Open Programs menu"
+                      aria-haspopup="menu"
+                      aria-expanded={isProgramsOpen}
+                      aria-controls={dropdownId}
+                      onClick={() => setIsProgramsOpen((open) => !open)}
+                      className={[
+                        "ml-0.5 inline-flex items-center justify-center rounded-md px-1.5 py-1 text-secondary/70 hover:text-primary transition-colors",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-parchment",
+                        "motion-reduce:transition-none",
+                      ].join(" ")}
+                    >
+                      <svg
+                        aria-hidden
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        className={[
+                          "h-4 w-4 opacity-70 transition-transform duration-200",
+                          isProgramsOpen ? "rotate-180" : "",
+                          "motion-reduce:transition-none motion-reduce:transform-none",
+                        ].join(" ")}
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.168l3.71-3.938a.75.75 0 1 1 1.08 1.04l-4.24 4.5a.75.75 0 0 1-1.08 0l-4.24-4.5a.75.75 0 0 1 .02-1.06Z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
 
                   <div
                     id={dropdownId}

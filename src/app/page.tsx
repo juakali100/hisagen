@@ -58,56 +58,68 @@ export default function HomePage() {
       </section>
 
       <div className="mx-auto max-w-5xl">
-        <section className="mt-10 rounded-3xl border border-mist bg-white px-8 py-14 shadow-sm">
-          <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-secondary/40 animate-fade-in">Founding Stewardship Portal</p>
-          <h1 className="mt-8 text-6xl font-black leading-tight text-secondary tracking-tight">
-            Regenerative Carbon <br />
-            <span className="text-primary italic">for Global Agriculture</span>
-          </h1>
-          <p className="mt-8 mx-auto max-w-2xl text-xl leading-relaxed text-slate font-medium">
-            HISAGEN is a systems architect for the agricultural transition, starting in sub-Saharan landscapes to prove the model for universal deployment.
-          </p>
+        <section className="mt-10 rounded-3xl border border-mist bg-white shadow-sm overflow-hidden">
+          <div className="relative px-8 py-14">
+            <Image
+              src="/healthy-roots-soil-sample.jpeg"
+              alt="Healthy roots and soil sample"
+              fill
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-white/85" />
 
-          <div className="mt-12 flex justify-center gap-4 flex-wrap">
-            {homeStats.map((stat, index) => (
-              <div
-                key={stat.label}
-                className="px-5 py-3 rounded-xl border border-mist bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate/40 mb-1">{stat.label}</p>
-                <p className="text-sm font-bold text-secondary uppercase tracking-wider">{stat.value}</p>
+            <div className="relative">
+              <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-secondary/40 animate-fade-in">Founding Stewardship Portal</p>
+              <h1 className="mt-8 text-6xl font-black leading-tight text-secondary tracking-tight">
+                Regenerative Carbon <br />
+                <span className="text-primary italic">for Global Agriculture</span>
+              </h1>
+              <p className="mt-8 mx-auto max-w-2xl text-xl leading-relaxed text-slate font-medium">
+                HISAGEN is a systems architect for the agricultural transition, starting in sub-Saharan landscapes to prove the model for universal deployment.
+              </p>
+
+              <div className="mt-12 flex justify-center gap-4 flex-wrap">
+                {homeStats.map((stat, index) => (
+                  <div
+                    key={stat.label}
+                    className="px-5 py-3 rounded-xl border border-mist bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate/40 mb-1">{stat.label}</p>
+                    <p className="text-sm font-bold text-secondary uppercase tracking-wider">{stat.value}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </section>
 
         <section className="mt-16 grid gap-6 md:grid-cols-2">
-        {strategicFocus.map((item, index) => (
-          <a
-            key={item.title}
-            href={item.href}
-            className="group p-10 rounded-2xl border border-mist bg-white hover:bg-parchment/30 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 relative overflow-hidden motion-reduce:transition-none"
-          >
-            {/* Arrow icon */}
-            <div className="absolute top-4 right-4 text-sky-teal opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14m-7-7 7 7-7 7" />
-              </svg>
-            </div>
+          {strategicFocus.map((item, index) => (
+            <a
+              key={item.title}
+              href={item.href}
+              className="group p-10 rounded-2xl border border-mist bg-white hover:bg-parchment/30 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 relative overflow-hidden motion-reduce:transition-none"
+            >
+              {/* Arrow icon */}
+              <div className="absolute top-4 right-4 text-sky-teal opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14m-7-7 7 7-7 7" />
+                </svg>
+              </div>
 
-            <div className="relative z-10">
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40 mb-3 group-hover:text-sky-teal/60 transition-colors">{item.label}</p>
-              <h2 className="text-2xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors duration-300">
-                {item.title}
-              </h2>
-              <p className="text-base text-slate leading-relaxed group-hover:text-ink transition-colors">
-                {item.description}
-              </p>
-            </div>
-          </a>
-        ))}
-      </section>
+              <div className="relative z-10">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40 mb-3 group-hover:text-sky-teal/60 transition-colors">{item.label}</p>
+                <h2 className="text-2xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors duration-300">
+                  {item.title}
+                </h2>
+                <p className="text-base text-slate leading-relaxed group-hover:text-ink transition-colors">
+                  {item.description}
+                </p>
+              </div>
+            </a>
+          ))}
+        </section>
 
       <div className="mt-16 text-center">
         <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-parchment/50 border border-mist">

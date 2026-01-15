@@ -115,10 +115,10 @@ export default function StrategyPage() {
                 </div>
 
                 <div className="space-y-4">
-                    {systemicStack.map((s) => (
+                    {systemicStack.map((s, index) => (
                         <div key={s.layer} className="relative flex flex-col md:flex-row gap-6 p-8 rounded-2xl border border-mist bg-white hover:border-primary/30 transition-all group shadow-sm">
-                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-secondary/5 flex items-center justify-center text-2xl relative z-10 group-hover:bg-primary/10 transition-colors">
-                                {s.icon}
+                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-secondary/5 flex items-center justify-center text-sm font-black text-secondary/70 relative z-10 group-hover:bg-primary/10 group-hover:text-secondary transition-colors">
+                                {String(index + 1).padStart(2, "0")}
                             </div>
                             <div className="flex-1">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
