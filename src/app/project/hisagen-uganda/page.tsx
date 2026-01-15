@@ -26,7 +26,7 @@ export default function PilotPage() {
         trail={[{ label: "Agri-Carbon Program", href: "/program" }]}
       />
 
-      <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
+      <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">Project</p>
         <h1 className="mt-4 text-4xl font-semibold text-secondary leading-tight">
           HISAGEN Uganda Pilot: Flagship Implementation
@@ -77,7 +77,7 @@ export default function PilotPage() {
           </div>
 
           {/* Chart Area */}
-          <div className="relative h-48 bg-gradient-to-r from-emerald-50 via-emerald-100 to-emerald-800">
+          <div className="relative h-48 bg-secondary">
             <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
               {/* Vertical Dividers */}
               <line x1="25%" y1="0" x2="25%" y2="100%" stroke="rgba(255,255,255,0.2)" />
@@ -88,7 +88,7 @@ export default function PilotPage() {
               <path
                 d="M 0 30 C 250 30, 750 160, 1000 160"
                 fill="none"
-                stroke="#000"
+                stroke="#D8B75A"
                 strokeWidth="4"
                 vectorEffect="non-scaling-stroke"
               />
@@ -96,15 +96,15 @@ export default function PilotPage() {
               <path
                 d="M 0 160 C 250 160, 750 30, 1000 30"
                 fill="none"
-                stroke="#fff"
+                stroke="#F7F8F5"
                 strokeWidth="4"
                 vectorEffect="non-scaling-stroke"
               />
             </svg>
 
             {/* Floating Labels */}
-            <div className="absolute top-4 left-4 bg-black text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">High Risk</div>
-            <div className="absolute bottom-4 right-4 bg-black text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg border border-white/20">Low Risk</div>
+            <div className="absolute top-4 left-4 bg-secondary text-parchment px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg border border-white/10">High Risk</div>
+            <div className="absolute bottom-4 right-4 bg-secondary text-parchment px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg border border-white/10">Low Risk</div>
             <div className="absolute bottom-4 left-4 bg-white text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">Low Value</div>
             <div className="absolute top-4 right-4 bg-white text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg border border-secondary/20">High Value</div>
           </div>

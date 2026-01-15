@@ -22,7 +22,7 @@ export default async function PartnerProfilePage({ params }: { params: Promise<{
             />
 
             {/* Header Section */}
-            <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
+            <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
                 <div className="flex justify-between items-start">
                     <div>
                         <span className="text-[10px] font-bold uppercase tracking-widest text-secondary px-3 py-1 bg-secondary/10 rounded-full">

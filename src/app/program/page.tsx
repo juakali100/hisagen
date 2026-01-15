@@ -56,7 +56,7 @@ export default function ProgramPage() {
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb stage="Programs" />
 
-      <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
+      <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">Program</p>
         <h1 className="mt-4 text-4xl font-semibold text-secondary leading-tight">
           HISAGEN Agri-Carbon Program: Built to Scale

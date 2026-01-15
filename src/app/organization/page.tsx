@@ -33,7 +33,7 @@ export default function OrganizationPage() {
         <div className="mx-auto max-w-5xl text-ink font-sans">
             <StageBreadcrumb stage="Who We Are" />
 
-            <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-16">
+            <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-16">
                 <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/60">Organization</p>
                 <h1 className="mt-6 text-5xl font-bold leading-tight text-secondary">
                     The Founding Team

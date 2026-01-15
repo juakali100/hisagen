@@ -60,7 +60,7 @@ export default function WebsitePrototypePage() {
         trail={[{ label: "Overview", href: "/" }, { label: "Website Prototype" }]}
       />
 
-      <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
+      <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
           HISAGEN Draft Web Experience
         </p>
@@ -77,7 +77,7 @@ export default function WebsitePrototypePage() {
         <p className="text-xs uppercase tracking-[0.2em] text-slate">Prototype sections</p>
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           {prototypeSections.map((section) => (
-            <div key={section.label} className="rounded-xl border border-mist/60 bg-gradient-to-b from-white to-parchment p-5">
+            <div key={section.label} className="rounded-xl border border-mist/60 bg-white p-5">
               <p className="text-xs uppercase tracking-[0.3em] text-secondary">{section.label}</p>
               <p className="mt-2 text-sm text-slate">{section.description}</p>
               <p className="mt-3 text-xs font-semibold text-secondary">{section.purpose}</p>

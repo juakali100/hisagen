@@ -295,7 +295,7 @@ export default function ResourcesPage() {
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb stage="Evidence Vault" />
 
-      <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
+      <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">Resources</p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
           Foundation & Evidence Vault

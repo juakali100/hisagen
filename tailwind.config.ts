@@ -31,15 +31,6 @@ const config: Config = {
         info: "#90BEE1", // Using Sky Blue
         warning: "#D8B75A", // Using Goldenrod
         error: "#E5534B", // Bright coral for errors
-
-        // Gradient Color Stops
-        // Use with Tailwind gradient utilities:
-        // "Earth to Sky": from-primary via-sky-teal to-sky-blue
-        // "Harvest Sunrise": from-secondary via-leaf-green to-accent
-        // "Field Growth": from-primary to-leaf-green
-        "gradient-start": "#1F6A4A", // Forest Green for gradients
-        "gradient-mid": "#4BA0A6", // Sky Teal for gradients
-        "gradient-end": "#90BEE1", // Sky Blue for gradients
       },
       fontFamily: {
         serif: ['"Source Serif 4"', "Georgia", "serif"],
@@ -48,12 +39,6 @@ const config: Config = {
       borderRadius: {
         md: "6px",
         lg: "8px",
-      },
-      backgroundImage: {
-        // Predefined gradient combinations from brand guidelines
-        "earth-to-sky": "linear-gradient(135deg, #1F6A4A 0%, #4BA0A6 50%, #90BEE1 100%)",
-        "harvest-sunrise": "linear-gradient(90deg, #1F2E3A 0%, #4F9C74 50%, #D8B75A 100%)",
-        "field-growth": "linear-gradient(180deg, #1F6A4A 0%, #4F9C74 100%)",
       },
     },
   },

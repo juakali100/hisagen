@@ -8,7 +8,7 @@ export default function CommsSummaryPage() {
         trail={[{ label: "Overview", href: "/" }, { label: "Resources", href: "/resources" }, { label: "Comms Summary" }]}
       />
 
-      <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-12">
+      <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">Resources</p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
           Comms summary

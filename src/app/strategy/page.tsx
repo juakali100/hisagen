@@ -84,7 +84,7 @@ export default function StrategyPage() {
         <div className="mx-auto max-w-5xl text-ink font-sans">
             <StageBreadcrumb stage="What We Do" />
 
-            <section className="rounded-2xl border border-mist bg-gradient-to-b from-parchment to-white px-8 py-16 text-center">
+            <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-16 text-center">
                 <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/60">Strategy & Impact</p>
                 <h1 className="mt-6 text-5xl font-bold leading-tight text-secondary">
                     Our Theory of Change
