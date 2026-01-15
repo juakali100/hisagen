@@ -38,7 +38,7 @@ export default function PilotPage() {
 
       <section className="mt-10 grid gap-4 grid-cols-2 md:grid-cols-4">
         {pilotFocus.map((item) => (
-          <div key={item.label} className="rounded-xl border border-mist bg-white p-4 shadow-sm">
+          <div key={item.label} className="rounded-xl border border-mist bg-white p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none">
             <p className="text-[10px] uppercase tracking-[0.2em] text-secondary font-bold">{item.label}</p>
             <p className="mt-2 text-sm text-slate font-medium">{item.value}</p>
           </div>

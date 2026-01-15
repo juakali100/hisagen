@@ -60,7 +60,7 @@ export default function EvidencePage() {
 
       <section className="mt-10 grid gap-6 md:grid-cols-2">
         {evidenceCategories.map((cat) => (
-          <div key={cat.title} className="rounded-xl border border-mist bg-white p-6 shadow-sm">
+          <div key={cat.title} className="rounded-xl border border-mist bg-white p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none">
             <h2 className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4">{cat.title}</h2>
             <ul className="space-y-3">
               {cat.items.map((item, idx) => (
@@ -96,5 +96,4 @@ export default function EvidencePage() {
     </div>
   );
 }
-
 

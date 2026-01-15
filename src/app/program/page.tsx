@@ -67,7 +67,7 @@ export default function ProgramPage() {
       </section>
 
       {/* Elevated Infrastructure Section */}
-      <section className="mt-10 rounded-xl border border-mist bg-white overflow-hidden shadow-sm">
+      <section className="mt-10 rounded-xl border border-mist bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow motion-reduce:transition-none">
         <div className="bg-secondary p-6 text-white">
           <p className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-70">Infrastructure</p>
           <h2 className="mt-2 text-xl font-bold tracking-tight">Integrated Operating Architecture</h2>
@@ -109,7 +109,7 @@ export default function ProgramPage() {
                 color: "bg-slate-50"
               }
             ].map((p, idx) => (
-              <div key={idx} className={`rounded-xl border border-mist p-5 flex flex-col ${p.color}`}>
+              <div key={idx} className={`rounded-xl border border-mist p-5 flex flex-col ${p.color} hover:shadow-sm transition-shadow motion-reduce:transition-none`}>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-secondary/40">{p.phase}</span>
                 <h3 className="mt-2 text-base font-bold text-secondary">{p.org}</h3>
                 <p className="text-xs font-medium text-slate/70 mt-1 uppercase tracking-wider">{p.role}</p>
@@ -244,7 +244,7 @@ export default function ProgramPage() {
                 <div className="z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded border border-mist bg-white text-[8px] font-bold text-secondary shadow-sm">
                   {step.label}
                 </div>
-                <div className="flex-1 rounded-xl border border-mist bg-parchment/5 p-5 hover:border-secondary/20 transition-colors">
+                <div className="flex-1 rounded-xl border border-mist bg-parchment/5 p-5 hover:border-secondary/20 hover:shadow-sm transition-all duration-300 motion-reduce:transition-none">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/40">{step.actor}</p>
                   <h3 className="text-sm font-bold text-secondary mt-1">{step.stage}</h3>
                   <p className="text-xs text-slate mt-2 leading-relaxed">{step.detail}</p>
@@ -262,7 +262,7 @@ export default function ProgramPage() {
         </div>
         <div className="space-y-4">
           {programGaps.map((gap) => (
-            <div key={gap.area} className="p-4 rounded-lg border border-mist/50 bg-parchment/10 text- ink">
+            <div key={gap.area} className="p-4 rounded-lg border border-mist/50 bg-parchment/10 text-ink hover:bg-white hover:shadow-sm transition-all duration-300 motion-reduce:transition-none">
               <h3 className="text-xs font-bold text-secondary uppercase tracking-wider">{gap.area}</h3>
               <p className="text-sm text-slate mt-2 leading-relaxed">{gap.description}</p>
             </div>

@@ -15,8 +15,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <main className="min-h-screen px-6 py-10">
+      <body className="bg-parchment text-ink font-sans antialiased selection:bg-accent/30 selection:text-ink">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-6 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-secondary focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-2"
+        >
+          Skip to content
+        </a>
+        <main id="main" className="min-h-screen px-6 py-10">
           <Nav />
           {children}
           <footer className="mx-auto mt-16 max-w-5xl border-t border-mist pt-6 text-xs text-slate flex items-center justify-between">

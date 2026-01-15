@@ -63,7 +63,7 @@ export default function HomePage() {
             {homeStats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="px-5 py-3 rounded-xl border border-mist bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md hover:border-sky-teal/40 transition-all duration-300 hover:-translate-y-0.5"
+                className="px-5 py-3 rounded-xl border border-mist bg-white/90 backdrop-blur-sm shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 hover:-translate-y-0.5 motion-reduce:transform-none motion-reduce:transition-none"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate/40 mb-1">{stat.label}</p>
@@ -79,7 +79,7 @@ export default function HomePage() {
           <a
             key={item.title}
             href={item.href}
-            className="group p-10 rounded-2xl border border-mist bg-white hover:bg-parchment/30 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 relative overflow-hidden"
+            className="group p-10 rounded-2xl border border-mist bg-white hover:bg-parchment/30 hover:border-primary/20 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 relative overflow-hidden motion-reduce:transition-none"
           >
             {/* Arrow icon */}
             <div className="absolute top-4 right-4 text-sky-teal opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-300">
@@ -112,7 +112,7 @@ export default function HomePage() {
           <a
             key={item.title}
             href={item.href}
-            className="group p-8 rounded-2xl border-2 border-mist bg-parchment/20 hover:bg-white border-dashed hover:border-solid hover:border-primary/20 transition-all duration-500 hover:shadow-xl relative overflow-hidden"
+            className="group p-8 rounded-2xl border-2 border-mist bg-parchment/20 hover:bg-white border-dashed hover:border-solid hover:border-primary/20 transition-all duration-500 hover:shadow-xl relative overflow-hidden motion-reduce:transition-none"
           >
             {/* Left accent bar that grows on hover */}
             <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary transform scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />
@@ -166,7 +166,7 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-4">
             <a
               href="/strategy"
-              className="group px-6 py-3 bg-parchment text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-accent transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 hover:scale-105"
+              className="group px-6 py-3 bg-parchment text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-accent transition-all duration-300 hover:shadow-lg hover:shadow-accent/20 hover:scale-105 motion-reduce:transition-none motion-reduce:transform-none"
             >
               The Strategy Stack
               <span className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>

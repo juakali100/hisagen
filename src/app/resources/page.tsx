@@ -1,4 +1,5 @@
 ﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
+import EvidenceTable from "../../components/EvidenceTable";
 import Link from "next/link";
 
 type Attachment = {
@@ -305,6 +306,8 @@ export default function ResourcesPage() {
         </p>
       </section>
 
+      <EvidenceTable entries={intelligenceLedger} title="Intelligence Ledger" />
+
       <div className="mt-12 space-y-16">
         {domains.map((domain) => (
           <section key={domain} className="space-y-6">
@@ -324,7 +327,7 @@ export default function ResourcesPage() {
                   { phase: "3. Certification", org: "3Degrees", detail: "Methodology & Accreditation" },
                   { phase: "4. Monetization", org: "CZMP", detail: "Market Exchange & Sales" }
                 ].map((step, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-parchment/30 border border-mist border-dashed relative group">
+                  <div key={idx} className="p-4 rounded-xl bg-parchment/30 border border-mist border-dashed relative group hover:bg-white transition-colors motion-reduce:transition-none">
                     <p className="text-[9px] font-bold uppercase tracking-widest text-secondary/40 whitespace-nowrap">{step.phase}</p>
                     <p className="text-xs font-bold text-secondary mt-1">{step.org}</p>
                     <p className="text-[10px] text-slate mt-1 leading-tight">{step.detail}</p>
@@ -348,7 +351,7 @@ export default function ResourcesPage() {
                 .map((item) => (
                   <div
                     key={item.title}
-                    className="group relative flex flex-col md:flex-row md:items-center justify-between gap-6 p-5 rounded-xl border border-mist bg-white hover:border-secondary/40 transition-all hover:shadow-sm"
+                    className="group relative flex flex-col md:flex-row md:items-center justify-between gap-6 p-5 rounded-xl border border-mist bg-white hover:border-secondary/40 transition-all hover:shadow-sm motion-reduce:transition-none"
                   >
                     <div className="flex-1 space-y-2">
                       <div className="flex items-center gap-3">

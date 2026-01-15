@@ -55,7 +55,7 @@ export default function OrganizationPage() {
                 </div>
                 <div className="grid gap-8 md:grid-cols-2">
                     {coreTeam.map((team) => (
-                        <div key={team.name} className="p-8 rounded-2xl border border-mist bg-white shadow-sm group hover:border-primary/30 transition-all">
+                        <div key={team.name} className="p-8 rounded-2xl border border-mist bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-primary/20 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none">
                             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-2">{team.role}</p>
                             <h3 className="text-xl font-bold text-secondary mb-4">{team.name}</h3>
                             <p className="text-sm text-slate leading-relaxed">
@@ -94,7 +94,7 @@ export default function OrganizationPage() {
                         { org: "3Degrees", role: "Accreditation & Audit" },
                         { org: "Uganda NARO", role: "Research Validation" }
                     ].map((partner) => (
-                        <div key={partner.org} className="p-4 rounded-xl border border-mist bg-white flex items-center justify-between">
+                        <div key={partner.org} className="p-4 rounded-xl border border-mist bg-white flex items-center justify-between hover:shadow-sm hover:border-secondary/20 transition-colors motion-reduce:transition-none">
                             <div>
                                 <p className="text-xs font-bold text-secondary">{partner.org}</p>
                                 <p className="text-[10px] text-slate/60 uppercase tracking-tighter">{partner.role}</p>
