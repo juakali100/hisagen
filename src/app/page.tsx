@@ -59,30 +59,6 @@ export default function HomePage() {
 
       <div className="mx-auto max-w-5xl">
         <section className="relative isolate mt-20 overflow-hidden rounded-3xl border border-mist bg-white shadow-md shadow-secondary/5">
-          <svg
-            aria-hidden="true"
-            className="absolute inset-0 -z-10 size-full mask-[radial-gradient(110%_90%_at_top_right,white,transparent)] stroke-mist"
-          >
-            <defs>
-              <pattern
-                x="50%"
-                y={-1}
-                id="home-portal-grid"
-                width={200}
-                height={200}
-                patternUnits="userSpaceOnUse"
-              >
-                <path d="M.5 200V.5H200" fill="none" />
-              </pattern>
-            </defs>
-            <svg x="50%" y={-1} className="overflow-visible fill-parchment/30">
-              <path
-                d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-                strokeWidth={0}
-              />
-            </svg>
-            <rect fill="url(#home-portal-grid)" width="100%" height="100%" strokeWidth={0} />
-          </svg>
 
           <div className="px-8 py-14 lg:flex lg:items-start lg:gap-12 lg:px-12 lg:py-16">
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:pt-2">
