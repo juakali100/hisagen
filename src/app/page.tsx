@@ -40,25 +40,25 @@ const homeStats = [
 
 export default function HomePage() {
   return (
-    <div className="mx-auto max-w-5xl text-ink font-sans">
-      <StageBreadcrumb stage="Dashboard" />
+    <div className="text-ink font-sans">
+      <div className="mx-auto max-w-5xl">
+        <StageBreadcrumb stage="Dashboard" />
+      </div>
 
-      <section className="relative rounded-3xl border border-mist bg-white overflow-hidden shadow-2xl shadow-secondary/10">
-        <Image
-          src="/hisagen-hero-female-farmer-mrv.jpeg"
-          alt="Farmer in-field with MRV context"
-          fill
-          priority
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-white/75" />
-        <div className="absolute inset-0 bg-parchment/40" />
-        <div className="absolute inset-0 opacity-40">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-teal/5 rounded-full blur-3xl" />
+      <section className="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] border-y border-mist bg-white overflow-hidden">
+        <div className="relative h-[52vh] min-h-[360px]">
+          <Image
+            src="/hisagen-hero-female-farmer-mrv.jpeg"
+            alt="Female farmer in-field (MRV context)"
+            fill
+            priority
+            className="object-cover object-center"
+          />
         </div>
+      </section>
 
-        <div className="relative px-8 py-20 text-center">
+      <div className="mx-auto max-w-5xl">
+        <section className="mt-10 rounded-3xl border border-mist bg-white px-8 py-14 shadow-sm">
           <p className="text-[10px] font-bold uppercase tracking-[0.5em] text-secondary/40 animate-fade-in">Founding Stewardship Portal</p>
           <h1 className="mt-8 text-6xl font-black leading-tight text-secondary tracking-tight">
             Regenerative Carbon <br />
@@ -80,10 +80,9 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="mt-16 grid gap-6 md:grid-cols-2">
+        <section className="mt-16 grid gap-6 md:grid-cols-2">
         {strategicFocus.map((item, index) => (
           <a
             key={item.title}
@@ -151,10 +150,10 @@ export default function HomePage() {
             </div>
           </a>
         ))}
-      </section>
+        </section>
 
-      {/* Master Strategy */}
-      <section className="mt-20 rounded-3xl border-2 border-secondary bg-secondary text-parchment p-12 relative overflow-hidden shadow-2xl shadow-secondary/20">
+        {/* Master Strategy */}
+        <section className="mt-20 rounded-3xl border-2 border-secondary bg-secondary text-parchment p-12 relative overflow-hidden shadow-2xl shadow-secondary/20">
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full -mb-48 -mr-48 animate-pulse" />
         <div className="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full -mt-32 -ml-32" />
 
@@ -189,9 +188,9 @@ export default function HomePage() {
             </a>
           </div>
         </div>
-      </section>
+        </section>
 
-      <section className="my-16 border-t border-mist pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <section className="my-16 border-t border-mist pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-3">
           <div className="w-1.5 h-1.5 rounded-full bg-primary" />
           <p className="text-[10px] font-bold uppercase tracking-widest text-slate/40">
@@ -214,7 +213,8 @@ export default function HomePage() {
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-leaf-green group-hover:w-full transition-all duration-300" />
           </a>
         </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }
