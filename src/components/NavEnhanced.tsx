@@ -146,7 +146,7 @@ export default function NavEnhanced() {
 
             <PopoverPanel
               transition
-              className="absolute left-1/2 -translate-x-1/2 top-full z-50 mt-3 w-72 max-w-[calc(100vw-3rem)] origin-top rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
+              className="absolute left-0 right-0 top-full z-50 mt-3 w-full origin-top rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
             >
               <div className="p-4">
                 <div className="space-y-1">
@@ -183,7 +183,7 @@ export default function NavEnhanced() {
 
             <PopoverPanel
               transition
-              className="absolute left-1/2 -translate-x-1/2 top-full z-50 mt-3 w-screen max-w-2xl max-w-[calc(100vw-3rem)] origin-top rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
+              className="absolute left-0 right-0 top-full z-50 mt-3 w-full origin-top rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
             >
               <div className="p-6">
                 <div className="grid grid-cols-2 gap-6">
@@ -255,7 +255,7 @@ export default function NavEnhanced() {
 
             <PopoverPanel
               transition
-              className="absolute left-1/2 -translate-x-1/2 top-full z-50 mt-3 w-screen max-w-3xl max-w-[calc(100vw-3rem)] origin-top rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
+              className="absolute left-0 right-0 top-full z-50 mt-3 w-full origin-top rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
             >
               <div className="p-6">
                 <div className="grid grid-cols-2 gap-6">
