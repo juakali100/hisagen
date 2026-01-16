@@ -4,9 +4,51 @@ import Image from "next/image";
 const pilotFocus = [
   { label: "Location", value: "Uganda (Primary Landscapes)" },
   { label: "Crop Focus", value: "Maize & Intercropping" },
-  { label: "Carbon Registry", value: "TBD (Targeting High-Integrity)" },
+  { label: "Carbon Registry", value: "Verra VM0042" },
   { label: "Primary Partner", value: "Deep Six Consulting" },
 ];
+
+const whyUganda = [
+  {
+    metric: "4M",
+    label: "Smallholder Households",
+    detail: "Average 1-3 hectare farms, ideal scale for HISAGEN model",
+  },
+  {
+    metric: "80%",
+    label: "Arable Land Available",
+    detail: "Only 35% currently cultivated—massive expansion potential",
+  },
+  {
+    metric: "76%",
+    label: "Yield Gap",
+    detail: "Unrealized productivity vs. potential—soil intervention needed",
+  },
+  {
+    metric: "First",
+    label: "Mover Advantage",
+    detail: "No scaled agricultural carbon programs in East Africa",
+  },
+];
+
+const outcomeTargets = {
+  stage1: {
+    outcomes: ["SOC baseline established", "5,000 hectares under management", "First Verra VM0042 credits issued"],
+    timeline: "Years 1-3",
+  },
+  stage2: {
+    outcomes: ["Scale to 50,000+ hectares", "70%+ of credit value to farmers", "Verified yield improvement (15-30%)"],
+    timeline: "Years 4-8",
+  },
+  stage3: {
+    outcomes: ["1M+ tCO2e sequestered annually", "Sustainable farmer income stream", "Model replicated to second geography"],
+    timeline: "Years 9-15",
+  },
+  stage4: {
+    outcomes: ["Regional hub for East Africa", "Institutional capital unlocked", "Blueprint for global replication"],
+    timeline: "Years 16+",
+  },
+};
 
 const pilotGaps = [
   {
@@ -46,10 +88,10 @@ export default function PilotPage() {
       <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">Project</p>
         <h1 className="mt-4 text-4xl font-semibold text-secondary leading-tight">
-          HISAGEN Uganda Pilot: Flagship Implementation
+          HISAGEN Uganda: Making Agricultural Carbon Bankable
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate italic">
-          "Proving the end-to-end Agri-Carbon cycle in the field."
+          "Proving the full-stack model where it matters most—with 4 million smallholder farmers."
         </p>
       </section>
 
@@ -60,6 +102,42 @@ export default function PilotPage() {
             <p className="mt-2 text-sm text-slate font-medium">{item.value}</p>
           </div>
         ))}
+      </section>
+
+      {/* Why Uganda Section */}
+      <section className="mt-16 border-t border-mist pt-12">
+        <div className="mb-8">
+          <p className="text-xs uppercase tracking-[0.3em] font-bold text-secondary">Strategic Rationale</p>
+          <h2 className="mt-2 text-3xl font-bold text-secondary">Why Uganda?</h2>
+          <p className="mt-3 text-sm text-slate max-w-2xl leading-relaxed">
+            Uganda represents the ideal first market for proving the HISAGEN model: massive smallholder scale, untapped agricultural potential, government commitment to climate-smart agriculture, and no incumbent competition.
+          </p>
+        </div>
+
+        <div className="grid gap-4 grid-cols-2 md:grid-cols-4">
+          {whyUganda.map((item) => (
+            <div key={item.label} className="rounded-xl border border-secondary/20 bg-secondary/5 p-5 hover:border-secondary/40 transition-colors">
+              <p className="text-3xl font-bold text-secondary">{item.metric}</p>
+              <p className="mt-1 text-xs font-bold uppercase tracking-widest text-secondary/80">{item.label}</p>
+              <p className="mt-3 text-xs text-slate leading-relaxed">{item.detail}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 p-6 rounded-xl bg-parchment/60 border border-mist">
+          <div className="flex flex-col md:flex-row md:items-center gap-4">
+            <div className="flex-1">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Government Alignment</p>
+              <p className="text-sm text-slate leading-relaxed">
+                Uganda has committed to climate-smart agriculture through its <strong>Nationally Determined Contributions (NDC)</strong>. Agriculture employs 70%+ of the population and contributes 24% of GDP—making soil carbon a national priority.
+              </p>
+            </div>
+            <div className="flex-shrink-0 px-4 py-2 bg-secondary/10 rounded-lg text-center">
+              <p className="text-2xl font-bold text-secondary">70%+</p>
+              <p className="text-[9px] uppercase tracking-widest text-secondary/60">Employment in Agriculture</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="mt-16 border-t border-mist pt-12 mb-20">
@@ -189,6 +267,14 @@ export default function PilotPage() {
                       </div>
                     </div>
                   </div>
+                  <div className="mt-6 pt-4 border-t border-mist">
+                    <p className="text-[10px] font-bold text-secondary uppercase tracking-widest mb-3">Outcome Targets</p>
+                    <div className="flex flex-wrap gap-2">
+                      {outcomeTargets.stage1.outcomes.map((outcome, i) => (
+                        <span key={i} className="px-3 py-1.5 bg-secondary/10 text-secondary text-[10px] font-medium rounded-full">{outcome}</span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -218,6 +304,14 @@ export default function PilotPage() {
                   <div className="p-4 bg-mist/5 rounded-xl border border-mist/50">
                     <p className="text-[10px] font-bold text-slate uppercase tracking-tighter">Domain 3: Certification</p>
                     <p className="text-xs text-slate mt-2 leading-relaxed"><strong>3Degrees</strong>: Drafting PDD, coordinating with registries, and securing future-dated credits.</p>
+                  </div>
+                </div>
+                <div className="mt-6 pt-4 border-t border-mist">
+                  <p className="text-[10px] font-bold text-slate uppercase tracking-widest mb-3">Outcome Targets</p>
+                  <div className="flex flex-wrap gap-2">
+                    {outcomeTargets.stage2.outcomes.map((outcome, i) => (
+                      <span key={i} className="px-3 py-1.5 bg-mist/30 text-slate text-[10px] font-medium rounded-full">{outcome}</span>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -250,6 +344,14 @@ export default function PilotPage() {
                     <p className="text-xs text-slate mt-2 leading-relaxed"><strong>Hisagen</strong>: Managing steady-state 'biological harvest' and community dividend distributions.</p>
                   </div>
                 </div>
+                <div className="mt-6 pt-4 border-t border-mist/50">
+                  <p className="text-[10px] font-bold text-slate uppercase tracking-widest mb-3">Outcome Targets</p>
+                  <div className="flex flex-wrap gap-2">
+                    {outcomeTargets.stage3.outcomes.map((outcome, i) => (
+                      <span key={i} className="px-3 py-1.5 bg-white/60 text-slate text-[10px] font-medium rounded-full">{outcome}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -274,6 +376,14 @@ export default function PilotPage() {
                   <p className="text-[10px] font-bold text-slate uppercase tracking-tighter">Domain 4: Institutional Monetization</p>
                   <p className="text-xs text-slate mt-2 leading-relaxed italic"><strong>HISAGEN / CZMP</strong>: Wholesale credit blocks, sovereign alignment, and regional hub expansion.</p>
                 </div>
+                <div className="mt-6 pt-4 border-t border-mist/50">
+                  <p className="text-[10px] font-bold text-slate uppercase tracking-widest mb-3">Outcome Targets</p>
+                  <div className="flex flex-wrap gap-2">
+                    {outcomeTargets.stage4.outcomes.map((outcome, i) => (
+                      <span key={i} className="px-3 py-1.5 bg-white/40 text-slate text-[10px] font-medium rounded-full">{outcome}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -281,7 +391,7 @@ export default function PilotPage() {
 
         <div className="mt-14 p-8 rounded-2xl border border-secondary/20 bg-secondary/5 text-center">
           <p className="text-sm text-secondary font-medium leading-relaxed">
-            By mapping the <strong>types of capital</strong> to our <strong>ecosystem accountability</strong>, we ensure that the Uganda Pilot remains focused on the technical and social rigour required to unlock institutional-scale financing.
+            By aligning <strong>stage-specific capital</strong> with <strong>verified outcomes</strong>, Uganda becomes the proof point that makes agricultural carbon <strong>bankable</strong>—for institutional investors and smallholder farmers alike.
           </p>
         </div>
       </section>
