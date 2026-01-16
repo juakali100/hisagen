@@ -30,7 +30,7 @@ export default function RootLayout({
             <div className="flex items-center gap-2">
               <span>Prepared by</span>
               <Image
-                src="/pandion-logo.png"
+                src="/logos/pandion-logo.png"
                 alt="Pandion Studio"
                 width={20}
                 height={20}
