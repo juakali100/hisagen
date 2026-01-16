@@ -9,7 +9,7 @@ type Attachment = {
 };
 
 export type IntelligenceEntry = {
-  domain: "Context" | "Evidence" | "Ecosystem" | "Frameworks";
+  domain: "Context" | "Research" | "Ecosystem" | "Frameworks";
   format: "Email" | "PDF" | "Excel" | "Call" | "Doc" | "Link" | "WhatsApp";
   date: string;
   title: string;
@@ -26,7 +26,7 @@ type Props = {
   title?: string;
 };
 
-const domainOptions: Array<IntelligenceEntry["domain"] | "All"> = ["All", "Context", "Evidence", "Ecosystem", "Frameworks"];
+const domainOptions: Array<IntelligenceEntry["domain"] | "All"> = ["All", "Context", "Research", "Ecosystem", "Frameworks"];
 const formatOptions: Array<IntelligenceEntry["format"] | "All"> = ["All", "Email", "PDF", "Excel", "Call", "Doc", "Link", "WhatsApp"];
 
 function badgeClassesForFormat(format: IntelligenceEntry["format"]) {
@@ -50,7 +50,7 @@ function badgeClassesForFormat(format: IntelligenceEntry["format"]) {
   }
 }
 
-export default function EvidenceTable({ entries, defaultDomain = "All", title = "Evidence Vault (Table View)" }: Props) {
+export default function EvidenceTable({ entries, defaultDomain = "All", title = "Knowledge Base (Table View)" }: Props) {
   const [query, setQuery] = useState("");
   const [domain, setDomain] = useState<Props["defaultDomain"]>(defaultDomain);
   const [format, setFormat] = useState<(typeof formatOptions)[number]>("All");
@@ -82,7 +82,7 @@ export default function EvidenceTable({ entries, defaultDomain = "All", title = 
       <div className="p-6 border-b border-mist bg-parchment/40">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/60">Evidence Vault</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/60">Knowledge Base</p>
             <h2 className="mt-2 text-2xl font-bold text-secondary">{title}</h2>
             <p className="mt-1 text-sm text-slate">
               Search and filter across intelligence items; use this view for fast retrieval and review.
