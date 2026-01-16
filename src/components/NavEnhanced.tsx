@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useState, useRef } from "react";
+import Image from "next/image";
 
 const navigation = {
   about: [
@@ -46,8 +47,27 @@ const navigation = {
   ],
 };
 
-// Reserved for future flyout enhancements (images, callouts, updates)
-// const recentUpdates = [...];
+// Featured content for About flyout
+const featuredContent = [
+  {
+    id: 1,
+    title: "Uganda Pilot Launch",
+    href: "/project/hisagen-uganda",
+    date: "Jan 2026",
+    category: "Project",
+    imageUrl: "/images/heroes/uganda-smallhold-farmer-mrv.jpeg",
+    description: "Flagship implementation bringing regenerative agriculture to smallholder farmers.",
+  },
+  {
+    id: 2,
+    title: "Soil Carbon Science",
+    href: "/evidence",
+    date: "Research",
+    category: "Evidence",
+    imageUrl: "/images/features/healthy-roots-soil-sample.jpeg",
+    description: "The science behind soil carbon sequestration and measurement.",
+  },
+];
 
 // Hover-enabled Popover wrapper with optional clickable label
 function HoverPopover({
@@ -148,43 +168,82 @@ export default function NavEnhanced() {
 
         {/* Navigation */}
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          {/* About Flyout */}
+          {/* About Flyout - Full Width Two Columns */}
           <HoverPopover buttonLabel="About" buttonHref="/strategy">
-            <div className="mx-auto max-w-5xl px-6 py-6">
-              <div className="grid grid-cols-2 gap-x-12">
+            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2 lg:px-8">
+              {/* Left: Navigation Links (2 columns) */}
+              <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8">
                 {/* The Team */}
                 <div>
-                  <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-4">The Team</h3>
-                  <div className="space-y-1">
-                    {navigation.about.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block rounded-lg p-3 text-sm hover:bg-white/10 transition-all group"
-                      >
-                        <p className="font-bold text-white group-hover:text-accent transition-colors">{item.name}</p>
-                        <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">{item.description}</p>
-                      </Link>
-                    ))}
+                  <h3 className="text-sm font-medium text-white/50">The Team</h3>
+                  <div className="mt-6 flow-root">
+                    <div className="-my-2">
+                      {navigation.about.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="flex py-2 text-sm font-semibold text-white hover:text-accent transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 {/* Core Ecosystem */}
                 <div>
-                  <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-4">Core Ecosystem</h3>
-                  <div className="space-y-1">
-                    {navigation.partners.map((partner) => (
-                      <Link
-                        key={partner.name}
-                        href={partner.href}
-                        className="block rounded-lg p-3 text-sm hover:bg-white/10 transition-all group"
-                      >
-                        <p className="font-bold text-white group-hover:text-accent transition-colors">{partner.name}</p>
-                        <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">{partner.description}</p>
-                      </Link>
-                    ))}
+                  <h3 className="text-sm font-medium text-white/50">Core Ecosystem</h3>
+                  <div className="mt-6 flow-root">
+                    <div className="-my-2">
+                      {navigation.partners.map((partner) => (
+                        <Link
+                          key={partner.name}
+                          href={partner.href}
+                          className="flex py-2 text-sm font-semibold text-white hover:text-accent transition-colors"
+                        >
+                          {partner.name}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Right: Featured Content (2 cards) */}
+              <div className="grid grid-cols-1 gap-10 sm:gap-8 lg:grid-cols-2">
+                <h3 className="sr-only">Featured</h3>
+                {featuredContent.map((item) => (
+                  <article
+                    key={item.id}
+                    className="relative isolate flex max-w-2xl flex-col gap-x-8 gap-y-6 sm:flex-row sm:items-start lg:flex-col lg:items-stretch"
+                  >
+                    <div className="relative flex-none">
+                      <Image
+                        alt=""
+                        src={item.imageUrl}
+                        width={400}
+                        height={200}
+                        className="aspect-[2/1] w-full rounded-lg bg-white/5 object-cover sm:aspect-video sm:h-32 lg:h-auto"
+                      />
+                      <div className="absolute inset-0 rounded-lg ring-1 ring-white/10 ring-inset" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-x-4">
+                        <span className="text-sm text-white/50">{item.date}</span>
+                        <span className="relative z-10 rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium text-white/70">
+                          {item.category}
+                        </span>
+                      </div>
+                      <Link href={item.href} className="mt-2 block group">
+                        <h4 className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
+                          {item.title}
+                        </h4>
+                        <p className="mt-1 text-xs text-white/60 line-clamp-2">{item.description}</p>
+                      </Link>
+                    </div>
+                  </article>
+                ))}
               </div>
             </div>
           </HoverPopover>
