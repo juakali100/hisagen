@@ -343,7 +343,7 @@ export default function NavEnhanced() {
             </div>
           </HoverPopover>
 
-          {/* Evidence Vault (simple link) */}
+          {/* Knowledge Base (simple link) */}
           <Link
             href="/resources"
             className={[
@@ -352,7 +352,7 @@ export default function NavEnhanced() {
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
             ].join(" ")}
           >
-            Evidence Vault
+            Knowledge Base
           </Link>
         </div>
       </nav>
