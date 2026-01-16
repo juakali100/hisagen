@@ -108,16 +108,24 @@ export default function HomePage() {
             <div className="mt-14 flex justify-end gap-4 lg:mt-0 lg:pl-0">
               <div className="w-32 flex-none space-y-4 pt-24 lg:pt-32">
                 <div className="relative">
-                  <div className="aspect-[2/3] w-full rounded-xl bg-mist/50 border border-mist flex items-center justify-center">
-                    <span className="text-xs text-slate/40">Image 1</span>
-                  </div>
+                  <Image
+                    src="/images/home/farmer-at-sunset.jpeg"
+                    alt="Ugandan farmer surveying crops at sunset"
+                    width={256}
+                    height={384}
+                    className="aspect-[2/3] w-full rounded-xl object-cover border border-mist"
+                  />
                 </div>
               </div>
               <div className="w-32 flex-none space-y-4 pt-12 lg:pt-16">
                 <div className="relative">
-                  <div className="aspect-[2/3] w-full rounded-xl bg-mist/50 border border-mist flex items-center justify-center">
-                    <span className="text-xs text-slate/40">Image 2</span>
-                  </div>
+                  <Image
+                    src="/images/home/healthy-soil-in-hands.jpeg"
+                    alt="Healthy soil held in farmer's hands"
+                    width={256}
+                    height={384}
+                    className="aspect-[2/3] w-full rounded-xl object-cover border border-mist"
+                  />
                 </div>
                 <div className="relative">
                   <div className="aspect-[2/3] w-full rounded-xl bg-mist/50 border border-mist flex items-center justify-center">
