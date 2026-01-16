@@ -14,12 +14,7 @@ const navigation = {
       description: "Founding partners and ecosystem",
     },
   ],
-  programs: [
-    {
-      name: "Agri-Carbon Program",
-      href: "/program",
-      description: "Operating model and revenue wheel",
-    },
+  projects: [
     {
       name: "Uganda Pilot",
       href: "/project/hisagen-uganda",
@@ -221,15 +216,15 @@ export default function NavEnhanced() {
             </div>
           </HoverPopover>
 
-          {/* Programs Flyout */}
-          <HoverPopover buttonLabel="Programs" buttonHref="/program">
+          {/* Agri-Carbon Program Flyout */}
+          <HoverPopover buttonLabel="Agri-Carbon Program" buttonHref="/program">
             <div className="mx-auto max-w-5xl px-6 py-6">
               <div className="grid grid-cols-2 gap-x-12">
-                {/* Programs List */}
+                {/* Projects */}
                 <div>
-                  <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-4">Programs & Projects</h3>
+                  <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-4">Projects</h3>
                   <div className="space-y-1">
-                    {navigation.programs.map((item) => (
+                    {navigation.projects.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
