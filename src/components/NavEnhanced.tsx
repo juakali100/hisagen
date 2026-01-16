@@ -146,7 +146,7 @@ export default function NavEnhanced() {
 
             <PopoverPanel
               transition
-              className="absolute left-0 top-full z-50 mt-3 w-72 origin-top-left rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
+              className="absolute left-0 top-full z-50 mt-3 w-72 max-w-[calc(100vw-3rem)] origin-top-left rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
             >
               <div className="p-4">
                 <div className="space-y-1">
@@ -161,7 +161,7 @@ export default function NavEnhanced() {
                         alt=""
                         width={24}
                         height={24}
-                        className="flex-none opacity-60 group-hover:opacity-100 transition-opacity"
+                        className="flex-none w-6 h-6 object-contain opacity-60 group-hover:opacity-100 transition-opacity"
                       />
                       <div className="flex-1">
                         <p className="font-bold text-secondary group-hover:text-primary transition-colors">{item.name}</p>
@@ -183,7 +183,7 @@ export default function NavEnhanced() {
 
             <PopoverPanel
               transition
-              className="absolute left-0 top-full z-50 mt-3 w-screen max-w-2xl origin-top-left rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
+              className="absolute left-0 top-full z-50 mt-3 w-screen max-w-2xl max-w-[calc(100vw-3rem)] origin-top-left rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
             >
               <div className="p-6">
                 <div className="grid grid-cols-2 gap-6">
@@ -202,7 +202,7 @@ export default function NavEnhanced() {
                             alt=""
                             width={24}
                             height={24}
-                            className="flex-none opacity-60 group-hover:opacity-100 transition-opacity"
+                            className="flex-none w-6 h-6 object-contain opacity-60 group-hover:opacity-100 transition-opacity"
                           />
                           <div>
                             <p className="font-bold text-secondary group-hover:text-primary transition-colors">{item.name}</p>
@@ -231,7 +231,7 @@ export default function NavEnhanced() {
                             alt=""
                             width={24}
                             height={24}
-                            className="flex-none opacity-60 group-hover:opacity-100 transition-opacity"
+                            className="flex-none w-6 h-6 object-contain opacity-60 group-hover:opacity-100 transition-opacity"
                           />
                           <div>
                             <p className="font-bold text-secondary group-hover:text-primary transition-colors">{stage.name}</p>
@@ -255,7 +255,7 @@ export default function NavEnhanced() {
 
             <PopoverPanel
               transition
-              className="absolute left-0 top-full z-50 mt-3 w-screen max-w-3xl origin-top-left rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
+              className="absolute left-0 top-full z-50 mt-3 w-screen max-w-3xl max-w-[calc(100vw-3rem)] origin-top-left rounded-xl border border-mist bg-white shadow-xl transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
             >
               <div className="p-6">
                 <div className="grid grid-cols-2 gap-6">
@@ -274,7 +274,7 @@ export default function NavEnhanced() {
                             alt=""
                             width={24}
                             height={24}
-                            className="flex-none opacity-60 group-hover:opacity-100 transition-opacity"
+                            className="flex-none w-6 h-6 object-contain opacity-60 group-hover:opacity-100 transition-opacity"
                           />
                           <div>
                             <p className="font-bold text-secondary group-hover:text-primary transition-colors">{partner.name}</p>
