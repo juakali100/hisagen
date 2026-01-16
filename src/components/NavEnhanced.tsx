@@ -8,16 +8,16 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 
 const navigation = {
-  organization: [
+  about: [
     {
-      name: "Who We Are",
-      href: "/organization",
-      description: "Founding mission, team, and strategic DNA",
+      name: "Our Mission",
+      href: "/strategy",
+      description: "Vision, Theory of Change, and strategic positioning",
     },
     {
-      name: "What We Do",
-      href: "/strategy",
-      description: "Theory of Change and vertical integration",
+      name: "The Team",
+      href: "/organization",
+      description: "Founding partners and ecosystem",
     },
   ],
   programs: [
@@ -183,11 +183,11 @@ export default function NavEnhanced() {
 
         {/* Navigation */}
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          {/* Organization Flyout */}
-          <HoverPopover buttonLabel="Organization">
+          {/* About Flyout */}
+          <HoverPopover buttonLabel="About">
             <div className="mx-auto max-w-5xl px-6 py-6">
               <div className="flex gap-x-8">
-                {navigation.organization.map((item) => (
+                {navigation.about.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
