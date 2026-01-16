@@ -236,6 +236,10 @@ export default function PilotPage() {
           </div>
         </div>
 
+        <p className="mt-3 text-[10px] text-slate/60 text-right">
+          Source: <a href="https://capital-continuum.com/resources/the-capital-continuum-fsg-7nj4f" target="_blank" rel="noopener noreferrer" className="hover:text-secondary underline">Capital Continuum Advisors 2025</a>
+        </p>
+
         <div className="grid gap-10">
           {/* STAGE 1 */}
           <div className="relative overflow-hidden rounded-2xl border-2 border-secondary bg-white shadow-xl shadow-secondary/10">
