@@ -1,4 +1,5 @@
 import StageBreadcrumb from "../../components/StageBreadcrumb";
+import Image from "next/image";
 
 // Mission & Vision - refined with "bankable" positioning
 const missionVision = {
@@ -55,28 +56,28 @@ const problemChain = [
 // Intervention chain - what HISAGEN does
 const interventionChain = [
     {
-        icon: "🔬",
+        icon: "/icons/icon-micro.png",
         layer: "Technology Layer",
         title: "Soil Science",
         detail: "Locus AG Rhizolizer microbial technology. Proven 15-30% yield improvement. Accelerated soil organic carbon accumulation.",
         validation: "Uganda NARO field trials"
     },
     {
-        icon: "📡",
+        icon: "/icons/icon-graph.png",
         layer: "Verification Layer",
         title: "Digital MRV",
         detail: "3Degrees platform with satellite + AI monitoring. Cost-effective at smallholder scale. Verra VM0042 methodology.",
         validation: "Institutional-grade verification"
     },
     {
-        icon: "💰",
+        icon: "/icons/icon-hand-money.png",
         layer: "Finance Layer",
         title: "Capital Continuum",
         detail: "4-stage framework matching capital type to project maturity. De-risks for commercial investors.",
         validation: "Pathway from pilot to scale"
     },
     {
-        icon: "🌍",
+        icon: "/icons/icon-farmer.png",
         layer: "Operations Layer",
         title: "Local Implementation",
         detail: "Deep Six partnership provides farmer aggregation, training, and on-ground extension services.",
@@ -201,15 +202,15 @@ export default function StrategyPage() {
 
                 <div className="space-y-4">
                     {problemChain.map((p) => (
-                        <div key={p.number} className="p-6 rounded-xl border border-mist bg-white hover:border-red-200 transition-all">
+                        <div key={p.number} className="p-6 rounded-xl border border-mist bg-white hover:border-sunset-orange/40 transition-all">
                             <div className="flex flex-col md:flex-row gap-4">
-                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-sm font-black text-red-400">
+                                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-sunset-orange/10 flex items-center justify-center text-sm font-black text-sunset-orange">
                                     {p.number}
                                 </div>
                                 <div className="flex-1">
                                     <h4 className="text-lg font-bold text-secondary mb-2">{p.title}</h4>
                                     <p className="text-sm text-slate mb-3">{p.problem}</p>
-                                    <p className="text-xs font-bold text-red-500 uppercase tracking-wide">→ {p.result}</p>
+                                    <p className="text-xs font-bold text-sunset-orange uppercase tracking-wide">→ {p.result}</p>
                                 </div>
                             </div>
                         </div>
@@ -230,8 +231,8 @@ export default function StrategyPage() {
                 <div className="space-y-4">
                     {interventionChain.map((layer, index) => (
                         <div key={layer.layer} className="relative flex flex-col md:flex-row gap-6 p-8 rounded-2xl border border-mist bg-white hover:border-primary/30 transition-all group shadow-sm">
-                            <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-secondary/5 flex items-center justify-center text-2xl group-hover:bg-primary/10 transition-colors">
-                                {layer.icon}
+                            <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors p-2">
+                                <Image src={layer.icon} alt={layer.title} width={40} height={40} className="object-contain" />
                             </div>
                             <div className="flex-1">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
@@ -239,7 +240,7 @@ export default function StrategyPage() {
                                         <span className="text-[10px] font-black uppercase tracking-widest text-primary/60">{layer.layer}</span>
                                         <h4 className="text-lg font-bold text-secondary">{layer.title}</h4>
                                     </div>
-                                    <span className="text-[10px] font-bold uppercase tracking-wide text-green-600 bg-green-50 px-3 py-1 rounded-full">{layer.validation}</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-wide text-primary bg-primary/10 px-3 py-1 rounded-full">{layer.validation}</span>
                                 </div>
                                 <p className="text-sm text-slate leading-relaxed">{layer.detail}</p>
                             </div>
@@ -268,7 +269,7 @@ export default function StrategyPage() {
                             <ul className="space-y-3">
                                 {phase.outcomes.map((outcome, i) => (
                                     <li key={i} className="flex items-start gap-2 text-sm text-slate">
-                                        <span className="text-primary mt-1">✓</span>
+                                        <Image src="/icons/icon-leaf-check.png" alt="check" width={16} height={16} className="mt-0.5 flex-shrink-0" />
                                         <span>{outcome}</span>
                                     </li>
                                 ))}
@@ -323,7 +324,7 @@ export default function StrategyPage() {
                                     <td className="px-4 py-3 text-slate">{a.assumption}</td>
                                     <td className="px-4 py-3 text-slate/70">{a.evidence}</td>
                                     <td className="px-4 py-3 text-center">
-                                        <span className={`text-[10px] font-bold uppercase px-2 py-1 rounded ${a.risk === 'Low' ? 'bg-green-50 text-green-600' : 'bg-amber-50 text-amber-600'}`}>
+                                        <span className={`text-[10px] font-bold uppercase px-2 py-1 rounded ${a.risk === 'Low' ? 'bg-primary/10 text-primary' : 'bg-accent/20 text-soil-brown'}`}>
                                             {a.risk}
                                         </span>
                                     </td>
