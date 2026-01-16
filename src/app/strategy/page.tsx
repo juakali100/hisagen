@@ -141,16 +141,28 @@ export default function StrategyPage() {
         <div className="mx-auto max-w-5xl text-ink font-sans">
             <StageBreadcrumb stage="What We Do" />
 
-            {/* Hero - Bankable positioning */}
-            <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-16 text-center">
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/60">Strategy & Theory of Change</p>
-                <h1 className="mt-6 text-5xl font-bold leading-tight text-secondary">
-                    Making Agricultural Carbon<br />
-                    <span className="text-primary">Bankable</span>
-                </h1>
-                <p className="mt-6 mx-auto max-w-2xl text-lg leading-relaxed text-slate font-medium">
-                    The problem isn't that soil carbon doesn't exist—it's that it can't be verified, priced, and traded at institutional standards. HISAGEN solves the bankability problem.
-                </p>
+            {/* Hero - Bankable positioning with hero image */}
+            <section className="rounded-2xl border border-mist overflow-hidden">
+                <div className="relative h-64 md:h-80">
+                    <Image
+                        src="/images/heroes/hisagen-maize-roots-close.jpeg"
+                        alt="Maize roots in Ugandan soil - making the invisible visible"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/40 to-transparent" />
+                </div>
+                <div className="bg-parchment/40 px-8 py-12 text-center -mt-16 relative z-10 mx-4 md:mx-8 rounded-xl border border-mist bg-white/95 backdrop-blur-sm shadow-lg">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/60">Strategy & Theory of Change</p>
+                    <h1 className="mt-4 text-4xl md:text-5xl font-bold leading-tight text-secondary">
+                        Making Agricultural Carbon<br />
+                        <span className="text-primary">Bankable</span>
+                    </h1>
+                    <p className="mt-4 mx-auto max-w-2xl text-base md:text-lg leading-relaxed text-slate font-medium">
+                        The problem isn't that soil carbon doesn't exist—it's that it can't be verified, priced, and traded at institutional standards. HISAGEN solves the bankability problem.
+                    </p>
+                </div>
             </section>
 
             {/* Mission & Vision */}
