@@ -128,21 +128,33 @@ export default function HomePage() {
                   />
                 </div>
                 <div className="relative">
-                  <div className="aspect-[2/3] w-full rounded-xl bg-mist/50 border border-mist flex items-center justify-center">
-                    <span className="text-xs text-slate/40">Image 3</span>
-                  </div>
+                  <Image
+                    src="/images/home/healthy-maize-plant.jpeg"
+                    alt="Healthy maize growing in Ugandan field"
+                    width={256}
+                    height={384}
+                    className="aspect-[2/3] w-full rounded-xl object-cover border border-mist"
+                  />
                 </div>
               </div>
               <div className="w-32 flex-none space-y-4">
                 <div className="relative">
-                  <div className="aspect-[2/3] w-full rounded-xl bg-mist/50 border border-mist flex items-center justify-center">
-                    <span className="text-xs text-slate/40">Image 4</span>
-                  </div>
+                  <Image
+                    src="/images/home/tablet-in-farmer-field.jpeg"
+                    alt="Digital MRV technology in the field"
+                    width={256}
+                    height={384}
+                    className="aspect-[2/3] w-full rounded-xl object-cover border border-mist"
+                  />
                 </div>
                 <div className="relative">
-                  <div className="aspect-[2/3] w-full rounded-xl bg-mist/50 border border-mist flex items-center justify-center">
-                    <span className="text-xs text-slate/40">Image 5</span>
-                  </div>
+                  <Image
+                    src="/images/home/farmers-standing-in-field.jpeg"
+                    alt="Farmer community surveying their land"
+                    width={256}
+                    height={384}
+                    className="aspect-[2/3] w-full rounded-xl object-cover border border-mist"
+                  />
                 </div>
               </div>
             </div>
