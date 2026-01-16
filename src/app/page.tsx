@@ -5,13 +5,13 @@ const strategicFocus = [
   {
     title: "Who We Are",
     label: "Organization",
-    description: "The founding mission, team governance, and strategic DNA of HISAGEN.",
+    description: "The founding team, partner ecosystem, and governance structure behind HISAGEN.",
     href: "/organization",
   },
   {
     title: "What We Do",
     label: "Strategy",
-    description: "Our Theory of Change: Bridging the gap between smallholder potential and institutional markets.",
+    description: "Our Theory of Change: Making agricultural carbon bankable through integrated technology, verification, and finance.",
     href: "/strategy",
   },
 ];
@@ -75,11 +75,11 @@ export default function HomePage() {
               </div>
 
               <h1 className="mt-10 text-5xl font-black tracking-tight text-balance text-secondary sm:text-6xl">
-                Regenerative Carbon{" "}
-                <span className="text-primary italic">for Global Agriculture</span>
+                Agricultural Carbon.{" "}
+                <span className="text-primary italic">Farmer-First.</span>
               </h1>
               <p className="mt-7 text-lg font-medium leading-relaxed text-pretty text-slate sm:text-xl">
-                HISAGEN is a systems architect for the agricultural transition, starting in East African landscapes to prove the model for universal deployment.
+                HISAGEN makes agricultural carbon bankable. We integrate proven soil science, rigorous verification, and structured finance to connect smallholder farmers to carbon markets—starting in East Africa.
               </p>
 
               <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
@@ -90,7 +90,7 @@ export default function HomePage() {
                   Explore programs
                 </a>
                 <a href="/resources" className="text-sm font-bold text-secondary hover:text-primary transition-colors">
-                  Evidence Vault <span aria-hidden="true">→</span>
+                  Knowledge Base <span aria-hidden="true">→</span>
                 </a>
               </div>
 
@@ -247,10 +247,10 @@ export default function HomePage() {
           <div className="w-16 h-1 bg-accent rounded-full mb-8" />
 
           <h2 className="text-3xl font-bold mb-6 italic leading-snug">
-            "We are not just a carbon developer. We are a <span className="text-leaf-green">platform company</span> that integrates capital, technology, and community."
+            "The problem isn't that soil carbon doesn't exist—it's that it can't be <span className="text-leaf-green">verified, priced, and traded</span> at institutional standards. We solve that."
           </h2>
           <p className="text-lg opacity-90 leading-relaxed mb-10 font-medium">
-            Our objective is to prove the HISAGEN platform through our Uganda flagship before replicating across high-potential landscapes globally—addressing both smallholders and landscape-scale commercial estates.
+            Our objective is to prove the HISAGEN model through our Uganda flagship—connecting smallholder farmers to carbon markets with verified, bankable credits—then replicate across high-potential landscapes globally.
           </p>
           <div className="flex flex-wrap gap-4">
             <a
@@ -283,7 +283,7 @@ export default function HomePage() {
             href="/resources"
             className="group text-[10px] font-bold uppercase tracking-widest text-secondary hover:text-primary transition-all duration-300 relative"
           >
-            Evidence Vault
+            Knowledge Base
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
           </a>
           <a
