@@ -66,7 +66,7 @@ const navigation = {
       description: "Certification • Carbon verification",
     },
     {
-      name: "CZMP",
+      name: "Carbon Neutral Marketplace",
       href: "/ecosystem/czmp",
       description: "Monetization • Market access",
     },
