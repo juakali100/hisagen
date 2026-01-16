@@ -12,7 +12,7 @@ type Attachment = {
 };
 
 type IntelligenceEntry = {
-  domain: "Context" | "Evidence" | "Ecosystem" | "Frameworks";
+  domain: "Context" | "Research" | "Ecosystem" | "Frameworks";
   format: "Email" | "PDF" | "Excel" | "Call" | "Doc" | "Link" | "WhatsApp";
   date: string;
   title: string;
@@ -128,7 +128,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
     ]
   },
   {
-    domain: "Evidence",
+    domain: "Research",
     format: "Doc",
     date: "2025-11-08",
     title: "Workstream 1: Grant Landscape",
@@ -142,7 +142,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
     ]
   },
   {
-    domain: "Evidence",
+    domain: "Research",
     format: "Doc",
     date: "2025-11-08",
     title: "Workstream 2: AgriTecno Validation",
@@ -156,7 +156,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
     ]
   },
   {
-    domain: "Evidence",
+    domain: "Research",
     format: "Doc",
     date: "2025-11-08",
     title: "Workstream 3: Kenya Landscape Analysis",
@@ -264,7 +264,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
 
   // EVIDENCE
   {
-    domain: "Evidence",
+    domain: "Research",
     format: "PDF",
     date: "2024-06-01",
     title: "Locus AG Company Overview",
@@ -277,7 +277,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
     ]
   },
   {
-    domain: "Evidence",
+    domain: "Research",
     format: "Excel",
     date: "2025-05-01",
     title: "Uganda Maize Trials Phase 2 Data",
@@ -286,7 +286,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
     tags: ["Data", "Uganda", "Yield"]
   },
   {
-    domain: "Evidence",
+    domain: "Research",
     format: "PDF",
     date: "2025-11-10",
     title: "Uganda Maize Phase 2 Data Collection",
@@ -295,7 +295,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
     tags: ["Data", "Uganda", "Field Sheets"],
   },
   {
-    domain: "Evidence",
+    domain: "Research",
     format: "PDF",
     date: "2025-11-10",
     title: "Maize Trials Results Summary",
@@ -364,7 +364,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
 ];
 
 export default function ResourcesPage() {
-  const domains = ["Context", "Evidence", "Ecosystem", "Frameworks"];
+  const domains = ["Context", "Research", "Ecosystem", "Frameworks"];
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
