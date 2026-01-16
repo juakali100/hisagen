@@ -203,6 +203,9 @@ export default function PilotPage() {
             <div className="absolute bottom-4 left-4 bg-white text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">Low Value</div>
             <div className="absolute top-4 right-4 bg-white text-secondary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg border border-secondary/20">High Value</div>
           </div>
+          <p className="px-4 py-1 text-[9px] text-slate/50 text-right italic bg-secondary/5">
+            Source: <a href="https://capital-continuum.com/resources/the-capital-continuum-fsg-7nj4f" target="_blank" rel="noopener noreferrer" className="hover:text-secondary underline">Capital Continuum Advisors 2025</a>
+          </p>
 
           {/* Funding Labels */}
           <div className="grid grid-cols-4 bg-secondary text-parchment text-[10px] font-bold uppercase tracking-[0.1em]">
@@ -235,9 +238,6 @@ export default function PilotPage() {
             ))}
           </div>
         </div>
-        <p className="mt-2 text-[9px] text-slate/50 text-right italic">
-          Source: <a href="https://capital-continuum.com/resources/the-capital-continuum-fsg-7nj4f" target="_blank" rel="noopener noreferrer" className="hover:text-secondary underline">Capital Continuum Advisors 2025</a>
-        </p>
 
         <div className="grid gap-10">
           {/* STAGE 1 */}
