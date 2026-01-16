@@ -104,42 +104,61 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="mx-auto mt-12 max-w-2xl lg:mt-0 lg:mr-0 lg:ml-auto lg:max-w-none lg:flex-none">
-              <div className="max-w-xl rounded-2xl border border-mist bg-white shadow-lg shadow-secondary/5">
-                <div className="border-b border-mist px-6 py-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate/60">Evidence-ready delivery</p>
-                  <p className="mt-2 text-lg font-bold text-secondary">Institutional-grade MRV, without the noise.</p>
-                </div>
-                <div className="px-6 py-6">
-                  <div className="grid gap-3">
-                    {[
-                      { title: "Soil & practice data capture", detail: "Field-first, farmer-aligned", tone: "text-primary" },
-                      { title: "Verification & audit trail", detail: "Standards-aligned evidence vault", tone: "text-sky-teal" },
-                      { title: "Credit issuance & buyer readiness", detail: "Commercial value with integrity", tone: "text-accent" },
-                    ].map((row) => (
-                      <div key={row.title} className="rounded-xl border border-mist bg-white px-4 py-4">
-                        <p className="text-sm font-bold text-secondary">{row.title}</p>
-                        <p className={`mt-1 text-xs font-bold uppercase tracking-[0.18em] ${row.tone}`}>
-                          {row.detail}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-6 rounded-xl border border-mist bg-parchment/40 px-4 py-4">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/60">Next step</p>
-                    <p className="mt-2 text-sm font-bold text-secondary">
-                      Review documents and data in the Evidence Vault.
-                    </p>
-                    <a
-                      href="/resources"
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-secondary transition-colors"
-                    >
-                      Open Evidence Vault <span aria-hidden="true">→</span>
-                    </a>
+            {/* Right side - Staggered image grid */}
+            <div className="mt-14 flex justify-end gap-4 lg:mt-0 lg:pl-0">
+              <div className="w-32 flex-none space-y-4 pt-24 lg:pt-32">
+                <div className="relative">
+                  <div className="aspect-[2/3] w-full rounded-xl bg-mist/50 border border-mist flex items-center justify-center">
+                    <span className="text-xs text-slate/40">Image 1</span>
                   </div>
                 </div>
               </div>
+              <div className="w-32 flex-none space-y-4 pt-12 lg:pt-16">
+                <div className="relative">
+                  <div className="aspect-[2/3] w-full rounded-xl bg-mist/50 border border-mist flex items-center justify-center">
+                    <span className="text-xs text-slate/40">Image 2</span>
+                  </div>
+                </div>
+                <div className="relative">
+                  <div className="aspect-[2/3] w-full rounded-xl bg-mist/50 border border-mist flex items-center justify-center">
+                    <span className="text-xs text-slate/40">Image 3</span>
+                  </div>
+                </div>
+              </div>
+              <div className="w-32 flex-none space-y-4">
+                <div className="relative">
+                  <div className="aspect-[2/3] w-full rounded-xl bg-mist/50 border border-mist flex items-center justify-center">
+                    <span className="text-xs text-slate/40">Image 4</span>
+                  </div>
+                </div>
+                <div className="relative">
+                  <div className="aspect-[2/3] w-full rounded-xl bg-mist/50 border border-mist flex items-center justify-center">
+                    <span className="text-xs text-slate/40">Image 5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Evidence-ready delivery - standalone section */}
+        <section className="mt-16 rounded-2xl border border-mist bg-white p-8 shadow-sm">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate/60">Evidence-ready delivery</p>
+              <p className="mt-2 text-xl font-bold text-secondary">Institutional-grade MRV, without the noise.</p>
+            </div>
+            <div className="flex flex-wrap gap-4">
+              {[
+                { title: "Soil & practice data capture", detail: "Field-first, farmer-aligned" },
+                { title: "Verification & audit trail", detail: "Standards-aligned" },
+                { title: "Credit issuance & buyer readiness", detail: "Commercial value" },
+              ].map((row) => (
+                <div key={row.title} className="rounded-xl border border-mist bg-parchment/30 px-4 py-3">
+                  <p className="text-sm font-bold text-secondary">{row.title}</p>
+                  <p className="mt-1 text-xs text-slate">{row.detail}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
