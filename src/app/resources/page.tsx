@@ -376,7 +376,7 @@ export default function ResourcesPage() {
           Knowledge Base
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate italic">
-          "This is the institutional source of truth. We consolidate every email, data trial, and technical brief into this dossier to inform HISAGEN's growth."
+          "This is the institutional source of truth. We consolidate key communications, data trials, and technical briefs into this dossier to inform HISAGEN's growth."
         </p>
       </section>
 
