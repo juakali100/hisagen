@@ -135,7 +135,7 @@ export default function ProgramPage() {
                     </div>
                     <div className="bg-mist/30 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
                         <Image
-                            src="/images/heroes/program-aerial-farmland.jpeg"
+                            src="/images/heroes/smallholder-farmland-patchwork.jpeg"
                             alt="Aerial view of Ugandan smallholder farmland patchwork"
                             width={1920}
                             height={1080}
