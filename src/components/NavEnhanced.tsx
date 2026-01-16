@@ -10,11 +10,6 @@ import { useState, useRef } from "react";
 const navigation = {
   about: [
     {
-      name: "Our Mission",
-      href: "/strategy",
-      description: "Vision, Theory of Change, and strategic positioning",
-    },
-    {
       name: "The Team",
       href: "/organization",
       description: "Founding partners and ecosystem",
@@ -101,12 +96,14 @@ const recentUpdates = [
   },
 ];
 
-// Hover-enabled Popover wrapper
+// Hover-enabled Popover wrapper with optional clickable label
 function HoverPopover({
   buttonLabel,
+  buttonHref,
   children,
 }: {
   buttonLabel: string;
+  buttonHref?: string;
   children: React.ReactNode;
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -131,11 +128,26 @@ function HoverPopover({
       {() => (
         <>
           <div
+            className="flex items-center"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <PopoverButton className="inline-flex items-center gap-x-1 text-sm font-semibold text-white/90 hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-md px-1.5 py-1">
-              {buttonLabel}
+            {buttonHref ? (
+              <Link
+                href={buttonHref}
+                className="text-sm font-semibold text-white/90 hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-md px-1.5 py-1"
+              >
+                {buttonLabel}
+              </Link>
+            ) : (
+              <span className="text-sm font-semibold text-white/90 px-1.5 py-1">
+                {buttonLabel}
+              </span>
+            )}
+            <PopoverButton
+              aria-label={`Open ${buttonLabel} menu`}
+              className="inline-flex items-center text-white/70 hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-md p-1"
+            >
               <ChevronDownIcon aria-hidden="true" className="size-4" />
             </PopoverButton>
           </div>
@@ -184,7 +196,7 @@ export default function NavEnhanced() {
         {/* Navigation */}
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           {/* About Flyout */}
-          <HoverPopover buttonLabel="About">
+          <HoverPopover buttonLabel="About" buttonHref="/strategy">
             <div className="mx-auto max-w-5xl px-6 py-6">
               <div className="flex gap-x-8">
                 {navigation.about.map((item) => (
