@@ -1,5 +1,9 @@
-﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
+"use client";
+
+import StageBreadcrumb from "../../components/StageBreadcrumb";
 import EvidenceTable from "../../components/EvidenceTable";
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 type Attachment = {
   title: string;
@@ -18,6 +22,77 @@ type IntelligenceEntry = {
   tags: string[];
   synthesis?: string[];
 };
+
+// Helper to group items by year
+function groupByYear(items: IntelligenceEntry[]): Record<string, IntelligenceEntry[]> {
+  return items.reduce((acc, item) => {
+    const year = item.date.startsWith("Current") ? "Current" : item.date.split("-")[0];
+    if (!acc[year]) acc[year] = [];
+    acc[year].push(item);
+    return acc;
+  }, {} as Record<string, IntelligenceEntry[]>);
+}
+
+// Render a single item card (reusable)
+function ItemCard({ item }: { item: IntelligenceEntry }) {
+  return (
+    <div className="group relative flex flex-col md:flex-row md:items-center justify-between gap-6 p-5 rounded-xl border border-mist bg-white hover:border-secondary/40 transition-all hover:shadow-sm motion-reduce:transition-none">
+      <div className="flex-1 space-y-2">
+        <div className="flex items-center gap-3">
+          <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${item.format === 'Email' ? 'bg-blue-100 text-blue-700' :
+            item.format === 'PDF' ? 'bg-red-100 text-red-700' :
+              item.format === 'Excel' ? 'bg-emerald-100 text-emerald-700' :
+                'bg-slate-100 text-slate-700'
+            }`}>
+            {item.format}
+          </span>
+          <span className="text-[10px] text-slate/40">{item.date}</span>
+        </div>
+        <h3 className="text-base font-bold text-secondary">{item.title}</h3>
+        <p className="text-sm text-slate leading-relaxed max-w-3xl">
+          {item.detail}
+        </p>
+        {item.synthesis && (
+          <div className="mt-4 p-4 rounded-lg bg-secondary/5 border border-secondary/10">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
+              Key Context Synthesis
+            </p>
+            <ul className="space-y-1.5">
+              {item.synthesis.map((bullet, idx) => (
+                <li key={idx} className="text-xs text-slate flex gap-2">
+                  <span className="text-secondary/50">•</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {item.attachments && (
+          <div className="mt-4 flex flex-wrap gap-3">
+            <p className="w-full text-[10px] font-bold uppercase tracking-widest text-secondary/40 mb-1">Related Evidence</p>
+            {item.attachments.map((attachment) => (
+              <span
+                key={attachment.title}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg bg-mist/30 border border-mist"
+              >
+                <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded ${attachment.format === 'PDF' ? 'bg-red-100 text-red-600' : 'bg-secondary/10 text-secondary'}`}>
+                  {attachment.format}
+                </span>
+                <span className="text-xs font-medium text-secondary">{attachment.title}</span>
+              </span>
+            ))}
+          </div>
+        )}
+        <div className="flex flex-wrap gap-2 pt-1">
+          {item.tags.map(tag => (
+            <span key={tag} className="text-[9px] bg-parchment px-1.5 py-0.5 rounded text-slate/60 font-medium">#{tag}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const intelligenceLedger: IntelligenceEntry[] = [
   // CONTEXT
@@ -344,70 +419,47 @@ export default function ResourcesPage() {
               </div>
             )}
 
-            <div className="grid gap-4">
-              {intelligenceLedger
-                .filter((item) => item.domain === domain)
-                .map((item) => (
-                  <div
-                    key={item.title}
-                    className="group relative flex flex-col md:flex-row md:items-center justify-between gap-6 p-5 rounded-xl border border-mist bg-white hover:border-secondary/40 transition-all hover:shadow-sm motion-reduce:transition-none"
-                  >
-                    <div className="flex-1 space-y-2">
-                      <div className="flex items-center gap-3">
-                        <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${item.format === 'Email' ? 'bg-blue-100 text-blue-700' :
-                          item.format === 'PDF' ? 'bg-red-100 text-red-700' :
-                            item.format === 'Excel' ? 'bg-emerald-100 text-emerald-700' :
-                              'bg-slate-100 text-slate-700'
-                          }`}>
-                          {item.format}
-                        </span>
-                        <span className="text-[10px] text-slate/40">{item.date}</span>
-                      </div>
-                      <h3 className="text-base font-bold text-secondary">{item.title}</h3>
-                      <p className="text-sm text-slate leading-relaxed max-w-3xl">
-                        {item.detail}
-                      </p>
-                      {item.synthesis && (
-                        <div className="mt-4 p-4 rounded-lg bg-secondary/5 border border-secondary/10">
-                          <p className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2 flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                            Key Context Synthesis
-                          </p>
-                          <ul className="space-y-1.5">
-                            {item.synthesis.map((bullet, idx) => (
-                              <li key={idx} className="text-xs text-slate flex gap-2">
-                                <span className="text-secondary/50">•</span>
-                                <span>{bullet}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                      {item.attachments && (
-                        <div className="mt-4 flex flex-wrap gap-3">
-                          <p className="w-full text-[10px] font-bold uppercase tracking-widest text-secondary/40 mb-1">Related Evidence</p>
-                          {item.attachments.map((attachment) => (
-                            <span
-                              key={attachment.title}
-                              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-mist/30 border border-mist"
-                            >
-                              <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded ${attachment.format === 'PDF' ? 'bg-red-100 text-red-600' : 'bg-secondary/10 text-secondary'}`}>
-                                {attachment.format}
+            {/* Render with accordions for Context, flat for others */}
+            {domain === 'Context' ? (
+              <div className="space-y-4">
+                {Object.entries(groupByYear(intelligenceLedger.filter(i => i.domain === 'Context')))
+                  .sort(([a], [b]) => b.localeCompare(a)) // Sort years descending (2026, 2025, etc.)
+                  .map(([year, items]) => (
+                    <Disclosure key={year} defaultOpen={year === '2026'}>
+                      {({ open }) => (
+                        <div className="rounded-xl border border-mist bg-parchment/20 overflow-hidden">
+                          <DisclosureButton className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-parchment/40 transition-colors">
+                            <div className="flex items-center gap-3">
+                              <span className="text-sm font-bold text-secondary">{year}</span>
+                              <span className="text-[10px] text-slate/60 font-medium">
+                                {items.length} {items.length === 1 ? 'item' : 'items'}
                               </span>
-                              <span className="text-xs font-medium text-secondary">{attachment.title}</span>
-                            </span>
-                          ))}
+                            </div>
+                            <ChevronDownIcon
+                              className={`size-5 text-secondary/50 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+                            />
+                          </DisclosureButton>
+                          <DisclosurePanel className="px-4 pb-4">
+                            <div className="grid gap-4 pt-2">
+                              {items.map((item) => (
+                                <ItemCard key={item.title} item={item} />
+                              ))}
+                            </div>
+                          </DisclosurePanel>
                         </div>
                       )}
-                      <div className="flex flex-wrap gap-2 pt-1">
-                        {item.tags.map(tag => (
-                          <span key={tag} className="text-[9px] bg-parchment px-1.5 py-0.5 rounded text-slate/60 font-medium">#{tag}</span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-            </div>
+                    </Disclosure>
+                  ))}
+              </div>
+            ) : (
+              <div className="grid gap-4">
+                {intelligenceLedger
+                  .filter((item) => item.domain === domain)
+                  .map((item) => (
+                    <ItemCard key={item.title} item={item} />
+                  ))}
+              </div>
+            )}
           </section>
         ))}
       </div>
