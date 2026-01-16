@@ -36,7 +36,7 @@ export default function OrganizationPage() {
             <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-16">
                 <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/60">Organization</p>
                 <h1 className="mt-6 text-5xl font-bold leading-tight text-secondary">
-                    The Founding Team
+                    The Team
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate italic font-medium">
                     HISAGEN is a strategic platform born from the intersection of agricultural operations and systems design.
@@ -50,7 +50,7 @@ export default function OrganizationPage() {
 
             <section className="mt-12">
                 <div className="flex items-center gap-4 mb-8">
-                    <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-secondary">Our Founding Core</h2>
+                    <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-secondary">Core Partners</h2>
                     <div className="h-px flex-1 bg-mist" />
                 </div>
                 <div className="grid gap-8 md:grid-cols-2">
