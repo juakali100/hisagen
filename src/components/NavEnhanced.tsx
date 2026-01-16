@@ -47,8 +47,39 @@ const navigation = {
   ],
 };
 
+// Project data for Program flyout
+const projects = [
+  {
+    name: "Uganda Pilot",
+    href: "/project/hisagen-uganda",
+    description: "Flagship implementation • 10,000 smallholders",
+  },
+];
+
+// Featured content for Program flyout
+const programFeatured = [
+  {
+    id: 1,
+    title: "Field Planning & MRV",
+    href: "/project/hisagen-uganda",
+    date: "Implementation",
+    category: "Operations",
+    imageUrl: "/images/features/uganda-smallhold-farner-soil-samples-field-plan.jpeg",
+    description: "Systematic field planning and measurement, reporting, verification protocols.",
+  },
+  {
+    id: 2,
+    title: "Soil Health Analysis",
+    href: "/evidence",
+    date: "Science",
+    category: "Research",
+    imageUrl: "/images/features/healthy-roots-soil-sample.jpeg",
+    description: "Root development and soil carbon sequestration measurement.",
+  },
+];
+
 // Featured content for About flyout
-const featuredContent = [
+const aboutFeatured = [
   {
     id: 1,
     title: "Uganda Pilot Launch",
@@ -213,7 +244,7 @@ export default function NavEnhanced() {
               {/* Right: Featured Content (2 cards) */}
               <div className="grid grid-cols-1 gap-10 sm:gap-8 lg:grid-cols-2">
                 <h3 className="sr-only">Featured</h3>
-                {featuredContent.map((item) => (
+                {aboutFeatured.map((item) => (
                   <article
                     key={item.id}
                     className="relative isolate flex max-w-2xl flex-col gap-x-8 gap-y-6 sm:flex-row sm:items-start lg:flex-col lg:items-stretch"
@@ -248,17 +279,69 @@ export default function NavEnhanced() {
             </div>
           </HoverPopover>
 
-          {/* Agri-Carbon Program (simple link for now - flyout can be added for updates/callouts) */}
-          <Link
-            href="/program"
-            className={[
-              "text-sm font-semibold transition-colors rounded-md px-1.5 py-1",
-              pathname === "/program" ? "text-accent" : "text-white/90 hover:text-accent",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
-            ].join(" ")}
-          >
-            Agri-Carbon Program
-          </Link>
+          {/* Agri-Carbon Program Flyout - Full Width Two Columns */}
+          <HoverPopover buttonLabel="Agri-Carbon Program" buttonHref="/program">
+            <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2 lg:px-8">
+              {/* Left: Projects */}
+              <div>
+                <h3 className="text-sm font-medium text-white/50">Projects</h3>
+                <div className="mt-6 flow-root">
+                  <div className="-my-2">
+                    {projects.map((project) => (
+                      <Link
+                        key={project.name}
+                        href={project.href}
+                        className="block py-3 group"
+                      >
+                        <p className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
+                          {project.name}
+                        </p>
+                        <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">
+                          {project.description}
+                        </p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: Featured Content (2 cards) */}
+              <div className="grid grid-cols-1 gap-10 sm:gap-8 lg:grid-cols-2">
+                <h3 className="sr-only">Featured</h3>
+                {programFeatured.map((item) => (
+                  <article
+                    key={item.id}
+                    className="relative isolate flex max-w-2xl flex-col gap-x-8 gap-y-6 sm:flex-row sm:items-start lg:flex-col lg:items-stretch"
+                  >
+                    <div className="relative flex-none">
+                      <Image
+                        alt=""
+                        src={item.imageUrl}
+                        width={400}
+                        height={200}
+                        className="aspect-[2/1] w-full rounded-lg bg-white/5 object-cover sm:aspect-video sm:h-32 lg:h-auto"
+                      />
+                      <div className="absolute inset-0 rounded-lg ring-1 ring-white/10 ring-inset" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-x-4">
+                        <span className="text-sm text-white/50">{item.date}</span>
+                        <span className="relative z-10 rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium text-white/70">
+                          {item.category}
+                        </span>
+                      </div>
+                      <Link href={item.href} className="mt-2 block group">
+                        <h4 className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
+                          {item.title}
+                        </h4>
+                        <p className="mt-1 text-xs text-white/60 line-clamp-2">{item.description}</p>
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </HoverPopover>
 
           {/* Evidence Vault (simple link) */}
           <Link
