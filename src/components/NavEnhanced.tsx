@@ -14,36 +14,9 @@ const navigation = {
       description: "Founding partners and ecosystem",
     },
   ],
-  projects: [
-    {
-      name: "Uganda Pilot",
-      href: "/project/hisagen-uganda",
-      description: "Flagship implementation project",
-    },
-  ],
-  capitalStages: [
-    {
-      name: "Stage 1: Incubation",
-      href: "/stage-1",
-      description: "Years 1-3 • Grants & Concessions",
-      status: "active",
-    },
-    {
-      name: "Stage 2: Implementation",
-      href: "/stage-2",
-      description: "Years 4-8 • Blended Finance",
-    },
-    {
-      name: "Stage 3: Stabilization",
-      href: "/stage-3",
-      description: "Years 9-15 • Impact & Equity",
-    },
-    {
-      name: "Stage 4: Maturity",
-      href: "/stage-4",
-      description: "Years 16+ • Bonds & Equity",
-    },
-  ],
+  // Reserved for future flyout content (project updates, callouts, etc.)
+  // projects: [...],
+  // capitalStages: [...],
   partners: [
     {
       name: "Deep Six Consulting",
@@ -216,49 +189,17 @@ export default function NavEnhanced() {
             </div>
           </HoverPopover>
 
-          {/* Agri-Carbon Program Flyout */}
-          <HoverPopover buttonLabel="Agri-Carbon Program" buttonHref="/program">
-            <div className="mx-auto max-w-5xl px-6 py-6">
-              <div className="grid grid-cols-2 gap-x-12">
-                {/* Projects */}
-                <div>
-                  <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-4">Projects</h3>
-                  <div className="space-y-1">
-                    {navigation.projects.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block rounded-lg p-3 text-sm hover:bg-white/10 transition-all group"
-                      >
-                        <p className="font-bold text-white group-hover:text-accent transition-colors">{item.name}</p>
-                        <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">{item.description}</p>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Capital Continuum */}
-                <div>
-                  <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-4">Capital Continuum</h3>
-                  <div className="space-y-1">
-                    {navigation.capitalStages.map((stage) => (
-                      <Link
-                        key={stage.name}
-                        href={stage.href}
-                        className="block rounded-lg p-3 text-sm hover:bg-white/10 transition-all group relative"
-                      >
-                        {stage.status === "active" && (
-                          <div className="absolute left-1 top-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-accent animate-pulse"></div>
-                        )}
-                        <p className={`font-bold text-white group-hover:text-accent transition-colors ${stage.status === "active" ? "pl-4" : ""}`}>{stage.name}</p>
-                        <p className={`mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors ${stage.status === "active" ? "pl-4" : ""}`}>{stage.description}</p>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </HoverPopover>
+          {/* Agri-Carbon Program (simple link for now - flyout can be added for updates/callouts) */}
+          <Link
+            href="/program"
+            className={[
+              "text-sm font-semibold transition-colors rounded-md px-1.5 py-1",
+              pathname === "/program" ? "text-accent" : "text-white/90 hover:text-accent",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
+            ].join(" ")}
+          >
+            Agri-Carbon Program
+          </Link>
 
           {/* Evidence Vault (simple link) */}
           <Link
