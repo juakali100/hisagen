@@ -1,5 +1,6 @@
 import StageBreadcrumb from "../../components/StageBreadcrumb";
 import { ReactNode } from "react";
+import Image from "next/image";
 
 // Market data - aligned with Strategy
 const marketHighlights = [
@@ -89,20 +90,59 @@ export default function ProgramPage() {
         <div className="mx-auto max-w-5xl text-ink">
             <StageBreadcrumb stage="Programs" />
 
-            {/* Hero - echoing Strategy "bankable" positioning */}
-            <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/60">Program</p>
-                <h1 className="mt-4 text-4xl font-semibold text-secondary leading-tight">
-                    Making Agricultural Carbon Bankable—<br />
-                    <span className="text-primary">At Scale</span>
-                </h1>
-                <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-                    The HISAGEN Agri-Carbon Program is a replicable system for turning soil carbon into institutional-grade assets. We operationalize the full value chain—from microbial technology to carbon markets.
-                </p>
-                <div className="mt-6 flex gap-3">
-                    <a href="/strategy" className="text-xs font-bold text-secondary hover:text-primary transition-colors flex items-center gap-1">
-                        ← View Strategy & Theory of Change
-                    </a>
+            {/* Hero - Split diagonal with image (matching Strategy) */}
+            <section className="relative rounded-2xl border border-mist overflow-hidden bg-white">
+                <div className="relative">
+                    <div className="mx-auto max-w-7xl">
+                        <div className="relative z-10 lg:w-full lg:max-w-2xl">
+                            <svg
+                                viewBox="0 0 100 100"
+                                preserveAspectRatio="none"
+                                aria-hidden="true"
+                                className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-white lg:block"
+                            >
+                                <polygon points="0,0 90,0 50,100 0,100" />
+                            </svg>
+
+                            <div className="relative px-6 py-16 sm:py-20 lg:px-8 lg:py-24 lg:pr-0">
+                                <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
+                                    <div className="mb-6 flex">
+                                        <div className="relative rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest text-slate ring-1 ring-mist">
+                                            Program & Operating Model
+                                        </div>
+                                    </div>
+                                    <h1 className="text-4xl font-bold tracking-tight text-secondary sm:text-5xl lg:text-6xl">
+                                        Making Agricultural Carbon Bankable—
+                                        <span className="text-primary">At Scale</span>
+                                    </h1>
+                                    <p className="mt-6 text-base leading-relaxed text-slate sm:text-lg">
+                                        The HISAGEN Agri-Carbon Program is a replicable system for turning soil carbon into institutional-grade assets. We operationalize the full value chain—from microbial technology to carbon markets.
+                                    </p>
+                                    <div className="mt-8 flex items-center gap-x-4">
+                                        <a
+                                            href="/project/hisagen-uganda"
+                                            className="rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white shadow-sm hover:bg-primary/90 transition-colors"
+                                        >
+                                            View Uganda Pilot
+                                        </a>
+                                        <a href="/strategy" className="text-xs font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors">
+                                            Strategy & ToC <span aria-hidden="true">→</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="bg-mist/30 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+                        <Image
+                            src="/images/heroes/program-aerial-farmland.jpeg"
+                            alt="Aerial view of Ugandan smallholder farmland patchwork"
+                            width={1920}
+                            height={1080}
+                            className="aspect-[3/2] object-cover lg:aspect-auto lg:size-full"
+                            priority
+                        />
+                    </div>
                 </div>
             </section>
 
