@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import Image from "next/image";
 import { useState, useRef } from "react";
 
 const navigation = {
@@ -79,22 +78,8 @@ const navigation = {
   ],
 };
 
-const recentUpdates = [
-  {
-    title: "V0 Grant Proposals Published",
-    href: "/stage-1/funding",
-    date: "Jan 15, 2026",
-    description: "Concept note and full proposal now available for funder review.",
-    imageUrl: "/images/features/uganda-smallhold-farner-soil-samples-field-plan.jpeg",
-  },
-  {
-    title: "Partner Ecosystem Complete",
-    href: "/program",
-    date: "Jan 14, 2026",
-    description: "All 5 core partners documented with detailed dossiers.",
-    imageUrl: "/images/features/healthy-roots-soil-sample.jpeg",
-  },
-];
+// Reserved for future flyout enhancements (images, callouts, updates)
+// const recentUpdates = [...];
 
 // Hover-enabled Popover wrapper with optional clickable label
 function HoverPopover({
@@ -198,23 +183,46 @@ export default function NavEnhanced() {
           {/* About Flyout */}
           <HoverPopover buttonLabel="About" buttonHref="/strategy">
             <div className="mx-auto max-w-5xl px-6 py-6">
-              <div className="flex gap-x-8">
-                {navigation.about.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="rounded-lg p-3 text-sm hover:bg-white/10 transition-all group"
-                  >
-                    <p className="font-bold text-white group-hover:text-accent transition-colors">{item.name}</p>
-                    <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">{item.description}</p>
-                  </Link>
-                ))}
+              <div className="grid grid-cols-2 gap-x-12">
+                {/* The Team */}
+                <div>
+                  <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-4">The Team</h3>
+                  <div className="space-y-1">
+                    {navigation.about.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block rounded-lg p-3 text-sm hover:bg-white/10 transition-all group"
+                      >
+                        <p className="font-bold text-white group-hover:text-accent transition-colors">{item.name}</p>
+                        <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">{item.description}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Core Ecosystem */}
+                <div>
+                  <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-4">Core Ecosystem</h3>
+                  <div className="space-y-1">
+                    {navigation.partners.map((partner) => (
+                      <Link
+                        key={partner.name}
+                        href={partner.href}
+                        className="block rounded-lg p-3 text-sm hover:bg-white/10 transition-all group"
+                      >
+                        <p className="font-bold text-white group-hover:text-accent transition-colors">{partner.name}</p>
+                        <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">{partner.description}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </HoverPopover>
 
           {/* Programs Flyout */}
-          <HoverPopover buttonLabel="Programs">
+          <HoverPopover buttonLabel="Programs" buttonHref="/program">
             <div className="mx-auto max-w-5xl px-6 py-6">
               <div className="grid grid-cols-2 gap-x-12">
                 {/* Programs List */}
@@ -249,58 +257,6 @@ export default function NavEnhanced() {
                         )}
                         <p className={`font-bold text-white group-hover:text-accent transition-colors ${stage.status === "active" ? "pl-4" : ""}`}>{stage.name}</p>
                         <p className={`mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors ${stage.status === "active" ? "pl-4" : ""}`}>{stage.description}</p>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </HoverPopover>
-
-          {/* Partners Flyout */}
-          <HoverPopover buttonLabel="Partners">
-            <div className="mx-auto max-w-5xl px-6 py-6">
-              <div className="grid grid-cols-2 gap-x-12">
-                {/* Partner List */}
-                <div>
-                  <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-4">Core Ecosystem</h3>
-                  <div className="space-y-1">
-                    {navigation.partners.map((partner) => (
-                      <Link
-                        key={partner.name}
-                        href={partner.href}
-                        className="block rounded-lg p-3 text-sm hover:bg-white/10 transition-all group"
-                      >
-                        <p className="font-bold text-white group-hover:text-accent transition-colors">{partner.name}</p>
-                        <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">{partner.description}</p>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Recent Updates */}
-                <div>
-                  <h3 className="text-sm font-bold text-white/50 uppercase tracking-wider mb-4">Recent Updates</h3>
-                  <div className="space-y-4">
-                    {recentUpdates.map((update) => (
-                      <Link
-                        key={update.title}
-                        href={update.href}
-                        className="flex gap-x-4 rounded-lg hover:bg-white/10 transition-all group p-2"
-                      >
-                        <div className="relative flex-none w-20 h-16 rounded-lg overflow-hidden">
-                          <Image
-                            src={update.imageUrl}
-                            alt=""
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="flex-1">
-                          <p className="text-xs font-bold text-white group-hover:text-accent transition-colors">{update.title}</p>
-                          <p className="mt-1 text-[10px] text-white/50 group-hover:text-accent/60 transition-colors">{update.date}</p>
-                          <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors leading-snug">{update.description}</p>
-                        </div>
                       </Link>
                     ))}
                   </div>
