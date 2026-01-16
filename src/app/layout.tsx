@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import "./globals.css";
-import Nav from "../components/Nav";
+import NavEnhanced from "../components/NavEnhanced";
 
 export const metadata: Metadata = {
   title: "HISAGEN Portal",
@@ -23,7 +23,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <main id="main" className="min-h-screen px-6 py-10">
-          <Nav />
+          <NavEnhanced />
           {children}
           <footer className="mx-auto mt-16 max-w-5xl border-t border-mist pt-6 text-xs text-slate flex items-center justify-between">
             <span>HISAGEN partnership dossier</span>
