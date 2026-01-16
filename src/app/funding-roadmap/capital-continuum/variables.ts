@@ -12,6 +12,7 @@ export type Pillar = {
   title: string;
   focus: string;
   prompts: string[];
+  strategyAssumption: string;
 };
 
 const stages: Stage[] = [
@@ -62,6 +63,7 @@ const pillars: Pillar[] = [
       "Is local implementation capacity in place?",
       "Are community stakeholders aligned?",
     ],
+    strategyAssumption: "Local implementation capacity sufficient (Deep Six partnership)",
   },
   {
     title: "Policy and Legal",
@@ -71,6 +73,7 @@ const pillars: Pillar[] = [
       "Are permits and approvals secured?",
       "Is the policy environment stable?",
     ],
+    strategyAssumption: "Political/regulatory environment stable (Uganda govt committed)",
   },
   {
     title: "ESG and SDG",
@@ -80,6 +83,7 @@ const pillars: Pillar[] = [
       "Do we have safeguard and integrity systems?",
       "Are SDG outcomes measurable?",
     ],
+    strategyAssumption: "Farmers adopt when economics proven (70%+ to farmer target)",
   },
   {
     title: "Technical",
@@ -89,6 +93,7 @@ const pillars: Pillar[] = [
       "Is baseline data robust?",
       "Is MRV operational or planned with partners?",
     ],
+    strategyAssumption: "Microbial technology performs in East African soils (NARO trials)",
   },
   {
     title: "Commercial",
@@ -98,6 +103,7 @@ const pillars: Pillar[] = [
       "Is the capital stack aligned to stage?",
       "Are revenue streams diversified?",
     ],
+    strategyAssumption: "Carbon prices remain viable ($15-40/tonne, forward $25-30)",
   },
 ];
 

@@ -20,9 +20,9 @@ export default function CapitalContinuumPlaybookPage() {
             Capital Continuum Playbook
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-            A structured template for staging nature-based projects across the Capital Continuum
-            and assessing investment readiness through five pillars. Use alongside the Funding
-            Lifecycle Alignment page to track progress and gaps.
+            Making agricultural carbon <strong>bankable</strong> requires the right capital at the right stage.
+            This framework maps HISAGEN's journey from concessional grants through to institutional
+            investment—ensuring each stage has the funding architecture to prove the model.
           </p>
           <div className="mt-6 flex items-center gap-2">
             <span className="text-[10px] uppercase tracking-widest text-slate/60 font-medium">Source:</span>
@@ -260,6 +260,10 @@ export default function CapitalContinuumPlaybookPage() {
                   <li key={prompt}>{prompt}</li>
                 ))}
               </ul>
+              <div className="mt-4 pt-3 border-t border-mist/50">
+                <p className="text-[9px] uppercase tracking-widest text-secondary/60 font-bold">Strategy Assumption</p>
+                <p className="mt-1 text-xs text-secondary/80 italic">{pillar.strategyAssumption}</p>
+              </div>
             </div>
           ))}
         </div>
