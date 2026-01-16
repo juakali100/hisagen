@@ -1,6 +1,5 @@
 ﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
 import EvidenceTable from "../../components/EvidenceTable";
-import Link from "next/link";
 
 type Attachment = {
   title: string;
@@ -294,12 +293,12 @@ export default function ResourcesPage() {
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb stage="Evidence Vault" />
+      <StageBreadcrumb stage="Knowledge Base" />
 
       <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">Resources</p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          Foundation & Evidence Vault
+          Knowledge Base
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate italic">
           "This is the institutional source of truth. We consolidate every email, data trial, and technical brief into this dossier to inform HISAGEN's growth."
@@ -388,18 +387,15 @@ export default function ResourcesPage() {
                         <div className="mt-4 flex flex-wrap gap-3">
                           <p className="w-full text-[10px] font-bold uppercase tracking-widest text-secondary/40 mb-1">Related Evidence</p>
                           {item.attachments.map((attachment) => (
-                            <a
+                            <span
                               key={attachment.title}
-                              href={attachment.file}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-mist/30 border border-mist hover:border-secondary/20 transition-all"
+                              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-mist/30 border border-mist"
                             >
                               <span className={`text-[8px] font-bold px-1.5 py-0.5 rounded ${attachment.format === 'PDF' ? 'bg-red-100 text-red-600' : 'bg-secondary/10 text-secondary'}`}>
                                 {attachment.format}
                               </span>
                               <span className="text-xs font-medium text-secondary">{attachment.title}</span>
-                            </a>
+                            </span>
                           ))}
                         </div>
                       )}
@@ -409,16 +405,6 @@ export default function ResourcesPage() {
                         ))}
                       </div>
                     </div>
-
-                    {item.file && (
-                      <Link
-                        href={item.file}
-                        target={item.file.startsWith('http') ? "_blank" : "_self"}
-                        className="flex-shrink-0 flex items-center justify-center h-10 px-4 rounded-lg bg-secondary text-parchment text-[10px] uppercase tracking-widest font-bold hover:bg-secondary/90 transition-colors"
-                      >
-                        {item.format === 'Link' ? 'Open Link' : item.domain === 'Ecosystem' ? 'View Dossier' : 'View Item'}
-                      </Link>
-                    )}
                   </div>
                 ))}
             </div>
