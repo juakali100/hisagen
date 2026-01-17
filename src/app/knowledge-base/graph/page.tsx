@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import GraphFilters from "../../../components/knowledge-base/GraphFilters";
-import { ArrowPathIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { ArrowPathIcon, ArrowLeftIcon, QuestionMarkCircleIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import { graphData } from "@/data/relationships";
 import { NodeType } from "@/types/graph";
 
@@ -30,6 +30,7 @@ export default function RelationshipGraphPage() {
   const [activeFilters, setActiveFilters] = useState<Set<NodeType>>(
     new Set(['organization', 'person', 'project', 'evidence', 'milestone', 'program'])
   );
+  const [showGuide, setShowGuide] = useState(false);
 
   // Calculate node counts by type
   const nodeCounts = useMemo(() => {
@@ -120,6 +121,81 @@ export default function RelationshipGraphPage() {
             nodeCounts={nodeCounts}
           />
         </div>
+      </section>
+
+      {/* How to Use Guide */}
+      <section className="mt-4 mb-4">
+        <button
+          onClick={() => setShowGuide(!showGuide)}
+          className="flex items-center gap-2 text-sm text-secondary hover:text-secondary/80 transition-colors group"
+        >
+          <QuestionMarkCircleIcon className="w-5 h-5" />
+          <span className="font-medium">How to use the Relationship Graph</span>
+          <ChevronDownIcon
+            className={`w-4 h-4 transition-transform ${showGuide ? "rotate-180" : ""}`}
+          />
+        </button>
+
+        {showGuide && (
+          <div className="mt-4 p-6 rounded-xl bg-white border border-mist">
+            <div className="grid gap-6 md:grid-cols-2">
+              {/* Filter by Type */}
+              <div>
+                <h3 className="text-sm font-bold text-secondary mb-2 flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-secondary/10 text-secondary text-xs flex items-center justify-center">1</span>
+                  Filter by Type
+                </h3>
+                <p className="text-xs text-slate leading-relaxed">
+                  Use the <strong>filter toggles</strong> above to show/hide different entity types. Click a type to toggle it off, click again to show it. At least one type must remain visible.
+                </p>
+              </div>
+
+              {/* Hover to Explore */}
+              <div>
+                <h3 className="text-sm font-bold text-secondary mb-2 flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-secondary/10 text-secondary text-xs flex items-center justify-center">2</span>
+                  Hover to Explore
+                </h3>
+                <p className="text-xs text-slate leading-relaxed">
+                  <strong>Hover over any node</strong> to highlight its direct connections. Unconnected nodes will dim, making it easy to see relationships at a glance. Edge labels appear on hover.
+                </p>
+              </div>
+
+              {/* Click for Details */}
+              <div>
+                <h3 className="text-sm font-bold text-secondary mb-2 flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-secondary/10 text-secondary text-xs flex items-center justify-center">3</span>
+                  Click for Details
+                </h3>
+                <p className="text-xs text-slate leading-relaxed">
+                  <strong>Click any node</strong> to see its details in the sidebar: description, metadata, and related KB entries. Nodes with portal pages show a "View Full Profile" button.
+                </p>
+              </div>
+
+              {/* Navigate the Graph */}
+              <div>
+                <h3 className="text-sm font-bold text-secondary mb-2 flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-secondary/10 text-secondary text-xs flex items-center justify-center">4</span>
+                  Navigate the Graph
+                </h3>
+                <p className="text-xs text-slate leading-relaxed">
+                  <strong>Scroll to zoom</strong> in/out, <strong>drag the background</strong> to pan, and <strong>drag nodes</strong> to reposition them. Use the Reset View button to return to the default view.
+                </p>
+              </div>
+            </div>
+
+            {/* Example Use Cases */}
+            <div className="mt-6 pt-4 border-t border-mist">
+              <h3 className="text-xs font-bold text-slate/60 uppercase tracking-widest mb-3">Example Questions This Helps Answer</h3>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs bg-slate-50 text-slate px-3 py-1.5 rounded-lg">"Who are HISAGEN's key partners?"</span>
+                <span className="text-xs bg-slate-50 text-slate px-3 py-1.5 rounded-lg">"What's involved in the Uganda pilot?"</span>
+                <span className="text-xs bg-slate-50 text-slate px-3 py-1.5 rounded-lg">"How does evidence support milestones?"</span>
+                <span className="text-xs bg-slate-50 text-slate px-3 py-1.5 rounded-lg">"Show me only organizations"</span>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Graph */}
