@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, TagBadge, DateRangeFilter, filterByDateRange } from "../../../components/knowledge-base";
+import { SearchBar, TagBadge, DateRangeFilter, filterByDateRange, useSelection } from "../../../components/knowledge-base";
 import type { DateRange } from "../../../components/knowledge-base";
 import {
   milestones,
@@ -30,6 +30,7 @@ export default function MilestonesPage() {
   const [activeStatus, setActiveStatus] = useState<MilestoneStatus | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [dateRange, setDateRange] = useState<DateRange>(null);
+  const { selectAll, setSelectionMode, isSelected, toggle, isSelectionMode } = useSelection();
 
   const allTags = getMilestoneTags();
   const milestonesByStatus = getMilestonesByStatus();
@@ -117,7 +118,7 @@ export default function MilestonesPage() {
         </p>
 
         {/* Stats */}
-        <div className="mt-6 flex flex-wrap gap-4">
+        <div className="mt-6 flex flex-wrap items-center gap-4">
           {statusOrder.map((status) => {
             const count = milestonesByStatus[status]?.length || 0;
             if (count === 0) return null;
@@ -134,6 +135,15 @@ export default function MilestonesPage() {
               </div>
             );
           })}
+          <button
+            onClick={() => {
+              setSelectionMode(true);
+              selectAll(filteredMilestones);
+            }}
+            className="px-3 py-1.5 rounded-lg bg-parchment border border-mist text-xs font-medium text-secondary hover:bg-secondary/10 transition-colors"
+          >
+            Select all {isFiltering ? "filtered" : ""} ({filteredMilestones.length})
+          </button>
         </div>
       </section>
 
@@ -236,10 +246,12 @@ export default function MilestonesPage() {
                 <div className="grid gap-4">
                   {statusMilestones
                     .sort((a, b) => (a.targetDate || a.date).localeCompare(b.targetDate || b.date))
-                    .map((milestone) => (
+                    .map((milestone) => {
+                      const selected = isSelected(milestone.id);
+                      return (
                       <div
                         key={milestone.id}
-                        className={`p-5 rounded-xl border bg-white ${
+                        className={`relative group/selectable p-5 rounded-xl border bg-white ${
                           status === "in-progress"
                             ? "border-blue-200"
                             : status === "blocked"
@@ -247,8 +259,29 @@ export default function MilestonesPage() {
                             : status === "complete"
                             ? "border-emerald-200"
                             : "border-mist"
-                        }`}
+                        } ${selected ? "ring-2 ring-secondary/30" : ""}`}
                       >
+                        {/* Selection checkbox */}
+                        <div
+                          className={`absolute left-3 top-3 z-10 transition-opacity ${
+                            isSelectionMode || selected ? "opacity-100" : "opacity-0 group-hover/selectable:opacity-100"
+                          }`}
+                        >
+                          <button
+                            onClick={() => toggle(milestone)}
+                            className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+                              selected
+                                ? "bg-secondary border-secondary text-white"
+                                : "bg-white border-slate/30 hover:border-secondary/50"
+                            }`}
+                          >
+                            {selected && (
+                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                              </svg>
+                            )}
+                          </button>
+                        </div>
                         <div className="flex items-center gap-3 mb-2 flex-wrap">
                           <span
                             className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${colors.bg} ${colors.text}`}
@@ -305,7 +338,7 @@ export default function MilestonesPage() {
                           ))}
                         </div>
                       </div>
-                    ))}
+                    );})}
                 </div>
               </div>
             );

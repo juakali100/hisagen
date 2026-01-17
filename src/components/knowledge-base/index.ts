@@ -6,6 +6,11 @@ export { default as SectionCard } from "./SectionCard";
 export { default as DateRangeFilter, filterByDateRange } from "./DateRangeFilter";
 export type { DateRange } from "./DateRangeFilter";
 
+// Selection Components
+export { SelectionProvider, useSelection } from "./SelectionContext";
+export { default as SelectableEntryCard } from "./SelectableEntryCard";
+export { default as SelectionToolbar } from "./SelectionToolbar";
+
 // Metrics Display Components
 export { default as MetricCard, MetricsGrid } from "./MetricCard";
 export { default as MetricsTable, CompactMetricsList } from "./MetricsTable";

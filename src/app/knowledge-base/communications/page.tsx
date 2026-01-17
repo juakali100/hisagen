@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { ChevronDownIcon, ArrowLeftIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, EntryCard, TagBadge, DateRangeFilter, filterByDateRange } from "../../../components/knowledge-base";
+import { SearchBar, SelectableEntryCard, TagBadge, DateRangeFilter, filterByDateRange, useSelection } from "../../../components/knowledge-base";
 import type { DateRange } from "../../../components/knowledge-base";
 import {
   communications,
@@ -21,6 +21,7 @@ export default function CommunicationsPage() {
   const [activeSubtype, setActiveSubtype] = useState<CommunicationSubtype | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [dateRange, setDateRange] = useState<DateRange>(null);
+  const { selectAll, selectionCount, setSelectionMode, isSelectionMode } = useSelection();
 
   const allTags = getCommunicationTags();
   const subtypes: CommunicationSubtype[] = ["email", "call", "meeting", "whatsapp", "document"];
@@ -113,7 +114,7 @@ export default function CommunicationsPage() {
         </p>
 
         {/* Stats */}
-        <div className="mt-6 flex flex-wrap gap-4">
+        <div className="mt-6 flex flex-wrap items-center gap-4">
           <div className="px-3 py-1.5 rounded-lg bg-white border border-mist">
             <span className="text-lg font-bold text-secondary">{communications.length}</span>
             <span className="ml-2 text-xs text-slate/60">Total</span>
@@ -124,6 +125,15 @@ export default function CommunicationsPage() {
               <span className="ml-2 text-xs text-secondary/60">Matching</span>
             </div>
           )}
+          <button
+            onClick={() => {
+              setSelectionMode(true);
+              selectAll(filteredCommunications);
+            }}
+            className="px-3 py-1.5 rounded-lg bg-parchment border border-mist text-xs font-medium text-secondary hover:bg-secondary/10 transition-colors"
+          >
+            Select all {isFiltering ? "filtered" : ""} ({filteredCommunications.length})
+          </button>
         </div>
       </section>
 
@@ -224,7 +234,7 @@ export default function CommunicationsPage() {
                       {groupedByYear[year]
                         .sort((a, b) => b.date.localeCompare(a.date))
                         .map((comm) => (
-                          <EntryCard
+                          <SelectableEntryCard
                             key={comm.id}
                             entry={comm}
                             onTagClick={handleTagClick}

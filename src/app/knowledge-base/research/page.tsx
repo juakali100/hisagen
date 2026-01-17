@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, EntryCard, TagBadge, DateRangeFilter, filterByDateRange } from "../../../components/knowledge-base";
+import { SearchBar, SelectableEntryCard, TagBadge, DateRangeFilter, filterByDateRange, useSelection } from "../../../components/knowledge-base";
 import type { DateRange } from "../../../components/knowledge-base";
 import {
   research,
@@ -26,6 +26,7 @@ export default function ResearchPage() {
   const [activeSubtype, setActiveSubtype] = useState<ResearchSubtype | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [dateRange, setDateRange] = useState<DateRange>(null);
+  const { selectAll, setSelectionMode } = useSelection();
 
   const allTags = getResearchTags();
   const subtypes: ResearchSubtype[] = ["deck", "report", "analysis", "market-data", "literature"];
@@ -105,7 +106,7 @@ export default function ResearchPage() {
         </p>
 
         {/* Stats */}
-        <div className="mt-6 flex flex-wrap gap-4">
+        <div className="mt-6 flex flex-wrap items-center gap-4">
           <div className="px-3 py-1.5 rounded-lg bg-white border border-mist">
             <span className="text-lg font-bold text-secondary">{research.length}</span>
             <span className="ml-2 text-xs text-slate/60">Total</span>
@@ -116,6 +117,15 @@ export default function ResearchPage() {
               <span className="ml-2 text-xs text-secondary/60">Matching</span>
             </div>
           )}
+          <button
+            onClick={() => {
+              setSelectionMode(true);
+              selectAll(filteredResearch);
+            }}
+            className="px-3 py-1.5 rounded-lg bg-parchment border border-mist text-xs font-medium text-secondary hover:bg-secondary/10 transition-colors"
+          >
+            Select all {isFiltering ? "filtered" : ""} ({filteredResearch.length})
+          </button>
         </div>
       </section>
 
@@ -198,7 +208,7 @@ export default function ResearchPage() {
           </p>
         ) : (
           filteredResearch.map((entry) => (
-            <EntryCard
+            <SelectableEntryCard
               key={entry.id}
               entry={entry}
               onTagClick={handleTagClick}

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Link from "next/link";
+import { DocumentTextIcon } from "@heroicons/react/24/outline";
 import StageBreadcrumb from "../../components/StageBreadcrumb";
-import { SearchBar, SectionCard, EntryCard, TagBadge } from "../../components/knowledge-base";
+import { SearchBar, SectionCard, EntryCard, TagBadge, useSelection } from "../../components/knowledge-base";
 import {
   communications,
   research,
@@ -18,6 +20,7 @@ import {
 export default function ResourcesHub() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTags, setActiveTags] = useState<string[]>([]);
+  const { selectionCount } = useSelection();
 
   // Stats
   const stats = getKnowledgeBaseStats();
@@ -209,6 +212,46 @@ export default function ResourcesHub() {
                 recentItems={[]}
               />
             </div>
+          </section>
+
+          {/* Synthesis Engine CTA */}
+          <section className="mt-8">
+            <Link
+              href="/knowledge-base/synthesis"
+              className="block p-6 rounded-2xl bg-gradient-to-br from-secondary/5 to-parchment border border-secondary/20 hover:border-secondary/40 transition-all group"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
+                  <DocumentTextIcon className="size-6 text-secondary" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-lg font-bold text-secondary group-hover:text-secondary/80 transition-colors">
+                      Synthesis Engine
+                    </h3>
+                    {selectionCount > 0 && (
+                      <span className="px-2 py-0.5 rounded-full bg-secondary text-white text-[10px] font-bold">
+                        {selectionCount} selected
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-slate">
+                    Generate funder reports, board briefings, and partner updates from selected knowledge base entries.
+                  </p>
+                </div>
+                <div className="text-secondary/30 group-hover:text-secondary/60 transition-colors">
+                  <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+              <div className="mt-4 flex gap-3 text-[10px] text-slate/60">
+                <span className="px-2 py-1 rounded bg-white border border-mist">Funder Reports</span>
+                <span className="px-2 py-1 rounded bg-white border border-mist">Board Briefings</span>
+                <span className="px-2 py-1 rounded bg-white border border-mist">Partner Updates</span>
+                <span className="px-2 py-1 rounded bg-white border border-mist">Custom Export</span>
+              </div>
+            </Link>
           </section>
 
           {/* Quick Access: Recent Entries */}

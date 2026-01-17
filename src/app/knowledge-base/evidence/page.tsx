@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeftIcon, BeakerIcon, MapPinIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, TagBadge } from "../../../components/knowledge-base";
+import { SearchBar, TagBadge, useSelection } from "../../../components/knowledge-base";
 import { evidence, getEvidenceByProject, EvidenceSubtype } from "../../../data";
 
 const subtypeLabels: Record<EvidenceSubtype, string> = {
@@ -18,6 +18,7 @@ const subtypeLabels: Record<EvidenceSubtype, string> = {
 
 export default function EvidencePage() {
   const [searchQuery, setSearchQuery] = useState("");
+  const { selectAll, setSelectionMode, isSelected, toggle, isSelectionMode } = useSelection();
 
   const evidenceByProject = getEvidenceByProject();
   const projects = Object.keys(evidenceByProject);
@@ -48,7 +49,7 @@ export default function EvidencePage() {
         </p>
 
         {/* Stats */}
-        <div className="mt-6 flex flex-wrap gap-4">
+        <div className="mt-6 flex flex-wrap items-center gap-4">
           <div className="px-3 py-1.5 rounded-lg bg-white border border-mist">
             <span className="text-lg font-bold text-secondary">{evidence.length}</span>
             <span className="ml-2 text-xs text-slate/60">Total Entries</span>
@@ -57,6 +58,17 @@ export default function EvidencePage() {
             <span className="text-lg font-bold text-secondary">{projects.length}</span>
             <span className="ml-2 text-xs text-slate/60">Projects</span>
           </div>
+          {evidence.length > 0 && (
+            <button
+              onClick={() => {
+                setSelectionMode(true);
+                selectAll(evidence);
+              }}
+              className="px-3 py-1.5 rounded-lg bg-parchment border border-mist text-xs font-medium text-secondary hover:bg-secondary/10 transition-colors"
+            >
+              Select all ({evidence.length})
+            </button>
+          )}
         </div>
       </section>
 
@@ -178,11 +190,34 @@ export default function EvidencePage() {
                 </span>
               </div>
               <div className="grid gap-4">
-                {evidenceByProject[project].map((entry) => (
+                {evidenceByProject[project].map((entry) => {
+                  const selected = isSelected(entry.id);
+                  return (
                   <div
                     key={entry.id}
-                    className="p-5 rounded-xl border border-mist bg-white"
+                    className={`relative group/selectable p-5 rounded-xl border border-mist bg-white ${selected ? "ring-2 ring-secondary/30" : ""}`}
                   >
+                    {/* Selection checkbox */}
+                    <div
+                      className={`absolute left-3 top-3 z-10 transition-opacity ${
+                        isSelectionMode || selected ? "opacity-100" : "opacity-0 group-hover/selectable:opacity-100"
+                      }`}
+                    >
+                      <button
+                        onClick={() => toggle(entry)}
+                        className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+                          selected
+                            ? "bg-secondary border-secondary text-white"
+                            : "bg-white border-slate/30 hover:border-secondary/50"
+                        }`}
+                      >
+                        {selected && (
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
+                      </button>
+                    </div>
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">
                         {subtypeLabels[entry.subtype]}
@@ -218,7 +253,7 @@ export default function EvidencePage() {
                       ))}
                     </div>
                   </div>
-                ))}
+                );})}
               </div>
             </div>
           ))}
