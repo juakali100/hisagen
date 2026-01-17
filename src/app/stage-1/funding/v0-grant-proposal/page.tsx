@@ -62,16 +62,23 @@ export default function V0GrantProposalPage() {
         <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.15em]">Contents</h2>
         <div className="grid gap-2 md:grid-cols-2">
           {[
-            "1. Executive Summary",
-            "2. Statement of Need",
-            "3. Project Description",
-            "4. Organizational Information",
-            "5. Conclusion",
-            "6. Budget Framework",
-            "Appendix A: Evidence Base & Citations"
+            { title: "1. Executive Summary", type: "main" },
+            { title: "2. Statement of Need", type: "main" },
+            { title: "3. Project Description", type: "main" },
+            { title: "   → Climate Adaptation & Policy Alignment", type: "sub" },
+            { title: "4. Organizational Information", type: "main" },
+            { title: "5. Conclusion", type: "main" },
+            { title: "6. Budget Framework", type: "main" },
+            { title: "Appendix A: Evidence Base & Citations", type: "appendix" }
           ].map((item, idx) => (
-            <div key={idx} className={`p-4 rounded-lg border bg-white hover:border-secondary/20 transition-colors ${item.startsWith("Appendix") ? "border-slate-300 bg-slate-50" : "border-mist"}`}>
-              <p className={`text-sm font-bold ${item.startsWith("Appendix") ? "text-slate-600" : "text-secondary"}`}>{item}</p>
+            <div key={idx} className={`p-4 rounded-lg border bg-white hover:border-secondary/20 transition-colors ${
+              item.type === "appendix" ? "border-slate-300 bg-slate-50" :
+              item.type === "sub" ? "border-emerald-300 bg-emerald-50" : "border-mist"
+            }`}>
+              <p className={`text-sm font-bold ${
+                item.type === "appendix" ? "text-slate-600" :
+                item.type === "sub" ? "text-emerald-700" : "text-secondary"
+              }`}>{item.title}</p>
             </div>
           ))}
         </div>
@@ -989,6 +996,170 @@ export default function V0GrantProposalPage() {
               <p className="mt-4 text-xs text-slate/60 italic">
                 By end of Stage 1, HISAGEN will have the track record and revenue foundations to attract
                 Stage 2 capital (carbon prepayment, impact investment) - transitioning away from grant dependency.
+              </p>
+            </div>
+          </div>
+
+          {/* Climate Adaptation & National Policy Alignment */}
+          <div className="p-8 rounded-2xl border-2 border-emerald-600/30 bg-emerald-50/50">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center">
+                <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-emerald-900">Climate Adaptation & National Policy Alignment</h3>
+                <p className="text-xs text-emerald-700">Alignment with Uganda's National Adaptation Plan for Agriculture (NAP-Ag)</p>
+              </div>
+            </div>
+
+            {/* Policy Framework */}
+            <div className="mb-6 p-5 rounded-xl bg-white border border-emerald-200">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-800 mb-3">Uganda's Climate Policy Framework</p>
+              <p className="text-sm text-slate leading-relaxed mb-4">
+                HISAGEN directly supports Uganda's national climate commitments and agricultural adaptation priorities,
+                creating alignment at both regulatory (NARO) and policy (NAP-Ag) levels with the Government of Uganda.
+              </p>
+              <div className="grid gap-3 md:grid-cols-2">
+                <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200">
+                  <p className="text-xs font-bold text-emerald-900">NAP-Ag (2018)</p>
+                  <p className="text-[10px] text-emerald-800">National Adaptation Plan for Agriculture - Led by MAAIF</p>
+                </div>
+                <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200">
+                  <p className="text-xs font-bold text-emerald-900">Updated NDC (2021)</p>
+                  <p className="text-[10px] text-emerald-800">24.7% emissions reduction by 2030, agriculture priority sector</p>
+                </div>
+                <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200">
+                  <p className="text-xs font-bold text-emerald-900">National Climate Change Act 2021</p>
+                  <p className="text-[10px] text-emerald-800">Legal force to Paris Agreement commitments</p>
+                </div>
+                <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200">
+                  <p className="text-xs font-bold text-emerald-900">CSA Program (2015-2025)</p>
+                  <p className="text-[10px] text-emerald-800">Climate Smart Agriculture national program</p>
+                </div>
+              </div>
+            </div>
+
+            {/* NAP-Ag Priority Alignment */}
+            <div className="mb-6">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-800 mb-4">NAP-Ag Priority Alignment</p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs border-collapse">
+                  <thead>
+                    <tr className="bg-emerald-700 text-white">
+                      <th className="p-3 text-left font-bold">NAP-Ag Priority</th>
+                      <th className="p-3 text-left font-bold">HISAGEN Contribution</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-emerald-200">
+                    <tr className="bg-white">
+                      <td className="p-3 text-slate font-medium">Soil health restoration</td>
+                      <td className="p-3 text-slate">Biofertilizers rebuild soil biology; regenerative practices restore organic matter</td>
+                    </tr>
+                    <tr className="bg-emerald-50/50">
+                      <td className="p-3 text-slate font-medium">Climate-resilient agriculture</td>
+                      <td className="p-3 text-slate">Improved soil water retention; reduced chemical dependency; drought resilience</td>
+                    </tr>
+                    <tr className="bg-white">
+                      <td className="p-3 text-slate font-medium">Smallholder farmer support</td>
+                      <td className="p-3 text-slate">Accessible technology; affordable inputs; diversified income streams</td>
+                    </tr>
+                    <tr className="bg-emerald-50/50">
+                      <td className="p-3 text-slate font-medium">Gender-responsive adaptation</td>
+                      <td className="p-3 text-slate">Women farmers priority; inclusive design; equitable benefit sharing</td>
+                    </tr>
+                    <tr className="bg-white">
+                      <td className="p-3 text-slate font-medium">Youth employment in agriculture</td>
+                      <td className="p-3 text-slate">Digital marketplace; tech-enabled farming; entrepreneurship pathways</td>
+                    </tr>
+                    <tr className="bg-emerald-50/50">
+                      <td className="p-3 text-slate font-medium">Carbon sequestration & MRV</td>
+                      <td className="p-3 text-slate">Carbon credit generation; verified emissions reductions; farmer climate finance access</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Multi-Level Resilience */}
+            <div className="mb-6">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-800 mb-4">Multi-Level Resilience Building</p>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="p-4 rounded-xl bg-white border border-emerald-200">
+                  <p className="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-2">Farm-Level Resilience</p>
+                  <ul className="space-y-1 text-xs text-slate">
+                    <li>• Soil biology restoration improves water retention</li>
+                    <li>• Reduced dependency on imported chemical inputs</li>
+                    <li>• Enhanced crop productivity under variable conditions</li>
+                    <li>• Natural pest suppression reduces crop losses</li>
+                  </ul>
+                </div>
+                <div className="p-4 rounded-xl bg-white border border-emerald-200">
+                  <p className="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-2">Household-Level Resilience</p>
+                  <ul className="space-y-1 text-xs text-slate">
+                    <li>• Diversified income (farming + carbon credits)</li>
+                    <li>• Reduced input costs through biological alternatives</li>
+                    <li>• Climate finance access previously unavailable</li>
+                    <li>• Digital platform access to market information</li>
+                  </ul>
+                </div>
+                <div className="p-4 rounded-xl bg-white border border-emerald-200">
+                  <p className="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-2">Community-Level Resilience</p>
+                  <ul className="space-y-1 text-xs text-slate">
+                    <li>• Collective carbon project participation</li>
+                    <li>• Knowledge sharing and peer learning</li>
+                    <li>• Local value chain development</li>
+                    <li>• Youth employment in agricultural technology</li>
+                  </ul>
+                </div>
+                <div className="p-4 rounded-xl bg-white border border-emerald-200">
+                  <p className="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-2">System-Level Resilience</p>
+                  <ul className="space-y-1 text-xs text-slate">
+                    <li>• National food security contribution</li>
+                    <li>• NDC emissions reduction support</li>
+                    <li>• Scalable model for regional replication</li>
+                    <li>• Data for evidence-based policy</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* NDC Contribution */}
+            <div className="p-5 rounded-xl bg-emerald-100 border-2 border-emerald-300">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-900 mb-3">Contribution to Uganda's NDC Targets</p>
+              <div className="grid gap-4 md:grid-cols-3 text-center">
+                <div>
+                  <p className="text-2xl font-bold text-emerald-800">24.7%</p>
+                  <p className="text-[10px] text-emerald-700 uppercase tracking-wider">Uganda's 2030 emissions reduction target</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-emerald-800">95%</p>
+                  <p className="text-[10px] text-emerald-700 uppercase tracking-wider">More soil carbon with CSA practices*</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-emerald-800">20-40%</p>
+                  <p className="text-[10px] text-emerald-700 uppercase tracking-wider">Soil organic carbon increase potential*</p>
+                </div>
+              </div>
+              <p className="text-[10px] text-emerald-600 mt-3 text-center italic">
+                *Research from Uganda Climate-Smart Villages showing CSA intervention impacts (MDPI Climate 2020; Research on agroforestry systems)
+              </p>
+            </div>
+
+            {/* Dual Government Alignment */}
+            <div className="mt-6 p-4 rounded-xl bg-white border-2 border-emerald-400">
+              <div className="flex items-center gap-3 mb-3">
+                <svg className="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <p className="text-sm font-bold text-emerald-900">Dual Government Alignment</p>
+              </div>
+              <p className="text-sm text-slate leading-relaxed">
+                HISAGEN is uniquely positioned with <strong>regulatory alignment</strong> (NARO license approval for microbial products)
+                AND <strong>policy alignment</strong> (NAP-Ag, NDC, Climate Change Act priorities). This dual alignment
+                demonstrates that HISAGEN is working WITH government priorities, not around them—strengthening both
+                implementation viability and long-term sustainability.
               </p>
             </div>
           </div>
