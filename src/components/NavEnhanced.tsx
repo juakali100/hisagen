@@ -73,6 +73,11 @@ const funding = [
     description: "4-stage funding framework",
   },
   {
+    name: "Grant Lifecycle",
+    href: "/funding-roadmap/grant-lifecycle",
+    description: "11-phase delivery methodology",
+  },
+  {
     name: "Stage 1: Grants",
     href: "/stage-1/funding",
     description: "Grants & philanthropy (50%)",
