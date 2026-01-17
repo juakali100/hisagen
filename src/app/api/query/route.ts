@@ -170,7 +170,7 @@ Please provide a helpful answer based on the knowledge base entries above. If yo
 
     // Call Claude API
     const message = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-3-5-haiku-20241022",
       max_tokens: 1024,
       messages: [
         {
