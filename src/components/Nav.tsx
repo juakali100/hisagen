@@ -5,7 +5,22 @@ import { usePathname } from "next/navigation";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { useEffect } from "react";
 
-const navItems = [
+type SubItem = {
+  href: string;
+  label: string;
+};
+
+type DropdownItem = {
+  label: string;
+  href: string;
+  subItems: SubItem[];
+};
+
+type NavItem =
+  | { href: string; label: string; dropdown?: never }
+  | { label: string; href: string; dropdown: DropdownItem[] };
+
+const navItems: NavItem[] = [
   { href: "/organization", label: "Who We Are" },
   { href: "/strategy", label: "What We Do" },
   {
@@ -35,7 +50,7 @@ const navItems = [
     ],
   },
   { href: "/knowledge-base", label: "Knowledge Base" },
-] as const;
+];
 
 export default function Nav() {
   const pathname = usePathname();
@@ -121,7 +136,7 @@ export default function Nav() {
                         transition
                         className="absolute left-0 top-full z-50 mt-3 min-w-[280px] origin-top-left rounded-xl border border-mist bg-white py-2 shadow-xl shadow-secondary/5 outline-none transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in motion-reduce:transition-none"
                       >
-                        {item.dropdown.map((link) => (
+                        {item.dropdown!.map((link) => (
                           <div key={link.href || link.label} className="flex flex-col">
                             <Link
                               href={link.href || "#"}
