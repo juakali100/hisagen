@@ -65,6 +65,25 @@ const projects = [
   },
 ];
 
+// Funding data for Program flyout
+const funding = [
+  {
+    name: "Stage 1 Funding",
+    href: "/stage-1/funding",
+    description: "Grant applications & capital strategy",
+  },
+  {
+    name: "Capital Continuum",
+    href: "/funding-roadmap/capital-continuum",
+    description: "4-stage funding framework",
+  },
+  {
+    name: "Grant Proposal",
+    href: "/stage-1/funding/v0-grant-proposal",
+    description: "V0 proposal document",
+  },
+];
+
 // Featured content for Program flyout
 const programFeatured = [
   {
@@ -291,25 +310,51 @@ export default function NavEnhanced() {
           {/* Agri-Carbon Program Flyout - Full Width Two Columns */}
           <HoverPopover buttonLabel="Agri-Carbon Program" buttonHref="/program">
             <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2 lg:px-8">
-              {/* Left: Projects */}
-              <div>
-                <h3 className="text-sm font-medium text-white/50">Projects</h3>
-                <div className="mt-6 flow-root">
-                  <div className="-my-2">
-                    {projects.map((project) => (
-                      <Link
-                        key={project.name}
-                        href={project.href}
-                        className="block py-3 group"
-                      >
-                        <p className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
-                          {project.name}
-                        </p>
-                        <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">
-                          {project.description}
-                        </p>
-                      </Link>
-                    ))}
+              {/* Left: Projects & Funding (2 columns) */}
+              <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8">
+                {/* Projects */}
+                <div>
+                  <h3 className="text-sm font-medium text-white/50">Projects</h3>
+                  <div className="mt-6 flow-root">
+                    <div className="-my-2">
+                      {projects.map((project) => (
+                        <Link
+                          key={project.name}
+                          href={project.href}
+                          className="block py-3 group"
+                        >
+                          <p className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
+                            {project.name}
+                          </p>
+                          <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">
+                            {project.description}
+                          </p>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Funding */}
+                <div>
+                  <h3 className="text-sm font-medium text-white/50">Funding</h3>
+                  <div className="mt-6 flow-root">
+                    <div className="-my-2">
+                      {funding.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          className="block py-3 group"
+                        >
+                          <p className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
+                            {item.name}
+                          </p>
+                          <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">
+                            {item.description}
+                          </p>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
