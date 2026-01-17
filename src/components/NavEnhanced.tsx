@@ -68,19 +68,29 @@ const projects = [
 // Funding data for Program flyout
 const funding = [
   {
-    name: "Stage 1 Funding",
-    href: "/stage-1/funding",
-    description: "Grant applications & capital strategy",
-  },
-  {
     name: "Capital Continuum",
     href: "/funding-roadmap/capital-continuum",
     description: "4-stage funding framework",
   },
   {
-    name: "Grant Proposal",
-    href: "/stage-1/funding/v0-grant-proposal",
-    description: "V0 proposal document",
+    name: "Stage 1: Grants",
+    href: "/stage-1/funding",
+    description: "Grants & philanthropy (50%)",
+  },
+  {
+    name: "Stage 2: Carbon Finance",
+    href: "/stage-2/funding",
+    description: "Pre-purchase & impact (65%)",
+  },
+  {
+    name: "Stage 3: Commercial",
+    href: "/stage-3/funding",
+    description: "Working capital & debt (70%)",
+  },
+  {
+    name: "Stage 4: Institutional",
+    href: "/stage-4/funding",
+    description: "Green bonds & SPV (95%)",
   },
 ];
 
