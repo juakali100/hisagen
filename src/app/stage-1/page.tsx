@@ -12,12 +12,62 @@ const snapshot = [
   },
   {
     title: "Pilot Reach",
-    detail: "Uganda NARO independent trials across 5 agro-ecological zones.",
+    detail: "Uganda NARO independent trials across 4 agro-ecological zones.",
   },
   {
     title: "Commercial Goal",
     detail: "Secure UNBS approval and generate local sales income to cover operational overheads.",
   },
+];
+
+// Uganda Opportunity - from PDF Page 5
+const ugandaOpportunity = {
+  headline: "East Africa represents a compelling entry point for HISAGEN's integrated model.",
+  points: [
+    "Strong local demand for sustainable yield improvement solutions",
+    "Government commitment to climate-smart agriculture through NDC",
+    "NARO actively engaged in independent validation trials",
+    "Carbon credit revenue stream alongside product sales",
+    "Co-investment opportunities with development finance institutions",
+  ],
+};
+
+// Uganda Trials - from PDF Pages 9-10
+const ugandaTrials = {
+  timeline: [
+    { phase: "Preparation", period: "Feb 2025", detail: "Site selection, baseline soil sampling, farmer recruitment" },
+    { phase: "Data Collection", period: "Mar-Aug 2025", detail: "Crop monitoring, growth measurements, soil health tracking" },
+    { phase: "Harvest & Analysis", period: "Sep 2025", detail: "Yield comparison, results documentation, NARO review" },
+  ],
+  crops: [
+    { name: "Maize", icon: "🌽", status: "Complete" },
+    { name: "Irish Potatoes", icon: "🥔", status: "Complete" },
+    { name: "Peanuts", icon: "🥜", status: "Complete" },
+    { name: "Sweet Potatoes", icon: "🍠", status: "Complete" },
+  ],
+  regions: ["Western Uganda", "Northern Uganda", "Eastern Uganda", "Central Uganda"],
+  result: "Highly positive crop response across all trial sites",
+};
+
+// Uganda Approvals Timeline - from PDF Pages 11-12
+const approvalsTimeline = [
+  { step: 1, date: "Oct 2025", milestone: "Initial submission to UNBS", status: "complete" },
+  { step: 2, date: "Nov 2025", milestone: "NARO trial results submitted", status: "complete" },
+  { step: 3, date: "Jan 2026", milestone: "Full dossier submission to MAAIF", status: "current" },
+  { step: 4, date: "Jan-Feb 2026", milestone: "Technical review period", status: "upcoming" },
+  { step: 5, date: "Feb-Mar 2026", milestone: "Approval decision", status: "upcoming" },
+  { step: 6, date: "Mar 2026", milestone: "Labeling and packaging compliance", status: "upcoming" },
+  { step: 7, date: "Apr-Jun 2026", milestone: "Market launch preparation", status: "upcoming" },
+];
+
+// Glossary - from PDF Page 14
+const glossary = [
+  { term: "NARO", definition: "National Agricultural Research Organization - Uganda's primary agricultural research body conducting independent validation trials." },
+  { term: "UNBS", definition: "Uganda National Bureau of Standards - Regulatory body for product standards and market entry certification." },
+  { term: "MAAIF", definition: "Ministry of Agriculture, Animal Industry and Fisheries - Government ministry overseeing agricultural product approvals." },
+  { term: "EAC", definition: "East African Community - 8 partner states: Burundi, DRC, Kenya, Rwanda, Somalia, South Sudan, Tanzania, Uganda. Uganda approval creates precedent for regional rollout." },
+  { term: "HISAGEN USA", definition: "Parent entity handling funding, IP, and global strategy (Keir - CEO, Scott - COO)." },
+  { term: "HISAGEN Africa", definition: "Operating entity for on-ground implementation and regulatory compliance (Daniel - CEO Africa, Israel - COO Africa)." },
 ];
 
 const stage1Objectives = [
@@ -131,6 +181,120 @@ export default function Stage1Page() {
         ))}
       </section>
 
+      {/* Uganda Opportunity Section */}
+      <section className="mt-12 rounded-2xl border border-primary/20 bg-primary/5 p-8">
+        <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-2">Why Uganda</h2>
+        <h3 className="text-xl font-bold text-secondary mb-4">The East Africa Opportunity</h3>
+        <p className="text-sm text-slate italic mb-6 max-w-2xl">{ugandaOpportunity.headline}</p>
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          {ugandaOpportunity.points.map((point, idx) => (
+            <div key={idx} className="flex gap-3 p-3 rounded-lg bg-white border border-mist">
+              <span className="text-primary font-bold">→</span>
+              <span className="text-xs text-slate">{point}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Uganda Trials Section */}
+      <section className="mt-12">
+        <div className="mb-6">
+          <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40 mb-2">Field Validation</h2>
+          <h3 className="text-xl font-bold text-secondary">Uganda NARO Trials</h3>
+          <p className="mt-2 text-sm text-slate max-w-xl">
+            Independent validation conducted by Uganda's National Agricultural Research Organization across 4 agro-ecological zones.
+          </p>
+        </div>
+
+        {/* Trial Timeline */}
+        <div className="grid gap-4 md:grid-cols-3 mb-8">
+          {ugandaTrials.timeline.map((item, idx) => (
+            <div key={item.phase} className="relative p-5 rounded-xl border border-mist bg-white">
+              <div className="absolute -top-3 left-4 px-2 py-0.5 bg-secondary text-parchment text-[9px] font-bold uppercase tracking-widest rounded">
+                {item.period}
+              </div>
+              <h4 className="text-sm font-bold text-secondary mt-2 mb-2">{item.phase}</h4>
+              <p className="text-xs text-slate">{item.detail}</p>
+              {idx < ugandaTrials.timeline.length - 1 && (
+                <div className="hidden md:block absolute top-1/2 -right-2 text-mist text-lg">→</div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Crops & Regions Grid */}
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="p-6 rounded-xl border border-mist bg-white">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-4">Crops Tested</p>
+            <div className="grid grid-cols-2 gap-3">
+              {ugandaTrials.crops.map((crop) => (
+                <div key={crop.name} className="flex items-center gap-3 p-3 rounded-lg bg-parchment/30 border border-mist">
+                  <span className="text-2xl">{crop.icon}</span>
+                  <div>
+                    <p className="text-xs font-bold text-secondary">{crop.name}</p>
+                    <p className="text-[9px] text-emerald-600 font-bold uppercase">{crop.status}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="p-6 rounded-xl border border-mist bg-white">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-4">Trial Regions</p>
+            <div className="grid grid-cols-2 gap-3">
+              {ugandaTrials.regions.map((region) => (
+                <div key={region} className="p-3 rounded-lg bg-parchment/30 border border-mist text-center">
+                  <p className="text-xs font-bold text-secondary">{region}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 p-3 rounded-lg bg-emerald-50 border border-emerald-200">
+              <p className="text-xs text-emerald-700 font-medium text-center">{ugandaTrials.result}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Approvals Timeline Section */}
+      <section className="mt-12">
+        <div className="mb-6">
+          <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40 mb-2">Regulatory Pathway</h2>
+          <h3 className="text-xl font-bold text-secondary">Q1 2026 Approvals Timeline</h3>
+          <p className="mt-2 text-sm text-slate max-w-xl">
+            Coordinated approval process through UNBS, NARO, and MAAIF for market entry.
+          </p>
+        </div>
+
+        <div className="rounded-xl border border-mist overflow-hidden">
+          <div className="grid gap-px bg-mist">
+            {approvalsTimeline.map((item) => (
+              <div
+                key={item.step}
+                className={`flex items-center gap-4 p-4 ${
+                  item.status === 'complete' ? 'bg-emerald-50' :
+                  item.status === 'current' ? 'bg-amber-50' : 'bg-white'
+                }`}
+              >
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ${
+                  item.status === 'complete' ? 'bg-emerald-500 text-white' :
+                  item.status === 'current' ? 'bg-amber-500 text-white' : 'bg-mist text-secondary/50'
+                }`}>
+                  {item.status === 'complete' ? '✓' : item.step}
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs font-bold text-secondary">{item.milestone}</p>
+                </div>
+                <div className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
+                  item.status === 'complete' ? 'bg-emerald-100 text-emerald-700' :
+                  item.status === 'current' ? 'bg-amber-100 text-amber-700' : 'bg-mist text-slate'
+                }`}>
+                  {item.date}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="mt-12 grid gap-6 md:grid-cols-2">
         <div className="rounded-xl border border-mist bg-white p-6 shadow-sm">
           <p className="text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-4">Stage 1 Objectives</p>
@@ -222,12 +386,26 @@ export default function Stage1Page() {
         </div>
       </section>
 
+      {/* Glossary Section */}
+      <section className="mt-12 rounded-xl border border-mist bg-parchment/20 p-8">
+        <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40 mb-2">Reference</h2>
+        <h3 className="text-xl font-bold text-secondary mb-6">Key Terms & Entities</h3>
+        <div className="grid gap-4 md:grid-cols-2">
+          {glossary.map((item) => (
+            <div key={item.term} className="p-4 rounded-lg bg-white border border-mist">
+              <p className="text-sm font-bold text-primary mb-1">{item.term}</p>
+              <p className="text-xs text-slate leading-relaxed">{item.definition}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="mt-12 grid gap-4 md:grid-cols-2 mb-20">
         {[
           {
             title: "Evidence Vault",
             description: "View pilot outcomes and source materials.",
-            href: "/resources",
+            href: "/evidence",
           },
           {
             title: "Capital Continuum",
