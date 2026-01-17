@@ -327,49 +327,219 @@ export default function V0GrantProposalPage() {
             </div>
           </div>
 
-          {/* Activities & Methods */}
+          {/* Activities & Methods - Stage 1 Incubation */}
           <div className="p-8 rounded-2xl border-2 border-mist bg-parchment/5">
-            <h3 className="text-lg font-bold text-secondary mb-4">Activities & Methods</h3>
-            <p className="text-sm text-slate mb-6">
-              HISAGEN's implementation approach integrates four complementary components:
+            <div className="flex items-center gap-3 mb-4">
+              <h3 className="text-lg font-bold text-secondary">Activities & Methods</h3>
+              <span className="px-2 py-0.5 bg-secondary/10 text-secondary text-[9px] rounded font-bold uppercase tracking-widest">
+                Stage 1: Incubation
+              </span>
+            </div>
+            <p className="text-sm text-slate mb-2">
+              Stage 1 Incubation activities focus on building the foundational capabilities required before operational scale.
+              These components map to the project timeline phases (2024-2026).
+            </p>
+            <p className="text-xs text-slate/60 mb-6 italic">
+              Note: Operational components (product distribution, farmer training, carbon credit issuance) are Stage 2 activities
+              enabled by successful completion of these Stage 1 foundations.
             </p>
 
-            <div className="grid gap-4 md:grid-cols-2">
-              {[
-                {
-                  title: "Component 1: Microbial Product Distribution",
-                  desc: "Provide biofertilizers and biopesticides to participating farmers",
-                  gaps: ["Production method?", "Distribution model?", "Pricing structure?", "Quality control?"]
-                },
-                {
-                  title: "Component 2: Soil Health & Regenerative Agriculture Training",
-                  desc: "Train farmers in regenerative agriculture practices to restore soil health",
-                  gaps: ["Which practices?", "Training approach?", "Adoption support?", "Timeline to results?"]
-                },
-                {
-                  title: "Component 3: Carbon Credit Development",
-                  desc: "Develop verified carbon credits from soil health improvements",
-                  gaps: ["Carbon standard?", "Methodology?", "Monitoring approach?", "Revenue share model?"]
-                },
-                {
-                  title: "Component 4: Digital Marketplace Platform",
-                  desc: "Provide digital platform connecting farmers, inputs, buyers, and carbon purchasers",
-                  gaps: ["Platform features?", "Technology stack?", "Accessibility for low-literacy?", "Development status?"]
-                }
-              ].map((comp, idx) => (
-                <div key={idx} className="p-6 rounded-xl border border-mist bg-white">
-                  <h4 className="text-sm font-bold text-secondary mb-2">{comp.title}</h4>
-                  <p className="text-sm text-slate mb-4">{comp.desc}</p>
-                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-2">[GAP: Details Needed]</p>
-                    <ul className="space-y-1">
-                      {comp.gaps.map((gap, i) => (
-                        <li key={i} className="text-xs text-slate">• {gap}</li>
-                      ))}
+            {/* Stage 1 Components */}
+            <div className="space-y-4">
+              {/* Component 1.1: Team & Governance */}
+              <div className="p-6 rounded-xl border border-emerald-200 bg-emerald-50/30">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[9px] rounded font-bold uppercase tracking-widest">
+                    Phase 0 • Complete
+                  </span>
+                </div>
+                <h4 className="text-sm font-bold text-secondary mb-2">Component 1.1: Team & Governance Formation</h4>
+                <p className="text-sm text-slate mb-3">Assemble founding team with complementary expertise and establish governance structure.</p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">✓ Achieved</p>
+                    <ul className="space-y-1 text-xs text-slate">
+                      <li>• Founding team assembled by Cedric (Uganda/Ireland connector)</li>
+                      <li>• Keir A-B as lead (quant finance + ag-tech + East Africa)</li>
+                      <li>• Uganda identified as launch market</li>
+                    </ul>
+                  </div>
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
+                    <ul className="space-y-1 text-xs text-amber-800">
+                      <li>• Full team composition beyond founder?</li>
+                      <li>• Advisory board structure?</li>
+                      <li>• Governance policies?</li>
                     </ul>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              {/* Component 1.2: Entity & Legal */}
+              <div className="p-6 rounded-xl border border-emerald-200 bg-emerald-50/30">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[9px] rounded font-bold uppercase tracking-widest">
+                    Phase 0 • Complete
+                  </span>
+                </div>
+                <h4 className="text-sm font-bold text-secondary mb-2">Component 1.2: Entity & Legal Structure</h4>
+                <p className="text-sm text-slate mb-3">Establish legal entities and frameworks for multi-jurisdiction operations.</p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">✓ Achieved</p>
+                    <ul className="space-y-1 text-xs text-slate">
+                      <li>• HISAGEN USA entity structure defined</li>
+                      <li>• HISAGEN Africa entity structure defined</li>
+                      <li>• Dual-entity model for technology + operations</li>
+                    </ul>
+                  </div>
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
+                    <ul className="space-y-1 text-xs text-amber-800">
+                      <li>• Registration status of each entity?</li>
+                      <li>• Carbon rights ownership framework?</li>
+                      <li>• Farmer benefit-sharing legal structure?</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Component 1.3: Technology Partnership */}
+              <div className="p-6 rounded-xl border border-emerald-200 bg-emerald-50/30">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[9px] rounded font-bold uppercase tracking-widest">
+                    Phase 0 • Complete
+                  </span>
+                </div>
+                <h4 className="text-sm font-bold text-secondary mb-2">Component 1.3: Technology Partnership</h4>
+                <p className="text-sm text-slate mb-3">Secure access to proven microbial technology and manufacturing capability.</p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">✓ Achieved</p>
+                    <ul className="space-y-1 text-xs text-slate">
+                      <li>• Locus AG partnership established</li>
+                      <li>• Technology access secured (Rhizolizer® products)</li>
+                      <li>• Manufacturing equipment available at cost</li>
+                      <li>• Products supplied at cost for pilot</li>
+                    </ul>
+                  </div>
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
+                    <ul className="space-y-1 text-xs text-amber-800">
+                      <li>• Formal MOU/contract status?</li>
+                      <li>• IP licensing arrangements?</li>
+                      <li>• Long-term supply agreement terms?</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Component 1.4: Research & Validation */}
+              <div className="p-6 rounded-xl border border-emerald-200 bg-emerald-50/30">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[9px] rounded font-bold uppercase tracking-widest">
+                    Phase 1 • Complete
+                  </span>
+                </div>
+                <h4 className="text-sm font-bold text-secondary mb-2">Component 1.4: Research & Field Validation</h4>
+                <p className="text-sm text-slate mb-3">Conduct rigorous field trials to validate technology performance in East African conditions.</p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">✓ Achieved (Feb - Sep 2025)</p>
+                    <ul className="space-y-1 text-xs text-slate">
+                      <li>• NARO partnership formalized under MAAIF oversight</li>
+                      <li>• 4 crops tested: Maize, Irish Potatoes, Peanuts, Sweet Potatoes</li>
+                      <li>• 4 regions: Western, Northern, Eastern, Central Uganda</li>
+                      <li>• Trial data collection completed</li>
+                      <li>• Results: "Highly positive" (per NARO)</li>
+                    </ul>
+                  </div>
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
+                    <ul className="space-y-1 text-xs text-amber-800">
+                      <li>• Quantitative yield data (awaiting NARO report)</li>
+                      <li>• Statistical significance of results?</li>
+                      <li>• Soil health baseline measurements?</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Component 1.5: Regulatory Authorization */}
+              <div className="p-6 rounded-xl border border-secondary/30 bg-secondary/5">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-0.5 bg-secondary text-parchment text-[9px] rounded font-bold uppercase tracking-widest animate-pulse">
+                    Phase 2 • Active
+                  </span>
+                </div>
+                <h4 className="text-sm font-bold text-secondary mb-2">Component 1.5: Regulatory & Market Authorization</h4>
+                <p className="text-sm text-slate mb-3">Secure government approvals required for commercial product distribution.</p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2">In Progress (Oct 2025 - Q1 2026)</p>
+                    <ul className="space-y-1 text-xs text-slate">
+                      <li>• Oct 2025: Initial UNBS submission</li>
+                      <li>• Jan 2026: MAAIF dossier submission</li>
+                      <li>• Jan-Feb 2026: Review period</li>
+                      <li>• Feb-Mar 2026: Approval expected</li>
+                      <li>• Mar 2026: Product labeling finalization</li>
+                    </ul>
+                  </div>
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
+                    <ul className="space-y-1 text-xs text-amber-800">
+                      <li>• Specific regulatory requirements?</li>
+                      <li>• Approval timeline risks?</li>
+                      <li>• Compliance costs?</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Component 1.6: Market Entry Preparation */}
+              <div className="p-6 rounded-xl border border-mist bg-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[9px] rounded font-bold uppercase tracking-widest">
+                    Phase 3 • Planned
+                  </span>
+                </div>
+                <h4 className="text-sm font-bold text-secondary mb-2">Component 1.6: Market Entry Preparation</h4>
+                <p className="text-sm text-slate mb-3">Prepare operational infrastructure for commercial launch and farmer network development.</p>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-2">Planned (Q2 2026)</p>
+                    <ul className="space-y-1 text-xs text-slate">
+                      <li>○ Market launch preparation</li>
+                      <li>○ Initial commercial distribution channels</li>
+                      <li>○ Farmer network expansion strategy</li>
+                      <li>○ Carbon MRV baseline establishment</li>
+                    </ul>
+                  </div>
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
+                    <ul className="space-y-1 text-xs text-amber-800">
+                      <li>• Target farmer count for Year 1?</li>
+                      <li>• Distribution partner strategy?</li>
+                      <li>• MRV methodology selection?</li>
+                      <li>• Farmer recruitment approach?</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Stage 2 Preview */}
+            <div className="mt-6 p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-2">Stage 2 Components (Future Funding Rounds)</p>
+              <p className="text-xs text-slate mb-3">
+                Successful completion of Stage 1 enables the following operational activities in Stage 2 Implementation (2027+):
+              </p>
+              <div className="grid gap-2 md:grid-cols-2 text-xs text-slate">
+                <div>• 2.1 Product Distribution at Scale</div>
+                <div>• 2.2 Farmer Training & Capacity Building</div>
+                <div>• 2.3 MRV Infrastructure Deployment</div>
+                <div>• 2.4 Carbon Credit Development & Issuance</div>
+              </div>
             </div>
           </div>
 
