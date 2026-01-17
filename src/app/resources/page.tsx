@@ -102,6 +102,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
     date: "2026-01-16",
     title: "Keir → Nic: Locus CEO Meeting & Uganda Roadmap Confirmed",
     detail: "Keir reported positive meeting with John Uhran (Locus CEO) confirming full support for Uganda roadmap and pan-African expansion strategy. Attached comprehensive 44-page overview deck.",
+    file: "context/2026/2026-01-16-email-keir-locus-ceo-meeting.md",
     tags: ["Locus AG", "Uganda", "Strategy", "Milestone"],
     synthesis: [
       "John Uhran (Locus CEO) fully supportive of proposed Uganda roadmap and path to approvals.",
@@ -116,6 +117,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
     date: "2026-01-16",
     title: "Nic → Keir: HISAGEN Portal Site Introduction",
     detail: "Introduced the HISAGEN founding stewardship portal to Keir - consolidating strategy, program model, capital framework, and evidence base into one coherent internal coordination hub.",
+    file: "context/2026/2026-01-16-email-nic-portal-introduction.md",
     tags: ["Portal", "Strategy", "Coordination"],
     synthesis: [
       "Portal positioned as internal coordination hub (strategy → execution alignment).",
@@ -130,7 +132,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
     date: "2026-01-16",
     title: "HISAGEN Uganda Overview for Locus (44 pages)",
     detail: "Comprehensive deck shared with Locus CEO. Pages 1-15: HISAGEN strategy, team, market data, Uganda trials, Q1 2026 approvals timeline. Pages 16-44: Locus AG agronomy overview with yield data.",
-    file: "03-pandion-business/operations/del/clients/hisagen/hisagen-knowledge-base/2026-01-16-HISAGEN Uganda overview for Locus.pdf",
+    file: "research/2026/2026-01-16-deck-hisagen-uganda-overview-locus.pdf",
     tags: ["Deck", "Uganda", "Locus AG", "Timeline", "Data"],
     synthesis: [
       "Africa bio-stimulants market: $138.8M (2025) → $233.85M (2031) at 9.08% CAGR.",
