@@ -67,7 +67,7 @@ export default function ResourcesHub() {
       {/* Header Section */}
       <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
-          Resources
+          Knowledge Base
         </p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
           Knowledge Base

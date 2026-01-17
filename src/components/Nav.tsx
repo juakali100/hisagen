@@ -25,7 +25,7 @@ const navItems = [
       },
     ],
   },
-  { href: "/resources", label: "Evidence Vault" },
+  { href: "/resources", label: "Knowledge Base" },
 ] as const;
 
 export default function Nav() {

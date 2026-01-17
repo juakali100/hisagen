@@ -16,7 +16,7 @@ export default async function PartnerProfilePage({ params }: { params: Promise<{
             <StageBreadcrumb
                 stage="Dossier"
                 trail={[
-                    { label: "Resources", href: "/resources" },
+                    { label: "Knowledge Base", href: "/resources" },
                     { label: partner.name }
                 ]}
             />
