@@ -286,44 +286,200 @@ export default function V0GrantProposalPage() {
             </div>
           </div>
 
-          {/* Objectives Framework */}
+          {/* Objectives & Outcomes Framework */}
           <div className="p-8 rounded-2xl border-2 border-primary/20 bg-primary/5">
             <h3 className="text-lg font-bold text-secondary mb-4">Objectives & Outcomes</h3>
-            <p className="text-sm text-slate mb-4">
-              Using the SMART framework (Specific, Measurable, Achievable, Relevant, Time-bound), HISAGEN will achieve:
-            </p>
 
-            <div className="space-y-4">
-              {[
-                {
-                  title: "Agricultural Productivity",
-                  desc: "Increase crop yields for participating farmers through biofertilizer application"
-                },
-                {
-                  title: "Soil Health & Regenerative Practice Adoption",
-                  desc: "Improve soil health through regenerative agriculture practices"
-                },
-                {
-                  title: "Carbon Credit Generation",
-                  desc: "Generate verified carbon credits from project activities"
-                },
-                {
-                  title: "Farmer Income Increase",
-                  desc: "Increase farmer household income through multiple revenue streams"
-                },
-                {
-                  title: "Digital Platform Enrollment",
-                  desc: "Enroll farmers in digital marketplace platform"
-                }
-              ].map((obj, idx) => (
-                <div key={idx} className="p-4 rounded-lg border border-mist bg-white">
-                  <p className="text-sm font-bold text-secondary mb-2">Objective {idx + 1}: {obj.title}</p>
-                  <p className="text-sm text-slate mb-3">{obj.desc}</p>
-                  <div className="p-3 rounded bg-amber-50 border border-amber-200">
-                    <p className="text-xs text-amber-800">[GAP: SMART metrics needed - baseline, target, timeline, indicators]</p>
+            {/* Distinction Note */}
+            <div className="p-4 rounded-xl bg-white border border-primary/20 mb-6">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-2">Important Distinction</p>
+              <p className="text-sm text-slate leading-relaxed">
+                <strong>Objectives</strong> are what this grant will directly fund and achieve during Stage 1 Incubation (2024-2026).
+                <strong> Outcomes</strong> are the longer-term impacts that Stage 1 foundations enable in Stage 2+ (2027 onwards).
+                This structure reflects the Capital Continuum principle that early-stage grants build foundations for later commercial viability.
+              </p>
+            </div>
+
+            {/* Stage 1 Objectives */}
+            <div className="mb-8">
+              <div className="flex items-center gap-3 mb-4">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary">Stage 1 Objectives</p>
+                <span className="px-2 py-0.5 bg-secondary/10 text-secondary text-[9px] rounded font-bold uppercase tracking-widest">
+                  What Grant Funds
+                </span>
+              </div>
+              <p className="text-xs text-slate mb-4">
+                Using the SMART framework (Specific, Measurable, Achievable, Relevant, Time-bound):
+              </p>
+
+              <div className="space-y-4">
+                {/* Objective 1.1: Regulatory Authorization */}
+                <div className="p-4 rounded-lg border border-emerald-200 bg-emerald-50/30">
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="text-sm font-bold text-secondary">Objective 1.1: Regulatory Authorization</p>
+                    <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[8px] rounded font-bold uppercase">
+                      Activity 1.5
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate mb-3">
+                    Secure NARO/MAAIF product registration enabling commercial distribution of Rhizolizer® biofertilizers in Uganda.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-3 text-xs">
+                    <div className="p-2 rounded bg-white border border-emerald-100">
+                      <span className="font-bold text-emerald-700">Measurable:</span>
+                      <span className="text-slate ml-1">License approval obtained</span>
+                    </div>
+                    <div className="p-2 rounded bg-white border border-emerald-100">
+                      <span className="font-bold text-emerald-700">Time-bound:</span>
+                      <span className="text-slate ml-1">By Q1 2026</span>
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-slate/60 mt-2 italic">
+                    Addresses Statement of Need: Enables access to inputs that reduce chemical dependency
+                  </p>
+                </div>
+
+                {/* Objective 1.2: Technology Validation */}
+                <div className="p-4 rounded-lg border border-emerald-200 bg-emerald-50/30">
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="text-sm font-bold text-secondary">Objective 1.2: Technology Validation</p>
+                    <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[8px] rounded font-bold uppercase">
+                      Activity 1.4
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate mb-3">
+                    Complete field trial analysis demonstrating yield improvements for East African smallholder crops.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-3 text-xs">
+                    <div className="p-2 rounded bg-white border border-emerald-100">
+                      <span className="font-bold text-emerald-700">Measurable:</span>
+                      <span className="text-slate ml-1">Quantitative yield data across 4 crops, 4 regions</span>
+                    </div>
+                    <div className="p-2 rounded bg-white border border-emerald-100">
+                      <span className="font-bold text-emerald-700">Time-bound:</span>
+                      <span className="text-slate ml-1">NARO final report (pending)</span>
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-slate/60 mt-2 italic">
+                    Addresses Statement of Need: Proves solution for declining agricultural productivity
+                  </p>
+                </div>
+
+                {/* Objective 1.3: Governance & Benefit-Sharing */}
+                <div className="p-4 rounded-lg border border-mist bg-white">
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="text-sm font-bold text-secondary">Objective 1.3: Governance & Benefit-Sharing Framework</p>
+                    <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[8px] rounded font-bold uppercase">
+                      Activities 1.1, 1.2
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate mb-3">
+                    Establish legal entity structure and farmer benefit-sharing model ensuring equitable participation.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-3 text-xs">
+                    <div className="p-2 rounded bg-slate-50 border border-slate-100">
+                      <span className="font-bold text-slate-600">Measurable:</span>
+                      <span className="text-slate ml-1">Entities registered, benefit model documented</span>
+                    </div>
+                    <div className="p-2 rounded bg-slate-50 border border-slate-100">
+                      <span className="font-bold text-slate-600">Time-bound:</span>
+                      <span className="text-slate ml-1">By end of grant period</span>
+                    </div>
+                  </div>
+                  <div className="mt-3 p-2 rounded bg-amber-50 border border-amber-200">
+                    <p className="text-[10px] text-amber-800">[GAP: Specific benefit-sharing percentages? Carbon rights structure?]</p>
                   </div>
                 </div>
-              ))}
+
+                {/* Objective 1.4: Market Entry Readiness */}
+                <div className="p-4 rounded-lg border border-mist bg-white">
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="text-sm font-bold text-secondary">Objective 1.4: Market Entry Readiness</p>
+                    <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[8px] rounded font-bold uppercase">
+                      Activity 1.6
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate mb-3">
+                    Develop distribution infrastructure and initial farmer network for commercial launch.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-3 text-xs">
+                    <div className="p-2 rounded bg-slate-50 border border-slate-100">
+                      <span className="font-bold text-slate-600">Measurable:</span>
+                      <span className="text-slate ml-1">[X] distribution partners, [Y] farmers enrolled</span>
+                    </div>
+                    <div className="p-2 rounded bg-slate-50 border border-slate-100">
+                      <span className="font-bold text-slate-600">Time-bound:</span>
+                      <span className="text-slate ml-1">By Q2 2026</span>
+                    </div>
+                  </div>
+                  <div className="mt-3 p-2 rounded bg-amber-50 border border-amber-200">
+                    <p className="text-[10px] text-amber-800">[GAP: Target farmer count for Year 1? Distribution partner criteria?]</p>
+                  </div>
+                </div>
+
+                {/* Objective 1.5: Carbon Project Foundation */}
+                <div className="p-4 rounded-lg border border-mist bg-white">
+                  <div className="flex items-center gap-2 mb-2">
+                    <p className="text-sm font-bold text-secondary">Objective 1.5: Carbon Project Foundation</p>
+                    <span className="px-2 py-0.5 bg-slate-100 text-slate-600 text-[8px] rounded font-bold uppercase">
+                      Enables Stage 2
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate mb-3">
+                    Select carbon methodology and establish MRV baseline approach for future credit generation.
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-3 text-xs">
+                    <div className="p-2 rounded bg-slate-50 border border-slate-100">
+                      <span className="font-bold text-slate-600">Measurable:</span>
+                      <span className="text-slate ml-1">Methodology selected, baseline data plan documented</span>
+                    </div>
+                    <div className="p-2 rounded bg-slate-50 border border-slate-100">
+                      <span className="font-bold text-slate-600">Time-bound:</span>
+                      <span className="text-slate ml-1">By end of grant period</span>
+                    </div>
+                  </div>
+                  <div className="mt-3 p-2 rounded bg-amber-50 border border-amber-200">
+                    <p className="text-[10px] text-amber-800">[GAP: Verra VM0042 vs Gold Standard? MRV technology partners?]</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Long-term Outcomes (Stage 2+) */}
+            <div className="p-6 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="flex items-center gap-3 mb-4">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-600">Long-term Outcomes</p>
+                <span className="px-2 py-0.5 bg-slate-200 text-slate-600 text-[9px] rounded font-bold uppercase tracking-widest">
+                  Stage 2+ Bigger Picture
+                </span>
+              </div>
+              <p className="text-xs text-slate mb-4">
+                Successful completion of Stage 1 Objectives enables these longer-term outcomes in Stage 2 Implementation (2027+):
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-3">
+                <div className="p-3 rounded-lg bg-white border border-slate-200">
+                  <p className="text-xs font-bold text-secondary mb-1">Agricultural Productivity</p>
+                  <p className="text-[11px] text-slate">Measurable yield increases for participating farmers through scaled biofertilizer distribution</p>
+                </div>
+                <div className="p-3 rounded-lg bg-white border border-slate-200">
+                  <p className="text-xs font-bold text-secondary mb-1">Farmer Income Growth</p>
+                  <p className="text-[11px] text-slate">Multiple revenue streams: improved yields, carbon credit share, premium market access</p>
+                </div>
+                <div className="p-3 rounded-lg bg-white border border-slate-200">
+                  <p className="text-xs font-bold text-secondary mb-1">Carbon Credit Generation</p>
+                  <p className="text-[11px] text-slate">Verified soil carbon credits issued through established MRV systems</p>
+                </div>
+                <div className="p-3 rounded-lg bg-white border border-slate-200">
+                  <p className="text-xs font-bold text-secondary mb-1">Soil Health Restoration</p>
+                  <p className="text-[11px] text-slate">Measurable improvements in soil organic carbon and biological activity</p>
+                </div>
+              </div>
+
+              <p className="mt-4 text-[10px] text-slate/60 italic">
+                These outcomes directly address the Statement of Need but require Stage 1 foundations to be in place first.
+                Grant funding builds the infrastructure; Stage 2 capital scales the impact.
+              </p>
             </div>
           </div>
 
