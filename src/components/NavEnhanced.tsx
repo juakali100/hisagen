@@ -68,19 +68,9 @@ const projects = [
 // Funding data for Program flyout
 const funding = [
   {
-    name: "Funding Roadmap",
-    href: "/funding-roadmap",
-    description: "Capital strategy hub",
-  },
-  {
     name: "Capital Continuum",
     href: "/funding-roadmap/capital-continuum",
-    description: "4-stage project lifecycle",
-  },
-  {
-    name: "Grant Lifecycle",
-    href: "/funding-roadmap/grant-lifecycle",
-    description: "11-phase delivery methodology",
+    description: "4-stage lifecycle + grant methodology",
   },
   {
     name: "Stage 1: Grants",
