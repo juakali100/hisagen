@@ -1,5 +1,6 @@
 // HISAGEN Knowledge Base - LLM Query API Route
 // Handles natural language queries against the knowledge base
+// Uses Claude Haiku 3.5 for cost-efficient responses
 
 import Anthropic from "@anthropic-ai/sdk";
 import { NextRequest, NextResponse } from "next/server";
