@@ -1,66 +1,178 @@
+"use client";
+
+import { useState } from "react";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import Image from "next/image";
 import Link from "next/link";
 
-// Project Timeline Phases (actual project history)
-const projectPhases = [
+// Project phases grouped by Capital Continuum stage
+const capitalStages = [
   {
-    phase: "Phase 0",
-    name: "Genesis",
-    period: "2024",
-    status: "complete",
-    description: "Team formation and technology partnership",
-    milestones: [
-      "Founding team brought together by Cedric (Uganda/Ireland)",
-      "Locus AG partnership established - technology access secured",
-      "HISAGEN USA + HISAGEN Africa entity structure defined",
-      "Uganda identified as launch market",
-    ],
-    funding: "Sweat equity, director investment",
-  },
-  {
-    phase: "Phase 1",
-    name: "NARO Trials",
-    period: "Feb - Sep 2025",
-    status: "complete",
-    description: "Field validation with national research partner",
-    milestones: [
-      "NARO partnership formalized under MAAIF oversight",
-      "4 crops tested: Maize, Irish Potatoes, Peanuts, Sweet Potatoes",
-      "4 regions: Western, Northern, Eastern, Central Uganda",
-      "Trial data collection completed",
-      "Results: 'Highly positive' (quantitative data pending)",
-    ],
-    funding: "Director investment, in-kind NARO contribution",
-  },
-  {
-    phase: "Phase 2",
-    name: "Regulatory Approval",
-    period: "Oct 2025 - Q1 2026",
+    stage: 1,
+    name: "Incubation",
+    years: "Years 1-3",
     status: "active",
-    description: "Securing market authorization",
-    milestones: [
-      "Oct 2025: Initial UNBS submission",
-      "Jan 2026: MAAIF dossier submission",
-      "Jan-Feb 2026: Review period",
-      "Feb-Mar 2026: Approval expected",
-      "Mar 2026: Product labeling finalization",
+    capitalFit: "Concessional (Grants, Philanthropy, Sweat Equity)",
+    description: "Foundations and proof of concept. The most fragile period, requiring non-repayable capital.",
+    phases: [
+      {
+        phase: "Phase 0",
+        name: "Genesis",
+        period: "2024",
+        status: "complete",
+        description: "Team formation and technology partnership",
+        milestones: [
+          "Founding team brought together by Cedric (Uganda/Ireland)",
+          "Locus AG partnership established - technology access secured",
+          "HISAGEN USA + HISAGEN Africa entity structure defined",
+          "Uganda identified as launch market",
+        ],
+        funding: "Sweat equity, director investment",
+      },
+      {
+        phase: "Phase 1",
+        name: "NARO Trials",
+        period: "Feb - Sep 2025",
+        status: "complete",
+        description: "Field validation with national research partner",
+        milestones: [
+          "NARO partnership formalized under MAAIF oversight",
+          "4 crops tested: Maize, Irish Potatoes, Peanuts, Sweet Potatoes",
+          "4 regions: Western, Northern, Eastern, Central Uganda",
+          "Trial data collection completed",
+          "Results: 'Highly positive' (quantitative data pending)",
+        ],
+        funding: "Director investment, in-kind NARO contribution",
+      },
+      {
+        phase: "Phase 2",
+        name: "Regulatory Approval",
+        period: "Oct 2025 - Q1 2026",
+        status: "active",
+        description: "Securing market authorization",
+        milestones: [
+          "Oct 2025: Initial UNBS submission",
+          "Jan 2026: MAAIF dossier submission",
+          "Jan-Feb 2026: Review period",
+          "Feb-Mar 2026: Approval expected",
+          "Mar 2026: Product labeling finalization",
+        ],
+        funding: "Director investment, seeking grant support",
+      },
+      {
+        phase: "Phase 3",
+        name: "Market Launch",
+        period: "Q2 2026",
+        status: "planned",
+        description: "Commercial rollout and scale preparation",
+        milestones: [
+          "Apr-Jun 2026: Market launch preparation",
+          "Initial commercial distribution",
+          "Farmer network expansion",
+          "Carbon MRV baseline establishment",
+        ],
+        funding: "Grant funding, carbon pre-purchase",
+      },
     ],
-    funding: "Director investment, seeking grant support",
   },
   {
-    phase: "Phase 3",
-    name: "Market Launch",
-    period: "Q2 2026",
-    status: "planned",
-    description: "Commercial rollout and scale preparation",
-    milestones: [
-      "Apr-Jun 2026: Market launch preparation",
-      "Initial commercial distribution",
-      "Farmer network expansion",
-      "Carbon MRV baseline establishment",
+    stage: 2,
+    name: "Implementation",
+    years: "Years 4-8",
+    status: "future",
+    capitalFit: "Blended Finance (Carbon Prepayment, Below-market Loans)",
+    description: "Operational rollout and early delivery. Focus on technical feasibility and MRV setup.",
+    phases: [
+      {
+        phase: "Phase 4",
+        name: "Scale Operations",
+        period: "2027-2028",
+        status: "anticipated",
+        description: "Expand from pilot to commercial scale",
+        milestones: [
+          "Scale to 5,000+ hectares under management",
+          "Establish regional distribution hubs",
+          "Deploy MRV infrastructure (ground-truth + satellite)",
+          "First carbon credit registration (Verra VM0042)",
+        ],
+        funding: "Carbon prepayment, impact investment",
+      },
+      {
+        phase: "Phase 5",
+        name: "First Credits",
+        period: "2029-2030",
+        status: "anticipated",
+        description: "Carbon credit issuance and market validation",
+        milestones: [
+          "First verified carbon credits issued",
+          "Establish buyer relationships",
+          "Validate unit economics at scale",
+          "Expand to 50,000+ hectares",
+        ],
+        funding: "Carbon finance, working capital facilities",
+      },
     ],
-    funding: "Grant funding, carbon pre-purchase",
+  },
+  {
+    stage: 3,
+    name: "Stabilization",
+    years: "Years 9-15",
+    status: "future",
+    capitalFit: "Impact & Commercial Capital (Carbon-Collateralized Debt)",
+    description: "Consistent performance and predictable delivery. Carbon credits function as loan collateral.",
+    phases: [
+      {
+        phase: "Phase 6",
+        name: "Revenue Engine",
+        period: "2031-2035",
+        status: "anticipated",
+        description: "Steady-state operations with predictable cashflows",
+        milestones: [
+          "1M+ tCO2e sequestered annually",
+          "Sustainable farmer income stream (70%+ to farmers)",
+          "Multi-year track record established",
+          "Institutional-grade reporting and governance",
+        ],
+        funding: "Commercial debt, carbon-backed facilities",
+      },
+      {
+        phase: "Phase 7",
+        name: "Regional Expansion",
+        period: "2036-2040",
+        status: "anticipated",
+        description: "Replicate model to second geography",
+        milestones: [
+          "Kenya or Tanzania expansion",
+          "Proven playbook for new market entry",
+          "Regional hub infrastructure",
+        ],
+        funding: "Preferred equity, regional development finance",
+      },
+    ],
+  },
+  {
+    stage: 4,
+    name: "Maturity",
+    years: "Years 16+",
+    status: "future",
+    capitalFit: "Commercial Capital (Institutional Debt, Green Bonds)",
+    description: "Institutional capital readiness. Full transition to commercial instruments.",
+    phases: [
+      {
+        phase: "Phase 8",
+        name: "Institutional Scale",
+        period: "2041+",
+        status: "anticipated",
+        description: "Pan-African platform with institutional backing",
+        milestones: [
+          "Regional hub for East Africa established",
+          "Institutional investors active",
+          "Green bond issuance potential",
+          "Blueprint for global replication",
+        ],
+        funding: "Green bonds, institutional equity",
+      },
+    ],
   },
 ];
 
@@ -105,6 +217,15 @@ const whyUganda = [
 
 export default function PilotPage() {
   const totalScore = pillarScores.reduce((sum, p) => sum + p.score, 0);
+  const [expandedStages, setExpandedStages] = useState<number[]>([1]); // Stage 1 expanded by default
+
+  const toggleStage = (stage: number) => {
+    setExpandedStages(prev =>
+      prev.includes(stage)
+        ? prev.filter(s => s !== stage)
+        : [...prev, stage]
+    );
+  };
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -151,96 +272,178 @@ export default function PilotPage() {
         ))}
       </section>
 
-      {/* PROJECT TIMELINE */}
+      {/* PROJECT ROADMAP - Accordion by Capital Continuum Stage */}
       <section className="mt-16 border-t border-mist pt-12">
-        <div className="mb-8">
-          <p className="text-xs uppercase tracking-[0.3em] font-bold text-secondary">Project History</p>
-          <h2 className="mt-2 text-3xl font-bold text-secondary">Project Timeline</h2>
-          <p className="mt-3 text-sm text-slate max-w-2xl leading-relaxed">
-            The Uganda pilot has been underway since 2024, funded primarily through founder investment and sweat equity.
-            This timeline captures the actual project phases independent of external grant funding.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] font-bold text-secondary">Project Roadmap</p>
+            <h2 className="mt-2 text-3xl font-bold text-secondary">Timeline by Capital Stage</h2>
+            <p className="mt-3 text-sm text-slate max-w-2xl leading-relaxed">
+              Project phases mapped to the Capital Continuum framework. Each funding stage enables specific project activities.
+            </p>
+          </div>
+          <Link
+            href="/funding-roadmap/capital-continuum"
+            className="text-[10px] font-bold uppercase tracking-widest text-secondary hover:underline whitespace-nowrap"
+          >
+            View Framework →
+          </Link>
         </div>
 
-        <div className="relative">
-          {/* Timeline connector line */}
-          <div className="absolute left-[19px] top-8 bottom-8 w-0.5 bg-mist hidden md:block" />
+        <div className="space-y-4">
+          {capitalStages.map((stage) => {
+            const isExpanded = expandedStages.includes(stage.stage);
+            const isActive = stage.status === "active";
+            const completedPhases = stage.phases.filter(p => p.status === "complete").length;
+            const totalPhases = stage.phases.length;
 
-          <div className="space-y-6">
-            {projectPhases.map((phase) => (
+            return (
               <div
-                key={phase.phase}
-                className={`relative rounded-2xl border-2 p-6 transition-all ${
-                  phase.status === "active"
-                    ? "border-secondary bg-white shadow-lg"
-                    : phase.status === "complete"
-                    ? "border-emerald-200 bg-emerald-50/30"
-                    : "border-mist bg-slate-50/50 opacity-80"
+                key={stage.stage}
+                className={`rounded-2xl border-2 overflow-hidden transition-all ${
+                  isActive
+                    ? "border-secondary shadow-lg"
+                    : "border-mist"
                 }`}
               >
-                {/* Status indicator */}
-                <div className="absolute -left-[11px] top-8 hidden md:block">
-                  <div
-                    className={`w-6 h-6 rounded-full border-4 border-white ${
-                      phase.status === "active"
-                        ? "bg-secondary"
-                        : phase.status === "complete"
-                        ? "bg-emerald-500"
-                        : "bg-slate-300"
-                    }`}
-                  />
-                </div>
-
-                <div className="md:ml-8">
-                  <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-secondary/60">
-                      {phase.phase}
-                    </span>
-                    <span className="text-lg font-bold text-secondary">{phase.name}</span>
-                    <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-slate-100 text-slate-600">
-                      {phase.period}
-                    </span>
-                    {phase.status === "active" && (
-                      <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-secondary text-parchment animate-pulse">
-                        Current Phase
-                      </span>
-                    )}
-                    {phase.status === "complete" && (
-                      <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-emerald-100 text-emerald-700">
-                        Complete
-                      </span>
-                    )}
-                  </div>
-
-                  <p className="text-sm text-slate mb-4">{phase.description}</p>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">
-                        Milestones
-                      </p>
-                      <ul className="space-y-1">
-                        {phase.milestones.map((m, i) => (
-                          <li key={i} className="flex gap-2 text-xs text-slate">
-                            <span className={phase.status === "complete" ? "text-emerald-500" : "text-slate/40"}>
-                              {phase.status === "complete" ? "✓" : "○"}
-                            </span>
-                            {m}
-                          </li>
-                        ))}
-                      </ul>
+                {/* Accordion Header */}
+                <button
+                  onClick={() => toggleStage(stage.stage)}
+                  className={`w-full p-6 flex items-center justify-between text-left transition-colors ${
+                    isActive ? "bg-secondary/5" : "bg-white hover:bg-slate-50"
+                  }`}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-lg font-bold ${
+                      isActive
+                        ? "bg-secondary text-parchment"
+                        : "bg-slate-100 text-slate-400"
+                    }`}>
+                      {stage.stage}
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">
-                        Funding Source
-                      </p>
-                      <p className="text-xs text-slate italic">{phase.funding}</p>
+                      <div className="flex items-center gap-3">
+                        <h3 className="text-lg font-bold text-secondary">Stage {stage.stage}: {stage.name}</h3>
+                        {isActive && (
+                          <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-secondary text-parchment animate-pulse">
+                            Active
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-slate mt-1">{stage.years} • {stage.capitalFit}</p>
                     </div>
                   </div>
-                </div>
+                  <div className="flex items-center gap-4">
+                    {isActive && (
+                      <span className="text-xs text-slate hidden md:block">
+                        {completedPhases}/{totalPhases} phases complete
+                      </span>
+                    )}
+                    <svg
+                      className={`w-5 h-5 text-slate transition-transform ${isExpanded ? "rotate-180" : ""}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </button>
+
+                {/* Accordion Content */}
+                {isExpanded && (
+                  <div className="border-t border-mist bg-white">
+                    <div className="p-6">
+                      <p className="text-sm text-slate mb-6">{stage.description}</p>
+
+                      {/* Phases within this stage */}
+                      <div className="relative">
+                        {/* Timeline connector */}
+                        <div className="absolute left-[11px] top-6 bottom-6 w-0.5 bg-mist" />
+
+                        <div className="space-y-4">
+                          {stage.phases.map((phase) => (
+                            <div
+                              key={phase.phase}
+                              className={`relative pl-8 ${
+                                phase.status === "anticipated" ? "opacity-60" : ""
+                              }`}
+                            >
+                              {/* Status dot */}
+                              <div className={`absolute left-0 top-1 w-6 h-6 rounded-full border-4 border-white ${
+                                phase.status === "complete"
+                                  ? "bg-emerald-500"
+                                  : phase.status === "active"
+                                  ? "bg-secondary"
+                                  : "bg-slate-200"
+                              }`} />
+
+                              <div className={`p-4 rounded-xl border ${
+                                phase.status === "active"
+                                  ? "border-secondary/30 bg-secondary/5"
+                                  : phase.status === "complete"
+                                  ? "border-emerald-200 bg-emerald-50/30"
+                                  : "border-mist bg-slate-50/50"
+                              }`}>
+                                <div className="flex flex-wrap items-center gap-2 mb-2">
+                                  <span className="text-[10px] font-bold uppercase tracking-widest text-secondary/60">
+                                    {phase.phase}
+                                  </span>
+                                  <span className="text-sm font-bold text-secondary">{phase.name}</span>
+                                  <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-slate-100 text-slate-600">
+                                    {phase.period}
+                                  </span>
+                                  {phase.status === "complete" && (
+                                    <span className="text-emerald-500 text-xs">✓</span>
+                                  )}
+                                  {phase.status === "active" && (
+                                    <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-widest rounded-full bg-secondary text-parchment">
+                                      Current
+                                    </span>
+                                  )}
+                                  {phase.status === "anticipated" && (
+                                    <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-widest rounded-full bg-slate-200 text-slate-500">
+                                      Anticipated
+                                    </span>
+                                  )}
+                                </div>
+
+                                <p className="text-xs text-slate mb-3">{phase.description}</p>
+
+                                <div className="grid md:grid-cols-2 gap-4">
+                                  <div>
+                                    <p className="text-[9px] font-bold uppercase tracking-widest text-secondary/60 mb-1">
+                                      Milestones
+                                    </p>
+                                    <ul className="space-y-0.5">
+                                      {phase.milestones.map((m, i) => (
+                                        <li key={i} className="flex gap-2 text-[11px] text-slate">
+                                          <span className={phase.status === "complete" ? "text-emerald-500" : "text-slate/40"}>
+                                            {phase.status === "complete" ? "✓" : "○"}
+                                          </span>
+                                          {m}
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                  <div>
+                                    <p className="text-[9px] font-bold uppercase tracking-widest text-secondary/60 mb-1">
+                                      Funding
+                                    </p>
+                                    <p className="text-[11px] text-slate italic">{phase.funding}</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
 
         {/* Bootstrap acknowledgment */}
@@ -277,7 +480,7 @@ export default function PilotPage() {
         </div>
       </section>
 
-      {/* CAPITAL CONTINUUM ASSESSMENT - Moved from Capital Continuum page */}
+      {/* CAPITAL CONTINUUM ASSESSMENT */}
       <section className="mt-16 border-t border-mist pt-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
           <div>
