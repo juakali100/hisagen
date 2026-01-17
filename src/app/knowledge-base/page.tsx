@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { DocumentTextIcon } from "@heroicons/react/24/outline";
+import { DocumentTextIcon, ClockIcon } from "@heroicons/react/24/outline";
 import StageBreadcrumb from "../../components/StageBreadcrumb";
 import { SearchBar, SectionCard, EntryCard, TagBadge, useSelection } from "../../components/knowledge-base";
 import {
@@ -214,8 +214,34 @@ export default function ResourcesHub() {
             </div>
           </section>
 
-          {/* Synthesis Engine CTA */}
-          <section className="mt-8">
+          {/* Tools Section */}
+          <section className="mt-8 grid gap-4 md:grid-cols-2">
+            {/* Timeline CTA */}
+            <Link
+              href="/knowledge-base/timeline"
+              className="block p-6 rounded-2xl bg-gradient-to-br from-amber-50 to-parchment border border-amber-200/50 hover:border-amber-300 transition-all group"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-amber-100 group-hover:bg-amber-200/70 transition-colors">
+                  <ClockIcon className="size-6 text-amber-700" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold text-amber-800 group-hover:text-amber-700 transition-colors">
+                    Timeline View
+                  </h3>
+                  <p className="text-sm text-slate mt-1">
+                    Chronological view of all entries grouped by month, quarter, or year.
+                  </p>
+                </div>
+                <div className="text-amber-300 group-hover:text-amber-400 transition-colors">
+                  <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            </Link>
+
+            {/* Synthesis Engine CTA */}
             <Link
               href="/knowledge-base/synthesis"
               className="block p-6 rounded-2xl bg-gradient-to-br from-secondary/5 to-parchment border border-secondary/20 hover:border-secondary/40 transition-all group"
@@ -236,7 +262,7 @@ export default function ResourcesHub() {
                     )}
                   </div>
                   <p className="text-sm text-slate">
-                    Generate funder reports, board briefings, and partner updates from selected knowledge base entries.
+                    Generate reports and briefings from selected entries.
                   </p>
                 </div>
                 <div className="text-secondary/30 group-hover:text-secondary/60 transition-colors">
@@ -244,12 +270,6 @@ export default function ResourcesHub() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
-              </div>
-              <div className="mt-4 flex gap-3 text-[10px] text-slate/60">
-                <span className="px-2 py-1 rounded bg-white border border-mist">Funder Reports</span>
-                <span className="px-2 py-1 rounded bg-white border border-mist">Board Briefings</span>
-                <span className="px-2 py-1 rounded bg-white border border-mist">Partner Updates</span>
-                <span className="px-2 py-1 rounded bg-white border border-mist">Custom Export</span>
               </div>
             </Link>
           </section>

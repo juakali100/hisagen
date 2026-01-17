@@ -15,3 +15,6 @@ export { default as SelectionToolbar } from "./SelectionToolbar";
 export { default as MetricCard, MetricsGrid } from "./MetricCard";
 export { default as MetricsTable, CompactMetricsList } from "./MetricsTable";
 export { default as YieldComparison, metricsToYieldData } from "./YieldComparison";
+
+// Timeline Components
+export { default as Timeline } from "./Timeline";
