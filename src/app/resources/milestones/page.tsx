@@ -4,7 +4,8 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, TagBadge } from "../../../components/knowledge-base";
+import { SearchBar, TagBadge, DateRangeFilter, filterByDateRange } from "../../../components/knowledge-base";
+import type { DateRange } from "../../../components/knowledge-base";
 import {
   milestones,
   getMilestonesByStatus,
@@ -28,6 +29,7 @@ export default function MilestonesPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeStatus, setActiveStatus] = useState<MilestoneStatus | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
+  const [dateRange, setDateRange] = useState<DateRange>(null);
 
   const allTags = getMilestoneTags();
   const milestonesByStatus = getMilestonesByStatus();
@@ -35,6 +37,9 @@ export default function MilestonesPage() {
   // Filter milestones
   const filteredMilestones = useMemo(() => {
     let result = [...milestones];
+
+    // Filter by date range
+    result = filterByDateRange(result, dateRange);
 
     // Filter by status
     if (activeStatus) {
@@ -58,7 +63,7 @@ export default function MilestonesPage() {
     }
 
     return result;
-  }, [searchQuery, activeStatus, activeTags]);
+  }, [searchQuery, activeStatus, activeTags, dateRange]);
 
   // Group filtered milestones by status
   const filteredByStatus = useMemo(() => {
@@ -81,9 +86,10 @@ export default function MilestonesPage() {
     setSearchQuery("");
     setActiveStatus(null);
     setActiveTags([]);
+    setDateRange(null);
   };
 
-  const isFiltering = searchQuery.trim() || activeStatus || activeTags.length > 0;
+  const isFiltering = searchQuery.trim() || activeStatus || activeTags.length > 0 || dateRange;
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -139,6 +145,9 @@ export default function MilestonesPage() {
           placeholder="Search milestones..."
           className="max-w-lg"
         />
+
+        {/* Date range filter */}
+        <DateRangeFilter value={dateRange} onChange={setDateRange} />
 
         {/* Status filter */}
         <div className="flex flex-wrap items-center gap-2">

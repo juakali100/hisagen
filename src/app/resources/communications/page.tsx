@@ -5,7 +5,8 @@ import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { ChevronDownIcon, ArrowLeftIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, EntryCard, TagBadge } from "../../../components/knowledge-base";
+import { SearchBar, EntryCard, TagBadge, DateRangeFilter, filterByDateRange } from "../../../components/knowledge-base";
+import type { DateRange } from "../../../components/knowledge-base";
 import {
   communications,
   getCommunicationsByYear,
@@ -19,6 +20,7 @@ export default function CommunicationsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeSubtype, setActiveSubtype] = useState<CommunicationSubtype | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
+  const [dateRange, setDateRange] = useState<DateRange>(null);
 
   const allTags = getCommunicationTags();
   const subtypes: CommunicationSubtype[] = ["email", "call", "meeting", "whatsapp", "document"];
@@ -26,6 +28,9 @@ export default function CommunicationsPage() {
   // Filter communications
   const filteredCommunications = useMemo(() => {
     let result = [...communications];
+
+    // Filter by date range
+    result = filterByDateRange(result, dateRange);
 
     // Filter by subtype
     if (activeSubtype) {
@@ -51,7 +56,7 @@ export default function CommunicationsPage() {
     }
 
     return result;
-  }, [searchQuery, activeSubtype, activeTags]);
+  }, [searchQuery, activeSubtype, activeTags, dateRange]);
 
   // Group by year
   const groupedByYear = useMemo(() => {
@@ -77,9 +82,10 @@ export default function CommunicationsPage() {
     setSearchQuery("");
     setActiveSubtype(null);
     setActiveTags([]);
+    setDateRange(null);
   };
 
-  const isFiltering = searchQuery.trim() || activeSubtype || activeTags.length > 0;
+  const isFiltering = searchQuery.trim() || activeSubtype || activeTags.length > 0 || dateRange;
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -129,6 +135,9 @@ export default function CommunicationsPage() {
           placeholder="Search communications..."
           className="max-w-lg"
         />
+
+        {/* Date range filter */}
+        <DateRangeFilter value={dateRange} onChange={setDateRange} />
 
         {/* Subtype filter */}
         <div className="flex flex-wrap items-center gap-2">

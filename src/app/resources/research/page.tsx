@@ -4,7 +4,8 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, EntryCard, TagBadge } from "../../../components/knowledge-base";
+import { SearchBar, EntryCard, TagBadge, DateRangeFilter, filterByDateRange } from "../../../components/knowledge-base";
+import type { DateRange } from "../../../components/knowledge-base";
 import {
   research,
   getResearchTags,
@@ -24,6 +25,7 @@ export default function ResearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeSubtype, setActiveSubtype] = useState<ResearchSubtype | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
+  const [dateRange, setDateRange] = useState<DateRange>(null);
 
   const allTags = getResearchTags();
   const subtypes: ResearchSubtype[] = ["deck", "report", "analysis", "market-data", "literature"];
@@ -31,6 +33,9 @@ export default function ResearchPage() {
   // Filter research
   const filteredResearch = useMemo(() => {
     let result = [...research];
+
+    // Filter by date range
+    result = filterByDateRange(result, dateRange);
 
     // Filter by subtype
     if (activeSubtype) {
@@ -55,7 +60,7 @@ export default function ResearchPage() {
 
     // Sort by date descending
     return result.sort((a, b) => b.date.localeCompare(a.date));
-  }, [searchQuery, activeSubtype, activeTags]);
+  }, [searchQuery, activeSubtype, activeTags, dateRange]);
 
   // Handle tag click
   const handleTagClick = (tag: string) => {
@@ -69,9 +74,10 @@ export default function ResearchPage() {
     setSearchQuery("");
     setActiveSubtype(null);
     setActiveTags([]);
+    setDateRange(null);
   };
 
-  const isFiltering = searchQuery.trim() || activeSubtype || activeTags.length > 0;
+  const isFiltering = searchQuery.trim() || activeSubtype || activeTags.length > 0 || dateRange;
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -121,6 +127,9 @@ export default function ResearchPage() {
           placeholder="Search research..."
           className="max-w-lg"
         />
+
+        {/* Date range filter */}
+        <DateRangeFilter value={dateRange} onChange={setDateRange} />
 
         {/* Subtype filter */}
         <div className="flex flex-wrap items-center gap-2">
