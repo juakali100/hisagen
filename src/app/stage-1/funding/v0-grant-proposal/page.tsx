@@ -1232,6 +1232,458 @@ export default function V0GrantProposalPage() {
         </div>
       </section>
 
+      {/* Appendix A: Evidence Base */}
+      <section className="mt-16 mb-12">
+        <div className="flex items-center gap-4 mb-6">
+          <span className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-600 text-parchment font-bold text-sm">A</span>
+          <h2 className="text-2xl font-bold text-secondary uppercase tracking-[0.15em]">Appendix A: Evidence Base & Source Citations</h2>
+        </div>
+
+        <div className="p-8 rounded-2xl border-2 border-slate-300 bg-slate-50 space-y-8">
+          <div>
+            <p className="text-sm text-slate leading-relaxed mb-4">
+              This appendix provides full citations and key data extracts for all statistics referenced in the Statement of Need.
+              All sources are from reputable international organizations, government bodies, and peer-reviewed research.
+              Access dates noted for online sources.
+            </p>
+          </div>
+
+          {/* A.1 Soil & Agricultural Data */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-secondary border-b-2 border-secondary/20 pb-2">A.1 Soil & Agricultural Degradation</h3>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">1</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">Uganda National Land Degradation Neutrality Target Setting Report</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> Government of Uganda / UNCCD<br/>
+                    <strong>Key Data:</strong> "46% of Uganda's land is degraded"<br/>
+                    <strong>Context:</strong> Official government report for UN Convention to Combat Desertification
+                  </p>
+                  <div className="mt-2 p-3 rounded bg-slate-50 border border-slate-200">
+                    <p className="text-xs text-slate italic">
+                      "With 46% of Uganda's land degraded... urgent action is required to reverse this trend."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">2</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">African Union Agenda 2063 - Report on Land Degradation</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> African Union<br/>
+                    <strong>Key Data:</strong> "The region [is] losing 5 to 12 tons of topsoil per hectare annually"<br/>
+                    <strong>Scope:</strong> East Africa regional assessment
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">3</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">ESAFF Uganda - World Soil Day 2024 Statement</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> Eastern and Southern Africa Small-scale Farmers' Forum (ESAFF Uganda)<br/>
+                    <strong>Date:</strong> December 5, 2024<br/>
+                    <strong>URL:</strong> <span className="text-primary">esaffuganda.org/post/soil-health-our-wealth</span><br/>
+                    <strong>Access Date:</strong> January 2026
+                  </p>
+                  <div className="mt-2 p-3 rounded bg-slate-50 border border-slate-200">
+                    <p className="text-xs text-slate italic">
+                      "Small-scale farmers, who manage over 80% of Uganda's farmland, face declining soil fertility that undermines their productivity. Uganda's annual nutrient loss, valued at $625 million, and fertilizer use at only 2.5 kg/ha/year compared to the global average of 135 kg/ha/year, are stark indicators of this crisis."
+                    </p>
+                  </div>
+                  <p className="text-xs text-slate/60 mt-2">
+                    <strong>Note:</strong> ESAFF is a farmer-led advocacy organization representing small-scale farmers across 16 African countries.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* A.2 Economic Data */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-secondary border-b-2 border-secondary/20 pb-2">A.2 Economic Vulnerability</h3>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">4</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">World Bank - Fertilizer Price Shocks in Smallholder Agriculture</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> World Bank Group<br/>
+                    <strong>Document ID:</strong> IDU173affa201e3db14e931a1d4143913f4f7024<br/>
+                    <strong>Key Data:</strong> "Fertilizer prices have decreased but remain over 2.3 times the average 2020 price"<br/>
+                    <strong>Scope:</strong> Cross-country evidence from high-frequency phone surveys in Sub-Saharan Africa
+                  </p>
+                  <div className="mt-2 p-3 rounded bg-slate-50 border border-slate-200">
+                    <p className="text-xs text-slate italic">
+                      "For some farmers, fertilizers take up 40-45% of their production costs... Farmers have adopted various coping mechanisms in response to high fertilizer prices, including reducing the quantity used, applying it to smaller areas."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">5</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">Uganda Bureau of Statistics (UBOS) 2024</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> Government of Uganda - Uganda Bureau of Statistics<br/>
+                    <strong>Key Data:</strong>
+                  </p>
+                  <ul className="mt-2 space-y-1 text-xs text-slate ml-4">
+                    <li>• "Crop output grows at approximately 2 percent annually, below the 3.3 percent population growth rate"</li>
+                    <li>• "About 68% of Uganda's working population is employed in agriculture"</li>
+                    <li>• Rural poverty: 27% vs urban poverty: 9%</li>
+                  </ul>
+                  <p className="text-xs text-slate/60 mt-2">
+                    <strong>Note:</strong> UBOS is Uganda's official statistical authority.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">6</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">FAO - Uganda at a Glance</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> Food and Agriculture Organization of the United Nations<br/>
+                    <strong>URL:</strong> <span className="text-primary">fao.org/uganda/our-office/uganda-at-a-glance</span><br/>
+                    <strong>Key Data:</strong>
+                  </p>
+                  <ul className="mt-2 space-y-1 text-xs text-slate ml-4">
+                    <li>• "More than 70% of people in Uganda work in agriculture"</li>
+                    <li>• "The country has more than three and a half million family farms"</li>
+                    <li>• "Many of its smallholders are among the poorest people in the world"</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">7</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">FAO - The Smallholder Farmers of Uganda</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> FAO Family Farming Knowledge Platform<br/>
+                    <strong>Document ID:</strong> c/1629961<br/>
+                    <strong>Key Data:</strong>
+                  </p>
+                  <ul className="mt-2 space-y-1 text-xs text-slate ml-4">
+                    <li>• "Smallholder farmers... responsible for 80% of the country's agricultural output"</li>
+                    <li>• "Represent almost the totality (89%) of Ugandan farmers"</li>
+                    <li>• "Average size of a smallholder farm in Uganda is 1 hectare"</li>
+                    <li>• "Almost 60% of smallholder farmer income is generated on-farm"</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* A.3 Climate Data */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-secondary border-b-2 border-secondary/20 pb-2">A.3 Climate Disruption</h3>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">8</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">FAO SCALA - Uganda Country Profile</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> FAO Scaling up Climate Ambition on Land Use and Agriculture (SCALA)<br/>
+                    <strong>URL:</strong> <span className="text-primary">fao.org/in-action/scala/countries/uganda</span><br/>
+                    <strong>Key Data:</strong>
+                  </p>
+                  <div className="mt-2 p-3 rounded bg-slate-50 border border-slate-200">
+                    <p className="text-xs text-slate italic">
+                      "Uganda is becoming hotter and drier, as average temperatures have increased by 1.3°C since the 1960s while average monthly rainfall is currently decreasing by approximately 6.0 mm with each passing decade."
+                    </p>
+                  </div>
+                  <ul className="mt-2 space-y-1 text-xs text-slate ml-4">
+                    <li>• "Uganda's agricultural systems are climate dependent, relying heavily on rain-fed agriculture"</li>
+                    <li>• "Less than 1% of cultivated land is irrigated"</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">9</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">Integrated Food Security Phase Classification (IPC) 2024</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> IPC Global Partners (FAO, WFP, FEWS NET, etc.)<br/>
+                    <strong>Year:</strong> 2024<br/>
+                    <strong>Key Data:</strong>
+                  </p>
+                  <ul className="mt-2 space-y-1 text-xs text-slate ml-4">
+                    <li>• "12 percent of the population remains chronically food insecure"</li>
+                    <li>• "Nearly one million people are acutely food insecure"</li>
+                    <li>• Most affected: Karamoja, Teso, and Acholi regions</li>
+                  </ul>
+                  <p className="text-xs text-slate/60 mt-2">
+                    <strong>Note:</strong> IPC is the global standard for food security classification, used by UN agencies and governments.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* A.4 Gender & Youth Equity Data */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-secondary border-b-2 border-secondary/20 pb-2">A.4 Gender & Youth Inequity</h3>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">10</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">International Fund for Agricultural Development (IFAD) - Gender Gap in Agriculture</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> IFAD<br/>
+                    <strong>Key Data:</strong> "Uganda loses approximately USD 67 million annually due to the gender gap in agriculture"
+                  </p>
+                  <p className="text-xs text-slate/60 mt-2">
+                    <strong>Note:</strong> IFAD is a UN specialized agency focused on rural poverty reduction.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">11</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">UN Women Uganda - Women in Agriculture</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> UN Women Africa<br/>
+                    <strong>Event:</strong> Source of the Nile Women in Agribusiness Summit (January 2024)<br/>
+                    <strong>Key Data:</strong>
+                  </p>
+                  <ul className="mt-2 space-y-1 text-xs text-slate ml-4">
+                    <li>• "Women are critical to agriculture in Uganda, contributing about 90 percent of the nation's food"</li>
+                    <li>• "Women constitute more than half of the country's population and 76% of the agricultural workforce"</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">12</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">ESAFF Uganda - Women's Land Rights Report</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> ESAFF Uganda<br/>
+                    <strong>Title:</strong> "Small-Scale Farmers' Perspective on Women Land Rights"<br/>
+                    <strong>Launch:</strong> 6th Annual Women in Agriculture Conference (October 15, 2024, Mbale City)<br/>
+                    <strong>Scope:</strong> Data from 17 districts
+                  </p>
+                  <div className="mt-2 p-3 rounded bg-slate-50 border border-slate-200">
+                    <p className="text-xs text-slate italic">
+                      "Women smallholder farmers in Uganda face limited access to finance due to a lack of land titles... legal reforms, gender-responsive financial products, and increased decision-making roles [are needed] to empower these women."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">13</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">FAO - National Strategy for Youth Employment in Agriculture (NSYEA)</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> FAO / Government of Uganda - Ministry of Agriculture, Animal Industry and Fisheries (MAAIF)<br/>
+                    <strong>URL:</strong> <span className="text-primary">fao.org/rural-employment/resources/detail/en/c/1069622/</span><br/>
+                    <strong>Key Data:</strong>
+                  </p>
+                  <ul className="mt-2 space-y-1 text-xs text-slate ml-4">
+                    <li>• "76 percent of the population is below 30 years"</li>
+                    <li>• "Annual population growth rate is among the highest in the world (3 percent)"</li>
+                    <li>• "Up to 95 percent of youth are employed informally"</li>
+                    <li>• "More than 30 percent are in subsistence agriculture"</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-xs font-bold text-white bg-secondary px-2 py-1 rounded">14</span>
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-secondary">Economic Policy Research Centre (EPRC) Uganda - Youth in Agriculture</p>
+                  <p className="text-xs text-slate mt-1">
+                    <strong>Publisher:</strong> EPRC Uganda<br/>
+                    <strong>Publication:</strong> "To Farm or Not to Farm: Challenges and Prospects of Youth Employment in Agriculture in Uganda"<br/>
+                    <strong>Key Data:</strong>
+                  </p>
+                  <div className="mt-2 p-3 rounded bg-slate-50 border border-slate-200">
+                    <p className="text-xs text-slate italic">
+                      "Despite the bulk youth employment in agriculture, less than 5 percent of those in agriculture are in wage-paying jobs. The majority are engaged as subsistence family workers with no wages accruing to them."
+                    </p>
+                  </div>
+                  <ul className="mt-2 space-y-1 text-xs text-slate ml-4">
+                    <li>• "Youth account for 60% of the unemployed in Uganda"</li>
+                    <li>• "Three quarters of working youth are in vulnerable employment"</li>
+                    <li>• "Smallholder farming is frequently associated with low income, intensive labor and an unfavorable working environment, which explains why the majority of Ugandan youth find the sector unattractive"</li>
+                  </ul>
+                  <p className="text-xs text-slate/60 mt-2">
+                    <strong>Note:</strong> EPRC is Uganda's leading independent policy research institution.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Summary Table */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-secondary border-b-2 border-secondary/20 pb-2">A.5 Quick Reference: Key Statistics Summary</h3>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs border-collapse">
+                <thead>
+                  <tr className="bg-secondary text-parchment">
+                    <th className="p-3 text-left font-bold">Statistic</th>
+                    <th className="p-3 text-left font-bold">Value</th>
+                    <th className="p-3 text-left font-bold">Primary Source</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-200">
+                  <tr className="bg-white">
+                    <td className="p-3 text-slate">Land degradation</td>
+                    <td className="p-3 text-slate font-bold">46%</td>
+                    <td className="p-3 text-slate">Uganda National LDN Report</td>
+                  </tr>
+                  <tr className="bg-slate-50">
+                    <td className="p-3 text-slate">Annual nutrient loss</td>
+                    <td className="p-3 text-slate font-bold">$625 million</td>
+                    <td className="p-3 text-slate">ESAFF Uganda</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-3 text-slate">Topsoil loss (annual)</td>
+                    <td className="p-3 text-slate font-bold">5-12 tons/ha</td>
+                    <td className="p-3 text-slate">AU Agenda 2063</td>
+                  </tr>
+                  <tr className="bg-slate-50">
+                    <td className="p-3 text-slate">Fertilizer use (Uganda)</td>
+                    <td className="p-3 text-slate font-bold">2.5 kg/ha</td>
+                    <td className="p-3 text-slate">ESAFF Uganda</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-3 text-slate">Fertilizer use (global avg)</td>
+                    <td className="p-3 text-slate font-bold">135 kg/ha</td>
+                    <td className="p-3 text-slate">ESAFF Uganda</td>
+                  </tr>
+                  <tr className="bg-slate-50">
+                    <td className="p-3 text-slate">Population in agriculture</td>
+                    <td className="p-3 text-slate font-bold">70%+</td>
+                    <td className="p-3 text-slate">FAO Uganda</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-3 text-slate">Family farms</td>
+                    <td className="p-3 text-slate font-bold">3.5 million+</td>
+                    <td className="p-3 text-slate">FAO Uganda</td>
+                  </tr>
+                  <tr className="bg-slate-50">
+                    <td className="p-3 text-slate">Rural poverty rate</td>
+                    <td className="p-3 text-slate font-bold">27%</td>
+                    <td className="p-3 text-slate">UBOS 2024</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-3 text-slate">Fertilizer prices vs 2020</td>
+                    <td className="p-3 text-slate font-bold">2.3x higher</td>
+                    <td className="p-3 text-slate">World Bank</td>
+                  </tr>
+                  <tr className="bg-slate-50">
+                    <td className="p-3 text-slate">Temperature increase</td>
+                    <td className="p-3 text-slate font-bold">+1.3°C since 1960s</td>
+                    <td className="p-3 text-slate">FAO SCALA</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-3 text-slate">Irrigated farmland</td>
+                    <td className="p-3 text-slate font-bold">&lt;1%</td>
+                    <td className="p-3 text-slate">FAO SCALA</td>
+                  </tr>
+                  <tr className="bg-slate-50">
+                    <td className="p-3 text-slate">Acutely food insecure</td>
+                    <td className="p-3 text-slate font-bold">~1 million</td>
+                    <td className="p-3 text-slate">IPC 2024</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-3 text-slate">Women's food contribution</td>
+                    <td className="p-3 text-slate font-bold">90%</td>
+                    <td className="p-3 text-slate">UN Women</td>
+                  </tr>
+                  <tr className="bg-slate-50">
+                    <td className="p-3 text-slate">Gender gap cost</td>
+                    <td className="p-3 text-slate font-bold">$67M annually</td>
+                    <td className="p-3 text-slate">IFAD</td>
+                  </tr>
+                  <tr className="bg-white">
+                    <td className="p-3 text-slate">Population under 30</td>
+                    <td className="p-3 text-slate font-bold">76%</td>
+                    <td className="p-3 text-slate">FAO/MAAIF NSYEA</td>
+                  </tr>
+                  <tr className="bg-slate-50">
+                    <td className="p-3 text-slate">Youth unemployed share</td>
+                    <td className="p-3 text-slate font-bold">60% of unemployed</td>
+                    <td className="p-3 text-slate">EPRC Uganda</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Source Credibility Note */}
+          <div className="p-5 rounded-xl bg-primary/5 border-2 border-primary/20">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Source Credibility Statement</p>
+            <p className="text-sm text-slate leading-relaxed mb-3">
+              All statistics in this proposal are drawn from authoritative sources:
+            </p>
+            <div className="grid gap-3 md:grid-cols-2 text-xs text-slate">
+              <div className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span><strong>UN Agencies:</strong> FAO, UN Women, IFAD, IPC</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span><strong>Government:</strong> UBOS, MAAIF, Uganda LDN Reports</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span><strong>Multilateral:</strong> World Bank, African Union</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span><strong>Research:</strong> EPRC Uganda (leading policy institute)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span><strong>Civil Society:</strong> ESAFF Uganda (farmer-led, 16-country network)</span>
+              </div>
+            </div>
+            <p className="text-xs text-slate/60 mt-4 italic">
+              All online sources accessed January 2026. Full URLs and document references available upon request.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Related Documents */}
       <section className="mt-12 mb-20">
         <div className="flex items-center gap-4 mb-8">
