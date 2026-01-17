@@ -189,73 +189,162 @@ export default function V0GrantProposalPage() {
           <h2 className="text-2xl font-bold text-secondary uppercase tracking-[0.15em]">Statement of Need</h2>
         </div>
 
-        <div className="p-8 rounded-2xl border-2 border-mist bg-parchment/5 space-y-6">
+        <div className="p-8 rounded-2xl border-2 border-mist bg-parchment/5 space-y-8">
+          {/* Opening Hook */}
           <div>
-            <h3 className="text-lg font-bold text-secondary mb-4">The Challenge: Smallholder Farmers at Climate Crossroads</h3>
+            <h3 className="text-lg font-bold text-secondary mb-4">The Challenge: A Nation's Agricultural Foundation at Risk</h3>
             <p className="text-base text-slate leading-relaxed mb-4">
-              Smallholder farmers across East Africa face a devastating convergence of agricultural, economic, and
-              climate challenges that threaten their livelihoods and food security for millions.
+              <strong className="text-secondary">46% of Uganda's land is now degraded</strong>, and the country loses
+              $625 million annually in soil nutrients alone. For a nation where over 70% of the population depends on
+              agriculture—more than 3.5 million family farms producing 80% of the country's food—this crisis threatens
+              not just livelihoods but national food security.
+            </p>
+            <p className="text-base text-slate leading-relaxed">
+              Uganda's smallholder farmers face a devastating convergence of soil degradation, economic vulnerability,
+              climate disruption, and persistent inequities that demand urgent, integrated solutions.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            <div className="p-6 rounded-xl border border-mist bg-white">
-              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-3">Agricultural Degradation</h4>
-              <ul className="space-y-2 text-sm text-slate">
-                <li>• Declining soil fertility from continuous monoculture cropping</li>
-                <li>• Increasing dependency on expensive chemical fertilizers</li>
-                <li>• Degraded soil biology and organic matter depletion</li>
-              </ul>
-              <div className="mt-4 p-3 rounded bg-slate-50 border border-slate-200">
-                <p className="text-xs text-slate/60 italic">[GAP: Uganda-specific statistics needed]</p>
+          {/* Who Is Affected */}
+          <div className="p-5 rounded-xl border-2 border-secondary/20 bg-secondary/5">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-3">Who Is Affected</p>
+            <div className="grid gap-4 md:grid-cols-4 text-center">
+              <div>
+                <p className="text-2xl font-bold text-secondary">3.5M+</p>
+                <p className="text-xs text-slate">Family farms</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-secondary">70%</p>
+                <p className="text-xs text-slate">Population in agriculture</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-secondary">1 ha</p>
+                <p className="text-xs text-slate">Average farm size</p>
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-secondary">~1M</p>
+                <p className="text-xs text-slate">Acutely food insecure</p>
               </div>
             </div>
+            <p className="text-xs text-slate/60 mt-3 text-center italic">Sources: FAO Uganda, UBOS 2024, IPC 2024</p>
+          </div>
 
+          {/* Four Pillars of Crisis */}
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Agricultural Degradation */}
             <div className="p-6 rounded-xl border border-mist bg-white">
-              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-3">Economic Vulnerability</h4>
+              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-3">1. Soil & Agricultural Crisis</h4>
               <ul className="space-y-2 text-sm text-slate">
-                <li>• Locked into commodity price volatility</li>
-                <li>• Limited value capture beyond raw produce sales</li>
-                <li>• Cash constraints preventing investment</li>
+                <li>• <strong>46%</strong> of Uganda's land degraded (National LDN Report)</li>
+                <li>• Losing <strong>5-12 tons</strong> of topsoil per hectare annually</li>
+                <li>• Fertilizer use: <strong>2.5 kg/ha</strong> vs global average of 135 kg/ha</li>
+                <li>• Annual nutrient loss valued at <strong>$625 million</strong></li>
               </ul>
-              <div className="mt-4 p-3 rounded bg-slate-50 border border-slate-200">
-                <p className="text-xs text-slate/60 italic">[GAP: Economic data needed]</p>
-              </div>
+              <p className="text-xs text-slate/60 mt-3 italic">Sources: ESAFF Uganda, AU Agenda 2063</p>
             </div>
 
+            {/* Economic Vulnerability */}
             <div className="p-6 rounded-xl border border-mist bg-white">
-              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-3">Climate Change Impacts</h4>
+              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-3">2. Economic Vulnerability</h4>
               <ul className="space-y-2 text-sm text-slate">
-                <li>• Erratic rainfall disrupting planting cycles</li>
-                <li>• Increased pest and disease pressure</li>
-                <li>• Deforestation reducing natural resilience</li>
+                <li>• Fertilizer prices <strong>2.3x the 2020 average</strong></li>
+                <li>• Inputs consume <strong>40-45%</strong> of production costs</li>
+                <li>• Rural poverty rate: <strong>27%</strong> (vs 9% urban)</li>
+                <li>• Crop growth <strong>2%</strong> vs population growth <strong>3.3%</strong></li>
               </ul>
-              <div className="mt-4 p-3 rounded bg-slate-50 border border-slate-200">
-                <p className="text-xs text-slate/60 italic">[GAP: Climate data needed]</p>
+              <p className="text-xs text-slate/60 mt-3 italic">Sources: World Bank, UBOS 2024</p>
+            </div>
+
+            {/* Climate Impacts */}
+            <div className="p-6 rounded-xl border border-mist bg-white">
+              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-3">3. Climate Disruption</h4>
+              <ul className="space-y-2 text-sm text-slate">
+                <li>• Temperature up <strong>1.3°C</strong> since 1960s</li>
+                <li>• Rainfall declining <strong>6mm per decade</strong></li>
+                <li>• Less than <strong>1%</strong> of cultivated land irrigated</li>
+                <li>• <strong>12%</strong> of population chronically food insecure</li>
+              </ul>
+              <p className="text-xs text-slate/60 mt-3 italic">Sources: FAO SCALA, IPC 2024</p>
+            </div>
+
+            {/* Equity Gap */}
+            <div className="p-6 rounded-xl border border-mist bg-white">
+              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-3">4. Gender & Youth Inequity</h4>
+              <ul className="space-y-2 text-sm text-slate">
+                <li>• Women produce <strong>90%</strong> of food, yet lack land rights</li>
+                <li>• Gender gap costs Uganda <strong>$67M annually</strong> (IFAD)</li>
+                <li>• <strong>76%</strong> of population under 30 years old</li>
+                <li>• Youth find farming unattractive → urban migration</li>
+              </ul>
+              <p className="text-xs text-slate/60 mt-3 italic">Sources: UN Women, IFAD, FAO Youth Strategy</p>
+            </div>
+          </div>
+
+          {/* Root Causes */}
+          <div className="p-5 rounded-xl bg-slate-50 border border-slate-200">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate/60 mb-3">Underlying Root Causes</p>
+            <div className="grid gap-3 md:grid-cols-3 text-sm text-slate">
+              <div className="flex items-start gap-2">
+                <span className="text-amber-600">→</span>
+                <span>Decades of extractive monoculture farming depleting soil biology</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-amber-600">→</span>
+                <span>Lack of affordable alternatives to expensive chemical inputs</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-amber-600">→</span>
+                <span>Limited value chain integration keeping farmers in poverty</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-amber-600">→</span>
+                <span>No pathways for farmers to benefit from climate action</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-amber-600">→</span>
+                <span>Technology and market access concentrated in urban areas</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-amber-600">→</span>
+                <span>Youth excluded from agricultural entrepreneurship opportunities</span>
               </div>
             </div>
           </div>
 
+          {/* Why Now */}
           <div>
             <h3 className="text-lg font-bold text-secondary mb-4">Why This Matters Now</h3>
+            <p className="text-sm text-slate leading-relaxed mb-4">
+              A unique convergence of factors creates an unprecedented window of opportunity to transform this crisis into lasting change:
+            </p>
             <div className="grid gap-4 md:grid-cols-2">
               <div className="p-4 rounded-lg border border-emerald-600/30 bg-emerald-50">
                 <p className="text-sm font-bold text-emerald-900 mb-2">✓ Uganda NARO Approval Imminent</p>
-                <p className="text-xs text-emerald-800">License approval expected end 2025/early 2026 creates immediate opportunity</p>
+                <p className="text-xs text-emerald-800">License approval expected end 2025/early 2026 enables immediate market entry with proven microbial products</p>
               </div>
               <div className="p-4 rounded-lg border border-emerald-600/30 bg-emerald-50">
                 <p className="text-sm font-bold text-emerald-900 mb-2">✓ Corporate Climate Commitments</p>
-                <p className="text-xs text-emerald-800">Growing demand for nature-based carbon credits and sustainable supply chains</p>
+                <p className="text-xs text-emerald-800">Growing demand for nature-based carbon credits creates new income streams for farmers practicing regenerative agriculture</p>
               </div>
               <div className="p-4 rounded-lg border border-emerald-600/30 bg-emerald-50">
                 <p className="text-sm font-bold text-emerald-900 mb-2">✓ Technology Partnership Ready</p>
-                <p className="text-xs text-emerald-800">Locus AG manufacturing support enables cost-effective product delivery</p>
+                <p className="text-xs text-emerald-800">Locus AG partnership provides manufacturing equipment and products at cost, eliminating typical technology transfer barriers</p>
               </div>
               <div className="p-4 rounded-lg border border-emerald-600/30 bg-emerald-50">
-                <p className="text-sm font-bold text-emerald-900 mb-2">✓ Mobile Penetration</p>
-                <p className="text-xs text-emerald-800">Digital platform adoption now viable across target regions</p>
+                <p className="text-sm font-bold text-emerald-900 mb-2">✓ Digital Infrastructure Maturing</p>
+                <p className="text-xs text-emerald-800">Mobile penetration and digital payment adoption make marketplace connectivity viable even in rural areas</p>
               </div>
             </div>
+          </div>
+
+          {/* The Problem is Solvable */}
+          <div className="p-5 rounded-xl border-2 border-primary/20 bg-primary/5">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-2">The Problem Is Solvable</p>
+            <p className="text-sm text-slate leading-relaxed">
+              This crisis is not intractable. The same smallholders managing 80% of Uganda's farmland have the potential
+              to restore soil health, build climate resilience, and create sustainable livelihoods—if given access to
+              the right tools, technology, and market connections. HISAGEN provides exactly this integrated solution.
+            </p>
           </div>
         </div>
       </section>
