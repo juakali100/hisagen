@@ -3,11 +3,12 @@
 /**
  * RelationshipGraph Component
  * Phase 4, Task 13 - HISAGEN Knowledge Base
+ * Phase B: Visual Design - Enhanced styling and interactions
  *
  * Displays an interactive force-directed graph of HISAGEN relationships
  */
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import ForceGraph2D, { ForceGraphMethods } from 'react-force-graph-2d';
 import { graphData } from '@/data/relationships';
 import { GraphNode, NODE_COLORS, NODE_TYPE_LABELS } from '@/types/graph';
@@ -19,8 +20,15 @@ interface GraphNodeObject {
   description?: string;
   x?: number;
   y?: number;
-  fx?: number;
-  fy?: number;
+  fx?: number | null;
+  fy?: number | null;
+}
+
+interface GraphLinkObject {
+  source: GraphNodeObject | string;
+  target: GraphNodeObject | string;
+  type: string;
+  label?: string;
 }
 
 export default function RelationshipGraph() {
@@ -29,9 +37,10 @@ export default function RelationshipGraph() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
-  // Transform data for react-force-graph format
-  const graphDataFormatted = {
+  // Transform data for react-force-graph format with HISAGEN fixed at center
+  const graphDataFormatted = useMemo(() => ({
     nodes: graphData.nodes.map(node => ({
       id: node.id,
       type: node.type,
@@ -39,6 +48,8 @@ export default function RelationshipGraph() {
       description: node.description,
       kbEntryIds: node.kbEntryIds,
       metadata: node.metadata,
+      // Fix HISAGEN at center
+      ...(node.id === 'hisagen' ? { fx: 0, fy: 0 } : {}),
     })),
     links: graphData.edges.map(edge => ({
       source: edge.source,
@@ -46,7 +57,17 @@ export default function RelationshipGraph() {
       type: edge.type,
       label: edge.label,
     })),
-  };
+  }), []);
+
+  // Get connected node IDs for hover highlighting
+  const getConnectedNodes = useCallback((nodeId: string): Set<string> => {
+    const connected = new Set<string>([nodeId]);
+    graphData.edges.forEach(edge => {
+      if (edge.source === nodeId) connected.add(edge.target);
+      if (edge.target === nodeId) connected.add(edge.source);
+    });
+    return connected;
+  }, []);
 
   // Handle container resize
   useEffect(() => {
@@ -65,49 +86,143 @@ export default function RelationshipGraph() {
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
-  // Center graph on HISAGEN after initial load
+  // Center graph after initial load
   useEffect(() => {
     if (graphRef.current) {
       setTimeout(() => {
-        graphRef.current?.zoomToFit(400, 50);
-      }, 500);
+        graphRef.current?.zoomToFit(400, 60);
+      }, 800);
     }
   }, []);
 
-  // Custom node rendering
+  // Custom node rendering with hover effects
   const nodeCanvasObject = useCallback(
     (node: GraphNodeObject, ctx: CanvasRenderingContext2D, globalScale: number) => {
       const label = node.label || node.id;
       const fontSize = 12 / globalScale;
       const nodeColor = NODE_COLORS[node.type as keyof typeof NODE_COLORS] || '#888';
-      const nodeRadius = node.id === 'hisagen' ? 14 : 8;
+      const isHisagen = node.id === 'hisagen';
+      const nodeRadius = isHisagen ? 16 : 9;
+
+      // Determine if this node should be highlighted or dimmed
+      const isHovered = hoveredNode === node.id;
+      const isConnectedToHovered = hoveredNode ? getConnectedNodes(hoveredNode).has(node.id) : false;
+      const shouldDim = hoveredNode && !isHovered && !isConnectedToHovered;
+      const isSelected = selectedNode?.id === node.id;
+
+      // Apply opacity for dimmed nodes
+      const opacity = shouldDim ? 0.25 : 1;
+
+      // Draw glow effect for HISAGEN
+      if (isHisagen && !shouldDim) {
+        ctx.beginPath();
+        ctx.arc(node.x || 0, node.y || 0, nodeRadius + 6, 0, 2 * Math.PI);
+        ctx.fillStyle = `${nodeColor}15`;
+        ctx.fill();
+      }
 
       // Draw node circle
       ctx.beginPath();
       ctx.arc(node.x || 0, node.y || 0, nodeRadius, 0, 2 * Math.PI);
-      ctx.fillStyle = nodeColor;
+      ctx.fillStyle = shouldDim ? `${nodeColor}40` : nodeColor;
       ctx.fill();
 
-      // Add border for selected node
-      if (selectedNode?.id === node.id) {
+      // Add border
+      if (isSelected) {
         ctx.strokeStyle = '#1F2E3A';
         ctx.lineWidth = 3 / globalScale;
         ctx.stroke();
+      } else if (isHovered) {
+        ctx.strokeStyle = nodeColor;
+        ctx.lineWidth = 3 / globalScale;
+        ctx.stroke();
       } else {
-        // Light border for all nodes
-        ctx.strokeStyle = '#ffffff';
+        ctx.strokeStyle = shouldDim ? '#ffffff60' : '#ffffff';
         ctx.lineWidth = 2 / globalScale;
         ctx.stroke();
       }
 
       // Draw label
-      ctx.font = `500 ${fontSize}px Inter, system-ui, sans-serif`;
+      ctx.font = `${isHisagen ? '600' : '500'} ${fontSize}px Inter, system-ui, sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'top';
-      ctx.fillStyle = '#334155'; // slate color
-      ctx.fillText(label, node.x || 0, (node.y || 0) + nodeRadius + 3);
+      ctx.fillStyle = shouldDim ? '#33415540' : '#334155';
+      ctx.fillText(label, node.x || 0, (node.y || 0) + nodeRadius + 4);
     },
-    [selectedNode]
+    [selectedNode, hoveredNode, getConnectedNodes]
+  );
+
+  // Custom link rendering with hover effects
+  const linkCanvasObject = useCallback(
+    (link: GraphLinkObject, ctx: CanvasRenderingContext2D, globalScale: number) => {
+      const source = typeof link.source === 'object' ? link.source : null;
+      const target = typeof link.target === 'object' ? link.target : null;
+
+      if (!source || !target) return;
+
+      const sourceId = source.id;
+      const targetId = target.id;
+
+      // Determine if this link should be highlighted or dimmed
+      const isConnectedToHovered = hoveredNode &&
+        (sourceId === hoveredNode || targetId === hoveredNode);
+      const shouldDim = hoveredNode && !isConnectedToHovered;
+
+      // Draw line
+      ctx.beginPath();
+      ctx.moveTo(source.x || 0, source.y || 0);
+      ctx.lineTo(target.x || 0, target.y || 0);
+      ctx.strokeStyle = shouldDim ? '#CBD5E120' : (isConnectedToHovered ? '#94a3b8' : '#CBD5E1');
+      ctx.lineWidth = isConnectedToHovered ? 2.5 : 1.5;
+      ctx.stroke();
+
+      // Draw arrow
+      const arrowLength = 6;
+      const dx = (target.x || 0) - (source.x || 0);
+      const dy = (target.y || 0) - (source.y || 0);
+      const angle = Math.atan2(dy, dx);
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      // Position arrow at 85% along the line (before target node)
+      const arrowPos = 0.85;
+      const arrowX = (source.x || 0) + dx * arrowPos;
+      const arrowY = (source.y || 0) + dy * arrowPos;
+
+      if (dist > 30) { // Only draw arrow if line is long enough
+        ctx.beginPath();
+        ctx.moveTo(arrowX, arrowY);
+        ctx.lineTo(
+          arrowX - arrowLength * Math.cos(angle - Math.PI / 6),
+          arrowY - arrowLength * Math.sin(angle - Math.PI / 6)
+        );
+        ctx.lineTo(
+          arrowX - arrowLength * Math.cos(angle + Math.PI / 6),
+          arrowY - arrowLength * Math.sin(angle + Math.PI / 6)
+        );
+        ctx.closePath();
+        ctx.fillStyle = shouldDim ? '#94a3b820' : (isConnectedToHovered ? '#64748b' : '#94a3b8');
+        ctx.fill();
+      }
+
+      // Draw edge label on hover
+      if (isConnectedToHovered && link.label) {
+        const midX = (source.x || 0) + dx * 0.5;
+        const midY = (source.y || 0) + dy * 0.5;
+
+        ctx.font = `500 ${10 / globalScale}px Inter, system-ui, sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        // Background for label
+        const textWidth = ctx.measureText(link.label).width;
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(midX - textWidth / 2 - 4, midY - 6, textWidth + 8, 12);
+
+        ctx.fillStyle = '#64748b';
+        ctx.fillText(link.label, midX, midY);
+      }
+    },
+    [hoveredNode]
   );
 
   // Handle node click
@@ -116,9 +231,19 @@ export default function RelationshipGraph() {
     setSelectedNode(originalNode || null);
   }, []);
 
+  // Handle node hover
+  const handleNodeHover = useCallback((node: GraphNodeObject | null) => {
+    setHoveredNode(node?.id || null);
+  }, []);
+
   // Handle background click to deselect
   const handleBackgroundClick = useCallback(() => {
     setSelectedNode(null);
+  }, []);
+
+  // Reset view button handler
+  const handleResetView = useCallback(() => {
+    graphRef.current?.zoomToFit(400, 60);
   }, []);
 
   return (
@@ -126,7 +251,7 @@ export default function RelationshipGraph() {
       {/* Graph Canvas */}
       <div
         ref={containerRef}
-        className="flex-1 rounded-2xl border border-mist bg-white overflow-hidden"
+        className="flex-1 rounded-2xl border border-mist bg-white overflow-hidden relative"
       >
         <ForceGraph2D
           ref={graphRef}
@@ -137,21 +262,41 @@ export default function RelationshipGraph() {
           nodeCanvasObject={nodeCanvasObject}
           nodePointerAreaPaint={(node: GraphNodeObject, color: string, ctx: CanvasRenderingContext2D) => {
             ctx.beginPath();
-            ctx.arc(node.x || 0, node.y || 0, 14, 0, 2 * Math.PI);
+            ctx.arc(node.x || 0, node.y || 0, 16, 0, 2 * Math.PI);
             ctx.fillStyle = color;
             ctx.fill();
           }}
-          linkColor={() => '#CBD5E1'}
-          linkWidth={2}
-          linkDirectionalArrowLength={5}
-          linkDirectionalArrowRelPos={0.9}
-          linkDirectionalArrowColor={() => '#94a3b8'}
+          linkCanvasObject={linkCanvasObject}
+          linkPointerAreaPaint={(link: GraphLinkObject, invisibleColor: string, ctx: CanvasRenderingContext2D) => {
+            const source = typeof link.source === 'object' ? link.source : null;
+            const target = typeof link.target === 'object' ? link.target : null;
+            if (!source || !target) return;
+
+            ctx.beginPath();
+            ctx.moveTo(source.x || 0, source.y || 0);
+            ctx.lineTo(target.x || 0, target.y || 0);
+            ctx.strokeStyle = invisibleColor;
+            ctx.lineWidth = 8;
+            ctx.stroke();
+          }}
           onNodeClick={handleNodeClick}
+          onNodeHover={handleNodeHover}
           onBackgroundClick={handleBackgroundClick}
           cooldownTicks={100}
           d3AlphaDecay={0.02}
           d3VelocityDecay={0.3}
+          enableNodeDrag={true}
+          enableZoomInteraction={true}
+          enablePanInteraction={true}
         />
+
+        {/* Reset View Button */}
+        <button
+          onClick={handleResetView}
+          className="absolute bottom-4 right-4 px-3 py-1.5 text-xs font-medium bg-white border border-mist rounded-lg shadow-sm hover:bg-parchment transition-colors text-slate"
+        >
+          Reset View
+        </button>
       </div>
 
       {/* Sidebar */}
@@ -220,6 +365,7 @@ export default function RelationshipGraph() {
               </svg>
             </div>
             <p className="text-sm text-slate">Click a node to see details</p>
+            <p className="text-xs text-slate/60 mt-1">Hover to highlight connections</p>
           </div>
         )}
 
@@ -241,6 +387,13 @@ export default function RelationshipGraph() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Controls hint */}
+        <div className="mt-4 pt-3 border-t border-mist/50">
+          <p className="text-[10px] text-slate/50 leading-relaxed">
+            <strong>Controls:</strong> Scroll to zoom, drag to pan, drag nodes to reposition
+          </p>
         </div>
       </div>
     </div>
