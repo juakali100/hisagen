@@ -11,7 +11,7 @@ import {
   ChartBarIcon,
 } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../../components/StageBreadcrumb";
-import { TagBadge } from "../../../../components/knowledge-base";
+import { TagBadge, YieldComparison, MetricsGrid } from "../../../../components/knowledge-base";
 import {
   getUgandaPilotEvidence,
   EvidenceEntry,
@@ -132,34 +132,33 @@ export default function UgandaPilotPage() {
         </div>
       </section>
 
-      {/* Yield Improvements Summary */}
+      {/* Yield Improvements Summary - Using YieldComparison Component */}
       {yieldMetrics.length > 0 && (
-        <section className="mt-8">
-          <div className="flex items-center gap-4 mb-4">
-            <h2 className="text-lg font-bold text-secondary flex items-center gap-2">
-              <ChartBarIcon className="size-5 text-emerald-600" />
-              Validated Yield Improvements
-            </h2>
-            <div className="h-px flex-1 bg-mist" />
-            <span className="text-[10px] text-slate font-medium uppercase tracking-widest">
-              Locus AG Global Data
-            </span>
-          </div>
+        <section className="mt-8 space-y-8">
+          {/* Cards View */}
+          <YieldComparison
+            data={yieldMetrics.map((m: { label: string; change?: string }) => ({
+              crop: m.label.replace(' Yield', ''),
+              improvement: m.change || '',
+            }))}
+            title="Validated Yield Improvements"
+            subtitle="Locus AG Global Data"
+            source="Third-party verified yield improvements across multi-year global trials by Locus AG"
+            variant="cards"
+          />
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-            {yieldMetrics.map((metric, idx) => (
-              <div
-                key={idx}
-                className="p-4 rounded-xl bg-emerald-50 border border-emerald-100 text-center"
-              >
-                <p className="text-2xl font-bold text-emerald-700">{metric.change}</p>
-                <p className="text-xs text-emerald-600 mt-1">{metric.label.replace(' Yield', '')}</p>
-              </div>
-            ))}
+          {/* Bar Chart Visualization */}
+          <div className="p-6 rounded-2xl bg-white border border-mist">
+            <YieldComparison
+              data={yieldMetrics.map((m: { label: string; change?: string }) => ({
+                crop: m.label.replace(' Yield', ''),
+                improvement: m.change || '',
+              }))}
+              title="Yield Comparison Chart"
+              subtitle="Visual comparison of yield improvements by crop type"
+              variant="bars"
+            />
           </div>
-          <p className="mt-3 text-xs text-slate/60 italic">
-            Third-party verified yield improvements across multi-year global trials by Locus AG
-          </p>
         </section>
       )}
 
@@ -292,33 +291,13 @@ export default function UgandaPilotPage() {
               </div>
             )}
 
-            {/* Metrics Grid */}
+            {/* Metrics Grid - Using MetricsGrid Component */}
             {entry.metrics.length > 0 && (
               <div className="mb-4">
                 <p className="text-[10px] font-bold uppercase tracking-widest text-slate/50 mb-3">
                   Key Metrics
                 </p>
-                <div className="grid gap-3 md:grid-cols-3">
-                  {entry.metrics.map((metric: Metric, idx: number) => (
-                    <div
-                      key={idx}
-                      className="p-3 rounded-lg bg-parchment/50 border border-mist"
-                    >
-                      <p className="text-[10px] text-slate/60">{metric.label}</p>
-                      <p className="text-lg font-bold text-secondary">
-                        {metric.value}
-                        {metric.unit && (
-                          <span className="text-sm font-normal ml-1 text-slate/60">
-                            {metric.unit}
-                          </span>
-                        )}
-                      </p>
-                      {metric.change && (
-                        <p className="text-xs text-emerald-600 font-medium">{metric.change}</p>
-                      )}
-                    </div>
-                  ))}
-                </div>
+                <MetricsGrid metrics={entry.metrics} columns={3} />
               </div>
             )}
 
