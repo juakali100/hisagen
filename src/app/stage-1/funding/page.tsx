@@ -403,7 +403,7 @@ export default function Stage1FundingPage() {
           <div className="h-px flex-1 bg-mist" />
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <Link
             href="/stage-1"
             className="group p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
@@ -412,7 +412,7 @@ export default function Stage1FundingPage() {
             <h3 className="text-base font-bold text-secondary group-hover:text-primary transition-colors">
               Stage 1 Incubation Brief
             </h3>
-            <p className="text-xs text-slate mt-2">Full Stage 1 strategy, objectives, and decision gates</p>
+            <p className="text-xs text-slate mt-2">Full Stage 1 strategy and objectives</p>
           </Link>
 
           <Link
@@ -421,9 +421,20 @@ export default function Stage1FundingPage() {
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60 mb-2">Framework</p>
             <h3 className="text-base font-bold text-secondary group-hover:text-primary transition-colors">
-              Capital Continuum Playbook
+              Capital Continuum
             </h3>
-            <p className="text-xs text-slate mt-2">4-stage framework and investment readiness pillars</p>
+            <p className="text-xs text-slate mt-2">4-stage funding framework</p>
+          </Link>
+
+          <Link
+            href="/funding-roadmap/grant-lifecycle"
+            className="group p-6 rounded-xl border-2 border-primary/20 bg-primary/5 hover:border-primary hover:shadow-md transition-all"
+          >
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-2">Methodology</p>
+            <h3 className="text-base font-bold text-secondary group-hover:text-primary transition-colors">
+              Grant Lifecycle
+            </h3>
+            <p className="text-xs text-slate mt-2">11-phase delivery methodology</p>
           </Link>
 
           <Link
@@ -434,7 +445,7 @@ export default function Stage1FundingPage() {
             <h3 className="text-base font-bold text-secondary group-hover:text-primary transition-colors">
               Evidence Vault
             </h3>
-            <p className="text-xs text-slate mt-2">40+ documents supporting funding applications</p>
+            <p className="text-xs text-slate mt-2">40+ supporting documents</p>
           </Link>
         </div>
       </section>
