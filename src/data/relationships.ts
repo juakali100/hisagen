@@ -22,21 +22,24 @@ export const nodes: GraphNode[] = [
     type: 'organization',
     label: 'Locus AG',
     description: 'US-based agricultural biologics company, CarbonNOW partner',
-    kbEntryIds: ['ecosystem-locus-ag'],
+    kbEntryIds: ['eco-locus-ag'],
+    metadata: { portalPage: '/ecosystem/locus-ag' },
   },
   {
     id: '3degrees',
     type: 'organization',
     label: '3Degrees',
     description: 'Carbon credit market partner',
-    kbEntryIds: ['ecosystem-3degrees'],
+    kbEntryIds: ['eco-3degrees'],
+    metadata: { portalPage: '/ecosystem/3degrees' },
   },
   {
     id: 'deep-six',
     type: 'organization',
     label: 'Deep Six',
     description: 'Technology and data partner',
-    kbEntryIds: ['ecosystem-deep-six'],
+    kbEntryIds: ['eco-deep-six'],
+    metadata: { portalPage: '/ecosystem/deep-six' },
   },
   {
     id: 'maaif',
@@ -86,7 +89,8 @@ export const nodes: GraphNode[] = [
     type: 'project',
     label: 'Uganda Pilot',
     description: 'Initial pilot project in Uganda with 30 farmers',
-    kbEntryIds: ['project-hisagen-uganda'],
+    kbEntryIds: ['project-uganda'],
+    metadata: { portalPage: '/project/hisagen-uganda' },
   },
 
   // Programs
@@ -117,7 +121,8 @@ export const nodes: GraphNode[] = [
     type: 'evidence',
     label: 'Trial Data',
     description: 'Field trial results from Uganda pilot',
-    kbEntryIds: ['evidence-uganda-pilot'],
+    kbEntryIds: ['evidence-uganda'],
+    metadata: { portalPage: '/knowledge-base/evidence/uganda-pilot' },
   },
 ];
 

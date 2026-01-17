@@ -3,15 +3,16 @@
 /**
  * RelationshipGraph Component
  * Phase 4, Task 13 - HISAGEN Knowledge Base
- * Phase B: Visual Design - Enhanced styling and interactions
+ * Phase B+C: Visual Design + Interactivity
  *
  * Displays an interactive force-directed graph of HISAGEN relationships
  */
 
 import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
+import Link from 'next/link';
 import ForceGraph2D, { ForceGraphMethods } from 'react-force-graph-2d';
 import { graphData } from '@/data/relationships';
-import { GraphNode, NODE_COLORS, NODE_TYPE_LABELS } from '@/types/graph';
+import { GraphNode, NodeType, NODE_COLORS, NODE_TYPE_LABELS } from '@/types/graph';
 
 interface GraphNodeObject {
   id: string;
@@ -31,7 +32,11 @@ interface GraphLinkObject {
   label?: string;
 }
 
-export default function RelationshipGraph() {
+interface RelationshipGraphProps {
+  activeFilters: Set<NodeType>;
+}
+
+export default function RelationshipGraph({ activeFilters }: RelationshipGraphProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const graphRef = useRef<ForceGraphMethods<any, any> | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,25 +44,37 @@ export default function RelationshipGraph() {
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
-  // Transform data for react-force-graph format with HISAGEN fixed at center
-  const graphDataFormatted = useMemo(() => ({
-    nodes: graphData.nodes.map(node => ({
-      id: node.id,
-      type: node.type,
-      label: node.label,
-      description: node.description,
-      kbEntryIds: node.kbEntryIds,
-      metadata: node.metadata,
-      // Fix HISAGEN at center
-      ...(node.id === 'hisagen' ? { fx: 0, fy: 0 } : {}),
-    })),
-    links: graphData.edges.map(edge => ({
-      source: edge.source,
-      target: edge.target,
-      type: edge.type,
-      label: edge.label,
-    })),
-  }), []);
+  // Filter nodes and edges based on active filters
+  const graphDataFormatted = useMemo(() => {
+    const filteredNodes = graphData.nodes
+      .filter(node => activeFilters.has(node.type))
+      .map(node => ({
+        id: node.id,
+        type: node.type,
+        label: node.label,
+        description: node.description,
+        kbEntryIds: node.kbEntryIds,
+        metadata: node.metadata,
+        // Fix HISAGEN at center
+        ...(node.id === 'hisagen' ? { fx: 0, fy: 0 } : {}),
+      }));
+
+    const nodeIds = new Set(filteredNodes.map(n => n.id));
+
+    const filteredEdges = graphData.edges
+      .filter(edge => nodeIds.has(edge.source) && nodeIds.has(edge.target))
+      .map(edge => ({
+        source: edge.source,
+        target: edge.target,
+        type: edge.type,
+        label: edge.label,
+      }));
+
+    return {
+      nodes: filteredNodes,
+      links: filteredEdges,
+    };
+  }, [activeFilters]);
 
   // Get connected node IDs for hover highlighting
   const getConnectedNodes = useCallback((nodeId: string): Set<string> => {
@@ -86,14 +103,14 @@ export default function RelationshipGraph() {
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
-  // Center graph after initial load
+  // Center graph after initial load and when filters change
   useEffect(() => {
     if (graphRef.current) {
       setTimeout(() => {
         graphRef.current?.zoomToFit(400, 60);
       }, 800);
     }
-  }, []);
+  }, [activeFilters]);
 
   // Custom node rendering with hover effects
   const nodeCanvasObject = useCallback(
@@ -109,9 +126,6 @@ export default function RelationshipGraph() {
       const isConnectedToHovered = hoveredNode ? getConnectedNodes(hoveredNode).has(node.id) : false;
       const shouldDim = hoveredNode && !isHovered && !isConnectedToHovered;
       const isSelected = selectedNode?.id === node.id;
-
-      // Apply opacity for dimmed nodes
-      const opacity = shouldDim ? 0.25 : 1;
 
       // Draw glow effect for HISAGEN
       if (isHisagen && !shouldDim) {
@@ -188,7 +202,7 @@ export default function RelationshipGraph() {
       const arrowX = (source.x || 0) + dx * arrowPos;
       const arrowY = (source.y || 0) + dy * arrowPos;
 
-      if (dist > 30) { // Only draw arrow if line is long enough
+      if (dist > 30) {
         ctx.beginPath();
         ctx.moveTo(arrowX, arrowY);
         ctx.lineTo(
@@ -213,7 +227,6 @@ export default function RelationshipGraph() {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
 
-        // Background for label
         const textWidth = ctx.measureText(link.label).width;
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(midX - textWidth / 2 - 4, midY - 6, textWidth + 8, 12);
@@ -246,8 +259,13 @@ export default function RelationshipGraph() {
     graphRef.current?.zoomToFit(400, 60);
   }, []);
 
+  // Get portal page for selected node
+  const getPortalPage = (node: GraphNode): string | null => {
+    return node.metadata?.portalPage || null;
+  };
+
   return (
-    <div className="flex h-[calc(100vh-280px)] min-h-[500px] gap-4">
+    <div className="flex h-[calc(100vh-320px)] min-h-[480px] gap-4">
       {/* Graph Canvas */}
       <div
         ref={containerRef}
@@ -297,6 +315,11 @@ export default function RelationshipGraph() {
         >
           Reset View
         </button>
+
+        {/* Node count indicator */}
+        <div className="absolute top-4 left-4 px-3 py-1.5 text-xs font-medium bg-white/90 border border-mist rounded-lg text-slate">
+          {graphDataFormatted.nodes.length} nodes · {graphDataFormatted.links.length} connections
+        </div>
       </div>
 
       {/* Sidebar */}
@@ -324,18 +347,33 @@ export default function RelationshipGraph() {
               </p>
             )}
 
-            {selectedNode.metadata && Object.keys(selectedNode.metadata).length > 0 && (
+            {/* View in KB button */}
+            {getPortalPage(selectedNode) && (
+              <Link
+                href={getPortalPage(selectedNode)!}
+                className="flex items-center justify-center gap-2 w-full px-4 py-2.5 mb-4 text-sm font-medium text-white bg-primary hover:bg-primary/90 rounded-lg transition-colors"
+              >
+                View Full Profile
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+            )}
+
+            {selectedNode.metadata && Object.keys(selectedNode.metadata).filter(k => k !== 'portalPage').length > 0 && (
               <div className="mb-4 p-3 rounded-lg bg-white border border-mist">
                 <h4 className="text-[10px] font-bold text-secondary uppercase tracking-widest mb-2">
                   Details
                 </h4>
                 <dl className="space-y-1">
-                  {Object.entries(selectedNode.metadata).map(([key, value]) => (
-                    <div key={key} className="text-sm">
-                      <dt className="text-slate/60 inline capitalize">{key}: </dt>
-                      <dd className="text-ink inline font-medium">{value}</dd>
-                    </div>
-                  ))}
+                  {Object.entries(selectedNode.metadata)
+                    .filter(([key]) => key !== 'portalPage')
+                    .map(([key, value]) => (
+                      <div key={key} className="text-sm">
+                        <dt className="text-slate/60 inline capitalize">{key}: </dt>
+                        <dd className="text-ink inline font-medium">{value}</dd>
+                      </div>
+                    ))}
                 </dl>
               </div>
             )}
@@ -348,9 +386,7 @@ export default function RelationshipGraph() {
                 <ul className="space-y-1.5">
                   {selectedNode.kbEntryIds.map(id => (
                     <li key={id}>
-                      <span className="text-sm text-primary hover:underline cursor-pointer">
-                        {id}
-                      </span>
+                      <span className="text-sm text-slate/60">{id}</span>
                     </li>
                   ))}
                 </ul>
