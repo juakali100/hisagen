@@ -1,8 +1,22 @@
-﻿import StageBreadcrumb from "../../components/StageBreadcrumb";
+import StageBreadcrumb from "../../components/StageBreadcrumb";
 import Link from "next/link";
 
-// Locus AG validated yield data from 44-page deck (Pages 22-44)
-const yieldData = [
+// Uganda Pilot Trial Data (HISAGEN's own field trials)
+const ugandaTrials = {
+  timeline: "Feb 2025 (prep) → Mar-Aug 2025 (data collection) → Sep 2025 (harvest)",
+  partner: "NARO (National Agricultural Research Organisation) under MAAIF",
+  crops: [
+    { name: "Maize", icon: "🌽", regions: ["Western", "Northern", "Eastern", "Central"] },
+    { name: "Irish Potatoes", icon: "🥔", regions: ["Western", "Central"] },
+    { name: "Peanuts", icon: "🥜", regions: ["Northern", "Eastern"] },
+    { name: "Sweet Potatoes", icon: "🍠", regions: ["Eastern", "Central"] },
+  ],
+  status: "Results submitted Oct 2025 - described as 'highly positive'",
+  nextSteps: "Full yield data pending NARO final report",
+};
+
+// Locus AG US Trial Data (Technology validation - NOT Uganda)
+const locusAgData = [
   {
     crop: "Potatoes",
     improvement: "+22.6%",
@@ -10,8 +24,8 @@ const yieldData = [
     treated: "60,776",
     unit: "lb/ac",
     product: "Duo WP + Unpac",
-    trials: "Whitewater, WI 2023",
-    highlight: true,
+    location: "Whitewater, WI (USA)",
+    year: "2023",
     icon: "🥔",
   },
   {
@@ -21,8 +35,8 @@ const yieldData = [
     treated: "18,078",
     unit: "lb/ac",
     product: "Duo WP",
-    trials: "Tidewater, NC 2023",
-    highlight: true,
+    location: "Tidewater, NC (USA)",
+    year: "2023",
     icon: "🍠",
   },
   {
@@ -32,8 +46,8 @@ const yieldData = [
     treated: "4,077",
     unit: "lb/ac",
     product: "Prime BA",
-    trials: "2024 trials, 2 CROs",
-    highlight: false,
+    location: "USA",
+    year: "2024",
     icon: "🥜",
   },
   {
@@ -43,8 +57,8 @@ const yieldData = [
     treated: "203",
     unit: "bu/ac",
     product: "Duo BA",
-    trials: "28 CROs/Universities",
-    highlight: false,
+    location: "28 CROs/Universities (USA)",
+    year: "Multi-year",
     icon: "🌽",
   },
   {
@@ -54,8 +68,8 @@ const yieldData = [
     treated: "62.6",
     unit: "bu/ac",
     product: "Prime BA",
-    trials: "14 trials",
-    highlight: false,
+    location: "USA",
+    year: "14 trials",
     icon: "🫘",
   },
   {
@@ -65,21 +79,13 @@ const yieldData = [
     treated: "80.7",
     unit: "bu/ac",
     product: "Duo BA",
-    trials: "11 trials",
-    highlight: false,
+    location: "USA",
+    year: "11 trials",
     icon: "🌾",
   },
 ];
 
 const evidenceCategories = [
-  {
-    title: "Pilot Proof Points",
-    items: [
-      "Yield impact summary (Actual vs. Control maize trials).",
-      "Farmer adoption metrics from 4 agro-ecological zones: maize, potatoes, peanuts, sweet potatoes.",
-      "Soil Organic Carbon (SOC) baseline indicators.",
-    ],
-  },
   {
     title: "Carbon Integrity",
     items: [
@@ -128,12 +134,80 @@ export default function EvidencePage() {
         </p>
       </section>
 
-      {/* Validated Yield Data - Locus AG */}
+      {/* SECTION 1: Uganda Pilot Field Evidence */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-3 h-3 rounded-full bg-amber-500"></div>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-secondary">Uganda Pilot Field Evidence</h2>
+          <span className="px-2 py-0.5 bg-amber-100 text-amber-700 text-[9px] rounded font-bold uppercase tracking-widest">
+            HISAGEN Project Data
+          </span>
+        </div>
+
+        <div className="rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-white p-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Trial Overview */}
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-3">Trial Overview</h3>
+              <div className="space-y-3 text-sm">
+                <div>
+                  <p className="text-slate/60 text-[10px] uppercase tracking-wider">Timeline</p>
+                  <p className="text-slate font-medium">{ugandaTrials.timeline}</p>
+                </div>
+                <div>
+                  <p className="text-slate/60 text-[10px] uppercase tracking-wider">Research Partner</p>
+                  <p className="text-slate font-medium">{ugandaTrials.partner}</p>
+                </div>
+                <div>
+                  <p className="text-slate/60 text-[10px] uppercase tracking-wider">Status</p>
+                  <p className="text-amber-700 font-semibold">{ugandaTrials.status}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Crops Tested */}
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-3">Crops Under Trial</h3>
+              <div className="grid grid-cols-2 gap-3">
+                {ugandaTrials.crops.map((crop) => (
+                  <div key={crop.name} className="p-3 rounded-xl bg-white border border-amber-100">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-lg">{crop.icon}</span>
+                      <span className="font-bold text-secondary text-sm">{crop.name}</span>
+                    </div>
+                    <p className="text-[10px] text-slate/60">{crop.regions.join(", ")}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Pending Data Notice */}
+          <div className="mt-6 pt-4 border-t border-amber-200">
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-100/50 border border-dashed border-amber-300">
+              <span className="text-amber-600 text-lg">⏳</span>
+              <div>
+                <p className="font-semibold text-amber-800 text-sm">Quantitative Results Pending</p>
+                <p className="text-amber-700 text-xs mt-1">
+                  NARO trial results described as "highly positive." Full yield comparison data (treated vs control)
+                  will be available upon completion of NARO final report. This section will be updated with specific
+                  percentage improvements once data is released.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2: Locus AG Technology Validation */}
       <section className="mt-10">
         <div className="flex items-center justify-between mb-6">
-          <div>
-            <h2 className="text-sm font-bold uppercase tracking-widest text-secondary/60">Validated Yield Data</h2>
-            <p className="text-xs text-slate mt-1">Locus AG biologicals - multi-year, multi-site trials</p>
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+            <h2 className="text-sm font-bold uppercase tracking-widest text-secondary">Technology Partner Validation</h2>
+            <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[9px] rounded font-bold uppercase tracking-widest">
+              Locus AG US Trials
+            </span>
           </div>
           <Link
             href="/ecosystem/locus-ag"
@@ -143,40 +217,14 @@ export default function EvidencePage() {
           </Link>
         </div>
 
-        {/* Highlight Cards - Potatoes & Sweet Potatoes (Uganda trial crops) */}
-        <div className="grid md:grid-cols-2 gap-4 mb-4">
-          {yieldData.filter(d => d.highlight).map((data) => (
-            <div
-              key={data.crop}
-              className="relative overflow-hidden rounded-2xl border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-white p-6 shadow-sm"
-            >
-              <div className="absolute top-4 right-4 text-4xl opacity-20">{data.icon}</div>
-              <div className="inline-flex items-center gap-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[9px] rounded font-bold uppercase tracking-widest mb-3">
-                Uganda Trial Crop
-              </div>
-              <h3 className="text-2xl font-bold text-secondary">{data.crop}</h3>
-              <div className="mt-4 flex items-end gap-3">
-                <span className="text-5xl font-bold text-emerald-600">{data.improvement}</span>
-                <span className="text-sm text-slate mb-2">yield improvement</span>
-              </div>
-              <div className="mt-4 pt-4 border-t border-emerald-100 grid grid-cols-2 gap-4 text-xs">
-                <div>
-                  <p className="text-slate/60 uppercase tracking-wider text-[9px]">Control</p>
-                  <p className="font-semibold text-slate">{data.baseline} {data.unit}</p>
-                </div>
-                <div>
-                  <p className="text-slate/60 uppercase tracking-wider text-[9px]">Treated</p>
-                  <p className="font-semibold text-emerald-700">{data.treated} {data.unit}</p>
-                </div>
-              </div>
-              <p className="mt-3 text-[10px] text-slate/60">{data.product} • {data.trials}</p>
-            </div>
-          ))}
-        </div>
+        <p className="text-sm text-slate mb-4">
+          These results demonstrate validated performance of Rhizolizer® products in US field trials.
+          They provide technology validation supporting the Uganda pilot hypothesis.
+        </p>
 
-        {/* Other Crops Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {yieldData.filter(d => !d.highlight).map((data) => (
+        {/* Crops Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {locusAgData.map((data) => (
             <div
               key={data.crop}
               className="rounded-xl border border-mist bg-white p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
@@ -185,32 +233,44 @@ export default function EvidencePage() {
                 <span className="text-lg">{data.icon}</span>
                 <h3 className="text-sm font-bold text-secondary">{data.crop}</h3>
               </div>
-              <p className="text-2xl font-bold text-secondary">{data.improvement}</p>
+              <p className="text-2xl font-bold text-emerald-600">{data.improvement}</p>
               <p className="text-[10px] text-slate mt-1">{data.baseline} → {data.treated} {data.unit}</p>
-              <p className="text-[9px] text-slate/60 mt-2">{data.trials}</p>
+              <div className="mt-2 pt-2 border-t border-mist/50">
+                <p className="text-[9px] text-slate/60">{data.product}</p>
+                <p className="text-[9px] text-slate/60">{data.location}, {data.year}</p>
+              </div>
             </div>
           ))}
         </div>
 
         <p className="mt-4 text-[10px] text-slate/60 text-center italic">
-          All data from Locus AG third-party validated trials. Statistically significant results across 28+ CROs and universities.
+          All Locus AG data from third-party validated US trials. Statistically significant results across 28+ CROs and universities.
+          These are NOT Uganda results - they demonstrate that the underlying technology delivers consistent yield improvements.
         </p>
       </section>
 
-      <section className="mt-10 grid gap-6 md:grid-cols-2">
-        {evidenceCategories.map((cat) => (
-          <div key={cat.title} className="rounded-xl border border-mist bg-white p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none">
-            <h2 className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4">{cat.title}</h2>
-            <ul className="space-y-3">
-              {cat.items.map((item, idx) => (
-                <li key={idx} className="flex gap-3 text-sm text-slate">
-                  <span className="text-secondary opacity-40 font-bold">•</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      {/* SECTION 3: Evidence Categories (Other requirements) */}
+      <section className="mt-10">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-3 h-3 rounded-full bg-slate-400"></div>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-secondary">Additional Evidence Requirements</h2>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {evidenceCategories.map((cat) => (
+            <div key={cat.title} className="rounded-xl border border-mist bg-white p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none">
+              <h2 className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4">{cat.title}</h2>
+              <ul className="space-y-3">
+                {cat.items.map((item, idx) => (
+                  <li key={idx} className="flex gap-3 text-sm text-slate">
+                    <span className="text-secondary opacity-40 font-bold">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="mt-10 rounded-xl border border-mist bg-parchment/10 p-8 text-center border-dashed">
@@ -235,4 +295,3 @@ export default function EvidencePage() {
     </div>
   );
 }
-
