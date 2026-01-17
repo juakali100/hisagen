@@ -102,7 +102,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
     date: "2026-01-16",
     title: "Keir → Nic: Locus CEO Meeting & Uganda Roadmap Confirmed",
     detail: "Keir reported positive meeting with John Uhran (Locus CEO) confirming full support for Uganda roadmap and pan-African expansion strategy. Attached comprehensive 44-page overview deck.",
-    file: "context/2026/2026-01-16-email-keir-locus-ceo-meeting.md",
+    file: "communications/2026/2026-01-16-email-keir-locus-ceo-meeting.md",
     tags: ["Locus AG", "Uganda", "Strategy", "Milestone"],
     synthesis: [
       "John Uhran (Locus CEO) fully supportive of proposed Uganda roadmap and path to approvals.",
@@ -117,7 +117,7 @@ const intelligenceLedger: IntelligenceEntry[] = [
     date: "2026-01-16",
     title: "Nic → Keir: HISAGEN Portal Site Introduction",
     detail: "Introduced the HISAGEN founding stewardship portal to Keir - consolidating strategy, program model, capital framework, and evidence base into one coherent internal coordination hub.",
-    file: "context/2026/2026-01-16-email-nic-portal-introduction.md",
+    file: "communications/2026/2026-01-16-email-nic-portal-introduction.md",
     tags: ["Portal", "Strategy", "Coordination"],
     synthesis: [
       "Portal positioned as internal coordination hub (strategy → execution alignment).",
