@@ -23,6 +23,15 @@ const navItems = [
           { href: "/evidence", label: "Evidence Review" },
         ],
       },
+      {
+        label: "Funding",
+        href: "/stage-1/funding",
+        subItems: [
+          { href: "/stage-1/funding", label: "Stage 1 Funding" },
+          { href: "/funding-roadmap/capital-continuum", label: "Capital Continuum" },
+          { href: "/stage-1/funding/v0-grant-proposal", label: "Grant Proposal" },
+        ],
+      },
     ],
   },
   { href: "/knowledge-base", label: "Knowledge Base" },
@@ -60,7 +69,8 @@ export default function Nav() {
                 pathname === item.href ||
                 pathname.startsWith("/project/") ||
                 pathname.startsWith("/stage-") ||
-                pathname.startsWith("/evidence");
+                pathname.startsWith("/evidence") ||
+                pathname.startsWith("/funding-roadmap");
 
               return (
                 <Popover key={item.label} className="relative inline-flex py-1">
