@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { DocumentTextIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { DocumentTextIcon, ClockIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import StageBreadcrumb from "../../components/StageBreadcrumb";
 import { SearchBar, SectionCard, EntryCard, TagBadge, useSelection } from "../../components/knowledge-base";
 import {
@@ -215,7 +215,32 @@ export default function ResourcesHub() {
           </section>
 
           {/* Tools Section */}
-          <section className="mt-8 grid gap-4 md:grid-cols-2">
+          <section className="mt-8 grid gap-4 md:grid-cols-3">
+            {/* AI Query CTA */}
+            <Link
+              href="/knowledge-base/query"
+              className="block p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-parchment border border-emerald-200/50 hover:border-emerald-300 transition-all group"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-emerald-100 group-hover:bg-emerald-200/70 transition-colors">
+                  <SparklesIcon className="size-6 text-emerald-700" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-lg font-bold text-emerald-800 group-hover:text-emerald-700 transition-colors">
+                      Ask AI
+                    </h3>
+                    <span className="px-1.5 py-0.5 rounded bg-emerald-600 text-white text-[8px] font-bold uppercase">
+                      New
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate mt-1">
+                    Natural language queries powered by AI.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
             {/* Timeline CTA */}
             <Link
               href="/knowledge-base/timeline"
@@ -227,16 +252,11 @@ export default function ResourcesHub() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-amber-800 group-hover:text-amber-700 transition-colors">
-                    Timeline View
+                    Timeline
                   </h3>
                   <p className="text-sm text-slate mt-1">
-                    Chronological view of all entries grouped by month, quarter, or year.
+                    Chronological view by month, quarter, or year.
                   </p>
-                </div>
-                <div className="text-amber-300 group-hover:text-amber-400 transition-colors">
-                  <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
                 </div>
               </div>
             </Link>
@@ -253,22 +273,17 @@ export default function ResourcesHub() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <h3 className="text-lg font-bold text-secondary group-hover:text-secondary/80 transition-colors">
-                      Synthesis Engine
+                      Synthesis
                     </h3>
                     {selectionCount > 0 && (
                       <span className="px-2 py-0.5 rounded-full bg-secondary text-white text-[10px] font-bold">
-                        {selectionCount} selected
+                        {selectionCount}
                       </span>
                     )}
                   </div>
                   <p className="text-sm text-slate">
-                    Generate reports and briefings from selected entries.
+                    Generate reports from selected entries.
                   </p>
-                </div>
-                <div className="text-secondary/30 group-hover:text-secondary/60 transition-colors">
-                  <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
                 </div>
               </div>
             </Link>

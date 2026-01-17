@@ -18,3 +18,6 @@ export { default as YieldComparison, metricsToYieldData } from "./YieldCompariso
 
 // Timeline Components
 export { default as Timeline } from "./Timeline";
+
+// Query Interface
+export { default as QueryInterface } from "./QueryInterface";
