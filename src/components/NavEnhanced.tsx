@@ -6,6 +6,15 @@ import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useState, useRef } from "react";
 import Image from "next/image";
+import { MagnifyingGlassIcon, BookOpenIcon } from "@heroicons/react/20/solid";
+import {
+  communications,
+  research,
+  evidence,
+  milestones,
+  ecosystem,
+  getRecentEntries,
+} from "../data";
 
 const navigation = {
   about: [
@@ -343,17 +352,83 @@ export default function NavEnhanced() {
             </div>
           </HoverPopover>
 
-          {/* Knowledge Base (simple link) */}
-          <Link
-            href="/resources"
-            className={[
-              "text-sm font-semibold transition-colors rounded-md px-1.5 py-1",
-              pathname === "/resources" ? "text-accent" : "text-white/90 hover:text-accent",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
-            ].join(" ")}
-          >
-            Knowledge Base
-          </Link>
+          {/* Knowledge Base Flyout */}
+          <HoverPopover buttonLabel="Knowledge Base" buttonHref="/resources">
+            <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                {/* Left: Sections with counts */}
+                <div className="lg:col-span-1">
+                  <h3 className="text-sm font-medium text-white/50 flex items-center gap-2">
+                    <BookOpenIcon className="size-4" />
+                    Browse Sections
+                  </h3>
+                  <div className="mt-4 space-y-1">
+                    {[
+                      { name: "Communications", href: "/resources/communications", count: communications.length },
+                      { name: "Research", href: "/resources/research", count: research.length },
+                      { name: "Evidence", href: "/resources/evidence", count: evidence.length },
+                      { name: "Milestones", href: "/resources/milestones", count: milestones.length },
+                      { name: "Ecosystem", href: "/ecosystem", count: ecosystem.length },
+                    ].map((section) => (
+                      <Link
+                        key={section.name}
+                        href={section.href}
+                        className="flex items-center justify-between py-2 px-3 rounded-lg text-sm font-semibold text-white hover:text-accent hover:bg-white/5 transition-colors group"
+                      >
+                        <span>{section.name}</span>
+                        <span className="text-xs text-white/40 group-hover:text-accent/70 transition-colors">
+                          {section.count}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Quick search link */}
+                  <Link
+                    href="/resources"
+                    className="mt-6 flex items-center gap-2 text-xs text-white/50 hover:text-accent transition-colors"
+                  >
+                    <MagnifyingGlassIcon className="size-4" />
+                    Search all entries →
+                  </Link>
+                </div>
+
+                {/* Right: Recent Entries */}
+                <div className="lg:col-span-2">
+                  <h3 className="text-sm font-medium text-white/50 mb-4">Recent Activity</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {getRecentEntries(4).map((entry) => (
+                      <article
+                        key={entry.id}
+                        className="p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors group"
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">
+                            {entry.type}
+                          </span>
+                          <span className="text-[10px] text-white/30">{entry.date}</span>
+                        </div>
+                        <h4 className="text-sm font-semibold text-white group-hover:text-accent transition-colors line-clamp-2">
+                          {entry.title}
+                        </h4>
+                        <p className="mt-1 text-xs text-white/50 line-clamp-2">
+                          {entry.summary}
+                        </p>
+                      </article>
+                    ))}
+                  </div>
+
+                  {/* View all link */}
+                  <Link
+                    href="/resources"
+                    className="mt-4 inline-flex items-center text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
+                  >
+                    View all entries →
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </HoverPopover>
         </div>
       </nav>
     </header>
