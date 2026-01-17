@@ -5,20 +5,20 @@ export default function V0GrantProposalPage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
-        stage="V0 Grant Proposal"
+        stage="V1 Grant Proposal"
         trail={[
           { label: "Stage 1: Incubation", href: "/stage-1" },
           { label: "Funding Applications", href: "/stage-1/funding" },
-          { label: "V0 Grant Proposal" }
+          { label: "V1 Grant Proposal" }
         ]}
       />
 
       <section className="rounded-2xl border-2 border-primary/20 bg-primary/5 px-8 py-12">
         <div className="flex items-center gap-3 mb-6">
           <span className="rounded-full bg-primary/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.28em] text-primary">
-            V0 Draft Proposal
+            V1 Proposal
           </span>
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40">November 17, 2025</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40">January 17, 2026</span>
         </div>
         <h1 className="text-4xl font-bold text-secondary leading-tight">
           HISAGEN Grant Funding Proposal
@@ -27,31 +27,31 @@ export default function V0GrantProposalPage() {
           High Impact Seed Application for Greener Environments
         </p>
         <p className="mt-6 text-lg text-slate leading-relaxed max-w-3xl">
-          Foundation grant proposal structure using proven frameworks. Designed to be tailored to specific
-          funding opportunities with [GAP] markers indicating information needed from stakeholder input.
+          Foundation grant proposal with research-backed Statement of Need and full evidence citations.
+          Designed to be tailored to specific funding opportunities with [GAP] markers for remaining stakeholder input.
         </p>
       </section>
 
       {/* Document Status */}
-      <section className="mt-12 rounded-xl border-2 border-amber-500/30 bg-amber-50 p-6">
+      <section className="mt-12 rounded-xl border-2 border-emerald-500/30 bg-emerald-50 p-6">
         <div className="flex items-start gap-4">
-          <div className="w-10 h-10 rounded-full bg-amber-200 flex items-center justify-center shrink-0">
-            <svg className="w-5 h-5 text-amber-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <div className="w-10 h-10 rounded-full bg-emerald-200 flex items-center justify-center shrink-0">
+            <svg className="w-5 h-5 text-emerald-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
           <div className="flex-1">
-            <h2 className="text-base font-bold text-amber-900 mb-2">V0 Draft Status</h2>
-            <p className="text-sm text-amber-800 leading-relaxed mb-3">
-              This is a <strong>foundation document</strong> with [GAP] markers throughout indicating information
-              needed from client knowledge capture sessions and further research. Ready for tailoring to specific
-              funder requirements.
+            <h2 className="text-base font-bold text-emerald-900 mb-2">V1 Status - Research-Backed</h2>
+            <p className="text-sm text-emerald-800 leading-relaxed mb-3">
+              This version includes a <strong>fully-researched Statement of Need</strong> with 14 cited sources from
+              UN agencies, World Bank, and Uganda government data. Evidence appendix provides full citations for
+              due diligence review. Remaining [GAP] markers indicate stakeholder-specific information needed.
             </p>
-            <div className="grid gap-2 md:grid-cols-2 text-xs text-amber-700">
-              <div>• Content drafted from available materials</div>
-              <div>• Structure based on proven grant frameworks</div>
-              <div>• [GAP] markers identify missing information</div>
-              <div>• Designed for funder-specific customization</div>
+            <div className="grid gap-2 md:grid-cols-2 text-xs text-emerald-700">
+              <div>• Statement of Need: Research complete</div>
+              <div>• Evidence Appendix: 14 sources cited</div>
+              <div>• [GAP] markers: Stakeholder input needed</div>
+              <div>• Ready for funder-specific customization</div>
             </div>
           </div>
         </div>
@@ -67,10 +67,11 @@ export default function V0GrantProposalPage() {
             "3. Project Description",
             "4. Organizational Information",
             "5. Conclusion",
-            "6. Budget Framework"
+            "6. Budget Framework",
+            "Appendix A: Evidence Base & Citations"
           ].map((item, idx) => (
-            <div key={idx} className="p-4 rounded-lg border border-mist bg-white hover:border-secondary/20 transition-colors">
-              <p className="text-sm font-bold text-secondary">{item}</p>
+            <div key={idx} className={`p-4 rounded-lg border bg-white hover:border-secondary/20 transition-colors ${item.startsWith("Appendix") ? "border-slate-300 bg-slate-50" : "border-mist"}`}>
+              <p className={`text-sm font-bold ${item.startsWith("Appendix") ? "text-slate-600" : "text-secondary"}`}>{item}</p>
             </div>
           ))}
         </div>
@@ -1190,13 +1191,13 @@ export default function V0GrantProposalPage() {
       {/* Next Steps */}
       <section className="mt-12 mb-20">
         <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.2em]">Next Steps: v0 → v1 Development</h2>
+          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.2em]">Next Steps: V1 → V2 Development</h2>
           <div className="h-px flex-1 bg-mist" />
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
           <div className="p-6 rounded-xl border-2 border-primary/20 bg-primary/5">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Critical (Must Have)</p>
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-3">Critical (Must Have for V2)</p>
             <ul className="space-y-2 text-sm text-slate">
               <li>• SMART objectives with baselines and targets</li>
               <li>• Detailed implementation plan with timeline</li>
@@ -1206,13 +1207,23 @@ export default function V0GrantProposalPage() {
             </ul>
           </div>
 
+          <div className="p-6 rounded-xl border-2 border-emerald-500/20 bg-emerald-50">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-700 mb-3">Completed in V1</p>
+            <ul className="space-y-2 text-sm text-emerald-800">
+              <li>✓ Statement of Need with Uganda-specific data</li>
+              <li>✓ Evidence base with 14 cited sources</li>
+              <li>✓ Four pillars: Soil, Economic, Climate, Equity</li>
+              <li>✓ Full source citations appendix</li>
+            </ul>
+          </div>
+
           <div className="p-6 rounded-xl border-2 border-secondary/20 bg-secondary/5">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-3">Important (Strengthen)</p>
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-3">Important (Strengthen in V2)</p>
             <ul className="space-y-2 text-sm text-slate">
-              <li>• Statement of Need with Uganda-specific data</li>
               <li>• Partnership documentation and letters of support</li>
               <li>• Pilot results/proof of concept (when available)</li>
               <li>• Risk management plan</li>
+              <li>• Executive Summary (write last)</li>
             </ul>
           </div>
 
@@ -1220,13 +1231,6 @@ export default function V0GrantProposalPage() {
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate/60 mb-3">Knowledge Capture</p>
             <p className="text-sm text-slate">
               Use [GAP] markers as questionnaire framework for knowledge capture sessions with client
-            </p>
-          </div>
-
-          <div className="p-6 rounded-xl border border-mist bg-white">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate/60 mb-3">Funder Targeting</p>
-            <p className="text-sm text-slate">
-              Match v1 to specific funding opportunity requirements using Funder Alignment Matrix
             </p>
           </div>
         </div>
