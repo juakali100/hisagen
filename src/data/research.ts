@@ -6,6 +6,35 @@ import { ResearchEntry } from '../types/knowledge-base';
 export const research: ResearchEntry[] = [
   // 2026
   {
+    id: 'research-2026-01-17-locus-ag-carbon-deep-dive',
+    type: 'research',
+    subtype: 'analysis',
+    date: '2026-01-17',
+    title: 'Locus AG Carbon Deep Dive: CarbonNOW Program & Carbon Credit Mechanics',
+    summary: 'Comprehensive analysis of Locus AG\'s CarbonNOW carbon farming program, additionality concepts, and carbon credit infrastructure. Key partner intelligence for understanding MRV and commercialization pathways.',
+    tags: ['Carbon', 'Locus AG', 'CarbonNOW', 'MRV', 'Research', 'Deep Dive'],
+    file: 'research/2026/2026-01-17-locus-ag-carbon-deep-dive.md',
+    synthesis: [
+      'CarbonNOW: Biologicals approved as "additionality" - opens carbon markets to farmers already doing cover crops/no-till.',
+      'Carbon claims: 121% more carbon sequestered vs untreated plots (third-party verified); 3.3-8.6 MT CO2eq/acre/year.',
+      'Farmer economics: 100% product costs covered + up to 20% revenue share on carbon credit sales.',
+      'Key partners: Anew (verification), Nori (marketplace), COMET-Farm (USDA accounting).',
+      'MRV approach: Annual soil sampling for Bulk Density + SOC, control fields for comparison.',
+      'HISAGEN relevance: Biochar permanence (100+ years) commands premium vs biological soil carbon (~20 years).',
+    ],
+    dataPoints: [
+      { label: 'Carbon increase vs untreated', value: '121%' },
+      { label: 'CO2 equivalents per acre/year', value: '3.3-8.6 MT' },
+      { label: 'Carbon capture vs other regen practices', value: '3x more' },
+      { label: 'Revenue share to farmers', value: 'Up to 20%' },
+      { label: 'Minimum acreage requirement', value: '500 acres' },
+    ],
+    source: 'Firecrawl scrape of locusag.com (6 pages)',
+    relatedIds: ['research-2024-06-01-locus-overview', 'comm-2026-01-16-keir-locus-ceo'],
+    createdAt: '2026-01-17',
+    updatedAt: '2026-01-17',
+  },
+  {
     id: 'research-2026-01-16-uganda-deck',
     type: 'research',
     subtype: 'deck',
