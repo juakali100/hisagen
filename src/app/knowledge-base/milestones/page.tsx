@@ -97,7 +97,7 @@ export default function MilestonesPage() {
 
       {/* Back link */}
       <Link
-        href="/resources"
+        href="/knowledge-base"
         className="inline-flex items-center gap-2 text-sm text-secondary hover:text-secondary/80 mb-6 transition-colors"
       >
         <ArrowLeftIcon className="size-4" />

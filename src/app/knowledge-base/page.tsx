@@ -173,7 +173,7 @@ export default function ResourcesHub() {
                 title="Communications"
                 description="Emails, calls, meetings, and messages capturing key discussions and decisions."
                 count={stats.communications}
-                href="/resources/communications"
+                href="/knowledge-base/communications"
                 recentItems={recentCommunications}
               />
               <SectionCard
@@ -181,7 +181,7 @@ export default function ResourcesHub() {
                 title="Research"
                 description="Decks, reports, analysis, and market data informing strategy."
                 count={stats.research}
-                href="/resources/research"
+                href="/knowledge-base/research"
                 recentItems={recentResearch}
               />
               <SectionCard
@@ -189,7 +189,7 @@ export default function ResourcesHub() {
                 title="Evidence"
                 description="Trial data, MRV metrics, certifications, and verification records."
                 count={stats.evidence}
-                href="/resources/evidence"
+                href="/knowledge-base/evidence"
                 recentItems={[]}
               />
               <SectionCard
@@ -197,7 +197,7 @@ export default function ResourcesHub() {
                 title="Milestones"
                 description="Regulatory, commercial, and operational milestones tracking progress."
                 count={stats.milestones}
-                href="/resources/milestones"
+                href="/knowledge-base/milestones"
                 recentItems={recentMilestones}
               />
               <SectionCard

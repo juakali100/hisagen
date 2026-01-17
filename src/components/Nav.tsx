@@ -25,7 +25,7 @@ const navItems = [
       },
     ],
   },
-  { href: "/resources", label: "Knowledge Base" },
+  { href: "/knowledge-base", label: "Knowledge Base" },
 ] as const;
 
 export default function Nav() {

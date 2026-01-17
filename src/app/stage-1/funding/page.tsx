@@ -427,7 +427,7 @@ export default function Stage1FundingPage() {
           </Link>
 
           <Link
-            href="/resources"
+            href="/knowledge-base"
             className="group p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60 mb-2">Supporting</p>

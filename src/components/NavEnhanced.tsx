@@ -353,7 +353,7 @@ export default function NavEnhanced() {
           </HoverPopover>
 
           {/* Knowledge Base Flyout */}
-          <HoverPopover buttonLabel="Knowledge Base" buttonHref="/resources">
+          <HoverPopover buttonLabel="Knowledge Base" buttonHref="/knowledge-base">
             <div className="mx-auto max-w-7xl px-6 py-8 lg:px-8">
               <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
                 {/* Left: Sections with counts */}
@@ -364,10 +364,10 @@ export default function NavEnhanced() {
                   </h3>
                   <div className="mt-4 space-y-1">
                     {[
-                      { name: "Communications", href: "/resources/communications", count: communications.length },
-                      { name: "Research", href: "/resources/research", count: research.length },
-                      { name: "Evidence", href: "/resources/evidence", count: evidence.length },
-                      { name: "Milestones", href: "/resources/milestones", count: milestones.length },
+                      { name: "Communications", href: "/knowledge-base/communications", count: communications.length },
+                      { name: "Research", href: "/knowledge-base/research", count: research.length },
+                      { name: "Evidence", href: "/knowledge-base/evidence", count: evidence.length },
+                      { name: "Milestones", href: "/knowledge-base/milestones", count: milestones.length },
                       { name: "Ecosystem", href: "/ecosystem", count: ecosystem.length },
                     ].map((section) => (
                       <Link
@@ -385,7 +385,7 @@ export default function NavEnhanced() {
 
                   {/* Quick search link */}
                   <Link
-                    href="/resources"
+                    href="/knowledge-base"
                     className="mt-6 flex items-center gap-2 text-xs text-white/50 hover:text-accent transition-colors"
                   >
                     <MagnifyingGlassIcon className="size-4" />
@@ -420,7 +420,7 @@ export default function NavEnhanced() {
 
                   {/* View all link */}
                   <Link
-                    href="/resources"
+                    href="/knowledge-base"
                     className="mt-4 inline-flex items-center text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
                   >
                     View all entries →

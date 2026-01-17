@@ -83,7 +83,7 @@ export default function UgandaPilotPage() {
 
       {/* Back link */}
       <Link
-        href="/resources/evidence"
+        href="/knowledge-base/evidence"
         className="inline-flex items-center gap-2 text-sm text-secondary hover:text-secondary/80 mb-6 transition-colors"
       >
         <ArrowLeftIcon className="size-4" />
@@ -409,7 +409,7 @@ export default function UgandaPilotPage() {
             <p className="text-xs text-slate/60">Full project overview and implementation details</p>
           </Link>
           <Link
-            href="/resources/milestones"
+            href="/knowledge-base/milestones"
             className="p-4 rounded-lg bg-white border border-mist hover:border-secondary/30 transition-colors group"
           >
             <p className="text-sm font-bold text-secondary group-hover:text-accent transition-colors">

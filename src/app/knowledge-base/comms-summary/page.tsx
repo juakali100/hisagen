@@ -5,7 +5,7 @@ export default function CommsSummaryPage() {
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
         stage="Knowledge Base"
-        trail={[{ label: "Overview", href: "/" }, { label: "Knowledge Base", href: "/resources" }, { label: "Comms Summary" }]}
+        trail={[{ label: "Overview", href: "/" }, { label: "Knowledge Base", href: "/knowledge-base" }, { label: "Comms Summary" }]}
       />
 
       <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">

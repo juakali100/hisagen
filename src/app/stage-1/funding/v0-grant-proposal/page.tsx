@@ -776,7 +776,7 @@ export default function V0GrantProposalPage() {
           </Link>
 
           <Link
-            href="/resources"
+            href="/knowledge-base"
             className="group p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
           >
             <div className="flex items-center gap-2 mb-3">

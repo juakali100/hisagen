@@ -88,7 +88,7 @@ export default function EvidencePage() {
       <section className="mt-10 border-t border-mist pt-8 mb-12">
         <div className="flex justify-between items-center">
           <p className="text-sm text-slate italic font-medium">Supporting documentation available in the Resources section.</p>
-          <a href="/resources" className="px-6 py-2 bg-secondary text-parchment rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-colors">
+          <a href="/knowledge-base" className="px-6 py-2 bg-secondary text-parchment rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary transition-colors">
             Open Vault →
           </a>
         </div>

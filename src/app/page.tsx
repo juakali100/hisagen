@@ -89,7 +89,7 @@ export default function HomePage() {
                 >
                   Explore programs
                 </a>
-                <a href="/resources" className="text-sm font-bold text-secondary hover:text-primary transition-colors">
+                <a href="/knowledge-base" className="text-sm font-bold text-secondary hover:text-primary transition-colors">
                   Knowledge Base <span aria-hidden="true">→</span>
                 </a>
               </div>
@@ -300,7 +300,7 @@ export default function HomePage() {
         </div>
         <div className="flex gap-8">
           <a
-            href="/resources"
+            href="/knowledge-base"
             className="group text-[10px] font-bold uppercase tracking-widest text-secondary hover:text-primary transition-all duration-300 relative"
           >
             Knowledge Base

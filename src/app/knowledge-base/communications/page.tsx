@@ -2,65 +2,73 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowLeftIcon } from "@heroicons/react/20/solid";
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
+import { ChevronDownIcon, ArrowLeftIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import { SearchBar, EntryCard, TagBadge, DateRangeFilter, filterByDateRange } from "../../../components/knowledge-base";
 import type { DateRange } from "../../../components/knowledge-base";
 import {
-  research,
-  getResearchTags,
-  ResearchEntry,
-  ResearchSubtype,
+  communications,
+  getCommunicationsByYear,
+  getCommunicationTags,
+  CommunicationEntry,
+  communicationSubtypeLabels,
+  CommunicationSubtype,
 } from "../../../data";
 
-const subtypeLabels: Record<ResearchSubtype, string> = {
-  deck: "Deck",
-  report: "Report",
-  analysis: "Analysis",
-  "market-data": "Market Data",
-  literature: "Literature",
-};
-
-export default function ResearchPage() {
+export default function CommunicationsPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeSubtype, setActiveSubtype] = useState<ResearchSubtype | null>(null);
+  const [activeSubtype, setActiveSubtype] = useState<CommunicationSubtype | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [dateRange, setDateRange] = useState<DateRange>(null);
 
-  const allTags = getResearchTags();
-  const subtypes: ResearchSubtype[] = ["deck", "report", "analysis", "market-data", "literature"];
+  const allTags = getCommunicationTags();
+  const subtypes: CommunicationSubtype[] = ["email", "call", "meeting", "whatsapp", "document"];
 
-  // Filter research
-  const filteredResearch = useMemo(() => {
-    let result = [...research];
+  // Filter communications
+  const filteredCommunications = useMemo(() => {
+    let result = [...communications];
 
     // Filter by date range
     result = filterByDateRange(result, dateRange);
 
     // Filter by subtype
     if (activeSubtype) {
-      result = result.filter((r) => r.subtype === activeSubtype);
+      result = result.filter((c) => c.subtype === activeSubtype);
     }
 
     // Filter by tags
     if (activeTags.length > 0) {
-      result = result.filter((r) => activeTags.some((tag) => r.tags.includes(tag)));
+      result = result.filter((c) => activeTags.some((tag) => c.tags.includes(tag)));
     }
 
     // Filter by search
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       result = result.filter(
-        (r) =>
-          r.title.toLowerCase().includes(query) ||
-          r.summary.toLowerCase().includes(query) ||
-          r.tags.some((tag) => tag.toLowerCase().includes(query))
+        (c) =>
+          c.title.toLowerCase().includes(query) ||
+          c.summary.toLowerCase().includes(query) ||
+          c.from.toLowerCase().includes(query) ||
+          (Array.isArray(c.to) ? c.to.join(" ") : c.to).toLowerCase().includes(query) ||
+          c.tags.some((tag) => tag.toLowerCase().includes(query))
       );
     }
 
-    // Sort by date descending
-    return result.sort((a, b) => b.date.localeCompare(a.date));
+    return result;
   }, [searchQuery, activeSubtype, activeTags, dateRange]);
+
+  // Group by year
+  const groupedByYear = useMemo(() => {
+    return filteredCommunications.reduce((acc, comm) => {
+      const year = comm.date.split("-")[0];
+      if (!acc[year]) acc[year] = [];
+      acc[year].push(comm);
+      return acc;
+    }, {} as Record<string, CommunicationEntry[]>);
+  }, [filteredCommunications]);
+
+  const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
 
   // Handle tag click
   const handleTagClick = (tag: string) => {
@@ -81,11 +89,11 @@ export default function ResearchPage() {
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb stage="Research" />
+      <StageBreadcrumb stage="Communications" />
 
       {/* Back link */}
       <Link
-        href="/resources"
+        href="/knowledge-base"
         className="inline-flex items-center gap-2 text-sm text-secondary hover:text-secondary/80 mb-6 transition-colors"
       >
         <ArrowLeftIcon className="size-4" />
@@ -98,21 +106,21 @@ export default function ResearchPage() {
           Knowledge Base
         </p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          Research
+          Communications
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate italic">
-          Decks, reports, analysis, and market data informing HISAGEN's strategy and operations.
+          Emails, calls, meetings, and messages capturing key discussions and decisions across the HISAGEN project.
         </p>
 
         {/* Stats */}
         <div className="mt-6 flex flex-wrap gap-4">
           <div className="px-3 py-1.5 rounded-lg bg-white border border-mist">
-            <span className="text-lg font-bold text-secondary">{research.length}</span>
+            <span className="text-lg font-bold text-secondary">{communications.length}</span>
             <span className="ml-2 text-xs text-slate/60">Total</span>
           </div>
           {isFiltering && (
             <div className="px-3 py-1.5 rounded-lg bg-secondary/10 border border-secondary/20">
-              <span className="text-lg font-bold text-secondary">{filteredResearch.length}</span>
+              <span className="text-lg font-bold text-secondary">{filteredCommunications.length}</span>
               <span className="ml-2 text-xs text-secondary/60">Matching</span>
             </div>
           )}
@@ -124,7 +132,7 @@ export default function ResearchPage() {
         <SearchBar
           value={searchQuery}
           onChange={setSearchQuery}
-          placeholder="Search research..."
+          placeholder="Search communications..."
           className="max-w-lg"
         />
 
@@ -146,23 +154,19 @@ export default function ResearchPage() {
           >
             All
           </button>
-          {subtypes.map((subtype) => {
-            const count = research.filter((r) => r.subtype === subtype).length;
-            if (count === 0) return null;
-            return (
-              <button
-                key={subtype}
-                onClick={() => setActiveSubtype(activeSubtype === subtype ? null : subtype)}
-                className={`text-[10px] font-medium px-2 py-1 rounded transition-colors ${
-                  activeSubtype === subtype
-                    ? "bg-secondary text-white"
-                    : "bg-parchment text-slate/60 hover:bg-secondary/10"
-                }`}
-              >
-                {subtypeLabels[subtype]} ({count})
-              </button>
-            );
-          })}
+          {subtypes.map((subtype) => (
+            <button
+              key={subtype}
+              onClick={() => setActiveSubtype(activeSubtype === subtype ? null : subtype)}
+              className={`text-[10px] font-medium px-2 py-1 rounded transition-colors ${
+                activeSubtype === subtype
+                  ? "bg-secondary text-white"
+                  : "bg-parchment text-slate/60 hover:bg-secondary/10"
+              }`}
+            >
+              {communicationSubtypeLabels[subtype]}
+            </button>
+          ))}
         </div>
 
         {/* Active tag filters */}
@@ -190,20 +194,48 @@ export default function ResearchPage() {
         )}
       </section>
 
-      {/* Research entries */}
+      {/* Communications by Year */}
       <section className="mt-8 space-y-4">
-        {filteredResearch.length === 0 ? (
+        {years.length === 0 ? (
           <p className="text-sm text-slate/60 italic py-8 text-center">
-            No research entries match your filters.
+            No communications match your filters.
           </p>
         ) : (
-          filteredResearch.map((entry) => (
-            <EntryCard
-              key={entry.id}
-              entry={entry}
-              onTagClick={handleTagClick}
-              showType={false}
-            />
+          years.map((year) => (
+            <Disclosure key={year} defaultOpen={year === years[0]}>
+              {({ open }) => (
+                <div className="rounded-xl border border-mist bg-parchment/20 overflow-hidden">
+                  <DisclosureButton className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-parchment/40 transition-colors">
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-bold text-secondary">{year}</span>
+                      <span className="text-[10px] text-slate/60 font-medium">
+                        {groupedByYear[year].length}{" "}
+                        {groupedByYear[year].length === 1 ? "item" : "items"}
+                      </span>
+                    </div>
+                    <ChevronDownIcon
+                      className={`size-5 text-secondary/50 transition-transform duration-200 ${
+                        open ? "rotate-180" : ""
+                      }`}
+                    />
+                  </DisclosureButton>
+                  <DisclosurePanel className="px-4 pb-4">
+                    <div className="grid gap-4 pt-2">
+                      {groupedByYear[year]
+                        .sort((a, b) => b.date.localeCompare(a.date))
+                        .map((comm) => (
+                          <EntryCard
+                            key={comm.id}
+                            entry={comm}
+                            onTagClick={handleTagClick}
+                            showType={false}
+                          />
+                        ))}
+                    </div>
+                  </DisclosurePanel>
+                </div>
+              )}
+            </Disclosure>
           ))
         )}
       </section>

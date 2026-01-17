@@ -28,7 +28,7 @@ export default function EvidencePage() {
 
       {/* Back link */}
       <Link
-        href="/resources"
+        href="/knowledge-base"
         className="inline-flex items-center gap-2 text-sm text-secondary hover:text-secondary/80 mb-6 transition-colors"
       >
         <ArrowLeftIcon className="size-4" />
@@ -73,7 +73,7 @@ export default function EvidencePage() {
       {/* Featured Project: Uganda Pilot */}
       <section className="mt-8">
         <Link
-          href="/resources/evidence/uganda-pilot"
+          href="/knowledge-base/evidence/uganda-pilot"
           className="block p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-parchment/40 border border-emerald-100 hover:border-emerald-300 transition-all group"
         >
           <div className="flex items-start gap-4">
