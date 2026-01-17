@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { DocumentTextIcon, ClockIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { DocumentTextIcon, ClockIcon, SparklesIcon, ShareIcon } from "@heroicons/react/24/outline";
 import StageBreadcrumb from "../../components/StageBreadcrumb";
 import { SearchBar, SectionCard, EntryCard, TagBadge, useSelection } from "../../components/knowledge-base";
 import {
@@ -215,7 +215,7 @@ export default function ResourcesHub() {
           </section>
 
           {/* Tools Section */}
-          <section className="mt-8 grid gap-4 md:grid-cols-3">
+          <section className="mt-8 grid gap-4 md:grid-cols-2">
             {/* AI Query CTA */}
             <Link
               href="/knowledge-base/query"
@@ -283,6 +283,31 @@ export default function ResourcesHub() {
                   </div>
                   <p className="text-sm text-slate">
                     Generate reports from selected entries.
+                  </p>
+                </div>
+              </div>
+            </Link>
+
+            {/* Relationship Graph CTA */}
+            <Link
+              href="/knowledge-base/graph"
+              className="block p-6 rounded-2xl bg-gradient-to-br from-sky-50 to-parchment border border-sky-200/50 hover:border-sky-300 transition-all group"
+            >
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-sky-100 group-hover:bg-sky-200/70 transition-colors">
+                  <ShareIcon className="size-6 text-sky-700" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-lg font-bold text-sky-800 group-hover:text-sky-700 transition-colors">
+                      Relationships
+                    </h3>
+                    <span className="px-1.5 py-0.5 rounded bg-sky-600 text-white text-[8px] font-bold uppercase">
+                      New
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate mt-1">
+                    Interactive network graph of HISAGEN connections.
                   </p>
                 </div>
               </div>

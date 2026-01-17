@@ -43,6 +43,7 @@ export default function RelationshipGraph({ activeFilters }: RelationshipGraphPr
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Filter nodes and edges based on active filters
   const graphDataFormatted = useMemo(() => {
@@ -86,9 +87,12 @@ export default function RelationshipGraph({ activeFilters }: RelationshipGraphPr
     return connected;
   }, []);
 
-  // Handle container resize
+  // Handle container resize and mobile detection
   useEffect(() => {
     const updateDimensions = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+
       if (containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
         setDimensions({
@@ -263,6 +267,30 @@ export default function RelationshipGraph({ activeFilters }: RelationshipGraphPr
   const getPortalPage = (node: GraphNode): string | null => {
     return node.metadata?.portalPage || null;
   };
+
+  // Mobile view
+  if (isMobile) {
+    return (
+      <div className="rounded-2xl border border-mist bg-parchment/40 p-8 text-center">
+        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-sky-100 flex items-center justify-center">
+          <svg className="w-8 h-8 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h3 className="text-lg font-semibold text-secondary font-serif mb-2">
+          Desktop Recommended
+        </h3>
+        <p className="text-sm text-slate max-w-sm mx-auto leading-relaxed">
+          The relationship graph is best viewed on a larger screen. Please visit this page on a desktop or tablet for the full interactive experience.
+        </p>
+        <div className="mt-6 p-4 rounded-lg bg-white border border-mist">
+          <p className="text-xs text-slate/60 font-medium uppercase tracking-wider mb-2">Quick Stats</p>
+          <p className="text-2xl font-bold text-secondary">{graphData.nodes.length}</p>
+          <p className="text-xs text-slate">entities in the network</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex h-[calc(100vh-320px)] min-h-[480px] gap-4">
