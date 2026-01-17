@@ -201,8 +201,9 @@ Please provide a helpful answer based on the knowledge base entries above. If yo
     });
   } catch (error) {
     console.error("Query API error:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to process query" },
+      { error: `Failed to process query: ${errorMessage}` },
       { status: 500 }
     );
   }
