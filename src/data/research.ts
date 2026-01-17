@@ -66,7 +66,7 @@ export const research: ResearchEntry[] = [
   {
     id: 'research-2026-01-16-deck-extraction-hisagen',
     type: 'research',
-    subtype: 'extraction',
+    subtype: 'analysis',
     date: '2026-01-16',
     title: 'Deck Extraction: HISAGEN Company & Strategy (pp 1-15)',
     summary: 'Raw markdown extraction of HISAGEN-specific content from 44-page deck. Team profiles, East Africa market data, Uganda trials, regulatory timeline.',
@@ -99,7 +99,7 @@ export const research: ResearchEntry[] = [
   {
     id: 'research-2026-01-16-deck-extraction-locus-ag',
     type: 'research',
-    subtype: 'extraction',
+    subtype: 'analysis',
     date: '2026-01-16',
     title: 'Deck Extraction: Locus AG Agronomy & Products (pp 16-44)',
     summary: 'Raw markdown extraction of Locus AG content from 44-page deck. Microorganism science, all product formulations, yield data across crops.',
