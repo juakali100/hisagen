@@ -60,6 +60,9 @@ export default function QueryPage() {
               communications, research, evidence, milestones, and ecosystem
               partners.
             </p>
+            <p className="mt-2 text-blue-700">
+              <span className="font-medium">Note:</span> Each question is independent—the AI has no memory of previous queries. Ask complete questions rather than follow-ups like "tell me more."
+            </p>
           </div>
         </div>
 
