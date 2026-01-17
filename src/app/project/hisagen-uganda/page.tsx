@@ -2,10 +2,10 @@ import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import Image from "next/image";
 
 const pilotFocus = [
-  { label: "Location", value: "Uganda (Primary Landscapes)" },
-  { label: "Crop Focus", value: "Maize & Intercropping" },
+  { label: "Location", value: "Uganda (4 Agro-Ecological Zones)" },
+  { label: "Crop Focus", value: "Maize, Potatoes, Peanuts, Sweet Potatoes" },
   { label: "Carbon Registry", value: "Verra VM0042" },
-  { label: "Primary Partner", value: "Deep Six Consulting" },
+  { label: "Status", value: "Q1 2026: MAAIF Approval Pending" },
 ];
 
 const whyUganda = [

@@ -95,7 +95,52 @@ function ItemCard({ item }: { item: IntelligenceEntry }) {
 }
 
 const intelligenceLedger: IntelligenceEntry[] = [
-  // CONTEXT
+  // CONTEXT - 2026
+  {
+    domain: "Context",
+    format: "Email",
+    date: "2026-01-16",
+    title: "Locus CEO Meeting & Uganda Roadmap Confirmed",
+    detail: "Keir reported positive meeting with John Uhran (Locus CEO) confirming full support for Uganda roadmap and pan-African expansion strategy. Attached comprehensive 44-page overview deck.",
+    tags: ["Locus AG", "Uganda", "Strategy", "Milestone"],
+    synthesis: [
+      "John Uhran (Locus CEO) fully supportive of proposed Uganda roadmap and path to approvals.",
+      "Expansion strategy confirmed: Uganda first → East Africa → pan-African rollout.",
+      "Locus USA remains fully committed, supportive, and engaged.",
+      "Attached overview deck includes updated HISAGEN Uganda overview (14 pages) + Locus AG agronomy data (30 pages).",
+    ]
+  },
+  {
+    domain: "Context",
+    format: "Email",
+    date: "2026-01-16",
+    title: "HISAGEN Portal Site Introduction",
+    detail: "Introduced the HISAGEN founding stewardship portal to Keir - consolidating strategy, program model, capital framework, and evidence base into one coherent internal coordination hub.",
+    tags: ["Portal", "Strategy", "Coordination"],
+    synthesis: [
+      "Portal positioned as internal coordination hub (strategy → execution alignment).",
+      "Foundation for investor-facing materials.",
+      "Living reference that grows with the project.",
+      "Key sections: Strategy & ToC, Program Model, Uganda Pilot, Capital Continuum, Knowledge Base.",
+    ]
+  },
+  {
+    domain: "Research",
+    format: "PDF",
+    date: "2026-01-16",
+    title: "HISAGEN Uganda Overview for Locus (44 pages)",
+    detail: "Comprehensive deck shared with Locus CEO. Pages 1-15: HISAGEN strategy, team, market data, Uganda trials, Q1 2026 approvals timeline. Pages 16-44: Locus AG agronomy overview with yield data.",
+    file: "03-pandion-business/operations/del/clients/hisagen/hisagen-knowledge-base/2026-01-16-HISAGEN Uganda overview for Locus.pdf",
+    tags: ["Deck", "Uganda", "Locus AG", "Timeline", "Data"],
+    synthesis: [
+      "Africa bio-stimulants market: $138.8M (2025) → $233.85M (2031) at 9.08% CAGR.",
+      "Q1 2026 Timeline: Jan submission to MAAIF → Feb-Mar approval → Apr-Jun market launch prep.",
+      "4-phase pan-Africa strategy: East → South → West → North Africa.",
+      "Locus yield data: Corn +4-6%, Soybeans +5%, Wheat +5%, Potatoes +14-22%, Sweet Potatoes +18%.",
+      "Key partners: NARO, MAAIF, UNBS for Uganda regulatory pathway.",
+    ]
+  },
+  // CONTEXT - 2025
   {
     domain: "Context",
     format: "Call",

@@ -15,9 +15,9 @@ const marketData = [
         detail: "2024 to 2034 projection (31.9% CAGR)"
     },
     {
-        metric: "285%",
-        label: "Soil Carbon Growth",
-        detail: "Fastest growing VCM segment in 2024"
+        metric: "$139M → $234M",
+        label: "Africa Bio-Stimulants",
+        detail: "2025 to 2031 at 9.08% CAGR"
     },
     {
         metric: "$15-40",
@@ -119,13 +119,14 @@ const outcomeChain = [
     }
 ];
 
-// Key assumptions with risk levels
+// Key assumptions with risk levels - updated Jan 2026
 const assumptions = [
-    { assumption: "Microbial technology performs in East African soils", evidence: "Uganda NARO trials underway", risk: "Medium" },
+    { assumption: "Microbial technology performs in East African soils", evidence: "Uganda NARO trials complete (Feb-Sep 2025) - Q1 2026 MAAIF approval pending", risk: "Low" },
     { assumption: "Carbon prices remain viable ($15+/tonne)", evidence: "Current $15-40, forward $25-30", risk: "Low" },
     { assumption: "Farmers adopt when economics proven", evidence: "Indigo precedent: 75% to farmer", risk: "Low" },
     { assumption: "Verra/Gold Standard methodologies credible", evidence: "AgriCarbon first Africa VM0042", risk: "Low" },
-    { assumption: "Corporate buyer demand continues", evidence: "SBTi, CSRD regulatory drivers", risk: "Low" }
+    { assumption: "Corporate buyer demand continues", evidence: "SBTi, CSRD regulatory drivers", risk: "Low" },
+    { assumption: "Pan-Africa expansion pathway viable", evidence: "Locus CEO confirmed: Uganda → East Africa → South/West/North Africa", risk: "Low" }
 ];
 
 // Uganda context

@@ -5,9 +5,9 @@ const evidenceCategories = [
     title: "Pilot Proof Points",
     items: [
       "Yield impact summary (Actual vs. Control maize trials).",
-      "Farmer adoption metrics from the Uganda pilot zones.",
+      "Farmer adoption metrics from 4 agro-ecological zones: maize, potatoes, peanuts, sweet potatoes.",
       "Soil Organic Carbon (SOC) baseline indicators.",
-      "Locus AG product performance validation.",
+      "Locus AG validated yield data: Corn +4-6%, Soybeans +5%, Wheat +5%, Potatoes +14-22%, Sweet Potatoes +18%.",
     ],
   },
   {
