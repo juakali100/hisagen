@@ -1,5 +1,45 @@
 import StageBreadcrumb from "../../components/StageBreadcrumb";
 
+// HISAGEN Board of Directors
+const boardOfDirectors = [
+    {
+        name: "Keir Austen-Brown",
+        role: "Co-Founder / CEO",
+        entity: "HISAGEN USA",
+        credentials: "25 years at Merrill Lynch | BSc & MBA (London) | MIT Digital Transformation",
+        detail: "British-Kenyan finance professional with over two decades of leadership experience. Currently based in Brooklyn, New York."
+    },
+    {
+        name: "Scott Hermo",
+        role: "Co-Founder / COO",
+        entity: "HISAGEN USA",
+        credentials: "30 years Fixed Income & Capital Markets | 7 years in Renewables & Agriculture",
+        detail: "Seasoned financial professional and entrepreneur. Introduced to Locus AG and, with support of the team, formed HISAGEN to bring the technology to Africa."
+    },
+    {
+        name: "Daniel Pattersson",
+        role: "Co-Founder / CEO Africa",
+        entity: "HISAGEN Africa",
+        credentials: "12 years Lafarge (7 as CEO/MD) | INSEAD MBA | Stockholm School of Economics",
+        detail: "Swedish-Nigerian entrepreneur and investor focused on East Africa. Experience across France, DRC, South Africa, and East Africa."
+    },
+    {
+        name: "Israel Tinkasimiire",
+        role: "Co-Founder / COO Africa",
+        entity: "HISAGEN Africa",
+        credentials: "17 years Lafarge/Holcim | Makerere University | GIBS & Strathmore Executive Programs",
+        detail: "Ugandan executive with focus on commercial leadership, strategy, and CO2 reduction through innovative alternative fuels. Entrepreneur with interests in logistics and agriculture."
+    }
+];
+
+// Cedric tribute
+const cedricTribute = {
+    name: "Cedric",
+    role: "Founding Inspiration",
+    period: "Deceased June 2025",
+    detail: "Cedric was our close friend and brought this team together. A Ugandan/Irish entrepreneur based in Uganda, he was a former national athlete (tennis) and Davis Cup Captain, serving as President of the Uganda Tennis Association. His vision united us around the opportunity to bring transformative agricultural technology to Africa."
+};
+
 const coreTeam = [
     {
         name: "Deep Six Consulting",
@@ -48,7 +88,58 @@ export default function OrganizationPage() {
                 </div>
             </section>
 
+            {/* Cedric Tribute - The Founding Story */}
+            <section className="mt-12 p-8 rounded-2xl border-2 border-secondary/20 bg-secondary/5">
+                <div className="flex flex-col md:flex-row gap-6 items-start">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center">
+                        <span className="text-2xl">🌱</span>
+                    </div>
+                    <div className="flex-1">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/60 mb-1">{cedricTribute.role}</p>
+                        <h3 className="text-xl font-bold text-secondary mb-1">{cedricTribute.name}</h3>
+                        <p className="text-xs text-slate/60 mb-4">{cedricTribute.period}</p>
+                        <p className="text-sm text-slate leading-relaxed italic">
+                            "{cedricTribute.detail}"
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Board of Directors */}
             <section className="mt-12">
+                <div className="flex items-center gap-4 mb-8">
+                    <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-secondary">Board of Directors</h2>
+                    <div className="h-px flex-1 bg-mist" />
+                </div>
+
+                {/* Dual Entity Structure */}
+                <div className="mb-8 p-4 rounded-xl bg-parchment/30 border border-mist">
+                    <p className="text-xs text-slate text-center">
+                        <span className="font-bold text-secondary">HISAGEN USA</span> (funding, IP, global coordination) + <span className="font-bold text-secondary">HISAGEN Africa</span> (operations, regulatory, farmer rollout)
+                    </p>
+                </div>
+
+                <div className="grid gap-6 md:grid-cols-2">
+                    {boardOfDirectors.map((director) => (
+                        <div key={director.name} className="p-6 rounded-2xl border border-mist bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-primary/20 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none">
+                            <div className="flex items-start justify-between mb-3">
+                                <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-1">{director.role}</p>
+                                    <h3 className="text-lg font-bold text-secondary">{director.name}</h3>
+                                </div>
+                                <span className="text-[9px] font-bold uppercase tracking-wide text-slate/60 bg-mist px-2 py-1 rounded">{director.entity}</span>
+                            </div>
+                            <p className="text-[10px] text-primary/80 font-medium mb-3">{director.credentials}</p>
+                            <p className="text-sm text-slate leading-relaxed">
+                                {director.detail}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Core Partners */}
+            <section className="mt-16">
                 <div className="flex items-center gap-4 mb-8">
                     <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-secondary">Core Partners</h2>
                     <div className="h-px flex-1 bg-mist" />

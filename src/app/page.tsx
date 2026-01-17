@@ -291,6 +291,54 @@ export default function HomePage() {
         </div>
         </section>
 
+        {/* Executive Summary Callout */}
+        <section className="mt-20 rounded-2xl border border-mist bg-white p-10">
+          <div className="mb-8">
+            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/40 mb-2">At a Glance</p>
+            <h2 className="text-2xl font-bold text-secondary">The HISAGEN Opportunity</h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {/* Product */}
+            <div className="p-6 rounded-xl bg-parchment/30 border border-mist">
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-3">Product</p>
+              <p className="text-sm text-slate leading-relaxed">
+                <span className="font-bold text-secondary">First-of-its-kind</span> high-quality microbial bio-stimulant in powder and liquid format, creating a new niche in the African market. Proven technology via <span className="font-bold">Locus AG (USA)</span> with scalable production ready to meet demand.
+              </p>
+            </div>
+
+            {/* Market Fit */}
+            <div className="p-6 rounded-xl bg-parchment/30 border border-mist">
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-3">African Market Fit</p>
+              <p className="text-sm text-slate leading-relaxed">
+                Delivers measurable productivity gains for <span className="font-bold text-secondary">smallholder and commercial farmers</span> using low-input, climate-resilient, and cost-effective farming practices. Reduces reliance on synthetic fertilizers while improving yields.
+              </p>
+            </div>
+
+            {/* Team */}
+            <div className="p-6 rounded-xl bg-parchment/30 border border-mist">
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-3">Team</p>
+              <p className="text-sm text-slate leading-relaxed">
+                An exceptional team brought together by <span className="font-bold text-secondary">a shared vision</span>: a banker, an entrepreneur, agronomists, and farming experts united to bring proven microbial technology to Africa. Credentials span Merrill Lynch, INSEAD, Lafarge, and MIT.
+              </p>
+            </div>
+
+            {/* Market Opportunity */}
+            <div className="p-6 rounded-xl bg-parchment/30 border border-mist">
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary mb-3">Market Opportunity</p>
+              <p className="text-sm text-slate leading-relaxed">
+                Africa bio-stimulants market: <span className="font-bold text-secondary">$138.8M (2025) → $233.85M (2031)</span> at 9.08% CAGR. Driven by sustainable agriculture adoption, government incentives, and export horticulture growth. Backed by <span className="font-bold">patented technology</span>.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-mist text-center">
+            <p className="text-xs text-slate/60">
+              Source: Mordor Intelligence | Market data validated Jan 2026
+            </p>
+          </div>
+        </section>
+
         <section className="my-16 border-t border-mist pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-3">
           <div className="w-1.5 h-1.5 rounded-full bg-primary" />
