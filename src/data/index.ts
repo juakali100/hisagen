@@ -9,7 +9,7 @@ export * from '../types/knowledge-base';
 export { communications, getCommunicationsByYear, getCommunicationTags } from './communications';
 export { research, getResearchByYear, getResearchTags, getResearchBySubtype } from './research';
 export { ecosystem, getEcosystemByEngagement, getEcosystemTags, getEcosystemBySubtype } from './ecosystem';
-export { evidence, getEvidenceByProject, getEvidenceBySubtype, getEvidenceTags, getVerifiedEvidence } from './evidence';
+export { evidence, getEvidenceByProject, getEvidenceBySubtype, getEvidenceTags, getVerifiedEvidence, getUgandaPilotEvidence } from './evidence';
 export { milestones, getMilestonesByStatus, getMilestonesBySubtype, getMilestoneTags, getCriticalPathMilestones, getMilestonesByProject } from './milestones';
 
 // Import for combined operations

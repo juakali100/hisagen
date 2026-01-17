@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeftIcon, BeakerIcon } from "@heroicons/react/20/solid";
+import { ArrowLeftIcon, BeakerIcon, MapPinIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import { SearchBar, TagBadge } from "../../../components/knowledge-base";
 import { evidence, getEvidenceByProject, EvidenceSubtype } from "../../../data";
@@ -68,6 +68,40 @@ export default function EvidencePage() {
           placeholder="Search evidence..."
           className="max-w-lg"
         />
+      </section>
+
+      {/* Featured Project: Uganda Pilot */}
+      <section className="mt-8">
+        <Link
+          href="/resources/evidence/uganda-pilot"
+          className="block p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-parchment/40 border border-emerald-100 hover:border-emerald-300 transition-all group"
+        >
+          <div className="flex items-start gap-4">
+            <div className="p-3 rounded-xl bg-emerald-100 group-hover:bg-emerald-200 transition-colors">
+              <MapPinIcon className="size-6 text-emerald-700" />
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">
+                  Featured Project
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-secondary group-hover:text-emerald-700 transition-colors">
+                Uganda Pilot Evidence
+              </h3>
+              <p className="mt-2 text-sm text-slate">
+                Comprehensive evidence roll-up for the flagship 10,000 farmer implementation.
+                Includes maize trial data, yield validation, SOC baseline, and market analysis.
+              </p>
+              <div className="mt-4 flex items-center gap-6 text-xs text-slate/70">
+                <span>{evidenceByProject['uganda-pilot']?.length || 0} entries</span>
+                <span>5 NARO zones</span>
+                <span className="text-emerald-600 font-medium">+4-22% yield improvements</span>
+              </div>
+            </div>
+            <ArrowRightIcon className="size-5 text-slate/30 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all mt-2" />
+          </div>
+        </Link>
       </section>
 
       {/* Evidence Content */}
