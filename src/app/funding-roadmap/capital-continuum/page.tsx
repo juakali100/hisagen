@@ -22,8 +22,8 @@ export default function CapitalContinuumPlaybookPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
             Making agricultural carbon <strong>bankable</strong> requires the right capital at the right stage.
-            This framework maps HISAGEN's journey from concessional grants through to institutional
-            investment—ensuring each stage has the funding architecture to prove the model.
+            This framework maps the journey from concessional grants through to institutional
+            investment—ensuring each stage has the funding architecture to de-risk and scale.
           </p>
           <div className="mt-6 flex items-center gap-2">
             <span className="text-[10px] uppercase tracking-widest text-slate/60 font-medium">Source:</span>
@@ -362,69 +362,6 @@ export default function CapitalContinuumPlaybookPage() {
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="mt-12 rounded-xl border border-mist bg-white p-6">
-        <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold">HISAGEN Draft Assessment</p>
-        <div className="mt-4 grid gap-4 text-sm text-slate md:grid-cols-3 text-center md:text-left">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Current Stage</p>
-            <p className="mt-2 text-lg font-semibold text-secondary">Stage 1 - Incubation</p>
-            <p className="mt-1 text-xs">Years 1-3</p>
-          </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Overall Score</p>
-            <p className="mt-2 text-lg font-semibold text-secondary">13 / 25</p>
-            <p className="mt-1 text-xs">52% readiness</p>
-          </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-slate font-bold">Top Gap</p>
-            <p className="mt-2 text-lg font-semibold text-secondary">Legal Clarity</p>
-            <p className="mt-1 text-xs text-amber-700 font-bold">Carbon Rights resolution</p>
-          </div>
-        </div>
-
-        <div className="mt-8 overflow-x-auto border border-mist rounded-xl">
-          <table className="w-full text-left text-sm text-slate">
-            <thead className="bg-slate-50 border-b border-mist text-xs uppercase tracking-[0.2em] text-slate">
-              <tr>
-                <th className="p-3">Pillar</th>
-                <th className="p-3">Score /5</th>
-                <th className="p-3">Status</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-mist/50">
-              <tr className="bg-white">
-                <td className="p-3 font-medium text-secondary">Counterparty</td>
-                <td className="p-3">3.5</td>
-                <td className="p-3 text-[11px]">Acceptable for incubation</td>
-              </tr>
-              <tr className="bg-white">
-                <td className="p-3 font-medium text-secondary">Policy and Legal</td>
-                <td className="p-3">2.0</td>
-                <td className="p-3 text-[11px] text-red-600 font-bold">Gap - needs resolution</td>
-              </tr>
-              <tr className="bg-white">
-                <td className="p-3 font-medium text-secondary">ESG and SDG</td>
-                <td className="p-3">2.5</td>
-                <td className="p-3 text-[11px]">Gap - needs data</td>
-              </tr>
-              <tr className="bg-white">
-                <td className="p-3 font-medium text-secondary">Technical</td>
-                <td className="p-3">3.0</td>
-                <td className="p-3 text-[11px]">Acceptable for incubation</td>
-              </tr>
-              <tr className="bg-white">
-                <td className="p-3 font-medium text-secondary">Commercial</td>
-                <td className="p-3">2.0</td>
-                <td className="p-3 text-[11px] text-red-600 font-bold">Gap - critical</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-4 text-[10px] text-slate italic">
-          Source: HISAGEN 5-Pillar Investment Readiness Assessment (v.2025-11-30).
-        </p>
       </section>
 
       {/* Grant Lifecycle Methodology */}

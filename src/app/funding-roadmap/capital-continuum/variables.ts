@@ -23,7 +23,7 @@ const stages: Stage[] = [
     capital: "Concessional Capital (Grants, Philanthropy, Sweat Equity)",
     milestones: ["Feasibility complete", "Draft PDD or equivalent", "Pilot activity underway"],
     ecosystemDomains: ["Originator", "Systems Architecture"],
-    status: "Active (Hisagen Uganda Pilot)",
+    status: "High Risk / Low Value",
   },
   {
     title: "Stage 2: Implementation",
@@ -32,7 +32,7 @@ const stages: Stage[] = [
     capital: "Blended Finance (Repayable Grants, Below-market Loans, Carbon Prepayment)",
     milestones: ["First credits issued", "MRV operational", "Delivery partners secured"],
     ecosystemDomains: ["Implementation", "Systems Architecture"],
-    status: "Targeting Q3 2026",
+    status: "Medium Risk / Growing Value",
   },
   {
     title: "Stage 3: Stabilization",
@@ -41,7 +41,7 @@ const stages: Stage[] = [
     capital: "Impact & Commercial Capital (Carbon Collateralized Debt, Preferred Equity)",
     milestones: ["Multi-year track record", "Stable cashflows", "Scaled governance"],
     ecosystemDomains: ["Certification", "Monetization"],
-    status: "Strategic Backlog",
+    status: "Low Risk / High Value",
   },
   {
     title: "Stage 4: Maturity",
@@ -50,7 +50,7 @@ const stages: Stage[] = [
     capital: "Commercial Capital (Institutional Debt, Green Bonds, Public Equity)",
     milestones: ["10+ years performance", "Taxonomy eligible", "Institutional investors active"],
     ecosystemDomains: ["Monetization"],
-    status: "Strategic Backlog",
+    status: "Bankable Asset",
   },
 ];
 
