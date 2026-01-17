@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ClockIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { ClockIcon, ArrowLeftIcon, QuestionMarkCircleIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import { Timeline, SearchBar, TagBadge } from "../../../components/knowledge-base";
 import { getAllEntries, getAllTags, getKnowledgeBaseStats } from "../../../data";
@@ -10,6 +10,7 @@ import { getAllEntries, getAllTags, getKnowledgeBaseStats } from "../../../data"
 export default function TimelinePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTags, setActiveTags] = useState<string[]>([]);
+  const [showGuide, setShowGuide] = useState(false);
 
   const allEntries = getAllEntries();
   const allTags = getAllTags();
@@ -98,6 +99,81 @@ export default function TimelinePage() {
             </span>
           </div>
         </div>
+      </section>
+
+      {/* How to Use Guide */}
+      <section className="mt-6">
+        <button
+          onClick={() => setShowGuide(!showGuide)}
+          className="flex items-center gap-2 text-sm text-secondary hover:text-secondary/80 transition-colors group"
+        >
+          <QuestionMarkCircleIcon className="w-5 h-5" />
+          <span className="font-medium">How to use the Timeline</span>
+          <ChevronDownIcon
+            className={`w-4 h-4 transition-transform ${showGuide ? "rotate-180" : ""}`}
+          />
+        </button>
+
+        {showGuide && (
+          <div className="mt-4 p-6 rounded-xl bg-white border border-mist">
+            <div className="grid gap-6 md:grid-cols-2">
+              {/* Grouping */}
+              <div>
+                <h3 className="text-sm font-bold text-secondary mb-2 flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-secondary/10 text-secondary text-xs flex items-center justify-center">1</span>
+                  Change Time Grouping
+                </h3>
+                <p className="text-xs text-slate leading-relaxed">
+                  Use the <strong>Month</strong>, <strong>Quarter</strong>, or <strong>Year</strong> buttons to change how entries are grouped. Month shows the most detail, Year gives a high-level overview.
+                </p>
+              </div>
+
+              {/* Type Filters */}
+              <div>
+                <h3 className="text-sm font-bold text-secondary mb-2 flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-secondary/10 text-secondary text-xs flex items-center justify-center">2</span>
+                  Filter by Type
+                </h3>
+                <p className="text-xs text-slate leading-relaxed">
+                  Click the type buttons (<strong>Communications</strong>, <strong>Research</strong>, <strong>Evidence</strong>, etc.) to show only specific entry types. Click again to remove the filter.
+                </p>
+              </div>
+
+              {/* Expand Entries */}
+              <div>
+                <h3 className="text-sm font-bold text-secondary mb-2 flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-secondary/10 text-secondary text-xs flex items-center justify-center">3</span>
+                  Expand Entries
+                </h3>
+                <p className="text-xs text-slate leading-relaxed">
+                  Click any entry card to expand it and see full details including tags, sender/recipient info, and related metadata. Click again to collapse.
+                </p>
+              </div>
+
+              {/* Search & Tags */}
+              <div>
+                <h3 className="text-sm font-bold text-secondary mb-2 flex items-center gap-2">
+                  <span className="w-5 h-5 rounded-full bg-secondary/10 text-secondary text-xs flex items-center justify-center">4</span>
+                  Search & Tag Filters
+                </h3>
+                <p className="text-xs text-slate leading-relaxed">
+                  Use the search bar to find entries by keyword. Click tag buttons below to filter by theme (e.g., #Uganda, #Locus AG). Multiple filters can be combined.
+                </p>
+              </div>
+            </div>
+
+            {/* Example Use Cases */}
+            <div className="mt-6 pt-4 border-t border-mist">
+              <h3 className="text-xs font-bold text-slate/60 uppercase tracking-widest mb-3">Example Questions This Helps Answer</h3>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs bg-slate-50 text-slate px-3 py-1.5 rounded-lg">"What happened in November 2025?"</span>
+                <span className="text-xs bg-slate-50 text-slate px-3 py-1.5 rounded-lg">"Show me all milestones"</span>
+                <span className="text-xs bg-slate-50 text-slate px-3 py-1.5 rounded-lg">"What communications mention Locus?"</span>
+                <span className="text-xs bg-slate-50 text-slate px-3 py-1.5 rounded-lg">"Give me a quarterly overview"</span>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* Search Section */}
