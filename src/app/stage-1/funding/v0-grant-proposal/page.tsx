@@ -625,13 +625,84 @@ export default function V0GrantProposalPage() {
             <h3 className="text-lg font-bold text-secondary mb-4">Sustainability</h3>
             <p className="text-base text-slate leading-relaxed mb-6">
               HISAGEN is designed as a financially sustainable business model, not perpetually grant-dependent.
+              The project follows a deliberate <strong>Capital Continuum</strong> pathway where funding sources evolve
+              as the project matures and risk decreases.
             </p>
 
+            {/* Capital Evolution Pathway */}
+            <div className="mb-8 p-6 rounded-xl border-2 border-secondary/20 bg-secondary/5">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-4">Capital Evolution Pathway</p>
+              <p className="text-xs text-slate mb-4">
+                Grant funding enables Stage 1 foundations. As the project proves itself, it unlocks progressively
+                commercial capital sources - reducing grant dependency over time.
+              </p>
+
+              {/* 4-Stage Visual */}
+              <div className="grid grid-cols-4 gap-2">
+                {/* Stage 1 */}
+                <div className="p-3 rounded-lg border-2 border-secondary bg-secondary/10 relative">
+                  <div className="absolute -top-2 left-2 px-2 py-0.5 bg-secondary text-parchment text-[8px] font-bold uppercase tracking-widest rounded">
+                    Current
+                  </div>
+                  <p className="text-[10px] font-bold text-secondary mt-2">Stage 1</p>
+                  <p className="text-xs font-bold text-secondary">Incubation</p>
+                  <p className="text-[9px] text-slate mt-1">2024-2026</p>
+                  <div className="mt-2 pt-2 border-t border-secondary/20">
+                    <p className="text-[8px] font-bold uppercase tracking-widest text-secondary/60">Capital</p>
+                    <p className="text-[9px] text-slate">Grants, Philanthropy, Sweat Equity</p>
+                  </div>
+                </div>
+
+                {/* Stage 2 */}
+                <div className="p-3 rounded-lg border border-mist bg-white">
+                  <p className="text-[10px] font-bold text-slate/60 mt-2">Stage 2</p>
+                  <p className="text-xs font-bold text-secondary">Implementation</p>
+                  <p className="text-[9px] text-slate mt-1">2027-2030</p>
+                  <div className="mt-2 pt-2 border-t border-mist">
+                    <p className="text-[8px] font-bold uppercase tracking-widest text-slate/60">Capital</p>
+                    <p className="text-[9px] text-slate">Carbon Prepayment, Blended Finance</p>
+                  </div>
+                </div>
+
+                {/* Stage 3 */}
+                <div className="p-3 rounded-lg border border-mist bg-white">
+                  <p className="text-[10px] font-bold text-slate/60 mt-2">Stage 3</p>
+                  <p className="text-xs font-bold text-secondary">Stabilization</p>
+                  <p className="text-[9px] text-slate mt-1">2031-2040</p>
+                  <div className="mt-2 pt-2 border-t border-mist">
+                    <p className="text-[8px] font-bold uppercase tracking-widest text-slate/60">Capital</p>
+                    <p className="text-[9px] text-slate">Impact Capital, Carbon-Backed Debt</p>
+                  </div>
+                </div>
+
+                {/* Stage 4 */}
+                <div className="p-3 rounded-lg border border-mist bg-white">
+                  <p className="text-[10px] font-bold text-slate/60 mt-2">Stage 4</p>
+                  <p className="text-xs font-bold text-secondary">Maturity</p>
+                  <p className="text-[9px] text-slate mt-1">2041+</p>
+                  <div className="mt-2 pt-2 border-t border-mist">
+                    <p className="text-[8px] font-bold uppercase tracking-widest text-slate/60">Capital</p>
+                    <p className="text-[9px] text-slate">Institutional Debt, Green Bonds</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Arrow indicators */}
+              <div className="flex items-center justify-center mt-4 gap-1">
+                <span className="text-[9px] text-slate/60">High Risk / Grant Dependent</span>
+                <div className="flex-1 h-1 bg-gradient-to-r from-amber-400 via-emerald-400 to-secondary rounded mx-2" />
+                <span className="text-[9px] text-slate/60">Low Risk / Commercially Viable</span>
+              </div>
+            </div>
+
+            {/* Revenue Streams */}
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary/60 mb-4">Revenue Streams (Enabling Capital Transition)</p>
             <div className="space-y-4">
               <div className="p-4 rounded-lg border border-primary/20 bg-primary/5">
                 <p className="text-sm font-bold text-primary mb-2">Revenue Stream 1: Carbon Credit Sales</p>
                 <p className="text-sm text-slate mb-2">
-                  Ongoing revenue from soil carbon sequestration with majority share to farmers
+                  Ongoing revenue from soil carbon sequestration with majority share to farmers.
+                  <span className="text-xs text-slate/60 ml-1">(Primary revenue from Stage 2+)</span>
                 </p>
                 <div className="p-3 rounded bg-amber-50 border border-amber-200">
                   <p className="text-xs text-amber-800">[GAP: Expected revenue per tCO2? Revenue share model? Market strategy?]</p>
@@ -641,7 +712,8 @@ export default function V0GrantProposalPage() {
               <div className="p-4 rounded-lg border border-primary/20 bg-primary/5">
                 <p className="text-sm font-bold text-primary mb-2">Revenue Stream 2: Product Sales & Platform Fees</p>
                 <p className="text-sm text-slate mb-2">
-                  Biofertilizer/biopesticide sales margins and digital platform transaction fees
+                  Biofertilizer/biopesticide sales margins and digital platform transaction fees.
+                  <span className="text-xs text-slate/60 ml-1">(Begins Stage 1, scales Stage 2+)</span>
                 </p>
                 <div className="p-3 rounded bg-amber-50 border border-amber-200">
                   <p className="text-xs text-amber-800">[GAP: Margin model? Volume projections? Transaction fee structure?]</p>
@@ -651,7 +723,8 @@ export default function V0GrantProposalPage() {
               <div className="p-4 rounded-lg border border-primary/20 bg-primary/5">
                 <p className="text-sm font-bold text-primary mb-2">Revenue Stream 3: Technical Services</p>
                 <p className="text-sm text-slate mb-2">
-                  Consulting/advisory services and technology transfer to other organizations
+                  Consulting/advisory services and technology transfer to other organizations.
+                  <span className="text-xs text-slate/60 ml-1">(Opportunistic from Stage 2+)</span>
                 </p>
                 <div className="p-3 rounded bg-amber-50 border border-amber-200">
                   <p className="text-xs text-amber-800">[GAP: Service revenue potential? Licensing opportunities?]</p>
@@ -659,13 +732,18 @@ export default function V0GrantProposalPage() {
               </div>
             </div>
 
+            {/* Transition Timeline - Enhanced */}
             <div className="mt-6 p-6 rounded-xl bg-slate-50 border border-slate-200">
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary/60 mb-3">Transition Timeline</p>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-secondary/60 mb-3">Stage 1 Transition Timeline</p>
               <div className="space-y-2 text-sm text-slate">
-                <p><strong>Year 1 (Grant-funded):</strong> Establish systems, enroll farmers, implement practices</p>
-                <p><strong>Year 2 (Transition):</strong> Early carbon revenue beginning, product cost-recovery improving</p>
-                <p><strong>Year 3+ (Sustainable):</strong> Carbon revenue maturing, product sales self-sustaining, platform fees growing</p>
+                <p><strong>Year 1 (Grant-funded):</strong> Complete regulatory approval, establish distribution, enroll initial farmers</p>
+                <p><strong>Year 2 (Transition):</strong> Early carbon MRV data, product revenue beginning, blended finance conversations</p>
+                <p><strong>Year 3 (Stage 2 Ready):</strong> Carbon prepayment agreements, reduced grant dependency, impact investor ready</p>
               </div>
+              <p className="mt-4 text-xs text-slate/60 italic">
+                By end of Stage 1, HISAGEN will have the track record and revenue foundations to attract
+                Stage 2 capital (carbon prepayment, impact investment) - transitioning away from grant dependency.
+              </p>
             </div>
           </div>
         </div>
