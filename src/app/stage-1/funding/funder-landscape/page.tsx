@@ -204,7 +204,7 @@ const sweatEquity: MatchFundingItem[] = [
   { contributor: "Deep Six Consulting (Keir)", activity: "Corporate strategy, partnerships, investor relations", hours: "TBC", rate: "$250/hr", value: "TBC" },
   { contributor: "HISAGEN USA", activity: "Locus AG coordination, US operations", hours: "TBC", rate: "$150/hr", value: "TBC" },
   { contributor: "HISAGEN Uganda", activity: "NARO relationship, field coordination, local operations", hours: "TBC", rate: "$50/hr", value: "TBC" },
-  { contributor: "Pandion Studio", activity: "Portal development, grant proposal V1.1, funder targeting", hours: "~56", rate: "$200/hr", value: "~$11,200" },
+  { contributor: "Pandion Studio", activity: "Strategy, grants, portal, research, brand", hours: "115", rate: "$200/hr", value: "$23,000" },
 ];
 
 const inKindContributions = [
@@ -505,8 +505,8 @@ export default function FunderLandscapePage() {
           <div className="grid gap-6 md:grid-cols-3 mb-6">
             <div className="p-5 rounded-xl bg-white border border-mist">
               <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Sweat Equity</p>
-              <p className="text-2xl font-bold text-primary">$11,200+</p>
-              <p className="text-xs text-slate mt-2">Confirmed (Pandion Studio)</p>
+              <p className="text-2xl font-bold text-primary">$23,000+</p>
+              <p className="text-xs text-slate mt-2">Confirmed (Pandion Studio: 115 hrs)</p>
               <p className="text-xs text-slate/60 mt-1">+ Deep Six, HISAGEN USA/Uganda TBC</p>
             </div>
 
