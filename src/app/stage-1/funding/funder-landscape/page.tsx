@@ -1067,7 +1067,7 @@ export default function FunderLandscapePage() {
 
                   {/* Summary */}
                   <div className="p-3 rounded-lg bg-slate-100 border border-slate-200">
-                    <p className="text-xs text-slate"><strong>Minimum ask:</strong> If no monetary value captured, ensure Tier 2 recognition is formalized - sponsorship agreement, portfolio rights, testimonial, referrals. The work has value and should be acknowledged appropriately.</p>
+                    <p className="text-xs text-slate"><strong>Minimum ask:</strong> If no monetary value captured, Pandion would request that Tier 2 recognition be formalized - sponsorship agreement, portfolio rights, testimonial, or referrals as appropriate.</p>
                   </div>
                 </div>
               </div>
