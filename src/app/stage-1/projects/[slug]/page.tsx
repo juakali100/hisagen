@@ -103,7 +103,7 @@ export default function ProjectPage() {
       <StageBreadcrumb
         stage={project.funderName}
         trail={[
-          { label: "Stage 1 Funding", href: "/stage-1/funding" },
+          { label: "Uganda Pilot", href: "/project/hisagen-uganda" },
           { label: "Grant Projects", href: "/stage-1/projects" },
           { label: project.funderName },
         ]}

@@ -105,9 +105,8 @@ export default function Stage1FundingPage() {
       <StageBreadcrumb
         stage="Stage 1 Funding"
         trail={[
-          { label: "Capital Continuum", href: "/funding-roadmap/capital-continuum" },
-          { label: "Stage 1: Incubation", href: "/stage-1" },
-          { label: "Funding Applications" }
+          { label: "Uganda Pilot", href: "/project/hisagen-uganda" },
+          { label: "Funding Tracker" }
         ]}
       />
 

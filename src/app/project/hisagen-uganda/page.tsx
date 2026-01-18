@@ -577,6 +577,81 @@ export default function PilotPage() {
         </div>
       </section>
 
+      {/* Funding Tracker */}
+      <section className="mt-16 border-t border-mist pt-12">
+        <div className="mb-8">
+          <p className="text-xs uppercase tracking-[0.3em] font-bold text-primary">Stage 1 Operations</p>
+          <h2 className="mt-2 text-3xl font-bold text-secondary">Funding Tracker</h2>
+          <p className="mt-3 text-sm text-slate max-w-2xl">
+            Track funding opportunities from identification through grant delivery for the Uganda pilot.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-4">
+          <Link
+            href="/stage-1/funding/funder-landscape"
+            className="p-6 rounded-xl border-2 border-primary/20 bg-primary/5 hover:border-primary hover:shadow-lg transition-all group"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                <span className="text-lg">🎯</span>
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">Phase 02</p>
+                <p className="text-lg font-bold text-secondary group-hover:text-primary transition-colors">Funder Landscape</p>
+              </div>
+            </div>
+            <p className="text-sm text-slate">20+ funders tiered by alignment. Active pipeline tracking.</p>
+          </Link>
+
+          <Link
+            href="/stage-1/funding/opportunities"
+            className="p-6 rounded-xl border-2 border-emerald-500/20 bg-emerald-50 hover:border-emerald-500 hover:shadow-lg transition-all group"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full bg-emerald-200 flex items-center justify-center">
+                <span className="text-lg">📋</span>
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-emerald-700">Phases 02-06</p>
+                <p className="text-lg font-bold text-secondary group-hover:text-emerald-700 transition-colors">Opportunities</p>
+              </div>
+            </div>
+            <p className="text-sm text-slate">Track opportunities through engagement, due diligence, and proposal.</p>
+          </Link>
+
+          <Link
+            href="/stage-1/projects"
+            className="p-6 rounded-xl border-2 border-secondary/20 bg-secondary/5 hover:border-secondary hover:shadow-lg transition-all group"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+                <span className="text-lg">🚀</span>
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-secondary/70">Phases 07-11</p>
+                <p className="text-lg font-bold text-secondary group-hover:text-primary transition-colors">Grant Projects</p>
+              </div>
+            </div>
+            <p className="text-sm text-slate">Manage funded grants through delivery, reporting, and closeout.</p>
+          </Link>
+        </div>
+
+        {/* Quick link to Stage 1 Funding hub */}
+        <div className="mt-6 p-4 rounded-xl bg-parchment/50 border border-mist flex items-center justify-between">
+          <div>
+            <p className="text-sm font-bold text-secondary">Stage 1 Funding Hub</p>
+            <p className="text-xs text-slate">Full funding strategy, capital mix, and active applications</p>
+          </div>
+          <Link
+            href="/stage-1/funding"
+            className="px-4 py-2 bg-secondary text-parchment rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-primary transition-colors"
+          >
+            View Hub →
+          </Link>
+        </div>
+      </section>
+
       {/* Evidence & Resources */}
       <section className="mt-16 border-t border-mist pt-12 mb-20">
         <div className="mb-8">

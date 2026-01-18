@@ -429,8 +429,9 @@ export default function FunderLandscapePage() {
       <StageBreadcrumb
         stage="Funder Landscape"
         trail={[
-          { label: "Stage 1 Funding", href: "/stage-1/funding" },
-          { label: "Grant Lifecycle Phase 02-04" },
+          { label: "Uganda Pilot", href: "/project/hisagen-uganda" },
+          { label: "Funding Tracker", href: "/stage-1/funding" },
+          { label: "Phase 02: Scanning" },
         ]}
       />
 

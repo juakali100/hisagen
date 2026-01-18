@@ -201,7 +201,7 @@ export default function OpportunityPage() {
       <StageBreadcrumb
         stage={opportunity.funderName}
         trail={[
-          { label: "Stage 1 Funding", href: "/stage-1/funding" },
+          { label: "Uganda Pilot", href: "/project/hisagen-uganda" },
           { label: "Opportunities", href: "/stage-1/funding/opportunities" },
           { label: opportunity.funderName },
         ]}

@@ -60,8 +60,9 @@ export default function ProjectsPage() {
       <StageBreadcrumb
         stage="Grant Projects"
         trail={[
-          { label: "Stage 1 Funding", href: "/stage-1/funding" },
-          { label: "Grant Projects" },
+          { label: "Uganda Pilot", href: "/project/hisagen-uganda" },
+          { label: "Funding Tracker", href: "/stage-1/funding" },
+          { label: "Phases 07-11" },
         ]}
       />
 

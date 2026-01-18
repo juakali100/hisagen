@@ -62,35 +62,25 @@ const projects = [
     name: "Uganda Pilot",
     href: "/project/hisagen-uganda",
     description: "Flagship implementation • 10,000 smallholders",
+    subItems: [
+      { name: "Funder Landscape", href: "/stage-1/funding/funder-landscape" },
+      { name: "Opportunities", href: "/stage-1/funding/opportunities" },
+      { name: "Grant Projects", href: "/stage-1/projects" },
+    ],
   },
 ];
 
-// Funding data for Program flyout
-const funding = [
+// Framework data for Program flyout (project-agnostic educational content)
+const framework = [
   {
     name: "Capital Continuum",
     href: "/funding-roadmap/capital-continuum",
-    description: "4-stage lifecycle + grant methodology",
+    description: "4-stage funding lifecycle framework",
   },
   {
-    name: "Stage 1: Grants",
-    href: "/stage-1/funding",
-    description: "Grants & philanthropy (50%)",
-  },
-  {
-    name: "Stage 2: Carbon Finance",
-    href: "/stage-2/funding",
-    description: "Pre-purchase & impact (65%)",
-  },
-  {
-    name: "Stage 3: Commercial",
-    href: "/stage-3/funding",
-    description: "Working capital & debt (70%)",
-  },
-  {
-    name: "Stage 4: Institutional",
-    href: "/stage-4/funding",
-    description: "Green bonds & SPV (95%)",
+    name: "Grant Lifecycle",
+    href: "/funding-roadmap/grant-lifecycle",
+    description: "11-phase delivery methodology",
   },
 ];
 
@@ -320,7 +310,7 @@ export default function NavEnhanced() {
           {/* Agri-Carbon Program Flyout - Full Width Two Columns */}
           <HoverPopover buttonLabel="Agri-Carbon Program" buttonHref="/program">
             <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2 lg:px-8">
-              {/* Left: Projects & Funding (2 columns) */}
+              {/* Left: Projects & Framework (2 columns) */}
               <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8">
                 {/* Projects */}
                 <div>
@@ -328,29 +318,44 @@ export default function NavEnhanced() {
                   <div className="mt-6 flow-root">
                     <div className="-my-2">
                       {projects.map((project) => (
-                        <Link
-                          key={project.name}
-                          href={project.href}
-                          className="block py-3 group"
-                        >
-                          <p className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
-                            {project.name}
-                          </p>
-                          <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">
-                            {project.description}
-                          </p>
-                        </Link>
+                        <div key={project.name} className="py-3">
+                          <Link
+                            href={project.href}
+                            className="block group"
+                          >
+                            <p className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
+                              {project.name}
+                            </p>
+                            <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">
+                              {project.description}
+                            </p>
+                          </Link>
+                          {/* Sub-items for project */}
+                          {project.subItems && (
+                            <div className="mt-2 pl-3 border-l border-white/20 space-y-1">
+                              {project.subItems.map((sub) => (
+                                <Link
+                                  key={sub.name}
+                                  href={sub.href}
+                                  className="block py-1 text-xs text-white/50 hover:text-accent transition-colors"
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </div>
                   </div>
                 </div>
 
-                {/* Funding */}
+                {/* Framework */}
                 <div>
-                  <h3 className="text-sm font-medium text-white/50">Funding</h3>
+                  <h3 className="text-sm font-medium text-white/50">Framework</h3>
                   <div className="mt-6 flow-root">
                     <div className="-my-2">
-                      {funding.map((item) => (
+                      {framework.map((item) => (
                         <Link
                           key={item.name}
                           href={item.href}
