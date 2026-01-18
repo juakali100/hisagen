@@ -97,6 +97,11 @@ const ChecklistStatusIcon = ({ status }: { status: ChecklistItem["status"] }) =>
   }
 };
 
+// Inline hint component
+const Hint = ({ children }: { children: React.ReactNode }) => (
+  <p className="text-xs italic text-slate/50 mt-1">{children}</p>
+);
+
 export default function OpportunityPage() {
   const params = useParams();
   const slug = params.slug as string;
@@ -276,6 +281,7 @@ export default function OpportunityPage() {
             {opportunity.nextActionDue && (
               <p className="text-xs text-slate mt-1">Due: {opportunity.nextActionDue}</p>
             )}
+            <Hint>The single most important thing to move this opportunity forward. Keep it specific and actionable.</Hint>
           </div>
           <div className="text-xs text-primary font-medium">{opportunity.owner}</div>
         </div>
@@ -304,6 +310,7 @@ export default function OpportunityPage() {
               <div>
                 <h3 className="text-lg font-bold text-secondary mb-4">Phase 02: Landscape Summary</h3>
                 <p className="text-sm text-slate">How this opportunity was identified and qualified for pursuit.</p>
+                <Hint>Reference material from funder research. This context informs how to tailor engagement and proposals.</Hint>
               </div>
 
               <div className="grid gap-4 md:grid-cols-2">
@@ -350,6 +357,7 @@ export default function OpportunityPage() {
               <div>
                 <h3 className="text-lg font-bold text-secondary mb-4">Phase 03: Engagement</h3>
                 <p className="text-sm text-slate">Track contacts, outreach activities, and relationship development.</p>
+                <Hint>Build relationships before asking for money. Warm leads convert 3-5x better than cold applications.</Hint>
               </div>
 
               {/* Relationship Temperature */}
@@ -368,6 +376,7 @@ export default function OpportunityPage() {
                     <span className="text-sm text-slate">{opportunity.warmIntroPath}</span>
                   )}
                 </div>
+                <Hint>Cold = no contact yet. Warming = initial outreach made. Warm = established dialogue. Hot = active champion inside.</Hint>
               </div>
 
               {/* Interactive Contact Manager */}
@@ -398,37 +407,50 @@ export default function OpportunityPage() {
               <div>
                 <h3 className="text-lg font-bold text-secondary mb-4">Phase 04: Due Diligence</h3>
                 <p className="text-sm text-slate">Verify eligibility, compliance, and capacity before committing to proposal.</p>
+                <Hint>Complete this phase before investing proposal effort. A thorough Go/No-Go saves wasted work.</Hint>
               </div>
 
               {/* Interactive Go/No-Go Decision Gate */}
-              <GoNoGoGate
-                decision={goNoGoDecision}
-                date={opportunity.goNoGoDate}
-                rationale={goNoGoRationale}
-                onUpdate={handleGoNoGoUpdate}
-                checklistSummary={checklistSummary}
-              />
+              <div>
+                <GoNoGoGate
+                  decision={goNoGoDecision}
+                  date={opportunity.goNoGoDate}
+                  rationale={goNoGoRationale}
+                  onUpdate={handleGoNoGoUpdate}
+                  checklistSummary={checklistSummary}
+                />
+                <Hint>GO = all major blockers cleared, worth investing proposal effort. NO-GO = fundamental mismatch, don&apos;t pursue.</Hint>
+              </div>
 
               {/* Interactive Eligibility Checklist */}
-              <ChecklistSection
-                title="Eligibility Checklist"
-                items={eligibilityChecklist}
-                onUpdate={setEligibilityChecklist}
-              />
+              <div>
+                <ChecklistSection
+                  title="Eligibility Checklist"
+                  items={eligibilityChecklist}
+                  onUpdate={setEligibilityChecklist}
+                />
+                <Hint>Must-pass criteria. Any &quot;Failed&quot; item typically means No-Go unless it can be mitigated.</Hint>
+              </div>
 
               {/* Interactive Compliance Checklist */}
-              <ChecklistSection
-                title="Compliance Checklist"
-                items={complianceChecklist}
-                onUpdate={setComplianceChecklist}
-              />
+              <div>
+                <ChecklistSection
+                  title="Compliance Checklist"
+                  items={complianceChecklist}
+                  onUpdate={setComplianceChecklist}
+                />
+                <Hint>Organizational readiness items. Can often be addressed in parallel with proposal development.</Hint>
+              </div>
 
               {/* Interactive Capacity Checklist */}
-              <ChecklistSection
-                title="Capacity Checklist"
-                items={capacityChecklist}
-                onUpdate={setCapacityChecklist}
-              />
+              <div>
+                <ChecklistSection
+                  title="Capacity Checklist"
+                  items={capacityChecklist}
+                  onUpdate={setCapacityChecklist}
+                />
+                <Hint>Delivery feasibility. Be honest here - overpromising damages future funder relationships.</Hint>
+              </div>
 
               {/* Due Diligence Notes */}
               {opportunity.dueDiligenceNotes && (
@@ -446,6 +468,7 @@ export default function OpportunityPage() {
               <div>
                 <h3 className="text-lg font-bold text-secondary mb-4">Phase 05: Proposal Development</h3>
                 <p className="text-sm text-slate">Develop and submit tailored proposal based on base narrative.</p>
+                <Hint>Tailor 20-30% of base proposal to funder priorities. Keep core narrative consistent across applications.</Hint>
               </div>
 
               {/* Proposal Status */}
@@ -468,6 +491,7 @@ export default function OpportunityPage() {
                 <Link href="/stage-1/funding/v0-grant-proposal" className="text-sm text-primary hover:underline">
                   V1.1 Grant Proposal → Use as starting point for tailoring
                 </Link>
+                <Hint>Start here. Copy and adapt sections rather than starting from scratch each time.</Hint>
               </div>
 
               {/* Tailored Proposal Link */}
@@ -511,6 +535,7 @@ export default function OpportunityPage() {
               <div>
                 <h3 className="text-lg font-bold text-secondary mb-4">Phase 06: Contracting & Handover</h3>
                 <p className="text-sm text-slate">Record outcome, manage contract negotiation, and hand over to delivery team.</p>
+                <Hint>Win or lose, capture lessons. Funder feedback is gold for improving future proposals.</Hint>
               </div>
 
               {/* Outcome */}
