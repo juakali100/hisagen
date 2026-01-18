@@ -3,6 +3,12 @@ import StageBreadcrumb from "../../../../components/StageBreadcrumb";
 
 type PhaseStatus = "active" | "partial" | "sparse" | "early" | "not-started" | "future";
 
+interface KeyDoc {
+  label: string;
+  href: string;
+  type: "internal" | "external" | "placeholder";
+}
+
 interface Phase {
   number: string;
   title: string;
@@ -13,6 +19,7 @@ interface Phase {
   gaps: string[];
   nextStep: string;
   operationalLink?: { label: string; href: string };
+  keyDocs?: KeyDoc[];
 }
 
 // Uganda Pilot specific progress through the 11-phase grant lifecycle
@@ -87,6 +94,9 @@ const phases: Phase[] = [
     ],
     nextStep: "Complete due diligence checklists for priority opportunities.",
     operationalLink: { label: "Opportunities", href: "/stage-1/funding/opportunities" },
+    keyDocs: [
+      { label: "Due Diligence Sign-offs", href: "#", type: "placeholder" },
+    ],
   },
   {
     number: "05",
@@ -107,6 +117,10 @@ const phases: Phase[] = [
     ],
     nextStep: "Apply proposal framework rigorously for active submissions.",
     operationalLink: { label: "Opportunities", href: "/stage-1/funding/opportunities" },
+    keyDocs: [
+      { label: "Concept Note", href: "/stage-1/funding/v0-concept-note", type: "internal" },
+      { label: "Base Proposal (v0)", href: "/stage-1/funding/v0-grant-proposal", type: "internal" },
+    ],
   },
   {
     number: "06",
@@ -124,6 +138,10 @@ const phases: Phase[] = [
     ],
     nextStep: "Prepare award pack template for first successful opportunity.",
     operationalLink: { label: "Opportunities", href: "/stage-1/funding/opportunities" },
+    keyDocs: [
+      { label: "Grant Contracts", href: "#", type: "placeholder" },
+      { label: "Award Pack", href: "#", type: "placeholder" },
+    ],
   },
   {
     number: "07",
@@ -188,6 +206,10 @@ const phases: Phase[] = [
     ],
     nextStep: "Complete first funder reports when due.",
     operationalLink: { label: "Grant Projects", href: "/stage-1/projects" },
+    keyDocs: [
+      { label: "Interim Donor Reports", href: "#", type: "placeholder" },
+      { label: "Final Reports", href: "#", type: "placeholder" },
+    ],
   },
   {
     number: "11",
@@ -352,6 +374,33 @@ export default function UgandaPilotGrantProgressPage() {
                       >
                         {phase.operationalLink.label} →
                       </Link>
+                    )}
+                    {/* Key Documents */}
+                    {phase.keyDocs && phase.keyDocs.length > 0 && (
+                      <div className="mt-4 pt-3 border-t border-white/50">
+                        <p className="text-[9px] font-bold uppercase tracking-widest text-secondary/40 mb-2">Key Documents</p>
+                        <div className="flex flex-wrap gap-2">
+                          {phase.keyDocs.map((doc, idx) => (
+                            doc.type === "placeholder" ? (
+                              <span
+                                key={idx}
+                                className="inline-flex items-center gap-1 px-2 py-1 rounded text-[10px] bg-slate-100 text-slate-400 border border-slate-200"
+                                title="Document placeholder - to be added"
+                              >
+                                📄 {doc.label}
+                              </span>
+                            ) : (
+                              <Link
+                                key={idx}
+                                href={doc.href}
+                                className="inline-flex items-center gap-1 px-2 py-1 rounded text-[10px] bg-white text-secondary border border-mist hover:border-primary hover:text-primary transition-colors"
+                              >
+                                📄 {doc.label}
+                              </Link>
+                            )
+                          ))}
+                        </div>
+                      </div>
                     )}
                   </div>
 
