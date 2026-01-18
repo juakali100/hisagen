@@ -774,7 +774,7 @@ export default function FunderLandscapePage() {
             >
               <div className="flex items-center gap-3">
                 <span className="px-2 py-1 bg-indigo-600 text-white text-[9px] font-bold uppercase tracking-widest rounded">Deep Six Consulting</span>
-                <span className="text-xs text-indigo-700">Keir A-B | Corporate Strategy & Partnerships</span>
+                <span className="text-xs text-indigo-700">Corporate Strategy & Partnerships</span>
               </div>
               <span className={`text-indigo-600 transition-transform ${deepSixScenarioOpen ? 'rotate-180' : ''}`}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -938,6 +938,115 @@ export default function FunderLandscapePage() {
             )}
           </div>
 
+          {/* NARO Scenario (Accordion) */}
+          <div className="mb-3">
+            <button
+              onClick={() => setNaroScenarioOpen(!naroScenarioOpen)}
+              className="w-full flex items-center justify-between p-4 rounded-lg bg-orange-50 border-2 border-orange-200 hover:border-orange-400 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="px-2 py-1 bg-orange-600 text-white text-[9px] font-bold uppercase tracking-widest rounded">NARO</span>
+                <span className="text-xs text-orange-700">National Agricultural Research Organisation, Uganda</span>
+              </div>
+              <span className={`text-orange-600 transition-transform ${naroScenarioOpen ? 'rotate-180' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+
+            {naroScenarioOpen && (
+              <div className="mt-2 p-5 rounded-xl border-2 border-orange-200 bg-white">
+                <p className="text-xs text-slate mb-4">
+                  <strong>Role:</strong> Government research institution providing scientific validation and field trial infrastructure.
+                  <strong className="ml-2">Contribution:</strong> Research staff, facilities, trial sites, credibility
+                </p>
+
+                {/* NARO Context */}
+                <div className="p-3 rounded-lg bg-orange-50 border border-orange-200 mb-4">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-orange-700 mb-2">Partnership Context</p>
+                  <ul className="text-xs text-orange-800 space-y-1">
+                    <li>• <strong>National Agricultural Research Organisation</strong> - Uganda's premier agricultural research body</li>
+                    <li>• Conducted Rhizolizer field trials: +22.6% potato yields, +17.7% sweet potato yields</li>
+                    <li>• Provides scientific credibility essential for grant applications</li>
+                    <li>• Government institution = different relationship dynamics than commercial partners</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-3">
+                  {/* In-Kind Contributions */}
+                  <div className="p-4 rounded-lg bg-orange-50/50 border border-orange-100">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-orange-700 mb-2">In-Kind Contributions</p>
+                    <div className="grid gap-2 md:grid-cols-2">
+                      <div className="p-3 rounded bg-white border border-orange-100">
+                        <p className="text-xs font-bold text-orange-800 mb-1">Research Infrastructure</p>
+                        <p className="text-[11px] text-orange-700">Laboratory facilities, equipment, scientific expertise.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-orange-100">
+                        <p className="text-xs font-bold text-orange-800 mb-1">Field Trial Sites</p>
+                        <p className="text-[11px] text-orange-700">4 regional trial sites across Uganda for product validation.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-orange-100">
+                        <p className="text-xs font-bold text-orange-800 mb-1">Research Staff Time</p>
+                        <p className="text-[11px] text-orange-700">Scientists, field officers, data collection and analysis.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-orange-100">
+                        <p className="text-xs font-bold text-orange-800 mb-1">Scientific Credibility</p>
+                        <p className="text-[11px] text-orange-700">Peer-reviewed validation, government endorsement, funder confidence.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Partnership Value */}
+                  <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">What NARO Gets from Partnership</p>
+                    <div className="grid gap-2 md:grid-cols-2">
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Research Funding</p>
+                        <p className="text-[11px] text-emerald-700">NARO can be named partner on grants, receiving direct funding for research activities.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Technology Access</p>
+                        <p className="text-[11px] text-emerald-700">Access to Locus AG microbial technology for Uganda's agricultural sector.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Publication Opportunities</p>
+                        <p className="text-[11px] text-emerald-700">Co-authorship on research publications, conference presentations.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Farmer Impact</p>
+                        <p className="text-[11px] text-emerald-700">Fulfills NARO's mandate: improving Ugandan farmer livelihoods through innovation.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Grant Application Role */}
+                  <div className="p-3 rounded-lg bg-blue-50 border border-blue-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-blue-700 mb-2">Role in Grant Applications</p>
+                    <ul className="text-xs text-blue-800 space-y-1">
+                      <li>• <strong>Co-applicant or Named Partner:</strong> Many funders require local research institution involvement</li>
+                      <li>• <strong>Letter of Support:</strong> NARO endorsement significantly strengthens applications</li>
+                      <li>• <strong>In-Kind Match Funding:</strong> NARO contributions count toward match funding requirements</li>
+                      <li>• <strong>Implementation Partner:</strong> Can receive and manage grant funds for research components</li>
+                    </ul>
+                  </div>
+
+                  {/* Questions */}
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-2">Questions to Clarify</p>
+                    <ul className="text-xs text-amber-800 space-y-1">
+                      <li>• What is the formal agreement between HISAGEN and NARO? (MoU, research agreement?)</li>
+                      <li>• Who are the key NARO contacts? (For grant letters of support)</li>
+                      <li>• What is the value of NARO's in-kind contribution to date?</li>
+                      <li>• Can NARO be named co-applicant on grants? What's their capacity?</li>
+                      <li>• Are there existing NARO publications from the trials?</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Pandion Studio Scenario (Accordion) */}
           <div className="mb-3">
             <button
@@ -1069,115 +1178,6 @@ export default function FunderLandscapePage() {
                   {/* Summary */}
                   <div className="p-3 rounded-lg bg-slate-100 border border-slate-200">
                     <p className="text-xs text-slate"><strong>Minimum ask:</strong> If no monetary value captured, Pandion would request that Tier 2 recognition be formalized - sponsorship agreement, portfolio rights, testimonial, or referrals as appropriate.</p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* NARO Scenario (Accordion) */}
-          <div className="mb-3">
-            <button
-              onClick={() => setNaroScenarioOpen(!naroScenarioOpen)}
-              className="w-full flex items-center justify-between p-4 rounded-lg bg-orange-50 border-2 border-orange-200 hover:border-orange-400 transition-colors"
-            >
-              <div className="flex items-center gap-3">
-                <span className="px-2 py-1 bg-orange-600 text-white text-[9px] font-bold uppercase tracking-widest rounded">NARO</span>
-                <span className="text-xs text-orange-700">National Agricultural Research Organisation, Uganda</span>
-              </div>
-              <span className={`text-orange-600 transition-transform ${naroScenarioOpen ? 'rotate-180' : ''}`}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </span>
-            </button>
-
-            {naroScenarioOpen && (
-              <div className="mt-2 p-5 rounded-xl border-2 border-orange-200 bg-white">
-                <p className="text-xs text-slate mb-4">
-                  <strong>Role:</strong> Government research institution providing scientific validation and field trial infrastructure.
-                  <strong className="ml-2">Contribution:</strong> Research staff, facilities, trial sites, credibility
-                </p>
-
-                {/* NARO Context */}
-                <div className="p-3 rounded-lg bg-orange-50 border border-orange-200 mb-4">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-orange-700 mb-2">Partnership Context</p>
-                  <ul className="text-xs text-orange-800 space-y-1">
-                    <li>• <strong>National Agricultural Research Organisation</strong> - Uganda's premier agricultural research body</li>
-                    <li>• Conducted Rhizolizer field trials: +22.6% potato yields, +17.7% sweet potato yields</li>
-                    <li>• Provides scientific credibility essential for grant applications</li>
-                    <li>• Government institution = different relationship dynamics than commercial partners</li>
-                  </ul>
-                </div>
-
-                <div className="space-y-3">
-                  {/* In-Kind Contributions */}
-                  <div className="p-4 rounded-lg bg-orange-50/50 border border-orange-100">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-orange-700 mb-2">In-Kind Contributions</p>
-                    <div className="grid gap-2 md:grid-cols-2">
-                      <div className="p-3 rounded bg-white border border-orange-100">
-                        <p className="text-xs font-bold text-orange-800 mb-1">Research Infrastructure</p>
-                        <p className="text-[11px] text-orange-700">Laboratory facilities, equipment, scientific expertise.</p>
-                      </div>
-                      <div className="p-3 rounded bg-white border border-orange-100">
-                        <p className="text-xs font-bold text-orange-800 mb-1">Field Trial Sites</p>
-                        <p className="text-[11px] text-orange-700">4 regional trial sites across Uganda for product validation.</p>
-                      </div>
-                      <div className="p-3 rounded bg-white border border-orange-100">
-                        <p className="text-xs font-bold text-orange-800 mb-1">Research Staff Time</p>
-                        <p className="text-[11px] text-orange-700">Scientists, field officers, data collection and analysis.</p>
-                      </div>
-                      <div className="p-3 rounded bg-white border border-orange-100">
-                        <p className="text-xs font-bold text-orange-800 mb-1">Scientific Credibility</p>
-                        <p className="text-[11px] text-orange-700">Peer-reviewed validation, government endorsement, funder confidence.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Partnership Value */}
-                  <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">What NARO Gets from Partnership</p>
-                    <div className="grid gap-2 md:grid-cols-2">
-                      <div className="p-3 rounded bg-white border border-emerald-100">
-                        <p className="text-xs font-bold text-emerald-800 mb-1">Research Funding</p>
-                        <p className="text-[11px] text-emerald-700">NARO can be named partner on grants, receiving direct funding for research activities.</p>
-                      </div>
-                      <div className="p-3 rounded bg-white border border-emerald-100">
-                        <p className="text-xs font-bold text-emerald-800 mb-1">Technology Access</p>
-                        <p className="text-[11px] text-emerald-700">Access to Locus AG microbial technology for Uganda's agricultural sector.</p>
-                      </div>
-                      <div className="p-3 rounded bg-white border border-emerald-100">
-                        <p className="text-xs font-bold text-emerald-800 mb-1">Publication Opportunities</p>
-                        <p className="text-[11px] text-emerald-700">Co-authorship on research publications, conference presentations.</p>
-                      </div>
-                      <div className="p-3 rounded bg-white border border-emerald-100">
-                        <p className="text-xs font-bold text-emerald-800 mb-1">Farmer Impact</p>
-                        <p className="text-[11px] text-emerald-700">Fulfills NARO's mandate: improving Ugandan farmer livelihoods through innovation.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Grant Application Role */}
-                  <div className="p-3 rounded-lg bg-blue-50 border border-blue-200">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-blue-700 mb-2">Role in Grant Applications</p>
-                    <ul className="text-xs text-blue-800 space-y-1">
-                      <li>• <strong>Co-applicant or Named Partner:</strong> Many funders require local research institution involvement</li>
-                      <li>• <strong>Letter of Support:</strong> NARO endorsement significantly strengthens applications</li>
-                      <li>• <strong>In-Kind Match Funding:</strong> NARO contributions count toward match funding requirements</li>
-                      <li>• <strong>Implementation Partner:</strong> Can receive and manage grant funds for research components</li>
-                    </ul>
-                  </div>
-
-                  {/* Questions */}
-                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-2">Questions to Clarify</p>
-                    <ul className="text-xs text-amber-800 space-y-1">
-                      <li>• What is the formal agreement between HISAGEN and NARO? (MoU, research agreement?)</li>
-                      <li>• Who are the key NARO contacts? (For grant letters of support)</li>
-                      <li>• What is the value of NARO's in-kind contribution to date?</li>
-                      <li>• Can NARO be named co-applicant on grants? What's their capacity?</li>
-                      <li>• Are there existing NARO publications from the trials?</li>
-                    </ul>
                   </div>
                 </div>
               </div>
