@@ -6,6 +6,7 @@ import StageBreadcrumb from "../../../../components/StageBreadcrumb";
 
 type FunderTier = "tier1" | "tier2" | "tier3" | "closed";
 type FunderType = "multilateral" | "bilateral" | "foundation" | "corporate" | "accelerator" | "ngo" | "philanthropy" | "family_office" | "trust";
+type PipelineStage = "prospect" | "engaging" | "due_diligence" | "proposing" | "submitted";
 
 interface Funder {
   name: string;
@@ -20,6 +21,10 @@ interface Funder {
   status: string;
   url?: string;
   notes: string;
+  // Pipeline tracking (Phase 03-05)
+  pipelineStage?: PipelineStage;
+  nextAction?: string;
+  owner?: string;
 }
 
 const funders: Funder[] = [
@@ -36,6 +41,9 @@ const funders: Funder[] = [
     alignmentScore: 7,
     status: "PRIORITY - Digital marketplace + green ag",
     notes: "Position digital platform + microbial products as green/digital transition.",
+    pipelineStage: "due_diligence",
+    nextAction: "Verify eligibility criteria and prepare application",
+    owner: "Keir / Pandion",
   },
   {
     name: "Japan Embassy Uganda - Grassroots",
@@ -49,6 +57,9 @@ const funders: Funder[] = [
     alignmentScore: 6,
     status: "Good for community component",
     notes: "Could fund farmer training/community components. Non-profit eligibility.",
+    pipelineStage: "due_diligence",
+    nextAction: "Confirm non-profit eligibility requirements",
+    owner: "Daniel / HISAGEN Uganda",
   },
   // Tier 2: Cultivate (Rolling/Relationship-Based)
   {
@@ -142,6 +153,9 @@ const funders: Funder[] = [
     alignmentScore: 8,
     status: "Warm intro available - HIGH PRIORITY",
     notes: "Keir has connection. Climate tech accelerator.",
+    pipelineStage: "engaging",
+    nextAction: "Keir to make warm intro",
+    owner: "Keir",
   },
   {
     name: "Bezos Earth Fund",
@@ -198,6 +212,9 @@ const funders: Funder[] = [
     status: "Keir connection - cultivate relationship",
     url: "https://yieldgiving.com",
     notes: "Keir has connection. No traditional application - team identifies orgs. Can submit for consideration via website.",
+    pipelineStage: "engaging",
+    nextAction: "Keir to explore connection pathway",
+    owner: "Keir",
   },
   {
     name: "Oak Foundation",
@@ -373,6 +390,21 @@ const getTypeColor = (type: FunderType) => {
   }
 };
 
+const getPipelineStageConfig = (stage: PipelineStage) => {
+  switch (stage) {
+    case "prospect":
+      return { label: "Prospecting", phase: "02", color: "bg-slate-100 text-slate-700 border-slate-300" };
+    case "engaging":
+      return { label: "Engaging", phase: "03", color: "bg-amber-100 text-amber-700 border-amber-300" };
+    case "due_diligence":
+      return { label: "Due Diligence", phase: "04", color: "bg-sky-100 text-sky-700 border-sky-300" };
+    case "proposing":
+      return { label: "Proposing", phase: "05", color: "bg-purple-100 text-purple-700 border-purple-300" };
+    case "submitted":
+      return { label: "Submitted", phase: "05", color: "bg-emerald-100 text-emerald-700 border-emerald-300" };
+  }
+};
+
 export default function FunderLandscapePage() {
   const [matchFundingOpen, setMatchFundingOpen] = useState(false);
   const [pandionScenarioOpen, setPandionScenarioOpen] = useState(false);
@@ -384,6 +416,13 @@ export default function FunderLandscapePage() {
   const tier2 = funders.filter(f => f.tier === "tier2");
   const tier3 = funders.filter(f => f.tier === "tier3");
   const closed = funders.filter(f => f.tier === "closed");
+
+  // Active pipeline: funders that have been moved beyond prospecting
+  const activePipeline = funders.filter(f => f.pipelineStage && f.pipelineStage !== "prospect");
+  const engaging = activePipeline.filter(f => f.pipelineStage === "engaging");
+  const dueDiligence = activePipeline.filter(f => f.pipelineStage === "due_diligence");
+  const proposing = activePipeline.filter(f => f.pipelineStage === "proposing");
+  const submitted = activePipeline.filter(f => f.pipelineStage === "submitted");
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -433,6 +472,103 @@ export default function FunderLandscapePage() {
           <p className="text-xs uppercase tracking-widest text-red-500 mt-1">Next Cycle</p>
         </div>
       </section>
+
+      {/* Active Pipeline - Phase 03/04/05 Tracking */}
+      {activePipeline.length > 0 && (
+        <section className="mt-8">
+          <div className="p-6 rounded-2xl border-2 border-primary/30 bg-gradient-to-r from-primary/5 to-amber-50/50">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-xl font-bold text-secondary">Active Pipeline</h2>
+                <p className="text-xs text-slate mt-1">Opportunities actively progressing through Phases 03-05</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl font-bold text-primary">{activePipeline.length}</span>
+                <span className="text-xs text-slate/60">in pipeline</span>
+              </div>
+            </div>
+
+            {/* Pipeline Flow Stages */}
+            <div className="grid gap-3 md:grid-cols-4 mb-6">
+              <div className={`p-3 rounded-lg border ${engaging.length > 0 ? 'border-amber-300 bg-amber-50' : 'border-slate-200 bg-slate-50'}`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">Phase 03</span>
+                </div>
+                <p className="text-sm font-bold text-secondary">Engaging</p>
+                <p className="text-2xl font-bold text-amber-600">{engaging.length}</p>
+              </div>
+              <div className={`p-3 rounded-lg border ${dueDiligence.length > 0 ? 'border-sky-300 bg-sky-50' : 'border-slate-200 bg-slate-50'}`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-sky-700 bg-sky-100 px-1.5 py-0.5 rounded">Phase 04</span>
+                </div>
+                <p className="text-sm font-bold text-secondary">Due Diligence</p>
+                <p className="text-2xl font-bold text-sky-600">{dueDiligence.length}</p>
+              </div>
+              <div className={`p-3 rounded-lg border ${proposing.length > 0 ? 'border-purple-300 bg-purple-50' : 'border-slate-200 bg-slate-50'}`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-purple-700 bg-purple-100 px-1.5 py-0.5 rounded">Phase 05</span>
+                </div>
+                <p className="text-sm font-bold text-secondary">Proposing</p>
+                <p className="text-2xl font-bold text-purple-600">{proposing.length}</p>
+              </div>
+              <div className={`p-3 rounded-lg border ${submitted.length > 0 ? 'border-emerald-300 bg-emerald-50' : 'border-slate-200 bg-slate-50'}`}>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded">Submitted</span>
+                </div>
+                <p className="text-sm font-bold text-secondary">Awaiting</p>
+                <p className="text-2xl font-bold text-emerald-600">{submitted.length}</p>
+              </div>
+            </div>
+
+            {/* Active Opportunities List */}
+            <div className="space-y-2">
+              {activePipeline.map((funder) => {
+                const stageConfig = getPipelineStageConfig(funder.pipelineStage!);
+                return (
+                  <div key={funder.name} className={`p-4 rounded-xl bg-white border ${stageConfig.color.split(' ')[2]}`}>
+                    <div className="flex flex-col md:flex-row md:items-center gap-3">
+                      <div className="flex items-center gap-2">
+                        <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border ${stageConfig.color}`}>
+                          {stageConfig.label}
+                        </span>
+                        <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${getTypeColor(funder.type)}`}>
+                          {getTypeLabel(funder.type)}
+                        </span>
+                        {funder.daysLeft && (
+                          <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-red-500 text-white">
+                            {funder.daysLeft} days
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="text-sm font-bold text-secondary flex-1">{funder.name}</h3>
+                      <div className="flex items-center gap-4 text-xs">
+                        <span className="text-slate">{funder.grantSize}</span>
+                        {funder.owner && (
+                          <span className="text-primary font-medium">{funder.owner}</span>
+                        )}
+                      </div>
+                    </div>
+                    {funder.nextAction && (
+                      <div className="mt-2 pt-2 border-t border-slate-100">
+                        <p className="text-[10px] uppercase tracking-widest text-slate/60 mb-1">Next Action</p>
+                        <p className="text-xs text-secondary">{funder.nextAction}</p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Flow Explanation */}
+            <div className="mt-4 p-3 rounded-lg bg-white/50 border border-slate-200">
+              <p className="text-[10px] text-slate">
+                <strong>Pipeline Flow:</strong> Prospect (Phase 02) → <span className="text-amber-700">Engaging (03)</span> → <span className="text-sky-700">Due Diligence (04)</span> → <span className="text-purple-700">Proposing (05)</span> → <span className="text-emerald-700">Submitted</span>.
+                Move funders through stages as relationships develop and applications progress.
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Priority Deadline Alert */}
       <section className="mt-8 p-6 rounded-xl border-2 border-emerald-500/30 bg-emerald-50">
