@@ -106,9 +106,11 @@ export default function V0GrantProposalPage() {
               facing smallholder farmers in East Africa: declining soil fertility, increasing fertilizer costs, and
               vulnerability to climate change impacts that threaten food security and farmer livelihoods.
             </p>
-            <div className="mt-4 p-4 rounded-lg bg-slate-50 border border-slate-200">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-2">[GAP: Problem Statement Data Needed]</p>
-              <ul className="space-y-1 text-sm text-slate">
+            <div className="mt-4 p-4 rounded-lg bg-amber-100 border-2 border-amber-400">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest rounded">Client Input Needed</span>
+              </div>
+              <ul className="space-y-1 text-sm text-amber-900">
                 <li>• How many farmers affected in target region?</li>
                 <li>• What are current yield losses/income impacts?</li>
                 <li>• Climate vulnerability specifics?</li>
@@ -139,9 +141,12 @@ export default function V0GrantProposalPage() {
                 <p className="text-xs text-slate">Platform connecting farmers, buyers, and carbon credit purchasers</p>
               </div>
             </div>
-            <div className="mt-4 p-4 rounded-lg bg-slate-50 border border-slate-200">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-2">[GAP: Solution Specifics Needed]</p>
-              <ul className="space-y-1 text-sm text-slate">
+            <div className="mt-4 p-4 rounded-lg bg-amber-100 border-2 border-amber-400">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest rounded">Client Input Needed</span>
+                <span className="text-xs font-bold text-amber-700">Solution Specifics</span>
+              </div>
+              <ul className="space-y-1 text-sm text-amber-900">
                 <li>• How many farmers will benefit? (specific number)</li>
                 <li>• Geographic scope? (which districts/regions in Uganda)</li>
                 <li>• Project timeline? (12/24/36 months?)</li>
@@ -160,9 +165,12 @@ export default function V0GrantProposalPage() {
               and is advancing government approvals with Uganda NARO (National Agricultural Research Organization)
               with license approval expected end 2025/early 2026.
             </p>
-            <div className="mt-4 p-4 rounded-lg bg-slate-50 border border-slate-200">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-2">[GAP: Organizational Details Needed]</p>
-              <ul className="space-y-1 text-sm text-slate">
+            <div className="mt-4 p-4 rounded-lg bg-amber-100 border-2 border-amber-400">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest rounded">Client Input Needed</span>
+                <span className="text-xs font-bold text-amber-700">Organizational Details (Critical for Funders)</span>
+              </div>
+              <ul className="space-y-1 text-sm text-amber-900">
                 <li>• HISAGEN legal structure? (NGO, social enterprise, private company?)</li>
                 <li>• Current team composition beyond founder?</li>
                 <li>• Governance structure? (board, advisors?)</li>
@@ -347,12 +355,28 @@ export default function V0GrantProposalPage() {
 
           {/* The Problem is Solvable */}
           <div className="p-5 rounded-xl border-2 border-primary/20 bg-primary/5">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-2">The Problem Is Solvable</p>
-            <p className="text-sm text-slate leading-relaxed">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary mb-2">The Problem Is Solvable — And We Have Proof</p>
+            <p className="text-sm text-slate leading-relaxed mb-4">
               This crisis is not intractable. The same smallholders managing 80% of Uganda's farmland have the potential
               to restore soil health, build climate resilience, and create sustainable livelihoods—if given access to
               the right tools, technology, and market connections. HISAGEN provides exactly this integrated solution.
             </p>
+            <div className="p-4 rounded-lg bg-white border-2 border-emerald-400">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700 mb-2">NARO Field Trial Results (2025)</p>
+              <div className="grid grid-cols-2 gap-4 text-center">
+                <div>
+                  <p className="text-2xl font-bold text-emerald-700">+22.6%</p>
+                  <p className="text-xs text-slate">Irish Potato yield improvement</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-emerald-700">+17.7%</p>
+                  <p className="text-xs text-slate">Sweet Potato yield improvement</p>
+                </div>
+              </div>
+              <p className="text-[10px] text-slate/60 mt-2 text-center italic">
+                Rhizolizer® biofertilizer trials across 4 regions under NARO/MAAIF oversight
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -373,9 +397,12 @@ export default function V0GrantProposalPage() {
               agricultural business model that combines microbial agricultural products, soil health restoration,
               carbon credit generation, and digital marketplace connectivity.
             </p>
-            <div className="p-4 rounded-lg bg-slate-50 border border-slate-200">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-2">[GAP: Refine with Client]</p>
-              <ul className="space-y-1 text-sm text-slate">
+            <div className="p-4 rounded-lg bg-amber-100 border-2 border-amber-400">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest rounded">Client Input Needed</span>
+                <span className="text-xs font-bold text-amber-700">Goal Statement Refinement</span>
+              </div>
+              <ul className="space-y-1 text-sm text-amber-900">
                 <li>• Is this the right framing?</li>
                 <li>• What's the overarching change we're trying to create?</li>
                 <li>• What's the ultimate vision?</li>
@@ -483,8 +510,11 @@ export default function V0GrantProposalPage() {
                       <span className="text-slate ml-1">By end of grant period</span>
                     </div>
                   </div>
-                  <div className="mt-3 p-2 rounded bg-amber-50 border border-amber-200">
-                    <p className="text-[10px] text-amber-800">[GAP: Specific benefit-sharing percentages? Carbon rights structure?]</p>
+                  <div className="mt-3 p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                    </div>
+                    <p className="text-xs text-amber-900">Specific benefit-sharing percentages? Carbon rights structure?</p>
                   </div>
                 </div>
 
@@ -509,8 +539,11 @@ export default function V0GrantProposalPage() {
                       <span className="text-slate ml-1">By Q2 2026</span>
                     </div>
                   </div>
-                  <div className="mt-3 p-2 rounded bg-amber-50 border border-amber-200">
-                    <p className="text-[10px] text-amber-800">[GAP: Target farmer count for Year 1? Distribution partner criteria?]</p>
+                  <div className="mt-3 p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                    </div>
+                    <p className="text-xs text-amber-900">Target farmer count for Year 1? Distribution partner criteria?</p>
                   </div>
                 </div>
 
@@ -535,8 +568,11 @@ export default function V0GrantProposalPage() {
                       <span className="text-slate ml-1">By end of grant period</span>
                     </div>
                   </div>
-                  <div className="mt-3 p-2 rounded bg-amber-50 border border-amber-200">
-                    <p className="text-[10px] text-amber-800">[GAP: Verra VM0042 vs Gold Standard? MRV technology partners?]</p>
+                  <div className="mt-3 p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                    </div>
+                    <p className="text-xs text-amber-900">Verra VM0042 vs Gold Standard? MRV technology partners?</p>
                   </div>
                 </div>
               </div>
@@ -617,9 +653,11 @@ export default function V0GrantProposalPage() {
                       <li>• Uganda identified as launch market</li>
                     </ul>
                   </div>
-                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
-                    <ul className="space-y-1 text-xs text-amber-800">
+                  <div className="p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                    </div>
+                    <ul className="space-y-1 text-xs text-amber-900">
                       <li>• Full team composition beyond founder?</li>
                       <li>• Advisory board structure?</li>
                       <li>• Governance policies?</li>
@@ -646,9 +684,11 @@ export default function V0GrantProposalPage() {
                       <li>• Dual-entity model for technology + operations</li>
                     </ul>
                   </div>
-                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
-                    <ul className="space-y-1 text-xs text-amber-800">
+                  <div className="p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                    </div>
+                    <ul className="space-y-1 text-xs text-amber-900">
                       <li>• Registration status of each entity?</li>
                       <li>• Carbon rights ownership framework?</li>
                       <li>• Farmer benefit-sharing legal structure?</li>
@@ -676,9 +716,11 @@ export default function V0GrantProposalPage() {
                       <li>• Products supplied at cost for pilot</li>
                     </ul>
                   </div>
-                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
-                    <ul className="space-y-1 text-xs text-amber-800">
+                  <div className="p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                    </div>
+                    <ul className="space-y-1 text-xs text-amber-900">
                       <li>• Formal MOU/contract status?</li>
                       <li>• IP licensing arrangements?</li>
                       <li>• Long-term supply agreement terms?</li>
@@ -707,10 +749,12 @@ export default function V0GrantProposalPage() {
                       <li>• Results: "Highly positive" (per NARO)</li>
                     </ul>
                   </div>
-                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
-                    <ul className="space-y-1 text-xs text-amber-800">
-                      <li>• Quantitative yield data (awaiting NARO report)</li>
+                  <div className="p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                    </div>
+                    <ul className="space-y-1 text-xs text-amber-900">
+                      <li>• Full NARO report with all crop data</li>
                       <li>• Statistical significance of results?</li>
                       <li>• Soil health baseline measurements?</li>
                     </ul>
@@ -738,9 +782,11 @@ export default function V0GrantProposalPage() {
                       <li>• Mar 2026: Product labeling finalization</li>
                     </ul>
                   </div>
-                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
-                    <ul className="space-y-1 text-xs text-amber-800">
+                  <div className="p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                    </div>
+                    <ul className="space-y-1 text-xs text-amber-900">
                       <li>• Specific regulatory requirements?</li>
                       <li>• Approval timeline risks?</li>
                       <li>• Compliance costs?</li>
@@ -768,9 +814,11 @@ export default function V0GrantProposalPage() {
                       <li>○ Carbon MRV baseline establishment</li>
                     </ul>
                   </div>
-                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 mb-2">[GAP: Details Needed]</p>
-                    <ul className="space-y-1 text-xs text-amber-800">
+                  <div className="p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                    </div>
+                    <ul className="space-y-1 text-xs text-amber-900">
                       <li>• Target farmer count for Year 1?</li>
                       <li>• Distribution partner strategy?</li>
                       <li>• MRV methodology selection?</li>
@@ -810,8 +858,11 @@ export default function V0GrantProposalPage() {
                     <li>• Relationship established through business development work</li>
                     <li>• Status: Supportive partnership confirmed</li>
                   </ul>
-                  <div className="mt-3 p-3 rounded bg-amber-50 border border-amber-200">
-                    <p className="text-xs text-amber-800">[GAP: Formal MOU/contract status? IP arrangements?]</p>
+                  <div className="mt-3 p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                    </div>
+                    <p className="text-xs text-amber-900">Formal MOU/contract status? IP arrangements?</p>
                   </div>
                 </div>
 
@@ -822,8 +873,11 @@ export default function V0GrantProposalPage() {
                     <li>• License approval expected end 2025/early 2026</li>
                     <li>• Potential for research collaboration</li>
                   </ul>
-                  <div className="mt-3 p-3 rounded bg-amber-50 border border-amber-200">
-                    <p className="text-xs text-amber-800">[GAP: Formal agreement? Research collaboration details?]</p>
+                  <div className="mt-3 p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                    </div>
+                    <p className="text-xs text-amber-900">Formal agreement? Research collaboration details?</p>
                   </div>
                 </div>
               </div>
@@ -843,32 +897,33 @@ export default function V0GrantProposalPage() {
           </div>
 
           {/* M&E Framework */}
-          <div className="p-8 rounded-2xl border-2 border-mist bg-parchment/5">
+          <div className="p-8 rounded-2xl border-2 border-amber-400 bg-amber-100">
             <h3 className="text-lg font-bold text-secondary mb-4">Monitoring & Evaluation</h3>
-            <div className="p-6 rounded-xl border-2 border-amber-500/30 bg-amber-50">
-              <p className="text-sm font-bold text-amber-900 mb-3">[GAP: M&E Framework to be Developed]</p>
-              <p className="text-sm text-amber-800 mb-4">
-                Critical for any grant - needs comprehensive framework including:
-              </p>
-              <div className="grid gap-3 md:grid-cols-2">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-900 mb-2">Process Indicators</p>
-                  <ul className="space-y-1 text-xs text-amber-800">
-                    <li>• Farmer enrollment tracking</li>
-                    <li>• Training attendance metrics</li>
-                    <li>• Product distribution monitoring</li>
-                    <li>• Practice adoption rates</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-900 mb-2">Outcome Indicators</p>
-                  <ul className="space-y-1 text-xs text-amber-800">
-                    <li>• Yield changes (baseline + measurement)</li>
-                    <li>• Income changes (attribution model)</li>
-                    <li>• Carbon sequestration (verification)</li>
-                    <li>• Soil health improvements</li>
-                  </ul>
-                </div>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest rounded">Client Input Needed</span>
+              <span className="text-sm font-bold text-amber-900">M&E Framework Required for V2</span>
+            </div>
+            <p className="text-sm text-amber-900 mb-4">
+              Critical for any grant - needs comprehensive framework including:
+            </p>
+            <div className="grid gap-3 md:grid-cols-2">
+              <div className="p-3 rounded-lg bg-white border border-amber-300">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-900 mb-2">Process Indicators</p>
+                <ul className="space-y-1 text-xs text-amber-900">
+                  <li>• Farmer enrollment tracking</li>
+                  <li>• Training attendance metrics</li>
+                  <li>• Product distribution monitoring</li>
+                  <li>• Practice adoption rates</li>
+                </ul>
+              </div>
+              <div className="p-3 rounded-lg bg-white border border-amber-300">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-900 mb-2">Outcome Indicators</p>
+                <ul className="space-y-1 text-xs text-amber-900">
+                  <li>• Yield changes (baseline + measurement)</li>
+                  <li>• Income changes (attribution model)</li>
+                  <li>• Carbon sequestration (verification)</li>
+                  <li>• Soil health improvements</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -957,8 +1012,11 @@ export default function V0GrantProposalPage() {
                   Ongoing revenue from soil carbon sequestration with majority share to farmers.
                   <span className="text-xs text-slate/60 ml-1">(Primary revenue from Stage 2+)</span>
                 </p>
-                <div className="p-3 rounded bg-amber-50 border border-amber-200">
-                  <p className="text-xs text-amber-800">[GAP: Expected revenue per tCO2? Revenue share model? Market strategy?]</p>
+                <div className="p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                  </div>
+                  <p className="text-xs text-amber-900">Expected revenue per tCO2? Revenue share model? Market strategy?</p>
                 </div>
               </div>
 
@@ -968,8 +1026,11 @@ export default function V0GrantProposalPage() {
                   Biofertilizer/biopesticide sales margins and digital platform transaction fees.
                   <span className="text-xs text-slate/60 ml-1">(Begins Stage 1, scales Stage 2+)</span>
                 </p>
-                <div className="p-3 rounded bg-amber-50 border border-amber-200">
-                  <p className="text-xs text-amber-800">[GAP: Margin model? Volume projections? Transaction fee structure?]</p>
+                <div className="p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                  </div>
+                  <p className="text-xs text-amber-900">Margin model? Volume projections? Transaction fee structure?</p>
                 </div>
               </div>
 
@@ -979,8 +1040,11 @@ export default function V0GrantProposalPage() {
                   Consulting/advisory services and technology transfer to other organizations.
                   <span className="text-xs text-slate/60 ml-1">(Opportunistic from Stage 2+)</span>
                 </p>
-                <div className="p-3 rounded bg-amber-50 border border-amber-200">
-                  <p className="text-xs text-amber-800">[GAP: Service revenue potential? Licensing opportunities?]</p>
+                <div className="p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+                  </div>
+                  <p className="text-xs text-amber-900">Service revenue potential? Licensing opportunities?</p>
                 </div>
               </div>
             </div>
@@ -1192,8 +1256,11 @@ export default function V0GrantProposalPage() {
                 </p>
               </div>
             </div>
-            <div className="mt-4 p-4 rounded-lg bg-amber-50 border border-amber-200">
-              <p className="text-xs text-amber-800">[GAP: Refine these statements with client confirmation]</p>
+            <div className="mt-4 p-4 rounded-lg bg-amber-100 border-2 border-amber-400">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded">Input Needed</span>
+              </div>
+              <p className="text-xs text-amber-900">Refine these statements with client confirmation</p>
             </div>
           </div>
 
@@ -1237,13 +1304,16 @@ export default function V0GrantProposalPage() {
 
           <div>
             <h3 className="text-lg font-bold text-secondary mb-4">Organizational Structure</h3>
-            <div className="p-6 rounded-xl border-2 border-amber-500/30 bg-amber-50">
-              <p className="text-sm font-bold text-amber-900 mb-3">[GAP: Critical Information Needed]</p>
+            <div className="p-6 rounded-xl border-2 border-amber-400 bg-amber-100">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest rounded">Client Input Needed</span>
+                <span className="text-sm font-bold text-amber-900">Critical for Funder Due Diligence</span>
+              </div>
               <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-900 mb-2">Legal Status</p>
-                  <ul className="space-y-1 text-xs text-amber-800">
-                    <li>• Legal structure?</li>
+                  <ul className="space-y-1 text-xs text-amber-900">
+                    <li>• Legal structure? (NGO, social enterprise, company?)</li>
                     <li>• Registration details?</li>
                     <li>• Year founded?</li>
                     <li>• Tax status?</li>
@@ -1251,7 +1321,7 @@ export default function V0GrantProposalPage() {
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-900 mb-2">Governance</p>
-                  <ul className="space-y-1 text-xs text-amber-800">
+                  <ul className="space-y-1 text-xs text-amber-900">
                     <li>• Board of Directors?</li>
                     <li>• Advisory Board?</li>
                     <li>• Farmer representation?</li>
@@ -1259,7 +1329,7 @@ export default function V0GrantProposalPage() {
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-900 mb-2">Current Team</p>
-                  <ul className="space-y-1 text-xs text-amber-800">
+                  <ul className="space-y-1 text-xs text-amber-900">
                     <li>• Full-time staff?</li>
                     <li>• Part-time/consultants?</li>
                     <li>• Organizational chart?</li>
@@ -1267,7 +1337,7 @@ export default function V0GrantProposalPage() {
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-900 mb-2">Track Record</p>
-                  <ul className="space-y-1 text-xs text-amber-800">
+                  <ul className="space-y-1 text-xs text-amber-900">
                     <li>• Pilot activities conducted?</li>
                     <li>• Proof of concept data?</li>
                     <li>• Partnership milestones?</li>
@@ -1321,9 +1391,12 @@ export default function V0GrantProposalPage() {
           <h2 className="text-2xl font-bold text-secondary uppercase tracking-[0.15em]">Budget Framework</h2>
         </div>
 
-        <div className="p-8 rounded-2xl border-2 border-amber-500/30 bg-amber-50">
-          <p className="text-sm font-bold text-amber-900 mb-4">[GAP: Complete Budget Development Needed]</p>
-          <p className="text-sm text-amber-800 mb-6">
+        <div className="p-8 rounded-2xl border-2 border-amber-400 bg-amber-100">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest rounded">Client Input Needed</span>
+            <span className="text-sm font-bold text-amber-900">Complete Budget Development Required for V2</span>
+          </div>
+          <p className="text-sm text-amber-900 mb-6">
             Detailed budget to be developed in separate spreadsheet linked to organizational chart of accounts and
             specific funder requirements.
           </p>
@@ -1359,11 +1432,41 @@ export default function V0GrantProposalPage() {
         </div>
       </section>
 
-      {/* Next Steps */}
+      {/* V2 Development Summary */}
       <section className="mt-12 mb-20">
         <div className="flex items-center gap-4 mb-6">
-          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.2em]">Next Steps: V1 → V2 Development</h2>
+          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.2em]">V2 Development Summary</h2>
           <div className="h-px flex-1 bg-mist" />
+        </div>
+
+        {/* Gap Count Summary */}
+        <div className="mb-6 p-6 rounded-xl border-2 border-amber-400 bg-amber-100">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest rounded">Client Review Guide</span>
+            <span className="text-sm font-bold text-amber-900">20+ Input Items Marked Throughout Proposal</span>
+          </div>
+          <p className="text-sm text-amber-900 mb-4">
+            Look for the <span className="inline-flex items-center px-1.5 py-0.5 bg-amber-500 text-white text-[8px] font-bold uppercase tracking-widest rounded mx-1">Input Needed</span>
+            boxes throughout this proposal. Each marks a specific question or piece of information needed from Keir to complete V2.
+          </p>
+          <div className="grid gap-3 md:grid-cols-4 text-center">
+            <div className="p-3 rounded-lg bg-white border border-amber-300">
+              <p className="text-2xl font-bold text-amber-700">5</p>
+              <p className="text-[10px] text-amber-900 uppercase tracking-wider">Exec Summary Items</p>
+            </div>
+            <div className="p-3 rounded-lg bg-white border border-amber-300">
+              <p className="text-2xl font-bold text-amber-700">8</p>
+              <p className="text-[10px] text-amber-900 uppercase tracking-wider">Objectives & Activities</p>
+            </div>
+            <div className="p-3 rounded-lg bg-white border border-amber-300">
+              <p className="text-2xl font-bold text-amber-700">4</p>
+              <p className="text-[10px] text-amber-900 uppercase tracking-wider">Org & Partnerships</p>
+            </div>
+            <div className="p-3 rounded-lg bg-white border border-amber-300">
+              <p className="text-2xl font-bold text-amber-700">3</p>
+              <p className="text-[10px] text-amber-900 uppercase tracking-wider">Budget & M&E</p>
+            </div>
+          </div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
@@ -1383,7 +1486,9 @@ export default function V0GrantProposalPage() {
             <ul className="space-y-2 text-sm text-emerald-800">
               <li>✓ Statement of Need with Uganda-specific data</li>
               <li>✓ Evidence base with 14 cited sources</li>
+              <li>✓ NARO yield data (+22.6% potatoes, +17.7% sweet potatoes)</li>
               <li>✓ Four pillars: Soil, Economic, Climate, Equity</li>
+              <li>✓ NAP-Ag policy alignment section</li>
               <li>✓ Full source citations appendix</li>
             </ul>
           </div>
@@ -1394,14 +1499,16 @@ export default function V0GrantProposalPage() {
               <li>• Partnership documentation and letters of support</li>
               <li>• Pilot results/proof of concept (when available)</li>
               <li>• Risk management plan</li>
+              <li>• Theory of Change / Logic Model diagram</li>
               <li>• Executive Summary (write last)</li>
             </ul>
           </div>
 
-          <div className="p-6 rounded-xl border border-mist bg-white">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate/60 mb-3">Knowledge Capture</p>
-            <p className="text-sm text-slate">
-              Use [GAP] markers as questionnaire framework for knowledge capture sessions with client
+          <div className="p-6 rounded-xl border-2 border-amber-400 bg-amber-100">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-amber-700 mb-3">Client Knowledge Capture Session</p>
+            <p className="text-sm text-amber-900">
+              Walk through this proposal with Keir using the <span className="font-bold">Input Needed</span> boxes as the questionnaire.
+              Capture answers directly to build V2.
             </p>
           </div>
         </div>
