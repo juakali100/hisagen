@@ -10,9 +10,18 @@ import {
   getPipelineStageConfig,
   getPhaseLabel,
   ChecklistItem,
+  Contact,
   EngagementActivity,
   Note,
+  GoNoGoDecision,
 } from "../../../../../types/opportunities";
+import {
+  ChecklistSection,
+  ContactManager,
+  ActivityTimeline,
+  GoNoGoGate,
+  NotesSection,
+} from "../../../../../components/opportunities";
 
 // Funder type helpers
 const getTypeLabel = (type: string) => {
@@ -45,22 +54,6 @@ const getTypeColor = (type: string) => {
   return colors[type] || "bg-slate-100 text-slate-700";
 };
 
-// Checklist status icon
-const ChecklistStatusIcon = ({ status }: { status: ChecklistItem["status"] }) => {
-  switch (status) {
-    case "passed":
-      return <span className="text-emerald-500">✓</span>;
-    case "failed":
-      return <span className="text-red-500">✗</span>;
-    case "unclear":
-      return <span className="text-amber-500">?</span>;
-    case "na":
-      return <span className="text-slate-400">—</span>;
-    default:
-      return <span className="text-slate-300">○</span>;
-  }
-};
-
 // Phase tab component
 const PhaseTab = ({
   phase,
@@ -88,12 +81,48 @@ const PhaseTab = ({
   </button>
 );
 
+// Checklist status icon (for proposal requirements)
+const ChecklistStatusIcon = ({ status }: { status: ChecklistItem["status"] }) => {
+  switch (status) {
+    case "passed":
+      return <span className="text-emerald-500 font-bold">✓</span>;
+    case "failed":
+      return <span className="text-red-500 font-bold">✗</span>;
+    case "unclear":
+      return <span className="text-amber-500 font-bold">?</span>;
+    case "na":
+      return <span className="text-slate-400">—</span>;
+    default:
+      return <span className="text-slate-300">○</span>;
+  }
+};
+
 export default function OpportunityPage() {
   const params = useParams();
   const slug = params.slug as string;
   const opportunity = getOpportunityBySlug(slug);
 
   const [activePhase, setActivePhase] = useState<number>(opportunity?.currentPhase || 2);
+
+  // Local state for interactive components (would persist via API in production)
+  const [contacts, setContacts] = useState<Contact[]>(opportunity?.contacts || []);
+  const [activities, setActivities] = useState<EngagementActivity[]>(opportunity?.engagementHistory || []);
+  const [notes, setNotes] = useState<Note[]>(opportunity?.notes || []);
+  const [eligibilityChecklist, setEligibilityChecklist] = useState<ChecklistItem[]>(
+    opportunity?.eligibilityChecklist || []
+  );
+  const [complianceChecklist, setComplianceChecklist] = useState<ChecklistItem[]>(
+    opportunity?.complianceChecklist || []
+  );
+  const [capacityChecklist, setCapacityChecklist] = useState<ChecklistItem[]>(
+    opportunity?.capacityChecklist || []
+  );
+  const [goNoGoDecision, setGoNoGoDecision] = useState<GoNoGoDecision>(
+    opportunity?.goNoGoDecision || "pending"
+  );
+  const [goNoGoRationale, setGoNoGoRationale] = useState<string>(
+    opportunity?.goNoGoRationale || ""
+  );
 
   if (!opportunity) {
     notFound();
@@ -113,6 +142,27 @@ export default function OpportunityPage() {
   // Progress indicator
   const phases = [2, 3, 4, 5, 6];
   const currentPhaseIndex = phases.indexOf(opportunity.currentPhase);
+
+  // Calculate checklist summary for Go/No-Go gate
+  const calculateChecklistStats = (items: ChecklistItem[]) => {
+    const checkable = items.filter((i) => i.status !== "na");
+    const passed = items.filter((i) => i.status === "passed");
+    return { passed: passed.length, total: checkable.length };
+  };
+
+  const checklistSummary = {
+    eligibility: calculateChecklistStats(eligibilityChecklist),
+    compliance: calculateChecklistStats(complianceChecklist),
+    capacity: calculateChecklistStats(capacityChecklist),
+  };
+
+  // Handle Go/No-Go decision update
+  const handleGoNoGoUpdate = (decision: GoNoGoDecision, rationale: string) => {
+    setGoNoGoDecision(decision);
+    setGoNoGoRationale(rationale);
+    // In production, this would save to API
+    console.log("Go/No-Go decision updated:", { decision, rationale });
+  };
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -182,7 +232,6 @@ export default function OpportunityPage() {
           {phases.map((phase, idx) => {
             const isComplete = idx < currentPhaseIndex;
             const isCurrent = phase === opportunity.currentPhase;
-            const isFuture = idx > currentPhaseIndex;
 
             return (
               <div key={phase} className="flex items-center">
@@ -234,7 +283,7 @@ export default function OpportunityPage() {
 
       {/* Phase Tabs */}
       <section className="mt-8">
-        <div className="flex gap-1 border-b border-mist">
+        <div className="flex gap-1 border-b border-mist overflow-x-auto">
           {phases.map((phase) => (
             <PhaseTab
               key={phase}
@@ -321,45 +370,17 @@ export default function OpportunityPage() {
                 </div>
               </div>
 
-              {/* Contacts */}
-              <div className="p-4 rounded-lg border border-mist">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-3">Contacts</p>
-                {opportunity.contacts.length > 0 ? (
-                  <div className="space-y-2">
-                    {opportunity.contacts.map((contact) => (
-                      <div key={contact.id} className="p-3 rounded bg-slate-50 border border-slate-200">
-                        <p className="text-sm font-medium text-secondary">{contact.name}</p>
-                        <p className="text-xs text-slate">{contact.role} - {contact.organization}</p>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-sm text-slate/60 italic">No contacts added yet</p>
-                )}
-              </div>
+              {/* Interactive Contact Manager */}
+              <ContactManager
+                contacts={contacts}
+                onUpdate={setContacts}
+              />
 
-              {/* Engagement History */}
-              <div className="p-4 rounded-lg border border-mist">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-3">Engagement History</p>
-                {opportunity.engagementHistory.length > 0 ? (
-                  <div className="space-y-3">
-                    {opportunity.engagementHistory.map((activity) => (
-                      <div key={activity.id} className="p-3 rounded bg-slate-50 border border-slate-200">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-xs font-medium text-secondary">{activity.date}</span>
-                          <span className="text-[9px] uppercase tracking-widest px-2 py-0.5 rounded bg-slate-200 text-slate-600">{activity.type}</span>
-                        </div>
-                        <p className="text-sm text-slate">{activity.description}</p>
-                        {activity.outcome && (
-                          <p className="text-xs text-emerald-700 mt-1">Outcome: {activity.outcome}</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-sm text-slate/60 italic">No engagement activities logged yet</p>
-                )}
-              </div>
+              {/* Interactive Activity Timeline */}
+              <ActivityTimeline
+                activities={activities}
+                onUpdate={setActivities}
+              />
 
               {/* Engagement Notes */}
               {opportunity.engagementNotes && (
@@ -379,75 +400,35 @@ export default function OpportunityPage() {
                 <p className="text-sm text-slate">Verify eligibility, compliance, and capacity before committing to proposal.</p>
               </div>
 
-              {/* Go/No-Go Decision */}
-              <div className={`p-4 rounded-lg border-2 ${
-                opportunity.goNoGoDecision === "go" ? "border-emerald-300 bg-emerald-50" :
-                opportunity.goNoGoDecision === "no-go" ? "border-red-300 bg-red-50" :
-                "border-amber-300 bg-amber-50"
-              }`}>
-                <p className="text-[10px] font-bold uppercase tracking-widest mb-2">Go/No-Go Decision</p>
-                <div className="flex items-center gap-4">
-                  <span className={`px-4 py-2 rounded-lg text-sm font-bold ${
-                    opportunity.goNoGoDecision === "go" ? "bg-emerald-500 text-white" :
-                    opportunity.goNoGoDecision === "no-go" ? "bg-red-500 text-white" :
-                    "bg-amber-500 text-white"
-                  }`}>
-                    {opportunity.goNoGoDecision === "go" ? "GO" :
-                     opportunity.goNoGoDecision === "no-go" ? "NO-GO" : "PENDING"}
-                  </span>
-                  {opportunity.goNoGoRationale && (
-                    <p className="text-sm text-slate">{opportunity.goNoGoRationale}</p>
-                  )}
-                </div>
-              </div>
+              {/* Interactive Go/No-Go Decision Gate */}
+              <GoNoGoGate
+                decision={goNoGoDecision}
+                date={opportunity.goNoGoDate}
+                rationale={goNoGoRationale}
+                onUpdate={handleGoNoGoUpdate}
+                checklistSummary={checklistSummary}
+              />
 
-              {/* Eligibility Checklist */}
-              <div className="p-4 rounded-lg border border-mist">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-3">Eligibility Checklist</p>
-                <div className="space-y-2">
-                  {opportunity.eligibilityChecklist.map((item) => (
-                    <div key={item.id} className="flex items-start gap-3 p-2 rounded bg-slate-50">
-                      <ChecklistStatusIcon status={item.status} />
-                      <div className="flex-1">
-                        <p className="text-sm text-secondary">{item.item}</p>
-                        {item.notes && <p className="text-xs text-slate mt-1">{item.notes}</p>}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              {/* Interactive Eligibility Checklist */}
+              <ChecklistSection
+                title="Eligibility Checklist"
+                items={eligibilityChecklist}
+                onUpdate={setEligibilityChecklist}
+              />
 
-              {/* Compliance Checklist */}
-              <div className="p-4 rounded-lg border border-mist">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-3">Compliance Checklist</p>
-                <div className="space-y-2">
-                  {opportunity.complianceChecklist.map((item) => (
-                    <div key={item.id} className="flex items-start gap-3 p-2 rounded bg-slate-50">
-                      <ChecklistStatusIcon status={item.status} />
-                      <div className="flex-1">
-                        <p className="text-sm text-secondary">{item.item}</p>
-                        {item.notes && <p className="text-xs text-slate mt-1">{item.notes}</p>}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              {/* Interactive Compliance Checklist */}
+              <ChecklistSection
+                title="Compliance Checklist"
+                items={complianceChecklist}
+                onUpdate={setComplianceChecklist}
+              />
 
-              {/* Capacity Checklist */}
-              <div className="p-4 rounded-lg border border-mist">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-3">Capacity Checklist</p>
-                <div className="space-y-2">
-                  {opportunity.capacityChecklist.map((item) => (
-                    <div key={item.id} className="flex items-start gap-3 p-2 rounded bg-slate-50">
-                      <ChecklistStatusIcon status={item.status} />
-                      <div className="flex-1">
-                        <p className="text-sm text-secondary">{item.item}</p>
-                        {item.notes && <p className="text-xs text-slate mt-1">{item.notes}</p>}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              {/* Interactive Capacity Checklist */}
+              <ChecklistSection
+                title="Capacity Checklist"
+                items={capacityChecklist}
+                onUpdate={setCapacityChecklist}
+              />
 
               {/* Due Diligence Notes */}
               {opportunity.dueDiligenceNotes && (
@@ -573,17 +554,10 @@ export default function OpportunityPage() {
 
               {/* Handover Checklist */}
               {opportunity.outcome === "won" && opportunity.handoverChecklist && (
-                <div className="p-4 rounded-lg border border-mist">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-3">Handover Checklist</p>
-                  <div className="space-y-2">
-                    {opportunity.handoverChecklist.map((item) => (
-                      <div key={item.id} className="flex items-start gap-3 p-2 rounded bg-slate-50">
-                        <ChecklistStatusIcon status={item.status} />
-                        <p className="text-sm text-secondary">{item.item}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <ChecklistSection
+                  title="Handover Checklist"
+                  items={opportunity.handoverChecklist}
+                />
               )}
 
               {/* Contract Notes */}
@@ -600,30 +574,12 @@ export default function OpportunityPage() {
 
       {/* Notes & Documents */}
       <section className="mt-8 grid gap-6 md:grid-cols-2">
-        {/* Notes */}
-        <div className="p-6 rounded-xl border border-mist bg-white">
-          <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-4">Activity Notes</p>
-          {opportunity.notes.length > 0 ? (
-            <div className="space-y-3">
-              {opportunity.notes.map((note) => (
-                <div key={note.id} className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs font-medium text-secondary">{note.date}</span>
-                    <span className="text-[9px] text-slate/60">{note.author}</span>
-                    {note.phase && (
-                      <span className="text-[9px] uppercase tracking-widest px-1.5 py-0.5 rounded bg-slate-200 text-slate-500">
-                        Phase {note.phase}
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-sm text-slate">{note.content}</p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-sm text-slate/60 italic">No notes yet</p>
-          )}
-        </div>
+        {/* Interactive Notes Section */}
+        <NotesSection
+          notes={notes}
+          currentPhase={activePhase}
+          onUpdate={setNotes}
+        />
 
         {/* Documents */}
         <div className="p-6 rounded-xl border border-mist bg-white">
@@ -652,8 +608,16 @@ export default function OpportunityPage() {
         </div>
       </section>
 
+      {/* Data Persistence Notice */}
+      <section className="mt-6 p-4 rounded-lg bg-amber-50 border border-amber-200">
+        <p className="text-xs text-amber-700">
+          <strong>Note:</strong> Changes made on this page are stored locally in this session.
+          In production, data would persist to the backend. Contact your administrator for data persistence setup.
+        </p>
+      </section>
+
       {/* Navigation */}
-      <section className="mt-12 mb-20">
+      <section className="mt-8 mb-20">
         <div className="flex gap-4">
           <Link
             href="/stage-1/funding/opportunities"
