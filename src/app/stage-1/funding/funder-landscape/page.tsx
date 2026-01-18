@@ -742,7 +742,7 @@ export default function FunderLandscapePage() {
           </div>
 
           {/* HISAGEN Context */}
-          <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
+          <div className="p-4 rounded-lg bg-primary/5 border border-primary/20 mb-6">
             <p className="text-xs font-bold text-secondary mb-2">HISAGEN Context</p>
             <p className="text-xs text-slate mb-2">
               Currently seeking <strong>grant funding</strong> (not VC). Contributions framed as <strong>in-kind professional services</strong> (project costs) rather than sweat equity.
@@ -753,6 +753,91 @@ export default function FunderLandscapePage() {
               <li><strong>Discuss value capture</strong> with each contributor (equity, recognition, portfolio, sponsorship)</li>
               <li><strong>Formalize agreements</strong> before significant work continues</li>
             </ul>
+          </div>
+
+          {/* Pandion Scenario */}
+          <div className="p-6 rounded-xl border-2 border-primary/30 bg-white">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="px-2 py-1 bg-primary text-white text-[9px] font-bold uppercase tracking-widest rounded">Pandion Studio Scenario</span>
+            </div>
+            <p className="text-xs text-slate mb-4">
+              <strong>Current contribution:</strong> 48 hrs / $7,200 in professional services (Nov 2025 - Jan 2026).
+              How might this be recognized depending on outcomes?
+            </p>
+
+            <div className="space-y-3">
+              {/* Tier 1: Monetary */}
+              <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">Tier 1: Monetary Recovery</p>
+                <div className="grid gap-2 md:grid-cols-2">
+                  <div className="p-3 rounded bg-white border border-emerald-100">
+                    <p className="text-xs font-bold text-emerald-800 mb-1">Win Fee (if grant secured)</p>
+                    <p className="text-[11px] text-emerald-700">3-5% of grant value for grants Pandion supported. E.g., $150K grant = $4,500-7,500 fee.</p>
+                  </div>
+                  <div className="p-3 rounded bg-white border border-emerald-100">
+                    <p className="text-xs font-bold text-emerald-800 mb-1">Pre-Award Cost Recovery</p>
+                    <p className="text-[11px] text-emerald-700">If grant allows, include pre-award costs in budget. Partial or full recovery of $7,200.</p>
+                  </div>
+                  <div className="p-3 rounded bg-white border border-emerald-100">
+                    <p className="text-xs font-bold text-emerald-800 mb-1">Budgeted Future Work</p>
+                    <p className="text-[11px] text-emerald-700">Include Pandion advisory/portal work in grant budget for funded period. Paid at $150/hr.</p>
+                  </div>
+                  <div className="p-3 rounded bg-white border border-emerald-100">
+                    <p className="text-xs font-bold text-emerald-800 mb-1">Equity Conversion</p>
+                    <p className="text-[11px] text-emerald-700">If HISAGEN raises VC/angel, convert contribution to equity at agreed valuation.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tier 2: Non-Monetary but Valuable */}
+              <div className="p-4 rounded-lg bg-blue-50 border border-blue-200">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-blue-700 mb-2">Tier 2: If No Monetary Recovery</p>
+                <p className="text-[11px] text-blue-600 mb-3">If grants don't allow cost recovery and no equity path, Pandion contribution recognized through:</p>
+                <div className="grid gap-2 md:grid-cols-2">
+                  <div className="p-3 rounded bg-white border border-blue-100">
+                    <p className="text-xs font-bold text-blue-800 mb-1">Sponsorship / Visibility</p>
+                    <ul className="text-[11px] text-blue-700 list-disc list-inside">
+                      <li>Pandion logo on HISAGEN website</li>
+                      <li>"Technology Partner" or "Digital Sponsor" title</li>
+                      <li>Logo on grant materials (if funder allows)</li>
+                      <li>Backlink from hisagen.org to pandion.studio</li>
+                    </ul>
+                  </div>
+                  <div className="p-3 rounded bg-white border border-blue-100">
+                    <p className="text-xs font-bold text-blue-800 mb-1">Portfolio & Case Study</p>
+                    <ul className="text-[11px] text-blue-700 list-disc list-inside">
+                      <li>Permission to use HISAGEN in Pandion portfolio</li>
+                      <li>Case study: "Building a grant-ready knowledge portal"</li>
+                      <li>Testimonial from Keir for Pandion website</li>
+                      <li>Speaking/presentation rights about the project</li>
+                    </ul>
+                  </div>
+                  <div className="p-3 rounded bg-white border border-blue-100">
+                    <p className="text-xs font-bold text-blue-800 mb-1">Network & Referrals</p>
+                    <ul className="text-[11px] text-blue-700 list-disc list-inside">
+                      <li>Introductions to Keir's network</li>
+                      <li>Referrals to similar projects</li>
+                      <li>Invitation to HISAGEN events</li>
+                      <li>Access to Locus AG / NARO contacts</li>
+                    </ul>
+                  </div>
+                  <div className="p-3 rounded bg-white border border-blue-100">
+                    <p className="text-xs font-bold text-blue-800 mb-1">Formal Acknowledgment</p>
+                    <ul className="text-[11px] text-blue-700 list-disc list-inside">
+                      <li>Letter of appreciation (CV reference)</li>
+                      <li>"Founding Advisor" or "Angel Supporter" title</li>
+                      <li>LinkedIn recommendation from Keir</li>
+                      <li>Named in grant proposal acknowledgments</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Summary */}
+              <div className="p-3 rounded-lg bg-slate-100 border border-slate-200">
+                <p className="text-xs text-slate"><strong>Minimum ask:</strong> If no monetary value captured, ensure Tier 2 recognition is formalized - sponsorship agreement, portfolio rights, testimonial, referrals. The work has value and should be acknowledged appropriately.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
