@@ -29,29 +29,9 @@ const navigation = {
   // capitalStages: [...],
   partners: [
     {
-      name: "Deep Six Consulting",
-      href: "/ecosystem/deep-six",
-      description: "Originator • Community engagement",
-    },
-    {
-      name: "Locus AG",
-      href: "/ecosystem/locus-ag",
-      description: "Technology • Microbial products",
-    },
-    {
-      name: "3Degrees",
-      href: "/ecosystem/3-degrees",
-      description: "Certification • Carbon verification",
-    },
-    {
-      name: "Carbon Neutral Marketplace",
-      href: "/ecosystem/czmp",
-      description: "Monetization • Market access",
-    },
-    {
-      name: "Pandion Studio",
-      href: "/ecosystem/pandion",
-      description: "Systems Architecture • Digital twin",
+      name: "Core Ecosystem",
+      href: "/ecosystem",
+      description: "All partner profiles in one place",
     },
   ],
 };
