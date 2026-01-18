@@ -1055,7 +1055,7 @@ export default function FunderLandscapePage() {
             >
               <div className="flex items-center gap-3">
                 <span className="px-2 py-1 bg-primary text-white text-[9px] font-bold uppercase tracking-widest rounded">Pandion Studio</span>
-                <span className="text-xs text-primary">Strategy, Grants & Digital | 20 hrs / $3,000</span>
+                <span className="text-xs text-primary">Strategy, Grants & Digital</span>
               </div>
               <span className={`text-primary transition-transform ${pandionScenarioOpen ? 'rotate-180' : ''}`}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
