@@ -1,5 +1,5 @@
 import StageBreadcrumb from "../../components/StageBreadcrumb";
-import { stages } from "../funding-roadmap/capital-continuum/variables";
+import { stages } from "../capital-continuum/variables";
 
 const prototypeSections = [
   {

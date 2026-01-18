@@ -54,7 +54,7 @@ const programHighlights: Highlight[] = [
                 <p>
                     HISAGEN acts as the 'Full-Stack Integrator'. We coordinate the value chain from soil biology to carbon markets, using the{" "}
                     <a
-                        href="/funding-roadmap/capital-continuum"
+                        href="/capital-continuum"
                         className="underline decoration-secondary/30 hover:decoration-secondary transition-colors"
                     >
                         Capital Continuum
@@ -452,7 +452,7 @@ export default function ProgramPage() {
                 <a href="/project/hisagen-uganda" className="px-8 py-3 bg-secondary text-parchment rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary transition-colors">
                     View Uganda Pilot
                 </a>
-                <a href="/funding-roadmap/capital-continuum" className="px-8 py-3 border border-secondary text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-secondary hover:text-parchment transition-colors">
+                <a href="/capital-continuum" className="px-8 py-3 border border-secondary text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-secondary hover:text-parchment transition-colors">
                     Capital Continuum
                 </a>
                 <a href="/strategy" className="px-8 py-3 border border-secondary text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-secondary hover:text-parchment transition-colors">

@@ -1,24 +1,24 @@
-﻿import React from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import StageBreadcrumb from "../../../components/StageBreadcrumb";
+import StageBreadcrumb from "../../components/StageBreadcrumb";
 import { pillars, stages } from "./variables";
 
-export default function CapitalContinuumPlaybookPage() {
+export default function CapitalContinuumPage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
         stage="Capital Continuum"
-        trail={[{ label: "Capital" }]}
+        trail={[{ label: "Framework" }]}
       />
 
       <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="flex-1">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
-            Funding Roadmap
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+            Framework
           </p>
           <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-            Capital Continuum Playbook
+            Capital Continuum
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
             Making agricultural carbon <strong>bankable</strong> requires the right capital at the right stage.
@@ -361,44 +361,6 @@ export default function CapitalContinuumPlaybookPage() {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Grant Lifecycle Methodology */}
-      <section className="mt-12 rounded-2xl border-2 border-primary/20 bg-primary/5 p-8">
-        <div className="flex flex-col md:flex-row gap-8 items-start">
-          <div className="flex-1">
-            <p className="text-xs uppercase tracking-[0.3em] font-bold text-primary">Delivery Methodology</p>
-            <h2 className="mt-3 text-2xl font-bold text-secondary">Grant Writing & Delivery Lifecycle</h2>
-            <p className="mt-4 text-sm text-slate leading-relaxed">
-              While the Capital Continuum maps <strong>project lifecycle funding</strong> across stages,
-              the Grant Lifecycle provides an <strong>11-phase delivery methodology</strong> for each funding application -
-              from vision and strategy through to closeout and reflection.
-            </p>
-            <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-3">
-              {[
-                { phase: "01-04", label: "Pre-Proposal", desc: "Strategy, Scanning, Engagement, Due Diligence" },
-                { phase: "05", label: "Proposal", desc: "Development & Submission (Current Focus)" },
-                { phase: "06-07", label: "Award", desc: "Contracting, Initiation, Setup" },
-                { phase: "08-11", label: "Delivery", desc: "Implementation, Reporting, Closeout" },
-              ].map((item) => (
-                <div key={item.phase} className="p-3 rounded-lg bg-white border border-mist">
-                  <p className="text-[9px] font-bold uppercase tracking-widest text-primary">Phase {item.phase}</p>
-                  <p className="text-xs font-bold text-secondary mt-1">{item.label}</p>
-                  <p className="text-[10px] text-slate mt-1">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-            <Link
-              href="/funding-roadmap/grant-lifecycle"
-              className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors"
-            >
-              View Full 11-Phase Methodology
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
         </div>
       </section>
 

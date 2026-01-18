@@ -75,12 +75,12 @@ const projects = [
 const framework = [
   {
     name: "Capital Continuum",
-    href: "/funding-roadmap/capital-continuum",
+    href: "/capital-continuum",
     description: "4-stage funding lifecycle framework",
   },
   {
     name: "Grant Lifecycle",
-    href: "/funding-roadmap/grant-lifecycle",
+    href: "/grant-lifecycle",
     description: "11-phase delivery methodology",
   },
 ];

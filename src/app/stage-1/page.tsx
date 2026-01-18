@@ -410,7 +410,7 @@ export default function Stage1Page() {
           {
             title: "Capital Continuum",
             description: "Deep dive into the 4-stage funding framework.",
-            href: "/funding-roadmap/capital-continuum",
+            href: "/capital-continuum",
           }
         ].map((card) => (
           <a

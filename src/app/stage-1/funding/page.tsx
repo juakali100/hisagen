@@ -376,7 +376,7 @@ export default function Stage1FundingPage() {
           </Link>
 
           <Link
-            href="/funding-roadmap/capital-continuum"
+            href="/capital-continuum"
             className="group p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60 mb-2">Framework</p>
@@ -387,7 +387,7 @@ export default function Stage1FundingPage() {
           </Link>
 
           <Link
-            href="/funding-roadmap/grant-lifecycle"
+            href="/grant-lifecycle"
             className="group p-6 rounded-xl border-2 border-primary/20 bg-primary/5 hover:border-primary hover:shadow-md transition-all"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-2">Methodology</p>

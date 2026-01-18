@@ -1,5 +1,5 @@
 import Link from "next/link";
-import StageBreadcrumb from "../../../components/StageBreadcrumb";
+import StageBreadcrumb from "../../components/StageBreadcrumb";
 
 // Educational framework - what each phase IS and why it matters
 const phases = [
@@ -126,7 +126,7 @@ export default function GrantLifecycleFrameworkPage() {
       <StageBreadcrumb
         stage="Grant Lifecycle"
         trail={[
-          { label: "Capital Continuum", href: "/funding-roadmap/capital-continuum" },
+          { label: "Capital Continuum", href: "/capital-continuum" },
           { label: "Methodology" },
         ]}
       />
@@ -416,7 +416,7 @@ export default function GrantLifecycleFrameworkPage() {
 
         <div className="grid gap-4 md:grid-cols-3">
           <Link
-            href="/funding-roadmap/capital-continuum"
+            href="/capital-continuum"
             className="group p-5 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
           >
             <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Framework</p>

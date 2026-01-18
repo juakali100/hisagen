@@ -71,7 +71,7 @@ export default function Stage2FundingPage() {
       <StageBreadcrumb
         stage="Stage 2 Funding"
         trail={[
-          { label: "Capital Continuum", href: "/funding-roadmap/capital-continuum" },
+          { label: "Capital Continuum", href: "/capital-continuum" },
           { label: "Stage 2: Implementation", href: "/stage-2" },
           { label: "Funding Strategy" }
         ]}
@@ -260,7 +260,7 @@ export default function Stage2FundingPage() {
           </Link>
 
           <Link
-            href="/funding-roadmap/capital-continuum"
+            href="/capital-continuum"
             className="group p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60 mb-2">Framework</p>

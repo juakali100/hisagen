@@ -1465,7 +1465,7 @@ export default function FunderLandscapePage() {
 
         <div className="grid gap-4 md:grid-cols-4">
           <Link
-            href="/funding-roadmap/grant-lifecycle"
+            href="/grant-lifecycle"
             className="group p-6 rounded-xl border-2 border-amber-500/20 bg-amber-50 hover:border-amber-500 hover:shadow-xl transition-all"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600 mb-2">Phase 02</p>
@@ -1476,7 +1476,7 @@ export default function FunderLandscapePage() {
           </Link>
 
           <Link
-            href="/funding-roadmap/grant-lifecycle"
+            href="/grant-lifecycle"
             className="group p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60 mb-2">Phase 03</p>
@@ -1487,7 +1487,7 @@ export default function FunderLandscapePage() {
           </Link>
 
           <Link
-            href="/funding-roadmap/grant-lifecycle"
+            href="/grant-lifecycle"
             className="group p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60 mb-2">Phase 04</p>

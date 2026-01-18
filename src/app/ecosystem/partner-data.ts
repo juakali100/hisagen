@@ -146,7 +146,7 @@ export const partners: Partner[] = [
         keyResources: [
             {
                 title: "The Capital Continuum Framework",
-                file: "/funding-roadmap/capital-continuum",
+                file: "/capital-continuum",
                 format: "Link"
             }
         ]

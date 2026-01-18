@@ -283,7 +283,7 @@ export default function PilotPage() {
             </p>
           </div>
           <Link
-            href="/funding-roadmap/capital-continuum"
+            href="/capital-continuum"
             className="text-[10px] font-bold uppercase tracking-widest text-secondary hover:underline whitespace-nowrap"
           >
             View Framework →
@@ -491,7 +491,7 @@ export default function PilotPage() {
             </p>
           </div>
           <Link
-            href="/funding-roadmap/capital-continuum"
+            href="/capital-continuum"
             className="text-[10px] font-bold uppercase tracking-widest text-secondary hover:underline"
           >
             View Full Framework →

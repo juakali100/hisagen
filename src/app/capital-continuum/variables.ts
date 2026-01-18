@@ -1,4 +1,4 @@
-﻿export type Stage = {
+export type Stage = {
   title: string;
   years: string;
   focus: string;
