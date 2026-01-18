@@ -264,6 +264,9 @@ const getTypeLabel = (type: FunderType) => {
 
 export default function FunderLandscapePage() {
   const [matchFundingOpen, setMatchFundingOpen] = useState(false);
+  const [pandionScenarioOpen, setPandionScenarioOpen] = useState(false);
+  const [deepSixScenarioOpen, setDeepSixScenarioOpen] = useState(false);
+  const [locusScenarioOpen, setLocusScenarioOpen] = useState(false);
 
   const tier1 = funders.filter(f => f.tier === "tier1");
   const tier2 = funders.filter(f => f.tier === "tier2");
@@ -756,99 +759,300 @@ export default function FunderLandscapePage() {
             </ul>
           </div>
 
-          {/* Pandion Scenario */}
-          <div className="p-6 rounded-xl border-2 border-primary/30 bg-white">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="px-2 py-1 bg-primary text-white text-[9px] font-bold uppercase tracking-widest rounded">Pandion Studio Scenario</span>
-            </div>
-            <p className="text-xs text-slate mb-4">
-              <strong>Current contribution:</strong> 20 hrs / $3,000 in professional services (Nov 2025 - Jan 2026) at startup rate.
-              How might this be recognized depending on outcomes?
+          {/* Partner Scenarios Header */}
+          <div className="mb-4">
+            <h3 className="text-sm font-bold text-secondary uppercase tracking-widest mb-2">Partner Contribution Scenarios</h3>
+            <p className="text-xs text-slate">Click each partner to explore value capture options and considerations for discussion.</p>
+          </div>
+
+          {/* Deep Six Consulting Scenario (Accordion) */}
+          <div className="mb-3">
+            <button
+              onClick={() => setDeepSixScenarioOpen(!deepSixScenarioOpen)}
+              className="w-full flex items-center justify-between p-4 rounded-lg bg-indigo-50 border-2 border-indigo-200 hover:border-indigo-400 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="px-2 py-1 bg-indigo-600 text-white text-[9px] font-bold uppercase tracking-widest rounded">Deep Six Consulting</span>
+                <span className="text-xs text-indigo-700">Keir A-B | Corporate Strategy & Partnerships</span>
+              </div>
+              <span className={`text-indigo-600 transition-transform ${deepSixScenarioOpen ? 'rotate-180' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+
+            {deepSixScenarioOpen && (
+              <div className="mt-2 p-5 rounded-xl border-2 border-indigo-200 bg-white">
+                <p className="text-xs text-slate mb-4">
+                  <strong>Role:</strong> Primary relationship holder, strategic advisor, co-founder/CEO HISAGEN USA.
+                  <strong className="ml-2">Rate:</strong> $250/hr (Corporate Strategy) | <strong>Hours:</strong> TBC
+                </p>
+
+                {/* Deep Six Context */}
+                <div className="p-3 rounded-lg bg-indigo-50 border border-indigo-200 mb-4">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-indigo-700 mb-2">Relationship Context</p>
+                  <ul className="text-xs text-indigo-800 space-y-1">
+                    <li>• <strong>Deep 6 Consulting</strong> acts as consultancy/advisory layer (similar to Big 4 model)</li>
+                    <li>• Keir manages overall client relationship, coordinates delivery partners</li>
+                    <li>• Other partners (Pandion, Locus AG) may subcontract via Deep 6 or direct to HISAGEN</li>
+                    <li>• Deep 6 rates: $250/hr (Corporate Strategy), $220/hr (Project Mgmt), $200/hr (Digital), $150/hr (Ops)</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-3">
+                  {/* Value Capture Options */}
+                  <div className="p-4 rounded-lg bg-indigo-50/50 border border-indigo-100">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-indigo-700 mb-2">Value Capture Considerations</p>
+                    <div className="grid gap-2 md:grid-cols-2">
+                      <div className="p-3 rounded bg-white border border-indigo-100">
+                        <p className="text-xs font-bold text-indigo-800 mb-1">Founder Equity</p>
+                        <p className="text-[11px] text-indigo-700">Keir likely holds significant equity as co-founder. Time invested builds company value directly.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-indigo-100">
+                        <p className="text-xs font-bold text-indigo-800 mb-1">Advisory/Consulting Fees</p>
+                        <p className="text-[11px] text-indigo-700">Deep 6 may invoice for consulting services if/when HISAGEN has funding.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-indigo-100">
+                        <p className="text-xs font-bold text-indigo-800 mb-1">Success Fees</p>
+                        <p className="text-[11px] text-indigo-700">Finder's fees on investment rounds or partnerships Keir secures.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-indigo-100">
+                        <p className="text-xs font-bold text-indigo-800 mb-1">Grant Budget Inclusion</p>
+                        <p className="text-[11px] text-indigo-700">Include Deep 6 advisory as project management cost in grant budgets.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Questions */}
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-2">Questions to Clarify</p>
+                    <ul className="text-xs text-amber-800 space-y-1">
+                      <li>• What is Deep 6's formal relationship to HISAGEN? (Consultancy, investment vehicle, or just Keir's entity?)</li>
+                      <li>• How are partner contributions (Pandion, Locus AG) contracted? Via Deep 6 or direct to HISAGEN?</li>
+                      <li>• What is the cap table structure? Who holds what %?</li>
+                      <li>• How are Deep 6's pre-funding hours being tracked/valued?</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Locus AG Scenario (Accordion) */}
+          <div className="mb-3">
+            <button
+              onClick={() => setLocusScenarioOpen(!locusScenarioOpen)}
+              className="w-full flex items-center justify-between p-4 rounded-lg bg-green-50 border-2 border-green-200 hover:border-green-400 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="px-2 py-1 bg-green-600 text-white text-[9px] font-bold uppercase tracking-widest rounded">Locus AG</span>
+                <span className="text-xs text-green-700">US AgTech Partner | Rhizolizer Technology</span>
+              </div>
+              <span className={`text-green-600 transition-transform ${locusScenarioOpen ? 'rotate-180' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+
+            {locusScenarioOpen && (
+              <div className="mt-2 p-5 rounded-xl border-2 border-green-200 bg-white">
+                <p className="text-xs text-slate mb-4">
+                  <strong>Role:</strong> Technology partner providing Rhizolizer microbial products and manufacturing capability.
+                  <strong className="ml-2">Contribution:</strong> Products, equipment access, technical expertise
+                </p>
+
+                {/* Locus AG Context */}
+                <div className="p-3 rounded-lg bg-green-50 border border-green-200 mb-4">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-green-700 mb-2">Partnership Context</p>
+                  <ul className="text-xs text-green-800 space-y-1">
+                    <li>• <strong>Locus AG</strong> is established US agtech company with proven products</li>
+                    <li>• Rhizolizer shown to improve yields: +22.6% potatoes, +17.7% sweet potatoes (NARO trials)</li>
+                    <li>• HISAGEN serves as East Africa market entry / distribution partner</li>
+                    <li>• Relationship structured as technology licensing, joint venture, or strategic partnership</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-3">
+                  {/* In-Kind Contributions */}
+                  <div className="p-4 rounded-lg bg-green-50/50 border border-green-100">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-green-700 mb-2">In-Kind Contributions (Current)</p>
+                    <div className="grid gap-2 md:grid-cols-2">
+                      <div className="p-3 rounded bg-white border border-green-100">
+                        <p className="text-xs font-bold text-green-800 mb-1">Rhizolizer Products</p>
+                        <p className="text-[11px] text-green-700">Products provided for NARO field trials. Value: TBC (at cost or discounted).</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-green-100">
+                        <p className="text-xs font-bold text-green-800 mb-1">Manufacturing Access</p>
+                        <p className="text-[11px] text-green-700">Equipment and facility access for local production development.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-green-100">
+                        <p className="text-xs font-bold text-green-800 mb-1">Technical Expertise</p>
+                        <p className="text-[11px] text-green-700">Microbial science knowledge, formulation support, quality control.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-green-100">
+                        <p className="text-xs font-bold text-green-800 mb-1">IP Licensing</p>
+                        <p className="text-[11px] text-green-700">Endophytic technology licensing for East Africa market.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Value Capture Options */}
+                  <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">Locus AG Value Capture</p>
+                    <div className="grid gap-2 md:grid-cols-2">
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Royalty / Licensing Fees</p>
+                        <p className="text-[11px] text-emerald-700">Per-unit royalty on Rhizolizer products sold in East Africa.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Equity Stake in HISAGEN</p>
+                        <p className="text-[11px] text-emerald-700">Technology contribution converted to equity in regional venture.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Market Expansion</p>
+                        <p className="text-[11px] text-emerald-700">HISAGEN success opens East Africa market, validates product globally.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Grant Co-Funding</p>
+                        <p className="text-[11px] text-emerald-700">In-kind contributions count as match funding in grant applications.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Questions */}
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-2">Questions to Clarify</p>
+                    <ul className="text-xs text-amber-800 space-y-1">
+                      <li>• What is the formal Locus AG-HISAGEN relationship? (License, JV, strategic partnership?)</li>
+                      <li>• What is the value of products/equipment provided for trials?</li>
+                      <li>• Does Locus AG hold or expect equity in HISAGEN?</li>
+                      <li>• What are the commercialization terms? (Royalty rates, territory exclusivity?)</li>
+                      <li>• Who are the key contacts at Locus AG? (For grant letters of support)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Pandion Studio Scenario (Accordion) */}
+          <div className="mb-3">
+            <button
+              onClick={() => setPandionScenarioOpen(!pandionScenarioOpen)}
+              className="w-full flex items-center justify-between p-4 rounded-lg bg-primary/10 border-2 border-primary/30 hover:border-primary transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="px-2 py-1 bg-primary text-white text-[9px] font-bold uppercase tracking-widest rounded">Pandion Studio</span>
+                <span className="text-xs text-primary">Strategy, Grants & Digital | 20 hrs / $3,000</span>
+              </div>
+              <span className={`text-primary transition-transform ${pandionScenarioOpen ? 'rotate-180' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+
+            {pandionScenarioOpen && (
+              <div className="mt-2 p-5 rounded-xl border-2 border-primary/30 bg-white">
+                <p className="text-xs text-slate mb-4">
+                  <strong>Current contribution:</strong> 20 hrs / $3,000 in professional services (Nov 2025 - Jan 2026) at startup rate ($150/hr; standard $200-250/hr).
+                </p>
+
+                {/* Keir's Partnership Offer Context */}
+                <div className="p-3 rounded-lg bg-amber-50 border border-amber-200 mb-4">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-2">Context: Partnership Offer (Nov 2025)</p>
+                  <p className="text-xs text-amber-800 italic mb-2">
+                    "Would you be interested in exploring a partnership? Perhaps a small sweat-equity stake in the company
+                    and say a 10% commission on any successful funding (grants, investments, or co-investment) that you directly secure?"
+                  </p>
+                  <p className="text-[11px] text-amber-700">— Keir, email Nov 10, 2025. To be discussed and formalized.</p>
+                </div>
+
+                <div className="space-y-3">
+                  {/* Tier 1: Monetary */}
+                  <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">Tier 1: Monetary Recovery</p>
+                    <div className="grid gap-2 md:grid-cols-2">
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Win Fee (if grant secured)</p>
+                        <p className="text-[11px] text-emerald-700">3-5% of grant value for grants Pandion supported. E.g., $150K grant = $4,500-7,500 fee.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Pre-Award Cost Recovery</p>
+                        <p className="text-[11px] text-emerald-700">If grant allows, include pre-award costs in budget. Partial or full recovery of $3,000.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Budgeted Future Work</p>
+                        <p className="text-[11px] text-emerald-700">Include Pandion advisory/portal work in grant budget for funded period. Paid at $150/hr.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Equity Conversion</p>
+                        <p className="text-[11px] text-emerald-700">If HISAGEN raises VC/angel, convert contribution to equity at agreed valuation.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tier 2: Non-Monetary but Valuable */}
+                  <div className="p-4 rounded-lg bg-blue-50 border border-blue-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-blue-700 mb-2">Tier 2: If No Monetary Recovery</p>
+                    <p className="text-[11px] text-blue-600 mb-3">If grants don't allow cost recovery and no equity path, Pandion contribution recognized through:</p>
+                    <div className="grid gap-2 md:grid-cols-2">
+                      <div className="p-3 rounded bg-white border border-blue-100">
+                        <p className="text-xs font-bold text-blue-800 mb-1">Sponsorship / Visibility</p>
+                        <ul className="text-[11px] text-blue-700 list-disc list-inside">
+                          <li>Pandion logo on HISAGEN website</li>
+                          <li>"Technology Partner" or "Digital Sponsor" title</li>
+                          <li>Logo on grant materials (if funder allows)</li>
+                          <li>Backlink from hisagen.org to pandion.studio</li>
+                        </ul>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-blue-100">
+                        <p className="text-xs font-bold text-blue-800 mb-1">Portfolio & Case Study</p>
+                        <ul className="text-[11px] text-blue-700 list-disc list-inside">
+                          <li>Permission to use HISAGEN in Pandion portfolio</li>
+                          <li>Case study: "Building a grant-ready knowledge portal"</li>
+                          <li>Testimonial from Keir for Pandion website</li>
+                          <li>Speaking/presentation rights about the project</li>
+                        </ul>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-blue-100">
+                        <p className="text-xs font-bold text-blue-800 mb-1">Network & Referrals</p>
+                        <ul className="text-[11px] text-blue-700 list-disc list-inside">
+                          <li>Introductions to Keir's network</li>
+                          <li>Referrals to similar projects</li>
+                          <li>Invitation to HISAGEN events</li>
+                          <li>Access to Locus AG / NARO contacts</li>
+                        </ul>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-blue-100">
+                        <p className="text-xs font-bold text-blue-800 mb-1">Formal Acknowledgment</p>
+                        <ul className="text-[11px] text-blue-700 list-disc list-inside">
+                          <li>Letter of appreciation (CV reference)</li>
+                          <li>"Founding Advisor" or "Angel Supporter" title</li>
+                          <li>LinkedIn recommendation from Keir</li>
+                          <li>Named in grant proposal acknowledgments</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Summary */}
+                  <div className="p-3 rounded-lg bg-slate-100 border border-slate-200">
+                    <p className="text-xs text-slate"><strong>Minimum ask:</strong> If no monetary value captured, ensure Tier 2 recognition is formalized - sponsorship agreement, portfolio rights, testimonial, referrals. The work has value and should be acknowledged appropriately.</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Note about HISAGEN USA and Uganda */}
+          <div className="p-4 rounded-lg bg-slate-50 border border-slate-200">
+            <p className="text-xs text-slate">
+              <strong>HISAGEN USA</strong> and <strong>HISAGEN Uganda</strong> are internal entities - their contributions are captured in the professional services table above.
+              Separate scenario sections may be added as relationship structures are clarified.
             </p>
-
-            {/* Keir's Partnership Offer Context */}
-            <div className="p-3 rounded-lg bg-amber-50 border border-amber-200 mb-4">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-2">Context: Partnership Offer (Nov 2025)</p>
-              <p className="text-xs text-amber-800 italic mb-2">
-                "Would you be interested in exploring a partnership? Perhaps a small sweat-equity stake in the company
-                and say a 10% commission on any successful funding (grants, investments, or co-investment) that you directly secure?"
-              </p>
-              <p className="text-[11px] text-amber-700">— Keir, email Nov 10, 2025. To be discussed and formalized.</p>
-            </div>
-
-            <div className="space-y-3">
-              {/* Tier 1: Monetary */}
-              <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">Tier 1: Monetary Recovery</p>
-                <div className="grid gap-2 md:grid-cols-2">
-                  <div className="p-3 rounded bg-white border border-emerald-100">
-                    <p className="text-xs font-bold text-emerald-800 mb-1">Win Fee (if grant secured)</p>
-                    <p className="text-[11px] text-emerald-700">3-5% of grant value for grants Pandion supported. E.g., $150K grant = $4,500-7,500 fee.</p>
-                  </div>
-                  <div className="p-3 rounded bg-white border border-emerald-100">
-                    <p className="text-xs font-bold text-emerald-800 mb-1">Pre-Award Cost Recovery</p>
-                    <p className="text-[11px] text-emerald-700">If grant allows, include pre-award costs in budget. Partial or full recovery of $7,200.</p>
-                  </div>
-                  <div className="p-3 rounded bg-white border border-emerald-100">
-                    <p className="text-xs font-bold text-emerald-800 mb-1">Budgeted Future Work</p>
-                    <p className="text-[11px] text-emerald-700">Include Pandion advisory/portal work in grant budget for funded period. Paid at $150/hr.</p>
-                  </div>
-                  <div className="p-3 rounded bg-white border border-emerald-100">
-                    <p className="text-xs font-bold text-emerald-800 mb-1">Equity Conversion</p>
-                    <p className="text-[11px] text-emerald-700">If HISAGEN raises VC/angel, convert contribution to equity at agreed valuation.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Tier 2: Non-Monetary but Valuable */}
-              <div className="p-4 rounded-lg bg-blue-50 border border-blue-200">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-blue-700 mb-2">Tier 2: If No Monetary Recovery</p>
-                <p className="text-[11px] text-blue-600 mb-3">If grants don't allow cost recovery and no equity path, Pandion contribution recognized through:</p>
-                <div className="grid gap-2 md:grid-cols-2">
-                  <div className="p-3 rounded bg-white border border-blue-100">
-                    <p className="text-xs font-bold text-blue-800 mb-1">Sponsorship / Visibility</p>
-                    <ul className="text-[11px] text-blue-700 list-disc list-inside">
-                      <li>Pandion logo on HISAGEN website</li>
-                      <li>"Technology Partner" or "Digital Sponsor" title</li>
-                      <li>Logo on grant materials (if funder allows)</li>
-                      <li>Backlink from hisagen.org to pandion.studio</li>
-                    </ul>
-                  </div>
-                  <div className="p-3 rounded bg-white border border-blue-100">
-                    <p className="text-xs font-bold text-blue-800 mb-1">Portfolio & Case Study</p>
-                    <ul className="text-[11px] text-blue-700 list-disc list-inside">
-                      <li>Permission to use HISAGEN in Pandion portfolio</li>
-                      <li>Case study: "Building a grant-ready knowledge portal"</li>
-                      <li>Testimonial from Keir for Pandion website</li>
-                      <li>Speaking/presentation rights about the project</li>
-                    </ul>
-                  </div>
-                  <div className="p-3 rounded bg-white border border-blue-100">
-                    <p className="text-xs font-bold text-blue-800 mb-1">Network & Referrals</p>
-                    <ul className="text-[11px] text-blue-700 list-disc list-inside">
-                      <li>Introductions to Keir's network</li>
-                      <li>Referrals to similar projects</li>
-                      <li>Invitation to HISAGEN events</li>
-                      <li>Access to Locus AG / NARO contacts</li>
-                    </ul>
-                  </div>
-                  <div className="p-3 rounded bg-white border border-blue-100">
-                    <p className="text-xs font-bold text-blue-800 mb-1">Formal Acknowledgment</p>
-                    <ul className="text-[11px] text-blue-700 list-disc list-inside">
-                      <li>Letter of appreciation (CV reference)</li>
-                      <li>"Founding Advisor" or "Angel Supporter" title</li>
-                      <li>LinkedIn recommendation from Keir</li>
-                      <li>Named in grant proposal acknowledgments</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Summary */}
-              <div className="p-3 rounded-lg bg-slate-100 border border-slate-200">
-                <p className="text-xs text-slate"><strong>Minimum ask:</strong> If no monetary value captured, ensure Tier 2 recognition is formalized - sponsorship agreement, portfolio rights, testimonial, referrals. The work has value and should be acknowledged appropriately.</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
