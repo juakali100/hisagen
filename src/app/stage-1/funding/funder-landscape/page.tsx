@@ -608,6 +608,155 @@ export default function FunderLandscapePage() {
         </div>
       </section>
 
+      {/* Reference: Match Funding Definitions */}
+      <section className="mt-16">
+        <div className="flex items-center gap-4 mb-6">
+          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.15em]">Reference: Definitions & Value Capture</h2>
+          <div className="h-px flex-1 bg-mist" />
+        </div>
+
+        <div className="p-8 rounded-2xl border border-mist bg-slate-50/50">
+          {/* Key Definitions */}
+          <div className="mb-8">
+            <h3 className="text-sm font-bold text-secondary uppercase tracking-widest mb-4">Key Definitions</h3>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="p-4 rounded-lg bg-white border border-mist">
+                <p className="text-xs font-bold text-primary mb-1">Sweat Equity</p>
+                <p className="text-xs text-slate">Work contributed in exchange for an <strong>ownership stake</strong> in the company. The contributor receives equity (shares) instead of payment. Common in startups/VC contexts.</p>
+              </div>
+              <div className="p-4 rounded-lg bg-white border border-mist">
+                <p className="text-xs font-bold text-primary mb-1">In-Kind Professional Services</p>
+                <p className="text-xs text-slate"><strong>Project costs</strong> contributed by professionals at market rates. Can be included as match funding in grants, or potentially recovered if funding allows pre-award costs.</p>
+              </div>
+              <div className="p-4 rounded-lg bg-white border border-mist">
+                <p className="text-xs font-bold text-primary mb-1">In-Kind Contributions</p>
+                <p className="text-xs text-slate"><strong>Non-cash resources</strong> provided to the project: equipment, facilities, materials, products. Valued at market rate or cost price.</p>
+              </div>
+              <div className="p-4 rounded-lg bg-white border border-mist">
+                <p className="text-xs font-bold text-primary mb-1">Pre-Award Costs</p>
+                <p className="text-xs text-slate">Costs incurred <strong>before a grant is awarded</strong>. Some funders allow these to be reimbursed if they were necessary for project preparation.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Funding Context Differences */}
+          <div className="mb-8">
+            <h3 className="text-sm font-bold text-secondary uppercase tracking-widest mb-4">Funding Context: Grants vs. Commercial/VC</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="border-b border-mist">
+                    <th className="text-left py-2 text-slate/60 font-medium w-1/4">Aspect</th>
+                    <th className="text-left py-2 text-slate/60 font-medium">Grant Funding</th>
+                    <th className="text-left py-2 text-slate/60 font-medium">Commercial/VC Funding</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-mist/50">
+                    <td className="py-2 font-medium text-secondary">Return expectation</td>
+                    <td className="py-2 text-slate">Impact outcomes, no financial return to funder</td>
+                    <td className="py-2 text-slate">Financial return (ROI, equity appreciation)</td>
+                  </tr>
+                  <tr className="border-b border-mist/50">
+                    <td className="py-2 font-medium text-secondary">Contributor value capture</td>
+                    <td className="py-2 text-slate">Match funding, cost recovery, recognition</td>
+                    <td className="py-2 text-slate">Equity stake, convertible notes, profit share</td>
+                  </tr>
+                  <tr className="border-b border-mist/50">
+                    <td className="py-2 font-medium text-secondary">When to use "sweat equity"</td>
+                    <td className="py-2 text-slate">Generally not applicable (no equity to give)</td>
+                    <td className="py-2 text-slate">Appropriate - work exchanged for shares</td>
+                  </tr>
+                  <tr className="border-b border-mist/50">
+                    <td className="py-2 font-medium text-secondary">When to use "in-kind"</td>
+                    <td className="py-2 text-slate">Appropriate - demonstrates commitment</td>
+                    <td className="py-2 text-slate">Less common (usually cash or equity)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Value Capture Options */}
+          <div className="mb-8">
+            <h3 className="text-sm font-bold text-secondary uppercase tracking-widest mb-4">Value Capture Options for Contributors</h3>
+            <p className="text-xs text-slate mb-4">When someone contributes time/services without immediate payment, how can they capture value?</p>
+
+            <div className="grid gap-3">
+              <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-0.5 bg-emerald-500 text-white text-[9px] font-bold uppercase rounded">If Company Equity Available</span>
+                </div>
+                <p className="text-xs font-bold text-emerald-800 mb-1">Equity Stake / Sweat Equity</p>
+                <p className="text-xs text-emerald-700">Formal agreement converting work hours to company shares at agreed valuation. Requires cap table, vesting schedule, legal agreement.</p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-amber-50 border border-amber-200">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold uppercase rounded">If Grant Funding Secured</span>
+                </div>
+                <p className="text-xs font-bold text-amber-800 mb-1">Deferred Payment / Cost Recovery</p>
+                <p className="text-xs text-amber-700">Some grants allow pre-award cost reimbursement. Future work can be budgeted as project costs. Requires clear records of hours/rates.</p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-blue-50 border border-blue-200">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-0.5 bg-blue-500 text-white text-[9px] font-bold uppercase rounded">Recognition & Portfolio Value</span>
+                </div>
+                <div className="grid gap-2 md:grid-cols-2">
+                  <div>
+                    <p className="text-xs font-bold text-blue-800 mb-1">Formal Acknowledgment</p>
+                    <ul className="text-xs text-blue-700 list-disc list-inside">
+                      <li>Thank you letter (CV reference)</li>
+                      <li>"Angel Supporter" or "Advisor" title</li>
+                      <li>LinkedIn endorsement</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-blue-800 mb-1">Portfolio / Case Study Rights</p>
+                    <ul className="text-xs text-blue-700 list-disc list-inside">
+                      <li>Permission to use in client portfolio</li>
+                      <li>Case study for marketing</li>
+                      <li>Testimonial from founder</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-lg bg-purple-50 border border-purple-200">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-0.5 bg-purple-500 text-white text-[9px] font-bold uppercase rounded">Sponsorship / Branding</span>
+                </div>
+                <p className="text-xs font-bold text-purple-800 mb-1">Visibility & Association</p>
+                <p className="text-xs text-purple-700">Contributor logo on website/materials, "Supported by" acknowledgment, backlinks, speaking opportunities. Formalizable via sponsorship agreement.</p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-slate-100 border border-slate-300">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2 py-0.5 bg-slate-500 text-white text-[9px] font-bold uppercase rounded">Pro Bono / Volunteer</span>
+                </div>
+                <p className="text-xs font-bold text-slate-700 mb-1">Charitable Contribution</p>
+                <p className="text-xs text-slate-600">Explicitly donated time with no expectation of return. Should be formalized with volunteer agreement. Contributor receives satisfaction + potential tax benefits (check jurisdiction).</p>
+              </div>
+            </div>
+          </div>
+
+          {/* HISAGEN Context */}
+          <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
+            <p className="text-xs font-bold text-secondary mb-2">HISAGEN Context</p>
+            <p className="text-xs text-slate mb-2">
+              Currently seeking <strong>grant funding</strong> (not VC). Contributions framed as <strong>in-kind professional services</strong> (project costs) rather than sweat equity.
+            </p>
+            <ul className="text-xs text-slate list-disc list-inside space-y-1">
+              <li><strong>Include in grant applications</strong> as match funding to demonstrate commitment</li>
+              <li><strong>Track hours and rates</strong> for potential cost recovery if grants allow</li>
+              <li><strong>Discuss value capture</strong> with each contributor (equity, recognition, portfolio, sponsorship)</li>
+              <li><strong>Formalize agreements</strong> before significant work continues</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Lifecycle Integration */}
       <section className="mt-16 mb-20">
         <div className="flex items-center gap-4 mb-8">
