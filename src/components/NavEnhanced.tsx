@@ -89,24 +89,25 @@ const framework = [
 ];
 
 // Featured content for Program flyout
+// These reinforce the two pillars (implementation + science) without adding navigation complexity
 const programFeatured = [
   {
     id: 1,
-    title: "Field Planning & MRV",
+    title: "Uganda Pilot",
     href: "/project/hisagen-uganda",
-    date: "Implementation",
-    category: "Operations",
+    date: "Flagship",
+    category: "Implementation",
     imageUrl: "/images/features/uganda-smallhold-farner-soil-samples-field-plan.jpeg",
-    description: "Systematic field planning and measurement, reporting, verification protocols.",
+    description: "10,000 smallholder farmers. Regenerative agriculture at landscape scale.",
   },
   {
     id: 2,
-    title: "Soil Health Analysis",
+    title: "The Evidence",
     href: "/evidence",
     date: "Science",
     category: "Research",
     imageUrl: "/images/features/healthy-roots-soil-sample.jpeg",
-    description: "Root development and soil carbon sequestration measurement.",
+    description: "Peer-reviewed soil carbon research and verification protocols.",
   },
 ];
 
