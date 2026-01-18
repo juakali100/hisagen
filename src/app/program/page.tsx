@@ -325,61 +325,110 @@ export default function ProgramPage() {
                 ))}
             </div>
 
-            {/* Soil-to-Sale Journey */}
+            {/* Farmer Value Journey */}
             <section className="mt-10 rounded-xl border border-mist bg-white p-8">
-                <div className="flex items-center justify-between mb-8">
-                    <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold">Operational Roadmap: The 'Soil-to-Sale' Journey</p>
-                    <span className="text-[10px] border border-secondary/20 text-secondary/60 px-2 py-0.5 rounded uppercase tracking-widest font-bold">Uganda Pilot</span>
+                <div className="flex items-center justify-between mb-6">
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40">The Farmer Journey</p>
+                        <h2 className="mt-2 text-xl font-bold text-secondary">From Soil Health to Dual Income</h2>
+                    </div>
+                    <span className="text-[10px] border border-emerald-200 bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded uppercase tracking-widest font-bold">Uganda Pilot</span>
                 </div>
 
-                <div className="relative">
-                    <div className="absolute left-[15px] top-4 bottom-4 w-px bg-mist md:left-1/2 md:-ml-px md:block" />
+                <p className="text-sm text-slate mb-8 max-w-2xl">
+                    Smallholder farmers gain two revenue streams: improved crop yields from healthier soil, plus carbon credit income from the carbon their soil sequesters.
+                </p>
 
-                    <div className="space-y-12">
+                <div className="relative">
+                    <div className="absolute left-[15px] top-4 bottom-4 w-px bg-gradient-to-b from-emerald-200 via-amber-200 to-primary/30 md:left-1/2 md:-ml-px md:block" />
+
+                    <div className="space-y-10">
                         {[
                             {
-                                stage: "1. Deploy Technology",
-                                actor: "Locus AG / HISAGEN",
-                                detail: "Rhizolizer® Duo applied to smallholder plots. Immediate yield improvement while SOC accumulates.",
-                                label: "TECH"
+                                stage: "1. Soil Health",
+                                outcome: "Foundation for everything",
+                                detail: "Farmer applies microbial treatment (Rhizolizer®). Soil biology activates, nutrient cycling improves.",
+                                label: "SOIL",
+                                color: "bg-emerald-50 border-emerald-200",
+                                labelColor: "text-emerald-700"
                             },
                             {
-                                stage: "2. Capture Data",
-                                actor: "Local Partners / 3Degrees",
-                                detail: "Ground-truth MRV captures field data. Satellite monitoring validates at scale.",
-                                label: "DATA"
+                                stage: "2. Better Yields",
+                                outcome: "Immediate income boost",
+                                detail: "Healthier soil → stronger crops → 15-30% more harvest. Farmers see results in the first season.",
+                                label: "YIELD",
+                                color: "bg-emerald-50 border-emerald-200",
+                                labelColor: "text-emerald-700",
+                                highlight: "↑ 15-30% Crop Revenue"
                             },
                             {
-                                stage: "3. Verify & Certify",
-                                actor: "3Degrees / Verra",
-                                detail: "Data translated into formal VM0042 methodology. VVB coordination for credit issuance.",
-                                label: "CERT"
+                                stage: "3. Carbon Building",
+                                outcome: "Invisible value accruing",
+                                detail: "While crops grow, soil organic carbon accumulates underground. This is the carbon asset being created.",
+                                label: "SOC",
+                                color: "bg-amber-50 border-amber-200",
+                                labelColor: "text-amber-700"
                             },
                             {
-                                stage: "4. Issue & List",
-                                actor: "Registry / CZMP",
-                                detail: "Verified credits issued and listed for institutional buyers.",
-                                label: "LIST"
+                                stage: "4. Verification",
+                                outcome: "Carbon becomes credible",
+                                detail: "Soil carbon is measured, verified to international standards (Verra VM0042), and converted to certified credits.",
+                                label: "MRV",
+                                color: "bg-blue-50 border-blue-200",
+                                labelColor: "text-blue-700"
                             },
                             {
-                                stage: "5. Monetize & Reinvest",
-                                actor: "HISAGEN / Farmers",
-                                detail: "Credits sold. 70%+ flows to farmers. Proceeds fund expansion.",
-                                label: "EARN"
+                                stage: "5. Carbon Revenue",
+                                outcome: "Second income stream",
+                                detail: "Credits sold to corporate buyers. 70%+ of carbon revenue flows directly to farmers as additional income.",
+                                label: "EARN",
+                                color: "bg-primary/10 border-primary/30",
+                                labelColor: "text-primary",
+                                highlight: "+ Carbon Income (70%+ to farmer)"
                             }
                         ].map((step, idx) => (
-                            <div key={idx} className={`relative flex items-center gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                            <div key={idx} className={`relative flex items-center gap-6 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                                 <div className="flex-1 hidden md:block" />
-                                <div className="z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded border border-mist bg-white text-[8px] font-bold text-secondary shadow-sm">
+                                <div className={`z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border ${step.color} text-[9px] font-bold ${step.labelColor} shadow-sm`}>
                                     {step.label}
                                 </div>
-                                <div className="flex-1 rounded-xl border border-mist bg-parchment/5 p-5 hover:border-secondary/20 hover:shadow-sm transition-all duration-300 motion-reduce:transition-none">
-                                    <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/40">{step.actor}</p>
-                                    <h3 className="text-sm font-bold text-secondary mt-1">{step.stage}</h3>
-                                    <p className="text-xs text-slate mt-2 leading-relaxed">{step.detail}</p>
+                                <div className={`flex-1 rounded-xl border ${step.color} p-5 hover:shadow-md transition-all duration-300 motion-reduce:transition-none`}>
+                                    <div className="flex items-start justify-between gap-4">
+                                        <div>
+                                            <h3 className="text-sm font-bold text-secondary">{step.stage}</h3>
+                                            <p className="text-[10px] font-bold uppercase tracking-widest text-slate/50 mt-0.5">{step.outcome}</p>
+                                        </div>
+                                        {step.highlight && (
+                                            <span className="text-[10px] font-bold text-primary bg-primary/10 px-2 py-1 rounded whitespace-nowrap">
+                                                {step.highlight}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <p className="text-xs text-slate mt-3 leading-relaxed">{step.detail}</p>
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+
+                {/* Dual Income Summary */}
+                <div className="mt-10 p-6 rounded-xl bg-gradient-to-r from-emerald-50 to-primary/10 border border-emerald-200/50">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/50 mb-3">Farmer Income Model</p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+                        <div className="px-4 py-2 bg-white rounded-lg border border-emerald-200 shadow-sm">
+                            <p className="text-xs font-bold text-emerald-700">Crop Revenue</p>
+                            <p className="text-[10px] text-slate">↑ 15-30% from better yields</p>
+                        </div>
+                        <span className="text-2xl font-bold text-secondary">+</span>
+                        <div className="px-4 py-2 bg-white rounded-lg border border-primary/30 shadow-sm">
+                            <p className="text-xs font-bold text-primary">Carbon Revenue</p>
+                            <p className="text-[10px] text-slate">New income stream (70%+ to farmer)</p>
+                        </div>
+                        <span className="text-2xl font-bold text-secondary">=</span>
+                        <div className="px-4 py-3 bg-secondary rounded-lg shadow-sm">
+                            <p className="text-xs font-bold text-white">Dual Income</p>
+                            <p className="text-[10px] text-white/70">Sustainable livelihoods</p>
+                        </div>
                     </div>
                 </div>
             </section>
