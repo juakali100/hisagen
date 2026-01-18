@@ -362,6 +362,186 @@ export const opportunities: Opportunity[] = [
     createdDate: "2026-01-18",
     updatedDate: "2026-01-18",
   },
+
+  // SAMPLE: Completed/Won opportunity to demonstrate Phase 06
+  {
+    // Identity
+    id: "opp-sample-won",
+    slug: "sample-climate-foundation-won",
+    funderName: "Sample Climate Foundation (Demo)",
+    funderType: "foundation",
+
+    // From Landscape (Phase 02)
+    tier: "tier1",
+    alignmentScore: 9,
+    identifiedDate: "2025-09-15",
+    qualifiedDate: "2025-09-20",
+    qualificationRationale: "Strong alignment with climate-smart agriculture focus. Foundation specifically seeks East African projects with technology components.",
+    landscapeNotes: "Sample foundation focused on climate adaptation in agriculture. This is a demonstration record showing a successfully won grant.",
+
+    // Funder Details
+    grantSize: "USD 75,000",
+    grantSizeMin: 75000,
+    grantSizeMax: 75000,
+    focus: "Climate-smart agriculture technology",
+    geography: "East Africa",
+    deadline: "October 31, 2025",
+    url: "https://example.com/sample-foundation",
+
+    // Current State
+    status: "won",
+    currentPhase: 6,
+    pipelineStage: "submitted",
+    nextAction: "Complete handover to delivery team",
+    nextActionDue: "2026-02-01",
+    owner: "Keir / Pandion",
+
+    // Phase 03: Engagement
+    contacts: [
+      {
+        id: "contact-sample-1",
+        name: "Sarah Johnson",
+        role: "Program Officer",
+        organization: "Sample Climate Foundation",
+        email: "sjohnson@example.org",
+        phone: "+1 (555) 123-4567",
+        linkedIn: "https://linkedin.com/in/example",
+        notes: "Primary contact. Very responsive. Championed our proposal internally.",
+        isPrimary: true,
+      },
+      {
+        id: "contact-sample-2",
+        name: "Michael Chen",
+        role: "Grants Manager",
+        organization: "Sample Climate Foundation",
+        email: "mchen@example.org",
+        notes: "Handles contracts and reporting requirements.",
+        isPrimary: false,
+      },
+    ],
+    engagementHistory: [
+      {
+        id: "eng-sample-1",
+        date: "2025-09-25",
+        type: "intro",
+        description: "Warm introduction via climate tech network",
+        participants: ["Keir", "Sarah Johnson"],
+        outcome: "Positive initial conversation. Invited to submit concept note.",
+        nextStep: "Prepare concept note",
+      },
+      {
+        id: "eng-sample-2",
+        date: "2025-10-05",
+        type: "meeting",
+        description: "Virtual meeting to discuss concept note",
+        participants: ["Keir", "Daniel", "Sarah Johnson"],
+        outcome: "Strong interest. Encouraged to submit full proposal.",
+        nextStep: "Develop full proposal",
+      },
+      {
+        id: "eng-sample-3",
+        date: "2025-10-28",
+        type: "submission",
+        description: "Full proposal submitted",
+        participants: ["Pandion Team"],
+        outcome: "Proposal received and acknowledged",
+        nextStep: "Await review",
+      },
+      {
+        id: "eng-sample-4",
+        date: "2025-12-15",
+        type: "call",
+        description: "Due diligence call with foundation team",
+        participants: ["Keir", "Sarah Johnson", "Michael Chen"],
+        outcome: "Clarified budget questions. Very positive signals.",
+        nextStep: "Await final decision",
+      },
+    ],
+    relationshipTemperature: "hot",
+    warmIntroPath: "Climate tech network introduction",
+    engagementNotes: "Excellent relationship built through multiple touchpoints. Sarah was a strong internal champion.",
+
+    // Phase 04: Due Diligence
+    eligibilityChecklist: [
+      { id: "sample-elig-1", category: "Eligibility", item: "Organization type accepted (non-profit/for-profit/hybrid)", status: "passed", notes: "501(c)(3) via fiscal sponsor accepted" },
+      { id: "sample-elig-2", category: "Eligibility", item: "Geography eligible (Uganda/East Africa/Global)", status: "passed", notes: "East Africa focus confirmed" },
+      { id: "sample-elig-3", category: "Eligibility", item: "Focus area aligned (agriculture/climate/technology)", status: "passed", notes: "Perfect alignment with climate-smart ag tech" },
+      { id: "sample-elig-4", category: "Eligibility", item: "Grant size range appropriate", status: "passed", notes: "$75K within their $50-100K range" },
+      { id: "sample-elig-5", category: "Eligibility", item: "Timeline feasible", status: "passed", notes: "18-month project timeline approved" },
+      { id: "sample-elig-6", category: "Eligibility", item: "Track record requirements met", status: "passed", notes: "Pilot results demonstrated capability" },
+      { id: "sample-elig-7", category: "Eligibility", item: "Partnership requirements met (if any)", status: "passed", notes: "Local partner MOU in place" },
+    ],
+    complianceChecklist: [
+      { id: "sample-comp-1", category: "Compliance", item: "Entity registered and in good standing", status: "passed", notes: "Via fiscal sponsor" },
+      { id: "sample-comp-2", category: "Compliance", item: "Financial statements available", status: "passed", notes: "Provided audited statements" },
+      { id: "sample-comp-3", category: "Compliance", item: "No conflicts of interest", status: "passed", notes: "Declared and cleared" },
+      { id: "sample-comp-4", category: "Compliance", item: "Anti-terrorism/sanctions clearance", status: "passed", notes: "Standard check completed" },
+      { id: "sample-comp-5", category: "Compliance", item: "Environmental/social safeguards met", status: "passed", notes: "FPIC protocols in place" },
+    ],
+    capacityChecklist: [
+      { id: "sample-cap-1", category: "Capacity", item: "Team capacity available for proposal", status: "passed", notes: "Dedicated team assembled" },
+      { id: "sample-cap-2", category: "Capacity", item: "Implementation capacity confirmed", status: "passed", notes: "Uganda team ready" },
+      { id: "sample-cap-3", category: "Capacity", item: "Financial management systems adequate", status: "passed", notes: "QuickBooks + FreeAgent setup" },
+      { id: "sample-cap-4", category: "Capacity", item: "Reporting capacity confirmed", status: "passed", notes: "M&E framework developed" },
+      { id: "sample-cap-5", category: "Capacity", item: "Partner commitments secured", status: "passed", notes: "MOU signed with local NGO" },
+    ],
+    goNoGoDecision: "go",
+    goNoGoDate: "2025-10-10",
+    goNoGoRationale: "Strong alignment, warm relationship, all eligibility criteria met. Clear path to proposal submission.",
+    dueDiligenceNotes: "Thorough due diligence completed. All checklists passed. Foundation team very supportive throughout process.",
+
+    // Phase 05: Proposal
+    proposalStatus: "accepted",
+    proposalUrl: "/stage-1/funding/proposals/sample-climate-foundation",
+    proposalVersions: ["V1 Draft", "V2 Internal Review", "V3 Final Submitted"],
+    submissionDate: "2025-10-28",
+    proposalNotes: "Tailored from base proposal with emphasis on climate adaptation metrics and technology scalability.",
+    funderRequirements: [
+      { id: "sample-req-1", category: "Requirements", item: "Executive summary (2 pages max)", status: "passed", notes: "Completed" },
+      { id: "sample-req-2", category: "Requirements", item: "Detailed budget with justification", status: "passed", notes: "Line-item budget approved" },
+      { id: "sample-req-3", category: "Requirements", item: "Theory of change diagram", status: "passed", notes: "Visual ToC included" },
+      { id: "sample-req-4", category: "Requirements", item: "Letters of support from partners", status: "passed", notes: "3 letters attached" },
+      { id: "sample-req-5", category: "Requirements", item: "M&E framework", status: "passed", notes: "Included with KPIs" },
+    ],
+
+    // Phase 06: Contracting (WON!)
+    outcome: "won",
+    outcomeDate: "2026-01-05",
+    outcomeNotes: "Proposal approved with minor budget modifications. Foundation impressed with farmer-centric approach and technology integration.",
+    awardAmount: 75000,
+    awardCurrency: "USD",
+    contractNotes: "Standard foundation grant agreement. 18-month project period starting March 1, 2026. Quarterly narrative reports, semi-annual financial reports.",
+    handoverChecklist: [
+      { id: "sample-hand-1", category: "Handover", item: "Contract signed", status: "passed", notes: "Signed January 10, 2026", verifiedDate: "2026-01-10" },
+      { id: "sample-hand-2", category: "Handover", item: "Bank details provided", status: "passed", notes: "Wire transfer details submitted", verifiedDate: "2026-01-12" },
+      { id: "sample-hand-3", category: "Handover", item: "Reporting requirements documented", status: "passed", notes: "Quarterly narrative + semi-annual financial", verifiedDate: "2026-01-15" },
+      { id: "sample-hand-4", category: "Handover", item: "Key contacts established", status: "passed", notes: "Sarah (program), Michael (grants)", verifiedDate: "2026-01-15" },
+      { id: "sample-hand-5", category: "Handover", item: "Kick-off meeting scheduled", status: "unchecked", notes: "Targeting Feb 15, 2026" },
+      { id: "sample-hand-6", category: "Handover", item: "Grant project record created", status: "unchecked", notes: "Pending - will create in Projects system" },
+    ],
+    grantProjectId: undefined, // Would link to /projects/sample-climate-foundation once created
+    lessonsLearned: undefined,
+    feedbackReceived: "Foundation particularly valued: (1) clear theory of change, (2) realistic budget, (3) strong local partnerships, (4) technology innovation angle.",
+
+    // Documents & Notes
+    documents: [
+      { id: "doc-sample-1", name: "Final Proposal V3", type: "proposal", url: "#", version: "3.0", uploadedDate: "2025-10-28", notes: "Submitted version" },
+      { id: "doc-sample-2", name: "Approved Budget", type: "budget", url: "#", uploadedDate: "2026-01-05", notes: "With foundation modifications" },
+      { id: "doc-sample-3", name: "Grant Agreement", type: "letter", url: "#", uploadedDate: "2026-01-10", notes: "Signed contract" },
+      { id: "doc-sample-4", name: "Foundation Guidelines", type: "guidelines", url: "#", uploadedDate: "2025-09-20", notes: "Reference for reporting" },
+    ],
+    notes: [
+      { id: "note-sample-1", date: "2025-09-20", author: "Keir", content: "Promising lead from climate network. Strong alignment - moving to active pursuit.", phase: 2 },
+      { id: "note-sample-2", date: "2025-10-10", author: "Pandion", content: "GO decision made. All checklists green. Proceeding to proposal.", phase: 4 },
+      { id: "note-sample-3", date: "2025-10-28", author: "Pandion", content: "Proposal submitted on time. Good feedback from Sarah on draft.", phase: 5 },
+      { id: "note-sample-4", date: "2026-01-05", author: "Keir", content: "WON! Great news to start the year. Minor budget mods accepted.", phase: 6 },
+      { id: "note-sample-5", date: "2026-01-15", author: "Pandion", content: "Handover in progress. Most items complete. Kick-off call being scheduled.", phase: 6 },
+    ],
+
+    // Metadata
+    createdDate: "2025-09-20",
+    updatedDate: "2026-01-18",
+  },
 ];
 
 // Helper to get opportunity by slug
