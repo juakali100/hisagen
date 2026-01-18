@@ -244,7 +244,7 @@ export function OutcomeSection({
               <div className="flex items-center gap-4">
                 <span className="text-sm text-emerald-600 font-medium">✓ Grant Project created</span>
                 <Link
-                  href={`/projects/${grantProjectId}`}
+                  href={`/stage-1/projects/${grantProjectId}`}
                   className="text-sm text-primary hover:underline"
                 >
                   View Grant Project →

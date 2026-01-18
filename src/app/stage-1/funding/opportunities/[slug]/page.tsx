@@ -528,9 +528,13 @@ export default function OpportunityPage() {
               onLessonsLearnedChange={setLessonsLearned}
               onFeedbackChange={setFeedbackReceived}
               onCreateGrantProject={() => {
-                // In production, this would create a new grant project record
+                // In production, this would create a new grant project record via API
+                // For now, navigate to projects page with a confirmation
                 console.log("Create Grant Project triggered for:", opportunity.funderName);
-                alert(`Grant Project creation would be triggered here.\n\nThis will create a new project record linked to this opportunity.\n\nFunder: ${opportunity.funderName}\nAward: ${awardCurrency} ${awardAmount?.toLocaleString()}`);
+                if (confirm(`Create Grant Project for ${opportunity.funderName}?\n\nThis will transition this opportunity to delivery phase.\n\nAward: ${awardCurrency} ${awardAmount?.toLocaleString() || "Not specified"}`)) {
+                  // Navigate to projects page
+                  window.location.href = "/stage-1/projects";
+                }
               }}
             />
           )}
