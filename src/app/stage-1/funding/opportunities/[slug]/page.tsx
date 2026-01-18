@@ -14,6 +14,7 @@ import {
   EngagementActivity,
   Note,
   GoNoGoDecision,
+  ProposalStatus,
 } from "../../../../../types/opportunities";
 import {
   ChecklistSection,
@@ -21,6 +22,8 @@ import {
   ActivityTimeline,
   GoNoGoGate,
   NotesSection,
+  ProposalSection,
+  OutcomeSection,
 } from "../../../../../components/opportunities";
 
 // Funder type helpers
@@ -81,22 +84,6 @@ const PhaseTab = ({
   </button>
 );
 
-// Checklist status icon (for proposal requirements)
-const ChecklistStatusIcon = ({ status }: { status: ChecklistItem["status"] }) => {
-  switch (status) {
-    case "passed":
-      return <span className="text-emerald-500 font-bold">✓</span>;
-    case "failed":
-      return <span className="text-red-500 font-bold">✗</span>;
-    case "unclear":
-      return <span className="text-amber-500 font-bold">?</span>;
-    case "na":
-      return <span className="text-slate-400">—</span>;
-    default:
-      return <span className="text-slate-300">○</span>;
-  }
-};
-
 // Inline hint component
 const Hint = ({ children }: { children: React.ReactNode }) => (
   <p className="text-xs italic text-slate/50 mt-1">{children}</p>
@@ -127,6 +114,46 @@ export default function OpportunityPage() {
   );
   const [goNoGoRationale, setGoNoGoRationale] = useState<string>(
     opportunity?.goNoGoRationale || ""
+  );
+
+  // Phase 05: Proposal state
+  const [proposalStatus, setProposalStatus] = useState<ProposalStatus>(
+    opportunity?.proposalStatus || "not_started"
+  );
+  const [submissionDate, setSubmissionDate] = useState<string>(
+    opportunity?.submissionDate || ""
+  );
+  const [funderRequirements, setFunderRequirements] = useState<ChecklistItem[]>(
+    opportunity?.funderRequirements || []
+  );
+  const [proposalNotes, setProposalNotes] = useState<string>(
+    opportunity?.proposalNotes || ""
+  );
+
+  // Phase 06: Outcome state
+  const [outcome, setOutcome] = useState<"won" | "lost" | "withdrawn" | undefined>(
+    opportunity?.outcome
+  );
+  const [outcomeDate, setOutcomeDate] = useState<string>(
+    opportunity?.outcomeDate || ""
+  );
+  const [awardAmount, setAwardAmount] = useState<number | undefined>(
+    opportunity?.awardAmount
+  );
+  const [awardCurrency, setAwardCurrency] = useState<string>(
+    opportunity?.awardCurrency || "USD"
+  );
+  const [contractNotes, setContractNotes] = useState<string>(
+    opportunity?.contractNotes || ""
+  );
+  const [handoverChecklist, setHandoverChecklist] = useState<ChecklistItem[] | undefined>(
+    opportunity?.handoverChecklist
+  );
+  const [lessonsLearned, setLessonsLearned] = useState<string>(
+    opportunity?.lessonsLearned || ""
+  );
+  const [feedbackReceived, setFeedbackReceived] = useState<string>(
+    opportunity?.feedbackReceived || ""
   );
 
   if (!opportunity) {
@@ -464,135 +491,48 @@ export default function OpportunityPage() {
 
           {/* Phase 05: Proposal */}
           {activePhase === 5 && (
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-bold text-secondary mb-4">Phase 05: Proposal Development</h3>
-                <p className="text-sm text-slate">Develop and submit tailored proposal based on base narrative.</p>
-                <Hint>Tailor 20-30% of base proposal to funder priorities. Keep core narrative consistent across applications.</Hint>
-              </div>
-
-              {/* Proposal Status */}
-              <div className="p-4 rounded-lg border border-mist">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-2">Proposal Status</p>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  opportunity.proposalStatus === "accepted" ? "bg-emerald-100 text-emerald-700" :
-                  opportunity.proposalStatus === "submitted" ? "bg-purple-100 text-purple-700" :
-                  opportunity.proposalStatus === "review" ? "bg-amber-100 text-amber-700" :
-                  opportunity.proposalStatus === "drafting" ? "bg-sky-100 text-sky-700" :
-                  "bg-slate-100 text-slate-700"
-                }`}>
-                  {opportunity.proposalStatus.replace("_", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
-                </span>
-              </div>
-
-              {/* Base Proposal Link */}
-              <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-primary/70 mb-2">Base Proposal</p>
-                <Link href="/stage-1/funding/v0-grant-proposal" className="text-sm text-primary hover:underline">
-                  V1.1 Grant Proposal → Use as starting point for tailoring
-                </Link>
-                <Hint>Start here. Copy and adapt sections rather than starting from scratch each time.</Hint>
-              </div>
-
-              {/* Tailored Proposal Link */}
-              {opportunity.proposalUrl && (
-                <div className="p-4 rounded-lg border border-mist">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-2">Tailored Proposal</p>
-                  <Link href={opportunity.proposalUrl} className="text-sm text-primary hover:underline">
-                    View funder-specific proposal →
-                  </Link>
-                </div>
-              )}
-
-              {/* Funder Requirements */}
-              {opportunity.funderRequirements.length > 0 && (
-                <div className="p-4 rounded-lg border border-mist">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-3">Funder-Specific Requirements</p>
-                  <div className="space-y-2">
-                    {opportunity.funderRequirements.map((item) => (
-                      <div key={item.id} className="flex items-start gap-3 p-2 rounded bg-slate-50">
-                        <ChecklistStatusIcon status={item.status} />
-                        <p className="text-sm text-secondary">{item.item}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Proposal Notes */}
-              {opportunity.proposalNotes && (
-                <div className="p-4 rounded-lg bg-purple-50 border border-purple-200">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-purple-700 mb-2">Notes</p>
-                  <p className="text-sm text-purple-900">{opportunity.proposalNotes}</p>
-                </div>
-              )}
-            </div>
+            <ProposalSection
+              status={proposalStatus}
+              proposalUrl={opportunity.proposalUrl}
+              proposalVersions={opportunity.proposalVersions}
+              submissionDate={submissionDate}
+              proposalNotes={proposalNotes}
+              funderRequirements={funderRequirements}
+              onStatusChange={setProposalStatus}
+              onSubmissionDateChange={setSubmissionDate}
+              onRequirementsUpdate={setFunderRequirements}
+              onNotesChange={setProposalNotes}
+            />
           )}
 
           {/* Phase 06: Contracting */}
           {activePhase === 6 && (
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg font-bold text-secondary mb-4">Phase 06: Contracting & Handover</h3>
-                <p className="text-sm text-slate">Record outcome, manage contract negotiation, and hand over to delivery team.</p>
-                <Hint>Win or lose, capture lessons. Funder feedback is gold for improving future proposals.</Hint>
-              </div>
-
-              {/* Outcome */}
-              <div className="p-4 rounded-lg border border-mist">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-2">Outcome</p>
-                {opportunity.outcome ? (
-                  <div className="flex items-center gap-4">
-                    <span className={`px-4 py-2 rounded-lg text-sm font-bold ${
-                      opportunity.outcome === "won" ? "bg-emerald-500 text-white" :
-                      opportunity.outcome === "lost" ? "bg-red-500 text-white" :
-                      "bg-slate-500 text-white"
-                    }`}>
-                      {opportunity.outcome.toUpperCase()}
-                    </span>
-                    {opportunity.outcomeDate && (
-                      <span className="text-sm text-slate">{opportunity.outcomeDate}</span>
-                    )}
-                  </div>
-                ) : (
-                  <p className="text-sm text-slate/60 italic">Outcome not yet recorded</p>
-                )}
-              </div>
-
-              {/* Award Details (if won) */}
-              {opportunity.outcome === "won" && opportunity.awardAmount && (
-                <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">Award Details</p>
-                  <p className="text-2xl font-bold text-emerald-800">
-                    {opportunity.awardCurrency || ""} {opportunity.awardAmount.toLocaleString()}
-                  </p>
-                </div>
-              )}
-
-              {/* Lessons Learned (if lost/withdrawn) */}
-              {(opportunity.outcome === "lost" || opportunity.outcome === "withdrawn") && opportunity.lessonsLearned && (
-                <div className="p-4 rounded-lg bg-amber-50 border border-amber-200">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-2">Lessons Learned</p>
-                  <p className="text-sm text-amber-900">{opportunity.lessonsLearned}</p>
-                </div>
-              )}
-
-              {/* Handover Checklist */}
-              {opportunity.outcome === "won" && opportunity.handoverChecklist && (
-                <ChecklistSection
-                  title="Handover Checklist"
-                  items={opportunity.handoverChecklist}
-                />
-              )}
-
-              {/* Contract Notes */}
-              {opportunity.contractNotes && (
-                <div className="p-4 rounded-lg bg-slate-50 border border-slate-200">
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-2">Contract Notes</p>
-                  <p className="text-sm text-slate">{opportunity.contractNotes}</p>
-                </div>
-              )}
-            </div>
+            <OutcomeSection
+              outcome={outcome}
+              outcomeDate={outcomeDate}
+              outcomeNotes={opportunity.outcomeNotes}
+              awardAmount={awardAmount}
+              awardCurrency={awardCurrency}
+              contractNotes={contractNotes}
+              handoverChecklist={handoverChecklist}
+              grantProjectId={opportunity.grantProjectId}
+              lessonsLearned={lessonsLearned}
+              feedbackReceived={feedbackReceived}
+              funderName={opportunity.funderName}
+              onOutcomeChange={setOutcome}
+              onOutcomeDateChange={setOutcomeDate}
+              onAwardAmountChange={setAwardAmount}
+              onAwardCurrencyChange={setAwardCurrency}
+              onContractNotesChange={setContractNotes}
+              onHandoverUpdate={setHandoverChecklist}
+              onLessonsLearnedChange={setLessonsLearned}
+              onFeedbackChange={setFeedbackReceived}
+              onCreateGrantProject={() => {
+                // In production, this would create a new grant project record
+                console.log("Create Grant Project triggered for:", opportunity.funderName);
+                alert(`Grant Project creation would be triggered here.\n\nThis will create a new project record linked to this opportunity.\n\nFunder: ${opportunity.funderName}\nAward: ${awardCurrency} ${awardAmount?.toLocaleString()}`);
+              }}
+            />
           )}
         </div>
       </section>

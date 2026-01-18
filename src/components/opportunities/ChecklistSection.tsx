@@ -8,6 +8,7 @@ interface ChecklistSectionProps {
   items: ChecklistItem[];
   onUpdate?: (items: ChecklistItem[]) => void;
   readonly?: boolean;
+  compact?: boolean; // Hide title and summary row for embedding
 }
 
 const statusOptions: { value: ChecklistItemStatus; label: string; color: string }[] = [
@@ -33,7 +34,7 @@ const StatusIcon = ({ status }: { status: ChecklistItemStatus }) => {
   }
 };
 
-export default function ChecklistSection({ title, items, onUpdate, readonly = false }: ChecklistSectionProps) {
+export function ChecklistSection({ title, items, onUpdate, readonly = false, compact = false }: ChecklistSectionProps) {
   const [localItems, setLocalItems] = useState<ChecklistItem[]>(items);
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
   const [editingNotes, setEditingNotes] = useState<string | null>(null);
@@ -69,13 +70,15 @@ export default function ChecklistSection({ title, items, onUpdate, readonly = fa
   const totalCheckable = localItems.filter((i) => i.status !== "na").length;
 
   return (
-    <div className="p-4 rounded-lg border border-mist">
-      <div className="flex items-center justify-between mb-3">
-        <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60">{title}</p>
-        <span className="text-xs text-slate">
-          {passedCount}/{totalCheckable} verified
-        </span>
-      </div>
+    <div className={compact ? "" : "p-4 rounded-lg border border-mist"}>
+      {!compact && title && (
+        <div className="flex items-center justify-between mb-3">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60">{title}</p>
+          <span className="text-xs text-slate">
+            {passedCount}/{totalCheckable} verified
+          </span>
+        </div>
+      )}
 
       <div className="space-y-2">
         {localItems.map((item) => (
@@ -188,3 +191,6 @@ export default function ChecklistSection({ title, items, onUpdate, readonly = fa
     </div>
   );
 }
+
+// Default export for backwards compatibility
+export default ChecklistSection;
