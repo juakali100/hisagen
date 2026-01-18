@@ -411,6 +411,8 @@ export default function FunderLandscapePage() {
   const [deepSixScenarioOpen, setDeepSixScenarioOpen] = useState(false);
   const [locusScenarioOpen, setLocusScenarioOpen] = useState(false);
   const [naroScenarioOpen, setNaroScenarioOpen] = useState(false);
+  const [czmpScenarioOpen, setCzmpScenarioOpen] = useState(false);
+  const [threeDegreesScenarioOpen, setThreeDegreesScenarioOpen] = useState(false);
 
   const tier1 = funders.filter(f => f.tier === "tier1");
   const tier2 = funders.filter(f => f.tier === "tier2");
@@ -1442,6 +1444,209 @@ export default function FunderLandscapePage() {
             )}
           </div>
 
+          {/* CZMP (Carbon Zero Marketplace) Scenario (Accordion) */}
+          <div className="mb-3">
+            <button
+              onClick={() => setCzmpScenarioOpen(!czmpScenarioOpen)}
+              className="w-full flex items-center justify-between p-4 rounded-lg bg-cyan-50 border-2 border-cyan-200 hover:border-cyan-400 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="px-2 py-1 bg-cyan-600 text-white text-[9px] font-bold uppercase tracking-widest rounded">CZMP</span>
+                <span className="text-xs text-cyan-700">Carbon Zero Marketplace | Sales & Monetization</span>
+              </div>
+              <span className={`text-cyan-600 transition-transform ${czmpScenarioOpen ? 'rotate-180' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+
+            {czmpScenarioOpen && (
+              <div className="mt-2 p-5 rounded-xl border-2 border-cyan-200 bg-white">
+                <p className="text-xs text-slate mb-4">
+                  <strong>Role:</strong> Marketplace & Monetization Layer - the commercial wrapper and primary sales portal for HISAGEN carbon credits.
+                  <strong className="ml-2">Ownership:</strong> Keir (Deep Six) entity
+                </p>
+
+                {/* CZMP Context */}
+                <div className="p-3 rounded-lg bg-cyan-50 border border-cyan-200 mb-4">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-cyan-700 mb-2">Partnership Context</p>
+                  <ul className="text-xs text-cyan-800 space-y-1">
+                    <li>• <strong>Carbon Zero Marketplace</strong> (CZMP) - website branded as "Carbon Neutral Marketplace"</li>
+                    <li>• Originally conceived as broad-spectrum NBS exchange</li>
+                    <li>• Potential pivot: from general marketplace to dedicated "HISAGEN Storefront"</li>
+                    <li>• Acts as commercial front-end for credit sales after 3Degrees verification</li>
+                    <li>• Keir-owned entity - relationship to Deep Six/HISAGEN structure to be clarified</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-3">
+                  {/* Role in Value Chain */}
+                  <div className="p-4 rounded-lg bg-cyan-50/50 border border-cyan-100">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-cyan-700 mb-2">Role in HISAGEN Value Chain</p>
+                    <div className="grid gap-2 md:grid-cols-2">
+                      <div className="p-3 rounded bg-white border border-cyan-100">
+                        <p className="text-xs font-bold text-cyan-800 mb-1">Credit Sales Portal</p>
+                        <p className="text-[11px] text-cyan-700">Primary channel for selling verified HISAGEN carbon credits to corporate buyers.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-cyan-100">
+                        <p className="text-xs font-bold text-cyan-800 mb-1">Corporate Engagement</p>
+                        <p className="text-[11px] text-cyan-700">Interface for corporates seeking traceable, verified soil carbon credits from East Africa.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-cyan-100">
+                        <p className="text-xs font-bold text-cyan-800 mb-1">Post-Verification Layer</p>
+                        <p className="text-[11px] text-cyan-700">Sits after 3Degrees verification in value chain: Farmer → MRV → Verification → CZMP → Buyer.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-cyan-100">
+                        <p className="text-xs font-bold text-cyan-800 mb-1">Brand & Narrative</p>
+                        <p className="text-[11px] text-cyan-700">Positions HISAGEN credits with ESG story, traceability, smallholder impact narrative.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Value Capture Options */}
+                  <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">Revenue Model (To Be Clarified)</p>
+                    <div className="grid gap-2 md:grid-cols-2">
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Sales Commission</p>
+                        <p className="text-[11px] text-emerald-700">% of credit sale price retained by CZMP as marketplace fee.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Listing/Platform Fees</p>
+                        <p className="text-[11px] text-emerald-700">Fixed fees for project listing, verification integration, buyer matching.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Premium Services</p>
+                        <p className="text-[11px] text-emerald-700">Additional fees for bespoke buyer matching, custom reporting, corporate partnerships.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Credit Spread</p>
+                        <p className="text-[11px] text-emerald-700">Difference between farmer payout and buyer price (if CZMP acts as principal).</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Business Model Clarity Alert */}
+                  <div className="p-3 rounded-lg bg-amber-100 border-2 border-amber-400">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold uppercase tracking-widest rounded">
+                        Clarity Needed
+                      </span>
+                    </div>
+                    <p className="text-xs text-amber-900 font-medium mb-2">
+                      The CZMP business model and its relationship to Deep Six / HISAGEN is not yet clear.
+                    </p>
+                    <p className="text-xs text-amber-800">
+                      Need to understand: How does money flow through the system? What % goes to farmers, CZMP, HISAGEN, Deep Six?
+                      This is important for grant proposals and investor conversations.
+                    </p>
+                  </div>
+
+                  {/* Questions */}
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-2">Questions to Clarify with Keir</p>
+                    <ul className="text-xs text-amber-800 space-y-1">
+                      <li>• What is CZMP's legal relationship to Deep Six and HISAGEN?</li>
+                      <li>• What is the revenue model? (Commission %, platform fees, spread?)</li>
+                      <li>• What % of credit sale price goes to: Farmer / HISAGEN / CZMP / 3Degrees?</li>
+                      <li>• Is CZMP a marketplace (connects buyers/sellers) or a principal (buys then resells)?</li>
+                      <li>• Will CZMP handle other projects beyond HISAGEN? Or pivot to HISAGEN-only?</li>
+                      <li>• Website says "Carbon Neutral Marketplace" but acronym is CZMP - is this intentional?</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* 3Degrees Scenario (Accordion) */}
+          <div className="mb-3">
+            <button
+              onClick={() => setThreeDegreesScenarioOpen(!threeDegreesScenarioOpen)}
+              className="w-full flex items-center justify-between p-4 rounded-lg bg-violet-50 border-2 border-violet-200 hover:border-violet-400 transition-colors"
+            >
+              <div className="flex items-center gap-3">
+                <span className="px-2 py-1 bg-violet-600 text-white text-[9px] font-bold uppercase tracking-widest rounded">3Degrees</span>
+                <span className="text-xs text-violet-700">Verification & Registry Partner</span>
+              </div>
+              <span className={`text-violet-600 transition-transform ${threeDegreesScenarioOpen ? 'rotate-180' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </span>
+            </button>
+
+            {threeDegreesScenarioOpen && (
+              <div className="mt-2 p-5 rounded-xl border-2 border-violet-200 bg-white">
+                <p className="text-xs text-slate mb-4">
+                  <strong>Role:</strong> Third-party verification and carbon registry services - validates MRV data and issues tradeable credits.
+                  <strong className="ml-2">Type:</strong> Independent verification body
+                </p>
+
+                {/* 3Degrees Context */}
+                <div className="p-3 rounded-lg bg-violet-50 border border-violet-200 mb-4">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-violet-700 mb-2">Partnership Context</p>
+                  <ul className="text-xs text-violet-800 space-y-1">
+                    <li>• <strong>3Degrees</strong> is an established carbon and renewable energy solutions provider</li>
+                    <li>• Provides verification services for carbon credit projects</li>
+                    <li>• Validates MRV (Measurement, Reporting, Verification) data from Locus AG platform</li>
+                    <li>• Issues registry-backed credits that can be sold via CZMP</li>
+                    <li>• Position in value chain: Locus AG (MRV) → 3Degrees (Verify) → CZMP (Sell)</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-3">
+                  {/* Role in Value Chain */}
+                  <div className="p-4 rounded-lg bg-violet-50/50 border border-violet-100">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-violet-700 mb-2">Role in HISAGEN Value Chain</p>
+                    <div className="grid gap-2 md:grid-cols-2">
+                      <div className="p-3 rounded bg-white border border-violet-100">
+                        <p className="text-xs font-bold text-violet-800 mb-1">MRV Verification</p>
+                        <p className="text-[11px] text-violet-700">Independent validation of Locus AG soil carbon measurements and farmer data.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-violet-100">
+                        <p className="text-xs font-bold text-violet-800 mb-1">Credit Issuance</p>
+                        <p className="text-[11px] text-violet-700">Issues verified carbon credits onto recognized registry for trading.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-violet-100">
+                        <p className="text-xs font-bold text-violet-800 mb-1">Credibility Layer</p>
+                        <p className="text-[11px] text-violet-700">Third-party verification provides buyer confidence and regulatory compliance.</p>
+                      </div>
+                      <div className="p-3 rounded bg-white border border-violet-100">
+                        <p className="text-xs font-bold text-violet-800 mb-1">Standard Alignment</p>
+                        <p className="text-[11px] text-violet-700">Ensures credits meet Verra, Gold Standard, or other recognized methodologies.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Fee Structure */}
+                  <div className="p-4 rounded-lg bg-slate-50 border border-slate-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600 mb-2">Typical Verification Fee Models</p>
+                    <ul className="text-xs text-slate space-y-1">
+                      <li>• <strong>Per-credit fee:</strong> $X per tonne verified (e.g., $0.10-0.50/tCO2e)</li>
+                      <li>• <strong>Project fee:</strong> Fixed fee per verification cycle + volume-based component</li>
+                      <li>• <strong>Annual retainer:</strong> Ongoing verification relationship with periodic audits</li>
+                    </ul>
+                    <p className="text-[11px] text-slate/70 mt-2 italic">Actual 3Degrees terms for HISAGEN to be confirmed.</p>
+                  </div>
+
+                  {/* Questions */}
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-2">Questions to Clarify with Keir</p>
+                    <ul className="text-xs text-amber-800 space-y-1">
+                      <li>• What is the formal relationship with 3Degrees? (Contract, MoU, preferred partner?)</li>
+                      <li>• What is their verification fee structure?</li>
+                      <li>• Which registry will credits be issued on? (Verra, Gold Standard, other?)</li>
+                      <li>• What methodology is being used for soil carbon verification?</li>
+                      <li>• What is the verification timeline? (Annual? Per vintage?)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
           {/* Note about HISAGEN USA and Uganda */}
           <div className="p-4 rounded-lg bg-slate-50 border border-slate-200 space-y-2">
             <p className="text-xs text-slate">
@@ -1449,8 +1654,7 @@ export default function FunderLandscapePage() {
               Separate scenario sections may be added as relationship structures are clarified.
             </p>
             <p className="text-xs text-slate/70 italic">
-              <strong>Other organisations mentioned but unclear:</strong> <strong>MAAIF</strong> (Ministry of Agriculture, Animal Industry and Fisheries, Uganda) - potential government/policy partner;
-              <strong> 3Degrees</strong> - referenced as carbon partner but role and relationship to be confirmed with Keir.
+              <strong>Other organisations mentioned but unclear:</strong> <strong>MAAIF</strong> (Ministry of Agriculture, Animal Industry and Fisheries, Uganda) - potential government/policy partner.
             </p>
           </div>
         </div>
