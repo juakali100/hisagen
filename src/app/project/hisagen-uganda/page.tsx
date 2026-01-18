@@ -587,7 +587,23 @@ export default function PilotPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <Link
+            href="/project/hisagen-uganda/grant-progress"
+            className="p-6 rounded-xl border-2 border-violet-500/20 bg-violet-50 hover:border-violet-500 hover:shadow-lg transition-all group"
+          >
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-10 h-10 rounded-full bg-violet-200 flex items-center justify-center">
+                <span className="text-lg">📊</span>
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-violet-700">All Phases</p>
+                <p className="text-lg font-bold text-secondary group-hover:text-violet-700 transition-colors">Grant Progress</p>
+              </div>
+            </div>
+            <p className="text-sm text-slate">11-phase lifecycle progress with evidence and gaps.</p>
+          </Link>
+
           <Link
             href="/stage-1/funding/funder-landscape"
             className="p-6 rounded-xl border-2 border-primary/20 bg-primary/5 hover:border-primary hover:shadow-lg transition-all group"
@@ -601,7 +617,7 @@ export default function PilotPage() {
                 <p className="text-lg font-bold text-secondary group-hover:text-primary transition-colors">Funder Landscape</p>
               </div>
             </div>
-            <p className="text-sm text-slate">20+ funders tiered by alignment. Active pipeline tracking.</p>
+            <p className="text-sm text-slate">20+ funders tiered by alignment.</p>
           </Link>
 
           <Link
@@ -617,7 +633,7 @@ export default function PilotPage() {
                 <p className="text-lg font-bold text-secondary group-hover:text-emerald-700 transition-colors">Opportunities</p>
               </div>
             </div>
-            <p className="text-sm text-slate">Track opportunities through engagement, due diligence, and proposal.</p>
+            <p className="text-sm text-slate">Track through proposal and award.</p>
           </Link>
 
           <Link
@@ -633,7 +649,7 @@ export default function PilotPage() {
                 <p className="text-lg font-bold text-secondary group-hover:text-primary transition-colors">Grant Projects</p>
               </div>
             </div>
-            <p className="text-sm text-slate">Manage funded grants through delivery, reporting, and closeout.</p>
+            <p className="text-sm text-slate">Delivery, reporting, and closeout.</p>
           </Link>
         </div>
 

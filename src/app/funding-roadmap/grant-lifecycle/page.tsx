@@ -1,365 +1,262 @@
 import Link from "next/link";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
 
-type PhaseStatus = "active" | "partial" | "sparse" | "early" | "not-started" | "future";
-
-interface Phase {
-  number: string;
-  title: string;
-  status: PhaseStatus;
-  statusLabel: string;
-  description: string;
-  evidence: string[];
-  gaps: string[];
-  nextStep: string;
-}
-
-const phases: Phase[] = [
+// Educational framework - what each phase IS and why it matters
+const phases = [
   {
     number: "01",
-    title: "Vision / Strategy / Program Design",
-    status: "partial",
-    statusLabel: "Light",
-    description: "Define theory of change, program goals, MEL outline, and multi-year targets.",
-    evidence: [
-      "Early concept direction from Keir (emails, briefs)",
-      "Partner context established (Locus AG, Uganda trials, NARO)",
-    ],
-    gaps: [
-      "Clear theory of change document",
-      "Program goals and MEL outline",
-      "Multi-year targets",
-    ],
-    nextStep: "Dedicated strategy session to formalize program narrative and outcomes.",
+    title: "Vision & Strategy",
+    category: "pre-award",
+    description: "Define theory of change, program goals, and multi-year targets before pursuing funding.",
+    purpose: "Ensures grant pursuit aligns with organizational mission and has clear success criteria.",
+    keyOutputs: ["Theory of Change", "Program Goals", "MEL Framework Outline"],
   },
   {
     number: "02",
-    title: "Landscape Scanning & Prospect Mapping",
-    status: "active",
-    statusLabel: "Active",
-    description: "Identify and score potential funders by fit, eligibility, size, competitiveness, and timeline.",
-    evidence: [
-      "15 funders identified across multilateral, bilateral, foundation, corporate",
-      "3-tier prioritization: Apply Now (3), Cultivate (5), Monitor (7)",
-      "Match funding capture started ($9,600+ sweat equity confirmed)",
-      "Funder Landscape page live on portal",
-    ],
-    gaps: [
-      "Deep research: 990 filings, grant history, connection mapping",
-      "Keir network warm intro map",
-    ],
-    nextStep: "Research AfDB CAW eligibility (Feb 5 deadline), capture Keir sweat equity.",
+    title: "Landscape Scanning",
+    category: "pre-award",
+    description: "Identify and score potential funders by fit, eligibility, size, and timeline.",
+    purpose: "Builds a prioritized pipeline of funding opportunities matched to project needs.",
+    keyOutputs: ["Funder Database", "Tiered Priority List", "Deadline Calendar"],
+    operationalLink: { label: "Funder Landscape Tool", href: "/stage-1/funding/funder-landscape" },
   },
   {
     number: "03",
-    title: "Donor & Sponsor Engagement",
-    status: "sparse",
-    statusLabel: "Sparse",
+    title: "Donor Engagement",
+    category: "pre-award",
     description: "Build relationships with target funders through warm intros and structured outreach.",
-    evidence: [
-      "Noted potential outreach (e.g., MacKenzie Scott positioning)",
-    ],
-    gaps: [
-      "Outreach plan",
-      "Warm intro map",
-      "Engagement cadence",
-    ],
-    nextStep: "Build relationship plan and decide who approaches which contacts.",
+    purpose: "Warms the relationship before formal application, increasing success probability.",
+    keyOutputs: ["Contact Registry", "Engagement History", "Relationship Map"],
+    operationalLink: { label: "Opportunities Tracker", href: "/stage-1/funding/opportunities" },
   },
   {
     number: "04",
-    title: "Due Diligence & Eligibility",
-    status: "early",
-    statusLabel: "Early",
-    description: "Verify eligibility, build compliance matrices, and establish go/no-go criteria per funder.",
-    evidence: [
-      "v0 proposal gaps signal missing evidence and eligibility questions",
-    ],
-    gaps: [
-      "Compliance matrix",
-      "Eligibility checks per funder",
-      "Go/no-go criteria gates",
-    ],
-    nextStep: "Build light compliance matrix and add explicit go/no-go gates.",
+    title: "Due Diligence",
+    category: "pre-award",
+    description: "Verify eligibility, build compliance matrices, and establish go/no-go criteria.",
+    purpose: "Prevents wasted effort on ineligible or misaligned opportunities.",
+    keyOutputs: ["Eligibility Checklist", "Compliance Matrix", "Go/No-Go Gate"],
+    operationalLink: { label: "Opportunities Tracker", href: "/stage-1/funding/opportunities" },
   },
   {
     number: "05",
-    title: "Proposal Development & Submission",
-    status: "active",
-    statusLabel: "Active",
-    description: "Develop and submit proposals following structured playbook: Executive Summary, Statement of Need, Project Description, MEL, Sustainability, Budget.",
-    evidence: [
-      "Concept Note (one-page summary)",
-      "v0 Grant Proposal (10-section base narrative)",
-      "Funder Alignment Matrix (tailoring guidance)",
-    ],
-    gaps: [
-      "Logic model",
-      "Budget narrative",
-      "Evidence inserts",
-    ],
-    nextStep: "Apply proposal framework rigorously using playbook structure.",
+    title: "Proposal Development",
+    category: "pre-award",
+    description: "Develop and submit proposals following funder requirements and best practices.",
+    purpose: "Converts opportunity into formal submission with compelling narrative and budget.",
+    keyOutputs: ["Proposal Document", "Budget & Narrative", "Supporting Evidence"],
+    operationalLink: { label: "Opportunities Tracker", href: "/stage-1/funding/opportunities" },
   },
   {
     number: "06",
-    title: "Contracting & Handover",
-    status: "not-started",
-    statusLabel: "Not Started",
-    description: "Negotiate terms, sign agreements, and hand over to implementation team.",
-    evidence: [],
-    gaps: [
-      "Award pack template",
-      "Handover checklist",
-      "Contract negotiation playbook",
-    ],
-    nextStep: "Prepare award pack template and handover checklist.",
+    title: "Award & Handover",
+    category: "transition",
+    description: "Negotiate terms, sign agreements, and transition from pursuit to delivery.",
+    purpose: "Bridges pre-award and post-award phases with clear handover.",
+    keyOutputs: ["Signed Contract", "Handover Checklist", "Project Record Creation"],
+    operationalLink: { label: "Opportunities Tracker", href: "/stage-1/funding/opportunities" },
   },
   {
     number: "07",
-    title: "Project Initiation & Grant Setup",
-    status: "not-started",
-    statusLabel: "Not Started",
-    description: "Set up reporting calendar, assign owner, establish budget tracking systems.",
-    evidence: [],
-    gaps: [
-      "Reporting calendar template",
-      "Owner assignment matrix",
-      "Budget tracking system",
-    ],
-    nextStep: "Define reporting calendar, assign owner, set up budget tracking.",
+    title: "Project Setup",
+    category: "post-award",
+    description: "Set up reporting calendar, assign ownership, establish budget tracking.",
+    purpose: "Creates operational foundation for successful grant delivery.",
+    keyOutputs: ["Project Plan", "Budget Tracker", "Reporting Calendar"],
+    operationalLink: { label: "Grant Projects", href: "/stage-1/projects" },
   },
   {
     number: "08",
-    title: "Delivery Prep & Project Planning",
-    status: "future",
-    statusLabel: "Future",
-    description: "Align with formal project management method (PRINCE2 or PMP), develop workplan and risk register.",
-    evidence: [],
-    gaps: [
-      "Implementation workplan",
-      "Risk register",
-      "PM methodology alignment",
-    ],
-    nextStep: "Develop implementation workplan and risk register using PM framework.",
+    title: "Delivery Planning",
+    category: "post-award",
+    description: "Develop detailed workplan, risk register, and team assignments.",
+    purpose: "Translates grant objectives into actionable implementation plan.",
+    keyOutputs: ["Work Breakdown Structure", "Risk Register", "RACI Matrix"],
+    operationalLink: { label: "Grant Projects", href: "/stage-1/projects" },
   },
   {
     number: "09",
-    title: "Implementation & Delivery",
-    status: "future",
-    statusLabel: "Future",
-    description: "Execute grant-funded activities with standard delivery and monitoring cadence.",
-    evidence: [],
-    gaps: [
-      "Delivery cadence templates",
-      "Monitoring protocols",
-      "Issue escalation process",
-    ],
-    nextStep: "Build standard delivery and monitoring cadence for grant-funded programs.",
+    title: "Implementation",
+    category: "post-award",
+    description: "Execute grant-funded activities with regular monitoring and issue management.",
+    purpose: "Delivers on grant commitments while maintaining funder relationship.",
+    keyOutputs: ["Milestone Tracking", "Issue Log", "Change Requests"],
+    operationalLink: { label: "Grant Projects", href: "/stage-1/projects" },
   },
   {
     number: "10",
-    title: "Post-Project Follow-up & Reporting",
-    status: "future",
-    statusLabel: "Future",
-    description: "Complete funder reports, document outcomes, and position for renewal.",
-    evidence: [],
-    gaps: [
-      "Reporting templates",
-      "Outcomes narrative framework",
-      "Renewal positioning strategy",
-    ],
-    nextStep: "Create reporting templates, outcomes narrative, and renewal positioning.",
+    title: "Reporting",
+    category: "post-award",
+    description: "Complete funder reports, document outcomes, and maintain compliance.",
+    purpose: "Demonstrates accountability and positions for future funding.",
+    keyOutputs: ["Progress Reports", "Financial Reports", "Outcomes Documentation"],
+    operationalLink: { label: "Grant Projects", href: "/stage-1/projects" },
   },
   {
     number: "11",
     title: "Closeout & Reflection",
-    status: "future",
-    statusLabel: "Future",
-    description: "Complete closeout, document lessons learned, and refresh pipeline for next cycle.",
-    evidence: [],
-    gaps: [
-      "Closeout checklist",
-      "Lessons learned template",
-      "Pipeline refresh process",
-    ],
-    nextStep: "Develop closeout checklist, lessons learned, and pipeline refresh.",
+    category: "post-award",
+    description: "Complete closeout procedures, capture lessons learned, and refresh pipeline.",
+    purpose: "Closes the loop and feeds insights back into future grant cycles.",
+    keyOutputs: ["Closeout Checklist", "Lessons Learned", "Pipeline Refresh"],
+    operationalLink: { label: "Grant Projects", href: "/stage-1/projects" },
   },
 ];
 
-const getStatusColor = (status: PhaseStatus) => {
-  switch (status) {
-    case "active":
-      return { bg: "bg-emerald-50", border: "border-emerald-500/30", text: "text-emerald-700", badge: "bg-emerald-100 text-emerald-800" };
-    case "partial":
-      return { bg: "bg-amber-50", border: "border-amber-500/30", text: "text-amber-700", badge: "bg-amber-100 text-amber-800" };
-    case "sparse":
-      return { bg: "bg-orange-50", border: "border-orange-500/30", text: "text-orange-700", badge: "bg-orange-100 text-orange-800" };
-    case "early":
-      return { bg: "bg-sky-50", border: "border-sky-500/30", text: "text-sky-700", badge: "bg-sky-100 text-sky-800" };
-    case "not-started":
-      return { bg: "bg-slate-50", border: "border-slate-300", text: "text-slate-600", badge: "bg-slate-200 text-slate-700" };
-    case "future":
-      return { bg: "bg-white", border: "border-mist", text: "text-slate-400", badge: "bg-slate-100 text-slate-500" };
+const getCategoryColor = (category: string) => {
+  switch (category) {
+    case "pre-award":
+      return { bg: "bg-emerald-50", border: "border-emerald-200", text: "text-emerald-700", badge: "bg-emerald-100 text-emerald-800" };
+    case "transition":
+      return { bg: "bg-amber-50", border: "border-amber-200", text: "text-amber-700", badge: "bg-amber-100 text-amber-800" };
+    case "post-award":
+      return { bg: "bg-blue-50", border: "border-blue-200", text: "text-blue-700", badge: "bg-blue-100 text-blue-800" };
+    default:
+      return { bg: "bg-slate-50", border: "border-slate-200", text: "text-slate-700", badge: "bg-slate-100 text-slate-800" };
   }
 };
 
-const currentDeliverables = [
-  { name: "Concept Note", phase: "05", description: "One-page project summary" },
-  { name: "V1.1 Grant Proposal", phase: "05", description: "Enhanced with NARO data + gap markers" },
-  { name: "Funder Landscape", phase: "02", description: "15 funders, 3-tier prioritization" },
-  { name: "Match Funding Tracker", phase: "02", description: "Sweat equity + in-kind capture" },
-];
+export default function GrantLifecycleFrameworkPage() {
+  const preAward = phases.filter(p => p.category === "pre-award");
+  const transition = phases.filter(p => p.category === "transition");
+  const postAward = phases.filter(p => p.category === "post-award");
 
-export default function GrantLifecyclePage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
         stage="Grant Lifecycle"
         trail={[
           { label: "Capital Continuum", href: "/funding-roadmap/capital-continuum" },
-          { label: "Grant Delivery Methodology" },
+          { label: "Methodology" },
         ]}
       />
 
       {/* Header */}
       <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
-        <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
-          Funding Roadmap
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+          Framework
         </p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          Grant Writing & Delivery Lifecycle
+          Grant Lifecycle Methodology
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-          An 11-phase methodology for grant writing delivery - from vision and strategy through
-          to closeout and reflection. Maps HISAGEN work to each phase with gaps, evidence, and next steps.
+          An 11-phase framework for grant writing and delivery - from vision through closeout.
+          Applies to grants, accelerators, venture capital, and strategic philanthropy.
         </p>
-        <div className="mt-6 flex items-center gap-4">
-          <span className="text-[10px] uppercase tracking-widest text-slate/60 font-medium">Scope:</span>
-          <span className="text-[10px] uppercase tracking-widest font-bold text-secondary">
-            Grants, Accelerators, Venture Capital, Strategic Philanthropy
-          </span>
+        <div className="mt-6 p-4 rounded-xl bg-white/60 border border-mist inline-block">
+          <p className="text-xs text-slate">
+            <span className="font-bold text-secondary">Relationship to Capital Continuum:</span>{" "}
+            This methodology operates primarily within <span className="font-bold">Stage 1 (Incubation)</span> where
+            grant and concessional capital are the primary funding sources.
+          </p>
         </div>
       </section>
 
-      {/* Status Legend */}
-      <section className="mt-8 p-6 rounded-xl border border-mist bg-white">
-        <p className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-4">Phase Status Legend</p>
-        <div className="flex flex-wrap gap-4">
-          {[
-            { status: "active" as PhaseStatus, label: "Active", desc: "Foundation work underway" },
-            { status: "partial" as PhaseStatus, label: "Partial", desc: "Some evidence, gaps remain" },
-            { status: "sparse" as PhaseStatus, label: "Sparse", desc: "Minimal activity" },
-            { status: "early" as PhaseStatus, label: "Early", desc: "Just starting" },
-            { status: "not-started" as PhaseStatus, label: "Not Started", desc: "Awaiting earlier phases" },
-            { status: "future" as PhaseStatus, label: "Future", desc: "Post-award phases" },
-          ].map((item) => {
-            const colors = getStatusColor(item.status);
-            return (
-              <div key={item.status} className="flex items-center gap-2">
-                <span className={`px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-widest ${colors.badge}`}>
-                  {item.label}
-                </span>
-                <span className="text-[10px] text-slate/60">{item.desc}</span>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      {/* Visual Overview */}
+      <section className="mt-12 rounded-2xl border border-mist bg-white p-8 overflow-hidden">
+        <h2 className="text-lg font-bold text-secondary uppercase tracking-widest mb-6">Lifecycle Overview</h2>
 
-      {/* Current Position */}
-      <section className="mt-8 p-6 rounded-xl border-2 border-emerald-500/30 bg-emerald-50">
-        <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-full bg-emerald-200 flex items-center justify-center shrink-0">
-            <span className="text-emerald-800 font-bold text-lg">05</span>
+        <div className="flex flex-col lg:flex-row gap-4">
+          {/* Pre-Award */}
+          <div className="flex-1 rounded-xl border-2 border-emerald-200 bg-emerald-50 p-4">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-3">Pre-Award (Phases 01-05)</p>
+            <p className="text-xs text-emerald-800 mb-3">Identify, pursue, and win funding</p>
+            <div className="flex flex-wrap gap-2">
+              {["01", "02", "03", "04", "05"].map(n => (
+                <div key={n} className="w-8 h-8 rounded-full bg-emerald-200 flex items-center justify-center text-xs font-bold text-emerald-800">
+                  {n}
+                </div>
+              ))}
+            </div>
           </div>
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-1">Current Focus</p>
-            <h2 className="text-xl font-bold text-emerald-900">Phase 05: Proposal Development & Submission</h2>
-            <p className="mt-2 text-sm text-emerald-800">
-              HISAGEN has Concept Note and v0 Grant Proposal drafted. Focus is on deepening proposal structure,
-              adding logic model, budget narrative, and evidence inserts.
-            </p>
+
+          {/* Arrow */}
+          <div className="hidden lg:flex items-center justify-center w-8">
+            <svg className="w-6 h-6 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+
+          {/* Transition */}
+          <div className="rounded-xl border-2 border-amber-200 bg-amber-50 p-4 lg:w-32">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-3">Transition</p>
+            <p className="text-xs text-amber-800 mb-3">Handover</p>
+            <div className="w-8 h-8 rounded-full bg-amber-200 flex items-center justify-center text-xs font-bold text-amber-800">
+              06
+            </div>
+          </div>
+
+          {/* Arrow */}
+          <div className="hidden lg:flex items-center justify-center w-8">
+            <svg className="w-6 h-6 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+
+          {/* Post-Award */}
+          <div className="flex-1 rounded-xl border-2 border-blue-200 bg-blue-50 p-4">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-blue-700 mb-3">Post-Award (Phases 07-11)</p>
+            <p className="text-xs text-blue-800 mb-3">Deliver, report, and close</p>
+            <div className="flex flex-wrap gap-2">
+              {["07", "08", "09", "10", "11"].map(n => (
+                <div key={n} className="w-8 h-8 rounded-full bg-blue-200 flex items-center justify-center text-xs font-bold text-blue-800">
+                  {n}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Phase Cards */}
+      {/* Pre-Award Phases */}
       <section className="mt-12">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.2em]">11-Phase Lifecycle</h2>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-emerald-500" />
+            <h2 className="text-lg font-bold text-secondary uppercase tracking-widest">Pre-Award Phases</h2>
+          </div>
           <div className="h-px flex-1 bg-mist" />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 px-2 py-1 rounded bg-emerald-50">01-05</span>
         </div>
 
-        <div className="space-y-4">
-          {phases.map((phase) => {
-            const colors = getStatusColor(phase.status);
+        <div className="space-y-3">
+          {preAward.map((phase) => {
+            const colors = getCategoryColor(phase.category);
             return (
               <div
                 key={phase.number}
-                className={`rounded-2xl border-2 ${colors.border} ${colors.bg} p-6 transition-all hover:shadow-md`}
+                className={`rounded-xl border ${colors.border} ${colors.bg} p-5`}
               >
-                <div className="flex flex-col lg:flex-row gap-6">
-                  {/* Phase Header */}
-                  <div className="lg:w-80 shrink-0">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${
-                        phase.status === "active" ? "bg-emerald-600 text-white" :
-                        phase.status === "partial" ? "bg-amber-500 text-white" :
-                        phase.status === "sparse" ? "bg-orange-500 text-white" :
-                        phase.status === "early" ? "bg-sky-500 text-white" :
-                        "bg-slate-300 text-slate-600"
-                      }`}>
-                        {phase.number}
-                      </div>
-                      <div>
-                        <h3 className="text-base font-bold text-secondary">{phase.title}</h3>
-                        <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${colors.badge}`}>
-                          {phase.statusLabel}
+                <div className="flex flex-col lg:flex-row lg:items-start gap-4">
+                  <div className="flex items-center gap-3 lg:w-48 shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-sm">
+                      {phase.number}
+                    </div>
+                    <h3 className="text-base font-bold text-secondary">{phase.title}</h3>
+                  </div>
+
+                  <div className="flex-1">
+                    <p className="text-sm text-slate mb-2">{phase.description}</p>
+                    <p className="text-xs text-emerald-700 italic">{phase.purpose}</p>
+                  </div>
+
+                  <div className="lg:w-48 shrink-0">
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-slate/60 mb-1">Key Outputs</p>
+                    <div className="flex flex-wrap gap-1">
+                      {phase.keyOutputs.map((output, i) => (
+                        <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-white/80 text-slate">
+                          {output}
                         </span>
-                      </div>
+                      ))}
                     </div>
-                    <p className="text-sm text-slate leading-relaxed">{phase.description}</p>
-                  </div>
-
-                  {/* Evidence & Gaps */}
-                  <div className="flex-1 grid gap-4 md:grid-cols-2">
-                    {/* Evidence */}
-                    <div className="p-4 rounded-xl bg-white/60 border border-white">
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Evidence So Far</p>
-                      {phase.evidence.length > 0 ? (
-                        <ul className="space-y-1">
-                          {phase.evidence.map((item, idx) => (
-                            <li key={idx} className="flex gap-2 text-xs text-slate">
-                              <span className="text-emerald-500 shrink-0">+</span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p className="text-xs text-slate/50 italic">No evidence yet</p>
-                      )}
-                    </div>
-
-                    {/* Gaps */}
-                    <div className="p-4 rounded-xl bg-white/60 border border-white">
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Gaps</p>
-                      <ul className="space-y-1">
-                        {phase.gaps.map((gap, idx) => (
-                          <li key={idx} className="flex gap-2 text-xs text-slate">
-                            <span className="text-amber-500 shrink-0">-</span>
-                            <span>{gap}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* Next Step */}
-                  <div className="lg:w-64 shrink-0">
-                    <div className="p-4 rounded-xl bg-secondary/5 border border-secondary/10 h-full">
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2">Next Step</p>
-                      <p className="text-xs text-secondary leading-relaxed">{phase.nextStep}</p>
-                    </div>
+                    {phase.operationalLink && (
+                      <Link
+                        href={phase.operationalLink.href}
+                        className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 hover:underline"
+                      >
+                        {phase.operationalLink.label} →
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
@@ -368,107 +265,187 @@ export default function GrantLifecyclePage() {
         </div>
       </section>
 
-      {/* Current Deliverables */}
-      <section className="mt-16">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.2em]">Current HISAGEN Deliverables</h2>
+      {/* Transition Phase */}
+      <section className="mt-10">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-amber-500" />
+            <h2 className="text-lg font-bold text-secondary uppercase tracking-widest">Transition Phase</h2>
+          </div>
           <div className="h-px flex-1 bg-mist" />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-amber-600 px-2 py-1 rounded bg-amber-50">06</span>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
-          {currentDeliverables.map((item) => (
-            <div key={item.name} className="p-6 rounded-xl border border-mist bg-white">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">
-                  Phase {item.phase}
-                </span>
+        {transition.map((phase) => {
+          const colors = getCategoryColor(phase.category);
+          return (
+            <div
+              key={phase.number}
+              className={`rounded-xl border ${colors.border} ${colors.bg} p-5`}
+            >
+              <div className="flex flex-col lg:flex-row lg:items-start gap-4">
+                <div className="flex items-center gap-3 lg:w-48 shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-sm">
+                    {phase.number}
+                  </div>
+                  <h3 className="text-base font-bold text-secondary">{phase.title}</h3>
+                </div>
+
+                <div className="flex-1">
+                  <p className="text-sm text-slate mb-2">{phase.description}</p>
+                  <p className="text-xs text-amber-700 italic">{phase.purpose}</p>
+                </div>
+
+                <div className="lg:w-48 shrink-0">
+                  <p className="text-[9px] font-bold uppercase tracking-widest text-slate/60 mb-1">Key Outputs</p>
+                  <div className="flex flex-wrap gap-1">
+                    {phase.keyOutputs.map((output, i) => (
+                      <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-white/80 text-slate">
+                        {output}
+                      </span>
+                    ))}
+                  </div>
+                  {phase.operationalLink && (
+                    <Link
+                      href={phase.operationalLink.href}
+                      className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-amber-700 hover:underline"
+                    >
+                      {phase.operationalLink.label} →
+                    </Link>
+                  )}
+                </div>
               </div>
-              <h3 className="text-base font-bold text-secondary">{item.name}</h3>
-              <p className="mt-2 text-xs text-slate">{item.description}</p>
             </div>
-          ))}
+          );
+        })}
+      </section>
+
+      {/* Post-Award Phases */}
+      <section className="mt-10">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-blue-500" />
+            <h2 className="text-lg font-bold text-secondary uppercase tracking-widest">Post-Award Phases</h2>
+          </div>
+          <div className="h-px flex-1 bg-mist" />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-blue-600 px-2 py-1 rounded bg-blue-50">07-11</span>
+        </div>
+
+        <div className="space-y-3">
+          {postAward.map((phase) => {
+            const colors = getCategoryColor(phase.category);
+            return (
+              <div
+                key={phase.number}
+                className={`rounded-xl border ${colors.border} ${colors.bg} p-5`}
+              >
+                <div className="flex flex-col lg:flex-row lg:items-start gap-4">
+                  <div className="flex items-center gap-3 lg:w-48 shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm">
+                      {phase.number}
+                    </div>
+                    <h3 className="text-base font-bold text-secondary">{phase.title}</h3>
+                  </div>
+
+                  <div className="flex-1">
+                    <p className="text-sm text-slate mb-2">{phase.description}</p>
+                    <p className="text-xs text-blue-700 italic">{phase.purpose}</p>
+                  </div>
+
+                  <div className="lg:w-48 shrink-0">
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-slate/60 mb-1">Key Outputs</p>
+                    <div className="flex flex-wrap gap-1">
+                      {phase.keyOutputs.map((output, i) => (
+                        <span key={i} className="text-[10px] px-2 py-0.5 rounded bg-white/80 text-slate">
+                          {output}
+                        </span>
+                      ))}
+                    </div>
+                    {phase.operationalLink && (
+                      <Link
+                        href={phase.operationalLink.href}
+                        className="mt-2 inline-flex items-center gap-1 text-[10px] font-bold text-blue-700 hover:underline"
+                      >
+                        {phase.operationalLink.label} →
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Recommended Next Build */}
+      {/* Operational Tools */}
       <section className="mt-16 p-8 rounded-2xl bg-secondary text-parchment">
-        <h2 className="text-2xl font-bold mb-6">Recommended Next Build (Repeatable)</h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {[
-            { step: 1, action: "Strategy workshop to close Phase 01 gaps" },
-            { step: 2, action: "Expanded prospect scan + scoring (Phase 02)" },
-            { step: 3, action: "Compliance matrix + go/no-go gate (Phase 04)" },
-            { step: 4, action: "Proposal deepening using playbook structure (Phase 05)" },
-            { step: 5, action: "Define Phase 08-11 delivery standards using PM framework" },
-          ].map((item) => (
-            <div key={item.step} className="p-4 rounded-xl bg-white/10 border border-white/20">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-sm font-bold">
-                  {item.step}
-                </div>
-                <p className="text-sm">{item.action}</p>
-              </div>
-            </div>
-          ))}
+        <h2 className="text-xl font-bold mb-2">Operational Implementation</h2>
+        <p className="text-sm opacity-80 mb-6">
+          This framework is implemented through operational tools that track real opportunities and projects.
+        </p>
+        <div className="grid gap-4 md:grid-cols-2">
+          <Link
+            href="/stage-1/funding/opportunities"
+            className="p-5 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition-colors group"
+          >
+            <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-300 mb-2">Phases 02-06</p>
+            <h3 className="text-lg font-bold group-hover:text-accent transition-colors">Opportunities Tracker</h3>
+            <p className="text-sm opacity-80 mt-2">
+              Track funding opportunities from identification through proposal submission and award.
+            </p>
+          </Link>
+          <Link
+            href="/stage-1/projects"
+            className="p-5 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition-colors group"
+          >
+            <p className="text-[10px] font-bold uppercase tracking-widest text-blue-300 mb-2">Phases 07-11</p>
+            <h3 className="text-lg font-bold group-hover:text-accent transition-colors">Grant Projects</h3>
+            <p className="text-sm opacity-80 mt-2">
+              Manage funded grants through delivery, reporting, and closeout.
+            </p>
+          </Link>
         </div>
       </section>
 
       {/* Related Resources */}
       <section className="mt-12 mb-20">
-        <div className="flex items-center gap-4 mb-8">
-          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.2em]">Related Resources</h2>
+        <div className="flex items-center gap-4 mb-6">
+          <h2 className="text-lg font-bold text-secondary uppercase tracking-widest">Related Resources</h2>
           <div className="h-px flex-1 bg-mist" />
         </div>
 
-        <div className="grid gap-4 md:grid-cols-5">
-          <Link
-            href="/stage-1/funding"
-            className="group p-6 rounded-xl border-2 border-emerald-500/20 bg-white hover:border-emerald-500 hover:shadow-xl transition-all"
-          >
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-600 mb-2">Current Focus</p>
-            <h3 className="text-base font-bold text-secondary group-hover:text-emerald-700 transition-colors">
-              Stage 1 Funding Hub
-            </h3>
-          </Link>
-
-          <Link
-            href="/stage-1/funding/funder-landscape"
-            className="group p-6 rounded-xl border-2 border-amber-500/20 bg-amber-50 hover:border-amber-500 hover:shadow-xl transition-all"
-          >
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600 mb-2">Phase 02</p>
-            <h3 className="text-base font-bold text-secondary group-hover:text-amber-700 transition-colors">
-              Funder Landscape
-            </h3>
-          </Link>
-
-          <Link
-            href="/stage-1/funding/v0-grant-proposal"
-            className="group p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
-          >
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60 mb-2">Phase 05</p>
-            <h3 className="text-base font-bold text-secondary group-hover:text-primary transition-colors">
-              V1.1 Proposal
-            </h3>
-          </Link>
-
-          <Link
-            href="/stage-1/funding/v0-concept-note"
-            className="group p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
-          >
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60 mb-2">Phase 05</p>
-            <h3 className="text-base font-bold text-secondary group-hover:text-primary transition-colors">
-              Concept Note
-            </h3>
-          </Link>
-
+        <div className="grid gap-4 md:grid-cols-3">
           <Link
             href="/funding-roadmap/capital-continuum"
-            className="group p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
+            className="group p-5 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
           >
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60 mb-2">Framework</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Framework</p>
             <h3 className="text-base font-bold text-secondary group-hover:text-primary transition-colors">
               Capital Continuum
             </h3>
+            <p className="text-xs text-slate mt-2">4-stage funding lifecycle for carbon projects</p>
+          </Link>
+
+          <Link
+            href="/project/hisagen-uganda"
+            className="group p-5 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
+          >
+            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Project</p>
+            <h3 className="text-base font-bold text-secondary group-hover:text-primary transition-colors">
+              Uganda Pilot
+            </h3>
+            <p className="text-xs text-slate mt-2">See this methodology in action</p>
+          </Link>
+
+          <Link
+            href="/stage-1/funding"
+            className="group p-5 rounded-xl border-2 border-primary/20 bg-primary/5 hover:border-primary hover:shadow-md transition-all"
+          >
+            <p className="text-[10px] font-bold uppercase tracking-widest text-primary mb-2">Funding Hub</p>
+            <h3 className="text-base font-bold text-secondary group-hover:text-primary transition-colors">
+              Stage 1 Funding
+            </h3>
+            <p className="text-xs text-slate mt-2">Active funding strategy and applications</p>
           </Link>
         </div>
       </section>

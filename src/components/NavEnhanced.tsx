@@ -63,6 +63,7 @@ const projects = [
     href: "/project/hisagen-uganda",
     description: "Flagship implementation • 10,000 smallholders",
     subItems: [
+      { name: "Grant Progress", href: "/project/hisagen-uganda/grant-progress" },
       { name: "Funder Landscape", href: "/stage-1/funding/funder-landscape" },
       { name: "Opportunities", href: "/stage-1/funding/opportunities" },
       { name: "Grant Projects", href: "/stage-1/projects" },
