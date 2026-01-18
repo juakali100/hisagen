@@ -602,7 +602,7 @@ export default function FunderLandscapePage() {
               </span>
             </div>
             <p className="text-sm text-amber-900">
-              Capture sweat equity hours for Deep Six Consulting, HISAGEN USA, and HISAGEN Uganda. Get Locus AG in-kind contribution values.
+              Capture contributed hours for Deep Six Consulting, HISAGEN USA, and HISAGEN Uganda. Get Locus AG in-kind contribution values. Discuss value capture options and formalize agreements with each contributor.
             </p>
           </div>
         </div>
