@@ -63,35 +63,8 @@ const activeApplications = [
   }
 ];
 
-const funderLandscape = [
-  {
-    category: "Early-Stage Climate Accelerators",
-    funders: [
-      { name: "Carbon Thirteen", fit: "High - Warm intro available", stage: "Top priority for outreach" },
-      { name: "Y Combinator (Climate)", fit: "Medium - Competitive", stage: "Monitor for relevant cohorts" }
-    ]
-  },
-  {
-    category: "Climate & Agriculture Foundations",
-    funders: [
-      { name: "Bezos Earth Fund", fit: "High - Nature-based solutions focus", stage: "Research application cycles" },
-      { name: "Gates Foundation (Agriculture)", fit: "Medium - Smallholder focus", stage: "Partnership exploration" }
-    ]
-  },
-  {
-    category: "Development Finance (Africa Focus)",
-    funders: [
-      { name: "AfDB ACCF", fit: "High - Readiness grants ($200k)", stage: "Nov 2025 analysis identified" },
-      { name: "EU FLC", fit: "High - €100k grants", stage: "Nov 30 deadline identified" }
-    ]
-  },
-  {
-    category: "Carbon Market Preparedness",
-    funders: [
-      { name: "TBD - Registry Funds", fit: "Medium - PDD support", stage: "Identify Verra/Gold Standard pathways" }
-    ]
-  }
-];
+// Funder landscape data moved to /stage-1/funding/funder-landscape page
+// See that page for full 20+ funder database with tiering and type taxonomy
 
 const stage1Milestones = [
   {
@@ -295,71 +268,59 @@ export default function Stage1FundingPage() {
         </div>
       </section>
 
-      {/* Funder Landscape */}
+      {/* Funder Landscape - Link to Dedicated Page */}
       <section className="mt-16">
         <div className="flex items-center gap-4 mb-8">
-          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.2em]">Funder Landscape Analysis</h2>
+          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.2em]">Funder Landscape</h2>
           <div className="h-px flex-1 bg-mist" />
         </div>
 
-        <div className="rounded-2xl border border-mist bg-white p-8">
-          <p className="text-sm text-slate leading-relaxed mb-8 italic">
-            Initial funder analysis completed November 2025 based on Deep Six recommendations.
-            Focused on early-stage climate accelerators, agriculture foundations, and Africa-focused development finance.
-          </p>
+        <Link
+          href="/stage-1/funding/funder-landscape"
+          className="group block rounded-2xl border-2 border-emerald-500/30 bg-emerald-50 p-8 hover:border-emerald-500 hover:shadow-xl transition-all"
+        >
+          <div className="flex items-start justify-between">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="px-3 py-1 rounded-full bg-emerald-500 text-white text-[10px] font-bold uppercase tracking-widest">
+                  20+ Funders
+                </span>
+                <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-widest">
+                  Updated Jan 2026
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-emerald-900 group-hover:text-emerald-700 transition-colors">
+                Funder Landscape Analysis
+              </h3>
+              <p className="mt-3 text-base text-emerald-800 leading-relaxed">
+                Comprehensive database of 20+ funders across government, philanthropy, foundations, corporate,
+                and accelerator categories. Tiered by alignment and includes match funding tracker.
+              </p>
 
-          <div className="space-y-8">
-            {funderLandscape.map((category) => (
-              <div key={category.category}>
-                <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-secondary mb-4 flex items-center gap-3">
-                  <span className="w-2 h-2 rounded-full bg-secondary" />
-                  {category.category}
-                </h3>
-                <div className="grid gap-4">
-                  {category.funders.map((funder) => (
-                    <div key={funder.name} className="p-4 rounded-xl border border-mist bg-parchment/20 flex items-center justify-between">
-                      <div className="flex-1">
-                        <p className="text-base font-bold text-secondary">{funder.name}</p>
-                        <p className="text-xs text-slate mt-1">{funder.stage}</p>
-                      </div>
-                      <div className="text-right">
-                        <span className={`text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full ${
-                          funder.fit.startsWith('High') ? 'bg-emerald-100 text-emerald-700' :
-                          'bg-slate-100 text-slate-600'
-                        }`}>
-                          {funder.fit.split(' - ')[0]}
-                        </span>
-                        <p className="text-[10px] text-slate/60 mt-1">{funder.fit.split(' - ')[1]}</p>
-                      </div>
-                    </div>
-                  ))}
+              <div className="mt-6 grid grid-cols-4 gap-4">
+                <div className="p-3 rounded-lg bg-white/60 text-center">
+                  <p className="text-2xl font-bold text-emerald-700">2</p>
+                  <p className="text-[10px] uppercase tracking-widest text-emerald-600">Strong Match</p>
+                </div>
+                <div className="p-3 rounded-lg bg-white/60 text-center">
+                  <p className="text-2xl font-bold text-amber-600">14</p>
+                  <p className="text-[10px] uppercase tracking-widest text-amber-600">Cultivate</p>
+                </div>
+                <div className="p-3 rounded-lg bg-white/60 text-center">
+                  <p className="text-2xl font-bold text-slate-500">5</p>
+                  <p className="text-[10px] uppercase tracking-widest text-slate-500">Monitor</p>
+                </div>
+                <div className="p-3 rounded-lg bg-white/60 text-center">
+                  <p className="text-2xl font-bold text-red-500">2</p>
+                  <p className="text-[10px] uppercase tracking-widest text-red-500">Next Cycle</p>
                 </div>
               </div>
-            ))}
+            </div>
+            <svg className="w-8 h-8 text-emerald-300 group-hover:text-emerald-500 transition-colors shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </div>
-
-          <div className="mt-8 p-6 rounded-xl bg-secondary/5 border border-secondary/20">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary mb-3">Next Steps: Funder Landscape</p>
-            <ul className="space-y-2 text-sm text-slate">
-              <li className="flex gap-3">
-                <span className="text-secondary/30 font-bold">•</span>
-                <span>Expand landscape mapping beyond Deep Six recommendations (100+ funders identified in research)</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-secondary/30 font-bold">•</span>
-                <span>Prioritize funders by alignment with Stage 1 criteria and Uganda pilot focus</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-secondary/30 font-bold">•</span>
-                <span>Develop funder-specific proposal variants from V0 master documents</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-secondary/30 font-bold">•</span>
-                <span>Activate warm intro to Carbon Thirteen (highest priority)</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+        </Link>
       </section>
 
       {/* Stage 1 Milestones & Capital Deployment */}

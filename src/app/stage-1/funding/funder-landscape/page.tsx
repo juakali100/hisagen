@@ -5,7 +5,7 @@ import Link from "next/link";
 import StageBreadcrumb from "../../../../components/StageBreadcrumb";
 
 type FunderTier = "tier1" | "tier2" | "tier3" | "closed";
-type FunderType = "multilateral" | "bilateral" | "foundation" | "corporate" | "accelerator" | "ngo";
+type FunderType = "multilateral" | "bilateral" | "foundation" | "corporate" | "accelerator" | "ngo" | "philanthropy" | "family_office" | "trust";
 
 interface Funder {
   name: string;
@@ -131,6 +131,84 @@ const funders: Funder[] = [
     status: "Need intro pathway",
     notes: "Partners with One Acre Fund.",
   },
+  // Additional Philanthropy & Foundations (Jan 2026)
+  {
+    name: "Carbon Thirteen",
+    type: "accelerator",
+    tier: "tier2",
+    focus: "Early-stage climate ventures",
+    geography: "Global",
+    grantSize: "Accelerator program + investment",
+    alignmentScore: 8,
+    status: "Warm intro available - HIGH PRIORITY",
+    notes: "Keir has connection. Climate tech accelerator.",
+  },
+  {
+    name: "Bezos Earth Fund",
+    type: "philanthropy",
+    tier: "tier2",
+    focus: "Nature-based solutions, climate",
+    geography: "Global",
+    grantSize: "$10B+ committed",
+    alignmentScore: 8,
+    status: "Research application cycles",
+    notes: "Nature-based solutions focus. Large-scale funding.",
+  },
+  {
+    name: "Gates Foundation (Agriculture)",
+    type: "philanthropy",
+    tier: "tier2",
+    focus: "Smallholder farmers, food security",
+    geography: "Africa, South Asia",
+    grantSize: "Major grants ($1M+)",
+    alignmentScore: 7,
+    status: "Partnership exploration",
+    notes: "Smallholder focus aligns. Long application process.",
+  },
+  {
+    name: "Esmée Fairbairn Foundation",
+    type: "trust",
+    tier: "tier2",
+    focus: "Food systems, environment, social change",
+    geography: "UK focus but global projects",
+    grantSize: "£10,000 - £300,000",
+    alignmentScore: 7,
+    status: "Research eligibility - UK angle needed",
+    notes: "Major UK trust. May need UK partner or subsidiary.",
+  },
+  {
+    name: "CIFF (Children's Investment Fund)",
+    type: "philanthropy",
+    tier: "tier2",
+    focus: "Climate change, child survival",
+    geography: "Global with Africa focus",
+    grantSize: "$10M+ portfolio",
+    alignmentScore: 6,
+    status: "Research fit - climate/children nexus",
+    notes: "Climate philanthropy. Need to frame child welfare angle.",
+  },
+  {
+    name: "Oak Foundation",
+    type: "philanthropy",
+    tier: "tier3",
+    focus: "Environment, climate change",
+    geography: "Global",
+    grantSize: "Varies",
+    alignmentScore: 6,
+    status: "Monitor - investigate fit",
+    notes: "Environment program focuses on climate.",
+  },
+  {
+    name: "Packard Foundation",
+    type: "philanthropy",
+    tier: "tier3",
+    focus: "Climate, agriculture, conservation",
+    geography: "Global",
+    grantSize: "$1M+ typical",
+    alignmentScore: 6,
+    status: "Monitor - investigate fit",
+    notes: "Conservation and climate focus.",
+  },
   // Tier 3: Monitor
   {
     name: "Africa Adaptation Acceleration Program",
@@ -218,7 +296,8 @@ const getTierConfig = (tier: FunderTier) => {
   switch (tier) {
     case "tier1":
       return {
-        label: "Apply Now",
+        label: "Strong Match",
+        sublabel: "Priority for review",
         bg: "bg-emerald-50",
         border: "border-emerald-500/30",
         badge: "bg-emerald-500 text-white",
@@ -227,6 +306,7 @@ const getTierConfig = (tier: FunderTier) => {
     case "tier2":
       return {
         label: "Cultivate",
+        sublabel: "Relationship-based",
         bg: "bg-amber-50",
         border: "border-amber-500/30",
         badge: "bg-amber-500 text-white",
@@ -235,6 +315,7 @@ const getTierConfig = (tier: FunderTier) => {
     case "tier3":
       return {
         label: "Monitor",
+        sublabel: "Watch for opportunities",
         bg: "bg-slate-50",
         border: "border-slate-300",
         badge: "bg-slate-400 text-white",
@@ -242,7 +323,8 @@ const getTierConfig = (tier: FunderTier) => {
       };
     case "closed":
       return {
-        label: "Closed",
+        label: "Closed / Missed",
+        sublabel: "Monitor for next cycle",
         bg: "bg-red-50",
         border: "border-red-300",
         badge: "bg-red-400 text-white",
@@ -254,11 +336,28 @@ const getTierConfig = (tier: FunderTier) => {
 const getTypeLabel = (type: FunderType) => {
   switch (type) {
     case "multilateral": return "Multilateral";
-    case "bilateral": return "Bilateral";
+    case "bilateral": return "Government";
     case "foundation": return "Foundation";
     case "corporate": return "Corporate";
     case "accelerator": return "Accelerator";
     case "ngo": return "NGO";
+    case "philanthropy": return "Philanthropy";
+    case "family_office": return "Family Office";
+    case "trust": return "Trust";
+  }
+};
+
+const getTypeColor = (type: FunderType) => {
+  switch (type) {
+    case "multilateral": return "bg-blue-100 text-blue-700";
+    case "bilateral": return "bg-indigo-100 text-indigo-700";
+    case "foundation": return "bg-purple-100 text-purple-700";
+    case "corporate": return "bg-cyan-100 text-cyan-700";
+    case "accelerator": return "bg-orange-100 text-orange-700";
+    case "ngo": return "bg-teal-100 text-teal-700";
+    case "philanthropy": return "bg-rose-100 text-rose-700";
+    case "family_office": return "bg-amber-100 text-amber-700";
+    case "trust": return "bg-violet-100 text-violet-700";
   }
 };
 
@@ -307,7 +406,7 @@ export default function FunderLandscapePage() {
         </div>
         <div className="p-4 rounded-xl border-2 border-emerald-500/30 bg-emerald-50">
           <p className="text-3xl font-bold text-emerald-700">{tier1.length}</p>
-          <p className="text-xs uppercase tracking-widest text-emerald-600 mt-1">Apply Now</p>
+          <p className="text-xs uppercase tracking-widest text-emerald-600 mt-1">Strong Match</p>
         </div>
         <div className="p-4 rounded-xl border-2 border-amber-500/30 bg-amber-50">
           <p className="text-3xl font-bold text-amber-700">{tier2.length}</p>
@@ -339,16 +438,16 @@ export default function FunderLandscapePage() {
         </div>
       </section>
 
-      {/* Tier 1: Apply Now */}
+      {/* Tier 1: Strong Match */}
       <section className="mt-12">
         <div className="flex items-center gap-4 mb-6">
           <span className="px-3 py-1 rounded-full bg-emerald-500 text-white text-xs font-bold uppercase tracking-widest">
-            Tier 1
+            Strong Match
           </span>
-          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.15em]">Apply Now</h2>
+          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.15em]">Priority for Review</h2>
           <div className="h-px flex-1 bg-mist" />
         </div>
-        <p className="text-sm text-slate mb-6">Open deadlines. Prioritize for immediate action.</p>
+        <p className="text-sm text-slate mb-6">High alignment with HISAGEN's mission. Open deadlines or strong fit - prioritize for review and consideration.</p>
 
         <div className="space-y-4">
           {tier1.map((funder) => {
@@ -358,7 +457,7 @@ export default function FunderLandscapePage() {
                 <div className="flex flex-col lg:flex-row gap-6">
                   <div className="lg:w-96 shrink-0">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-slate-200 text-slate-700">
+                      <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${getTypeColor(funder.type)}`}>
                         {getTypeLabel(funder.type)}
                       </span>
                       <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${config.badge}`}>
@@ -420,7 +519,7 @@ export default function FunderLandscapePage() {
             return (
               <div key={funder.name} className={`p-5 rounded-xl border-2 ${config.border} ${config.bg}`}>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-slate-200 text-slate-700">
+                  <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${getTypeColor(funder.type)}`}>
                     {getTypeLabel(funder.type)}
                   </span>
                   <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${config.badge}`}>
@@ -455,9 +554,12 @@ export default function FunderLandscapePage() {
         <div className="grid gap-3 md:grid-cols-3">
           {tier3.map((funder) => (
             <div key={funder.name} className="p-4 rounded-lg border border-mist bg-white">
-              <p className="text-[9px] font-bold uppercase tracking-widest text-slate/60 mb-1">
-                {getTypeLabel(funder.type)} | {funder.alignmentScore}/10
-              </p>
+              <div className="flex items-center gap-2 mb-1">
+                <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${getTypeColor(funder.type)}`}>
+                  {getTypeLabel(funder.type)}
+                </span>
+                <span className="text-[9px] font-bold text-slate/60">{funder.alignmentScore}/10</span>
+              </div>
               <h3 className="text-sm font-bold text-secondary">{funder.name}</h3>
               <p className="text-xs text-slate mt-1">{funder.grantSize}</p>
             </div>
