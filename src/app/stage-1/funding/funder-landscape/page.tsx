@@ -204,8 +204,7 @@ const professionalServices: MatchFundingItem[] = [
   { contributor: "Deep Six Consulting (Keir)", activity: "Corporate strategy, partnerships, investor relations", hours: "TBC", rate: "$250/hr", value: "TBC" },
   { contributor: "HISAGEN USA", activity: "Locus AG coordination, US operations", hours: "TBC", rate: "$150/hr", value: "TBC" },
   { contributor: "HISAGEN Uganda", activity: "NARO relationship, field coordination, local operations", hours: "TBC", rate: "$50/hr", value: "TBC" },
-  { contributor: "Pandion Studio (confirmed)", activity: "Strategy, grants, portal, brand (Nov 2025 - Jan 2026)", hours: "96", rate: "$150/hr", value: "$14,400" },
-  { contributor: "Pandion Studio (anticipated)", activity: "ESTDEV, Japan apps, portal (Feb 2026)", hours: "40", rate: "$150/hr", value: "$6,000" },
+  { contributor: "Pandion Studio", activity: "Strategy, grants, portal, brand (Nov 2025 - Jan 2026)", hours: "48", rate: "$150/hr", value: "$7,200" },
 ];
 
 const inKindContributions = [
@@ -506,9 +505,9 @@ export default function FunderLandscapePage() {
           <div className="grid gap-6 md:grid-cols-3 mb-6">
             <div className="p-5 rounded-xl bg-white border border-mist">
               <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Professional Services</p>
-              <p className="text-2xl font-bold text-primary">$14,400</p>
-              <p className="text-xs text-slate mt-2">Confirmed (Pandion: 96 hrs)</p>
-              <p className="text-xs text-slate/60 mt-1">+ $6,000 anticipated (Feb)</p>
+              <p className="text-2xl font-bold text-primary">$7,200</p>
+              <p className="text-xs text-slate mt-2">Confirmed (Pandion: 48 hrs)</p>
+              <p className="text-xs text-slate/60 mt-1">Nov 2025 - Jan 2026</p>
             </div>
 
             <div className="p-5 rounded-xl bg-white border border-mist">
