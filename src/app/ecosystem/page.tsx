@@ -28,7 +28,7 @@ export default function EcosystemPage() {
   };
 
   // Group partners by category for display
-  const categories = ["Strategy", "Technology", "Operations", "Accreditation", "Marketplace"] as const;
+  const categories = ["Strategy", "Technology", "Accreditation", "Marketplace"] as const;
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -71,11 +71,11 @@ export default function EcosystemPage() {
       <section className="mt-8 p-6 rounded-2xl border border-mist bg-white">
         <h2 className="text-sm font-bold uppercase tracking-widest text-secondary/60 mb-4">Value Chain Position</h2>
         <div className="flex flex-wrap items-center justify-center gap-2 text-xs">
-          <span className="px-3 py-1.5 rounded-lg bg-indigo-100 text-indigo-700 font-medium">Deep Six (Strategy)</span>
+          <span className="px-3 py-1.5 rounded-lg bg-indigo-100 text-indigo-700 font-medium">Deep Six (Venture Lead)</span>
+          <span className="text-slate/40">+</span>
+          <span className="px-3 py-1.5 rounded-lg bg-indigo-100 text-indigo-700 font-medium">Pandion (Architecture)</span>
           <span className="text-slate/40">→</span>
           <span className="px-3 py-1.5 rounded-lg bg-green-100 text-green-700 font-medium">Locus AG (Technology)</span>
-          <span className="text-slate/40">→</span>
-          <span className="px-3 py-1.5 rounded-lg bg-primary/20 text-primary font-medium">Pandion (Operations)</span>
           <span className="text-slate/40">→</span>
           <span className="px-3 py-1.5 rounded-lg bg-violet-100 text-violet-700 font-medium">3Degrees (Verification)</span>
           <span className="text-slate/40">→</span>

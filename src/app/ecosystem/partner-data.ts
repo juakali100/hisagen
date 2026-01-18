@@ -127,7 +127,7 @@ export const partners: Partner[] = [
         id: "pandion",
         name: "Pandion Studio",
         role: "Systems Architect & Performance Partner",
-        category: "Operations",
+        category: "Strategy",
         website: "https://pandion.studio",
         websiteReview: "Clean, strategy-focused site emphasizing AI, Capability, and Sustainability. Positions the firm as a partner for organizations needing to navigate the 'Stage Shift' from incubation to institutional scale.",
         personnel: [
