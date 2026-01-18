@@ -204,7 +204,7 @@ const professionalServices: MatchFundingItem[] = [
   { contributor: "Deep Six Consulting (Keir)", activity: "Corporate strategy, partnerships, investor relations", hours: "TBC", rate: "$250/hr", value: "TBC" },
   { contributor: "HISAGEN USA", activity: "Locus AG coordination, US operations", hours: "TBC", rate: "$150/hr", value: "TBC" },
   { contributor: "HISAGEN Uganda", activity: "NARO relationship, field coordination, local operations", hours: "TBC", rate: "$50/hr", value: "TBC" },
-  { contributor: "Pandion Studio", activity: "Strategy, grants, portal, brand (Nov 2025 - Jan 2026)", hours: "48", rate: "$150/hr", value: "$7,200" },
+  { contributor: "Pandion Studio", activity: "Strategy, grants, portal, brand (Nov 2025 - Jan 2026)", hours: "20", rate: "$150/hr*", value: "$3,000" },
 ];
 
 const inKindContributions = [
@@ -505,8 +505,8 @@ export default function FunderLandscapePage() {
           <div className="grid gap-6 md:grid-cols-3 mb-6">
             <div className="p-5 rounded-xl bg-white border border-mist">
               <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Professional Services</p>
-              <p className="text-2xl font-bold text-primary">$7,200</p>
-              <p className="text-xs text-slate mt-2">Confirmed (Pandion: 48 hrs)</p>
+              <p className="text-2xl font-bold text-primary">$3,000</p>
+              <p className="text-xs text-slate mt-2">Confirmed (Pandion: 20 hrs)</p>
               <p className="text-xs text-slate/60 mt-1">Nov 2025 - Jan 2026</p>
             </div>
 
@@ -542,6 +542,7 @@ export default function FunderLandscapePage() {
               <div className="p-4 rounded-lg bg-white border border-mist">
                 <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">In-Kind Professional Services</p>
                 <p className="text-[9px] text-slate/60 mb-3">Project costs - can be included in grant budgets as match funding</p>
+                <p className="text-[9px] text-slate/60 mb-3 italic">* Startup/early-stage rate (standard: $200-250/hr)</p>
                 <div className="overflow-x-auto">
                   <table className="w-full text-xs">
                     <thead>
@@ -761,9 +762,19 @@ export default function FunderLandscapePage() {
               <span className="px-2 py-1 bg-primary text-white text-[9px] font-bold uppercase tracking-widest rounded">Pandion Studio Scenario</span>
             </div>
             <p className="text-xs text-slate mb-4">
-              <strong>Current contribution:</strong> 48 hrs / $7,200 in professional services (Nov 2025 - Jan 2026).
+              <strong>Current contribution:</strong> 20 hrs / $3,000 in professional services (Nov 2025 - Jan 2026) at startup rate.
               How might this be recognized depending on outcomes?
             </p>
+
+            {/* Keir's Partnership Offer Context */}
+            <div className="p-3 rounded-lg bg-amber-50 border border-amber-200 mb-4">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700 mb-2">Context: Partnership Offer (Nov 2025)</p>
+              <p className="text-xs text-amber-800 italic mb-2">
+                "Would you be interested in exploring a partnership? Perhaps a small sweat-equity stake in the company
+                and say a 10% commission on any successful funding (grants, investments, or co-investment) that you directly secure?"
+              </p>
+              <p className="text-[11px] text-amber-700">— Keir, email Nov 10, 2025. To be discussed and formalized.</p>
+            </div>
 
             <div className="space-y-3">
               {/* Tier 1: Monetary */}
