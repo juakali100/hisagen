@@ -524,8 +524,13 @@ export default function FunderLandscapePage() {
             <div className="space-y-2">
               {activePipeline.map((funder) => {
                 const stageConfig = getPipelineStageConfig(funder.pipelineStage!);
+                const slug = funder.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
                 return (
-                  <div key={funder.name} className={`p-4 rounded-xl bg-white border ${stageConfig.color.split(' ')[2]}`}>
+                  <Link
+                    key={funder.name}
+                    href={`/stage-1/funding/opportunities/${slug}`}
+                    className={`block p-4 rounded-xl bg-white border ${stageConfig.color.split(' ')[2]} hover:shadow-md hover:border-primary/30 transition-all group`}
+                  >
                     <div className="flex flex-col md:flex-row md:items-center gap-3">
                       <div className="flex items-center gap-2">
                         <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border ${stageConfig.color}`}>
@@ -540,7 +545,7 @@ export default function FunderLandscapePage() {
                           </span>
                         )}
                       </div>
-                      <h3 className="text-sm font-bold text-secondary flex-1">{funder.name}</h3>
+                      <h3 className="text-sm font-bold text-secondary flex-1 group-hover:text-primary transition-colors">{funder.name}</h3>
                       <div className="flex items-center gap-4 text-xs">
                         <span className="text-slate">{funder.grantSize}</span>
                         {funder.owner && (
@@ -554,17 +559,19 @@ export default function FunderLandscapePage() {
                         <p className="text-xs text-secondary">{funder.nextAction}</p>
                       </div>
                     )}
-                  </div>
+                  </Link>
                 );
               })}
             </div>
 
-            {/* Flow Explanation */}
-            <div className="mt-4 p-3 rounded-lg bg-white/50 border border-slate-200">
+            {/* View All + Flow Explanation */}
+            <div className="mt-4 flex items-center justify-between p-3 rounded-lg bg-white/50 border border-slate-200">
               <p className="text-[10px] text-slate">
-                <strong>Pipeline Flow:</strong> Prospect (Phase 02) → <span className="text-amber-700">Engaging (03)</span> → <span className="text-sky-700">Due Diligence (04)</span> → <span className="text-purple-700">Proposing (05)</span> → <span className="text-emerald-700">Submitted</span>.
-                Move funders through stages as relationships develop and applications progress.
+                <strong>Pipeline Flow:</strong> Prospect → <span className="text-amber-700">Engaging</span> → <span className="text-sky-700">Due Diligence</span> → <span className="text-purple-700">Proposing</span> → <span className="text-emerald-700">Submitted</span>
               </p>
+              <Link href="/stage-1/funding/opportunities" className="text-xs text-primary font-medium hover:underline">
+                View All Opportunities →
+              </Link>
             </div>
           </div>
         </section>
