@@ -77,11 +77,14 @@ const framework = [
     name: "Capital Continuum",
     href: "/capital-continuum",
     description: "4-stage funding lifecycle framework",
-  },
-  {
-    name: "Grant Lifecycle",
-    href: "/grant-lifecycle",
-    description: "11-phase delivery methodology",
+    subItems: [
+      {
+        label: "Stage 1",
+        items: [
+          { name: "Grant Lifecycle", href: "/grant-lifecycle", description: "11-phase methodology" }
+        ]
+      }
+    ]
   },
 ];
 
@@ -357,18 +360,36 @@ export default function NavEnhanced() {
                   <div className="mt-6 flow-root">
                     <div className="-my-2">
                       {framework.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          className="block py-3 group"
-                        >
-                          <p className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
-                            {item.name}
-                          </p>
-                          <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">
-                            {item.description}
-                          </p>
-                        </Link>
+                        <div key={item.name} className="py-3">
+                          <Link
+                            href={item.href}
+                            className="block group"
+                          >
+                            <p className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
+                              {item.name}
+                            </p>
+                            <p className="mt-1 text-xs text-white/60 group-hover:text-accent/80 transition-colors">
+                              {item.description}
+                            </p>
+                          </Link>
+                          {/* Nested sub-items */}
+                          {item.subItems && item.subItems.map((group) => (
+                            <div key={group.label} className="mt-3 pl-3 border-l border-white/20">
+                              <p className="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-2">
+                                {group.label}
+                              </p>
+                              {group.items.map((sub) => (
+                                <Link
+                                  key={sub.name}
+                                  href={sub.href}
+                                  className="block py-1 text-xs text-white/50 hover:text-accent transition-colors"
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
                       ))}
                     </div>
                   </div>
