@@ -90,6 +90,20 @@ export default function ProgramPage() {
         <div className="mx-auto max-w-5xl text-ink">
             <StageBreadcrumb stage="Programs" />
 
+            {/* Work in Progress Callout */}
+            <div className="mb-6 p-4 rounded-xl border-2 border-amber-300 bg-amber-50">
+                <div className="flex items-start gap-3">
+                    <span className="text-amber-500 text-lg">⚠️</span>
+                    <div>
+                        <p className="text-sm font-bold text-amber-800">Program Strategy - Work in Progress</p>
+                        <p className="text-xs text-amber-700 mt-1 leading-relaxed">
+                            This page establishes the <strong>Program level</strong> — the replicable operating model that houses individual <strong>Projects</strong> (like Uganda Pilot).
+                            Expansion strategy includes 4 regional hubs across Africa. Content being developed to capture full regional scaling vision.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             {/* Hero - Split diagonal with image (matching Strategy) */}
             <section className="relative rounded-2xl border border-mist overflow-hidden bg-white">
                 <div className="relative">
