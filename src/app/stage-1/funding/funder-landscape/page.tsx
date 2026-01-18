@@ -1,7 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import StageBreadcrumb from "../../../../components/StageBreadcrumb";
 
-type FunderTier = "tier1" | "tier2" | "tier3";
+type FunderTier = "tier1" | "tier2" | "tier3" | "closed";
 type FunderType = "multilateral" | "bilateral" | "foundation" | "corporate" | "accelerator" | "ngo";
 
 interface Funder {
@@ -12,6 +15,7 @@ interface Funder {
   geography: string;
   grantSize: string;
   deadline?: string;
+  daysLeft?: number;
   alignmentScore: number;
   status: string;
   url?: string;
@@ -19,45 +23,34 @@ interface Funder {
 }
 
 const funders: Funder[] = [
-  // Tier 1: Apply Now
-  {
-    name: "African Development Bank - Climate Action Window",
-    type: "multilateral",
-    tier: "tier1",
-    focus: "Climate adaptation, agriculture, forestry, land use",
-    geography: "Africa LDCs including Uganda",
-    grantSize: "Technical Assistance grants",
-    deadline: "February 5, 2025",
-    alignmentScore: 9,
-    status: "URGENT - Application prep needed",
-    url: "https://www.afdb.org/en/topics-and-sectors/initiatives-and-partnerships/adf-climate-action-window",
-    notes: "3rd Call for Proposals. Perfect fit for HISAGEN Stage 1.",
-  },
-  {
-    name: "IKI Small Grants Programme",
-    type: "bilateral",
-    tier: "tier1",
-    focus: "Climate and biodiversity action",
-    geography: "Developing countries including Uganda",
-    grantSize: "EUR 60,000 - 200,000",
-    deadline: "January 15, 2026",
-    alignmentScore: 8,
-    status: "Good fit - begin research",
-    notes: "Local/regional projects. Soil health + biodiversity angle strong.",
-  },
+  // Tier 1: Apply Now (Open Deadlines)
   {
     name: "ESTDEV Green/Digital Transition",
     type: "bilateral",
     tier: "tier1",
     focus: "Green and digital transition",
-    geography: "Uganda, Kenya, Tanzania",
+    geography: "Uganda, Kenya, Tanzania, Botswana, Namibia, Zambia",
     grantSize: "EUR 50,000 - 150,000",
     deadline: "January 30, 2026",
+    daysLeft: 12,
     alignmentScore: 7,
-    status: "Digital marketplace angle",
-    notes: "Could position digital platform + green ag together.",
+    status: "PRIORITY - Digital marketplace + green ag",
+    notes: "Position digital platform + microbial products as green/digital transition.",
   },
-  // Tier 2: Cultivate
+  {
+    name: "Japan Embassy Uganda - Grassroots",
+    type: "bilateral",
+    tier: "tier1",
+    focus: "Grassroots community benefit",
+    geography: "Uganda only",
+    grantSize: "Up to USD 65,000",
+    deadline: "February 15, 2026",
+    daysLeft: 28,
+    alignmentScore: 6,
+    status: "Good for community component",
+    notes: "Could fund farmer training/community components. Non-profit eligibility.",
+  },
+  // Tier 2: Cultivate (Rolling/Relationship-Based)
   {
     name: "Green Climate Fund (GCF)",
     type: "multilateral",
@@ -83,6 +76,29 @@ const funders: Funder[] = [
     notes: "Specifically funding 'poverty/agriculture/carbon nexus' innovations.",
   },
   {
+    name: "Mastercard Foundation - Agribusiness Challenge",
+    type: "corporate",
+    tier: "tier2",
+    focus: "Agribusiness, food security",
+    geography: "20 African focus countries (includes Uganda)",
+    grantSize: "USD 500,000 - 2,500,000",
+    alignmentScore: 8,
+    status: "Strong fit - investigate eligibility",
+    url: "https://frp.org/challenge-fund/the-agribusiness-challenge-fund",
+    notes: "Significant funding for agribusiness scale. 3-year disbursement.",
+  },
+  {
+    name: "AGRA RE-GAIN Program",
+    type: "ngo",
+    tier: "tier2",
+    focus: "Food loss reduction, climate resilience",
+    geography: "7 countries including Uganda, Kenya, Tanzania",
+    grantSize: "Via AGRA as implementing partner",
+    alignmentScore: 8,
+    status: "Potential implementation partner pathway",
+    notes: "$105M GCF initiative. AGRA is accredited - could be pathway to GCF funding.",
+  },
+  {
     name: "Science for Africa Foundation",
     type: "foundation",
     tier: "tier2",
@@ -101,8 +117,8 @@ const funders: Funder[] = [
     geography: "East Africa",
     grantSize: "Major grants ($1M+)",
     alignmentScore: 8,
-    status: "Need intro pathway",
-    notes: "Funds smallholder climate programs via One Acre Fund.",
+    status: "Need intro pathway via One Acre Fund",
+    notes: "Funds smallholder climate programs.",
   },
   {
     name: "Cartier Philanthropy",
@@ -149,22 +165,53 @@ const funders: Funder[] = [
     status: "Potential learning",
     notes: "Africa Forest Carbon Catalyst. Different model.",
   },
+  // Closed (Monitor for Next Cycle)
+  {
+    name: "African Development Bank - CAW",
+    type: "multilateral",
+    tier: "closed",
+    focus: "Climate adaptation, agriculture",
+    geography: "Africa LDCs including Uganda",
+    grantSize: "Technical Assistance grants",
+    deadline: "February 5, 2025 (CLOSED)",
+    alignmentScore: 9,
+    status: "MONITOR for CfP4 (expected mid-2026)",
+    notes: "3rd Call closed. Perfect fit - sign up for alerts.",
+  },
+  {
+    name: "IKI Small Grants Programme",
+    type: "bilateral",
+    tier: "closed",
+    focus: "Climate and biodiversity action",
+    geography: "Developing countries including Uganda",
+    grantSize: "EUR 60,000 - 200,000",
+    deadline: "January 15, 2026 (CLOSED)",
+    alignmentScore: 8,
+    status: "MONITOR for next cycle",
+    notes: "Missed by 3 days. Subscribe to newsletter.",
+  },
 ];
 
-const matchFunding = {
-  sweatEquity: {
-    confirmed: 9600,
-    pending: "TBC (Keir, HISAGEN team)",
-  },
-  inKind: {
-    items: ["Locus AG products at cost", "NARO research infrastructure", "Field trial sites (4 regions)"],
-    value: "TBC",
-  },
-  investment: {
-    value: "TBC",
-    source: "Director investment",
-  },
-};
+interface MatchFundingItem {
+  contributor: string;
+  activity: string;
+  hours?: string;
+  rate?: string;
+  value: string;
+}
+
+const sweatEquity: MatchFundingItem[] = [
+  { contributor: "Pandion Studio", activity: "Portal development, grant proposal V1.1", hours: "~48", rate: "$200/hr", value: "~$9,600" },
+  { contributor: "Keir A-B", activity: "Strategy, partnerships, NARO relationship", hours: "TBC", rate: "$150/hr", value: "TBC" },
+  { contributor: "HISAGEN Team", activity: "Operations, field coordination", hours: "TBC", rate: "TBC", value: "TBC" },
+];
+
+const inKindContributions = [
+  { contributor: "Locus AG", item: "Rhizolizer products for trials", value: "TBC (at cost)" },
+  { contributor: "Locus AG", item: "Manufacturing equipment access", value: "TBC (at cost)" },
+  { contributor: "NARO", item: "Research infrastructure, staff time", value: "TBC (in-kind)" },
+  { contributor: "NARO", item: "Field trial sites (4 regions)", value: "TBC (in-kind)" },
+];
 
 const getTierConfig = (tier: FunderTier) => {
   switch (tier) {
@@ -192,6 +239,14 @@ const getTierConfig = (tier: FunderTier) => {
         badge: "bg-slate-400 text-white",
         text: "text-slate-600",
       };
+    case "closed":
+      return {
+        label: "Closed",
+        bg: "bg-red-50",
+        border: "border-red-300",
+        badge: "bg-red-400 text-white",
+        text: "text-red-600",
+      };
   }
 };
 
@@ -207,9 +262,12 @@ const getTypeLabel = (type: FunderType) => {
 };
 
 export default function FunderLandscapePage() {
+  const [matchFundingOpen, setMatchFundingOpen] = useState(false);
+
   const tier1 = funders.filter(f => f.tier === "tier1");
   const tier2 = funders.filter(f => f.tier === "tier2");
   const tier3 = funders.filter(f => f.tier === "tier3");
+  const closed = funders.filter(f => f.tier === "closed");
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -233,13 +291,14 @@ export default function FunderLandscapePage() {
           Systematic identification and prioritization of grant funders aligned with HISAGEN's mission.
           Covers Grant Lifecycle Phases 02 (Landscape Scanning), 03 (Donor Engagement), and 04 (Due Diligence).
         </p>
+        <p className="mt-2 text-xs text-slate/60">Last updated: January 18, 2026</p>
       </section>
 
       {/* Quick Stats */}
-      <section className="mt-8 grid gap-4 grid-cols-2 md:grid-cols-4">
+      <section className="mt-8 grid gap-4 grid-cols-2 md:grid-cols-5">
         <div className="p-4 rounded-xl border border-mist bg-white">
           <p className="text-3xl font-bold text-secondary">{funders.length}</p>
-          <p className="text-xs uppercase tracking-widest text-slate/60 mt-1">Funders Identified</p>
+          <p className="text-xs uppercase tracking-widest text-slate/60 mt-1">Total Identified</p>
         </div>
         <div className="p-4 rounded-xl border-2 border-emerald-500/30 bg-emerald-50">
           <p className="text-3xl font-bold text-emerald-700">{tier1.length}</p>
@@ -253,19 +312,23 @@ export default function FunderLandscapePage() {
           <p className="text-3xl font-bold text-slate-600">{tier3.length}</p>
           <p className="text-xs uppercase tracking-widest text-slate/60 mt-1">Monitor</p>
         </div>
+        <div className="p-4 rounded-xl border border-red-300 bg-red-50">
+          <p className="text-3xl font-bold text-red-600">{closed.length}</p>
+          <p className="text-xs uppercase tracking-widest text-red-500 mt-1">Next Cycle</p>
+        </div>
       </section>
 
-      {/* Urgent Deadline Alert */}
-      <section className="mt-8 p-6 rounded-xl border-2 border-red-500/30 bg-red-50">
+      {/* Priority Deadline Alert */}
+      <section className="mt-8 p-6 rounded-xl border-2 border-emerald-500/30 bg-emerald-50">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-full bg-red-200 flex items-center justify-center shrink-0">
-            <span className="text-red-800 font-bold text-lg">!</span>
+          <div className="w-12 h-12 rounded-full bg-emerald-200 flex items-center justify-center shrink-0">
+            <span className="text-emerald-800 font-bold text-lg">12</span>
           </div>
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-red-700 mb-1">Urgent Deadline</p>
-            <h2 className="text-xl font-bold text-red-900">AfDB Climate Action Window - February 5, 2025</h2>
-            <p className="mt-2 text-sm text-red-800">
-              High alignment score (9/10). Eligibility research and application prep needed immediately.
+            <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-1">Priority Deadline</p>
+            <h2 className="text-xl font-bold text-emerald-900">ESTDEV Green/Digital Transition - January 30, 2026</h2>
+            <p className="mt-2 text-sm text-emerald-800">
+              EUR 50,000 - 150,000. Position digital platform + microbial products as green/digital transition for Uganda.
             </p>
           </div>
         </div>
@@ -280,7 +343,7 @@ export default function FunderLandscapePage() {
           <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.15em]">Apply Now</h2>
           <div className="h-px flex-1 bg-mist" />
         </div>
-        <p className="text-sm text-slate mb-6">High alignment + open deadlines. Prioritize for immediate action.</p>
+        <p className="text-sm text-slate mb-6">Open deadlines. Prioritize for immediate action.</p>
 
         <div className="space-y-4">
           {tier1.map((funder) => {
@@ -296,6 +359,11 @@ export default function FunderLandscapePage() {
                       <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${config.badge}`}>
                         Score: {funder.alignmentScore}/10
                       </span>
+                      {funder.daysLeft && (
+                        <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-red-500 text-white">
+                          {funder.daysLeft} days
+                        </span>
+                      )}
                     </div>
                     <h3 className="text-lg font-bold text-secondary">{funder.name}</h3>
                     <p className="text-sm text-slate mt-2">{funder.focus}</p>
@@ -312,7 +380,7 @@ export default function FunderLandscapePage() {
                     </div>
                     <div className="p-3 rounded-lg bg-white/60 border border-white">
                       <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Deadline</p>
-                      <p className="text-xs font-bold text-red-700">{funder.deadline || "Rolling"}</p>
+                      <p className="text-xs font-bold text-emerald-700">{funder.deadline || "Rolling"}</p>
                     </div>
                   </div>
 
@@ -392,7 +460,34 @@ export default function FunderLandscapePage() {
         </div>
       </section>
 
-      {/* Match Funding Summary */}
+      {/* Closed / Next Cycle */}
+      <section className="mt-12">
+        <div className="flex items-center gap-4 mb-6">
+          <span className="px-3 py-1 rounded-full bg-red-400 text-white text-xs font-bold uppercase tracking-widest">
+            Closed
+          </span>
+          <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.15em]">Monitor for Next Cycle</h2>
+          <div className="h-px flex-1 bg-mist" />
+        </div>
+        <p className="text-sm text-slate mb-6">High-alignment opportunities that have closed. Sign up for alerts.</p>
+
+        <div className="grid gap-3 md:grid-cols-2">
+          {closed.map((funder) => (
+            <div key={funder.name} className="p-4 rounded-lg border-2 border-red-200 bg-red-50">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-red-400 text-white">
+                  {funder.alignmentScore}/10 alignment
+                </span>
+              </div>
+              <h3 className="text-sm font-bold text-secondary">{funder.name}</h3>
+              <p className="text-xs text-red-700 mt-1">{funder.deadline}</p>
+              <p className="text-xs text-slate mt-2">{funder.status}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Match Funding Summary with Accordion */}
       <section className="mt-16">
         <div className="flex items-center gap-4 mb-6">
           <h2 className="text-xl font-bold text-secondary uppercase tracking-[0.15em]">Match Funding & Commitment</h2>
@@ -405,33 +500,98 @@ export default function FunderLandscapePage() {
             This leverage strengthens grant applications and reduces funder risk.
           </p>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          {/* Summary Cards */}
+          <div className="grid gap-6 md:grid-cols-3 mb-6">
             <div className="p-5 rounded-xl bg-white border border-mist">
               <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Sweat Equity</p>
-              <p className="text-2xl font-bold text-primary">${matchFunding.sweatEquity.confirmed.toLocaleString()}+</p>
+              <p className="text-2xl font-bold text-primary">$9,600+</p>
               <p className="text-xs text-slate mt-2">Confirmed (Pandion Studio)</p>
-              <p className="text-xs text-slate/60 mt-1">{matchFunding.sweatEquity.pending}</p>
+              <p className="text-xs text-slate/60 mt-1">+ Keir, HISAGEN team TBC</p>
             </div>
 
             <div className="p-5 rounded-xl bg-white border border-mist">
               <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">In-Kind Contributions</p>
-              <p className="text-2xl font-bold text-primary">{matchFunding.inKind.value}</p>
-              <ul className="mt-2 space-y-1">
-                {matchFunding.inKind.items.map((item, idx) => (
-                  <li key={idx} className="text-xs text-slate flex gap-2">
-                    <span className="text-primary">+</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <p className="text-2xl font-bold text-primary">TBC</p>
+              <p className="text-xs text-slate mt-2">Locus AG + NARO</p>
             </div>
 
             <div className="p-5 rounded-xl bg-white border border-mist">
               <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Director Investment</p>
-              <p className="text-2xl font-bold text-primary">{matchFunding.investment.value}</p>
-              <p className="text-xs text-slate mt-2">{matchFunding.investment.source}</p>
+              <p className="text-2xl font-bold text-primary">TBC</p>
+              <p className="text-xs text-slate mt-2">Seed funding</p>
             </div>
           </div>
+
+          {/* Accordion */}
+          <button
+            onClick={() => setMatchFundingOpen(!matchFundingOpen)}
+            className="w-full flex items-center justify-between p-4 rounded-lg bg-white border border-mist hover:border-primary/30 transition-colors"
+          >
+            <span className="text-sm font-bold text-secondary">View Detailed Breakdown</span>
+            <span className={`text-primary transition-transform ${matchFundingOpen ? 'rotate-180' : ''}`}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+
+          {matchFundingOpen && (
+            <div className="mt-4 space-y-6">
+              {/* Sweat Equity Table */}
+              <div className="p-4 rounded-lg bg-white border border-mist">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-3">Sweat Equity Log</p>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-mist">
+                        <th className="text-left py-2 text-slate/60 font-medium">Contributor</th>
+                        <th className="text-left py-2 text-slate/60 font-medium">Activity</th>
+                        <th className="text-left py-2 text-slate/60 font-medium">Hours</th>
+                        <th className="text-left py-2 text-slate/60 font-medium">Rate</th>
+                        <th className="text-right py-2 text-slate/60 font-medium">Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {sweatEquity.map((item, idx) => (
+                        <tr key={idx} className="border-b border-mist/50">
+                          <td className="py-2 font-medium text-secondary">{item.contributor}</td>
+                          <td className="py-2 text-slate">{item.activity}</td>
+                          <td className="py-2 text-slate">{item.hours}</td>
+                          <td className="py-2 text-slate">{item.rate}</td>
+                          <td className="py-2 text-right font-bold text-primary">{item.value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {/* In-Kind Table */}
+              <div className="p-4 rounded-lg bg-white border border-mist">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-3">In-Kind Contributions</p>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-xs">
+                    <thead>
+                      <tr className="border-b border-mist">
+                        <th className="text-left py-2 text-slate/60 font-medium">Contributor</th>
+                        <th className="text-left py-2 text-slate/60 font-medium">Contribution</th>
+                        <th className="text-right py-2 text-slate/60 font-medium">Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {inKindContributions.map((item, idx) => (
+                        <tr key={idx} className="border-b border-mist/50">
+                          <td className="py-2 font-medium text-secondary">{item.contributor}</td>
+                          <td className="py-2 text-slate">{item.item}</td>
+                          <td className="py-2 text-right font-bold text-primary">{item.value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="mt-6 p-4 rounded-lg bg-amber-100 border-2 border-amber-400">
             <div className="flex items-center gap-2 mb-2">
