@@ -201,9 +201,10 @@ interface MatchFundingItem {
 }
 
 const sweatEquity: MatchFundingItem[] = [
-  { contributor: "Pandion Studio", activity: "Portal development, grant proposal V1.1", hours: "~48", rate: "$200/hr", value: "~$9,600" },
-  { contributor: "Keir A-B", activity: "Strategy, partnerships, NARO relationship", hours: "TBC", rate: "$150/hr", value: "TBC" },
-  { contributor: "HISAGEN Team", activity: "Operations, field coordination", hours: "TBC", rate: "TBC", value: "TBC" },
+  { contributor: "Deep Six Consulting (Keir)", activity: "Corporate strategy, partnerships, investor relations", hours: "TBC", rate: "$250/hr", value: "TBC" },
+  { contributor: "HISAGEN USA", activity: "Locus AG coordination, US operations", hours: "TBC", rate: "$150/hr", value: "TBC" },
+  { contributor: "HISAGEN Uganda", activity: "NARO relationship, field coordination, local operations", hours: "TBC", rate: "$50/hr", value: "TBC" },
+  { contributor: "Pandion Studio", activity: "Portal development, grant proposal V1.1, funder targeting", hours: "~56", rate: "$200/hr", value: "~$11,200" },
 ];
 
 const inKindContributions = [
@@ -504,9 +505,9 @@ export default function FunderLandscapePage() {
           <div className="grid gap-6 md:grid-cols-3 mb-6">
             <div className="p-5 rounded-xl bg-white border border-mist">
               <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Sweat Equity</p>
-              <p className="text-2xl font-bold text-primary">$9,600+</p>
+              <p className="text-2xl font-bold text-primary">$11,200+</p>
               <p className="text-xs text-slate mt-2">Confirmed (Pandion Studio)</p>
-              <p className="text-xs text-slate/60 mt-1">+ Keir, HISAGEN team TBC</p>
+              <p className="text-xs text-slate/60 mt-1">+ Deep Six, HISAGEN USA/Uganda TBC</p>
             </div>
 
             <div className="p-5 rounded-xl bg-white border border-mist">
@@ -600,7 +601,7 @@ export default function FunderLandscapePage() {
               </span>
             </div>
             <p className="text-sm text-amber-900">
-              Capture Keir's sweat equity hours and Locus AG in-kind contribution values to complete match funding picture.
+              Capture sweat equity hours for Deep Six Consulting, HISAGEN USA, and HISAGEN Uganda. Get Locus AG in-kind contribution values.
             </p>
           </div>
         </div>
