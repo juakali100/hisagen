@@ -35,18 +35,20 @@ const phases: Phase[] = [
   {
     number: "02",
     title: "Landscape Scanning & Prospect Mapping",
-    status: "partial",
-    statusLabel: "Partial",
+    status: "active",
+    statusLabel: "Active",
     description: "Identify and score potential funders by fit, eligibility, size, competitiveness, and timeline.",
     evidence: [
-      "Funder Alignment Matrix (first pass, top 6 priority funders)",
-      "Keir's identified prospects reviewed",
+      "15 funders identified across multilateral, bilateral, foundation, corporate",
+      "3-tier prioritization: Apply Now (3), Cultivate (5), Monitor (7)",
+      "Match funding capture started ($9,600+ sweat equity confirmed)",
+      "Funder Landscape page live on portal",
     ],
     gaps: [
-      "Broader landscape scan (100+ funders)",
-      "Scored prospect pipeline",
+      "Deep research: 990 filings, grant history, connection mapping",
+      "Keir network warm intro map",
     ],
-    nextStep: "Expand scan and score by fit, eligibility, size, competitiveness, timeline.",
+    nextStep: "Research AfDB CAW eligibility (Feb 5 deadline), capture Keir sweat equity.",
   },
   {
     number: "03",
@@ -203,8 +205,9 @@ const getStatusColor = (status: PhaseStatus) => {
 
 const currentDeliverables = [
   { name: "Concept Note", phase: "05", description: "One-page project summary" },
-  { name: "v0 Grant Proposal", phase: "05", description: "10-section base narrative" },
-  { name: "Funder Alignment Matrix", phase: "02 & 04", description: "Prospect mapping + due diligence" },
+  { name: "V1.1 Grant Proposal", phase: "05", description: "Enhanced with NARO data + gap markers" },
+  { name: "Funder Landscape", phase: "02", description: "15 funders, 3-tier prioritization" },
+  { name: "Match Funding Tracker", phase: "02", description: "Sweat equity + in-kind capture" },
 ];
 
 export default function GrantLifecyclePage() {
@@ -417,7 +420,7 @@ export default function GrantLifecyclePage() {
           <div className="h-px flex-1 bg-mist" />
         </div>
 
-        <div className="grid gap-4 md:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-5">
           <Link
             href="/stage-1/funding"
             className="group p-6 rounded-xl border-2 border-emerald-500/20 bg-white hover:border-emerald-500 hover:shadow-xl transition-all"
@@ -429,12 +432,22 @@ export default function GrantLifecyclePage() {
           </Link>
 
           <Link
+            href="/stage-1/funding/funder-landscape"
+            className="group p-6 rounded-xl border-2 border-amber-500/20 bg-amber-50 hover:border-amber-500 hover:shadow-xl transition-all"
+          >
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-600 mb-2">Phase 02</p>
+            <h3 className="text-base font-bold text-secondary group-hover:text-amber-700 transition-colors">
+              Funder Landscape
+            </h3>
+          </Link>
+
+          <Link
             href="/stage-1/funding/v0-grant-proposal"
             className="group p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary/60 mb-2">Phase 05</p>
             <h3 className="text-base font-bold text-secondary group-hover:text-primary transition-colors">
-              v0 Grant Proposal
+              V1.1 Proposal
             </h3>
           </Link>
 
