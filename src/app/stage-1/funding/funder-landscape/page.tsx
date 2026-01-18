@@ -976,8 +976,9 @@ export default function FunderLandscapePage() {
                     <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">Tier 1: Monetary Recovery</p>
                     <div className="grid gap-2 md:grid-cols-2">
                       <div className="p-3 rounded bg-white border border-emerald-100">
-                        <p className="text-xs font-bold text-emerald-800 mb-1">Win Fee (if grant secured)</p>
-                        <p className="text-[11px] text-emerald-700">3-5% of grant value for grants Pandion supported. E.g., $150K grant = $4,500-7,500 fee.</p>
+                        <p className="text-xs font-bold text-emerald-800 mb-1">10% Commission (Win Fee)</p>
+                        <p className="text-[11px] text-emerald-700 mb-1">Per Keir's offer: 10% of funding Pandion directly secures (grants, investments, co-investment).</p>
+                        <p className="text-[10px] text-emerald-600 italic">E.g., $150K grant = $15,000 commission</p>
                       </div>
                       <div className="p-3 rounded bg-white border border-emerald-100">
                         <p className="text-xs font-bold text-emerald-800 mb-1">Pre-Award Cost Recovery</p>
@@ -988,9 +989,35 @@ export default function FunderLandscapePage() {
                         <p className="text-[11px] text-emerald-700">Include Pandion advisory/portal work in grant budget for funded period. Paid at $150/hr.</p>
                       </div>
                       <div className="p-3 rounded bg-white border border-emerald-100">
-                        <p className="text-xs font-bold text-emerald-800 mb-1">Equity Conversion</p>
-                        <p className="text-[11px] text-emerald-700">If HISAGEN raises VC/angel, convert contribution to equity at agreed valuation.</p>
+                        <p className="text-xs font-bold text-emerald-800 mb-1">Sweat-Equity Stake</p>
+                        <p className="text-[11px] text-emerald-700 mb-1">Per Keir's offer: "small sweat-equity stake" in HISAGEN for work contributed.</p>
+                        <p className="text-[10px] text-emerald-600 italic">Requires: agreed valuation, vesting terms, legal agreement</p>
                       </div>
+                    </div>
+
+                    {/* Sweat Equity Elaboration */}
+                    <div className="mt-3 p-3 rounded-lg bg-white border border-emerald-200">
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mb-2">Understanding Sweat-Equity Stake</p>
+                      <div className="grid gap-2 md:grid-cols-2">
+                        <div>
+                          <p className="text-xs font-bold text-emerald-800 mb-1">What it means</p>
+                          <ul className="text-[11px] text-emerald-700 space-y-0.5">
+                            <li>• Ownership shares in exchange for work (not cash)</li>
+                            <li>• Value based on hours × rate ÷ company valuation</li>
+                            <li>• E.g., $3,000 work at $500K valuation = 0.6% stake</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold text-emerald-800 mb-1">Key terms to agree</p>
+                          <ul className="text-[11px] text-emerald-700 space-y-0.5">
+                            <li>• Company valuation (pre-money)</li>
+                            <li>• Vesting schedule (cliff, duration)</li>
+                            <li>• Class of shares (common vs preferred)</li>
+                            <li>• Exit/liquidity rights</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p className="text-[10px] text-amber-700 mt-2 italic">Note: Sweat equity is separate from the 10% commission. Could have both: equity stake + success fees on funding secured.</p>
                     </div>
                   </div>
 
