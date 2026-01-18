@@ -188,6 +188,18 @@ const funders: Funder[] = [
     notes: "Climate philanthropy. Need to frame child welfare angle.",
   },
   {
+    name: "MacKenzie Scott / Yield Giving",
+    type: "philanthropy",
+    tier: "tier2",
+    focus: "High-impact nonprofits, climate, equity",
+    geography: "Global",
+    grantSize: "Major unrestricted grants ($1M+)",
+    alignmentScore: 8,
+    status: "Keir connection - cultivate relationship",
+    url: "https://yieldgiving.com",
+    notes: "Keir has connection. No traditional application - team identifies orgs. Can submit for consideration via website.",
+  },
+  {
     name: "Oak Foundation",
     type: "philanthropy",
     tier: "tier3",
