@@ -663,6 +663,199 @@ export default function SustainabilityFrameworkPage() {
         </div>
       </section>
 
+      {/* Capital Flows */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.1em]">
+          Capital Flows
+        </h2>
+        <p className="text-sm text-slate mb-6">
+          Current capital strategy (Capital Continuum: Grants → Blended Finance → Impact Investment → Commercial) with opportunities for diversification.
+        </p>
+
+        <div className="grid gap-6 md:grid-cols-2 mb-6">
+          {/* Current vs Expansion */}
+          <div className="p-5 rounded-xl border border-mist bg-white">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-4">
+              Current Capital Sources
+            </h4>
+            <div className="space-y-3">
+              {[
+                { source: "Grants", status: "Active (Stage 1)", color: "primary" },
+                { source: "Carbon Credits", status: "Primary revenue model", color: "primary" },
+                { source: "Blended Finance", status: "Planned", color: "slate" },
+              ].map((item) => (
+                <div key={item.source} className="flex items-center justify-between text-sm">
+                  <span className="font-medium text-secondary">{item.source}</span>
+                  <span className={`text-[10px] px-2 py-0.5 rounded ${
+                    item.color === "primary" ? "bg-primary/20 text-primary" : "bg-slate/10 text-slate"
+                  }`}>
+                    {item.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="p-5 rounded-xl border-2 border-accent/30 bg-accent/5">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-accent mb-4">
+              Expansion Opportunities
+            </h4>
+            <div className="space-y-3">
+              {[
+                { source: "PES (Payment for Ecosystem Services)", potential: "Water funds, biodiversity payments" },
+                { source: "Results-Based Finance", potential: "Performance contracts with governments" },
+                { source: "Corporate Pre-Purchase", potential: "Forward carbon agreements" },
+                { source: "Premium Product Revenue", potential: "Verified sustainable maize" },
+                { source: "Data Services", potential: "Disclosure data, traceability fees" },
+              ].map((item) => (
+                <div key={item.source} className="text-xs">
+                  <span className="font-bold text-secondary">{item.source}</span>
+                  <span className="text-slate"> &mdash; {item.potential}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Fund Targets */}
+        <div className="p-5 rounded-xl border border-mist bg-white">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-4">
+            Specific Fund Targets
+          </h4>
+          <div className="grid gap-3 md:grid-cols-3">
+            {[
+              { fund: "AGRI3", focus: "Sustainable agriculture, deforestation-free", fit: "High" },
+              { fund: "Land Degradation Neutrality Fund", focus: "Soil restoration", fit: "High" },
+              { fund: "AATIF", focus: "SSA agriculture", fit: "High" },
+              { fund: "Acumen", focus: "Smallholder agriculture", fit: "High" },
+              { fund: "Novastar Ventures", focus: "East Africa impact", fit: "Medium" },
+            ].map((item) => (
+              <div key={item.fund} className="p-3 rounded-lg bg-slate/5 border border-mist">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-xs font-bold text-secondary">{item.fund}</span>
+                  <span className={`text-[9px] px-1.5 py-0.5 rounded ${
+                    item.fit === "High" ? "bg-primary/20 text-primary" : "bg-slate/20 text-slate"
+                  }`}>
+                    {item.fit} fit
+                  </span>
+                </div>
+                <p className="text-[10px] text-slate">{item.focus}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/20">
+          <p className="text-xs text-slate">
+            <strong className="text-primary">Why diversification matters:</strong> Carbon market volatility = revenue risk. Diversified capital sources provide resilience. PES and results-based finance are growing faster than carbon markets.
+          </p>
+        </div>
+      </section>
+
+      {/* Data Flows */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.1em]">
+          Data Flows
+        </h2>
+        <p className="text-sm text-slate mb-6">
+          Current MRV data via 3Degrees platform with opportunities for ecosystem integration and AI/ML enhancement.
+        </p>
+
+        <div className="grid gap-6 md:grid-cols-2 mb-6">
+          {/* Registry Integration */}
+          <div className="p-5 rounded-xl border border-mist bg-white">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-4">
+              Registry &amp; Platform Integration
+            </h4>
+            <div className="space-y-2">
+              {[
+                { platform: "Verra Registry", status: "Integrated", value: "Credit issuance" },
+                { platform: "Climate TRACE", status: "Opportunity", value: "Visibility, validation" },
+                { platform: "Global Forest Watch", status: "Opportunity", value: "Risk management" },
+                { platform: "Trase", status: "Opportunity", value: "Supply chain mapping" },
+                { platform: "SourceUp", status: "Opportunity", value: "Landscape coordination" },
+                { platform: "CDP", status: "Priority", value: "Streamlined disclosure" },
+              ].map((item) => (
+                <div key={item.platform} className="flex items-center justify-between text-xs">
+                  <div>
+                    <span className="font-bold text-secondary">{item.platform}</span>
+                    <span className="text-slate"> &mdash; {item.value}</span>
+                  </div>
+                  <span className={`text-[9px] px-1.5 py-0.5 rounded ${
+                    item.status === "Integrated" ? "bg-primary/20 text-primary" :
+                    item.status === "Priority" ? "bg-accent/20 text-accent" :
+                    "bg-slate/10 text-slate"
+                  }`}>
+                    {item.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* AI/ML Opportunities */}
+          <div className="p-5 rounded-xl border-2 border-sky-teal/30 bg-sky-teal/5">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-sky-teal mb-4">
+              AI/ML Opportunities
+            </h4>
+            <div className="space-y-3">
+              {[
+                { application: "Satellite Image Analysis", potential: "Automate practice verification, reduce field visits" },
+                { application: "Yield Prediction", potential: "Better planning, risk management" },
+                { application: "Carbon Modelling", potential: "Improve SOC estimates, reduce uncertainty" },
+                { application: "Anomaly Detection", potential: "Fraud prevention, quality assurance" },
+              ].map((item) => (
+                <div key={item.application} className="text-xs">
+                  <span className="font-bold text-secondary">{item.application}</span>
+                  <span className="text-slate"> &mdash; {item.potential}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Disclosure Data Value Chain */}
+        <div className="p-5 rounded-xl bg-secondary text-parchment">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-parchment/60 mb-4">
+            Disclosure Data Value Chain
+          </h4>
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            {[
+              "HISAGEN MRV Data",
+              "Standardised Metrics (GHG Protocol, TNFD)",
+              "Corporate Disclosure Packages",
+              "Audit-Ready Documentation",
+            ].map((step, i) => (
+              <div key={step} className="flex items-center gap-3">
+                <span className="text-xs bg-white/10 px-3 py-1.5 rounded-lg">{step}</span>
+                {i < 3 && <span className="text-accent">&#8594;</span>}
+              </div>
+            ))}
+          </div>
+          <div className="grid gap-2 md:grid-cols-3 text-xs">
+            {[
+              { framework: "CDP Forests", need: "LA/JA engagement evidence" },
+              { framework: "TNFD", need: "Location-specific nature data" },
+              { framework: "SBTi FLAG", need: "Land sector emissions data" },
+              { framework: "CSRD/ESRS", need: "Value chain sustainability" },
+              { framework: "CDP Climate", need: "Scope 3 emissions factors" },
+              { framework: "GRI", need: "Stakeholder impact metrics" },
+            ].map((item) => (
+              <div key={item.framework} className="p-2 rounded bg-white/10">
+                <span className="font-bold text-accent">{item.framework}:</span>
+                <span className="opacity-90"> {item.need}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 p-4 rounded-lg bg-sky-teal/10 border border-sky-teal/20">
+          <p className="text-xs text-slate">
+            <strong className="text-sky-teal">Digital Product Passport potential:</strong> As EU DPP requirements expand, HISAGEN&apos;s MRV infrastructure could evolve into agricultural product identity backbone &mdash; positioning for future regulatory requirements.
+          </p>
+        </div>
+      </section>
+
       {/* Strategic Opportunities */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-secondary mb-4 uppercase tracking-[0.1em]">
