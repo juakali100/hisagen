@@ -809,100 +809,154 @@ export default function SustainabilityFrameworkPage() {
           Data Flows
         </h2>
         <p className="text-sm text-slate mb-6">
-          Current MRV data via 3Degrees platform with opportunities for ecosystem integration and AI/ML enhancement.
+          Four data flow types relevant to HISAGEN&apos;s model. Current capability (MRV) vs gaps/opportunities.
         </p>
 
-        <div className="grid gap-6 md:grid-cols-2 mb-6">
-          {/* Registry Integration */}
-          <div className="p-5 rounded-xl border border-mist bg-white">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-4">
-              Registry &amp; Platform Integration
-            </h4>
-            <div className="space-y-2">
-              {[
-                { platform: "Verra Registry", status: "Integrated", value: "Credit issuance" },
-                { platform: "Climate TRACE", status: "Opportunity", value: "Visibility, validation" },
-                { platform: "Global Forest Watch", status: "Opportunity", value: "Risk management" },
-                { platform: "Trase", status: "Opportunity", value: "Supply chain mapping" },
-                { platform: "SourceUp", status: "Opportunity", value: "Landscape coordination" },
-                { platform: "CDP", status: "Priority", value: "Streamlined disclosure" },
-              ].map((item) => (
-                <div key={item.platform} className="flex items-center justify-between text-xs">
-                  <div>
-                    <span className="font-bold text-secondary">{item.platform}</span>
-                    <span className="text-slate"> &mdash; {item.value}</span>
-                  </div>
-                  <span className={`text-[9px] px-1.5 py-0.5 rounded ${
-                    item.status === "Integrated" ? "bg-primary/20 text-primary" :
-                    item.status === "Priority" ? "bg-accent/20 text-accent" :
-                    "bg-slate/10 text-slate"
-                  }`}>
-                    {item.status}
-                  </span>
-                </div>
-              ))}
+        {/* Data Flow Types Grid */}
+        <div className="grid gap-4 md:grid-cols-2 mb-6">
+          {/* MRV Data - CURRENT */}
+          <div className="p-5 rounded-xl border-2 border-primary bg-primary/5">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-primary">
+                1. MRV Data
+              </h4>
+              <span className="text-[10px] px-2 py-0.5 rounded bg-primary text-parchment font-bold">CURRENT</span>
+            </div>
+            <p className="text-xs text-slate mb-3">Measurement, Reporting, Verification for carbon credits</p>
+            <div className="space-y-2 text-xs">
+              <div className="flex items-center justify-between">
+                <span className="text-secondary font-medium">3Degrees Platform</span>
+                <span className="text-[9px] px-1.5 py-0.5 rounded bg-primary/20 text-primary">Active</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-secondary font-medium">Verra VM0042</span>
+                <span className="text-[9px] px-1.5 py-0.5 rounded bg-primary/20 text-primary">Methodology</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-secondary font-medium">Soil Carbon Metrics</span>
+                <span className="text-[9px] px-1.5 py-0.5 rounded bg-primary/20 text-primary">Primary</span>
+              </div>
+            </div>
+            <div className="mt-3 p-2 rounded bg-white/80 text-[10px] text-slate">
+              <strong>Strength:</strong> Institutional-grade verification for carbon credit issuance
             </div>
           </div>
 
-          {/* AI/ML Opportunities */}
-          <div className="p-5 rounded-xl border-2 border-sky-teal/30 bg-sky-teal/5">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-sky-teal mb-4">
-              AI/ML Opportunities
-            </h4>
-            <div className="space-y-3">
-              {[
-                { application: "Satellite Image Analysis", potential: "Automate practice verification, reduce field visits" },
-                { application: "Yield Prediction", potential: "Better planning, risk management" },
-                { application: "Carbon Modelling", potential: "Improve SOC estimates, reduce uncertainty" },
-                { application: "Anomaly Detection", potential: "Fraud prevention, quality assurance" },
-              ].map((item) => (
-                <div key={item.application} className="text-xs">
-                  <span className="font-bold text-secondary">{item.application}</span>
-                  <span className="text-slate"> &mdash; {item.potential}</span>
-                </div>
-              ))}
+          {/* Traceability Data - GAP */}
+          <div className="p-5 rounded-xl border-2 border-accent/40 bg-accent/5">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-accent">
+                2. Traceability Data
+              </h4>
+              <span className="text-[10px] px-2 py-0.5 rounded bg-accent/20 text-accent font-bold">GAP</span>
+            </div>
+            <p className="text-xs text-slate mb-3">Farm-to-buyer product chain of custody</p>
+            <div className="space-y-2 text-xs text-slate/70">
+              <div>&bull; Plot-level geolocation (partial via MRV)</div>
+              <div>&bull; Product chain of custody (not captured)</div>
+              <div>&bull; Deforestation-free verification (not captured)</div>
+              <div>&bull; EUDR compliance data (not captured)</div>
+            </div>
+            <div className="mt-3 p-2 rounded bg-white/80 text-[10px] text-slate">
+              <strong className="text-accent">Opportunity:</strong> MRV infrastructure could extend to traceability with minimal additional data capture
+            </div>
+          </div>
+
+          {/* Disclosure Data - GAP */}
+          <div className="p-5 rounded-xl border-2 border-sky-teal/40 bg-sky-teal/5">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-sky-teal">
+                3. Disclosure Data
+              </h4>
+              <span className="text-[10px] px-2 py-0.5 rounded bg-sky-teal/20 text-sky-teal font-bold">GAP</span>
+            </div>
+            <p className="text-xs text-slate mb-3">Formatted for corporate sustainability reporting</p>
+            <div className="space-y-2 text-xs text-slate/70">
+              <div>&bull; CDP-formatted outputs (not productised)</div>
+              <div>&bull; TNFD location data (partial)</div>
+              <div>&bull; CSRD value chain metrics (not captured)</div>
+              <div>&bull; SBTi FLAG baseline data (not packaged)</div>
+            </div>
+            <div className="mt-3 p-2 rounded bg-white/80 text-[10px] text-slate">
+              <strong className="text-sky-teal">Opportunity:</strong> Package MRV data into &ldquo;Disclosure Data Packs&rdquo; as revenue-generating product
+            </div>
+          </div>
+
+          {/* Impact Data - GAP */}
+          <div className="p-5 rounded-xl border-2 border-secondary/30 bg-secondary/5">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-secondary">
+                4. Impact Data
+              </h4>
+              <span className="text-[10px] px-2 py-0.5 rounded bg-secondary/20 text-secondary font-bold">GAP</span>
+            </div>
+            <p className="text-xs text-slate mb-3">Social &amp; environmental outcomes for stakeholders</p>
+            <div className="space-y-2 text-xs text-slate/70">
+              <div>&bull; Farmer income changes (anecdotal only)</div>
+              <div>&bull; Women&apos;s participation (not tracked)</div>
+              <div>&bull; Biodiversity metrics (not captured)</div>
+              <div>&bull; Water/soil health beyond carbon (limited)</div>
+            </div>
+            <div className="mt-3 p-2 rounded bg-white/80 text-[10px] text-slate">
+              <strong className="text-secondary">Opportunity:</strong> Impact data required for Stage 3 investors (Acumen, etc.) and premium positioning
             </div>
           </div>
         </div>
 
-        {/* Disclosure Data Value Chain */}
-        <div className="p-5 rounded-xl bg-secondary text-parchment">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-parchment/60 mb-4">
-            Disclosure Data Value Chain
+        {/* Platform Integration Opportunities */}
+        <div className="p-5 rounded-xl border border-mist bg-white mb-6">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-4">
+            Platform Integration Opportunities
           </h4>
-          <div className="flex flex-wrap items-center gap-3 mb-4">
+          <div className="grid gap-2 md:grid-cols-3">
             {[
-              "HISAGEN MRV Data",
-              "Standardised Metrics (GHG Protocol, TNFD)",
-              "Corporate Disclosure Packages",
-              "Audit-Ready Documentation",
-            ].map((step, i) => (
-              <div key={step} className="flex items-center gap-3">
-                <span className="text-xs bg-white/10 px-3 py-1.5 rounded-lg">{step}</span>
-                {i < 3 && <span className="text-accent">&#8594;</span>}
-              </div>
-            ))}
-          </div>
-          <div className="grid gap-2 md:grid-cols-3 text-xs">
-            {[
-              { framework: "CDP Forests", need: "LA/JA engagement evidence" },
-              { framework: "TNFD", need: "Location-specific nature data" },
-              { framework: "SBTi FLAG", need: "Land sector emissions data" },
-              { framework: "CSRD/ESRS", need: "Value chain sustainability" },
-              { framework: "CDP Climate", need: "Scope 3 emissions factors" },
-              { framework: "GRI", need: "Stakeholder impact metrics" },
+              { platform: "Verra Registry", status: "Integrated", type: "MRV" },
+              { platform: "CDP", status: "Priority", type: "Disclosure" },
+              { platform: "Climate TRACE", status: "Opportunity", type: "MRV" },
+              { platform: "Trase", status: "Opportunity", type: "Traceability" },
+              { platform: "SourceUp", status: "Opportunity", type: "Landscape" },
+              { platform: "Global Forest Watch", status: "Opportunity", type: "Traceability" },
             ].map((item) => (
-              <div key={item.framework} className="p-2 rounded bg-white/10">
-                <span className="font-bold text-accent">{item.framework}:</span>
-                <span className="opacity-90"> {item.need}</span>
+              <div key={item.platform} className="p-2 rounded bg-slate/5 text-xs flex items-center justify-between">
+                <div>
+                  <span className="font-bold text-secondary">{item.platform}</span>
+                  <span className="text-slate/60 ml-1">({item.type})</span>
+                </div>
+                <span className={`text-[9px] px-1.5 py-0.5 rounded ${
+                  item.status === "Integrated" ? "bg-primary/20 text-primary" :
+                  item.status === "Priority" ? "bg-accent/20 text-accent" :
+                  "bg-slate/10 text-slate"
+                }`}>
+                  {item.status}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-4 p-4 rounded-lg bg-sky-teal/10 border border-sky-teal/20">
+        {/* AI/ML Enhancement */}
+        <div className="p-5 rounded-xl bg-secondary text-parchment mb-4">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-parchment/60 mb-4">
+            AI/ML Enhancement Potential (All Data Types)
+          </h4>
+          <div className="grid gap-3 md:grid-cols-2">
+            {[
+              { application: "Satellite Image Analysis", benefit: "Automate MRV verification, reduce field visits" },
+              { application: "Yield Prediction Models", benefit: "Improve farmer planning, demonstrate impact" },
+              { application: "Carbon Modelling", benefit: "Reduce SOC uncertainty, improve credit pricing" },
+              { application: "Anomaly Detection", benefit: "Fraud prevention, quality assurance across all data" },
+            ].map((item) => (
+              <div key={item.application} className="p-2 rounded bg-white/10 text-xs">
+                <span className="font-bold text-accent">{item.application}</span>
+                <span className="opacity-90"> &mdash; {item.benefit}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="p-4 rounded-lg bg-sky-teal/10 border border-sky-teal/20">
           <p className="text-xs text-slate">
-            <strong className="text-sky-teal">Digital Product Passport potential:</strong> As EU DPP requirements expand, HISAGEN&apos;s MRV infrastructure could evolve into agricultural product identity backbone &mdash; positioning for future regulatory requirements.
+            <strong className="text-sky-teal">Strategic insight:</strong> HISAGEN has strong MRV capability but three data gaps (Traceability, Disclosure, Impact). Closing these gaps enables: premium corporate partnerships, disclosure data revenue, and impact investor readiness (Stage 3). Infrastructure exists &mdash; packaging is the opportunity.
           </p>
         </div>
       </section>
