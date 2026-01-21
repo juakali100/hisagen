@@ -745,46 +745,124 @@ export default function SustainabilityFrameworkPage() {
           </div>
         </div>
 
-        {/* Revenue Streams - OUT */}
+        {/* Revenue Streams - OUT (Mapped to Ecosystem Services) */}
         <div className="mb-6">
           <h3 className="text-sm font-bold uppercase tracking-widest text-secondary/60 mb-4">
-            Revenue Out: Income Generation Streams
+            Revenue Out: Mapped to Ecosystem Services
           </h3>
+          <p className="text-xs text-slate mb-4">
+            Revenue streams aligned to ecosystem service categories &mdash; current vs expansion opportunities.
+          </p>
 
           <div className="grid gap-4 md:grid-cols-2">
-            {/* Current Revenue */}
+            {/* Provisioning Services */}
             <div className="p-5 rounded-xl border-2 border-primary/30 bg-primary/5">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-primary mb-4">
-                Current / Near-Term
-              </h4>
-              <div className="space-y-3">
-                {[
-                  { stream: "Carbon Credit Sales", desc: "Primary revenue - VM0042 verified credits at $15-40/tonne premium", status: "Primary" },
-                  { stream: "Yield Improvement Value", desc: "15-30% productivity gains for farmers (indirect - supports adoption)", status: "Enabling" },
-                ].map((item) => (
-                  <div key={item.stream} className="text-xs">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="font-bold text-secondary">{item.stream}</span>
-                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-primary/20 text-primary">{item.status}</span>
-                    </div>
-                    <p className="text-slate">{item.desc}</p>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xs font-black text-parchment bg-primary px-2 py-1 rounded">Provisioning</span>
+                <span className="text-[10px] text-slate">Food, fibre, fuel from the landscape</span>
+              </div>
+
+              <div className="mb-4">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-2">Current</p>
+                <div className="p-3 rounded-lg bg-white/80 text-xs">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-bold text-secondary">Maize (Yield Value)</span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-primary/20 text-primary">Indirect</span>
                   </div>
-                ))}
+                  <p className="text-slate">15-30% yield improvement supports adoption; commodity price to farmers</p>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-accent/80 mb-2">Expansion</p>
+                <div className="space-y-2">
+                  {[
+                    { product: "Premium Sustainable Maize", desc: "Verified sustainable product commanding price premium" },
+                    { product: "Legumes (intercrop)", desc: "Beans, groundnuts, cowpea - nitrogen fixing, women's crops" },
+                    { product: "Root Crops", desc: "Cassava, sweet potato - drought resilience, food security" },
+                    { product: "Agroforestry Products", desc: "Timber, fruit (mango, avocado), nuts - long-term income" },
+                  ].map((item) => (
+                    <div key={item.product} className="text-xs">
+                      <span className="font-bold text-secondary">{item.product}</span>
+                      <span className="text-slate"> &mdash; {item.desc}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Expansion Revenue */}
+            {/* Regulating Services */}
+            <div className="p-5 rounded-xl border-2 border-sky-teal/30 bg-sky-teal/5">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xs font-black text-parchment bg-sky-teal px-2 py-1 rounded">Regulating</span>
+                <span className="text-[10px] text-slate">Climate, water, pest regulation</span>
+              </div>
+
+              <div className="mb-4">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-sky-teal/60 mb-2">Current</p>
+                <div className="p-3 rounded-lg bg-white/80 text-xs">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-bold text-secondary">Carbon Credits</span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded bg-sky-teal/20 text-sky-teal">Primary</span>
+                  </div>
+                  <p className="text-slate">VM0042 verified soil carbon at $15-40/tonne premium</p>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-accent/80 mb-2">Expansion</p>
+                <div className="space-y-2">
+                  {[
+                    { service: "Biodiversity Credits", desc: "Emerging market - soil biodiversity, habitat connectivity" },
+                    { service: "Water Credits", desc: "Watershed services, infiltration improvement, water funds" },
+                    { service: "ARR Carbon (Agroforestry)", desc: "Above-ground carbon via tree planting - methodology stacking" },
+                    { service: "Pollination Services", desc: "Longer-term - if landscape diversification attracts pollinators" },
+                  ].map((item) => (
+                    <div key={item.service} className="text-xs">
+                      <span className="font-bold text-secondary">{item.service}</span>
+                      <span className="text-slate"> &mdash; {item.desc}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Supporting Services */}
+            <div className="p-5 rounded-xl border border-mist bg-white">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xs font-black text-parchment bg-secondary/40 px-2 py-1 rounded">Supporting</span>
+                <span className="text-[10px] text-slate">Soil formation, nutrient cycling</span>
+              </div>
+              <p className="text-xs text-slate mb-3">
+                Supporting services underpin Provisioning &amp; Regulating but typically don&apos;t generate direct revenue.
+              </p>
+              <div className="p-3 rounded-lg bg-slate/5 text-xs">
+                <p className="font-bold text-secondary mb-1">HISAGEN&apos;s Supporting Services:</p>
+                <ul className="text-slate space-y-1">
+                  <li>&bull; Soil health restoration (enables yield + carbon)</li>
+                  <li>&bull; Microbial activity enhancement (Locus AG)</li>
+                  <li>&bull; Nutrient cycling improvement (reduced fertilizer need)</li>
+                </ul>
+              </div>
+              <p className="text-[10px] text-slate/70 mt-2 italic">
+                Revenue indirect: lower input costs for farmers, foundation for other services
+              </p>
+            </div>
+
+            {/* Data & Advisory Services */}
             <div className="p-5 rounded-xl border-2 border-accent/30 bg-accent/5">
-              <h4 className="text-xs font-bold uppercase tracking-widest text-accent mb-4">
-                Expansion Opportunities
-              </h4>
-              <div className="space-y-3">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xs font-black text-parchment bg-accent px-2 py-1 rounded">Data &amp; Advisory</span>
+                <span className="text-[10px] text-slate">Beyond ecosystem services</span>
+              </div>
+              <p className="text-xs text-slate mb-3">
+                Revenue from data infrastructure and knowledge &mdash; not ecosystem services per se, but enabled by them.
+              </p>
+              <div className="space-y-2">
                 {[
-                  { stream: "Premium Product Sales", desc: "Verified sustainable maize commanding price premium" },
-                  { stream: "Disclosure Data Services", desc: "CDP, TNFD, CSRD reporting packages for corporates" },
+                  { stream: "Disclosure Data Packs", desc: "CDP, TNFD, CSRD, SBTi FLAG reporting packages" },
                   { stream: "Traceability Fees", desc: "Supply chain verification for EUDR-adjacent buyers" },
-                  { stream: "PES Payments", desc: "Water funds, biodiversity payments beyond carbon" },
-                  { stream: "Advisory/Licensing", desc: "Methodology replication fees in new geographies" },
+                  { stream: "Advisory/Licensing", desc: "Methodology replication in new geographies" },
                 ].map((item) => (
                   <div key={item.stream} className="text-xs">
                     <span className="font-bold text-secondary">{item.stream}</span>
