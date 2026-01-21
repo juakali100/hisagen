@@ -1,0 +1,456 @@
+import StageBreadcrumb from "../../../components/StageBreadcrumb";
+import Link from "next/link";
+
+// Layer data for the 5-layer framework
+const layerData = [
+  {
+    layer: "L1",
+    name: "Planetary Foundations",
+    relevance: "Foundational science",
+    intensity: "Medium",
+    elements: "Soil carbon cycle, microbial biology",
+    color: "#1B4D3E",
+  },
+  {
+    layer: "L2",
+    name: "Landscapes & Jurisdictions",
+    relevance: "PRIMARY",
+    intensity: "High",
+    elements: "Uganda landscapes, VM0042, MRV, farmer aggregation",
+    color: "#2E7D5A",
+  },
+  {
+    layer: "L3",
+    name: "Ecosystem Services",
+    relevance: "Dual value delivery",
+    intensity: "High",
+    elements: "Provisioning (yield) + Regulating (carbon)",
+    color: "#008B8B",
+  },
+  {
+    layer: "L4",
+    name: "Policy & Governance",
+    relevance: "Enabling environment",
+    intensity: "Medium",
+    elements: "MAAIF/NARO, Verra, SBTi/CSRD",
+    color: "#4A6FA5",
+  },
+  {
+    layer: "L5",
+    name: "Corporate Action",
+    relevance: "Demand/capital side",
+    intensity: "Medium",
+    elements: "Carbon buyers, institutional investment",
+    color: "#1A2332",
+  },
+];
+
+// Strategic opportunities
+const topPriorities = [
+  {
+    priority: 1,
+    opportunity: "Landscape Approach positioning",
+    effort: "Medium",
+    impact: "High",
+    action: "Pursue ISEAL 4 Core Criteria alignment",
+  },
+  {
+    priority: 2,
+    opportunity: "Disclosure data services",
+    effort: "Low",
+    impact: "Medium",
+    action: "Package MRV data for CDP/TNFD reporting",
+  },
+  {
+    priority: 3,
+    opportunity: "Corporate engagement models",
+    effort: "Medium",
+    impact: "High",
+    action: "Develop tiered partnership programme",
+  },
+  {
+    priority: 4,
+    opportunity: "Crop diversification pilot",
+    effort: "Medium",
+    impact: "Medium",
+    action: "Test intercropping/agroforestry on 20% of hectares",
+  },
+  {
+    priority: 5,
+    opportunity: "Capital diversification",
+    effort: "Medium",
+    impact: "High",
+    action: "Apply to AGRI3, explore PES pilot",
+  },
+];
+
+// Full opportunity areas
+const allOpportunities = [
+  {
+    number: "01",
+    title: "Landscape Approach Positioning",
+    current: "Frames as 'agricultural carbon' and 'smallholder aggregation' - project-level language",
+    opportunity: "Reframe as formal Landscape Approach aligned with ISEAL 4 Core Criteria (Scale, Multi-stakeholder Governance, Collective Goals, Monitoring)",
+    why: "CDP scores LA/JA engagement; unlocks IDH/TFA/FOLU funding; 50% of disclosures fail credibility criteria - alignment differentiates",
+  },
+  {
+    number: "02",
+    title: "Crop Diversification & Agroforestry",
+    current: "Maize monoculture with bio-stimulant intervention",
+    opportunity: "Design for agricultural system resilience: legumes (nitrogen fixation), root crops (drought resilience), agroforestry (above-ground carbon, timber)",
+    why: "Spreads seasonal income, reduces price risk, opens VM0042 + ARR methodology stacking, stronger 'regenerative' narrative",
+  },
+  {
+    number: "03",
+    title: "MRV Expansion Beyond Carbon",
+    current: "3Degrees MRV focused on soil organic carbon for VM0042",
+    opportunity: "Expand to biodiversity, water, soil health metrics. Design for TNFD-ready data. Consider LandScale assessment.",
+    why: "Carbon becoming commoditised; comprehensive sustainability data differentiates; future-proofs against market volatility",
+  },
+  {
+    number: "04",
+    title: "Traceability & Sustainable Product",
+    current: "Carbon credits are primary product; maize treated separately",
+    opportunity: "Integrate 'verified sustainable maize' positioning. Offer traceability for EUDR-adjacent buyers. Create disclosure data services.",
+    why: "Three revenue streams (premium product + carbon + traceability); builds infrastructure valuable beyond carbon cycles",
+  },
+  {
+    number: "05",
+    title: "Enhanced Corporate Engagement",
+    current: "Carbon credit sales - transaction-focused",
+    opportunity: "Develop insetting, landscape coalition membership, Scope 3 partnerships, SBTi FLAG alignment",
+    why: "Partnership models = sticky, value-added, premium pricing; positions as strategic partner vs commodity supplier",
+  },
+  {
+    number: "06",
+    title: "Disclosure Data Services",
+    current: "Limited focus on how data supports corporate disclosure",
+    opportunity: "Package MRV data for CDP, TNFD, CSRD, SBTi FLAG. Create 'Disclosure Data Pack' product.",
+    why: "Mandatory disclosure growing; companies struggle for Scope 3 agricultural data; recurring revenue independent of carbon prices",
+  },
+];
+
+export default function SustainabilityFrameworkPage() {
+  return (
+    <div className="mx-auto max-w-5xl text-ink font-sans">
+      <StageBreadcrumb
+        stage="Sustainability Framework"
+        trail={[
+          { label: "Strategy", href: "/strategy" },
+          { label: "5-Layer Framework" },
+        ]}
+      />
+
+      {/* Hero */}
+      <section className="rounded-2xl border-2 border-sky-teal/30 bg-sky-teal/5 px-8 py-12 mb-12">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="rounded-full bg-sky-teal/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.28em] text-sky-teal">
+            Pandion Framework Analysis
+          </span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40">
+            January 2026
+          </span>
+        </div>
+        <h1 className="text-4xl font-bold text-secondary leading-tight mb-4">
+          HISAGEN: 5-Layer Sustainability Framework Mapping
+        </h1>
+        <p className="text-lg text-slate leading-relaxed max-w-3xl">
+          How HISAGEN maps to Pandion&apos;s comprehensive sustainability framework &ndash; and strategic opportunities identified from a systems-level perspective.
+        </p>
+      </section>
+
+      {/* Executive Summary */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.1em]">
+          Executive Summary
+        </h2>
+        <div className="p-6 rounded-xl border border-mist bg-white">
+          <p className="text-base text-slate leading-relaxed mb-4">
+            HISAGEN is a <strong className="text-secondary">full-stack integrator</strong> operating across all 5 layers of the sustainability framework. The primary intervention is at <strong className="text-primary">L2 (Landscapes & Jurisdictions)</strong> within the <strong>Regenerative Agriculture</strong> sector.
+          </p>
+          <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
+            <p className="text-sm text-slate">
+              <strong className="text-primary">The &ldquo;bankable&rdquo; insight:</strong> The problem isn&apos;t that soil carbon doesn&apos;t exist &ndash; it&apos;s that it can&apos;t be verified, priced, and traded at institutional standards. HISAGEN solves this by controlling the full value chain from soil science (L1) to corporate capital (L5).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5-Layer Overview */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.1em]">
+          5-Layer Framework Mapping
+        </h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-secondary/5">
+                <th className="p-3 text-left text-[10px] font-bold uppercase tracking-widest text-secondary">Layer</th>
+                <th className="p-3 text-left text-[10px] font-bold uppercase tracking-widest text-secondary">Relevance</th>
+                <th className="p-3 text-center text-[10px] font-bold uppercase tracking-widest text-secondary">Intensity</th>
+                <th className="p-3 text-left text-[10px] font-bold uppercase tracking-widest text-secondary">Key Elements</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-mist">
+              {layerData.map((layer) => (
+                <tr
+                  key={layer.layer}
+                  className={layer.layer === "L2" ? "bg-primary/10" : "bg-white"}
+                >
+                  <td className="p-3">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="w-3 h-3 rounded-full"
+                        style={{ backgroundColor: layer.color }}
+                      />
+                      <span className="font-bold text-secondary">{layer.layer}</span>
+                      <span className="text-slate">{layer.name}</span>
+                    </div>
+                  </td>
+                  <td className="p-3 text-slate">
+                    {layer.layer === "L2" ? (
+                      <span className="font-bold text-primary">{layer.relevance}</span>
+                    ) : (
+                      layer.relevance
+                    )}
+                  </td>
+                  <td className="p-3 text-center">
+                    <span
+                      className={`text-[10px] font-bold uppercase px-2 py-1 rounded ${
+                        layer.intensity === "High"
+                          ? "bg-primary/20 text-primary"
+                          : "bg-slate/10 text-slate"
+                      }`}
+                    >
+                      {layer.intensity}
+                    </span>
+                  </td>
+                  <td className="p-3 text-slate text-xs">{layer.elements}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Full-Stack Integration Visual */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.1em]">
+          Full-Stack Integration
+        </h2>
+        <div className="p-6 rounded-xl bg-secondary text-parchment">
+          <p className="text-sm mb-6 opacity-90">
+            HISAGEN&apos;s distinctive positioning: controlling/coordinating across all layers
+          </p>
+          <div className="space-y-3">
+            {[
+              { layer: "L1 (Science)", arrow: true, content: "Locus AG technology (proven microbial soil carbon)", color: "#1B4D3E" },
+              { layer: "L2 (Landscape)", arrow: true, content: "Uganda pilot, Deep Six farmer aggregation, VM0042", color: "#2E7D5A" },
+              { layer: "L3 (Services)", arrow: true, content: "Yield improvement + Carbon credits (dual value)", color: "#008B8B" },
+              { layer: "L4 (Governance)", arrow: true, content: "MAAIF regulatory, Verra methodology, SBTi alignment", color: "#4A6FA5" },
+              { layer: "L5 (Corporate)", arrow: false, content: "Carbon buyer connections, institutional-grade verification", color: "#1A2332" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-4">
+                <div
+                  className="w-28 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded text-center"
+                  style={{ backgroundColor: item.color }}
+                >
+                  {item.layer}
+                </div>
+                {item.arrow && (
+                  <span className="text-accent">&#8594;</span>
+                )}
+                <span className="text-sm opacity-90">{item.content}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6 p-4 rounded-lg bg-white/10 border border-white/20">
+            <p className="text-xs">
+              <strong className="text-accent">Why this matters:</strong> Most players are single-layer (technology OR verification OR financing). HISAGEN integrates across the stack, reducing friction. &ldquo;Bankability&rdquo; = making L2 outcomes legible to L5 capital.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* L2 Deep Dive */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.1em]">
+          L2 Deep Dive: Where HISAGEN Lives
+        </h2>
+        <p className="text-sm text-slate mb-6">
+          Within the L2 &ldquo;Landscapes & Jurisdictions&rdquo; architecture:
+        </p>
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="p-5 rounded-xl border-2 border-primary/20 bg-primary/5">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
+              Pillar 1: Landscape Types
+            </h4>
+            <ul className="text-sm text-slate space-y-1">
+              <li>&bull; Agricultural landscapes (smallholder farmland)</li>
+              <li>&bull; East African ecological context</li>
+            </ul>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-accent/30 bg-accent/5">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-accent mb-3">
+              Pillar 2: Sectors & Practices
+            </h4>
+            <ul className="text-sm text-slate space-y-1">
+              <li>&bull; <strong>Regenerative Agriculture</strong> (core)</li>
+              <li>&bull; Bio-stimulants, soil restoration</li>
+              <li>&bull; Carbon farming practices</li>
+            </ul>
+          </div>
+          <div className="p-5 rounded-xl border-2 border-sky-teal/30 bg-sky-teal/5">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-sky-teal mb-3">
+              Pillar 3: Methodology
+            </h4>
+            <ul className="text-sm text-slate space-y-1">
+              <li>&bull; Verra VM0042 methodology</li>
+              <li>&bull; 3Degrees MRV platform</li>
+              <li>&bull; Corporate engagement models</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Strategic Opportunities */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-secondary mb-4 uppercase tracking-[0.1em]">
+          Strategic Opportunities
+        </h2>
+        <p className="text-sm text-slate mb-6">
+          Areas identified from applying the full 5-layer framework, capital flows, and data flows perspectives &ndash; opportunities a single-sector agricultural carbon specialist might miss.
+        </p>
+
+        {/* Top 5 Summary */}
+        <div className="p-6 rounded-xl border-2 border-primary/20 bg-white mb-8">
+          <h3 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">
+            Top 5 Priority Recommendations
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-mist">
+                  <th className="p-2 text-left text-[10px] font-bold uppercase text-slate/60">#</th>
+                  <th className="p-2 text-left text-[10px] font-bold uppercase text-slate/60">Opportunity</th>
+                  <th className="p-2 text-center text-[10px] font-bold uppercase text-slate/60">Effort</th>
+                  <th className="p-2 text-center text-[10px] font-bold uppercase text-slate/60">Impact</th>
+                  <th className="p-2 text-left text-[10px] font-bold uppercase text-slate/60">Suggested Action</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-mist/50">
+                {topPriorities.map((item) => (
+                  <tr key={item.priority}>
+                    <td className="p-2 font-bold text-primary">{item.priority}</td>
+                    <td className="p-2 font-medium text-secondary">{item.opportunity}</td>
+                    <td className="p-2 text-center">
+                      <span className="text-[10px] px-2 py-0.5 rounded bg-slate/10 text-slate">
+                        {item.effort}
+                      </span>
+                    </td>
+                    <td className="p-2 text-center">
+                      <span
+                        className={`text-[10px] px-2 py-0.5 rounded ${
+                          item.impact === "High"
+                            ? "bg-primary/20 text-primary"
+                            : "bg-accent/20 text-accent"
+                        }`}
+                      >
+                        {item.impact}
+                      </span>
+                    </td>
+                    <td className="p-2 text-xs text-slate">{item.action}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Detailed Opportunities */}
+        <div className="space-y-4">
+          {allOpportunities.map((opp) => (
+            <div
+              key={opp.number}
+              className="p-5 rounded-xl border border-mist bg-white hover:border-primary/30 transition-all"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-sm font-bold text-primary flex-shrink-0">
+                  {opp.number}
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-base font-bold text-secondary mb-2">{opp.title}</h4>
+                  <div className="grid gap-3 md:grid-cols-3 text-xs">
+                    <div>
+                      <p className="font-bold uppercase tracking-widest text-slate/60 mb-1">Current</p>
+                      <p className="text-slate">{opp.current}</p>
+                    </div>
+                    <div>
+                      <p className="font-bold uppercase tracking-widest text-primary/60 mb-1">Opportunity</p>
+                      <p className="text-slate">{opp.opportunity}</p>
+                    </div>
+                    <div>
+                      <p className="font-bold uppercase tracking-widest text-accent/80 mb-1">Why It Matters</p>
+                      <p className="text-slate">{opp.why}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Pandion Advisory Value */}
+      <section className="mb-12">
+        <div className="p-8 rounded-2xl bg-sky-teal text-parchment">
+          <h2 className="text-xl font-bold mb-4">Pandion Advisory Value</h2>
+          <p className="text-sm opacity-90 mb-6">
+            These opportunities represent areas where Pandion&apos;s 5-layer framework perspective, combined with knowledge of data flows, capital flows, and corporate action requirements, adds value beyond what a single-sector agricultural carbon specialist might identify.
+          </p>
+          <div className="grid gap-3 md:grid-cols-2">
+            {[
+              "Landscape Approach positioning & ISEAL alignment",
+              "Corporate engagement model design & buyer targeting",
+              "Disclosure data product development",
+              "Capital strategy & fund targeting",
+              "Risk and resilience framework development",
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2 text-sm"
+              >
+                <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">
+                  {i + 1}
+                </span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Links */}
+      <section className="mb-16 flex flex-wrap justify-center gap-4">
+        <Link
+          href="/strategy"
+          className="px-6 py-3 bg-secondary text-parchment rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary transition-colors"
+        >
+          Back to Strategy
+        </Link>
+        <Link
+          href="/program"
+          className="px-6 py-3 border border-secondary text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-secondary hover:text-parchment transition-colors"
+        >
+          Explore Program
+        </Link>
+        <Link
+          href="/knowledge-base"
+          className="px-6 py-3 border border-secondary text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-secondary hover:text-parchment transition-colors"
+        >
+          Knowledge Base
+        </Link>
+      </section>
+    </div>
+  );
+}

@@ -403,6 +403,25 @@ export default function StrategyPage() {
                 </div>
             </section>
 
+            {/* Sustainability Framework Callout */}
+            <section className="mt-20 p-8 rounded-2xl border-2 border-sky-teal/30 bg-sky-teal/5">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-sky-teal mb-2">Pandion Framework Analysis</p>
+                        <h3 className="text-xl font-bold text-secondary mb-2">5-Layer Sustainability Framework Mapping</h3>
+                        <p className="text-sm text-slate max-w-xl">
+                            How HISAGEN maps across planetary foundations, landscapes, ecosystem services, policy, and corporate action &ndash; plus strategic opportunities from a systems-level perspective.
+                        </p>
+                    </div>
+                    <a
+                        href="/strategy/sustainability-framework"
+                        className="flex-shrink-0 px-6 py-3 bg-sky-teal text-parchment rounded-full font-bold uppercase tracking-widest text-xs hover:bg-sky-teal/80 transition-colors"
+                    >
+                        View Framework &rarr;
+                    </a>
+                </div>
+            </section>
+
             {/* CTAs */}
             <section className="my-20 flex flex-wrap justify-center gap-6">
                 <a href="/program" className="px-8 py-3 bg-secondary text-parchment rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary transition-colors">
