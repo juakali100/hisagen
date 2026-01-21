@@ -1,7 +1,10 @@
+"use client";
+
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import Link from "next/link";
+import { useState } from "react";
 
-// Layer data for the 5-layer framework
+// Layer data for the 5-layer framework with detailed content
 const layerData = [
   {
     layer: "L1",
@@ -10,6 +13,18 @@ const layerData = [
     intensity: "Medium",
     elements: "Soil carbon cycle, microbial biology",
     color: "#1B4D3E",
+    description: "HISAGEN's intervention is grounded in soil carbon science and the global carbon cycle.",
+    keyConnections: [
+      { title: "Carbon Cycle", detail: "Soil as carbon sink; agricultural practices that sequester vs emit" },
+      { title: "Biogeochemical Cycles", detail: "Soil biology, microbial activity, nutrient cycling" },
+      { title: "Planetary Boundary: Climate Change", detail: "Agricultural contribution to emissions; mitigation potential" },
+    ],
+    hisagenElements: [
+      "Locus AG Rhizolizer microbial technology accelerates soil organic carbon (SOC) accumulation",
+      "Proven yield improvement (15-30%) indicates enhanced soil biology function",
+      "NARO field trials validated technology performance in Ugandan soils",
+    ],
+    frameworkInsight: "L1 provides the scientific foundation for L2-L5 claims. Without soil carbon science validity, the entire value chain collapses.",
   },
   {
     layer: "L2",
@@ -18,6 +33,43 @@ const layerData = [
     intensity: "High",
     elements: "Uganda landscapes, VM0042, MRV, farmer aggregation",
     color: "#2E7D5A",
+    description: "This is where HISAGEN's core intervention happens. The project is a landscape-scale agricultural carbon initiative.",
+    pillars: [
+      {
+        title: "Pillar 1: Landscape Types",
+        items: [
+          { type: "Agricultural Landscapes", relevance: "Primary - smallholder farmland in Uganda" },
+          { type: "Grasslands & Savannas", relevance: "Secondary - East African ecological context" },
+          { type: "Forest Landscapes", relevance: "Adjacent - agroforestry potential" },
+        ],
+      },
+      {
+        title: "Pillar 2: Sectors & Practices",
+        items: [
+          { element: "Soil health restoration", implementation: "Locus AG bio-stimulants, reduced chemical inputs" },
+          { element: "Carbon farming", implementation: "SOC accumulation, verified under VM0042" },
+          { element: "Farmer-first economics", implementation: "70%+ of carbon revenue to farmers" },
+          { element: "Yield co-benefits", implementation: "15-30% productivity improvement" },
+          { element: "MRV integration", implementation: "3Degrees digital platform" },
+        ],
+      },
+      {
+        title: "Pillar 3: Methodology & Frameworks",
+        items: [
+          { framework: "Landscape Approaches", implementation: "Smallholder aggregation via Deep Six partnership" },
+          { framework: "Jurisdictional", implementation: "Uganda government alignment (MAAIF/NARO, NDC)" },
+          { framework: "Corporate Engagement", implementation: "Capital Continuum funding model, buyer relationships" },
+          { framework: "Assessment & Verification", implementation: "Verra VM0042, 3Degrees MRV, institutional-grade verification" },
+        ],
+      },
+    ],
+    ugandaContext: [
+      { metric: "4M", label: "Smallholder farming households" },
+      { metric: "1-3 ha", label: "Average landholding" },
+      { metric: "80%", label: "Arable land (only 35% cultivated)" },
+      { metric: "46%", label: "Land degraded; $625M annual nutrient loss" },
+    ],
+    credibilityChallenge: "HISAGEN directly addresses the L2 credibility gap: 50% of LA/JA disclosures fail CDP credibility criteria, 80% fail on monitoring frameworks. HISAGEN's answer: Digital MRV + Verra methodology + institutional-grade verification = credible claims.",
   },
   {
     layer: "L3",
@@ -26,6 +78,19 @@ const layerData = [
     intensity: "High",
     elements: "Provisioning (yield) + Regulating (carbon)",
     color: "#008B8B",
+    description: "HISAGEN delivers a 'dual value proposition' - two ecosystem service categories simultaneously.",
+    naturalCapital: [
+      { asset: "Soil", intervention: "Bio-stimulant restoration of soil biology" },
+      { asset: "Soil organic carbon", intervention: "Sequestration and accumulation" },
+      { asset: "Agricultural biodiversity", intervention: "Microbial diversity enhancement" },
+    ],
+    ecosystemServices: [
+      { category: "Provisioning", service: "Food production", delivery: "15-30% yield improvement" },
+      { category: "Regulating", service: "Climate regulation", delivery: "Verified carbon credits (VM0042)" },
+      { category: "Supporting", service: "Soil formation", delivery: "Enhanced microbial activity" },
+      { category: "Supporting", service: "Nutrient cycling", delivery: "Reduced synthetic fertilizer dependency" },
+    ],
+    frameworkInsight: "The 'dual value proposition' is actually dual ecosystem services. This framing strengthens the business case - farmers get immediate provisioning value (yield) while generating regulating value (carbon) for corporate buyers.",
   },
   {
     layer: "L4",
@@ -34,6 +99,19 @@ const layerData = [
     intensity: "Medium",
     elements: "MAAIF/NARO, Verra, SBTi/CSRD",
     color: "#4A6FA5",
+    description: "HISAGEN operates within multiple governance frameworks that enable and constrain the model.",
+    nationalLevel: [
+      { element: "MAAIF (Ministry of Agriculture)", status: "NARO approval expected Q1 2026" },
+      { element: "NDC Commitments", status: "Government committed to climate-smart agriculture" },
+      { element: "Regulatory pathway", status: "Product registration underway" },
+    ],
+    internationalStandards: [
+      { standard: "Verra VM0042", alignment: "Primary methodology (soil carbon)" },
+      { standard: "Gold Standard", alignment: "Alternative pathway" },
+      { standard: "SBTi", alignment: "Drives corporate buyer demand" },
+      { standard: "CSRD", alignment: "EU regulation driving disclosure requirements" },
+    ],
+    governanceInsight: "The L4 environment is favourable: First-mover advantage (no scaled agricultural carbon programs in Uganda), Government commitment to climate-smart agriculture, International standards validated (AgriCarbon first Africa VM0042, 2025).",
   },
   {
     layer: "L5",
@@ -42,6 +120,23 @@ const layerData = [
     intensity: "Medium",
     elements: "Carbon buyers, institutional investment",
     color: "#1A2332",
+    description: "HISAGEN's 'bankability' positioning is about making L2 interventions accessible to L5 corporate capital and buyers.",
+    demandSide: [
+      { driver: "Net-zero commitments", relevance: "Creates demand for verified removal credits" },
+      { driver: "SBTi targets", relevance: "Requires high-quality carbon credits" },
+      { driver: "CSRD disclosure", relevance: "EU companies need supply chain decarbonisation" },
+      { driver: "Scope 3 pressure", relevance: "Agricultural supply chain emissions in focus" },
+    ],
+    buyerPrecedents: [
+      "Microsoft purchasing 40K Indigo Ag credits (2024)",
+      "Soil carbon commanding $15-40/tonne premium vs $4.80 market average",
+    ],
+    supplySide: [
+      { type: "Carbon credit purchase", model: "Primary revenue model" },
+      { type: "Blended finance", model: "Capital Continuum framework" },
+      { type: "Supply chain investment", model: "Future potential (commodity buyers)" },
+      { type: "Impact investment", model: "Stage 3-4 of Capital Continuum" },
+    ],
   },
 ];
 
@@ -130,6 +225,303 @@ const allOpportunities = [
   },
 ];
 
+// Layer Accordion Component
+function LayerAccordion({ layer }: { layer: typeof layerData[0] }) {
+  const [isOpen, setIsOpen] = useState(layer.layer === "L2"); // L2 open by default
+
+  return (
+    <div
+      className={`rounded-xl border-2 overflow-hidden transition-all ${
+        layer.layer === "L2"
+          ? "border-primary/40 bg-primary/5"
+          : "border-mist bg-white hover:border-slate/30"
+      }`}
+    >
+      {/* Accordion Header */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full p-4 flex items-center justify-between text-left"
+      >
+        <div className="flex items-center gap-3">
+          <span
+            className="w-10 h-10 rounded-lg flex items-center justify-center text-xs font-black text-parchment"
+            style={{ backgroundColor: layer.color }}
+          >
+            {layer.layer}
+          </span>
+          <div>
+            <h3 className="font-bold text-secondary">{layer.name}</h3>
+            <p className="text-xs text-slate">{layer.elements}</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <span
+            className={`text-[10px] font-bold uppercase px-2 py-1 rounded ${
+              layer.intensity === "High"
+                ? "bg-primary/20 text-primary"
+                : "bg-slate/10 text-slate"
+            }`}
+          >
+            {layer.intensity}
+          </span>
+          {layer.layer === "L2" && (
+            <span className="text-[10px] font-bold uppercase px-2 py-1 rounded bg-primary text-parchment">
+              Primary
+            </span>
+          )}
+          <svg
+            className={`w-5 h-5 text-slate transition-transform ${isOpen ? "rotate-180" : ""}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </button>
+
+      {/* Accordion Content */}
+      {isOpen && (
+        <div className="px-4 pb-6 border-t border-mist/50">
+          <p className="text-sm text-slate mt-4 mb-6">{layer.description}</p>
+
+          {/* L1 Content */}
+          {layer.layer === "L1" && layer.keyConnections && (
+            <>
+              <div className="mb-6">
+                <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-3">
+                  Key Connections
+                </h4>
+                <div className="grid gap-2 md:grid-cols-3">
+                  {layer.keyConnections.map((conn) => (
+                    <div key={conn.title} className="p-3 rounded-lg bg-white border border-mist">
+                      <p className="text-xs font-bold text-secondary mb-1">{conn.title}</p>
+                      <p className="text-xs text-slate">{conn.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="mb-6">
+                <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-3">
+                  HISAGEN Elements
+                </h4>
+                <ul className="space-y-2">
+                  {layer.hisagenElements?.map((el, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-slate">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      {el}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {layer.frameworkInsight && (
+                <div className="p-4 rounded-lg bg-primary/10 border border-primary/20">
+                  <p className="text-xs font-bold text-primary mb-1">Framework Insight</p>
+                  <p className="text-sm text-slate">{layer.frameworkInsight}</p>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* L2 Content */}
+          {layer.layer === "L2" && layer.pillars && (
+            <>
+              {/* Uganda Context Stats */}
+              {layer.ugandaContext && (
+                <div className="mb-6">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-3">
+                    Uganda Context
+                  </h4>
+                  <div className="grid gap-2 grid-cols-2 md:grid-cols-4">
+                    {layer.ugandaContext.map((stat) => (
+                      <div key={stat.label} className="p-3 rounded-lg bg-white border border-mist text-center">
+                        <p className="text-lg font-black text-secondary">{stat.metric}</p>
+                        <p className="text-[10px] text-slate">{stat.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Three Pillars */}
+              <div className="grid gap-4 md:grid-cols-3 mb-6">
+                {layer.pillars.map((pillar) => (
+                  <div key={pillar.title} className="p-4 rounded-lg bg-white border border-mist">
+                    <h4 className="text-xs font-bold uppercase tracking-widest text-primary mb-3">
+                      {pillar.title}
+                    </h4>
+                    <div className="space-y-2">
+                      {pillar.items.map((item: Record<string, string>, i: number) => (
+                        <div key={i} className="text-xs">
+                          <span className="font-bold text-secondary">
+                            {item.type || item.element || item.framework}
+                          </span>
+                          <span className="text-slate">
+                            {" "}&mdash; {item.relevance || item.implementation}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Credibility Challenge */}
+              {layer.credibilityChallenge && (
+                <div className="p-4 rounded-lg bg-primary/10 border border-primary/20">
+                  <p className="text-xs font-bold text-primary mb-1">The Credibility Challenge</p>
+                  <p className="text-sm text-slate">{layer.credibilityChallenge}</p>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* L3 Content */}
+          {layer.layer === "L3" && layer.naturalCapital && (
+            <>
+              <div className="grid gap-4 md:grid-cols-2 mb-6">
+                {/* Natural Capital */}
+                <div className="p-4 rounded-lg bg-white border border-mist">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-3">
+                    Natural Capital (Stock)
+                  </h4>
+                  <div className="space-y-2">
+                    {layer.naturalCapital.map((item) => (
+                      <div key={item.asset} className="text-xs">
+                        <span className="font-bold text-secondary">{item.asset}</span>
+                        <span className="text-slate"> &mdash; {item.intervention}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Ecosystem Services */}
+                <div className="p-4 rounded-lg bg-white border border-mist">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-3">
+                    Ecosystem Services (Flow)
+                  </h4>
+                  <div className="space-y-2">
+                    {layer.ecosystemServices?.map((item) => (
+                      <div key={item.service} className="text-xs">
+                        <span className="px-1.5 py-0.5 rounded bg-sky-teal/10 text-sky-teal font-bold mr-2">
+                          {item.category}
+                        </span>
+                        <span className="font-bold text-secondary">{item.service}</span>
+                        <span className="text-slate"> &mdash; {item.delivery}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              {layer.frameworkInsight && (
+                <div className="p-4 rounded-lg bg-sky-teal/10 border border-sky-teal/20">
+                  <p className="text-xs font-bold text-sky-teal mb-1">Framework Insight</p>
+                  <p className="text-sm text-slate">{layer.frameworkInsight}</p>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* L4 Content */}
+          {layer.layer === "L4" && layer.nationalLevel && (
+            <>
+              <div className="grid gap-4 md:grid-cols-2 mb-6">
+                {/* National Level */}
+                <div className="p-4 rounded-lg bg-white border border-mist">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-3">
+                    National Level (Uganda)
+                  </h4>
+                  <div className="space-y-2">
+                    {layer.nationalLevel.map((item) => (
+                      <div key={item.element} className="text-xs">
+                        <span className="font-bold text-secondary">{item.element}</span>
+                        <span className="text-slate"> &mdash; {item.status}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* International Standards */}
+                <div className="p-4 rounded-lg bg-white border border-mist">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-3">
+                    International Standards
+                  </h4>
+                  <div className="space-y-2">
+                    {layer.internationalStandards?.map((item) => (
+                      <div key={item.standard} className="text-xs">
+                        <span className="font-bold text-secondary">{item.standard}</span>
+                        <span className="text-slate"> &mdash; {item.alignment}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              {layer.governanceInsight && (
+                <div className="p-4 rounded-lg bg-blue-50 border border-blue-200">
+                  <p className="text-xs font-bold text-blue-700 mb-1">Governance Assessment</p>
+                  <p className="text-sm text-slate">{layer.governanceInsight}</p>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* L5 Content */}
+          {layer.layer === "L5" && layer.demandSide && (
+            <>
+              <div className="grid gap-4 md:grid-cols-2 mb-6">
+                {/* Demand Side */}
+                <div className="p-4 rounded-lg bg-white border border-mist">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-3">
+                    Demand Side (Corporate Drivers)
+                  </h4>
+                  <div className="space-y-2">
+                    {layer.demandSide.map((item) => (
+                      <div key={item.driver} className="text-xs">
+                        <span className="font-bold text-secondary">{item.driver}</span>
+                        <span className="text-slate"> &mdash; {item.relevance}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Supply Side */}
+                <div className="p-4 rounded-lg bg-white border border-mist">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-3">
+                    Supply Side (Engagement Models)
+                  </h4>
+                  <div className="space-y-2">
+                    {layer.supplySide?.map((item) => (
+                      <div key={item.type} className="text-xs">
+                        <span className="font-bold text-secondary">{item.type}</span>
+                        <span className="text-slate"> &mdash; {item.model}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Buyer Precedents */}
+              {layer.buyerPrecedents && (
+                <div className="p-4 rounded-lg bg-secondary/5 border border-secondary/20">
+                  <p className="text-xs font-bold text-secondary mb-2">Buyer Precedents</p>
+                  <ul className="space-y-1">
+                    {layer.buyerPrecedents.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-slate">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function SustainabilityFrameworkPage() {
   return (
     <div className="mx-auto max-w-5xl text-ink font-sans">
@@ -176,60 +568,18 @@ export default function SustainabilityFrameworkPage() {
         </div>
       </section>
 
-      {/* 5-Layer Overview */}
+      {/* 5-Layer Accordion */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.1em]">
           5-Layer Framework Mapping
         </h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm border-collapse">
-            <thead>
-              <tr className="bg-secondary/5">
-                <th className="p-3 text-left text-[10px] font-bold uppercase tracking-widest text-secondary">Layer</th>
-                <th className="p-3 text-left text-[10px] font-bold uppercase tracking-widest text-secondary">Relevance</th>
-                <th className="p-3 text-center text-[10px] font-bold uppercase tracking-widest text-secondary">Intensity</th>
-                <th className="p-3 text-left text-[10px] font-bold uppercase tracking-widest text-secondary">Key Elements</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-mist">
-              {layerData.map((layer) => (
-                <tr
-                  key={layer.layer}
-                  className={layer.layer === "L2" ? "bg-primary/10" : "bg-white"}
-                >
-                  <td className="p-3">
-                    <div className="flex items-center gap-2">
-                      <span
-                        className="w-3 h-3 rounded-full"
-                        style={{ backgroundColor: layer.color }}
-                      />
-                      <span className="font-bold text-secondary">{layer.layer}</span>
-                      <span className="text-slate">{layer.name}</span>
-                    </div>
-                  </td>
-                  <td className="p-3 text-slate">
-                    {layer.layer === "L2" ? (
-                      <span className="font-bold text-primary">{layer.relevance}</span>
-                    ) : (
-                      layer.relevance
-                    )}
-                  </td>
-                  <td className="p-3 text-center">
-                    <span
-                      className={`text-[10px] font-bold uppercase px-2 py-1 rounded ${
-                        layer.intensity === "High"
-                          ? "bg-primary/20 text-primary"
-                          : "bg-slate/10 text-slate"
-                      }`}
-                    >
-                      {layer.intensity}
-                    </span>
-                  </td>
-                  <td className="p-3 text-slate text-xs">{layer.elements}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <p className="text-sm text-slate mb-6">
+          Click each layer to explore detailed mapping of HISAGEN&apos;s position within the framework.
+        </p>
+        <div className="space-y-3">
+          {layerData.map((layer) => (
+            <LayerAccordion key={layer.layer} layer={layer} />
+          ))}
         </div>
       </section>
 
