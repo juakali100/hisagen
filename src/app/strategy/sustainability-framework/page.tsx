@@ -622,6 +622,88 @@ export default function SustainabilityFrameworkPage() {
         </div>
       </section>
 
+      {/* Carbon Credit Journey */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.1em]">
+          Carbon Credit Journey
+        </h2>
+        <p className="text-sm text-slate mb-6">
+          From farmer practice to credit sale &mdash; the end-to-end process for generating verified carbon credits.
+        </p>
+
+        {/* Journey Steps */}
+        <div className="relative">
+          {/* Connection line (desktop) */}
+          <div className="hidden md:block absolute top-8 left-0 right-0 h-1 bg-gradient-to-r from-primary via-sky-teal to-accent rounded-full" style={{ marginLeft: '4%', marginRight: '4%', width: '92%' }} />
+
+          <div className="grid gap-4 md:grid-cols-7">
+            {[
+              { step: "1", title: "Farmer Enrolment", desc: "Smallholders join via Deep Six partnership", icon: "👨‍🌾", color: "primary" },
+              { step: "2", title: "Baseline", desc: "Initial soil carbon measurement", icon: "📊", color: "primary" },
+              { step: "3", title: "Practice Adoption", desc: "Locus AG bio-stimulants + regen practices", icon: "🌱", color: "primary" },
+              { step: "4", title: "Monitoring", desc: "3Degrees MRV platform tracks progress", icon: "📡", color: "sky-teal" },
+              { step: "5", title: "Verification", desc: "Third-party audit against VM0042", icon: "✓", color: "sky-teal" },
+              { step: "6", title: "Issuance", desc: "Verra registry issues credits", icon: "📜", color: "accent" },
+              { step: "7", title: "Sale & Distribution", desc: "Corporate buyer purchase, 70%+ to farmers", icon: "💰", color: "accent" },
+            ].map((item, i) => (
+              <div key={item.step} className="relative flex flex-col items-center text-center">
+                {/* Step circle */}
+                <div className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-2xl mb-3 ${
+                  item.color === "primary" ? "bg-primary/20 border-2 border-primary" :
+                  item.color === "sky-teal" ? "bg-sky-teal/20 border-2 border-sky-teal" :
+                  "bg-accent/20 border-2 border-accent"
+                }`}>
+                  {item.icon}
+                </div>
+                {/* Step number */}
+                <span className={`text-[10px] font-black px-2 py-0.5 rounded mb-1 ${
+                  item.color === "primary" ? "bg-primary text-parchment" :
+                  item.color === "sky-teal" ? "bg-sky-teal text-parchment" :
+                  "bg-accent text-secondary"
+                }`}>
+                  Step {item.step}
+                </span>
+                {/* Title & desc */}
+                <h4 className="text-xs font-bold text-secondary mb-1">{item.title}</h4>
+                <p className="text-[10px] text-slate leading-tight">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Phase groupings */}
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <div className="p-4 rounded-lg bg-primary/10 border border-primary/30">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-[10px] font-black text-parchment bg-primary px-2 py-0.5 rounded">Steps 1-3</span>
+              <span className="text-xs font-bold text-primary">Implementation</span>
+            </div>
+            <p className="text-[10px] text-slate">Farmer-facing. Deep Six partnership critical for enrolment, training, and practice adoption.</p>
+          </div>
+          <div className="p-4 rounded-lg bg-sky-teal/10 border border-sky-teal/30">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-[10px] font-black text-parchment bg-sky-teal px-2 py-0.5 rounded">Steps 4-5</span>
+              <span className="text-xs font-bold text-sky-teal">Verification</span>
+            </div>
+            <p className="text-[10px] text-slate">Technology-driven. 3Degrees MRV + third-party verification creates &ldquo;bankable&rdquo; claims.</p>
+          </div>
+          <div className="p-4 rounded-lg bg-accent/10 border border-accent/30">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-[10px] font-black text-secondary bg-accent px-2 py-0.5 rounded">Steps 6-7</span>
+              <span className="text-xs font-bold text-accent">Monetisation</span>
+            </div>
+            <p className="text-[10px] text-slate">Market-facing. Verra registry provides credibility; corporate buyers provide revenue.</p>
+          </div>
+        </div>
+
+        {/* Timeline callout */}
+        <div className="mt-4 p-4 rounded-lg bg-secondary/5 border border-secondary/20">
+          <p className="text-xs text-slate">
+            <strong className="text-secondary">Typical timeline:</strong> Baseline to first credit issuance is 2-3 years. Annual verification cycles thereafter. Revenue begins flowing to farmers from Year 2-3.
+          </p>
+        </div>
+      </section>
+
       {/* L2 Deep Dive */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.1em]">
