@@ -1039,6 +1039,101 @@ export default function SustainabilityFrameworkPage() {
         </div>
       </section>
 
+      {/* Social Sustainability */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.1em]">
+          Social Sustainability
+        </h2>
+        <p className="text-sm text-slate mb-6">
+          Social sustainability is a <strong>cross-cutting enabler</strong> &mdash; not a separate layer, but a lens applied across all layers. Environmental sustainability cannot be achieved without social sustainability.
+        </p>
+
+        {/* Cross-cutting visual */}
+        <div className="p-5 rounded-xl bg-gradient-to-r from-primary/10 via-sky-teal/10 to-accent/10 border border-mist mb-6">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-xs font-black text-parchment bg-secondary px-3 py-1 rounded">Cross-Cutting</span>
+            <span className="text-sm font-bold text-secondary">How Social Themes Apply to HISAGEN</span>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              { layer: "L2", theme: "Community & Livelihoods", items: ["FPIC & community consent", "Benefit-sharing (70%+ to farmers)", "Land tenure security", "Local knowledge integration"] },
+              { layer: "L3", theme: "Equitable Value Flows", items: ["Fair carbon revenue distribution", "Smallholder-first economics", "Access to ecosystem service income", "Women's participation in benefits"] },
+              { layer: "L4", theme: "Safeguards & Standards", items: ["Social safeguards compliance", "Labour standards", "Just transition considerations", "ESRS S1-S4 readiness"] },
+              { layer: "L5", theme: "Stakeholder Engagement", items: ["Farmer engagement via Deep Six", "Corporate buyer relationships", "Impact investor expectations", "Social impact measurement"] },
+            ].map((item) => (
+              <div key={item.layer} className="p-3 rounded-lg bg-white/80 border border-mist">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-[10px] font-black text-parchment bg-secondary/60 px-1.5 py-0.5 rounded">{item.layer}</span>
+                  <span className="text-xs font-bold text-secondary">{item.theme}</span>
+                </div>
+                <ul className="text-[10px] text-slate space-y-1">
+                  {item.items.map((point, i) => (
+                    <li key={i}>&bull; {point}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* HISAGEN Social Assessment */}
+        <div className="grid gap-4 md:grid-cols-2 mb-6">
+          {/* Strengths */}
+          <div className="p-5 rounded-xl border-2 border-primary/30 bg-primary/5">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-primary mb-4">
+              HISAGEN Social Strengths
+            </h4>
+            <div className="space-y-2">
+              {[
+                { strength: "Farmer-first revenue model", detail: "70%+ of carbon credit value to smallholders" },
+                { strength: "Dual value proposition", detail: "Yield + carbon means immediate farmer benefit" },
+                { strength: "Local partnership", detail: "Deep Six provides community-embedded extension" },
+                { strength: "Smallholder scale design", detail: "Economics built for 1-3 ha farms, not large estates" },
+              ].map((item) => (
+                <div key={item.strength} className="text-xs">
+                  <span className="font-bold text-secondary">{item.strength}</span>
+                  <span className="text-slate"> &mdash; {item.detail}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Gaps */}
+          <div className="p-5 rounded-xl border-2 border-accent/30 bg-accent/5">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-accent mb-4">
+              Social Data &amp; Process Gaps
+            </h4>
+            <div className="space-y-2">
+              {[
+                { gap: "Women's participation tracking", detail: "Not systematically measured or reported" },
+                { gap: "FPIC documentation", detail: "Community consent process not formalised" },
+                { gap: "Income impact measurement", detail: "Farmer income changes anecdotal only" },
+                { gap: "Grievance mechanisms", detail: "No formal community feedback system" },
+                { gap: "ESRS S-standard readiness", detail: "Social disclosure requirements not mapped" },
+              ].map((item) => (
+                <div key={item.gap} className="text-xs">
+                  <span className="font-bold text-secondary">{item.gap}</span>
+                  <span className="text-slate"> &mdash; {item.detail}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Just Transition Note */}
+        <div className="p-4 rounded-lg bg-secondary text-parchment">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-accent">Just Transition</span>
+          </div>
+          <p className="text-xs opacity-90 mb-3">
+            HISAGEN represents a <strong>positive transition pathway</strong> for smallholders &mdash; enabling farmers to access new income streams (carbon) while improving existing livelihoods (yield). This is proactive just transition rather than managing decline.
+          </p>
+          <p className="text-[10px] opacity-70">
+            <strong>Key frameworks:</strong> ILO Just Transition Guidelines, Climate Action 100+ Net Zero Benchmark (includes just transition criteria), Paris Agreement preamble on just transition.
+          </p>
+        </div>
+      </section>
+
       {/* Strategic Opportunities */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-secondary mb-4 uppercase tracking-[0.1em]">
