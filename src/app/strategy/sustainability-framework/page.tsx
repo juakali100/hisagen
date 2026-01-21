@@ -48,7 +48,7 @@ const layerData = [
         items: [
           { element: "Soil health restoration", implementation: "Locus AG bio-stimulants, reduced chemical inputs" },
           { element: "Carbon farming", implementation: "SOC accumulation, verified under VM0042" },
-          { element: "Farmer-first economics", implementation: "70%+ of carbon revenue to farmers" },
+          { element: "Farmer-first economics", implementation: "Target 70%+ of carbon revenue to farmers (TBC)" },
           { element: "Yield co-benefits", implementation: "15-30% productivity improvement" },
           { element: "MRV integration", implementation: "3Degrees digital platform" },
         ],
@@ -568,6 +568,81 @@ export default function SustainabilityFrameworkPage() {
         </div>
       </section>
 
+      {/* Business Model Questions - TBC with Keir */}
+      <section className="mb-12">
+        <div className="p-6 rounded-xl bg-amber-50 border-2 border-amber-400">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-full bg-amber-400 flex items-center justify-center text-2xl flex-shrink-0">
+              ⚠️
+            </div>
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-amber-900 mb-2">
+                Business Model: Questions for Keir
+              </h3>
+              <p className="text-sm text-amber-800 mb-4">
+                Several aspects of HISAGEN&apos;s business model need clarification before Pandion can assess partnership/engagement options.
+              </p>
+
+              <div className="grid gap-4 md:grid-cols-2 mb-4">
+                <div className="p-3 rounded-lg bg-white/70">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-2">
+                    Revenue Model
+                  </h4>
+                  <ul className="text-xs text-amber-900 space-y-1">
+                    <li>&bull; How does HISAGEN make money?</li>
+                    <li>&bull; What % of carbon credit revenue goes to HISAGEN vs farmers vs partners?</li>
+                    <li>&bull; Is &ldquo;70%+ to farmers&rdquo; confirmed or aspirational?</li>
+                    <li>&bull; What&apos;s the role of CZMP (Carbon Zero Market Place)?</li>
+                  </ul>
+                </div>
+
+                <div className="p-3 rounded-lg bg-white/70">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-2">
+                    Carbon Credit Sales
+                  </h4>
+                  <ul className="text-xs text-amber-900 space-y-1">
+                    <li>&bull; How are credits sold? Direct to buyers or via marketplace?</li>
+                    <li>&bull; Who handles buyer relationships?</li>
+                    <li>&bull; What&apos;s the pricing strategy ($15-40/tonne range)?</li>
+                    <li>&bull; Forward purchase agreements in place?</li>
+                  </ul>
+                </div>
+
+                <div className="p-3 rounded-lg bg-white/70">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-2">
+                    Entity Structure
+                  </h4>
+                  <ul className="text-xs text-amber-900 space-y-1">
+                    <li>&bull; What&apos;s the legal entity structure?</li>
+                    <li>&bull; SPV for carbon assets?</li>
+                    <li>&bull; Relationship between HISAGEN Ltd and project entities?</li>
+                    <li>&bull; Where does value accrue?</li>
+                  </ul>
+                </div>
+
+                <div className="p-3 rounded-lg bg-white/70">
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-2">
+                    Pandion Engagement Options
+                  </h4>
+                  <ul className="text-xs text-amber-900 space-y-1">
+                    <li>&bull; Service provision (advisory fees)?</li>
+                    <li>&bull; Equity / sweat equity share?</li>
+                    <li>&bull; Partnership arrangement?</li>
+                    <li>&bull; Revenue share on specific workstreams?</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="p-3 rounded-lg bg-amber-100 border border-amber-300">
+                <p className="text-xs text-amber-900">
+                  <strong>Action:</strong> Schedule business model deep-dive with Keir to clarify revenue flows, entity structure, and potential Pandion engagement models before scoping any advisory work.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 5-Layer Accordion */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-secondary mb-6 uppercase tracking-[0.1em]">
@@ -644,7 +719,7 @@ export default function SustainabilityFrameworkPage() {
               { step: "4", title: "Monitoring", desc: "3Degrees MRV platform tracks progress", icon: "📡", color: "sky-teal" },
               { step: "5", title: "Verification", desc: "Third-party audit against VM0042", icon: "✓", color: "sky-teal" },
               { step: "6", title: "Issuance", desc: "Verra registry issues credits", icon: "📜", color: "accent" },
-              { step: "7", title: "Sale & Distribution", desc: "Corporate buyer purchase, 70%+ to farmers", icon: "💰", color: "accent" },
+              { step: "7", title: "Sale & Distribution", desc: "Corporate buyer purchase, target 70%+ to farmers (TBC)", icon: "💰", color: "accent" },
             ].map((item, i) => (
               <div key={item.step} className="relative flex flex-col items-center text-center">
                 {/* Step circle */}
@@ -1138,7 +1213,7 @@ export default function SustainabilityFrameworkPage() {
           </div>
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { layer: "L2", theme: "Community & Livelihoods", items: ["FPIC & community consent", "Benefit-sharing (70%+ to farmers)", "Land tenure security", "Local knowledge integration"] },
+              { layer: "L2", theme: "Community & Livelihoods", items: ["FPIC & community consent", "Benefit-sharing (target 70%+ TBC)", "Land tenure security", "Local knowledge integration"] },
               { layer: "L3", theme: "Equitable Value Flows", items: ["Fair carbon revenue distribution", "Smallholder-first economics", "Access to ecosystem service income", "Women's participation in benefits"] },
               { layer: "L4", theme: "Safeguards & Standards", items: ["Social safeguards compliance", "Labour standards", "Just transition considerations", "ESRS S1-S4 readiness"] },
               { layer: "L5", theme: "Stakeholder Engagement", items: ["Farmer engagement via Deep Six", "Corporate buyer relationships", "Impact investor expectations", "Social impact measurement"] },
@@ -1167,7 +1242,7 @@ export default function SustainabilityFrameworkPage() {
             </h4>
             <div className="space-y-2">
               {[
-                { strength: "Farmer-first revenue model", detail: "70%+ of carbon credit value to smallholders" },
+                { strength: "Farmer-first revenue model", detail: "Target 70%+ of carbon credit value to smallholders (TBC)" },
                 { strength: "Dual value proposition", detail: "Yield + carbon means immediate farmer benefit" },
                 { strength: "Local partnership", detail: "Deep Six provides community-embedded extension" },
                 { strength: "Smallholder scale design", detail: "Economics built for 1-3 ha farms, not large estates" },
