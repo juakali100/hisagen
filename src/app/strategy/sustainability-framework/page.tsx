@@ -569,76 +569,28 @@ export default function SustainabilityFrameworkPage() {
         </div>
       </section>
 
-      {/* Business Model Questions - TBC with Keir */}
+      {/* Business Model - Areas to Clarify */}
       <section className="mb-12">
-        <div className="p-6 rounded-xl bg-amber-50 border-2 border-amber-400">
-          <div className="flex items-start gap-4">
-            <div className="w-12 h-12 rounded-full bg-amber-400 flex items-center justify-center text-2xl flex-shrink-0">
-              ⚠️
+        <div className="p-5 rounded-xl bg-amber-50/50 border border-amber-200">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-amber-700">Business Model</span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-amber-200 text-amber-800">To Clarify</span>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-3">
+            <div className="p-3 rounded-lg bg-white/70 text-xs">
+              <p className="font-bold text-amber-800 mb-1">Revenue Split</p>
+              <p className="text-amber-700">% allocation between HISAGEN, farmers, and partners. Target 70%+ to farmers &mdash; confirmed or aspirational?</p>
             </div>
-            <div className="flex-1">
-              <h3 className="text-lg font-bold text-amber-900 mb-2">
-                Business Model: Questions for Keir
-              </h3>
-              <p className="text-sm text-amber-800 mb-4">
-                Several aspects of HISAGEN&apos;s business model need clarification before Pandion can assess partnership/engagement options.
-              </p>
 
-              <div className="grid gap-4 md:grid-cols-2 mb-4">
-                <div className="p-3 rounded-lg bg-white/70">
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-2">
-                    Revenue Model
-                  </h4>
-                  <ul className="text-xs text-amber-900 space-y-1">
-                    <li>&bull; How does HISAGEN make money?</li>
-                    <li>&bull; What % of carbon credit revenue goes to HISAGEN vs farmers vs partners?</li>
-                    <li>&bull; Is &ldquo;70%+ to farmers&rdquo; confirmed or aspirational?</li>
-                    <li>&bull; What&apos;s the role of CZMP (Carbon Zero Market Place)?</li>
-                  </ul>
-                </div>
+            <div className="p-3 rounded-lg bg-white/70 text-xs">
+              <p className="font-bold text-amber-800 mb-1">Sales Channel</p>
+              <p className="text-amber-700">Direct to corporate buyers or via marketplace (CZMP)? Pricing strategy within $15-40/tonne range.</p>
+            </div>
 
-                <div className="p-3 rounded-lg bg-white/70">
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-2">
-                    Carbon Credit Sales
-                  </h4>
-                  <ul className="text-xs text-amber-900 space-y-1">
-                    <li>&bull; How are credits sold? Direct to buyers or via marketplace?</li>
-                    <li>&bull; Who handles buyer relationships?</li>
-                    <li>&bull; What&apos;s the pricing strategy ($15-40/tonne range)?</li>
-                    <li>&bull; Forward purchase agreements in place?</li>
-                  </ul>
-                </div>
-
-                <div className="p-3 rounded-lg bg-white/70">
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-2">
-                    Entity Structure
-                  </h4>
-                  <ul className="text-xs text-amber-900 space-y-1">
-                    <li>&bull; What&apos;s the legal entity structure?</li>
-                    <li>&bull; SPV for carbon assets?</li>
-                    <li>&bull; Relationship between HISAGEN Ltd and project entities?</li>
-                    <li>&bull; Where does value accrue?</li>
-                  </ul>
-                </div>
-
-                <div className="p-3 rounded-lg bg-white/70">
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-amber-700 mb-2">
-                    Pandion Engagement Options
-                  </h4>
-                  <ul className="text-xs text-amber-900 space-y-1">
-                    <li>&bull; Service provision (advisory fees)?</li>
-                    <li>&bull; Equity / sweat equity share?</li>
-                    <li>&bull; Partnership arrangement?</li>
-                    <li>&bull; Revenue share on specific workstreams?</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="p-3 rounded-lg bg-amber-100 border border-amber-300">
-                <p className="text-xs text-amber-900">
-                  <strong>Action:</strong> Schedule business model deep-dive with Keir to clarify revenue flows, entity structure, and potential Pandion engagement models before scoping any advisory work.
-                </p>
-              </div>
+            <div className="p-3 rounded-lg bg-white/70 text-xs">
+              <p className="font-bold text-amber-800 mb-1">Entity Structure</p>
+              <p className="text-amber-700">SPV for carbon assets? Relationship between HISAGEN Ltd and project entities. Where value accrues.</p>
             </div>
           </div>
         </div>
