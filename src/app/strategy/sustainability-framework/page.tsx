@@ -669,85 +669,136 @@ export default function SustainabilityFrameworkPage() {
           Capital Flows
         </h2>
         <p className="text-sm text-slate mb-6">
-          Current capital strategy (Capital Continuum: Grants → Blended Finance → Impact Investment → Commercial) with opportunities for diversification.
+          Capital IN (investment/finance by stage) and Revenue OUT (income generation streams).
         </p>
 
-        <div className="grid gap-6 md:grid-cols-2 mb-6">
-          {/* Current vs Expansion */}
-          <div className="p-5 rounded-xl border border-mist bg-white">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-4">
-              Current Capital Sources
-            </h4>
-            <div className="space-y-3">
-              {[
-                { source: "Grants", status: "Active (Stage 1)", color: "primary" },
-                { source: "Carbon Credits", status: "Primary revenue model", color: "primary" },
-                { source: "Blended Finance", status: "Planned", color: "slate" },
-              ].map((item) => (
-                <div key={item.source} className="flex items-center justify-between text-sm">
-                  <span className="font-medium text-secondary">{item.source}</span>
-                  <span className={`text-[10px] px-2 py-0.5 rounded ${
-                    item.color === "primary" ? "bg-primary/20 text-primary" : "bg-slate/10 text-slate"
-                  }`}>
-                    {item.status}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Capital Continuum - Investment/Finance IN */}
+        <div className="mb-8">
+          <h3 className="text-sm font-bold uppercase tracking-widest text-secondary/60 mb-4">
+            Capital In: Investment &amp; Finance by Stage
+          </h3>
 
-          <div className="p-5 rounded-xl border-2 border-accent/30 bg-accent/5">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-accent mb-4">
-              Expansion Opportunities
-            </h4>
-            <div className="space-y-3">
-              {[
-                { source: "PES (Payment for Ecosystem Services)", potential: "Water funds, biodiversity payments" },
-                { source: "Results-Based Finance", potential: "Performance contracts with governments" },
-                { source: "Corporate Pre-Purchase", potential: "Forward carbon agreements" },
-                { source: "Premium Product Revenue", potential: "Verified sustainable maize" },
-                { source: "Data Services", potential: "Disclosure data, traceability fees" },
-              ].map((item) => (
-                <div key={item.source} className="text-xs">
-                  <span className="font-bold text-secondary">{item.source}</span>
-                  <span className="text-slate"> &mdash; {item.potential}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Fund Targets */}
-        <div className="p-5 rounded-xl border border-mist bg-white">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-4">
-            Specific Fund Targets
-          </h4>
-          <div className="grid gap-3 md:grid-cols-3">
-            {[
-              { fund: "AGRI3", focus: "Sustainable agriculture, deforestation-free", fit: "High" },
-              { fund: "Land Degradation Neutrality Fund", focus: "Soil restoration", fit: "High" },
-              { fund: "AATIF", focus: "SSA agriculture", fit: "High" },
-              { fund: "Acumen", focus: "Smallholder agriculture", fit: "High" },
-              { fund: "Novastar Ventures", focus: "East Africa impact", fit: "Medium" },
-            ].map((item) => (
-              <div key={item.fund} className="p-3 rounded-lg bg-slate/5 border border-mist">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-bold text-secondary">{item.fund}</span>
-                  <span className={`text-[9px] px-1.5 py-0.5 rounded ${
-                    item.fit === "High" ? "bg-primary/20 text-primary" : "bg-slate/20 text-slate"
-                  }`}>
-                    {item.fit} fit
-                  </span>
-                </div>
-                <p className="text-[10px] text-slate">{item.focus}</p>
+          <div className="space-y-4">
+            {/* Stage 1 - Current */}
+            <div className="p-4 rounded-xl border-2 border-primary bg-primary/5">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-xs font-black text-parchment bg-primary px-2 py-1 rounded">Stage 1</span>
+                <span className="text-sm font-bold text-secondary">Grants &amp; Validation</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary">CURRENT</span>
               </div>
-            ))}
+              <p className="text-xs text-slate mb-2">Philanthropic and development finance for proof of concept</p>
+              <div className="text-xs text-slate/70">Foundation grants, development agency funding, R&amp;D grants</div>
+            </div>
+
+            {/* Stage 2 */}
+            <div className="p-4 rounded-xl border border-mist bg-white">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-xs font-black text-parchment bg-secondary/60 px-2 py-1 rounded">Stage 2</span>
+                <span className="text-sm font-bold text-secondary">Blended Finance</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-slate/10 text-slate">NEXT TARGET</span>
+              </div>
+              <p className="text-xs text-slate mb-3">Concessional capital de-risks commercial lending for scale-up</p>
+              <div className="grid gap-2 md:grid-cols-2">
+                {[
+                  { fund: "AGRI3", desc: "€1B+ Rabobank/UNEP facility for sustainable agriculture" },
+                  { fund: "LDN Fund", desc: "UN-backed fund for land restoration (Mirova)" },
+                  { fund: "AATIF", desc: "German dev finance for SSA agricultural value chains" },
+                ].map((item) => (
+                  <div key={item.fund} className="p-2 rounded bg-slate/5 text-xs">
+                    <span className="font-bold text-secondary">{item.fund}</span>
+                    <span className="text-slate"> &mdash; {item.desc}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Stage 3 */}
+            <div className="p-4 rounded-xl border border-mist bg-white">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-xs font-black text-parchment bg-secondary/40 px-2 py-1 rounded">Stage 3</span>
+                <span className="text-sm font-bold text-secondary">Impact Investment</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-slate/10 text-slate">POST-VALIDATION</span>
+              </div>
+              <p className="text-xs text-slate mb-3">Patient capital seeking impact + financial returns</p>
+              <div className="grid gap-2 md:grid-cols-2">
+                {[
+                  { fund: "Acumen", desc: "Pioneer impact investor, smallholder agriculture focus" },
+                  { fund: "Novastar Ventures", desc: "East Africa VC, mass market businesses" },
+                ].map((item) => (
+                  <div key={item.fund} className="p-2 rounded bg-slate/5 text-xs">
+                    <span className="font-bold text-secondary">{item.fund}</span>
+                    <span className="text-slate"> &mdash; {item.desc}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Stage 4 */}
+            <div className="p-4 rounded-xl border border-mist bg-white">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-xs font-black text-parchment bg-secondary/20 px-2 py-1 rounded">Stage 4</span>
+                <span className="text-sm font-bold text-secondary">Commercial Capital</span>
+                <span className="text-[10px] px-2 py-0.5 rounded bg-slate/10 text-slate">LONG-TERM</span>
+              </div>
+              <p className="text-xs text-slate">Institutional investors at market-rate returns once model proven at scale</p>
+            </div>
           </div>
         </div>
 
-        <div className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/20">
+        {/* Revenue Streams - OUT */}
+        <div className="mb-6">
+          <h3 className="text-sm font-bold uppercase tracking-widest text-secondary/60 mb-4">
+            Revenue Out: Income Generation Streams
+          </h3>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {/* Current Revenue */}
+            <div className="p-5 rounded-xl border-2 border-primary/30 bg-primary/5">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-primary mb-4">
+                Current / Near-Term
+              </h4>
+              <div className="space-y-3">
+                {[
+                  { stream: "Carbon Credit Sales", desc: "Primary revenue - VM0042 verified credits at $15-40/tonne premium", status: "Primary" },
+                  { stream: "Yield Improvement Value", desc: "15-30% productivity gains for farmers (indirect - supports adoption)", status: "Enabling" },
+                ].map((item) => (
+                  <div key={item.stream} className="text-xs">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="font-bold text-secondary">{item.stream}</span>
+                      <span className="text-[9px] px-1.5 py-0.5 rounded bg-primary/20 text-primary">{item.status}</span>
+                    </div>
+                    <p className="text-slate">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Expansion Revenue */}
+            <div className="p-5 rounded-xl border-2 border-accent/30 bg-accent/5">
+              <h4 className="text-xs font-bold uppercase tracking-widest text-accent mb-4">
+                Expansion Opportunities
+              </h4>
+              <div className="space-y-3">
+                {[
+                  { stream: "Premium Product Sales", desc: "Verified sustainable maize commanding price premium" },
+                  { stream: "Disclosure Data Services", desc: "CDP, TNFD, CSRD reporting packages for corporates" },
+                  { stream: "Traceability Fees", desc: "Supply chain verification for EUDR-adjacent buyers" },
+                  { stream: "PES Payments", desc: "Water funds, biodiversity payments beyond carbon" },
+                  { stream: "Advisory/Licensing", desc: "Methodology replication fees in new geographies" },
+                ].map((item) => (
+                  <div key={item.stream} className="text-xs">
+                    <span className="font-bold text-secondary">{item.stream}</span>
+                    <span className="text-slate"> &mdash; {item.desc}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
           <p className="text-xs text-slate">
-            <strong className="text-primary">Why diversification matters:</strong> Carbon market volatility = revenue risk. Diversified capital sources provide resilience. PES and results-based finance are growing faster than carbon markets.
+            <strong className="text-primary">Why diversification matters:</strong> Carbon credit revenue alone creates market volatility risk. Multiple revenue streams (product premiums, data services, PES) provide resilience and support higher valuations.
           </p>
         </div>
       </section>
