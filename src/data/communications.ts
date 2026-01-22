@@ -6,6 +6,30 @@ import { CommunicationEntry } from '../types/knowledge-base';
 export const communications: CommunicationEntry[] = [
   // 2026
   {
+    id: 'comm-2026-01-21-keir-nic-checkin',
+    type: 'communication',
+    subtype: 'call',
+    date: '2026-01-21',
+    title: 'Keir ↔ Nic: HISAGEN Check-in Call',
+    summary: 'Comprehensive status update including portal site walkthrough, Capital Continuum framework introduction, grant proposal review, and carbon market context discussion.',
+    from: 'Keir',
+    to: 'Nic',
+    participants: ['Keir', 'Nic'],
+    tags: ['Strategy', 'Portal', 'Capital Continuum', 'Grants', 'Carbon Market', 'Check-in'],
+    synthesis: [
+      'Carbon market context: US prices dropped ($25-42 to $12-15/tonne). Locus AG pivoted to full-price product with opt-in data program. EU/UK momentum continues (CSRD, SRS).',
+      'Carbon Zero Marketplace positioned as future credit sales vehicle. Emerging services (biodiversity, water credits) noted as future phase potential.',
+      'Portal site walkthrough: Covered Knowledge Base, Strategy, Program, Project sections. Capital Continuum 4-stage framework introduced - useful for positioning HISAGEN in Stage 1 (incubation).',
+      'Grant proposal review: Identified info gaps. Keir estimated $2M ballpark budget (Stage 1 into Stage 2). Offered to help build budget template.',
+      'Pandion 5-layer framework briefly introduced: Landscape positioning (ISEAL), MRV, traceability opportunities identified.',
+      'HISAGEN model: Initially subsidise product to Uganda farmers to prove pilot. Longer-term commercial model TBC.',
+      'Domains: 2-3 domains secured (HISAGEN US, HISAGEN UG - UG to cover Africa expansion).',
+      'Immediate asks confirmed: Website, logo rebrand, grant funding support.',
+    ],
+    createdAt: '2026-01-22',
+    updatedAt: '2026-01-22',
+  },
+  {
     id: 'comm-2026-01-16-keir-locus-ceo',
     type: 'communication',
     subtype: 'email',
