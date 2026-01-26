@@ -45,23 +45,23 @@ function NavLink({ item }: { item: { name: string; href: string; icon: string; s
   return (
     <Link
       href={item.href}
-      className="flex items-center gap-3 py-2 text-sm font-semibold text-white hover:text-accent transition-colors group"
+      className="flex items-center gap-3 py-2 text-sm font-medium text-secondary hover:text-primary transition-colors group"
     >
       <Image
         src={item.icon}
         alt=""
         width={20}
         height={20}
-        className="opacity-60 group-hover:opacity-100 transition-opacity"
+        className="opacity-70 group-hover:opacity-100 transition-opacity"
       />
       <span>{item.name}</span>
       {item.status === "active" && (
-        <span className="text-[8px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold uppercase tracking-wider">
+        <span className="text-[8px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700 font-bold uppercase tracking-wider">
           Active
         </span>
       )}
       {item.status === "planned" && (
-        <span className="text-[8px] px-1.5 py-0.5 rounded bg-white/10 text-white/40 font-bold uppercase tracking-wider">
+        <span className="text-[8px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-bold uppercase tracking-wider">
           Planned
         </span>
       )}
@@ -116,10 +116,10 @@ function HoverPopover({
               static
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="absolute inset-x-0 top-full z-10 bg-secondary transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
+              className="absolute inset-x-0 top-full z-10 bg-white transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
             >
-              <div aria-hidden="true" className="absolute inset-0 top-1/2 bg-secondary shadow-lg ring-1 ring-black/10" />
-              <div className="relative bg-secondary">
+              <div aria-hidden="true" className="absolute inset-0 top-1/2 bg-white shadow-lg ring-1 ring-black/5" />
+              <div className="relative bg-white border-t border-mist">
                 {children}
               </div>
             </PopoverPanel>
@@ -172,7 +172,7 @@ export default function NavEnhanced() {
               <div className="grid grid-cols-2 gap-x-8 gap-y-8 md:grid-cols-4">
                 {/* Strategy & Governance */}
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">
+                  <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/50 mb-4">
                     Strategy & Governance
                   </h3>
                   <div className="space-y-1">
@@ -184,7 +184,7 @@ export default function NavEnhanced() {
 
                 {/* Agri-Carbon Program */}
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">
+                  <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/50 mb-4">
                     Agri-Carbon Program
                   </h3>
                   <div className="space-y-1">
@@ -196,7 +196,7 @@ export default function NavEnhanced() {
 
                 {/* Frameworks */}
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">
+                  <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/50 mb-4">
                     Frameworks
                   </h3>
                   <div className="space-y-1">
@@ -208,7 +208,7 @@ export default function NavEnhanced() {
 
                 {/* Knowledge */}
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">
+                  <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/50 mb-4">
                     Knowledge
                   </h3>
                   <div className="space-y-1">
