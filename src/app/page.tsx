@@ -29,10 +29,11 @@ const quickStatus = [
 
 const coreNavigation: NavSection[] = [
   {
-    section: "Organization",
+    section: "Strategy & Governance",
+    description: "Mission, Vision, Strategy, Theory of Change, Governance",
     items: [
-      { title: "Team & Partners", href: "/organization", description: "Board, core team, strategic alliances" },
-      { title: "Strategy", href: "/strategy", description: "Theory of Change, positioning, 5-Layer mapping" },
+      { title: "Strategy & Governance", href: "/strategy", description: "Organizational foundation — 6-part framework with gap indicators" },
+      { title: "Team & Organization", href: "/organization", description: "Board, core team, strategic alliances" },
     ],
   },
   {
