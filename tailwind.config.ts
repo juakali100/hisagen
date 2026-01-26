@@ -31,6 +31,20 @@ const config: Config = {
         info: "#90BEE1", // Using Sky Blue
         warning: "#D8B75A", // Using Goldenrod
         error: "#E5534B", // Bright coral for errors
+
+        // Terracotta - Warm earthy red for alerts/problems (replaces harsh red)
+        terracotta: {
+          50: "#FDF5F3",   // Very light warm
+          100: "#F9E8E2",  // Light terracotta tint
+          200: "#F2CFC3",  // Soft terracotta
+          300: "#E5A892",  // Medium light
+          400: "#D4836A",  // Medium
+          500: "#C4674A",  // Primary terracotta
+          600: "#B85A3F",  // Darker
+          700: "#9A4A35",  // Dark terracotta
+          800: "#7D3E2E",  // Very dark
+          900: "#663528",  // Darkest
+        }
       },
       fontFamily: {
         serif: ['"Source Serif 4"', "Georgia", "serif"],

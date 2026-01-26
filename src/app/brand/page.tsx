@@ -26,6 +26,10 @@ export default function BrandGuidelinesPage() {
       { name: 'Mist', hex: '#CBD5E1', usage: 'Backgrounds' },
       { name: 'Parchment', hex: '#F7F8F5', usage: 'Base background' },
     ],
+    semantic: [
+      { name: 'Terracotta', hex: '#C4674A', usage: 'Alerts, problems, urgent items' },
+      { name: 'Terracotta Light', hex: '#F9E8E2', usage: 'Alert backgrounds' },
+    ],
   };
 
   // Website Brand Guidelines (Newer - for public website)
@@ -488,6 +492,22 @@ export default function BrandGuidelinesPage() {
                                     </div>
                                   ))}
                                 </div>
+                              </div>
+                              <div>
+                                <p className="text-[10px] font-medium text-slate uppercase tracking-wider mb-2">Semantic Colors</p>
+                                <div className="grid grid-cols-2 gap-3">
+                                  {portalColors.semantic.map(color => (
+                                    <div key={color.hex} className="bg-white rounded-lg border border-mist overflow-hidden">
+                                      <div className="h-12" style={{ backgroundColor: color.hex }} />
+                                      <div className="p-2">
+                                        <p className="font-medium text-xs">{color.name}</p>
+                                        <p className="text-[10px] text-slate font-mono">{color.hex}</p>
+                                        <p className="text-[10px] text-slate">{color.usage}</p>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                                <p className="text-[10px] text-slate mt-2 italic">Warm earthy tone replaces harsh red for alerts and problems</p>
                               </div>
                             </div>
                           </div>

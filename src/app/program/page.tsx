@@ -1,5 +1,6 @@
 import StageBreadcrumb from "../../components/StageBreadcrumb";
 import { ReactNode } from "react";
+import Image from "next/image";
 
 // Partnership status data
 const partnerships = [
@@ -182,42 +183,64 @@ export default function ProgramPage() {
             </section>
 
             {/* The Problem - Full Width */}
-            <section className="mt-8 rounded-xl border border-red-200 bg-red-50/30 p-6">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-red-400 mb-2">The Problem</p>
-                <h2 className="text-lg font-bold text-secondary mb-4">Global Soil Crisis</h2>
+            <section className="mt-8 rounded-xl border border-terracotta-200 bg-terracotta-50/50 p-6">
+                <div className="flex items-center gap-3 mb-4">
+                    <Image src="/icons/icon-weather.png" alt="" width={32} height={32} className="opacity-70" />
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-terracotta-500">The Problem</p>
+                        <h2 className="text-lg font-bold text-secondary">Global Soil Crisis</h2>
+                    </div>
+                </div>
 
                 <p className="text-sm text-slate leading-relaxed mb-4">
                     Farmers worldwide face a compounding crisis. Soils are depleted, yields are declining, and the cost of synthetic fertilizers keeps rising. Climate volatility makes it worse — droughts, floods, and unpredictable seasons stress already weakened land.
                 </p>
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mt-6">
-                    <div className="p-4 rounded-lg bg-white border border-red-100">
-                        <p className="text-xs font-bold text-secondary mb-1">Soil Degradation</p>
+                    <div className="p-4 rounded-lg bg-white border border-terracotta-100">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Image src="/icons/icon-roots.png" alt="" width={20} height={20} className="opacity-60" />
+                            <p className="text-xs font-bold text-secondary">Soil Degradation</p>
+                        </div>
                         <p className="text-[11px] text-slate leading-relaxed">Intensive farming depletes organic matter. Degraded soil releases carbon into the atmosphere instead of storing it.</p>
                     </div>
-                    <div className="p-4 rounded-lg bg-white border border-red-100">
-                        <p className="text-xs font-bold text-secondary mb-1">Fertilizer Dependency</p>
+                    <div className="p-4 rounded-lg bg-white border border-terracotta-100">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Image src="/icons/icon-hand-money.png" alt="" width={20} height={20} className="opacity-60" />
+                            <p className="text-xs font-bold text-secondary">Fertilizer Dependency</p>
+                        </div>
                         <p className="text-[11px] text-slate leading-relaxed">Synthetic fertilizers are expensive, energy-intensive to produce, and require more each year as soil health declines.</p>
                     </div>
-                    <div className="p-4 rounded-lg bg-white border border-red-100">
-                        <p className="text-xs font-bold text-secondary mb-1">Water Pollution</p>
+                    <div className="p-4 rounded-lg bg-white border border-terracotta-100">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Image src="/icons/icon-raindrop.png" alt="" width={20} height={20} className="opacity-60" />
+                            <p className="text-xs font-bold text-secondary">Water Pollution</p>
+                        </div>
                         <p className="text-[11px] text-slate leading-relaxed">Fertilizer runoff contaminates rivers, groundwater, and coastal ecosystems — creating dead zones and health risks.</p>
                     </div>
-                    <div className="p-4 rounded-lg bg-white border border-red-100">
-                        <p className="text-xs font-bold text-secondary mb-1">Climate Impact</p>
+                    <div className="p-4 rounded-lg bg-white border border-terracotta-100">
+                        <div className="flex items-center gap-2 mb-2">
+                            <Image src="/icons/icon-co2.png" alt="" width={20} height={20} className="opacity-60" />
+                            <p className="text-xs font-bold text-secondary">Climate Impact</p>
+                        </div>
                         <p className="text-[11px] text-slate leading-relaxed">Agriculture contributes ~25% of global emissions. Healthy soil sequesters carbon; degraded soil releases it.</p>
                     </div>
                 </div>
 
-                <p className="text-sm text-slate leading-relaxed mt-6 p-4 bg-white rounded-lg border border-red-100">
+                <p className="text-sm text-slate leading-relaxed mt-6 p-4 bg-white rounded-lg border border-terracotta-100">
                     <strong>The cycle is unsustainable:</strong> degraded soil → more fertilizer needed → higher costs → more pollution → further soil damage. Breaking this cycle requires a fundamentally different approach.
                 </p>
             </section>
 
             {/* The Solution */}
             <section className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50/30 p-6">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-500 mb-2">The Solution</p>
-                <h2 className="text-lg font-bold text-secondary mb-4">Microbial Bio-Stimulants</h2>
+                <div className="flex items-center gap-3 mb-4">
+                    <Image src="/icons/icon-micro.png" alt="" width={32} height={32} className="opacity-70" />
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-500">The Solution</p>
+                        <h2 className="text-lg font-bold text-secondary">Microbial Bio-Stimulants</h2>
+                    </div>
+                </div>
 
                 <p className="text-sm text-slate leading-relaxed mb-4">
                     Natural, living soil treatments that restore soil biology from the ground up. Unlike synthetic inputs, they work with nature — improving root systems, nutrient absorption, and soil structure while regenerating long-term soil health.
@@ -225,15 +248,24 @@ export default function ProgramPage() {
 
                 <div className="grid gap-4 md:grid-cols-3 mt-6">
                     <div className="p-4 rounded-lg bg-white border border-emerald-100">
-                        <p className="text-xs font-bold text-secondary mb-1">Reduce Fertilizer Dependency</p>
+                        <div className="flex items-center gap-2 mb-2">
+                            <Image src="/icons/icon-leaf-check.png" alt="" width={20} height={20} className="opacity-60" />
+                            <p className="text-xs font-bold text-secondary">Reduce Fertilizer Dependency</p>
+                        </div>
                         <p className="text-[11px] text-slate leading-relaxed">Plants absorb nutrients more efficiently, requiring less synthetic input — cutting costs and pollution.</p>
                     </div>
                     <div className="p-4 rounded-lg bg-white border border-emerald-100">
-                        <p className="text-xs font-bold text-secondary mb-1">Sequester Carbon</p>
+                        <div className="flex items-center gap-2 mb-2">
+                            <Image src="/icons/icon-sequester.png" alt="" width={20} height={20} className="opacity-60" />
+                            <p className="text-xs font-bold text-secondary">Sequester Carbon</p>
+                        </div>
                         <p className="text-[11px] text-slate leading-relaxed">Healthier soil biology stores carbon in the ground, creating carbon credit opportunities while fighting climate change.</p>
                     </div>
                     <div className="p-4 rounded-lg bg-white border border-emerald-100">
-                        <p className="text-xs font-bold text-secondary mb-1">Break the Cycle</p>
+                        <div className="flex items-center gap-2 mb-2">
+                            <Image src="/icons/icon-circular-arrows.png" alt="" width={20} height={20} className="opacity-60" />
+                            <p className="text-xs font-bold text-secondary">Break the Cycle</p>
+                        </div>
                         <p className="text-[11px] text-slate leading-relaxed">Regenerative, not extractive. Each season improves soil rather than depleting it — sustainable for the long term.</p>
                     </div>
                 </div>
@@ -241,8 +273,13 @@ export default function ProgramPage() {
 
             {/* Who We Are */}
             <section className="mt-6 rounded-xl border border-blue-200 bg-blue-50/30 p-6">
-                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-500 mb-2">Who We Are</p>
-                <h2 className="text-lg font-bold text-secondary mb-4">HISAGEN + Locus AG</h2>
+                <div className="flex items-center gap-3 mb-4">
+                    <Image src="/icons/icon-handshake.png" alt="" width={32} height={32} className="opacity-70" />
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-500">Who We Are</p>
+                        <h2 className="text-lg font-bold text-secondary">HISAGEN + Locus AG</h2>
+                    </div>
+                </div>
 
                 <div className="grid gap-6 md:grid-cols-2">
                     <div className="p-4 rounded-lg bg-white border border-blue-100">
@@ -263,9 +300,12 @@ export default function ProgramPage() {
             {/* Executive Summary - The Opportunity */}
             <section className="mt-8 rounded-xl border border-primary/30 bg-gradient-to-br from-primary/5 to-emerald-50 p-6">
                 <div className="flex items-center justify-between mb-6">
-                    <div>
-                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/60">Executive Summary</p>
-                        <h2 className="mt-1 text-lg font-bold text-secondary">The Opportunity</h2>
+                    <div className="flex items-center gap-3">
+                        <Image src="/icons/icon-globe-seedling.png" alt="" width={32} height={32} className="opacity-70" />
+                        <div>
+                            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/60">Executive Summary</p>
+                            <h2 className="mt-1 text-lg font-bold text-secondary">The Opportunity</h2>
+                        </div>
                     </div>
                 </div>
 
@@ -383,7 +423,7 @@ export default function ProgramPage() {
                                 </div>
                                 <div className="text-right shrink-0">
                                     <span className={`inline-block text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${
-                                        gap.priority === 'High' ? 'bg-red-100 text-red-700' :
+                                        gap.priority === 'High' ? 'bg-terracotta-100 text-terracotta-700' :
                                         gap.priority === 'Medium' ? 'bg-amber-100 text-amber-700' :
                                         'bg-slate-100 text-slate-600'
                                     }`}>
