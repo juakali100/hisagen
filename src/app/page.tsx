@@ -75,6 +75,7 @@ const coreNavigation: NavSection[] = [
     items: [
       { title: "Communications Hub", href: "/comms", description: "All comms functions — brand, website, social, PR, collateral" },
       { title: "Brand Guidelines", href: "/brand", description: "Visual identity, colors, typography, gap analysis" },
+      { title: "Asset Library", href: "/assets", description: "Icons, photography — source of truth for all visual assets" },
     ],
   },
 ];
