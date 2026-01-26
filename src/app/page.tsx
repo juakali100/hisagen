@@ -86,34 +86,16 @@ export default function HomePage() {
             </span>
           </div>
         </div>
+        {/* Intro explainer */}
+        <p className="mt-4 text-sm text-slate/70 max-w-2xl">
+          Strategy, programs, projects, and capital lifecycle for HISAGEN team and stakeholders.
+          Foundation for grant applications, investor materials, and donor reporting.
+          Public website content derives from this hub.
+        </p>
+        <p className="mt-2 text-xs text-slate/50">
+          Not an ERP — no finance ops, HR, or org admin.
+        </p>
       </header>
-
-      {/* Quick Status */}
-      <section className="mt-8">
-        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-4">
-          Quick Status
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {quickStatus.map((item) => (
-            <div
-              key={item.label}
-              className="p-4 rounded-lg border border-mist bg-white"
-            >
-              <div className="flex items-center gap-2 mb-1">
-                <div
-                  className={`w-2 h-2 rounded-full ${
-                    item.status === "active" ? "bg-emerald-500" : "bg-amber-400"
-                  }`}
-                />
-                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate/50">
-                  {item.label}
-                </p>
-              </div>
-              <p className="text-sm font-medium text-secondary">{item.value}</p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Main Navigation */}
       <section className="mt-10">
@@ -190,6 +172,33 @@ export default function HomePage() {
                 {update.type}
               </span>
               <span className="text-sm text-secondary">{update.item}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Quick Status */}
+      <section className="mt-10">
+        <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-4">
+          Quick Status
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {quickStatus.map((item) => (
+            <div
+              key={item.label}
+              className="p-4 rounded-lg border border-mist bg-white"
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <div
+                  className={`w-2 h-2 rounded-full ${
+                    item.status === "active" ? "bg-emerald-500" : "bg-amber-400"
+                  }`}
+                />
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate/50">
+                  {item.label}
+                </p>
+              </div>
+              <p className="text-sm font-medium text-secondary">{item.value}</p>
             </div>
           ))}
         </div>
