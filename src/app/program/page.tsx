@@ -181,6 +181,39 @@ export default function ProgramPage() {
                 </div>
             </section>
 
+            {/* Foundational Explainer */}
+            <section className="mt-8 rounded-xl border border-mist bg-white p-6">
+                <div className="grid gap-6 md:grid-cols-3">
+                    {/* The Problem */}
+                    <div className="p-5 rounded-lg bg-red-50/50 border border-red-100">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-red-400 mb-2">The Problem</p>
+                        <h3 className="text-sm font-bold text-secondary mb-3">African Agriculture Crisis</h3>
+                        <p className="text-sm text-slate leading-relaxed">
+                            Smallholder farmers face depleted soils, declining yields, rising fertilizer costs, and climate volatility. Synthetic fertilizers are expensive, often inaccessible, and degrade soil health over time.
+                        </p>
+                    </div>
+
+                    {/* The Solution */}
+                    <div className="p-5 rounded-lg bg-emerald-50/50 border border-emerald-100">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-500 mb-2">The Solution</p>
+                        <h3 className="text-sm font-bold text-secondary mb-3">Microbial Bio-Stimulants</h3>
+                        <p className="text-sm text-slate leading-relaxed">
+                            Natural, living soil treatments that restore soil biology, improve root systems, and help plants absorb nutrients more efficiently. Unlike synthetic inputs, they regenerate soil health while boosting yields.
+                        </p>
+                    </div>
+
+                    {/* Who We Are */}
+                    <div className="p-5 rounded-lg bg-blue-50/50 border border-blue-100">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-500 mb-2">Who We Are</p>
+                        <h3 className="text-sm font-bold text-secondary mb-3">HISAGEN + Locus AG</h3>
+                        <p className="text-sm text-slate leading-relaxed">
+                            <strong>Locus AG</strong> — US biotech with patented microbial products (Rhizolizer), proven to improve yields 15-30%.<br/><br/>
+                            <strong>HISAGEN</strong> — Partnership bringing Locus AG technology to Africa via dual US/Africa entity structure.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             {/* Executive Summary - The Opportunity */}
             <section className="mt-8 rounded-xl border border-primary/30 bg-gradient-to-br from-primary/5 to-emerald-50 p-6">
                 <div className="flex items-center justify-between mb-6">
