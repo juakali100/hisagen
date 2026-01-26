@@ -50,12 +50,13 @@ const coreNavigation: NavSection[] = [
     ],
   },
   {
-    section: "Funding",
-    description: "Capital lifecycle from grants to carbon markets",
+    section: "Frameworks",
+    description: "Methodologies that apply across programs and projects",
     tier: "supporting",
     items: [
-      { title: "Capital Continuum", href: "/capital-continuum", description: "4-stage framework, capital mix by stage" },
-      { title: "Stage 1 Funding", href: "/stage-1/funding", description: "Grant landscape, active opportunities" },
+      { title: "Capital Continuum Framework", href: "/capital-continuum", description: "4-stage funding model — grants to carbon markets" },
+      { title: "Sustainability Framework", href: "/strategy/sustainability-framework", description: "5-Layer template — biosphere to corporate, flows, actors" },
+      { title: "Stage 1 Funding", href: "/stage-1/funding", description: "Current grant landscape and opportunities" },
     ],
   },
   {
@@ -63,8 +64,7 @@ const coreNavigation: NavSection[] = [
     description: "Evidence, communications, research",
     tier: "supporting",
     items: [
-      { title: "Knowledge Base", href: "/knowledge-base", description: "Comms, research, milestones, evidence" },
-      { title: "Sustainability Framework", href: "/strategy/sustainability-framework", description: "5-Layer analysis, opportunities, data flows" },
+      { title: "Knowledge Base", href: "/knowledge-base", description: "Comms, research, milestones, evidence vault" },
     ],
   },
 ];
