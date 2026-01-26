@@ -7,6 +7,19 @@
 
 import Link from "next/link";
 
+interface NavItem {
+  title: string;
+  href: string;
+  description: string;
+  status?: "active" | "planned";
+}
+
+interface NavSection {
+  section: string;
+  description?: string;
+  items: NavItem[];
+}
+
 const quickStatus = [
   { label: "Entity", value: "HISAGEN USA + Africa", status: "active" },
   { label: "Stage", value: "1 - Incubation", status: "active" },
@@ -14,7 +27,7 @@ const quickStatus = [
   { label: "Regulatory", value: "MAAIF pending Q1 2026", status: "pending" },
 ];
 
-const coreNavigation = [
+const coreNavigation: NavSection[] = [
   {
     section: "Organization",
     items: [
