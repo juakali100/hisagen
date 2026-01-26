@@ -62,10 +62,19 @@ const coreNavigation: NavSection[] = [
   },
   {
     section: "Knowledge",
-    description: "Evidence, communications, research",
+    description: "Evidence, research, documentation",
     tier: "supporting",
     items: [
-      { title: "Knowledge Base", href: "/knowledge-base", description: "Comms, research, milestones, evidence vault" },
+      { title: "Knowledge Base", href: "/knowledge-base", description: "Research, milestones, evidence vault" },
+    ],
+  },
+  {
+    section: "Communications & Brand",
+    description: "External presence, brand identity, marketing materials",
+    tier: "supporting",
+    items: [
+      { title: "Communications Hub", href: "/comms", description: "All comms functions — brand, website, social, PR, collateral" },
+      { title: "Brand Guidelines", href: "/brand", description: "Visual identity, colors, typography, gap analysis" },
     ],
   },
 ];
@@ -252,6 +261,9 @@ export default function HomePage() {
         <div className="flex flex-wrap gap-6 text-xs">
           <Link href="/knowledge-base" className="text-slate hover:text-primary transition-colors">
             Knowledge Base
+          </Link>
+          <Link href="/comms" className="text-slate hover:text-primary transition-colors">
+            Communications & Brand
           </Link>
           <Link href="/stage-1" className="text-slate hover:text-primary transition-colors">
             Stage 1 Operations
