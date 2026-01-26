@@ -18,6 +18,7 @@ interface NavSection {
   section: string;
   description?: string;
   items: NavItem[];
+  tier: "primary" | "supporting";
 }
 
 const quickStatus = [
@@ -31,6 +32,7 @@ const coreNavigation: NavSection[] = [
   {
     section: "Strategy & Governance",
     description: "Mission, Vision, Strategy, Theory of Change, Governance",
+    tier: "primary",
     items: [
       { title: "Strategy & Governance", href: "/strategy", description: "Organizational foundation — 6-part framework with gap indicators" },
       { title: "Team & Organization", href: "/organization", description: "Board, core team, strategic alliances" },
@@ -39,6 +41,7 @@ const coreNavigation: NavSection[] = [
   {
     section: "Agri-Carbon Program",
     description: "Locus AG tech + smallholder aggregation + carbon credits",
+    tier: "primary",
     items: [
       { title: "Program Overview", href: "/program", description: "Operating model, partner ecosystem, revenue wheel" },
       { title: "Uganda Pilot", href: "/project/hisagen-uganda", description: "Timeline, milestones, capital assessment", status: "active" },
@@ -48,6 +51,8 @@ const coreNavigation: NavSection[] = [
   },
   {
     section: "Funding",
+    description: "Capital lifecycle from grants to carbon markets",
+    tier: "supporting",
     items: [
       { title: "Capital Continuum", href: "/capital-continuum", description: "4-stage framework, capital mix by stage" },
       { title: "Stage 1 Funding", href: "/stage-1/funding", description: "Grant landscape, active opportunities" },
@@ -55,6 +60,8 @@ const coreNavigation: NavSection[] = [
   },
   {
     section: "Knowledge",
+    description: "Evidence, communications, research",
+    tier: "supporting",
     items: [
       { title: "Knowledge Base", href: "/knowledge-base", description: "Comms, research, milestones, evidence" },
       { title: "Sustainability Framework", href: "/strategy/sustainability-framework", description: "5-Layer analysis, opportunities, data flows" },
@@ -98,10 +105,58 @@ export default function HomePage() {
         </p>
       </header>
 
-      {/* Main Navigation */}
-      <section className="mt-10">
-        <div className="grid gap-8 md:grid-cols-2">
-          {coreNavigation.map((section) => (
+      {/* Primary Navigation - Full Width (Hierarchy) */}
+      <section className="mt-10 space-y-8">
+        {coreNavigation.filter(s => s.tier === "primary").map((section) => (
+          <div key={section.section} className="p-6 rounded-lg border border-mist bg-white">
+            <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-1">
+              {section.section}
+            </h3>
+            {section.description && (
+              <p className="text-xs text-slate/50 mb-4">{section.description}</p>
+            )}
+            <div className="grid gap-3 md:grid-cols-2">
+              {section.items.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`block p-4 rounded-lg border bg-parchment/10 hover:border-primary/30 hover:bg-parchment/30 transition-colors group ${
+                    item.status === "planned" ? "border-dashed border-slate/30" : "border-mist"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <h4 className="font-medium text-secondary group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h4>
+                      {item.status === "active" && (
+                        <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700 font-medium">
+                          active
+                        </span>
+                      )}
+                      {item.status === "planned" && (
+                        <span className="text-[9px] px-1.5 py-0.5 rounded bg-slate/10 text-slate/60 font-medium">
+                          planned
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-slate/40 group-hover:text-primary transition-colors">
+                      &rarr;
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate/70 mt-1">{item.description}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Supporting Navigation - 2 Column (Cross-cutting) */}
+      <section className="mt-8">
+        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40 mb-4">Cross-cutting</p>
+        <div className="grid gap-6 md:grid-cols-2">
+          {coreNavigation.filter(s => s.tier === "supporting").map((section) => (
             <div key={section.section}>
               <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-1">
                 {section.section}
@@ -114,26 +169,12 @@ export default function HomePage() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`block p-4 rounded-lg border bg-white hover:border-primary/30 hover:bg-parchment/20 transition-colors group ${
-                      item.status === "planned" ? "border-dashed border-slate/30" : "border-mist"
-                    }`}
+                    className="block p-4 rounded-lg border border-mist bg-white hover:border-primary/30 hover:bg-parchment/20 transition-colors group"
                   >
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <h4 className="font-medium text-secondary group-hover:text-primary transition-colors">
-                          {item.title}
-                        </h4>
-                        {item.status === "active" && (
-                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700 font-medium">
-                            active
-                          </span>
-                        )}
-                        {item.status === "planned" && (
-                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-slate/10 text-slate/60 font-medium">
-                            planned
-                          </span>
-                        )}
-                      </div>
+                      <h4 className="font-medium text-secondary group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h4>
                       <span className="text-slate/40 group-hover:text-primary transition-colors">
                         &rarr;
                       </span>
