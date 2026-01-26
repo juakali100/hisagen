@@ -665,12 +665,24 @@ export default function BrandGuidelinesPage() {
                               No heavy filters or Instagram-style treatments.
                             </p>
                           </div>
+                          <div className="bg-primary/5 p-4 rounded-lg flex items-center justify-between">
+                            <div>
+                              <p className="text-sm font-medium text-ink">View Photo Library</p>
+                              <p className="text-xs text-slate">Browse all photography assets organized by folder</p>
+                            </div>
+                            <a
+                              href="/assets"
+                              className="px-4 py-2 bg-primary text-white text-sm rounded-lg hover:bg-primary/90 transition-colors"
+                            >
+                              Asset Library →
+                            </a>
+                          </div>
                         </div>
                       )}
 
                       {/* 06: Iconography */}
                       {section.number === '06' && (
-                        <div className="mt-4 pt-4 border-t border-mist">
+                        <div className="mt-4 pt-4 border-t border-mist space-y-4">
                           <div className="grid md:grid-cols-2 gap-6">
                             <div>
                               <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Icon Style</h4>
@@ -688,6 +700,18 @@ export default function BrandGuidelinesPage() {
                                 soil carbon, regeneration, community, verification.
                               </p>
                             </div>
+                          </div>
+                          <div className="bg-primary/5 p-4 rounded-lg flex items-center justify-between">
+                            <div>
+                              <p className="text-sm font-medium text-ink">View Icon Library</p>
+                              <p className="text-xs text-slate">20 custom icons available — browse full collection</p>
+                            </div>
+                            <a
+                              href="/assets"
+                              className="px-4 py-2 bg-primary text-white text-sm rounded-lg hover:bg-primary/90 transition-colors"
+                            >
+                              Asset Library →
+                            </a>
                           </div>
                         </div>
                       )}
