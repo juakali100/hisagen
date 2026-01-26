@@ -212,8 +212,8 @@ export default function NavEnhanced() {
 
         {/* Navigation */}
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          {/* About Flyout - Full Width Two Columns */}
-          <HoverPopover buttonLabel="About" buttonHref="/strategy">
+          {/* Strategy Flyout - Full Width Two Columns */}
+          <HoverPopover buttonLabel="Strategy" buttonHref="/strategy">
             <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-6 py-10 lg:grid-cols-2 lg:px-8">
               {/* Left: Navigation Links (2 columns) */}
               <div className="grid grid-cols-2 gap-x-6 sm:gap-x-8">

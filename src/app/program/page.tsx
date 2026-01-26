@@ -1,88 +1,143 @@
 import StageBreadcrumb from "../../components/StageBreadcrumb";
 import { ReactNode } from "react";
-import Image from "next/image";
 
-// Market data - aligned with Strategy
-const marketHighlights = [
-    { metric: "$648M", label: "Market by 2034", detail: "31.9% CAGR" },
-    { metric: "285%", label: "Soil Carbon Growth", detail: "2024 YoY" },
-    { metric: "$15-40", label: "Per Tonne Premium", detail: "vs $4.80 avg" },
+// Partnership status data
+const partnerships = [
+    {
+        layer: "1. Technology",
+        partner: "Locus AG / HISAGEN",
+        role: "Soil Science & Data",
+        status: "confirmed",
+        statusLabel: "Active",
+        deliverables: ["Rhizolizer® Deployment", "Yield Improvement (15-30%)", "SOC Accumulation"],
+        color: "bg-emerald-50",
+        border: "border-emerald-200"
+    },
+    {
+        layer: "2. Verification",
+        partner: "3Degrees",
+        role: "Digital MRV",
+        status: "confirmed",
+        statusLabel: "Active",
+        deliverables: ["Verra VM0042 Methodology", "Satellite + AI Monitoring", "Institutional Verification"],
+        color: "bg-emerald-50",
+        border: "border-emerald-200"
+    },
+    {
+        layer: "3. Finance",
+        partner: "Capital Continuum",
+        role: "Blended Capital",
+        status: "framework",
+        statusLabel: "Framework",
+        deliverables: ["4-Stage Framework", "Risk-Matched Funding", "Pilot → Scale Pathway"],
+        color: "bg-blue-50",
+        border: "border-blue-200"
+    },
+    {
+        layer: "4. Operations",
+        partner: "Deep Six / Local Partners",
+        role: "Implementation",
+        status: "confirmed",
+        statusLabel: "Active",
+        deliverables: ["Farmer Aggregation", "Extension Services", "Community Engagement"],
+        color: "bg-emerald-50",
+        border: "border-emerald-200"
+    }
 ];
 
-// Outcome targets - from Strategy Outcome Chain
+// Outcome targets with progress
 const outcomeTargets = [
     {
         phase: "Short-Term",
         timeline: "Year 1-2",
         targets: ["5,000 hectares under management", "15-30% yield improvement", "First Verra VM0042 credits issued"],
-        status: "active"
+        status: "active",
+        progress: "In Progress"
     },
     {
         phase: "Medium-Term",
         timeline: "Year 3-5",
         targets: ["50,000+ hectares", "70%+ carbon revenue to farmers", "Second geography deployed"],
-        status: "upcoming"
+        status: "upcoming",
+        progress: "Planned"
     },
     {
         phase: "Long-Term",
         timeline: "Year 5-10",
         targets: ["1M+ tCO2e verified annually", "Model proven for global replication", "Sustainable farmer income stream"],
-        status: "future"
+        status: "future",
+        progress: "Vision"
     }
 ];
 
-type Highlight = {
-    title: string;
-    body: ReactNode;
-};
-
-const programHighlights: Highlight[] = [
+// Strategic gaps with ownership
+const strategicGaps = [
     {
-        title: "The Bankability Thesis",
-        body: (
-            <div className="space-y-3">
-                <p>
-                    Agricultural carbon is unbankable because traditional MRV costs $30-50+ per hectare—making smallholder participation uneconomic. HISAGEN solves this by integrating technology, verification, and capital into a single stack.
-                </p>
-            </div>
-        ),
+        area: "Revenue Model Structure",
+        description: "% of credit upside vs management fee vs SPV equity stake. Need financial modeling.",
+        owner: "Keir / Finance",
+        priority: "High",
+        targetDate: "Q1 2026",
+        status: "open"
     },
     {
-        title: "Operating Model",
-        body: (
-            <div className="space-y-3">
-                <p>
-                    HISAGEN acts as the 'Full-Stack Integrator'. We coordinate the value chain from soil biology to carbon markets, using the{" "}
-                    <a
-                        href="/capital-continuum"
-                        className="underline decoration-secondary/30 hover:decoration-secondary transition-colors"
-                    >
-                        Capital Continuum
-                    </a>{" "}
-                    framework to sequence appropriate capital at each stage.
-                </p>
-            </div>
-        ),
+        area: "MRV Tooling Decision",
+        description: "Remote sensing (satellite) vs ground-truth data collection trade-offs for VM0042 compliance.",
+        owner: "3Degrees / Technical",
+        priority: "Medium",
+        targetDate: "Q1 2026",
+        status: "in_progress"
     },
     {
-        title: "Scalability",
-        body: "The Program is a replicable 'skeleton'. Once the Uganda pilot proves unit economics, we deploy the same stack to any geography with local partners—same technology, same verification, same capital structure.",
+        area: "Kenya Expansion Pathway",
+        description: "Regulatory landscape review, partner identification, timeline for second geography.",
+        owner: "Deep Six / Strategy",
+        priority: "Low",
+        targetDate: "Q2 2026",
+        status: "not_started"
     },
 ];
 
-const programGaps = [
+// Revenue model options with decision status
+const revenueOptions = [
     {
-        area: "Revenue Model Analysis",
-        description: "Should HISAGEN take a % of credit upside, a management fee, or an equity stake in local delivery SPVs? Modeling scenarios.",
+        model: "Management Fees",
+        type: "Recurring",
+        description: "Program coordination fee",
+        status: "likely",
+        statusLabel: "Likely"
     },
     {
-        area: "MRV Tooling Stack",
-        description: "Evaluating trade-offs between remote sensing (satellite) and ground-truth data collection for Verra VM0042 compliance.",
+        model: "Credit Upside",
+        type: "Variable",
+        description: "% of credit value",
+        status: "under_review",
+        statusLabel: "Under Review"
     },
     {
-        area: "Regional Expansion",
-        description: "Kenya pathway under review. Identifying regulatory-friendly corridors for Program skeleton deployment.",
+        model: "Technical Advisory",
+        type: "Ad-hoc",
+        description: "Methodology support",
+        status: "confirmed",
+        statusLabel: "Confirmed"
     },
+    {
+        model: "SPV Equity",
+        type: "Long-term",
+        description: "Project ownership",
+        status: "under_review",
+        statusLabel: "Under Review"
+    }
+];
+
+// Key decisions tracker
+const keyDecisions = [
+    { decision: "Verra VM0042 as verification methodology", status: "decided", date: "Nov 2025" },
+    { decision: "Uganda as pilot geography", status: "decided", date: "Oct 2025" },
+    { decision: "Locus AG technology partnership", status: "decided", date: "Sep 2025" },
+    { decision: "3Degrees as MRV partner", status: "decided", date: "Nov 2025" },
+    { decision: "Revenue model structure", status: "open", date: "—" },
+    { decision: "Kenya expansion timeline", status: "open", date: "—" },
 ];
 
 export default function ProgramPage() {
@@ -90,100 +145,118 @@ export default function ProgramPage() {
         <div className="mx-auto max-w-5xl text-ink">
             <StageBreadcrumb stage="Programs" />
 
-            {/* Work in Progress Callout */}
-            <div className="mb-6 p-4 rounded-xl border-2 border-amber-300 bg-amber-50">
-                <div className="flex items-start gap-3">
-                    <span className="text-amber-500 text-lg">⚠️</span>
-                    <div>
-                        <p className="text-sm font-bold text-amber-800">Program Strategy - Work in Progress</p>
-                        <p className="text-xs text-amber-700 mt-1 leading-relaxed">
-                            This page establishes the <strong>Program level</strong> — the replicable operating model that houses individual <strong>Projects</strong> (like Uganda Pilot).
-                            Expansion strategy includes 4 regional hubs across Africa. Content being developed to capture full regional scaling vision.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            {/* Hero - Split diagonal with image (matching Strategy) */}
-            <section className="relative rounded-2xl border border-mist overflow-hidden bg-white">
-                <div className="relative">
-                    <div className="mx-auto max-w-7xl">
-                        <div className="relative z-10 lg:w-full lg:max-w-2xl">
-                            <svg
-                                viewBox="0 0 100 100"
-                                preserveAspectRatio="none"
-                                aria-hidden="true"
-                                className="absolute inset-y-0 right-8 hidden h-full w-80 translate-x-1/2 transform fill-white lg:block"
-                            >
-                                <polygon points="0,0 90,0 50,100 0,100" />
-                            </svg>
-
-                            <div className="relative px-6 py-16 sm:py-20 lg:px-8 lg:py-24 lg:pr-0">
-                                <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-                                    <div className="mb-6 flex">
-                                        <div className="relative rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest text-slate ring-1 ring-mist">
-                                            Program & Operating Model
-                                        </div>
-                                    </div>
-                                    <h1 className="text-4xl font-bold tracking-tight text-secondary sm:text-5xl lg:text-6xl">
-                                        Making Agricultural Carbon Bankable—
-                                        <span className="text-primary">At Scale</span>
-                                    </h1>
-                                    <p className="mt-6 text-base leading-relaxed text-slate sm:text-lg">
-                                        The HISAGEN Agri-Carbon Program is a replicable system for turning soil carbon into institutional-grade assets. We operationalize the full value chain—from microbial technology to carbon markets.
-                                    </p>
-                                    <div className="mt-8 flex items-center gap-x-4">
-                                        <a
-                                            href="/project/hisagen-uganda"
-                                            className="rounded-full bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white shadow-sm hover:bg-primary/90 transition-colors"
-                                        >
-                                            View Uganda Pilot
-                                        </a>
-                                        <a href="/strategy" className="text-xs font-bold uppercase tracking-widest text-secondary hover:text-primary transition-colors">
-                                            Strategy & ToC <span aria-hidden="true">→</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+            {/* Program Status Header */}
+            <section className="rounded-2xl border border-mist bg-white overflow-hidden">
+                <div className="bg-secondary p-6 text-white">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <p className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-70">Agri-Carbon Program</p>
+                            <h1 className="mt-2 text-2xl font-bold tracking-tight">Program Overview & Status</h1>
+                        </div>
+                        <div className="text-right">
+                            <p className="text-[10px] uppercase tracking-widest opacity-50">Program Stage</p>
+                            <p className="text-sm font-bold text-accent">Stage 1: Incubation</p>
                         </div>
                     </div>
-                    <div className="bg-mist/30 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-                        <Image
-                            src="/images/heroes/smallholder-farmland-patchwork.jpeg"
-                            alt="Aerial view of Ugandan smallholder farmland patchwork"
-                            width={1920}
-                            height={1080}
-                            className="aspect-[3/2] object-cover lg:aspect-auto lg:size-full"
-                            priority
-                        />
+                </div>
+
+                {/* Quick Status Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-mist">
+                    <div className="p-4 text-center">
+                        <p className="text-2xl font-black text-secondary">4/4</p>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-slate mt-1">Partners Confirmed</p>
+                    </div>
+                    <div className="p-4 text-center">
+                        <p className="text-2xl font-black text-secondary">1</p>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-slate mt-1">Active Project</p>
+                    </div>
+                    <div className="p-4 text-center">
+                        <p className="text-2xl font-black text-amber-600">3</p>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-slate mt-1">Open Decisions</p>
+                    </div>
+                    <div className="p-4 text-center">
+                        <p className="text-2xl font-black text-emerald-600">4</p>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-slate mt-1">Decisions Made</p>
                     </div>
                 </div>
             </section>
 
-            {/* Market Opportunity - lighter version of Strategy data */}
-            <section className="mt-10 p-6 rounded-xl border border-mist bg-white">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                    <div>
-                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40">Market Opportunity</p>
-                        <p className="text-sm text-slate mt-1">Agricultural carbon is the fastest-growing segment of the voluntary carbon market.</p>
-                    </div>
-                    <a href="/strategy" className="text-[10px] font-bold uppercase tracking-widest text-primary hover:underline">
-                        Full market analysis →
-                    </a>
+            {/* Key Decisions Tracker */}
+            <section className="mt-8 rounded-xl border border-mist bg-white p-6">
+                <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-sm font-bold text-secondary uppercase tracking-wider">Key Decisions</h2>
+                    <span className="text-[10px] text-slate">Strategic choices defining the program</span>
                 </div>
-                <div className="grid gap-4 md:grid-cols-3">
-                    {marketHighlights.map((d) => (
-                        <div key={d.label} className="p-4 rounded-lg border border-mist bg-parchment/20 text-center">
-                            <p className="text-2xl font-black text-secondary">{d.metric}</p>
-                            <p className="text-[10px] font-bold uppercase tracking-widest text-primary mt-1">{d.label}</p>
-                            <p className="text-[10px] text-slate mt-1">{d.detail}</p>
+                <div className="grid gap-2">
+                    {keyDecisions.map((item, idx) => (
+                        <div key={idx} className="flex items-center justify-between py-2 px-3 rounded-lg bg-parchment/30 hover:bg-parchment/50 transition-colors">
+                            <span className="text-sm text-ink">{item.decision}</span>
+                            <div className="flex items-center gap-3">
+                                <span className="text-[10px] text-slate">{item.date}</span>
+                                <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${
+                                    item.status === 'decided'
+                                        ? 'bg-emerald-100 text-emerald-700'
+                                        : 'bg-amber-100 text-amber-700'
+                                }`}>
+                                    {item.status === 'decided' ? 'Decided' : 'Open'}
+                                </span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Strategic Gaps - ELEVATED */}
+            <section className="mt-8 rounded-xl border-2 border-amber-200 bg-amber-50/50 p-6">
+                <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                        <span className="text-amber-500">⚠️</span>
+                        <h2 className="text-sm font-bold text-secondary uppercase tracking-wider">Strategic Gaps</h2>
+                    </div>
+                    <span className="text-[10px] border border-amber-300 bg-amber-100 text-amber-700 px-2 py-0.5 rounded uppercase tracking-widest font-bold">Needs Resolution</span>
+                </div>
+                <div className="space-y-3">
+                    {strategicGaps.map((gap) => (
+                        <div key={gap.area} className="p-4 rounded-lg border border-amber-200 bg-white">
+                            <div className="flex items-start justify-between gap-4">
+                                <div className="flex-1">
+                                    <h3 className="text-sm font-bold text-secondary">{gap.area}</h3>
+                                    <p className="text-xs text-slate mt-1 leading-relaxed">{gap.description}</p>
+                                </div>
+                                <div className="text-right shrink-0">
+                                    <span className={`inline-block text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${
+                                        gap.priority === 'High' ? 'bg-red-100 text-red-700' :
+                                        gap.priority === 'Medium' ? 'bg-amber-100 text-amber-700' :
+                                        'bg-slate-100 text-slate-600'
+                                    }`}>
+                                        {gap.priority}
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-4 mt-3 pt-3 border-t border-mist">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-[10px] text-slate/60">Owner:</span>
+                                    <span className="text-[10px] font-bold text-secondary">{gap.owner}</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-[10px] text-slate/60">Target:</span>
+                                    <span className="text-[10px] font-bold text-secondary">{gap.targetDate}</span>
+                                </div>
+                                <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${
+                                    gap.status === 'in_progress' ? 'bg-blue-100 text-blue-700' :
+                                    gap.status === 'open' ? 'bg-amber-100 text-amber-700' :
+                                    'bg-slate-100 text-slate-600'
+                                }`}>
+                                    {gap.status === 'in_progress' ? 'In Progress' : gap.status === 'open' ? 'Open' : 'Not Started'}
+                                </span>
+                            </div>
                         </div>
                     ))}
                 </div>
             </section>
 
             {/* Program vs Project distinction */}
-            <section className="mt-10 grid gap-6 md:grid-cols-2">
+            <section className="mt-8 grid gap-6 md:grid-cols-2">
                 <div className="rounded-xl border border-mist bg-white p-6 shadow-sm">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="h-2 w-2 rounded-full bg-secondary"></div>
@@ -204,53 +277,40 @@ export default function ProgramPage() {
                 </div>
             </section>
 
-            {/* Integrated Operating Architecture - maps to Strategy Intervention Chain */}
-            <section className="mt-10 rounded-xl border border-mist bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow motion-reduce:transition-none">
-                <div className="bg-secondary p-6 text-white">
-                    <p className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-70">The HISAGEN Stack</p>
-                    <h2 className="mt-2 text-xl font-bold tracking-tight">Four Integrated Layers</h2>
-                    <p className="mt-2 text-sm opacity-80">Each layer maps to a specialized partner. Together, they solve the bankability problem.</p>
+            {/* Partnership Stack with Status */}
+            <section className="mt-8 rounded-xl border border-mist bg-white overflow-hidden shadow-sm">
+                <div className="bg-parchment/50 p-4 border-b border-mist">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-secondary/60">The HISAGEN Stack</p>
+                            <h2 className="mt-1 text-lg font-bold text-secondary">Partnership Status</h2>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <span className="flex items-center gap-1 text-[9px]">
+                                <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                                <span className="text-slate">Active</span>
+                            </span>
+                            <span className="flex items-center gap-1 text-[9px]">
+                                <span className="h-2 w-2 rounded-full bg-blue-500"></span>
+                                <span className="text-slate">Framework</span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="p-8">
-                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                        {[
-                            {
-                                phase: "1. Technology",
-                                org: "Locus AG / HISAGEN",
-                                role: "Soil Science & Data",
-                                deliverables: ["Rhizolizer® Deployment", "Yield Improvement (15-30%)", "SOC Accumulation"],
-                                color: "bg-emerald-50",
-                                border: "border-emerald-200"
-                            },
-                            {
-                                phase: "2. Verification",
-                                org: "3Degrees",
-                                role: "Digital MRV",
-                                deliverables: ["Verra VM0042 Methodology", "Satellite + AI Monitoring", "Institutional Verification"],
-                                color: "bg-blue-50",
-                                border: "border-blue-200"
-                            },
-                            {
-                                phase: "3. Finance",
-                                org: "Capital Continuum",
-                                role: "Blended Capital",
-                                deliverables: ["4-Stage Framework", "Risk-Matched Funding", "Pilot → Scale Pathway"],
-                                color: "bg-amber-50",
-                                border: "border-amber-200"
-                            },
-                            {
-                                phase: "4. Operations",
-                                org: "Deep Six / Local Partners",
-                                role: "Implementation",
-                                deliverables: ["Farmer Aggregation", "Extension Services", "Community Engagement"],
-                                color: "bg-slate-50",
-                                border: "border-slate-200"
-                            }
-                        ].map((p, idx) => (
-                            <div key={idx} className={`rounded-xl border ${p.border} p-5 flex flex-col ${p.color} hover:shadow-sm transition-shadow motion-reduce:transition-none`}>
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-secondary/40">{p.phase}</span>
-                                <h3 className="mt-2 text-base font-bold text-secondary">{p.org}</h3>
+                <div className="p-6">
+                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                        {partnerships.map((p, idx) => (
+                            <div key={idx} className={`rounded-xl border ${p.border} p-5 flex flex-col ${p.color}`}>
+                                <div className="flex items-center justify-between mb-2">
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-secondary/40">{p.layer}</span>
+                                    <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${
+                                        p.status === 'confirmed' ? 'bg-emerald-200 text-emerald-700' : 'bg-blue-200 text-blue-700'
+                                    }`}>
+                                        {p.statusLabel}
+                                    </span>
+                                </div>
+                                <h3 className="text-base font-bold text-secondary">{p.partner}</h3>
                                 <p className="text-xs font-medium text-slate/70 mt-1 uppercase tracking-wider">{p.role}</p>
                                 <div className="h-px bg-mist my-4 w-full" />
                                 <ul className="space-y-2 flex-grow">
@@ -264,37 +324,19 @@ export default function ProgramPage() {
                             </div>
                         ))}
                     </div>
-
-                    <div className="mt-8 p-6 rounded-xl border border-mist bg-parchment/30">
-                        <div className="flex flex-col md:flex-row md:items-center gap-6">
-                            <div className="shrink-0">
-                                <div className="h-10 w-10 rounded border border-mist bg-white flex items-center justify-center text-[10px] font-bold text-secondary">ARCH</div>
-                            </div>
-                            <div>
-                                <h4 className="text-sm font-bold text-secondary uppercase tracking-[0.1em]">Systems Architecture</h4>
-                                <p className="text-xs text-secondary mt-1 font-bold">Pandion Studio</p>
-                                <p className="text-[11px] text-slate mt-2 leading-relaxed">
-                                    Responsible for the <strong>connective tissue</strong>—data flows, capital coordination, and systemic scaffolding across all four layers. Pandion provides the synthesis required to make the stack work as a unified system.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
 
-            {/* Outcome Targets - from Strategy */}
-            <section className="mt-10 rounded-xl border border-mist bg-white p-8">
-                <div className="flex items-center justify-between mb-8">
+            {/* Outcome Targets with Progress */}
+            <section className="mt-8 rounded-xl border border-mist bg-white p-6">
+                <div className="flex items-center justify-between mb-6">
                     <div>
                         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40">Program Outcomes</p>
-                        <h2 className="mt-2 text-xl font-bold text-secondary">Target Metrics by Phase</h2>
+                        <h2 className="mt-1 text-lg font-bold text-secondary">Target Metrics by Phase</h2>
                     </div>
-                    <a href="/strategy" className="text-[10px] font-bold uppercase tracking-widest text-slate hover:text-primary">
-                        From Theory of Change →
-                    </a>
                 </div>
 
-                <div className="grid gap-6 md:grid-cols-3">
+                <div className="grid gap-4 md:grid-cols-3">
                     {outcomeTargets.map((phase) => (
                         <div
                             key={phase.phase}
@@ -310,9 +352,13 @@ export default function ProgramPage() {
                                 <span className="text-xs font-black uppercase tracking-widest text-secondary">{phase.phase}</span>
                                 <span className="text-[9px] font-bold text-slate bg-white px-2 py-0.5 rounded border border-mist">{phase.timeline}</span>
                             </div>
-                            {phase.status === 'active' && (
-                                <span className="inline-block text-[9px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded mb-3">Current Focus</span>
-                            )}
+                            <span className={`inline-block text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded mb-3 ${
+                                phase.status === 'active' ? 'text-primary bg-primary/10' :
+                                phase.status === 'upcoming' ? 'text-blue-600 bg-blue-100' :
+                                'text-slate bg-slate/10'
+                            }`}>
+                                {phase.progress}
+                            </span>
                             <ul className="space-y-2">
                                 {phase.targets.map((target, i) => (
                                     <li key={i} className="flex items-start gap-2 text-sm text-slate">
@@ -326,200 +372,117 @@ export default function ProgramPage() {
                 </div>
             </section>
 
-            {/* Program Highlights */}
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
-                {programHighlights.map((highlight) => (
-                    <div
-                        key={highlight.title}
-                        className="rounded-xl border border-mist bg-white p-6 text-sm text-slate shadow-sm"
-                    >
-                        <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold">{highlight.title}</p>
-                        <div className="mt-3 leading-relaxed">{highlight.body}</div>
-                    </div>
-                ))}
-            </div>
-
-            {/* Farmer Value Journey */}
-            <section className="mt-10 rounded-xl border border-mist bg-white p-8">
-                <div className="flex items-center justify-between mb-6">
-                    <div>
-                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40">The Farmer Journey</p>
-                        <h2 className="mt-2 text-xl font-bold text-secondary">From Soil Health to Dual Income</h2>
-                    </div>
-                    <span className="text-[10px] border border-emerald-200 bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded uppercase tracking-widest font-bold">Uganda Pilot</span>
-                </div>
-
-                <p className="text-sm text-slate mb-8 max-w-2xl">
-                    Smallholder farmers gain two revenue streams: improved crop yields from healthier soil, plus carbon credit income from the carbon their soil sequesters.
-                </p>
-
-                <div className="relative">
-                    <div className="absolute left-[15px] top-4 bottom-4 w-px bg-gradient-to-b from-emerald-200 via-amber-200 to-primary/30 md:left-1/2 md:-ml-px md:block" />
-
-                    <div className="space-y-10">
-                        {[
-                            {
-                                stage: "1. Soil Health",
-                                outcome: "Foundation for everything",
-                                detail: "Farmer applies microbial treatment (Rhizolizer®). Soil biology activates, nutrient cycling improves.",
-                                label: "SOIL",
-                                color: "bg-emerald-50 border-emerald-200",
-                                labelColor: "text-emerald-700"
-                            },
-                            {
-                                stage: "2. Better Yields",
-                                outcome: "Immediate income boost",
-                                detail: "Healthier soil → stronger crops → 15-30% more harvest. Farmers see results in the first season.",
-                                label: "YIELD",
-                                color: "bg-emerald-50 border-emerald-200",
-                                labelColor: "text-emerald-700",
-                                highlight: "↑ 15-30% Crop Revenue"
-                            },
-                            {
-                                stage: "3. Carbon Building",
-                                outcome: "Invisible value accruing",
-                                detail: "While crops grow, soil organic carbon accumulates underground. This is the carbon asset being created.",
-                                label: "SOC",
-                                color: "bg-amber-50 border-amber-200",
-                                labelColor: "text-amber-700"
-                            },
-                            {
-                                stage: "4. Verification",
-                                outcome: "Carbon becomes credible",
-                                detail: "Soil carbon is measured, verified to international standards (Verra VM0042), and converted to certified credits.",
-                                label: "MRV",
-                                color: "bg-blue-50 border-blue-200",
-                                labelColor: "text-blue-700"
-                            },
-                            {
-                                stage: "5. Carbon Revenue",
-                                outcome: "Second income stream",
-                                detail: "Credits sold to corporate buyers. 70%+ of carbon revenue flows directly to farmers as additional income.",
-                                label: "EARN",
-                                color: "bg-primary/10 border-primary/30",
-                                labelColor: "text-primary",
-                                highlight: "+ Carbon Income (70%+ to farmer)"
-                            }
-                        ].map((step, idx) => (
-                            <div key={idx} className={`relative flex items-center gap-6 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                                <div className="flex-1 hidden md:block" />
-                                <div className={`z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border ${step.color} text-[9px] font-bold ${step.labelColor} shadow-sm`}>
-                                    {step.label}
-                                </div>
-                                <div className={`flex-1 rounded-xl border ${step.color} p-5 hover:shadow-md transition-all duration-300 motion-reduce:transition-none`}>
-                                    <div className="flex items-start justify-between gap-4">
-                                        <div>
-                                            <h3 className="text-sm font-bold text-secondary">{step.stage}</h3>
-                                            <p className="text-[10px] font-bold uppercase tracking-widest text-slate/50 mt-0.5">{step.outcome}</p>
-                                        </div>
-                                        {step.highlight && (
-                                            <span className="text-[10px] font-bold text-primary bg-primary/10 px-2 py-1 rounded whitespace-nowrap">
-                                                {step.highlight}
-                                            </span>
-                                        )}
-                                    </div>
-                                    <p className="text-xs text-slate mt-3 leading-relaxed">{step.detail}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Dual Income Summary */}
-                <div className="mt-10 p-6 rounded-xl bg-gradient-to-r from-emerald-50 to-primary/10 border border-emerald-200/50">
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/50 mb-3">Farmer Income Model</p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
-                        <div className="px-4 py-2 bg-white rounded-lg border border-emerald-200 shadow-sm">
-                            <p className="text-xs font-bold text-emerald-700">Crop Revenue</p>
-                            <p className="text-[10px] text-slate">↑ 15-30% from better yields</p>
-                        </div>
-                        <span className="text-2xl font-bold text-secondary">+</span>
-                        <div className="px-4 py-2 bg-white rounded-lg border border-primary/30 shadow-sm">
-                            <p className="text-xs font-bold text-primary">Carbon Revenue</p>
-                            <p className="text-[10px] text-slate">New income stream (70%+ to farmer)</p>
-                        </div>
-                        <span className="text-2xl font-bold text-secondary">=</span>
-                        <div className="px-4 py-3 bg-secondary rounded-lg shadow-sm">
-                            <p className="text-xs font-bold text-white">Dual Income</p>
-                            <p className="text-[10px] text-white/70">Sustainable livelihoods</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Data & Capital Flows */}
-            <section className="mt-10 p-8 rounded-2xl border border-mist bg-parchment/10">
-                <div className="grid gap-12 md:grid-cols-2">
-                    <div>
-                        <h3 className="text-lg font-bold text-secondary mb-4">Data Flows Up</h3>
-                        <p className="text-sm text-slate leading-relaxed mb-4">
-                            Evidence flows from field to market. Ground-truth MRV at farm level → verification through 3Degrees → disclosure-ready data for corporate buyers.
-                        </p>
-                        <div className="flex gap-2">
-                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">Measurement</span>
-                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">Verification</span>
-                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">Disclosure</span>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 className="text-lg font-bold text-secondary mb-4">Capital Flows Down</h3>
-                        <p className="text-sm text-slate leading-relaxed mb-4">
-                            Investment flows from institutions to stewards. Capital Continuum matches funding type to project stage → reaches farmers via high-integrity frameworks.
-                        </p>
-                        <div className="flex gap-2">
-                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">Grants</span>
-                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">Carbon Finance</span>
-                            <span className="text-[9px] bg-white border border-mist px-2 py-1 rounded font-bold uppercase tracking-widest text-secondary/60">Commercial</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Strategic Gaps */}
-            <section className="mt-10 rounded-xl border border-mist bg-white p-6">
+            {/* Revenue Model with Decision Status */}
+            <section className="mt-8 rounded-xl border border-mist bg-white p-6">
                 <div className="flex items-center justify-between mb-4">
-                    <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold">Programmatic Gaps</p>
-                    <span className="text-[10px] border border-amber-200 bg-amber-50 text-amber-700 px-2 py-0.5 rounded uppercase tracking-widest font-bold">Active Research</span>
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40">Revenue Model</p>
+                        <h2 className="mt-1 text-lg font-bold text-secondary">Income Streams & Status</h2>
+                    </div>
+                    <span className="text-[10px] border border-amber-200 bg-amber-50 text-amber-700 px-2 py-0.5 rounded uppercase tracking-widest font-bold">Under Development</span>
                 </div>
-                <div className="space-y-4">
-                    {programGaps.map((gap) => (
-                        <div key={gap.area} className="p-4 rounded-lg border border-mist/50 bg-parchment/10 text-ink hover:bg-white hover:shadow-sm transition-all duration-300 motion-reduce:transition-none">
-                            <h3 className="text-xs font-bold text-secondary uppercase tracking-wider">{gap.area}</h3>
-                            <p className="text-sm text-slate mt-2 leading-relaxed">{gap.description}</p>
+                <div className="grid gap-3 grid-cols-2 lg:grid-cols-4">
+                    {revenueOptions.map((item, idx) => (
+                        <div key={idx} className="p-4 border border-mist rounded-xl bg-parchment/10">
+                            <div className="flex items-center justify-between mb-2">
+                                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary">{item.model}</p>
+                                <span className={`text-[8px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${
+                                    item.status === 'confirmed' ? 'bg-emerald-100 text-emerald-700' :
+                                    item.status === 'likely' ? 'bg-blue-100 text-blue-700' :
+                                    'bg-amber-100 text-amber-700'
+                                }`}>
+                                    {item.statusLabel}
+                                </span>
+                            </div>
+                            <p className="text-[9px] text-slate/50 font-bold uppercase">{item.type}</p>
+                            <p className="text-[10px] text-slate mt-2">{item.description}</p>
                         </div>
                     ))}
                 </div>
             </section>
 
-            {/* Revenue Model */}
-            <section className="mt-10 rounded-xl border border-mist bg-white p-6 mb-10 shadow-sm">
-                <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold border-b border-mist pb-2 mb-6">Revenue Model (Draft)</p>
-                <div className="grid gap-4 grid-cols-2 lg:grid-cols-4 text-center">
+            {/* Farmer Value Journey - Kept as useful for all audiences */}
+            <section className="mt-8 rounded-xl border border-mist bg-white p-6">
+                <div className="flex items-center justify-between mb-6">
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40">The Farmer Journey</p>
+                        <h2 className="mt-1 text-lg font-bold text-secondary">From Soil Health to Dual Income</h2>
+                    </div>
+                    <span className="text-[10px] border border-emerald-200 bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded uppercase tracking-widest font-bold">Core Model</span>
+                </div>
+
+                <p className="text-sm text-slate mb-6 max-w-2xl">
+                    Smallholder farmers gain two revenue streams: improved crop yields from healthier soil, plus carbon credit income from the carbon their soil sequesters.
+                </p>
+
+                {/* Simplified journey */}
+                <div className="grid gap-3 md:grid-cols-5">
                     {[
-                        { label: "Management Fees", sub: "Recurring", detail: "Program coordination" },
-                        { label: "Credit Upside", sub: "Variable", detail: "% of credit value" },
-                        { label: "Technical Advisory", sub: "Ad-hoc", detail: "Methodology support" },
-                        { label: "SPV Equity", sub: "Long-term", detail: "Project ownership" }
-                    ].map((item, idx) => (
-                        <div key={idx} className="p-5 border border-mist rounded-xl bg-parchment/10">
-                            <p className="text-[10px] font-bold uppercase tracking-widest text-secondary">{item.label}</p>
-                            <p className="text-[9px] text-slate/50 font-bold uppercase mt-1">{item.sub}</p>
-                            <p className="text-[10px] text-slate mt-2">{item.detail}</p>
+                        { stage: "1", title: "Soil Health", outcome: "Foundation", color: "bg-emerald-50 border-emerald-200" },
+                        { stage: "2", title: "Better Yields", outcome: "+15-30%", color: "bg-emerald-50 border-emerald-200" },
+                        { stage: "3", title: "Carbon Building", outcome: "SOC accrues", color: "bg-amber-50 border-amber-200" },
+                        { stage: "4", title: "Verification", outcome: "VM0042", color: "bg-blue-50 border-blue-200" },
+                        { stage: "5", title: "Carbon Revenue", outcome: "70%+ to farmer", color: "bg-primary/10 border-primary/30" },
+                    ].map((step, idx) => (
+                        <div key={idx} className={`p-4 rounded-xl border ${step.color} text-center`}>
+                            <span className="text-[10px] font-bold text-slate/50">Stage {step.stage}</span>
+                            <h3 className="text-sm font-bold text-secondary mt-1">{step.title}</h3>
+                            <p className="text-[10px] text-slate mt-1">{step.outcome}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Dual Income Summary */}
+                <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-emerald-50 to-primary/10 border border-emerald-200/50">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
+                        <div className="px-3 py-2 bg-white rounded-lg border border-emerald-200 shadow-sm">
+                            <p className="text-xs font-bold text-emerald-700">Crop Revenue</p>
+                            <p className="text-[10px] text-slate">↑ 15-30%</p>
+                        </div>
+                        <span className="text-xl font-bold text-secondary">+</span>
+                        <div className="px-3 py-2 bg-white rounded-lg border border-primary/30 shadow-sm">
+                            <p className="text-xs font-bold text-primary">Carbon Revenue</p>
+                            <p className="text-[10px] text-slate">70%+ to farmer</p>
+                        </div>
+                        <span className="text-xl font-bold text-secondary">=</span>
+                        <div className="px-3 py-2 bg-secondary rounded-lg shadow-sm">
+                            <p className="text-xs font-bold text-white">Dual Income</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Market Context - Demoted */}
+            <section className="mt-8 p-6 rounded-xl border border-mist bg-parchment/20">
+                <div className="flex items-center justify-between mb-4">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40">Market Context</p>
+                    <span className="text-[10px] text-slate">Reference data</span>
+                </div>
+                <div className="grid gap-4 md:grid-cols-3">
+                    {[
+                        { metric: "$648M", label: "Market by 2034", detail: "31.9% CAGR" },
+                        { metric: "285%", label: "Soil Carbon Growth", detail: "2024 YoY" },
+                        { metric: "$15-40", label: "Per Tonne Premium", detail: "vs $4.80 avg" },
+                    ].map((d) => (
+                        <div key={d.label} className="p-4 rounded-lg border border-mist bg-white text-center">
+                            <p className="text-xl font-black text-secondary">{d.metric}</p>
+                            <p className="text-[10px] font-bold uppercase tracking-widest text-primary mt-1">{d.label}</p>
+                            <p className="text-[10px] text-slate mt-1">{d.detail}</p>
                         </div>
                     ))}
                 </div>
             </section>
 
             {/* CTAs */}
-            <section className="my-16 flex flex-wrap justify-center gap-6">
-                <a href="/project/hisagen-uganda" className="px-8 py-3 bg-secondary text-parchment rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary transition-colors">
+            <section className="my-12 flex flex-wrap justify-center gap-4">
+                <a href="/project/hisagen-uganda" className="px-6 py-2.5 bg-secondary text-parchment rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary transition-colors">
                     View Uganda Pilot
                 </a>
-                <a href="/capital-continuum" className="px-8 py-3 border border-secondary text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-secondary hover:text-parchment transition-colors">
+                <a href="/capital-continuum" className="px-6 py-2.5 border border-secondary text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-secondary hover:text-parchment transition-colors">
                     Capital Continuum
                 </a>
-                <a href="/strategy" className="px-8 py-3 border border-secondary text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-secondary hover:text-parchment transition-colors">
-                    Strategy & ToC
+                <a href="/strategy" className="px-6 py-2.5 border border-secondary text-secondary rounded-full font-bold uppercase tracking-widest text-xs hover:bg-secondary hover:text-parchment transition-colors">
+                    Strategy & Governance
                 </a>
             </section>
         </div>

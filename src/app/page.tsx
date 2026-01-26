@@ -1,7 +1,7 @@
 /**
- * HISAGEN Portal - Internal Hub
+ * HISAGEN Program Hub - Internal Hub
  *
- * This is an internal operational portal for the HISAGEN team and key stakeholders.
+ * Strategy, programs, projects, capital lifecycle for HISAGEN team and stakeholders.
  * For public-facing content, see the HISAGEN Website (website/).
  */
 
@@ -10,7 +10,7 @@ import Link from "next/link";
 const quickStatus = [
   { label: "Entity", value: "HISAGEN USA + Africa", status: "active" },
   { label: "Stage", value: "1 - Incubation", status: "active" },
-  { label: "Project", value: "Uganda Pilot", status: "active" },
+  { label: "Program", value: "Agri-Carbon", status: "active" },
   { label: "Regulatory", value: "MAAIF pending Q1 2026", status: "pending" },
 ];
 
@@ -23,10 +23,13 @@ const coreNavigation = [
     ],
   },
   {
-    section: "Operations",
+    section: "Agri-Carbon Program",
+    description: "Locus AG tech + smallholder aggregation + carbon credits",
     items: [
-      { title: "Agri-Carbon Program", href: "/program", description: "Operating model, partner ecosystem, revenue wheel" },
-      { title: "Uganda Pilot", href: "/project/hisagen-uganda", description: "Timeline, milestones, capital assessment" },
+      { title: "Program Overview", href: "/program", description: "Operating model, partner ecosystem, revenue wheel" },
+      { title: "Uganda Pilot", href: "/project/hisagen-uganda", description: "Timeline, milestones, capital assessment", status: "active" },
+      { title: "Rwanda", href: "/project/rwanda", description: "East Africa expansion (planned)", status: "planned" },
+      { title: "Kenya", href: "/project/kenya", description: "East Africa expansion (planned)", status: "planned" },
     ],
   },
   {
@@ -60,7 +63,7 @@ export default function HomePage() {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60 mb-1">
-              Internal Portal
+              Program Hub
             </p>
             <h1 className="text-2xl font-bold text-secondary">HISAGEN</h1>
           </div>
@@ -104,20 +107,37 @@ export default function HomePage() {
         <div className="grid gap-8 md:grid-cols-2">
           {coreNavigation.map((section) => (
             <div key={section.section}>
-              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-3">
+              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-1">
                 {section.section}
               </h3>
+              {section.description && (
+                <p className="text-xs text-slate/50 mb-3">{section.description}</p>
+              )}
               <div className="space-y-2">
                 {section.items.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block p-4 rounded-lg border border-mist bg-white hover:border-primary/30 hover:bg-parchment/20 transition-colors group"
+                    className={`block p-4 rounded-lg border bg-white hover:border-primary/30 hover:bg-parchment/20 transition-colors group ${
+                      item.status === "planned" ? "border-dashed border-slate/30" : "border-mist"
+                    }`}
                   >
                     <div className="flex items-center justify-between">
-                      <h4 className="font-medium text-secondary group-hover:text-primary transition-colors">
-                        {item.title}
-                      </h4>
+                      <div className="flex items-center gap-2">
+                        <h4 className="font-medium text-secondary group-hover:text-primary transition-colors">
+                          {item.title}
+                        </h4>
+                        {item.status === "active" && (
+                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700 font-medium">
+                            active
+                          </span>
+                        )}
+                        {item.status === "planned" && (
+                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-slate/10 text-slate/60 font-medium">
+                            planned
+                          </span>
+                        )}
+                      </div>
                       <span className="text-slate/40 group-hover:text-primary transition-colors">
                         &rarr;
                       </span>
@@ -179,7 +199,7 @@ export default function HomePage() {
           </Link>
         </div>
         <p className="text-[10px] text-slate/40 mt-4">
-          HISAGEN Internal Portal. For external communications, see Website.
+          HISAGEN Program Hub. For external communications, see Website.
         </p>
       </section>
     </div>
