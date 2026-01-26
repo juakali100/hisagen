@@ -181,34 +181,80 @@ export default function ProgramPage() {
                 </div>
             </section>
 
-            {/* Foundational Explainer */}
-            <section className="mt-8 rounded-xl border border-mist bg-white p-6">
-                <div className="grid gap-6 md:grid-cols-3">
-                    {/* The Problem */}
-                    <div className="p-5 rounded-lg bg-red-50/50 border border-red-100">
-                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-red-400 mb-2">The Problem</p>
-                        <h3 className="text-sm font-bold text-secondary mb-3">Global Soil Crisis</h3>
+            {/* The Problem - Full Width */}
+            <section className="mt-8 rounded-xl border border-red-200 bg-red-50/30 p-6">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-red-400 mb-2">The Problem</p>
+                <h2 className="text-lg font-bold text-secondary mb-4">Global Soil Crisis</h2>
+
+                <p className="text-sm text-slate leading-relaxed mb-4">
+                    Farmers worldwide face a compounding crisis. Soils are depleted, yields are declining, and the cost of synthetic fertilizers keeps rising. Climate volatility makes it worse — droughts, floods, and unpredictable seasons stress already weakened land.
+                </p>
+
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mt-6">
+                    <div className="p-4 rounded-lg bg-white border border-red-100">
+                        <p className="text-xs font-bold text-secondary mb-1">Soil Degradation</p>
+                        <p className="text-[11px] text-slate leading-relaxed">Intensive farming depletes organic matter. Degraded soil releases carbon into the atmosphere instead of storing it.</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-white border border-red-100">
+                        <p className="text-xs font-bold text-secondary mb-1">Fertilizer Dependency</p>
+                        <p className="text-[11px] text-slate leading-relaxed">Synthetic fertilizers are expensive, energy-intensive to produce, and require more each year as soil health declines.</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-white border border-red-100">
+                        <p className="text-xs font-bold text-secondary mb-1">Water Pollution</p>
+                        <p className="text-[11px] text-slate leading-relaxed">Fertilizer runoff contaminates rivers, groundwater, and coastal ecosystems — creating dead zones and health risks.</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-white border border-red-100">
+                        <p className="text-xs font-bold text-secondary mb-1">Climate Impact</p>
+                        <p className="text-[11px] text-slate leading-relaxed">Agriculture contributes ~25% of global emissions. Healthy soil sequesters carbon; degraded soil releases it.</p>
+                    </div>
+                </div>
+
+                <p className="text-sm text-slate leading-relaxed mt-6 p-4 bg-white rounded-lg border border-red-100">
+                    <strong>The cycle is unsustainable:</strong> degraded soil → more fertilizer needed → higher costs → more pollution → further soil damage. Breaking this cycle requires a fundamentally different approach.
+                </p>
+            </section>
+
+            {/* The Solution */}
+            <section className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50/30 p-6">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-500 mb-2">The Solution</p>
+                <h2 className="text-lg font-bold text-secondary mb-4">Microbial Bio-Stimulants</h2>
+
+                <p className="text-sm text-slate leading-relaxed mb-4">
+                    Natural, living soil treatments that restore soil biology from the ground up. Unlike synthetic inputs, they work with nature — improving root systems, nutrient absorption, and soil structure while regenerating long-term soil health.
+                </p>
+
+                <div className="grid gap-4 md:grid-cols-3 mt-6">
+                    <div className="p-4 rounded-lg bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-secondary mb-1">Reduce Fertilizer Dependency</p>
+                        <p className="text-[11px] text-slate leading-relaxed">Plants absorb nutrients more efficiently, requiring less synthetic input — cutting costs and pollution.</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-secondary mb-1">Sequester Carbon</p>
+                        <p className="text-[11px] text-slate leading-relaxed">Healthier soil biology stores carbon in the ground, creating carbon credit opportunities while fighting climate change.</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-white border border-emerald-100">
+                        <p className="text-xs font-bold text-secondary mb-1">Break the Cycle</p>
+                        <p className="text-[11px] text-slate leading-relaxed">Regenerative, not extractive. Each season improves soil rather than depleting it — sustainable for the long term.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Who We Are */}
+            <section className="mt-6 rounded-xl border border-blue-200 bg-blue-50/30 p-6">
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-500 mb-2">Who We Are</p>
+                <h2 className="text-lg font-bold text-secondary mb-4">HISAGEN + Locus AG</h2>
+
+                <div className="grid gap-6 md:grid-cols-2">
+                    <div className="p-4 rounded-lg bg-white border border-blue-100">
+                        <p className="text-sm font-bold text-secondary mb-2">Locus AG</p>
                         <p className="text-sm text-slate leading-relaxed">
-                            Farmers worldwide face depleted soils, declining yields, rising fertilizer costs, and climate volatility. Synthetic fertilizers are expensive and degrade soil health over time — a cycle that's unsustainable.
+                            US-based agricultural biotechnology company with patented microbial products (Rhizolizer). Proven across American farms with 15-30% yield improvements. The technology works — now it's ready for new markets.
                         </p>
                     </div>
-
-                    {/* The Solution */}
-                    <div className="p-5 rounded-lg bg-emerald-50/50 border border-emerald-100">
-                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-500 mb-2">The Solution</p>
-                        <h3 className="text-sm font-bold text-secondary mb-3">Microbial Bio-Stimulants</h3>
+                    <div className="p-4 rounded-lg bg-white border border-blue-100">
+                        <p className="text-sm font-bold text-secondary mb-2">HISAGEN</p>
                         <p className="text-sm text-slate leading-relaxed">
-                            Natural, living soil treatments that restore soil biology, improve root systems, and help plants absorb nutrients more efficiently. Unlike synthetic inputs, they regenerate soil health while boosting yields.
-                        </p>
-                    </div>
-
-                    {/* Who We Are */}
-                    <div className="p-5 rounded-lg bg-blue-50/50 border border-blue-100">
-                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-500 mb-2">Who We Are</p>
-                        <h3 className="text-sm font-bold text-secondary mb-3">HISAGEN + Locus AG</h3>
-                        <p className="text-sm text-slate leading-relaxed">
-                            <strong>Locus AG</strong> — US biotech with patented microbial products (Rhizolizer), proven to improve yields 15-30%.<br/><br/>
-                            <strong>HISAGEN</strong> — Partnership bringing Locus AG technology to new markets, starting with East Africa (Uganda → Rwanda → Kenya).
+                            <em>High Impact Seed Application for a Greener Environment.</em> Partnership bringing Locus AG technology to new markets, starting with East Africa (Uganda → Rwanda → Kenya). Dual entity structure: HISAGEN USA + HISAGEN Africa.
                         </p>
                     </div>
                 </div>
