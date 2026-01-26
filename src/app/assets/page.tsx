@@ -15,9 +15,18 @@ interface IconAsset {
 interface PhotoAsset {
   name: string;
   file: string;
-  category: string;
   status: AssetStatus;
   description?: string;
+}
+
+interface PhotoFolder {
+  id: string;
+  name: string;
+  path: string;
+  icon: string;
+  children?: PhotoFolder[];
+  photos?: PhotoAsset[];
+  isWebsiteOnly?: boolean;
 }
 
 // Icon library - all icons in /public/icons/
@@ -44,43 +53,167 @@ const icons: IconAsset[] = [
   { name: 'Weather', file: 'icon-weather.png', status: 'public', description: 'Climate, conditions' },
 ];
 
-// Photo library - organized by category
-const photos: PhotoAsset[] = [
-  // Heroes - large banner images
-  { name: 'Female Farmer MRV', file: 'heroes/hisagen-hero-female-farmer-mrv.jpeg', category: 'Heroes', status: 'public', description: 'Female farmer with tablet, MRV context' },
-  { name: 'Maize Roots Close', file: 'heroes/hisagen-maize-roots-close.jpeg', category: 'Heroes', status: 'public', description: 'Close-up of healthy maize roots' },
-  { name: 'Smallholder Patchwork', file: 'heroes/smallholder-farmland-patchwork.jpeg', category: 'Heroes', status: 'public', description: 'Aerial view of smallholder farms' },
-  { name: 'Uganda Farmer MRV', file: 'heroes/uganda-smallhold-farmer-mrv.jpeg', category: 'Heroes', status: 'public', description: 'Farmer in field with technology' },
-
-  // Home - homepage feature images
-  { name: 'Farmer at Sunset', file: 'home/farmer-at-sunset.jpeg', category: 'Home', status: 'public', description: 'Silhouette, golden hour' },
-  { name: 'Farmers in Field', file: 'home/farmers-standing-in-field.jpeg', category: 'Home', status: 'public', description: 'Group of farmers' },
-  { name: 'Healthy Maize', file: 'home/healthy-maize-plant.jpeg', category: 'Home', status: 'public', description: 'Vibrant crop' },
-  { name: 'Soil in Hands', file: 'home/healthy-soil-in-hands.jpeg', category: 'Home', status: 'public', description: 'Rich dark soil' },
-  { name: 'Tablet in Field', file: 'home/tablet-in-farmer-field.jpeg', category: 'Home', status: 'public', description: 'Technology + agriculture' },
-
-  // Features - detail/supporting images
-  { name: 'Healthy Roots Sample', file: 'features/healthy-roots-soil-sample.jpeg', category: 'Features', status: 'public', description: 'Root system detail' },
-  { name: 'Soil Samples Plan', file: 'features/uganda-smallhold-farner-soil-samples-field-plan.jpeg', category: 'Features', status: 'public', description: 'Field sampling methodology' },
+// Photo library - organized by folder structure
+const photoFolders: PhotoFolder[] = [
+  {
+    id: 'public',
+    name: 'Public',
+    path: '/images',
+    icon: '🌐',
+    children: [
+      {
+        id: 'heroes',
+        name: 'Heroes',
+        path: '/images/heroes',
+        icon: '🖼️',
+        photos: [
+          { name: 'Female Farmer MRV', file: 'heroes/hisagen-hero-female-farmer-mrv.jpeg', status: 'public', description: 'Female farmer with tablet, MRV context' },
+          { name: 'Maize Roots Close', file: 'heroes/hisagen-maize-roots-close.jpeg', status: 'public', description: 'Close-up of healthy maize roots' },
+          { name: 'Smallholder Patchwork', file: 'heroes/smallholder-farmland-patchwork.jpeg', status: 'public', description: 'Aerial view of smallholder farms' },
+          { name: 'Uganda Farmer MRV', file: 'heroes/uganda-smallhold-farmer-mrv.jpeg', status: 'public', description: 'Farmer in field with technology' },
+        ]
+      },
+      {
+        id: 'home',
+        name: 'Home',
+        path: '/images/home',
+        icon: '🏠',
+        photos: [
+          { name: 'Farmer at Sunset', file: 'home/farmer-at-sunset.jpeg', status: 'public', description: 'Silhouette, golden hour' },
+          { name: 'Farmers in Field', file: 'home/farmers-standing-in-field.jpeg', status: 'public', description: 'Group of farmers' },
+          { name: 'Healthy Maize', file: 'home/healthy-maize-plant.jpeg', status: 'public', description: 'Vibrant crop' },
+          { name: 'Soil in Hands', file: 'home/healthy-soil-in-hands.jpeg', status: 'public', description: 'Rich dark soil' },
+          { name: 'Tablet in Field', file: 'home/tablet-in-farmer-field.jpeg', status: 'public', description: 'Technology + agriculture' },
+        ]
+      },
+      {
+        id: 'features',
+        name: 'Features',
+        path: '/images/features',
+        icon: '✨',
+        photos: [
+          { name: 'Healthy Roots Sample', file: 'features/healthy-roots-soil-sample.jpeg', status: 'public', description: 'Root system detail' },
+          { name: 'Soil Samples Plan', file: 'features/uganda-smallhold-farner-soil-samples-field-plan.jpeg', status: 'public', description: 'Field sampling methodology' },
+        ]
+      },
+      {
+        id: 'programmatic',
+        name: 'Programmatic',
+        path: '/images/programmatic',
+        icon: '📊',
+        isWebsiteOnly: true,
+        photos: [
+          { name: 'East Africa', file: 'east-africa.jpeg', status: 'public', description: 'Regional landscape' },
+          { name: 'Farmers Field', file: 'farmers-field.jpeg', status: 'public', description: 'Working in field' },
+          { name: 'Hero Farmer', file: 'hero-farmer.jpeg', status: 'public', description: 'Main hero shot' },
+          { name: 'Soil Hands', file: 'soil-hands.jpeg', status: 'public', description: 'Soil examination' },
+          { name: 'Uganda Farmer', file: 'uganda-farmer.jpeg', status: 'public', description: 'Portrait' },
+          { name: 'Abundant Harvest', file: 'programmatic/abundant-harvest.jpeg', status: 'public', description: 'Crop yield' },
+          { name: 'Business Strategy', file: 'programmatic/business-strategy.jpeg', status: 'public', description: 'Planning, strategy' },
+          { name: 'Digital Agriculture', file: 'programmatic/digital-agriculture.jpeg', status: 'public', description: 'Tech in farming' },
+          { name: 'East Africa Landscape', file: 'programmatic/east-africa-landscape.jpeg', status: 'public', description: 'Regional view' },
+          { name: 'Lab Science', file: 'programmatic/lab-science.jpeg', status: 'public', description: 'Laboratory work' },
+        ]
+      },
+      {
+        id: 'blog',
+        name: 'Blog',
+        path: '/images/blog',
+        icon: '📝',
+        photos: [] // Empty - ready for future content
+      },
+      {
+        id: 'about',
+        name: 'About',
+        path: '/images/about',
+        icon: '👥',
+        photos: [] // Empty - ready for future content
+      },
+    ]
+  },
+  {
+    id: 'internal',
+    name: 'Internal',
+    path: '/images/internal',
+    icon: '🔒',
+    children: [
+      {
+        id: 'mrv',
+        name: 'MRV',
+        path: '/images/internal/mrv',
+        icon: '📍',
+        photos: [] // Empty - ready for MRV images
+      },
+      {
+        id: 'reports',
+        name: 'Reports',
+        path: '/images/internal/reports',
+        icon: '📄',
+        photos: [] // Empty - ready for report figures
+      },
+      {
+        id: 'projects',
+        name: 'Projects',
+        path: '/images/internal/projects',
+        icon: '🗂️',
+        children: [
+          {
+            id: 'uganda-pilot',
+            name: 'Uganda Pilot',
+            path: '/images/internal/projects/uganda-pilot',
+            icon: '🇺🇬',
+            photos: []
+          },
+          {
+            id: 'partnerships',
+            name: 'Partnerships',
+            path: '/images/internal/projects/partnerships',
+            icon: '🤝',
+            photos: []
+          },
+        ]
+      },
+    ]
+  },
 ];
 
-// Website-only photos (not in portal)
-const websiteOnlyPhotos: PhotoAsset[] = [
-  { name: 'East Africa', file: 'east-africa.jpeg', category: 'Programmatic', status: 'public', description: 'Regional landscape' },
-  { name: 'Farmers Field', file: 'farmers-field.jpeg', category: 'Programmatic', status: 'public', description: 'Working in field' },
-  { name: 'Hero Farmer', file: 'hero-farmer.jpeg', category: 'Programmatic', status: 'public', description: 'Main hero shot' },
-  { name: 'Soil Hands', file: 'soil-hands.jpeg', category: 'Programmatic', status: 'public', description: 'Soil examination' },
-  { name: 'Uganda Farmer', file: 'uganda-farmer.jpeg', category: 'Programmatic', status: 'public', description: 'Portrait' },
-  { name: 'Abundant Harvest', file: 'programmatic/abundant-harvest.jpeg', category: 'Programmatic', status: 'public', description: 'Crop yield' },
-  { name: 'Business Strategy', file: 'programmatic/business-strategy.jpeg', category: 'Programmatic', status: 'public', description: 'Planning, strategy' },
-  { name: 'Digital Agriculture', file: 'programmatic/digital-agriculture.jpeg', category: 'Programmatic', status: 'public', description: 'Tech in farming' },
-  { name: 'East Africa Landscape', file: 'programmatic/east-africa-landscape.jpeg', category: 'Programmatic', status: 'public', description: 'Regional view' },
-  { name: 'Lab Science', file: 'programmatic/lab-science.jpeg', category: 'Programmatic', status: 'public', description: 'Laboratory work' },
-];
+// Helper to count all photos in a folder tree
+const countPhotos = (folder: PhotoFolder): number => {
+  let count = folder.photos?.length || 0;
+  if (folder.children) {
+    folder.children.forEach(child => {
+      count += countPhotos(child);
+    });
+  }
+  return count;
+};
+
+// Helper to get all photos from a folder tree (for "All" view)
+const getAllPhotos = (folder: PhotoFolder): { photo: PhotoAsset; folder: PhotoFolder }[] => {
+  let photos: { photo: PhotoAsset; folder: PhotoFolder }[] = [];
+  if (folder.photos) {
+    photos = folder.photos.map(p => ({ photo: p, folder }));
+  }
+  if (folder.children) {
+    folder.children.forEach(child => {
+      photos = [...photos, ...getAllPhotos(child)];
+    });
+  }
+  return photos;
+};
 
 export default function AssetsPage() {
   const [activeTab, setActiveTab] = useState<'icons' | 'photos'>('icons');
-  const [statusFilter, setStatusFilter] = useState<AssetStatus | 'all'>('all');
+  const [selectedFolder, setSelectedFolder] = useState<string>('public');
+  const [expandedFolders, setExpandedFolders] = useState<string[]>(['public', 'internal']);
+
+  const toggleExpanded = (folderId: string) => {
+    setExpandedFolders(prev =>
+      prev.includes(folderId)
+        ? prev.filter(id => id !== folderId)
+        : [...prev, folderId]
+    );
+  };
 
   const getStatusBadge = (status: AssetStatus) => {
     switch (status) {
@@ -93,20 +226,80 @@ export default function AssetsPage() {
     }
   };
 
-  const filteredIcons = statusFilter === 'all' ? icons : icons.filter(i => i.status === statusFilter);
-  const filteredPhotos = statusFilter === 'all' ? photos : photos.filter(p => p.status === statusFilter);
+  // Find selected folder recursively
+  const findFolder = (folders: PhotoFolder[], id: string): PhotoFolder | null => {
+    for (const folder of folders) {
+      if (folder.id === id) return folder;
+      if (folder.children) {
+        const found = findFolder(folder.children, id);
+        if (found) return found;
+      }
+    }
+    return null;
+  };
 
-  const photosByCategory = filteredPhotos.reduce((acc, photo) => {
-    if (!acc[photo.category]) acc[photo.category] = [];
-    acc[photo.category].push(photo);
-    return acc;
-  }, {} as Record<string, PhotoAsset[]>);
+  const currentFolder = findFolder(photoFolders, selectedFolder);
+  const currentPhotos = currentFolder
+    ? currentFolder.children
+      ? getAllPhotos(currentFolder)
+      : (currentFolder.photos || []).map(p => ({ photo: p, folder: currentFolder }))
+    : [];
+
+  // Render folder tree
+  const renderFolderTree = (folders: PhotoFolder[], depth: number = 0) => {
+    return folders.map(folder => {
+      const hasChildren = folder.children && folder.children.length > 0;
+      const isExpanded = expandedFolders.includes(folder.id);
+      const isSelected = selectedFolder === folder.id;
+      const photoCount = countPhotos(folder);
+
+      return (
+        <div key={folder.id}>
+          <button
+            onClick={() => {
+              setSelectedFolder(folder.id);
+              if (hasChildren) toggleExpanded(folder.id);
+            }}
+            className={`w-full flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors ${
+              isSelected
+                ? 'bg-primary text-white'
+                : 'hover:bg-parchment text-ink'
+            }`}
+            style={{ paddingLeft: `${12 + depth * 16}px` }}
+          >
+            {hasChildren && (
+              <span className={`text-xs transition-transform ${isExpanded ? 'rotate-90' : ''}`}>
+                ▶
+              </span>
+            )}
+            {!hasChildren && <span className="w-3" />}
+            <span>{folder.icon}</span>
+            <span className="flex-1 text-left">{folder.name}</span>
+            {folder.isWebsiteOnly && (
+              <span className="text-[9px] px-1.5 py-0.5 rounded bg-sky-100 text-sky-700">web</span>
+            )}
+            <span className={`text-xs ${isSelected ? 'text-white/70' : 'text-slate'}`}>
+              {photoCount}
+            </span>
+          </button>
+          {hasChildren && isExpanded && (
+            <div>
+              {renderFolderTree(folder.children!, depth + 1)}
+            </div>
+          )}
+        </div>
+      );
+    });
+  };
+
+  const totalPublicPhotos = countPhotos(photoFolders[0]);
+  const totalInternalPhotos = countPhotos(photoFolders[1]);
 
   return (
     <main className="min-h-screen bg-parchment">
       {/* Header */}
       <div className="bg-primary text-white py-12 px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <p className="text-sm uppercase tracking-wider opacity-80 mb-2">Brand Assets</p>
           <h1 className="text-4xl font-serif font-bold">Asset Library</h1>
           <p className="mt-4 text-lg opacity-90">
@@ -115,9 +308,9 @@ export default function AssetsPage() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-8 py-8">
+      <div className="max-w-7xl mx-auto px-8 py-8">
 
-        {/* Asset Architecture Info */}
+        {/* Asset Workflow */}
         <div className="bg-white rounded-lg border border-mist p-6 mb-8">
           <h2 className="text-sm font-bold uppercase tracking-wider text-slate mb-3">Asset Workflow</h2>
           <div className="grid md:grid-cols-3 gap-6 text-sm">
@@ -152,56 +345,41 @@ export default function AssetsPage() {
             <p className="text-xs text-slate">Icons</p>
           </div>
           <div className="bg-white rounded-lg border border-mist p-4 text-center">
-            <p className="text-3xl font-bold text-primary">{photos.length}</p>
-            <p className="text-xs text-slate">Photos (Portal)</p>
+            <p className="text-3xl font-bold text-primary">{totalPublicPhotos}</p>
+            <p className="text-xs text-slate">Public Photos</p>
           </div>
           <div className="bg-white rounded-lg border border-mist p-4 text-center">
-            <p className="text-3xl font-bold text-primary">{websiteOnlyPhotos.length}</p>
-            <p className="text-xs text-slate">Photos (Website)</p>
+            <p className="text-3xl font-bold text-slate">{totalInternalPhotos}</p>
+            <p className="text-xs text-slate">Internal Photos</p>
           </div>
           <div className="bg-white rounded-lg border border-mist p-4 text-center">
-            <p className="text-3xl font-bold text-green-600">{icons.filter(i => i.status === 'public').length + photos.filter(p => p.status === 'public').length}</p>
-            <p className="text-xs text-slate">Public-Ready</p>
+            <p className="text-3xl font-bold text-green-600">{icons.length + totalPublicPhotos}</p>
+            <p className="text-xs text-slate">Total Public Assets</p>
           </div>
         </div>
 
-        {/* Tabs & Filter */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex gap-2">
-            <button
-              onClick={() => setActiveTab('icons')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                activeTab === 'icons'
-                  ? 'bg-primary text-white'
-                  : 'bg-white border border-mist text-slate hover:border-primary/30'
-              }`}
-            >
-              Icons ({icons.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('photos')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                activeTab === 'photos'
-                  ? 'bg-primary text-white'
-                  : 'bg-white border border-mist text-slate hover:border-primary/30'
-              }`}
-            >
-              Photography ({photos.length + websiteOnlyPhotos.length})
-            </button>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-slate">Filter:</span>
-            <select
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value as AssetStatus | 'all')}
-              className="text-sm border border-mist rounded px-2 py-1"
-            >
-              <option value="all">All</option>
-              <option value="public">Public</option>
-              <option value="internal">Internal</option>
-              <option value="review">Review</option>
-            </select>
-          </div>
+        {/* Tabs */}
+        <div className="flex gap-2 mb-6">
+          <button
+            onClick={() => setActiveTab('icons')}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              activeTab === 'icons'
+                ? 'bg-primary text-white'
+                : 'bg-white border border-mist text-slate hover:border-primary/30'
+            }`}
+          >
+            Icons ({icons.length})
+          </button>
+          <button
+            onClick={() => setActiveTab('photos')}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              activeTab === 'photos'
+                ? 'bg-primary text-white'
+                : 'bg-white border border-mist text-slate hover:border-primary/30'
+            }`}
+          >
+            Photography ({totalPublicPhotos + totalInternalPhotos})
+          </button>
         </div>
 
         {/* Icons Tab */}
@@ -212,7 +390,7 @@ export default function AssetsPage() {
               <p className="text-xs text-slate">Location: /public/icons/</p>
             </div>
             <div className="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
-              {filteredIcons.map((icon) => (
+              {icons.map((icon) => (
                 <div
                   key={icon.file}
                   className="bg-parchment rounded-lg p-4 text-center hover:shadow-md transition-shadow group"
@@ -242,35 +420,65 @@ export default function AssetsPage() {
           </div>
         )}
 
-        {/* Photos Tab */}
+        {/* Photos Tab - Sidebar Layout */}
         {activeTab === 'photos' && (
-          <div className="space-y-8">
-            {/* Portal Photos */}
-            <div className="bg-white rounded-lg border border-mist p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h2 className="text-lg font-semibold text-ink">Portal Photography</h2>
-                  <p className="text-xs text-slate">Source: site/public/images/</p>
+          <div className="flex gap-6">
+            {/* Sidebar */}
+            <div className="w-64 flex-shrink-0">
+              <div className="bg-white rounded-lg border border-mist p-3 sticky top-4">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate mb-3 px-3">Folders</p>
+                <nav className="space-y-1">
+                  {renderFolderTree(photoFolders)}
+                </nav>
+                <div className="mt-4 pt-4 border-t border-mist px-3">
+                  <p className="text-[10px] text-slate">
+                    🌐 Public = website-ready<br />
+                    🔒 Internal = portal only<br />
+                    <span className="text-sky-600">web</span> = website repo only
+                  </p>
                 </div>
-                <span className="px-2 py-1 text-xs bg-primary/10 text-primary rounded">Source of Truth</span>
               </div>
+            </div>
 
-              {Object.entries(photosByCategory).map(([category, categoryPhotos]) => (
-                <div key={category} className="mb-6 last:mb-0">
-                  <h3 className="text-sm font-medium text-slate uppercase tracking-wider mb-3">{category}</h3>
+            {/* Main Content */}
+            <div className="flex-1">
+              <div className="bg-white rounded-lg border border-mist p-6">
+                {/* Folder Header */}
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl">{currentFolder?.icon}</span>
+                      <h2 className="text-lg font-semibold text-ink">{currentFolder?.name}</h2>
+                      {currentFolder?.isWebsiteOnly && (
+                        <span className="text-xs px-2 py-0.5 rounded bg-sky-100 text-sky-700">Website repo only</span>
+                      )}
+                    </div>
+                    <p className="text-xs text-slate mt-1">Path: {currentFolder?.path}</p>
+                  </div>
+                  <span className="text-sm text-slate">{currentPhotos.length} images</span>
+                </div>
+
+                {/* Photo Grid */}
+                {currentPhotos.length > 0 ? (
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {categoryPhotos.map((photo) => (
+                    {currentPhotos.map(({ photo, folder }) => (
                       <div
                         key={photo.file}
                         className="bg-parchment rounded-lg overflow-hidden hover:shadow-md transition-shadow group"
                       >
                         <div className="aspect-video relative bg-slate/10">
-                          <Image
-                            src={`/images/${photo.file}`}
-                            alt={photo.name}
-                            fill
-                            className="object-cover"
-                          />
+                          {!folder.isWebsiteOnly ? (
+                            <Image
+                              src={`/images/${photo.file}`}
+                              alt={photo.name}
+                              fill
+                              className="object-cover"
+                            />
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center text-slate text-xs">
+                              Website repo
+                            </div>
+                          )}
                         </div>
                         <div className="p-3">
                           <div className="flex items-start justify-between gap-2">
@@ -278,43 +486,47 @@ export default function AssetsPage() {
                             {getStatusBadge(photo.status)}
                           </div>
                           <p className="text-[10px] text-slate mt-1">{photo.description}</p>
+                          {currentFolder?.children && (
+                            <p className="text-[10px] text-primary mt-1">{folder.name}</p>
+                          )}
                         </div>
                       </div>
                     ))}
                   </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Website-Only Photos */}
-            <div className="bg-white rounded-lg border border-mist p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h2 className="text-lg font-semibold text-ink">Website-Only Photography</h2>
-                  <p className="text-xs text-slate">Source: website/public/images/</p>
-                </div>
-                <span className="px-2 py-1 text-xs bg-sky-100 text-sky-700 rounded">Website Repo</span>
-              </div>
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4">
-                <p className="text-xs text-yellow-800">
-                  <strong>Note:</strong> These images exist only in the website repo. Consider migrating to portal for consolidated asset management.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {websiteOnlyPhotos.map((photo) => (
-                  <div
-                    key={photo.file}
-                    className="bg-parchment rounded-lg overflow-hidden border border-dashed border-slate/30"
-                  >
-                    <div className="aspect-video relative bg-slate/10 flex items-center justify-center">
-                      <span className="text-xs text-slate">Website repo</span>
-                    </div>
-                    <div className="p-2">
-                      <p className="text-xs font-medium text-ink truncate">{photo.name}</p>
-                      <p className="text-[10px] text-slate truncate">{photo.description}</p>
-                    </div>
+                ) : (
+                  <div className="text-center py-12 bg-parchment/50 rounded-lg">
+                    <p className="text-slate text-sm mb-2">No images in this folder yet</p>
+                    <p className="text-xs text-slate/70">
+                      Add images to <code className="bg-slate/10 px-1 rounded">{currentFolder?.path}</code>
+                    </p>
                   </div>
-                ))}
+                )}
+
+                {/* Folder-specific guidance */}
+                {currentFolder?.id === 'mrv' && (
+                  <div className="mt-6 pt-4 border-t border-mist bg-blue-50 -mx-6 -mb-6 p-6 rounded-b-lg">
+                    <p className="text-xs font-semibold text-blue-800 mb-2">MRV Image Guidelines</p>
+                    <p className="text-xs text-blue-700">
+                      Soil sampling, field measurements, GPS reference shots. Name as: <code className="bg-blue-100 px-1 rounded">[date]-[location]-[activity].jpeg</code>
+                    </p>
+                  </div>
+                )}
+                {currentFolder?.id === 'reports' && (
+                  <div className="mt-6 pt-4 border-t border-mist bg-amber-50 -mx-6 -mb-6 p-6 rounded-b-lg">
+                    <p className="text-xs font-semibold text-amber-800 mb-2">Report Image Guidelines</p>
+                    <p className="text-xs text-amber-700">
+                      Charts, figures, data visualizations. Name as: <code className="bg-amber-100 px-1 rounded">[report-name]-[fig-number]-[description].png</code>
+                    </p>
+                  </div>
+                )}
+                {currentFolder?.id === 'blog' && (
+                  <div className="mt-6 pt-4 border-t border-mist bg-green-50 -mx-6 -mb-6 p-6 rounded-b-lg">
+                    <p className="text-xs font-semibold text-green-800 mb-2">Blog Image Guidelines</p>
+                    <p className="text-xs text-green-700">
+                      Featured images, inline graphics. Recommended: 1200x630px for social sharing. Name as: <code className="bg-green-100 px-1 rounded">[post-slug]-[description].jpeg</code>
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -332,9 +544,12 @@ export default function AssetsPage() {
   /heroes/          # Large banner images
   /home/            # Homepage images
   /features/        # Detail/supporting
-  /internal/        # MRV, reports (NEW)
+  /blog/            # Blog post images
+  /about/           # About page images
+  /internal/        # NOT for public
     /mrv/           # MRV field photos
     /reports/       # Report figures
+    /projects/      # Project documentation
 /logos/
   pandion-logo.png`}</pre>
             </div>
@@ -345,6 +560,8 @@ export default function AssetsPage() {
 /images/
   /heroes/          # Copied from portal
   /home/            # Copied from portal
+  /features/        # Copied from portal
+  /blog/            # Copied from portal
   /programmatic/    # Website-specific
 
 # No /internal/ folder
