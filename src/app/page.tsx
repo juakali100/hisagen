@@ -51,21 +51,13 @@ const coreNavigation: NavSection[] = [
   },
   {
     section: "Frameworks",
-    description: "Methodologies that apply across programs and projects",
+    description: "Playbooks and templates — project-agnostic, adapt as needed",
     tier: "supporting",
     items: [
       { title: "Capital Continuum Framework", href: "/capital-continuum", description: "4-stage funding model — grants to carbon markets" },
       { title: "Sustainability Framework", href: "/strategy/sustainability-framework", description: "5-Layer template — biosphere to corporate, flows, actors" },
       { title: "Grant Lifecycle Methodology", href: "/grant-lifecycle", description: "11-stage grant process — Stage 1 playbook" },
-    ],
-  },
-  {
-    section: "Stage 1 Operations",
-    description: "Current funding landscape and active proposals",
-    tier: "supporting",
-    items: [
-      { title: "Funder Landscape", href: "/stage-1/funding", description: "Grant opportunities, funder mapping, deadlines" },
-      { title: "Uganda Proposals", href: "/stage-1/proposals/uganda", description: "Base proposal and funder-specific versions" },
+      { title: "Base Proposal Template", href: "/frameworks/base-proposal", description: "Grant proposal starting point — adapt per project and funder" },
     ],
   },
   {
