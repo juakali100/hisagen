@@ -181,6 +181,85 @@ export default function ProgramPage() {
                 </div>
             </section>
 
+            {/* Executive Summary - The Opportunity */}
+            <section className="mt-8 rounded-xl border border-primary/30 bg-gradient-to-br from-primary/5 to-emerald-50 p-6">
+                <div className="flex items-center justify-between mb-6">
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/60">Executive Summary</p>
+                        <h2 className="mt-1 text-lg font-bold text-secondary">The Opportunity</h2>
+                    </div>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                    {/* Unique Product */}
+                    <div className="p-4 rounded-lg border border-mist bg-white">
+                        <div className="flex items-center gap-2 mb-2">
+                            <span className="text-primary">●</span>
+                            <h3 className="text-sm font-bold text-secondary">Unique Product</h3>
+                        </div>
+                        <p className="text-sm text-slate leading-relaxed">
+                            First-of-its-kind, high-quality microbial bio-stimulant in simple ready-to-use <strong>powder and liquid format</strong>, creating a new niche in the African market.
+                        </p>
+                    </div>
+
+                    {/* Proven & Scalable */}
+                    <div className="p-4 rounded-lg border border-mist bg-white">
+                        <div className="flex items-center gap-2 mb-2">
+                            <span className="text-primary">●</span>
+                            <h3 className="text-sm font-bold text-secondary">Proven & Scalable</h3>
+                        </div>
+                        <p className="text-sm text-slate leading-relaxed">
+                            Product has <strong>demonstrated success in the United States</strong> through Locus AG. Scalable production line ready to meet Africa demand.
+                        </p>
+                    </div>
+
+                    {/* Product Benefits */}
+                    <div className="p-4 rounded-lg border border-mist bg-white">
+                        <div className="flex items-center gap-2 mb-2">
+                            <span className="text-primary">●</span>
+                            <h3 className="text-sm font-bold text-secondary">Product Benefits</h3>
+                        </div>
+                        <p className="text-sm text-slate leading-relaxed">
+                            Microbial-based products that improve <strong>crop yields, root development, and nutrient efficiency</strong> while reducing reliance on synthetic fertilizers.
+                        </p>
+                    </div>
+
+                    {/* African Market Fit */}
+                    <div className="p-4 rounded-lg border border-mist bg-white">
+                        <div className="flex items-center gap-2 mb-2">
+                            <span className="text-primary">●</span>
+                            <h3 className="text-sm font-bold text-secondary">African Market Fit</h3>
+                        </div>
+                        <p className="text-sm text-slate leading-relaxed">
+                            Exceptionally well-suited to African markets, delivering productivity gains for <strong>smallholder and commercial farmers</strong> using low-input, climate-resilient practices.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Market Stats Row */}
+                <div className="mt-6 grid gap-4 md:grid-cols-3">
+                    <div className="p-4 rounded-lg border border-emerald-200 bg-emerald-50/50 text-center">
+                        <p className="text-xl font-black text-secondary">$138.8M → $233.85M</p>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mt-1">Africa Bio-Stimulants Market</p>
+                        <p className="text-[10px] text-slate mt-1">2025 → 2031</p>
+                    </div>
+                    <div className="p-4 rounded-lg border border-emerald-200 bg-emerald-50/50 text-center">
+                        <p className="text-xl font-black text-secondary">9.08%</p>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mt-1">CAGR 2026-2031</p>
+                        <p className="text-[10px] text-slate mt-1">Market Growth Rate</p>
+                    </div>
+                    <div className="p-4 rounded-lg border border-emerald-200 bg-emerald-50/50 text-center">
+                        <p className="text-xl font-black text-secondary">Patented</p>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700 mt-1">Technology & IP</p>
+                        <p className="text-[10px] text-slate mt-1">Strong margins</p>
+                    </div>
+                </div>
+
+                <p className="mt-4 text-[10px] text-slate/60 text-right">
+                    Source: Mordor Intelligence - Africa Biostimulants Market
+                </p>
+            </section>
+
             {/* Key Decisions Tracker */}
             <section className="mt-8 rounded-xl border border-mist bg-white p-6">
                 <div className="flex items-center justify-between mb-4">
