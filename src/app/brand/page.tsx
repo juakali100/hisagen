@@ -333,91 +333,497 @@ export default function BrandGuidelinesPage() {
                       </div>
 
                       {/* Section-specific extended content */}
+
+                      {/* 01: Brand Strategy */}
+                      {section.number === '01' && (
+                        <div className="mt-4 pt-4 border-t border-mist space-y-4">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                              <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Mission</h4>
+                              <p className="text-sm text-ink">
+                                Regenerating African agricultural landscapes through soil carbon science,
+                                unlocking environmental and economic value for smallholder farmers.
+                              </p>
+                            </div>
+                            <div>
+                              <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Vision</h4>
+                              <p className="text-sm text-ink">
+                                A future where African smallholders lead the global transition to regenerative agriculture,
+                                creating resilient food systems while earning fair compensation for environmental stewardship.
+                              </p>
+                            </div>
+                          </div>
+                          <div>
+                            <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Brand Positioning</h4>
+                            <p className="text-sm text-ink">
+                              HISAGEN occupies a unique position: African-led, science-backed, commercially rigorous.
+                              We combine Locus AG's proven soil science with deep community relationships to create
+                              the most credible carbon credit pathway in East African agriculture.
+                            </p>
+                          </div>
+                          <div className="grid grid-cols-3 gap-4">
+                            <div className="bg-primary/5 p-3 rounded">
+                              <p className="text-xs font-semibold text-primary mb-1">Archetype</p>
+                              <p className="text-sm">The Sage / The Caregiver</p>
+                            </div>
+                            <div className="bg-primary/5 p-3 rounded">
+                              <p className="text-xs font-semibold text-primary mb-1">Personality</p>
+                              <p className="text-sm">Authoritative, Grounded, Progressive</p>
+                            </div>
+                            <div className="bg-primary/5 p-3 rounded">
+                              <p className="text-xs font-semibold text-primary mb-1">Promise</p>
+                              <p className="text-sm">Verified impact, fair value</p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* 02: Logo System */}
                       {section.number === '02' && (
                         <div className="mt-4 pt-4 border-t border-mist">
-                          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
-                            <h4 className="font-semibold text-red-800 text-sm mb-2">Logo Development Required</h4>
-                            <p className="text-red-700 text-xs">
-                              HISAGEN currently operates with a text-only wordmark. Professional logo design typically costs £2,000-8,000.
+                          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                            <h4 className="font-semibold text-red-800 text-sm mb-2">⚠️ Logo Development Required</h4>
+                            <p className="text-red-700 text-sm">
+                              HISAGEN currently operates with a text-only wordmark. A professional logo system is the primary brand gap.
+                              Typical investment: £2,000-8,000 depending on scope and agency.
                             </p>
                           </div>
-                          <div className="flex items-center gap-6">
-                            <div className="bg-parchment p-4 rounded-lg">
+
+                          <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-3">Current State: Wordmark Only</h4>
+                          <div className="grid md:grid-cols-4 gap-4 mb-6">
+                            <div className="bg-parchment p-6 rounded-lg text-center border border-mist">
                               <span className="text-2xl font-serif font-bold text-primary tracking-tight">HISAGEN</span>
+                              <p className="text-[10px] text-slate mt-2">Light background</p>
                             </div>
-                            <div className="bg-primary p-4 rounded-lg">
+                            <div className="bg-primary p-6 rounded-lg text-center">
                               <span className="text-2xl font-serif font-bold text-white tracking-tight">HISAGEN</span>
+                              <p className="text-[10px] text-white/70 mt-2">On primary</p>
                             </div>
-                            <div className="bg-ink p-4 rounded-lg">
+                            <div className="bg-ink p-6 rounded-lg text-center">
                               <span className="text-2xl font-serif font-bold text-white tracking-tight">HISAGEN</span>
+                              <p className="text-[10px] text-white/70 mt-2">On dark</p>
+                            </div>
+                            <div className="bg-white p-6 rounded-lg text-center border border-mist">
+                              <span className="text-2xl font-serif font-bold text-ink tracking-tight">HISAGEN</span>
+                              <p className="text-[10px] text-slate mt-2">Monochrome</p>
                             </div>
                           </div>
-                          <p className="text-xs text-slate mt-3">Current state: Source Serif 4 Bold wordmark. No symbol exists yet.</p>
+
+                          <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-3">What's Needed for Full Logo System</h4>
+                          <div className="grid md:grid-cols-3 gap-4">
+                            <div className="bg-slate/5 p-4 rounded border border-dashed border-slate/30">
+                              <p className="font-medium text-sm mb-1">Primary Logo</p>
+                              <p className="text-xs text-slate">Full-color logo with symbol + wordmark</p>
+                            </div>
+                            <div className="bg-slate/5 p-4 rounded border border-dashed border-slate/30">
+                              <p className="font-medium text-sm mb-1">Logomark / Symbol</p>
+                              <p className="text-xs text-slate">Standalone icon for small applications</p>
+                            </div>
+                            <div className="bg-slate/5 p-4 rounded border border-dashed border-slate/30">
+                              <p className="font-medium text-sm mb-1">Horizontal & Stacked</p>
+                              <p className="text-xs text-slate">Layout variants for different contexts</p>
+                            </div>
+                            <div className="bg-slate/5 p-4 rounded border border-dashed border-slate/30">
+                              <p className="font-medium text-sm mb-1">Monochrome Versions</p>
+                              <p className="text-xs text-slate">Black, white, single-color applications</p>
+                            </div>
+                            <div className="bg-slate/5 p-4 rounded border border-dashed border-slate/30">
+                              <p className="font-medium text-sm mb-1">Favicon & App Icon</p>
+                              <p className="text-xs text-slate">16px, 32px, 180px, 512px sizes</p>
+                            </div>
+                            <div className="bg-slate/5 p-4 rounded border border-dashed border-slate/30">
+                              <p className="font-medium text-sm mb-1">File Formats</p>
+                              <p className="text-xs text-slate">SVG, PNG, EPS for all variants</p>
+                            </div>
+                          </div>
+                          <p className="text-xs text-slate mt-4">
+                            <strong>Note:</strong> Source Serif 4 Bold is used for the current wordmark.
+                            Any logo development should maintain visual consistency with this typographic foundation.
+                          </p>
                         </div>
                       )}
 
+                      {/* 03: Color Palette */}
                       {section.number === '03' && (
-                        <div className="mt-4 pt-4 border-t border-mist">
-                          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4">
-                            <p className="text-xs text-yellow-800">
-                              <strong>Decision Required:</strong> Two color systems exist (Portal vs Website). Review needed to consolidate.
+                        <div className="mt-4 pt-4 border-t border-mist space-y-6">
+                          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                            <h4 className="font-semibold text-yellow-800 text-sm mb-2">⚠️ Decision Required: Two Color Systems</h4>
+                            <p className="text-yellow-700 text-sm">
+                              The Portal and Website use slightly different palettes developed at different times.
+                              Consolidation recommended before public website launch.
                             </p>
                           </div>
-                          <div className="grid md:grid-cols-2 gap-4">
-                            <div>
-                              <p className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Portal Colors</p>
-                              <div className="flex gap-2">
-                                {portalColors.primary.map(c => (
-                                  <div key={c.hex} className="w-10 h-10 rounded shadow-sm" style={{ backgroundColor: c.hex }} title={`${c.name}: ${c.hex}`} />
-                                ))}
+
+                          {/* Portal Colors */}
+                          <div>
+                            <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-3">Portal Brand Colors (Original)</h4>
+                            <p className="text-xs text-slate mb-4">Developed for internal portal — crisp, professional, finance-forward</p>
+                            <div className="space-y-3">
+                              <div>
+                                <p className="text-[10px] font-medium text-slate uppercase tracking-wider mb-2">Primary Palette</p>
+                                <div className="grid grid-cols-3 gap-3">
+                                  {portalColors.primary.map(color => (
+                                    <div key={color.hex} className="bg-white rounded-lg border border-mist overflow-hidden">
+                                      <div className="h-16" style={{ backgroundColor: color.hex }} />
+                                      <div className="p-3">
+                                        <p className="font-medium text-sm">{color.name}</p>
+                                        <p className="text-xs text-slate font-mono">{color.hex}</p>
+                                        <p className="text-xs text-slate mt-1">{color.usage}</p>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                              <div>
+                                <p className="text-[10px] font-medium text-slate uppercase tracking-wider mb-2">Supporting Palette</p>
+                                <div className="grid grid-cols-4 gap-3">
+                                  {portalColors.supporting.map(color => (
+                                    <div key={color.hex} className="bg-white rounded-lg border border-mist overflow-hidden">
+                                      <div className="h-12" style={{ backgroundColor: color.hex }} />
+                                      <div className="p-2">
+                                        <p className="font-medium text-xs">{color.name}</p>
+                                        <p className="text-[10px] text-slate font-mono">{color.hex}</p>
+                                        <p className="text-[10px] text-slate">{color.usage}</p>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
                               </div>
                             </div>
-                            <div>
-                              <p className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Website Colors</p>
-                              <div className="flex gap-2">
-                                {websiteColors.primary.map(c => (
-                                  <div key={c.hex} className="w-10 h-10 rounded shadow-sm" style={{ backgroundColor: c.hex }} title={`${c.name}: ${c.hex}`} />
-                                ))}
+                          </div>
+
+                          {/* Website Colors */}
+                          <div>
+                            <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-3">Website Brand Colors (Newer)</h4>
+                            <p className="text-xs text-slate mb-4">Developed for public website — warmer, earthier, regeneration-forward</p>
+                            <div className="space-y-3">
+                              <div>
+                                <p className="text-[10px] font-medium text-slate uppercase tracking-wider mb-2">Primary Palette</p>
+                                <div className="grid grid-cols-3 gap-3">
+                                  {websiteColors.primary.map(color => (
+                                    <div key={color.hex} className="bg-white rounded-lg border border-mist overflow-hidden">
+                                      <div className="h-16" style={{ backgroundColor: color.hex }} />
+                                      <div className="p-3">
+                                        <p className="font-medium text-sm">{color.name}</p>
+                                        <p className="text-xs text-slate font-mono">{color.hex}</p>
+                                        <p className="text-xs text-slate mt-1">{color.usage}</p>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                              <div>
+                                <p className="text-[10px] font-medium text-slate uppercase tracking-wider mb-2">Secondary Palette</p>
+                                <div className="grid grid-cols-3 gap-3">
+                                  {websiteColors.secondary.map(color => (
+                                    <div key={color.hex} className="bg-white rounded-lg border border-mist overflow-hidden">
+                                      <div className="h-12" style={{ backgroundColor: color.hex }} />
+                                      <div className="p-2">
+                                        <p className="font-medium text-xs">{color.name}</p>
+                                        <p className="text-[10px] text-slate font-mono">{color.hex}</p>
+                                        <p className="text-[10px] text-slate">{color.usage}</p>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Consolidation Options */}
+                          <div className="bg-primary/5 p-4 rounded-lg">
+                            <h4 className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Consolidation Options</h4>
+                            <div className="grid md:grid-cols-3 gap-4 text-sm">
+                              <div>
+                                <p className="font-medium">Option A: Website Wins</p>
+                                <p className="text-xs text-slate">Warmer, more agricultural. Migrate portal to website palette.</p>
+                              </div>
+                              <div>
+                                <p className="font-medium">Option B: Portal Wins</p>
+                                <p className="text-xs text-slate">More corporate/finance. Migrate website to portal palette.</p>
+                              </div>
+                              <div>
+                                <p className="font-medium">Option C: Hybrid</p>
+                                <p className="text-xs text-slate">Create unified palette taking best of both systems.</p>
                               </div>
                             </div>
                           </div>
                         </div>
                       )}
 
+                      {/* 04: Typography */}
                       {section.number === '04' && (
-                        <div className="mt-4 pt-4 border-t border-mist">
-                          <div className="grid md:grid-cols-2 gap-4">
+                        <div className="mt-4 pt-4 border-t border-mist space-y-6">
+                          <div className="grid md:grid-cols-2 gap-8">
+                            {/* Primary Typeface */}
                             <div>
-                              <p className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Inter (Body & UI)</p>
-                              <p className="text-lg font-sans">The quick brown fox jumps over the lazy dog</p>
+                              <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-3">Primary Typeface: Source Serif 4</h4>
+                              <p className="text-xs text-slate mb-4">Used for headlines, titles, and brand moments. Conveys authority and heritage.</p>
+                              <div className="space-y-3 bg-white p-4 rounded-lg border border-mist">
+                                <p className="font-serif text-3xl font-bold text-ink">HISAGEN</p>
+                                <p className="font-serif text-2xl font-semibold text-ink">Regenerating African Agriculture</p>
+                                <p className="font-serif text-xl text-ink">The quick brown fox jumps over the lazy dog</p>
+                                <p className="font-serif text-lg text-ink">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+                                <p className="font-serif text-lg text-ink">abcdefghijklmnopqrstuvwxyz</p>
+                                <p className="font-serif text-lg text-ink">1234567890 !@#$%^&*()</p>
+                                <div className="flex gap-4 pt-2 border-t border-mist text-xs text-slate">
+                                  <span>Light</span>
+                                  <span className="font-medium">Regular</span>
+                                  <span className="font-semibold">Semibold</span>
+                                  <span className="font-bold">Bold</span>
+                                </div>
+                              </div>
                             </div>
+
+                            {/* Secondary Typeface */}
                             <div>
-                              <p className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Source Serif 4 (Headlines)</p>
-                              <p className="text-lg font-serif">The quick brown fox jumps over the lazy dog</p>
+                              <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-3">Secondary Typeface: Inter</h4>
+                              <p className="text-xs text-slate mb-4">Used for body text, UI, and data. Optimized for screen readability.</p>
+                              <div className="space-y-3 bg-white p-4 rounded-lg border border-mist">
+                                <p className="font-sans text-3xl font-bold text-ink">HISAGEN</p>
+                                <p className="font-sans text-2xl font-semibold text-ink">Regenerating African Agriculture</p>
+                                <p className="font-sans text-xl text-ink">The quick brown fox jumps over the lazy dog</p>
+                                <p className="font-sans text-lg text-ink">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+                                <p className="font-sans text-lg text-ink">abcdefghijklmnopqrstuvwxyz</p>
+                                <p className="font-sans text-lg text-ink">1234567890 !@#$%^&*()</p>
+                                <div className="flex gap-4 pt-2 border-t border-mist text-xs text-slate">
+                                  <span>Light</span>
+                                  <span className="font-medium">Regular</span>
+                                  <span className="font-semibold">Semibold</span>
+                                  <span className="font-bold">Bold</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Type Scale */}
+                          <div>
+                            <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-3">Type Scale</h4>
+                            <div className="bg-white p-4 rounded-lg border border-mist space-y-3">
+                              <div className="flex items-baseline gap-4">
+                                <span className="text-xs text-slate w-20">H1 / 36px</span>
+                                <span className="font-serif text-4xl font-bold text-ink">Page Title</span>
+                              </div>
+                              <div className="flex items-baseline gap-4">
+                                <span className="text-xs text-slate w-20">H2 / 28px</span>
+                                <span className="font-serif text-3xl font-semibold text-ink">Section Header</span>
+                              </div>
+                              <div className="flex items-baseline gap-4">
+                                <span className="text-xs text-slate w-20">H3 / 22px</span>
+                                <span className="font-serif text-2xl font-semibold text-ink">Subsection</span>
+                              </div>
+                              <div className="flex items-baseline gap-4">
+                                <span className="text-xs text-slate w-20">H4 / 18px</span>
+                                <span className="font-sans text-lg font-semibold text-ink">Card Title</span>
+                              </div>
+                              <div className="flex items-baseline gap-4">
+                                <span className="text-xs text-slate w-20">Body / 16px</span>
+                                <span className="font-sans text-base text-ink">Body text for paragraphs and content</span>
+                              </div>
+                              <div className="flex items-baseline gap-4">
+                                <span className="text-xs text-slate w-20">Small / 14px</span>
+                                <span className="font-sans text-sm text-slate">Secondary text and captions</span>
+                              </div>
+                              <div className="flex items-baseline gap-4">
+                                <span className="text-xs text-slate w-20">XS / 12px</span>
+                                <span className="font-sans text-xs text-slate uppercase tracking-wider">Labels and metadata</span>
+                              </div>
                             </div>
                           </div>
                         </div>
                       )}
 
-                      {section.number === '08' && (
-                        <div className="mt-4 pt-4 border-t border-mist">
-                          <div className="grid md:grid-cols-2 gap-4 text-sm">
+                      {/* 05: Photography & Imagery */}
+                      {section.number === '05' && (
+                        <div className="mt-4 pt-4 border-t border-mist space-y-4">
+                          <div className="grid md:grid-cols-2 gap-6">
                             <div>
-                              <p className="font-semibold text-primary mb-2">We Sound Like</p>
-                              <ul className="space-y-1 text-slate text-xs">
-                                <li>• Authoritative — Evidence-based, confident</li>
-                                <li>• Clear & Direct — No jargon</li>
-                                <li>• Warm but Disciplined</li>
-                                <li>• Forward-Looking</li>
+                              <h4 className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Photography Direction</h4>
+                              <ul className="space-y-2 text-sm text-ink">
+                                <li>• <strong>Authentic:</strong> Real farmers, real fields, real impact</li>
+                                <li>• <strong>Grounded:</strong> Eye-level, respectful framing</li>
+                                <li>• <strong>Warm light:</strong> Golden hour preferred, avoid harsh midday</li>
+                                <li>• <strong>Active:</strong> People working, not posed portraits</li>
+                                <li>• <strong>Context:</strong> Show environment, not just close-ups</li>
                               </ul>
                             </div>
                             <div>
-                              <p className="font-semibold text-red-600 mb-2">We Don't Sound Like</p>
-                              <ul className="space-y-1 text-slate text-xs">
-                                <li>• NGO or charity language</li>
-                                <li>• Promotional hype</li>
-                                <li>• Academic abstraction</li>
-                                <li>• Aid-centric narratives</li>
+                              <h4 className="text-xs font-semibold text-red-600 uppercase tracking-wider mb-2">Avoid</h4>
+                              <ul className="space-y-2 text-sm text-slate">
+                                <li>• Stock photos with Western farmers</li>
+                                <li>• "Poverty tourism" framing</li>
+                                <li>• Over-saturated colors</li>
+                                <li>• Aerial shots (feel distant)</li>
+                                <li>• White savior compositions</li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div className="bg-slate/5 p-4 rounded-lg">
+                            <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Image Treatment</h4>
+                            <p className="text-sm text-ink">
+                              Minimal editing. Slight warmth (+5-10%). Preserve skin tones accurately.
+                              No heavy filters or Instagram-style treatments.
+                            </p>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* 06: Iconography */}
+                      {section.number === '06' && (
+                        <div className="mt-4 pt-4 border-t border-mist">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                              <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Icon Style</h4>
+                              <ul className="space-y-2 text-sm text-ink">
+                                <li>• Line-based, 2px stroke weight</li>
+                                <li>• Rounded caps and joins</li>
+                                <li>• 24x24px base grid</li>
+                                <li>• Simple, recognizable forms</li>
+                              </ul>
+                            </div>
+                            <div className="bg-slate/5 p-4 rounded-lg">
+                              <p className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Gap: Custom Icon Set</p>
+                              <p className="text-sm text-slate">
+                                Currently using Lucide icons. Consider custom icons for key concepts:
+                                soil carbon, regeneration, community, verification.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* 07: Graphic Elements */}
+                      {section.number === '07' && (
+                        <div className="mt-4 pt-4 border-t border-mist">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                              <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Data Visualization</h4>
+                              <ul className="space-y-2 text-sm text-ink">
+                                <li>• Use primary palette for key metrics</li>
+                                <li>• Clear labels, no chart junk</li>
+                                <li>• Consistent axis styling</li>
+                                <li>• Accessible color combinations</li>
+                              </ul>
+                            </div>
+                            <div className="bg-slate/5 p-4 rounded-lg">
+                              <p className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Gap: Patterns & Textures</p>
+                              <p className="text-sm text-slate">
+                                Could develop: soil texture pattern, topographical lines,
+                                organic shapes for backgrounds.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* 08: Voice & Tone */}
+                      {section.number === '08' && (
+                        <div className="mt-4 pt-4 border-t border-mist space-y-6">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div className="bg-primary/5 p-4 rounded-lg">
+                              <h4 className="font-semibold text-primary mb-3">We Sound Like</h4>
+                              <ul className="space-y-2 text-sm text-ink">
+                                <li><strong>Authoritative:</strong> Evidence-based, confident, we know our field</li>
+                                <li><strong>Clear & Direct:</strong> No jargon, no buzzwords, plain language</li>
+                                <li><strong>Warm but Disciplined:</strong> We care about people AND rigor</li>
+                                <li><strong>Forward-Looking:</strong> Solutions-focused, opportunity-oriented</li>
+                                <li><strong>Grounded:</strong> Connected to the land and communities we serve</li>
+                              </ul>
+                            </div>
+                            <div className="bg-red-50 p-4 rounded-lg">
+                              <h4 className="font-semibold text-red-700 mb-3">We Don't Sound Like</h4>
+                              <ul className="space-y-2 text-sm text-slate">
+                                <li>• NGO or charity language ("helping the poor")</li>
+                                <li>• Promotional hype ("revolutionary", "game-changing")</li>
+                                <li>• Academic abstraction (jargon-heavy)</li>
+                                <li>• Aid-centric narratives (savior complex)</li>
+                                <li>• Corporate greenwashing (vague claims)</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-3">Writing Principles</h4>
+                            <div className="grid md:grid-cols-3 gap-4">
+                              <div className="bg-white p-4 rounded-lg border border-mist">
+                                <p className="font-medium text-sm mb-1">Lead with Impact</p>
+                                <p className="text-xs text-slate">Start with what matters: outcomes, results, change.</p>
+                              </div>
+                              <div className="bg-white p-4 rounded-lg border border-mist">
+                                <p className="font-medium text-sm mb-1">Show, Don't Tell</p>
+                                <p className="text-xs text-slate">Data and stories over adjectives and claims.</p>
+                              </div>
+                              <div className="bg-white p-4 rounded-lg border border-mist">
+                                <p className="font-medium text-sm mb-1">Respect Expertise</p>
+                                <p className="text-xs text-slate">Farmers are partners with knowledge, not beneficiaries.</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="grid md:grid-cols-2 gap-4">
+                            <div>
+                              <h4 className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Words We Use</h4>
+                              <p className="text-sm text-ink">
+                                Regeneration, soil health, carbon sequestration, smallholder, community,
+                                verification, evidence, partnership, value, resilience
+                              </p>
+                            </div>
+                            <div>
+                              <h4 className="text-xs font-semibold text-red-600 uppercase tracking-wider mb-2">Words We Avoid</h4>
+                              <p className="text-sm text-slate">
+                                Disruption, revolutionary, beneficiaries, helping, poor farmers,
+                                third world, developing nations, game-changing
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* 09: Applications */}
+                      {section.number === '09' && (
+                        <div className="mt-4 pt-4 border-t border-mist">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                              <h4 className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Complete</h4>
+                              <ul className="space-y-2 text-sm text-ink">
+                                <li>✓ Email signatures (standard format)</li>
+                                <li>✓ Website guidelines (this portal + public site)</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Gaps to Address</h4>
+                              <ul className="space-y-2 text-sm text-slate">
+                                <li>○ Business cards</li>
+                                <li>○ Letterhead & document templates</li>
+                                <li>○ Presentation templates (PowerPoint/Keynote)</li>
+                                <li>○ Social media templates</li>
+                                <li>○ Report templates</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* 10: Digital Guidelines */}
+                      {section.number === '10' && (
+                        <div className="mt-4 pt-4 border-t border-mist">
+                          <div className="grid md:grid-cols-2 gap-6">
+                            <div>
+                              <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">UI Components</h4>
+                              <ul className="space-y-2 text-sm text-ink">
+                                <li>• Buttons: Rounded (8px), primary/secondary variants</li>
+                                <li>• Cards: Subtle shadow, mist border, 16px padding</li>
+                                <li>• Forms: Clear labels, visible focus states</li>
+                                <li>• Tables: Alternating rows, clear headers</li>
+                              </ul>
+                            </div>
+                            <div>
+                              <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-2">Motion & Animation</h4>
+                              <ul className="space-y-2 text-sm text-ink">
+                                <li>• Transitions: 200ms ease-out default</li>
+                                <li>• Hover states: Subtle lift or color shift</li>
+                                <li>• Loading: Skeleton screens preferred</li>
+                                <li>• No gratuitous animation</li>
                               </ul>
                             </div>
                           </div>
