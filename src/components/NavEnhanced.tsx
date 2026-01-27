@@ -3,9 +3,54 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { useState, useRef } from "react";
 import Image from "next/image";
+
+// =============================================================================
+// BREADCRUMB MAPPING - Route to Display Names
+// =============================================================================
+
+const routeLabels: Record<string, string> = {
+  "organization": "Who We Are",
+  "strategy": "Strategy & Governance",
+  "sustainability-framework": "Sustainability Framework",
+  "program": "Program",
+  "project": "Projects",
+  "hisagen-uganda": "Uganda Pilot",
+  "rwanda": "Rwanda",
+  "kenya": "Kenya",
+  "stage-1": "Stage 1: Incubation",
+  "stage-2": "Stage 2: Implementation",
+  "stage-3": "Stage 3: Stabilization",
+  "stage-4": "Stage 4: Maturity",
+  "funding": "Funding",
+  "funder-landscape": "Funder Landscape",
+  "opportunities": "Opportunities",
+  "v0-grant-proposal": "Grant Proposal",
+  "grant-progress": "Grant Progress",
+  "projects": "Projects",
+  "capital-continuum": "Capital Continuum",
+  "grant-lifecycle": "Grant Lifecycle",
+  "knowledge-base": "Knowledge Base",
+  "evidence": "Evidence Vault",
+  "ecosystem": "Ecosystem",
+  "locus-ag": "Locus AG",
+  "comms": "Communications",
+  "brand": "Brand Identity",
+  "logo": "Logo Concepts",
+  "assets": "Asset Library",
+  "website": "Website & Digital",
+  "content": "Content & Messaging",
+  "social": "Social Media",
+  "pr": "PR & Media",
+  "collateral": "Marketing Collateral",
+  "investor": "Investor Comms",
+  "internal": "Internal Comms",
+  "frameworks": "Frameworks",
+  "base-proposal": "Base Proposal",
+  "start-here": "Start Here",
+};
 
 // =============================================================================
 // NAVIGATION DATA - Aligned with Home Page Structure
@@ -163,6 +208,56 @@ function HoverPopover({
   );
 }
 
+// =============================================================================
+// BREADCRUMB COMPONENT
+// =============================================================================
+
+function Breadcrumb() {
+  const pathname = usePathname();
+
+  // Don't show breadcrumb on home page
+  if (pathname === "/") return null;
+
+  const segments = pathname.split("/").filter(Boolean);
+
+  // Build breadcrumb items
+  const items = segments.map((segment, index) => {
+    const href = "/" + segments.slice(0, index + 1).join("/");
+    const label = routeLabels[segment] || segment.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+    const isLast = index === segments.length - 1;
+
+    return { href, label, isLast };
+  });
+
+  return (
+    <div className="mx-auto max-w-5xl px-4">
+      <div className="flex items-center gap-1.5 py-2 text-[11px]">
+        <Link
+          href="/"
+          className="text-slate/60 hover:text-primary transition-colors font-medium"
+        >
+          Home
+        </Link>
+        {items.map((item) => (
+          <span key={item.href} className="flex items-center gap-1.5">
+            <ChevronRightIcon className="h-3 w-3 text-slate/30" />
+            {item.isLast ? (
+              <span className="text-secondary font-semibold">{item.label}</span>
+            ) : (
+              <Link
+                href={item.href}
+                className="text-slate/60 hover:text-primary transition-colors font-medium"
+              >
+                {item.label}
+              </Link>
+            )}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function NavEnhanced() {
   return (
     <header className="relative z-50 mx-auto mb-10 bg-secondary">
@@ -252,6 +347,10 @@ export default function NavEnhanced() {
           </HoverPopover>
         </div>
       </nav>
+      {/* Breadcrumb Bar */}
+      <div className="bg-parchment border-b border-mist">
+        <Breadcrumb />
+      </div>
     </header>
   );
 }

@@ -90,8 +90,8 @@ const recentUpdates = [
 export default function HomePage() {
   return (
     <div className="text-ink font-sans min-h-screen bg-parchment">
-      {/* Portal Header - Deep Blue-Grey lead color */}
-      <header className="bg-secondary text-white">
+      {/* Portal Header - Primary Green for contrast with nav */}
+      <header className="bg-primary text-white">
         <div className="mx-auto max-w-5xl px-6 py-8">
           <div className="flex items-center justify-between">
             <div>
@@ -101,7 +101,7 @@ export default function HomePage() {
               <h1 className="text-2xl font-serif font-bold">HISAGEN</h1>
             </div>
             <div className="flex items-center gap-3">
-              <span className="px-3 py-1 text-xs rounded-full bg-primary text-white font-medium">
+              <span className="px-3 py-1 text-xs rounded-full bg-secondary text-white font-medium">
                 Stage 1 Active
               </span>
             </div>
