@@ -250,6 +250,29 @@ export default function ProgramPage() {
                 </div>
             </section>
 
+            {/* Technology Deep Dive Callout */}
+            <a href="/ecosystem/locus-ag" className="block mt-6 group">
+                <div className="rounded-xl border-2 border-emerald-300 bg-gradient-to-r from-emerald-50 to-emerald-100/50 p-5 hover:border-emerald-400 hover:shadow-lg transition-all">
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-4">
+                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-200 flex items-center justify-center">
+                                <span className="text-emerald-700 text-xl">🧬</span>
+                            </div>
+                            <div>
+                                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-600">The Science</p>
+                                <h3 className="text-base font-bold text-secondary">Locus AG Technology Deep Dive</h3>
+                                <p className="text-xs text-slate mt-1">Endophytic microbes, product specifications, validated yield data & more</p>
+                            </div>
+                        </div>
+                        <div className="flex-shrink-0 text-emerald-600 group-hover:translate-x-1 transition-transform">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
             {/* Who We Are */}
             <section className="mt-6 rounded-xl border border-blue-200 bg-blue-50/30 p-6">
                 <div className="flex items-center gap-3 mb-4">
@@ -266,6 +289,9 @@ export default function ProgramPage() {
                         <p className="text-sm text-slate leading-relaxed">
                             US-based agricultural biotechnology company with patented microbial products (Rhizolizer). Proven across American farms with 15-30% yield improvements. The technology works — now it's ready for new markets.
                         </p>
+                        <a href="/ecosystem/locus-ag" className="inline-flex items-center gap-1 mt-3 text-xs font-bold text-emerald-600 hover:text-emerald-700 hover:underline">
+                            View Full Locus AG Profile →
+                        </a>
                     </div>
                     <div className="p-4 rounded-lg bg-white border border-blue-100">
                         <p className="text-sm font-bold text-secondary mb-2">HISAGEN</p>

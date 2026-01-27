@@ -54,10 +54,18 @@ const navItems: NavItem[] = [
     href: "/ecosystem",
     dropdown: [
       {
-        label: "Partners",
+        label: "Technology Partner",
+        href: "/ecosystem/locus-ag",
+        subItems: [
+          { href: "/ecosystem/locus-ag", label: "Locus AG Profile" },
+          { href: "/evidence", label: "Yield Evidence" },
+        ],
+      },
+      {
+        label: "All Partners",
         href: "/ecosystem",
         subItems: [
-          { href: "/ecosystem/locus-ag", label: "Locus AG (Technology)" },
+          { href: "/ecosystem", label: "Partner Overview" },
         ],
       },
     ],
