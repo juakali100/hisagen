@@ -13,36 +13,29 @@ export default function BrandGuidelinesPage() {
     );
   };
 
-  // Portal Brand Guidelines (Original - for internal portal)
-  const portalColors = {
-    primary: [
-      { name: 'Forest Green', hex: '#1F6A4A', usage: 'Growth, soil, regeneration' },
-      { name: 'Deep Blue-Grey', hex: '#1F2E3A', usage: 'Credibility, finance, rigor' },
-      { name: 'Gold', hex: '#D8B75A', usage: 'Value, yield, optimism' },
-    ],
-    supporting: [
-      { name: 'Ink', hex: '#0F172A', usage: 'Body text' },
-      { name: 'Slate', hex: '#334155', usage: 'Secondary text' },
-      { name: 'Mist', hex: '#CBD5E1', usage: 'Backgrounds' },
-      { name: 'Parchment', hex: '#F7F8F5', usage: 'Base background' },
-    ],
-    semantic: [
-      { name: 'Terracotta', hex: '#C4674A', usage: 'Alerts, problems, urgent items' },
-      { name: 'Terracotta Light', hex: '#F9E8E2', usage: 'Alert backgrounds' },
-    ],
-  };
-
-  // Website Brand Guidelines (Newer - for public website)
+  // HISAGEN Unified Brand Colors
+  // Hybrid approach combining Website warmth with Portal institutional strength
   const websiteColors = {
     primary: [
       { name: 'Deep Regenerative Green', hex: '#1F4D3A', usage: 'Headers, brand anchors' },
-      { name: 'Soil Carbon Brown', hex: '#6B4A2B', usage: 'Earth, grounded elements' },
-      { name: 'Charcoal Black', hex: '#1C1C1C', usage: 'Body text, institutional' },
+      { name: 'Deep Blue-Grey', hex: '#1F2E3A', usage: 'Credibility, finance, institutional' },
+      { name: 'Harvest Gold', hex: '#C6A04A', usage: 'Highlights, CTAs, optimism' },
     ],
     secondary: [
-      { name: 'Harvest Gold', hex: '#C6A04A', usage: 'Highlights (sparingly)' },
+      { name: 'Black Cotton Soil', hex: '#2D2A26', usage: 'Body text, deep grounding' },
       { name: 'Clay Neutral', hex: '#E6DED3', usage: 'Backgrounds, warmth' },
       { name: 'Muted Slate', hex: '#6F7C82', usage: 'Data, secondary UI' },
+    ],
+    supporting: [
+      { name: 'Ink', hex: '#0F172A', usage: 'High contrast, premium dark contexts' },
+      { name: 'Soil Carbon Brown', hex: '#6B4A2B', usage: 'Earth tones, soil context, grounded elements' },
+      { name: 'Slate', hex: '#334155', usage: 'Secondary text, subdued labels' },
+      { name: 'Mist', hex: '#CBD5E1', usage: 'Borders, dividers, light backgrounds' },
+      { name: 'Parchment', hex: '#F7F8F5', usage: 'Base background, warm off-white' },
+    ],
+    semantic: [
+      { name: 'Murram', hex: '#A85838', usage: 'Alerts, problems, urgent items' },
+      { name: 'Murram Light', hex: '#F5E6DE', usage: 'Alert backgrounds, warning highlights' },
     ],
   };
 
@@ -444,78 +437,36 @@ export default function BrandGuidelinesPage() {
                             <strong>Note:</strong> Source Serif 4 Bold is used for the current wordmark.
                             Any logo development should maintain visual consistency with this typographic foundation.
                           </p>
+                          <div className="mt-4 pt-4 border-t border-mist bg-primary/5 p-4 rounded-lg flex items-center justify-between">
+                            <div>
+                              <p className="text-sm font-medium text-ink">Logo Development Brief</p>
+                              <p className="text-xs text-slate">Concept direction, shareable snippets, and progress tracking</p>
+                            </div>
+                            <a
+                              href="/logo"
+                              className="px-4 py-2 bg-primary text-white text-sm rounded-lg hover:bg-primary/90 transition-colors"
+                            >
+                              View Brief →
+                            </a>
+                          </div>
                         </div>
                       )}
 
                       {/* 03: Color Palette */}
                       {section.number === '03' && (
                         <div className="mt-4 pt-4 border-t border-mist space-y-6">
-                          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                            <h4 className="font-semibold text-yellow-800 text-sm mb-2">⚠️ Decision Required: Two Color Systems</h4>
-                            <p className="text-yellow-700 text-sm">
-                              The Portal and Website use slightly different palettes developed at different times.
-                              Consolidation recommended before public website launch.
+                          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                            <h4 className="font-semibold text-green-800 text-sm mb-2">✓ Unified Palette Established</h4>
+                            <p className="text-green-700 text-sm">
+                              Single color system for all HISAGEN properties. East African soil story: Black Cotton Soil for text,
+                              Soil Carbon Brown for earth contexts, Murram for alerts. Deep Regenerative Green anchors the brand.
                             </p>
                           </div>
 
-                          {/* Portal Colors */}
+                          {/* Unified HISAGEN Colors */}
                           <div>
-                            <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-3">Portal Brand Colors (Original)</h4>
-                            <p className="text-xs text-slate mb-4">Developed for internal portal — crisp, professional, finance-forward</p>
-                            <div className="space-y-3">
-                              <div>
-                                <p className="text-[10px] font-medium text-slate uppercase tracking-wider mb-2">Primary Palette</p>
-                                <div className="grid grid-cols-3 gap-3">
-                                  {portalColors.primary.map(color => (
-                                    <div key={color.hex} className="bg-white rounded-lg border border-mist overflow-hidden">
-                                      <div className="h-16" style={{ backgroundColor: color.hex }} />
-                                      <div className="p-3">
-                                        <p className="font-medium text-sm">{color.name}</p>
-                                        <p className="text-xs text-slate font-mono">{color.hex}</p>
-                                        <p className="text-xs text-slate mt-1">{color.usage}</p>
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                              <div>
-                                <p className="text-[10px] font-medium text-slate uppercase tracking-wider mb-2">Supporting Palette</p>
-                                <div className="grid grid-cols-4 gap-3">
-                                  {portalColors.supporting.map(color => (
-                                    <div key={color.hex} className="bg-white rounded-lg border border-mist overflow-hidden">
-                                      <div className="h-12" style={{ backgroundColor: color.hex }} />
-                                      <div className="p-2">
-                                        <p className="font-medium text-xs">{color.name}</p>
-                                        <p className="text-[10px] text-slate font-mono">{color.hex}</p>
-                                        <p className="text-[10px] text-slate">{color.usage}</p>
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                              <div>
-                                <p className="text-[10px] font-medium text-slate uppercase tracking-wider mb-2">Semantic Colors</p>
-                                <div className="grid grid-cols-2 gap-3">
-                                  {portalColors.semantic.map(color => (
-                                    <div key={color.hex} className="bg-white rounded-lg border border-mist overflow-hidden">
-                                      <div className="h-12" style={{ backgroundColor: color.hex }} />
-                                      <div className="p-2">
-                                        <p className="font-medium text-xs">{color.name}</p>
-                                        <p className="text-[10px] text-slate font-mono">{color.hex}</p>
-                                        <p className="text-[10px] text-slate">{color.usage}</p>
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-                                <p className="text-[10px] text-slate mt-2 italic">Warm earthy tone replaces harsh red for alerts and problems</p>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Website Colors */}
-                          <div>
-                            <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-3">Website Brand Colors (Newer)</h4>
-                            <p className="text-xs text-slate mb-4">Developed for public website — warmer, earthier, regeneration-forward</p>
+                            <h4 className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">HISAGEN Brand Colors</h4>
+                            <p className="text-xs text-slate mb-4">Unified palette for all HISAGEN properties — website, portal, and print materials</p>
                             <div className="space-y-3">
                               <div>
                                 <p className="text-[10px] font-medium text-slate uppercase tracking-wider mb-2">Primary Palette</p>
@@ -547,24 +498,110 @@ export default function BrandGuidelinesPage() {
                                   ))}
                                 </div>
                               </div>
+                              <div>
+                                <p className="text-[10px] font-medium text-slate uppercase tracking-wider mb-2">Supporting Palette</p>
+                                <div className="grid grid-cols-5 gap-2">
+                                  {websiteColors.supporting.map(color => (
+                                    <div key={color.hex} className="bg-white rounded-lg border border-mist overflow-hidden">
+                                      <div className="h-12" style={{ backgroundColor: color.hex }} />
+                                      <div className="p-2">
+                                        <p className="font-medium text-xs">{color.name}</p>
+                                        <p className="text-[10px] text-slate font-mono">{color.hex}</p>
+                                        <p className="text-[10px] text-slate">{color.usage}</p>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                              <div>
+                                <p className="text-[10px] font-medium text-slate uppercase tracking-wider mb-2">Semantic Colors</p>
+                                <div className="grid grid-cols-2 gap-3">
+                                  {websiteColors.semantic.map(color => (
+                                    <div key={color.hex} className="bg-white rounded-lg border border-mist overflow-hidden">
+                                      <div className="h-12" style={{ backgroundColor: color.hex }} />
+                                      <div className="p-2">
+                                        <p className="font-medium text-xs">{color.name}</p>
+                                        <p className="text-[10px] text-slate font-mono">{color.hex}</p>
+                                        <p className="text-[10px] text-slate">{color.usage}</p>
+                                      </div>
+                                    </div>
+                                  ))}
+                                </div>
+                                <p className="text-[10px] text-slate mt-2 italic">Murram — deep earthy tone inspired by East African laterite soil, replacing terracotta</p>
+                              </div>
                             </div>
                           </div>
 
-                          {/* Consolidation Options */}
-                          <div className="bg-primary/5 p-4 rounded-lg">
-                            <h4 className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Consolidation Options</h4>
-                            <div className="grid md:grid-cols-3 gap-4 text-sm">
-                              <div>
-                                <p className="font-medium">Option A: Website Wins</p>
-                                <p className="text-xs text-slate">Warmer, more agricultural. Migrate portal to website palette.</p>
+                          {/* Palette Design Principles */}
+                          <div className="bg-primary/5 p-4 rounded-lg border-2 border-primary/20">
+                            <h4 className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Design Principles</h4>
+                            <div className="text-sm space-y-2">
+                              <ul className="text-xs text-slate space-y-1 ml-4 list-disc">
+                                <li><strong>East African soil story</strong> — Black Cotton Soil, Soil Carbon Brown, Murram connect to the land</li>
+                                <li><strong>Institutional credibility</strong> — Deep Blue-Grey and Deep Regenerative Green for finance/science contexts</li>
+                                <li><strong>Warmth with rigor</strong> — Harvest Gold and Clay Neutral balance professionalism with approachability</li>
+                                <li><strong>Semantic clarity</strong> — Murram (not harsh red) for alerts maintains earthy tone even in warnings</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          {/* Context Usage */}
+                          <div>
+                            <h4 className="text-xs font-semibold text-slate uppercase tracking-wider mb-3">Context Usage: Portal vs Website</h4>
+                            <p className="text-xs text-slate mb-4">Same palette, different emphasis — helps users know where they are</p>
+                            <div className="grid md:grid-cols-2 gap-4">
+                              {/* Portal Context */}
+                              <div className="bg-white rounded-lg border-2 border-[#1F2E3A] overflow-hidden">
+                                <div className="bg-[#1F2E3A] text-white p-4">
+                                  <p className="text-xs uppercase tracking-wider opacity-70">Internal</p>
+                                  <p className="text-lg font-serif font-bold">Portal</p>
+                                </div>
+                                <div className="p-4 space-y-3">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded" style={{ backgroundColor: '#1F2E3A' }} />
+                                    <div>
+                                      <p className="text-sm font-medium">Lead: Deep Blue-Grey</p>
+                                      <p className="text-xs text-slate">Headers, navigation, primary UI</p>
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded" style={{ backgroundColor: '#1F4D3A' }} />
+                                    <div>
+                                      <p className="text-sm font-medium">Accent: Deep Regenerative Green</p>
+                                      <p className="text-xs text-slate">CTAs, success states, highlights</p>
+                                    </div>
+                                  </div>
+                                  <p className="text-xs text-slate pt-2 border-t border-mist">
+                                    <strong>Feel:</strong> Institutional, operational, data-focused
+                                  </p>
+                                </div>
                               </div>
-                              <div>
-                                <p className="font-medium">Option B: Portal Wins</p>
-                                <p className="text-xs text-slate">More corporate/finance. Migrate website to portal palette.</p>
-                              </div>
-                              <div>
-                                <p className="font-medium">Option C: Hybrid</p>
-                                <p className="text-xs text-slate">Create unified palette taking best of both systems.</p>
+
+                              {/* Website Context */}
+                              <div className="bg-white rounded-lg border-2 border-[#1F4D3A] overflow-hidden">
+                                <div className="bg-[#1F4D3A] text-white p-4">
+                                  <p className="text-xs uppercase tracking-wider opacity-70">Public</p>
+                                  <p className="text-lg font-serif font-bold">Website</p>
+                                </div>
+                                <div className="p-4 space-y-3">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded" style={{ backgroundColor: '#1F4D3A' }} />
+                                    <div>
+                                      <p className="text-sm font-medium">Lead: Deep Regenerative Green</p>
+                                      <p className="text-xs text-slate">Headers, navigation, primary UI</p>
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded" style={{ backgroundColor: '#C6A04A' }} />
+                                    <div>
+                                      <p className="text-sm font-medium">Accent: Harvest Gold</p>
+                                      <p className="text-xs text-slate">CTAs, highlights, optimism</p>
+                                    </div>
+                                  </div>
+                                  <p className="text-xs text-slate pt-2 border-t border-mist">
+                                    <strong>Feel:</strong> Warm, inviting, story-forward
+                                  </p>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -901,11 +938,11 @@ export default function BrandGuidelinesPage() {
                   <td className="p-4">£2,000 - £8,000</td>
                   <td className="p-4">Before major funding round or public launch</td>
                 </tr>
-                <tr className="bg-parchment">
-                  <td className="p-4 font-medium">Color System Consolidation</td>
-                  <td className="p-4"><span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">Medium</span></td>
-                  <td className="p-4">Internal effort</td>
-                  <td className="p-4">Before website goes live to public</td>
+                <tr className="bg-green-50">
+                  <td className="p-4 font-medium line-through text-slate">Color System Consolidation</td>
+                  <td className="p-4"><span className="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">✓ Done</span></td>
+                  <td className="p-4 text-slate">Internal effort</td>
+                  <td className="p-4 text-green-700">Hybrid palette selected — see Section 03</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-medium">Business Card & Stationery</td>
