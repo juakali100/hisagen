@@ -100,6 +100,17 @@ Background: Parchment #F7F8F5`,
                 'layers',
                 'microbial',
                 'verified',
+                // Molecular / Microscopic
+                'carbon atom',
+                '6 electrons',
+                'nucleus',
+                'molecular',
+                'nodes',
+                'microbes',
+                'mycelium',
+                'network',
+                'bonds',
+                'organic chemistry',
               ].map((keyword) => (
                 <span key={keyword} className="px-3 py-1 bg-white border border-harvest/40 rounded-full text-sm text-ink">
                   {keyword}
@@ -128,6 +139,31 @@ Background: Parchment #F7F8F5`,
                 <span className="text-primary">●</span>
                 <p className="text-sm text-ink"><strong>Circle with roots</strong> — contained form (works as icon), but roots extend beyond or pierce the boundary. Tension between order and organic.</p>
               </div>
+
+              {/* Molecular / Microscopic Concepts */}
+              <div className="mt-4 pt-4 border-t border-harvest/20">
+                <p className="text-xs font-semibold text-harvest uppercase tracking-wider mb-3">Molecular / Microscopic Direction</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-harvest">●</span>
+                <p className="text-sm text-ink"><strong>Carbon atom as core</strong> — nucleus with 6 electrons orbiting. Could stylize as seedling emerging FROM the atom. Science = foundation of growth.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-harvest">●</span>
+                <p className="text-sm text-ink"><strong>Molecular structure / bonds</strong> — carbon atoms connected like organic chemistry diagrams. Hexagonal patterns. Clean, scientific, distinctive.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-harvest">●</span>
+                <p className="text-sm text-ink"><strong>Root network as nodes</strong> — roots drawn like a network diagram or mycelium web. Each node a point of connection. Data + nature fusion.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-harvest">●</span>
+                <p className="text-sm text-ink"><strong>Microbe/bacteria simplified</strong> — the Locus AG story is microbial. Abstract microbe shape that suggests life, growth, invisible power.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-harvest">●</span>
+                <p className="text-sm text-ink"><strong>6 elements radiating</strong> — 6 electron paths could become 6 leaves, 6 roots, or 6 nodes. Symbolic of carbon&apos;s unique bonding capacity.</p>
+              </div>
               <div className="flex items-start gap-3">
                 <span className="text-slate/50">○</span>
                 <p className="text-sm text-slate italic">Add more ideas here...</p>
@@ -145,6 +181,10 @@ Background: Parchment #F7F8F5`,
                 <li>• African textile patterns — geometric, meaningful, distinctive</li>
                 <li>• Carbon/chemistry symbols — molecular, structured, credible</li>
                 <li>• Woodcut/linocut aesthetic — bold, simple, timeless</li>
+                <li>• <strong>Organic chemistry diagrams</strong> — hexagons, bonds, molecular structures</li>
+                <li>• <strong>Electron shell diagrams</strong> — orbital paths, nucleus, scientific precision</li>
+                <li>• <strong>Mycelium networks</strong> — underground fungal webs, node connections</li>
+                <li>• <strong>Microscopy imagery</strong> — bacteria, soil microbes, cellular structures</li>
               </ul>
             </div>
           </div>
