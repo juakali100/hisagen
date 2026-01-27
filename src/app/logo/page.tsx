@@ -475,36 +475,32 @@ export default function LogoPage() {
               </div>
             </div>
 
-            {/* Concept 5 */}
-            <div className="bg-white rounded-lg border border-mist overflow-hidden">
-              <div className="aspect-square bg-gradient-to-br from-accent/20 to-accent/40 flex items-center justify-center p-6">
-                <div className="w-16 h-16 rounded-full bg-accent/60 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-white">$</span>
+            {/* Concept 5 - Placeholder */}
+            <div className="bg-white rounded-lg border border-dashed border-slate/30 overflow-hidden">
+              <div className="aspect-square bg-slate/5 flex items-center justify-center p-6">
+                <div className="text-center">
+                  <p className="text-4xl font-bold text-slate/20">5</p>
                 </div>
               </div>
-              <div className="p-4 border-t border-mist">
-                <p className="font-semibold text-ink mb-2">5. Value / Prosperity</p>
-                <p className="text-sm text-slate">
-                  Gold, wealth creation, the economic opportunity. Not charity but enterprise.
-                  Premium, investable. <em>Commercial.</em>
+              <div className="p-4 border-t border-dashed border-slate/30">
+                <p className="font-semibold text-slate/40 mb-2">Direction 5</p>
+                <p className="text-sm text-slate/30 italic">
+                  Placeholder for additional concept
                 </p>
               </div>
             </div>
 
-            {/* Concept 6 */}
-            <div className="bg-white rounded-lg border border-mist overflow-hidden">
-              <div className="aspect-square bg-gradient-to-t from-primary/30 to-primary/10 flex items-center justify-center p-6">
+            {/* Concept 6 - Placeholder */}
+            <div className="bg-white rounded-lg border border-dashed border-slate/30 overflow-hidden">
+              <div className="aspect-square bg-slate/5 flex items-center justify-center p-6">
                 <div className="text-center">
-                  <div className="w-12 h-1 bg-soil-brown/40 mx-auto mb-2"></div>
-                  <div className="w-16 h-1 bg-primary/60 mx-auto mb-2"></div>
-                  <div className="w-12 h-6 bg-primary mx-auto rounded-t-full"></div>
+                  <p className="text-4xl font-bold text-slate/20">6</p>
                 </div>
               </div>
-              <div className="p-4 border-t border-mist">
-                <p className="font-semibold text-ink mb-2">6. Transformation</p>
-                <p className="text-sm text-slate">
-                  Degraded to productive, the regeneration journey. Before and after.
-                  Change, renewal, hope. <em>Environmental.</em>
+              <div className="p-4 border-t border-dashed border-slate/30">
+                <p className="font-semibold text-slate/40 mb-2">Direction 6</p>
+                <p className="text-sm text-slate/30 italic">
+                  Placeholder for additional concept
                 </p>
               </div>
             </div>
