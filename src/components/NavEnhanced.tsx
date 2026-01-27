@@ -36,23 +36,51 @@ const knowledge = [
   { name: "Ecosystem Partners", href: "/ecosystem", icon: "/icons/icon-deedling-circular.png" },
 ];
 
+// Communications & Brand - 8 Functions
+const commsFunctions = [
+  { name: "Communications Hub", href: "/comms", icon: "/icons/icon-handshake.png", isParent: true },
+  { name: "01 Brand Identity", href: "/brand", icon: "/icons/icon-shield.png" },
+  { name: "02 Website & Digital", href: "/comms/website", icon: "/icons/icon-globe-seedling.png" },
+  { name: "03 Content & Messaging", href: "/comms/content", icon: "/icons/icon-certificate.png" },
+  { name: "04 Social Media", href: "/comms/social", icon: "/icons/icon-circular-arrows.png" },
+  { name: "05 PR & Media", href: "/comms/pr", icon: "/icons/icon-graph.png" },
+  { name: "06 Marketing Collateral", href: "/comms/collateral", icon: "/icons/icon-vault.png" },
+  { name: "07 Investor Comms", href: "/comms/investor", icon: "/icons/icon-hand-money.png" },
+  { name: "08 Internal Comms", href: "/comms/internal", icon: "/icons/icon-farmer.png" },
+];
+
+const commsQuickLinks = [
+  { name: "Asset Library", href: "/assets", icon: "/icons/icon-leaf-check.png" },
+  { name: "Logo Concepts", href: "/logo", icon: "/icons/icon-seedling.png" },
+];
+
 // =============================================================================
 // NAVIGATION COMPONENT
 // =============================================================================
 
 // Reusable nav link with icon
-function NavLink({ item }: { item: { name: string; href: string; icon: string; status?: string } }) {
+function NavLink({ item, nested = false }: { item: { name: string; href: string; icon: string; status?: string; isParent?: boolean }; nested?: boolean }) {
+  const isHubLink = item.status === "hub"; // Links back to hub (no dedicated page yet)
+
   return (
     <Link
       href={item.href}
-      className="flex items-center gap-3 py-2 text-sm font-medium text-secondary hover:text-primary transition-colors group"
+      className={`flex items-center gap-3 py-1.5 text-sm font-medium transition-colors group ${
+        item.isParent
+          ? "text-primary font-semibold"
+          : isHubLink
+          ? "text-slate/60 hover:text-slate"
+          : nested
+          ? "text-secondary/80 hover:text-primary pl-2"
+          : "text-secondary hover:text-primary"
+      }`}
     >
       <Image
         src={item.icon}
         alt=""
-        width={20}
-        height={20}
-        className="opacity-70 group-hover:opacity-100 transition-opacity"
+        width={nested ? 16 : 20}
+        height={nested ? 16 : 20}
+        className={`transition-opacity ${isHubLink ? "opacity-40" : "opacity-70 group-hover:opacity-100"}`}
       />
       <span>{item.name}</span>
       {item.status === "active" && (
@@ -63,6 +91,11 @@ function NavLink({ item }: { item: { name: string; href: string; icon: string; s
       {item.status === "planned" && (
         <span className="text-[8px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 font-bold uppercase tracking-wider">
           Planned
+        </span>
+      )}
+      {item.status === "hub" && (
+        <span className="text-[8px] px-1 py-0.5 rounded bg-slate-100 text-slate-400 font-medium">
+          →Hub
         </span>
       )}
     </Link>
@@ -150,73 +183,70 @@ export default function NavEnhanced() {
           </div>
         </div>
 
-        {/* Navigation - Single Mega Menu */}
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
-          {/* Direct links for primary pages */}
-          <Link
-            href="/strategy"
-            className="text-sm font-semibold text-white/90 hover:text-accent transition-colors px-2 py-1"
-          >
-            Strategy
-          </Link>
-          <Link
-            href="/program"
-            className="text-sm font-semibold text-white/90 hover:text-accent transition-colors px-2 py-1"
-          >
-            Program
-          </Link>
+        {/* Navigation - Section flyouts */}
+        <div className="hidden md:flex flex-wrap items-center gap-x-1">
+          {/* Strategy Flyout */}
+          <HoverPopover buttonLabel="Strategy">
+            <div className="mx-auto max-w-xl px-6 py-6">
+              <div className="space-y-1">
+                {strategyGovernance.map((item) => (
+                  <NavLink key={item.name} item={item} />
+                ))}
+              </div>
+            </div>
+          </HoverPopover>
 
-          {/* Menu Flyout - Full Navigation */}
-          <HoverPopover buttonLabel="Menu">
-            <div className="mx-auto max-w-5xl px-6 py-8 lg:px-8">
-              <div className="grid grid-cols-2 gap-x-8 gap-y-8 md:grid-cols-4">
-                {/* Strategy & Governance */}
+          {/* Program Flyout */}
+          <HoverPopover buttonLabel="Program">
+            <div className="mx-auto max-w-xl px-6 py-6">
+              <div className="space-y-1">
+                {program.map((item) => (
+                  <NavLink key={item.name} item={item} />
+                ))}
+              </div>
+            </div>
+          </HoverPopover>
+
+          {/* Communications Flyout */}
+          <HoverPopover buttonLabel="Comms">
+            <div className="mx-auto max-w-2xl px-6 py-6">
+              <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/50 mb-4">
-                    Strategy & Governance
-                  </h3>
-                  <div className="space-y-1">
-                    {strategyGovernance.map((item) => (
-                      <NavLink key={item.name} item={item} />
+                  <NavLink item={commsFunctions[0]} />
+                  <div className="border-l-2 border-mist ml-2 pl-1 mt-2 space-y-0.5">
+                    {commsFunctions.slice(1).map((item) => (
+                      <NavLink key={item.name} item={item} nested />
                     ))}
                   </div>
                 </div>
-
-                {/* Agri-Carbon Program */}
                 <div>
-                  <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/50 mb-4">
-                    Agri-Carbon Program
-                  </h3>
-                  <div className="space-y-1">
-                    {program.map((item) => (
-                      <NavLink key={item.name} item={item} />
-                    ))}
-                  </div>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/50 mb-3">Quick Links</p>
+                  {commsQuickLinks.map((item) => (
+                    <NavLink key={item.name} item={item} />
+                  ))}
                 </div>
+              </div>
+            </div>
+          </HoverPopover>
 
-                {/* Frameworks */}
-                <div>
-                  <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/50 mb-4">
-                    Frameworks
-                  </h3>
-                  <div className="space-y-1">
-                    {frameworks.map((item) => (
-                      <NavLink key={item.name} item={item} />
-                    ))}
-                  </div>
-                </div>
+          {/* Frameworks Flyout */}
+          <HoverPopover buttonLabel="Frameworks">
+            <div className="mx-auto max-w-xl px-6 py-6">
+              <div className="space-y-1">
+                {frameworks.map((item) => (
+                  <NavLink key={item.name} item={item} />
+                ))}
+              </div>
+            </div>
+          </HoverPopover>
 
-                {/* Knowledge */}
-                <div>
-                  <h3 className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/50 mb-4">
-                    Knowledge
-                  </h3>
-                  <div className="space-y-1">
-                    {knowledge.map((item) => (
-                      <NavLink key={item.name} item={item} />
-                    ))}
-                  </div>
-                </div>
+          {/* Knowledge Flyout */}
+          <HoverPopover buttonLabel="Knowledge">
+            <div className="mx-auto max-w-xl px-6 py-6">
+              <div className="space-y-1">
+                {knowledge.map((item) => (
+                  <NavLink key={item.name} item={item} />
+                ))}
               </div>
             </div>
           </HoverPopover>

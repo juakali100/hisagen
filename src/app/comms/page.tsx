@@ -25,7 +25,7 @@ export default function CommunicationsHubPage() {
       title: 'Website & Digital',
       description: 'Public website, portal, and digital presence management',
       status: 'active',
-      link: null,
+      link: '/comms/website',
       subAreas: [
         { name: 'Public Website', status: 'active', notes: 'hisagen-preview.pandion.studio (in development)' },
         { name: 'Internal Portal', status: 'active', notes: 'This site - operational' },
@@ -41,7 +41,7 @@ export default function CommunicationsHubPage() {
       title: 'Content & Messaging',
       description: 'Key messages, content strategy, and copywriting guidelines',
       status: 'partial',
-      link: null,
+      link: '/comms/content',
       subAreas: [
         { name: 'Key Messages by Audience', status: 'complete', notes: 'Investors, farmers, buyers, partners' },
         { name: 'Elevator Pitches', status: 'complete', notes: 'Multiple versions documented' },
@@ -57,7 +57,7 @@ export default function CommunicationsHubPage() {
       title: 'Social Media',
       description: 'Platform strategy, content calendar, and engagement',
       status: 'gap',
-      link: null,
+      link: '/comms/social',
       subAreas: [
         { name: 'Platform Strategy', status: 'gap', notes: 'No platforms active yet' },
         { name: 'LinkedIn Presence', status: 'gap', notes: 'Company page not created' },
@@ -73,7 +73,7 @@ export default function CommunicationsHubPage() {
       title: 'PR & Media Relations',
       description: 'Press materials, media contacts, and announcements',
       status: 'gap',
-      link: null,
+      link: '/comms/pr',
       subAreas: [
         { name: 'Press Kit / Media Pack', status: 'gap', notes: 'Not created' },
         { name: 'Boilerplate Copy', status: 'partial', notes: 'Basic description exists' },
@@ -89,7 +89,7 @@ export default function CommunicationsHubPage() {
       title: 'Marketing Collateral',
       description: 'Presentations, one-pagers, case studies, and sales materials',
       status: 'partial',
-      link: null,
+      link: '/comms/collateral',
       subAreas: [
         { name: 'Pitch Deck', status: 'partial', notes: 'Exists but needs brand refresh' },
         { name: 'One-Pager / Fact Sheet', status: 'gap', notes: 'Not created' },
@@ -105,7 +105,7 @@ export default function CommunicationsHubPage() {
       title: 'Investor Communications',
       description: 'Investor updates, reports, and fundraising materials',
       status: 'partial',
-      link: null,
+      link: '/comms/investor',
       subAreas: [
         { name: 'Investor Deck', status: 'partial', notes: 'Draft exists' },
         { name: 'Financial Summary', status: 'partial', notes: 'Internal tracking only' },
@@ -121,7 +121,7 @@ export default function CommunicationsHubPage() {
       title: 'Internal Communications',
       description: 'Team updates, partner communications, and documentation',
       status: 'partial',
-      link: null,
+      link: '/comms/internal',
       subAreas: [
         { name: 'Team Updates', status: 'partial', notes: 'Ad-hoc via this portal' },
         { name: 'Partner Communications', status: 'partial', notes: 'Direct comms, no templates' },
