@@ -116,10 +116,10 @@ function HoverPopover({
               static
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="absolute inset-x-0 top-full z-10 bg-white transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
+              className="absolute inset-x-0 top-full z-10 bg-mist transition data-[closed]:-translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[enter]:ease-out data-[leave]:duration-150 data-[leave]:ease-in"
             >
-              <div aria-hidden="true" className="absolute inset-0 top-1/2 bg-white shadow-lg ring-1 ring-black/5" />
-              <div className="relative bg-white border-t border-mist">
+              <div aria-hidden="true" className="absolute inset-0 top-1/2 bg-mist shadow-lg ring-1 ring-black/5" />
+              <div className="relative bg-mist border-t border-secondary/20">
                 {children}
               </div>
             </PopoverPanel>

@@ -89,37 +89,40 @@ const recentUpdates = [
 
 export default function HomePage() {
   return (
-    <div className="mx-auto max-w-5xl text-ink font-sans">
-      {/* Header */}
-      <header className="py-8 border-b border-mist">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate/60 mb-1">
-              Program Hub
-            </p>
-            <h1 className="text-2xl font-bold text-secondary">HISAGEN</h1>
+    <div className="text-ink font-sans min-h-screen bg-parchment">
+      {/* Portal Header - Deep Blue-Grey lead color */}
+      <header className="bg-secondary text-white">
+        <div className="mx-auto max-w-5xl px-6 py-8">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/60 mb-1">
+                Internal Portal
+              </p>
+              <h1 className="text-2xl font-serif font-bold">HISAGEN</h1>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="px-3 py-1 text-xs rounded-full bg-primary text-white font-medium">
+                Stage 1 Active
+              </span>
+            </div>
           </div>
-          <div className="flex items-center gap-3">
-            <span className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary font-medium">
-              Stage 1 Active
-            </span>
-          </div>
+          {/* Intro explainer */}
+          <p className="mt-4 text-sm text-white/80 max-w-2xl">
+            Strategy, programs, projects, and capital lifecycle for HISAGEN team and stakeholders.
+            Foundation for grant applications, investor materials, and donor reporting.
+          </p>
+          <p className="mt-2 text-xs text-white/50">
+            Internal hub — public website content derives from here.
+          </p>
         </div>
-        {/* Intro explainer */}
-        <p className="mt-4 text-sm text-slate/70 max-w-2xl">
-          Strategy, programs, projects, and capital lifecycle for HISAGEN team and stakeholders.
-          Foundation for grant applications, investor materials, and donor reporting.
-          Public website content derives from this hub.
-        </p>
-        <p className="mt-2 text-xs text-slate/50">
-          Not an ERP — no finance ops, HR, or org admin.
-        </p>
       </header>
+
+      <div className="mx-auto max-w-5xl px-6 pb-12">
 
       {/* Primary Navigation - Full Width (Hierarchy) */}
       <section className="mt-10 space-y-8">
-        {coreNavigation.filter(s => s.tier === "primary").map((section) => (
-          <div key={section.section} className="p-6 rounded-lg border border-mist bg-white">
+        {coreNavigation.filter(s => s.tier === "primary").map((section, idx) => (
+          <div key={section.section} className={`p-6 rounded-lg border-l-4 bg-white shadow-sm ${idx === 0 ? 'border-l-secondary' : 'border-l-primary'}`}>
             <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-1">
               {section.section}
             </h3>
@@ -164,12 +167,12 @@ export default function HomePage() {
       </section>
 
       {/* Supporting Navigation - 2 Column (Cross-cutting) */}
-      <section className="mt-8">
-        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate/40 mb-4">Cross-cutting</p>
+      <section className="mt-10 p-6 rounded-lg bg-mist/30">
+        <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary mb-4">Cross-cutting Resources</p>
         <div className="grid gap-6 md:grid-cols-2">
           {coreNavigation.filter(s => s.tier === "supporting").map((section) => (
             <div key={section.section}>
-              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-1">
+              <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate/70 mb-1">
                 {section.section}
               </h3>
               {section.description && (
@@ -180,7 +183,7 @@ export default function HomePage() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block p-4 rounded-lg border border-mist bg-white hover:border-primary/30 hover:bg-parchment/20 transition-colors group"
+                    className="block p-4 rounded-lg bg-white shadow-sm hover:shadow-md hover:border-l-2 hover:border-l-primary transition-all group"
                   >
                     <div className="flex items-center justify-between">
                       <h4 className="font-medium text-secondary group-hover:text-primary transition-colors">
@@ -204,7 +207,7 @@ export default function HomePage() {
         <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-slate/60 mb-4">
           Recent Updates
         </h2>
-        <div className="rounded-lg border border-mist bg-white overflow-hidden">
+        <div className="rounded-lg bg-white shadow-sm overflow-hidden">
           {recentUpdates.map((update, i) => (
             <div
               key={i}
@@ -216,10 +219,10 @@ export default function HomePage() {
               <span
                 className={`text-[9px] px-2 py-0.5 rounded font-medium ${
                   update.type === "milestone"
-                    ? "bg-primary/10 text-primary"
+                    ? "bg-primary/15 text-primary border border-primary/20"
                     : update.type === "deliverable"
-                    ? "bg-sky-teal/10 text-sky-teal"
-                    : "bg-slate/10 text-slate"
+                    ? "bg-accent/15 text-accent border border-accent/20"
+                    : "bg-secondary/10 text-secondary border border-secondary/20"
                 }`}
               >
                 {update.type}
@@ -236,50 +239,54 @@ export default function HomePage() {
           Quick Status
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {quickStatus.map((item) => (
+          {quickStatus.map((item, idx) => (
             <div
               key={item.label}
-              className="p-4 rounded-lg border border-mist bg-white"
+              className="rounded-lg bg-white shadow-sm overflow-hidden"
             >
-              <div className="flex items-center gap-2 mb-1">
-                <div
-                  className={`w-2 h-2 rounded-full ${
-                    item.status === "active" ? "bg-emerald-500" : "bg-amber-400"
-                  }`}
-                />
-                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate/50">
-                  {item.label}
-                </p>
+              <div className={`h-1 ${idx % 2 === 0 ? 'bg-secondary' : 'bg-primary'}`} />
+              <div className="p-4">
+                <div className="flex items-center gap-2 mb-1">
+                  <div
+                    className={`w-2 h-2 rounded-full ${
+                      item.status === "active" ? "bg-primary" : "bg-accent"
+                    }`}
+                  />
+                  <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate/50">
+                    {item.label}
+                  </p>
+                </div>
+                <p className="text-sm font-medium text-secondary">{item.value}</p>
               </div>
-              <p className="text-sm font-medium text-secondary">{item.value}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Quick Links Footer */}
-      <section className="mt-10 py-6 border-t border-mist">
+      <section className="mt-10 py-6 border-t-2 border-secondary/20">
         <div className="flex flex-wrap gap-6 text-xs">
-          <Link href="/knowledge-base" className="text-slate hover:text-primary transition-colors">
+          <Link href="/knowledge-base" className="text-secondary hover:text-primary transition-colors">
             Knowledge Base
           </Link>
-          <Link href="/comms" className="text-slate hover:text-primary transition-colors">
+          <Link href="/comms" className="text-secondary hover:text-primary transition-colors">
             Communications & Brand
           </Link>
-          <Link href="/stage-1" className="text-slate hover:text-primary transition-colors">
+          <Link href="/stage-1" className="text-secondary hover:text-primary transition-colors">
             Stage 1 Operations
           </Link>
-          <Link href="/grant-lifecycle" className="text-slate hover:text-primary transition-colors">
+          <Link href="/grant-lifecycle" className="text-secondary hover:text-primary transition-colors">
             Grant Lifecycle
           </Link>
-          <Link href="/evidence" className="text-slate hover:text-primary transition-colors">
+          <Link href="/evidence" className="text-secondary hover:text-primary transition-colors">
             Evidence Vault
           </Link>
         </div>
-        <p className="text-[10px] text-slate/40 mt-4">
-          HISAGEN Program Hub. For external communications, see Website.
+        <p className="text-[10px] text-slate/50 mt-4">
+          HISAGEN Internal Portal • Deep Blue-Grey indicates internal context
         </p>
       </section>
+      </div>
     </div>
   );
 }

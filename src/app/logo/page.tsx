@@ -1,54 +1,4 @@
-'use client';
-
-import { useState } from 'react';
-
 export default function LogoPage() {
-  const [copiedSection, setCopiedSection] = useState<string | null>(null);
-
-  const copyToClipboard = (text: string, section: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedSection(section);
-    setTimeout(() => setCopiedSection(null), 2000);
-  };
-
-  // Key content snippets for sharing
-  const snippets = {
-    concept: `HISAGEN Logo Concept: Seedling with two cotyledon leaves emerging from soil. Simplified silhouette that works at 16px. Scientific authority meets organic natural form — like a botanical illustration reduced to its essence.`,
-
-    positioning: `HISAGEN occupies a unique position: African-led, science-backed, commercially rigorous. The logo must feel premium enough for a $2M funding pitch while remaining authentic to agricultural roots.`,
-
-    directions: `Three concept directions:
-1. GEOMETRIC PRECISION — Mathematical, angular, tech-forward
-2. ORGANIC FLOW — Natural lines, botanical feel, warmth
-3. CONCEPTUAL — Clever negative space, soil layers, memorable`,
-
-    color: `Primary: Deep Regenerative Green #1F4D3A
-Accent: Harvest Gold #C6A04A
-Text: Black Cotton Soil #2D2A26
-Background: Parchment #F7F8F5`,
-
-    avoid: `Avoid: Hands, hearts, globes, CO2 symbols, African continent, complex gradients. Most carbon logos are generic green — HISAGEN should emphasize SOIL (underground, foundation, carbon storage) not just above-ground greenery.`,
-  };
-
-  const CopyButton = ({ section, text }: { section: string; text: string }) => (
-    <button
-      onClick={() => copyToClipboard(text, section)}
-      className="px-3 py-1 text-xs bg-slate/10 hover:bg-slate/20 rounded transition-colors flex items-center gap-1"
-    >
-      {copiedSection === section ? (
-        <>
-          <span className="text-green-600">✓</span>
-          <span className="text-green-600">Copied</span>
-        </>
-      ) : (
-        <>
-          <span>📋</span>
-          <span>Copy</span>
-        </>
-      )}
-    </button>
-  );
-
   return (
     <main className="min-h-screen bg-parchment">
       {/* Header */}
@@ -65,441 +15,245 @@ Background: Parchment #F7F8F5`,
           </p>
           <div className="mt-4 flex gap-2">
             <span className="px-3 py-1 bg-white/20 rounded-full text-sm">In Development</span>
-            <span className="px-3 py-1 bg-harvest/30 text-harvest rounded-full text-sm">£200 Pilot</span>
           </div>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-8 py-12 space-y-12">
 
-        {/* Working Notes - Idea Capture */}
-        <section className="bg-harvest/10 border-2 border-harvest/30 rounded-lg p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-2xl">💡</span>
-            <h2 className="text-2xl font-serif font-semibold text-ink">Working Notes</h2>
-            <span className="px-2 py-0.5 bg-harvest/30 text-harvest text-xs rounded-full">Living Document</span>
+        {/* Starting Point: Keir's Draft */}
+        <section>
+          <h2 className="text-2xl font-serif font-semibold text-ink mb-6">Starting Point</h2>
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div className="bg-white rounded-lg border-2 border-primary/20 overflow-hidden">
+              <div className="bg-parchment flex items-center justify-center p-8">
+                <img
+                  src="/logos/hisagen-keir-draft.png"
+                  alt="HISAGEN Draft Logo"
+                  className="max-w-[200px] max-h-[200px] object-contain"
+                />
+              </div>
+              <div className="p-4 border-t border-mist">
+                <p className="font-medium text-ink">HISAGEN&apos;s Original Concept</p>
+                <div className="mt-3 pt-3 border-t border-mist">
+                  <p className="text-xs text-slate mb-2">At social media icon sizes:</p>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2">
+                      <img src="/logos/hisagen-keir-draft.png" alt="Logo at 16px" className="w-4 h-4 object-contain" />
+                      <span className="text-[10px] text-slate">16px</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <img src="/logos/hisagen-keir-draft.png" alt="Logo at 32px" className="w-8 h-8 object-contain" />
+                      <span className="text-[10px] text-slate">32px</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <img src="/logos/hisagen-keir-draft.png" alt="Logo at 48px" className="w-12 h-12 object-contain" />
+                      <span className="text-[10px] text-slate">48px</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-ink">What This Captures</h3>
+              <p className="text-sm text-slate">
+                This design brings together several important HISAGEN themes: the shield and spears suggest
+                strength and protection, the healthy crop represents agriculture at the core, the sunrise
+                conveys hope and new beginnings, and the green and gold palette balances nature with value.
+              </p>
+              <h3 className="text-lg font-semibold text-ink">The Challenge</h3>
+              <p className="text-sm text-slate">
+                When a logo tries to communicate multiple ideas simultaneously, it can lose impact.
+                The combination of shield, spears, crop, and sunrise, while meaningful, creates
+                visual complexity that may read as institutional or academic rather than modern and investable.
+              </p>
+              <h3 className="text-lg font-semibold text-ink">The Opportunity</h3>
+              <p className="text-sm text-slate">
+                What if we kept the <strong>essence</strong>: the gold (value), the growth (agriculture),
+                the strength (science-backed), but expressed it through a single, simplified symbol?
+                One idea, executed with precision, that works from pitch deck to favicon.
+              </p>
+            </div>
           </div>
+        </section>
 
-          {/* Keywords */}
-          <div className="mb-6">
-            <h3 className="text-sm font-semibold text-slate uppercase tracking-wider mb-3">Keywords & Themes</h3>
+        {/* HISAGEN's Input */}
+        <section>
+          <h2 className="text-2xl font-serif font-semibold text-ink mb-6">What HISAGEN Wants to Capture</h2>
+          <div className="bg-harvest/10 border border-harvest/30 rounded-lg p-5">
+            <p className="text-sm text-slate mb-4">Ideas and themes to consider in the logo:</p>
             <div className="flex flex-wrap gap-2">
               {[
-                'soil',
-                'roots',
-                'underground',
-                'carbon',
-                'regeneration',
-                'emergence',
-                'growth',
-                'science',
-                'precision',
-                'African soil',
-                'foundation',
-                'sequestration',
-                'layers',
-                'microbial',
-                'verified',
-                // Molecular / Microscopic
-                'carbon atom',
-                '6 electrons',
-                'nucleus',
-                'molecular',
-                'nodes',
-                'microbes',
-                'mycelium',
-                'network',
-                'bonds',
-                'organic chemistry',
-              ].map((keyword) => (
-                <span key={keyword} className="px-3 py-1 bg-white border border-harvest/40 rounded-full text-sm text-ink">
+                'strength / protection',
+                'healthy crops',
+                'sunrise / hope',
+                'green + gold',
+                'African identity',
+              ].map((item) => (
+                <span key={item} className="px-3 py-1 bg-white border border-harvest/40 rounded-full text-sm text-ink">
+                  {item}
+                </span>
+              ))}
+            </div>
+            <p className="text-xs text-slate mt-4 italic">
+              These are valuable themes. The challenge is: how many can one logo carry before it becomes cluttered?
+            </p>
+            <div className="mt-4 pt-4 border-t border-harvest/30 bg-yellow-50 -mx-5 -mb-5 px-5 py-4 rounded-b-lg">
+              <p className="text-xs text-yellow-800">
+                <strong>Additional ideas from HISAGEN:</strong> Any further input or themes can be captured here.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* What Makes a Good Logo */}
+        <section>
+          <h2 className="text-2xl font-serif font-semibold text-ink mb-6">What a Good Logo Needs</h2>
+          <div className="bg-white border border-mist rounded-lg p-5 mb-6">
+            <p className="text-sm text-slate">
+              <strong className="text-ink">Why simple?</strong> The most iconic logos in the world are almost absurdly simple:
+              a single swoosh, a bitten apple, three stripes. This is deliberate strategy. Simple logos are
+              instantly recognizable, work at any size, and become more memorable through repetition. Complex logos
+              with multiple elements (shields, crops, sunrises) try to tell the whole story in one image, but a logo
+              isn&apos;t a story. It&apos;s a signature. The story comes from everything else: the website, the pitch deck,
+              the work itself. The logo just needs to be the consistent mark that ties it all together.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-4">
+            <div className="bg-white rounded-lg border border-mist p-4">
+              <p className="font-semibold text-sm text-ink">Works Small</p>
+              <p className="text-xs text-slate mt-1">Must be recognizable at 16px: social media icons, favicons, app badges.</p>
+            </div>
+            <div className="bg-white rounded-lg border border-mist p-4">
+              <p className="font-semibold text-sm text-ink">Simple & Clean</p>
+              <p className="text-xs text-slate mt-1">One idea, not five. Complexity = amateur. Simplicity = professional.</p>
+            </div>
+            <div className="bg-white rounded-lg border border-mist p-4">
+              <p className="font-semibold text-sm text-ink">Investor-Ready</p>
+              <p className="text-xs text-slate mt-1">Must feel credible in a pitch deck. Premium, not NGO/charity.</p>
+            </div>
+            <div className="bg-white rounded-lg border border-mist p-4">
+              <p className="font-semibold text-sm text-ink">Distinctive</p>
+              <p className="text-xs text-slate mt-1">Avoid generic green clichés. Own a visual space competitors don&apos;t.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* The Brief */}
+        <section>
+          <h2 className="text-2xl font-serif font-semibold text-ink mb-6">The Brief</h2>
+          <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
+            <p className="text-sm text-slate mb-4">
+              <strong className="text-ink">What HISAGEN does:</strong> Science-backed soil regeneration for African smallholder farmers,
+              turning degraded land into productive, carbon-storing agriculture.
+            </p>
+            <p className="text-lg text-ink mb-4">
+              <strong>Logo brief:</strong> A simplified symbol that communicates &quot;valuable soil science&quot;,
+              working at 16px, feeling premium at pitch deck scale.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {['soil', 'science', 'value', 'growth', 'precision', 'African-led'].map((keyword) => (
+                <span key={keyword} className="px-3 py-1 bg-white border border-primary/30 rounded-full text-sm text-ink">
                   {keyword}
                 </span>
               ))}
             </div>
           </div>
-
-          {/* Rough Ideas */}
-          <div className="mb-6">
-            <h3 className="text-sm font-semibold text-slate uppercase tracking-wider mb-3">Rough Ideas & Concepts</h3>
-            <div className="bg-white rounded-lg p-4 space-y-3">
-              <div className="flex items-start gap-3">
-                <span className="text-primary">●</span>
-                <p className="text-sm text-ink"><strong>Roots reaching down</strong> — most logos show growth UP, but HISAGEN's story is about what happens BELOW the surface. Roots as the hero element.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-primary">●</span>
-                <p className="text-sm text-ink"><strong>Soil cross-section</strong> — layers visible, showing the hidden world beneath. Scientific diagram aesthetic.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-primary">●</span>
-                <p className="text-sm text-ink"><strong>Seedling + horizon line</strong> — the line represents both soil surface AND African landscape. Simple but meaningful.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-primary">●</span>
-                <p className="text-sm text-ink"><strong>Circle with roots</strong> — contained form (works as icon), but roots extend beyond or pierce the boundary. Tension between order and organic.</p>
-              </div>
-
-              {/* Molecular / Microscopic Concepts */}
-              <div className="mt-4 pt-4 border-t border-harvest/20">
-                <p className="text-xs font-semibold text-harvest uppercase tracking-wider mb-3">Molecular / Microscopic Direction</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-harvest">●</span>
-                <p className="text-sm text-ink"><strong>Carbon atom as core</strong> — nucleus with 6 electrons orbiting. Could stylize as seedling emerging FROM the atom. Science = foundation of growth.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-harvest">●</span>
-                <p className="text-sm text-ink"><strong>Molecular structure / bonds</strong> — carbon atoms connected like organic chemistry diagrams. Hexagonal patterns. Clean, scientific, distinctive.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-harvest">●</span>
-                <p className="text-sm text-ink"><strong>Root network as nodes</strong> — roots drawn like a network diagram or mycelium web. Each node a point of connection. Data + nature fusion.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-harvest">●</span>
-                <p className="text-sm text-ink"><strong>Microbe/bacteria simplified</strong> — the Locus AG story is microbial. Abstract microbe shape that suggests life, growth, invisible power.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-harvest">●</span>
-                <p className="text-sm text-ink"><strong>6 elements radiating</strong> — 6 electron paths could become 6 leaves, 6 roots, or 6 nodes. Symbolic of carbon&apos;s unique bonding capacity.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-slate/50">○</span>
-                <p className="text-sm text-slate italic">Add more ideas here...</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Visual References */}
-          <div className="mb-6">
-            <h3 className="text-sm font-semibold text-slate uppercase tracking-wider mb-3">Visual References & Inspiration</h3>
-            <div className="bg-white rounded-lg p-4">
-              <ul className="space-y-2 text-sm text-ink">
-                <li>• Botanical illustration precision — clean lines, scientific accuracy</li>
-                <li>• Soil science diagrams — layers, textures, cross-sections</li>
-                <li>• African textile patterns — geometric, meaningful, distinctive</li>
-                <li>• Carbon/chemistry symbols — molecular, structured, credible</li>
-                <li>• Woodcut/linocut aesthetic — bold, simple, timeless</li>
-                <li>• <strong>Organic chemistry diagrams</strong> — hexagons, bonds, molecular structures</li>
-                <li>• <strong>Electron shell diagrams</strong> — orbital paths, nucleus, scientific precision</li>
-                <li>• <strong>Mycelium networks</strong> — underground fungal webs, node connections</li>
-                <li>• <strong>Microscopy imagery</strong> — bacteria, soil microbes, cellular structures</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Quick Notes */}
-          <div>
-            <h3 className="text-sm font-semibold text-slate uppercase tracking-wider mb-3">Notes & Observations</h3>
-            <div className="bg-white rounded-lg p-4 text-sm text-ink space-y-2">
-              <p><strong>From Keir:</strong> (capture feedback here)</p>
-              <p><strong>Competitor gaps:</strong> Nobody owns &quot;soil&quot; visually — most use leaves, trees, globes. This is the whitespace.</p>
-              <p><strong>Technical note:</strong> Must work at 16px for favicon. Test all concepts at small size early.</p>
-            </div>
-          </div>
         </section>
 
-        {/* Current State */}
+        {/* Keywords / Brainstorm */}
         <section>
-          <h2 className="text-2xl font-serif font-semibold text-ink mb-6">Current State: Wordmark Only</h2>
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-parchment p-8 rounded-lg text-center border-2 border-mist">
-              <span className="text-3xl font-serif font-bold text-primary tracking-tight">HISAGEN</span>
-              <p className="text-xs text-slate mt-3">On light</p>
-            </div>
-            <div className="bg-primary p-8 rounded-lg text-center">
-              <span className="text-3xl font-serif font-bold text-white tracking-tight">HISAGEN</span>
-              <p className="text-xs text-white/70 mt-3">On primary</p>
-            </div>
-            <div className="bg-ink p-8 rounded-lg text-center">
-              <span className="text-3xl font-serif font-bold text-white tracking-tight">HISAGEN</span>
-              <p className="text-xs text-white/70 mt-3">On dark</p>
-            </div>
-            <div className="bg-white p-8 rounded-lg text-center border-2 border-mist">
-              <span className="text-3xl font-serif font-bold text-ink tracking-tight">HISAGEN</span>
-              <p className="text-xs text-slate mt-3">Monochrome</p>
-            </div>
-          </div>
-          <p className="text-sm text-slate mt-4">
-            <strong>Typeface:</strong> Source Serif 4 Bold — any logo development should maintain visual consistency with this foundation.
-          </p>
-        </section>
-
-        {/* Core Concept */}
-        <section>
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-serif font-semibold text-ink">Core Concept</h2>
-            <CopyButton section="concept" text={snippets.concept} />
-          </div>
-          <div className="bg-white rounded-lg border border-mist p-6 space-y-4">
-            <div className="flex items-start gap-6">
-              <div className="w-24 h-24 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-4xl">🌱</span>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-ink mb-2">Seedling with Cotyledons + Soil Reference</h3>
-                <p className="text-slate">
-                  Two-leaf sprout emerging from earth. Represents emergence, new beginnings, growth from soil —
-                  directly references HISAGEN's work regenerating degraded land. Universal agricultural symbol
-                  with positive associations. Simple form that works at small sizes.
-                </p>
-              </div>
-            </div>
-            <div className="bg-primary/5 p-4 rounded-lg">
-              <p className="text-sm text-ink">
-                <strong>The challenge:</strong> Seedling/sprout is a common motif. Execution must be distinctive.
-                The logo should feel like a <em>botanical illustration reduced to its essence</em> —
-                recognizable as natural, but rendered with technical precision.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Three Directions */}
-        <section>
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-serif font-semibold text-ink">Three Concept Directions</h2>
-            <CopyButton section="directions" text={snippets.directions} />
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-lg border-2 border-primary/30 p-6">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-2xl">📐</span>
-              </div>
-              <h3 className="text-lg font-semibold text-primary mb-2">1. Geometric Precision</h3>
-              <p className="text-sm text-slate mb-3">
-                Seedling rendered with clean geometric shapes — circles, triangles, precise angles.
-              </p>
-              <div className="text-xs space-y-1 text-ink">
-                <p><strong>Feel:</strong> Scientific, modern, tech-forward</p>
-                <p><strong>Best for:</strong> Investor materials, data contexts</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg border-2 border-primary/30 p-6">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-2xl">🍃</span>
-              </div>
-              <h3 className="text-lg font-semibold text-primary mb-2">2. Organic Flow</h3>
-              <p className="text-sm text-slate mb-3">
-                More natural, hand-drawn quality but still clean. Flowing lines, subtle asymmetry.
-              </p>
-              <div className="text-xs space-y-1 text-ink">
-                <p><strong>Feel:</strong> Warm, authentic, botanical</p>
-                <p><strong>Best for:</strong> Community engagement, farmer-facing</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg border-2 border-primary/30 p-6">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <span className="text-2xl">✨</span>
-              </div>
-              <h3 className="text-lg font-semibold text-primary mb-2">3. Conceptual / Negative Space</h3>
-              <p className="text-sm text-slate mb-3">
-                Clever use of negative space to suggest soil layers or growth. Minimal lines, maximum impact.
-              </p>
-              <div className="text-xs space-y-1 text-ink">
-                <p><strong>Feel:</strong> Sophisticated, memorable, ownable</p>
-                <p><strong>Best for:</strong> Brand differentiation, premium contexts</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Color Direction */}
-        <section>
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-serif font-semibold text-ink">Color Direction</h2>
-            <CopyButton section="color" text={snippets.color} />
-          </div>
-          <div className="bg-white rounded-lg border border-mist p-6">
-            <p className="text-sm text-slate mb-4">
-              Design in black first to ensure strong form. Color is secondary to structure.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div>
-                <div className="h-20 rounded-lg mb-2" style={{ backgroundColor: '#1F4D3A' }} />
-                <p className="text-sm font-medium">Deep Regenerative Green</p>
-                <p className="text-xs text-slate font-mono">#1F4D3A</p>
-                <p className="text-xs text-slate">Primary logo color</p>
-              </div>
-              <div>
-                <div className="h-20 rounded-lg mb-2" style={{ backgroundColor: '#C6A04A' }} />
-                <p className="text-sm font-medium">Harvest Gold</p>
-                <p className="text-xs text-slate font-mono">#C6A04A</p>
-                <p className="text-xs text-slate">Accent, optimism</p>
-              </div>
-              <div>
-                <div className="h-20 rounded-lg mb-2" style={{ backgroundColor: '#2D2A26' }} />
-                <p className="text-sm font-medium">Black Cotton Soil</p>
-                <p className="text-xs text-slate font-mono">#2D2A26</p>
-                <p className="text-xs text-slate">Monochrome option</p>
-              </div>
-              <div>
-                <div className="h-20 rounded-lg mb-2 border border-mist" style={{ backgroundColor: '#F7F8F5' }} />
-                <p className="text-sm font-medium">Parchment</p>
-                <p className="text-xs text-slate font-mono">#F7F8F5</p>
-                <p className="text-xs text-slate">Background</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* What to Avoid */}
-        <section>
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-serif font-semibold text-ink">What to Avoid</h2>
-            <CopyButton section="avoid" text={snippets.avoid} />
-          </div>
-          <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="text-sm font-semibold text-red-800 uppercase tracking-wider mb-3">Do Not Include</h4>
-                <ul className="space-y-2 text-sm text-red-700">
-                  <li className="flex items-center gap-2"><span>✕</span> Hands or hearts (too NGO/charity)</li>
-                  <li className="flex items-center gap-2"><span>✕</span> Literal CO2 or carbon symbols (too technical)</li>
-                  <li className="flex items-center gap-2"><span>✕</span> Globe or Earth imagery (overused)</li>
-                  <li className="flex items-center gap-2"><span>✕</span> African continent shape (limits global positioning)</li>
-                  <li className="flex items-center gap-2"><span>✕</span> Complex gradients or effects (reduces versatility)</li>
-                  <li className="flex items-center gap-2"><span>✕</span> Text integrated into symbol (keep separable)</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-sm font-semibold text-red-800 uppercase tracking-wider mb-3">Competitive Differentiation</h4>
-                <p className="text-sm text-red-700 mb-3">
-                  Most carbon players use generic &quot;green&quot; logos. HISAGEN can differentiate by emphasizing
-                  <strong> soil</strong> (underground, foundation, carbon storage) rather than above-ground greenery.
-                </p>
-                <div className="bg-white/50 p-3 rounded text-xs text-red-600">
-                  <p className="font-medium mb-1">Common patterns to avoid:</p>
-                  <p>Generic leaf in circle • Globe with green elements • Hands holding plant • Abstract swooshes with green gradient</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Positioning */}
-        <section>
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-2xl font-serif font-semibold text-ink">Brand Positioning</h2>
-            <CopyButton section="positioning" text={snippets.positioning} />
-          </div>
-          <div className="bg-primary/5 border-2 border-primary/20 rounded-lg p-6">
-            <div className="grid md:grid-cols-3 gap-6 mb-6">
-              <div className="text-center">
-                <p className="text-3xl mb-2">🌍</p>
-                <p className="font-semibold text-primary">African-led</p>
-                <p className="text-xs text-slate">Rooted in place, globally relevant</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl mb-2">🔬</p>
-                <p className="font-semibold text-primary">Science-backed</p>
-                <p className="text-xs text-slate">Locus AG proven technology</p>
-              </div>
-              <div className="text-center">
-                <p className="text-3xl mb-2">💼</p>
-                <p className="font-semibold text-primary">Commercially rigorous</p>
-                <p className="text-xs text-slate">Built to scale, not grant-dependent</p>
-              </div>
-            </div>
-            <div className="bg-white p-4 rounded-lg">
-              <p className="text-sm text-ink">
-                <strong>The balance:</strong> The logo must feel premium enough for a <strong>$2M funding pitch</strong> while
-                remaining authentic to agricultural roots. Target audiences: institutional investors, corporate carbon buyers, grant funders.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Success Criteria */}
-        <section>
-          <h2 className="text-2xl font-serif font-semibold text-ink mb-6">Success Criteria</h2>
-          <div className="grid md:grid-cols-5 gap-4">
+          <h2 className="text-2xl font-serif font-semibold text-ink mb-4">Keywords</h2>
+          <p className="text-sm text-slate mb-4">Visual and conceptual ideas to explore</p>
+          <div className="flex flex-wrap gap-2">
             {[
-              { icon: '📱', label: 'Small Size', desc: 'Recognizable at 16px favicon' },
-              { icon: '🏛️', label: 'Credible', desc: 'Works for institutional audiences' },
-              { icon: '⚡', label: 'Distinctive', desc: 'Avoids generic green syndrome' },
-              { icon: '🔄', label: 'Versatile', desc: 'Works across all applications' },
-              { icon: '⏳', label: 'Timeless', desc: 'Built to last 10+ years' },
-            ].map((item) => (
-              <div key={item.label} className="bg-white rounded-lg border border-mist p-4 text-center">
-                <p className="text-2xl mb-2">{item.icon}</p>
-                <p className="font-medium text-sm text-ink">{item.label}</p>
-                <p className="text-xs text-slate">{item.desc}</p>
-              </div>
+              'soil',
+              'roots',
+              'gold',
+              'seed',
+              'carbon',
+              'underground',
+              'network',
+              'layers',
+              'nucleus',
+              'emergence',
+            ].map((keyword) => (
+              <span key={keyword} className="px-3 py-1 bg-white border border-mist rounded-full text-sm text-ink">
+                {keyword}
+              </span>
             ))}
           </div>
         </section>
 
-        {/* Technical Requirements */}
+        {/* Three Concept Directions */}
         <section>
-          <h2 className="text-2xl font-serif font-semibold text-ink mb-6">Technical Requirements</h2>
-          <div className="bg-white rounded-lg border border-mist overflow-hidden">
-            <table className="w-full text-sm">
-              <thead className="bg-slate text-white">
-                <tr>
-                  <th className="text-left p-4">Deliverable</th>
-                  <th className="text-left p-4">Versions Needed</th>
-                  <th className="text-left p-4">Formats</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-mist">
-                <tr>
-                  <td className="p-4 font-medium">Symbol Only</td>
-                  <td className="p-4 text-slate">Full color, reversed, mono black, mono white</td>
-                  <td className="p-4"><span className="font-mono text-xs">SVG, PNG, EPS</span></td>
-                </tr>
-                <tr className="bg-parchment/50">
-                  <td className="p-4 font-medium">Symbol + Wordmark (Horizontal)</td>
-                  <td className="p-4 text-slate">Full color, reversed, mono black, mono white</td>
-                  <td className="p-4"><span className="font-mono text-xs">SVG, PNG, EPS</span></td>
-                </tr>
-                <tr>
-                  <td className="p-4 font-medium">Symbol + Wordmark (Stacked)</td>
-                  <td className="p-4 text-slate">Full color, reversed, mono black, mono white</td>
-                  <td className="p-4"><span className="font-mono text-xs">SVG, PNG, EPS</span></td>
-                </tr>
-                <tr className="bg-parchment/50">
-                  <td className="p-4 font-medium">Favicon / App Icon</td>
-                  <td className="p-4 text-slate">16px, 32px, 180px, 512px</td>
-                  <td className="p-4"><span className="font-mono text-xs">ICO, PNG</span></td>
-                </tr>
-              </tbody>
-            </table>
+          <h2 className="text-2xl font-serif font-semibold text-ink mb-6">Three Directions to Explore</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Concept 1 */}
+            <div className="bg-white rounded-lg border border-mist overflow-hidden">
+              <div className="aspect-square bg-parchment flex items-center justify-center p-6">
+                <img
+                  src="/logos/germination-core.jpeg"
+                  alt="Germination Core"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <div className="p-4 border-t border-mist">
+                <p className="font-semibold text-ink mb-2">1. Seed / Growth</p>
+                <p className="text-sm text-slate">
+                  Focus on emergence and potential. A seed or seedling: the beginning of regeneration.
+                  Simple, organic, universally understood.
+                </p>
+              </div>
+            </div>
+
+            {/* Concept 2 */}
+            <div className="bg-white rounded-lg border border-mist overflow-hidden">
+              <div className="aspect-square bg-parchment flex items-center justify-center p-6">
+                <img
+                  src="/logos/bio-node-network.jpeg"
+                  alt="Bio-Node Network"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <div className="p-4 border-t border-mist">
+                <p className="font-semibold text-ink mb-2">2. Network / Connection</p>
+                <p className="text-sm text-slate">
+                  Root systems, mycelium, or molecular bonds. The hidden network underground.
+                  Scientific, modern, tech-forward.
+                </p>
+              </div>
+            </div>
+
+            {/* Concept 3 */}
+            <div className="bg-white rounded-lg border border-mist overflow-hidden">
+              <div className="aspect-square bg-parchment flex items-center justify-center p-6">
+                <img
+                  src="/logos/cellular-sequester.jpeg"
+                  alt="Cellular Sequester"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+              <div className="p-4 border-t border-mist">
+                <p className="font-semibold text-ink mb-2">3. Cellular / Molecular</p>
+                <p className="text-sm text-slate">
+                  Carbon atoms, cellular structures, the microscopic world.
+                  Emphasizes science and precision. Distinctive in the space.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Next Steps */}
+        {/* Other Explorations */}
         <section>
-          <h2 className="text-2xl font-serif font-semibold text-ink mb-6">Process & Next Steps</h2>
-          <div className="bg-white rounded-lg border border-mist p-6">
-            <div className="grid md:grid-cols-5 gap-4">
-              {[
-                { step: '1', label: 'Brief Approved', status: 'complete' },
-                { step: '2', label: 'AI Concept Generation', status: 'current' },
-                { step: '3', label: 'Direction Selection', status: 'pending' },
-                { step: '4', label: 'Refinement', status: 'pending' },
-                { step: '5', label: 'Final Logo', status: 'pending' },
-              ].map((item) => (
-                <div key={item.step} className="text-center">
-                  <div className={`w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center font-bold ${
-                    item.status === 'complete' ? 'bg-green-500 text-white' :
-                    item.status === 'current' ? 'bg-harvest text-white' :
-                    'bg-slate/20 text-slate'
-                  }`}>
-                    {item.status === 'complete' ? '✓' : item.step}
-                  </div>
-                  <p className={`text-sm ${item.status === 'current' ? 'font-medium text-ink' : 'text-slate'}`}>
-                    {item.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 pt-6 border-t border-mist">
-              <p className="text-sm text-slate">
-                <strong>Budget:</strong> £200 pilot — includes 2-3 concepts and 2 revision rounds.
-                Full brief available in <code className="bg-slate/10 px-1 rounded">brand/HISAGEN-LOGO-CONCEPT-BRIEF.md</code>
-              </p>
+          <h2 className="text-lg font-serif font-semibold text-slate mb-4">Other Explorations</h2>
+          <div className="grid grid-cols-4 gap-3">
+            <div className="bg-white rounded-lg border border-mist overflow-hidden">
+              <div className="aspect-square bg-parchment flex items-center justify-center p-3">
+                <img src="/logos/catalyst-cluster.jpeg" alt="Catalyst Cluster" className="max-w-full max-h-full object-contain" />
+              </div>
+              <p className="text-xs text-slate p-2 text-center">Catalyst Cluster</p>
             </div>
           </div>
         </section>
