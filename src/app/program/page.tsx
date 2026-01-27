@@ -15,28 +15,8 @@ const partnerships = [
         border: "border-emerald-200"
     },
     {
-        layer: "2. Verification",
-        partner: "3Degrees",
-        role: "Digital MRV",
-        status: "confirmed",
-        statusLabel: "Active",
-        deliverables: ["Verra VM0042 Methodology", "Satellite + AI Monitoring", "Institutional Verification"],
-        color: "bg-emerald-50",
-        border: "border-emerald-200"
-    },
-    {
-        layer: "3. Finance",
-        partner: "Capital Continuum",
-        role: "Blended Capital",
-        status: "framework",
-        statusLabel: "Framework",
-        deliverables: ["4-Stage Framework", "Risk-Matched Funding", "Pilot → Scale Pathway"],
-        color: "bg-blue-50",
-        border: "border-blue-200"
-    },
-    {
-        layer: "4. Operations",
-        partner: "Deep Six / Local Partners",
+        layer: "2. Operations",
+        partner: "HISAGEN Africa",
         role: "Implementation",
         status: "confirmed",
         statusLabel: "Active",
@@ -84,7 +64,7 @@ const strategicGaps = [
     {
         area: "MRV Tooling Decision",
         description: "Remote sensing (satellite) vs ground-truth data collection trade-offs for VM0042 compliance.",
-        owner: "3Degrees / Technical",
+        owner: "HISAGEN / Technical",
         priority: "Medium",
         targetDate: "Q1 2026",
         status: "in_progress"
@@ -92,7 +72,7 @@ const strategicGaps = [
     {
         area: "Kenya Expansion Pathway",
         description: "Regulatory landscape review, partner identification, timeline for second geography.",
-        owner: "Deep Six / Strategy",
+        owner: "HISAGEN Africa / Strategy",
         priority: "Low",
         targetDate: "Q2 2026",
         status: "not_started"
@@ -136,7 +116,6 @@ const keyDecisions = [
     { decision: "Verra VM0042 as verification methodology", status: "decided", date: "Nov 2025" },
     { decision: "Uganda as pilot geography", status: "decided", date: "Oct 2025" },
     { decision: "Locus AG technology partnership", status: "decided", date: "Sep 2025" },
-    { decision: "3Degrees as MRV partner", status: "decided", date: "Nov 2025" },
     { decision: "Revenue model structure", status: "open", date: "—" },
     { decision: "Kenya expansion timeline", status: "open", date: "—" },
 ];
@@ -164,7 +143,7 @@ export default function ProgramPage() {
                 {/* Quick Status Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-mist">
                     <div className="p-4 text-center">
-                        <p className="text-2xl font-black text-secondary">4/4</p>
+                        <p className="text-2xl font-black text-secondary">2/2</p>
                         <p className="text-[10px] font-bold uppercase tracking-widest text-slate mt-1">Partners Confirmed</p>
                     </div>
                     <div className="p-4 text-center">
@@ -172,11 +151,11 @@ export default function ProgramPage() {
                         <p className="text-[10px] font-bold uppercase tracking-widest text-slate mt-1">Active Project</p>
                     </div>
                     <div className="p-4 text-center">
-                        <p className="text-2xl font-black text-amber-600">3</p>
+                        <p className="text-2xl font-black text-amber-600">2</p>
                         <p className="text-[10px] font-bold uppercase tracking-widest text-slate mt-1">Open Decisions</p>
                     </div>
                     <div className="p-4 text-center">
-                        <p className="text-2xl font-black text-emerald-600">4</p>
+                        <p className="text-2xl font-black text-emerald-600">3</p>
                         <p className="text-[10px] font-bold uppercase tracking-widest text-slate mt-1">Decisions Made</p>
                     </div>
                 </div>

@@ -927,7 +927,6 @@ export default function BrandGuidelinesPage() {
                 <tr>
                   <th className="text-left p-4">Gap</th>
                   <th className="text-left p-4">Priority</th>
-                  <th className="text-left p-4">Est. Investment</th>
                   <th className="text-left p-4">When to Address</th>
                 </tr>
               </thead>
@@ -935,37 +934,31 @@ export default function BrandGuidelinesPage() {
                 <tr>
                   <td className="p-4 font-medium">Professional Logo System</td>
                   <td className="p-4"><span className="px-2 py-1 bg-red-100 text-red-800 rounded text-xs">High</span></td>
-                  <td className="p-4">£2,000 - £8,000</td>
                   <td className="p-4">Before major funding round or public launch</td>
                 </tr>
                 <tr className="bg-green-50">
                   <td className="p-4 font-medium line-through text-slate">Color System Consolidation</td>
                   <td className="p-4"><span className="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">✓ Done</span></td>
-                  <td className="p-4 text-slate">Internal effort</td>
                   <td className="p-4 text-green-700">Hybrid palette selected — see Section 03</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-medium">Business Card & Stationery</td>
                   <td className="p-4"><span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">Medium</span></td>
-                  <td className="p-4">£300 - £800</td>
                   <td className="p-4">Before investor meetings</td>
                 </tr>
                 <tr className="bg-parchment">
                   <td className="p-4 font-medium">Presentation Templates</td>
                   <td className="p-4"><span className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs">Medium</span></td>
-                  <td className="p-4">£500 - £1,500</td>
                   <td className="p-4">Before pitch deck finalisation</td>
                 </tr>
                 <tr>
                   <td className="p-4 font-medium">Social Media Templates</td>
                   <td className="p-4"><span className="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">Low</span></td>
-                  <td className="p-4">£200 - £500</td>
                   <td className="p-4">When active on social channels</td>
                 </tr>
                 <tr className="bg-parchment">
                   <td className="p-4 font-medium">Print Specifications (CMYK/Pantone)</td>
                   <td className="p-4"><span className="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">Low</span></td>
-                  <td className="p-4">£100 - £200</td>
                   <td className="p-4">When preparing for print production</td>
                 </tr>
               </tbody>

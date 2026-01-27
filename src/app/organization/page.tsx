@@ -92,7 +92,7 @@ export default function OrganizationPage() {
             <section className="mt-12 p-8 rounded-2xl border-2 border-secondary/20 bg-secondary/5">
                 <div className="flex flex-col md:flex-row gap-6 items-start">
                     <div className="flex-shrink-0 w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center">
-                        <span className="text-2xl">🌱</span>
+                        <span className="text-xl font-serif font-bold text-secondary/40">C</span>
                     </div>
                     <div className="flex-1">
                         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/60 mb-1">{cedricTribute.role}</p>

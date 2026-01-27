@@ -905,17 +905,12 @@ export default function PilotPage() {
 
         {/* Bootstrap acknowledgment */}
         <div className="mt-8 p-6 rounded-xl bg-amber-50 border border-amber-200">
-          <div className="flex items-start gap-4">
-            <span className="text-2xl">💪</span>
-            <div>
-              <p className="font-bold text-amber-800 text-sm">Founder-Funded to Date</p>
-              <p className="text-amber-700 text-xs mt-1 leading-relaxed">
-                Phases 0-2 have been funded through director investment and sweat equity.
-                The NARO trials, regulatory submissions, and entity formation represent significant
-                pre-investment that de-risks the project for future funders.
-              </p>
-            </div>
-          </div>
+          <p className="font-bold text-amber-800 text-sm">Founder-Funded to Date</p>
+          <p className="text-amber-700 text-xs mt-1 leading-relaxed">
+            Phases 0-2 have been funded through director investment and sweat equity.
+            The NARO trials, regulatory submissions, and entity formation represent significant
+            pre-investment that de-risks the project for future funders.
+          </p>
         </div>
       </section>
 
@@ -1034,7 +1029,7 @@ export default function PilotPage() {
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-full bg-violet-200 flex items-center justify-center">
-                <span className="text-lg">📊</span>
+                <span className="text-sm font-bold text-violet-700">1-11</span>
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-violet-700">All Phases</p>
@@ -1050,7 +1045,7 @@ export default function PilotPage() {
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                <span className="text-lg">🎯</span>
+                <span className="text-sm font-bold text-primary">02</span>
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-primary">Phase 02</p>
@@ -1066,7 +1061,7 @@ export default function PilotPage() {
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-full bg-emerald-200 flex items-center justify-center">
-                <span className="text-lg">📋</span>
+                <span className="text-sm font-bold text-emerald-700">2-6</span>
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-emerald-700">Phases 02-06</p>
@@ -1082,7 +1077,7 @@ export default function PilotPage() {
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
-                <span className="text-lg">🚀</span>
+                <span className="text-sm font-bold text-secondary">7-11</span>
               </div>
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-secondary/70">Phases 07-11</p>
