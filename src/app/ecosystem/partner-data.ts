@@ -3,6 +3,7 @@ export type Partner = {
     name: string;
     role: string;
     category: "Strategy" | "Technology" | "Operations" | "Accreditation" | "Marketplace";
+    partnerType: "core" | "services"; // core = technology/marketplace partners, services = consulting/advisory
     website: string;
     websiteReview: string;
     personnel: {
@@ -17,48 +18,18 @@ export type Partner = {
         file: string;
         format: "PDF" | "Doc" | "Link";
     }[];
+    detailPage?: string; // Optional link to dedicated partner page (e.g., /ecosystem/locus-ag)
 };
 
 export const partners: Partner[] = [
-    {
-        id: "deep-six",
-        name: "Deep Six Consulting",
-        role: "Lead Venture Builder & Strategic Lead",
-        category: "Strategy",
-        website: "https://www.deep6cs.com/",
-        websiteReview: "Professional service-oriented site focusing on 'Uncovering Hidden Customer Insights' and 'Digital Transformation.' Strong emphasis on data science, ML, and financial services compliance (MNPI). Positions the firm as a bridge between complex data and strategic business optimization.",
-        personnel: [
-            {
-                name: "K A-B",
-                role: "Founder & Principal",
-                bio: "Former Merrill Lynch Quantitative Strategies Group (10+ years). Expertise in pricing algorithms, automated trading, and AI/ML implementation. Transitioned to climate/ag-tech venture building as a solo operator."
-            }
-        ],
-        organizationSummary: "A digital transformation consultancy specializing in data science and market analysis for financial services. Acts as the primary organizational vehicle and 'engine' behind the HISAGEN venture.",
-        strategicContext: [
-            "Sole originator of the HISAGEN concept and Locus AG Africa partnership.",
-            "Currently managing 4 parallel ventures including Carbon Zero Marketplace and LexisNexis AI testing.",
-            "Primary need: Transitioning from solo operator to structured organization with grant-funded overheads."
-        ],
-        keyResources: [
-            {
-                title: "Client Profile Dossier",
-                file: "03-pandion-business/operations/del/clients/deep-six-consulting/client-profile.md",
-                format: "Doc"
-            },
-            {
-                title: "Initial Discovery Call Notes",
-                file: "03-pandion-business/operations/del/clients/deep-six-consulting/call-notes-2025-11-07.md",
-                format: "Doc"
-            }
-        ]
-    },
     {
         id: "locus-ag",
         name: "Locus AG",
         role: "Core Technology Partner (Biologicals)",
         category: "Technology",
+        partnerType: "core",
         website: "https://locusag.com/",
+        detailPage: "/ecosystem/locus-ag",
         websiteReview: "Modern, product-focused site highlighting B-Corp certification and award-winning microbial solutions. Features the 'CarbonNOW' program prominently, demonstrating a mature model for farmer-facing carbon sequestration incentives. Key differentiator: Endophytic microbes that grow INSIDE the plant for sustained benefits.",
         personnel: [
             {
@@ -99,6 +70,7 @@ export const partners: Partner[] = [
         name: "Carbon Neutral Marketplace",
         role: "Marketplace & Monetization Layer",
         category: "Marketplace",
+        partnerType: "core",
         website: "https://www.carbonneutralmarketplace.com/",
         websiteReview: "The site positions itself as a 'Curated Marketplace' for Nature-Based Solutions (NBS). Currently in 'maintenance-first' mode; requires significant UI/UX upgrades and a fix for the project questionnaire logic to align with modern VCM standards.",
         personnel: [
@@ -128,6 +100,7 @@ export const partners: Partner[] = [
         name: "Pandion Studio",
         role: "Systems Architect & Performance Partner",
         category: "Strategy",
+        partnerType: "services",
         website: "https://pandion.studio",
         websiteReview: "Clean, strategy-focused site emphasizing AI, Capability, and Sustainability. Positions the firm as a partner for organizations needing to navigate the 'Stage Shift' from incubation to institutional scale.",
         personnel: [
@@ -156,6 +129,7 @@ export const partners: Partner[] = [
         name: "3Degrees",
         role: "Accreditation & Carbon Program Design Partner",
         category: "Accreditation",
+        partnerType: "services",
         website: "https://3degreesinc.com/",
         websiteReview: "Sophisticated and institutional. Expertise in 'Market-Based Solutions' and high-quality environmental project design. They position themselves as an institutional bridge to global carbon capital markets.",
         personnel: [

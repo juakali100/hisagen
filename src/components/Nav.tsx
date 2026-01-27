@@ -49,6 +49,19 @@ const navItems: NavItem[] = [
       },
     ],
   },
+  {
+    label: "Ecosystem",
+    href: "/ecosystem",
+    dropdown: [
+      {
+        label: "Partners",
+        href: "/ecosystem",
+        subItems: [
+          { href: "/ecosystem/locus-ag", label: "Locus AG (Technology)" },
+        ],
+      },
+    ],
+  },
   { href: "/knowledge-base", label: "Knowledge Base" },
 ];
 
@@ -80,13 +93,18 @@ export default function Nav() {
         <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
           {navItems.map((item) => {
             if ("dropdown" in item) {
-              const isActive =
-                pathname === item.href ||
-                pathname.startsWith("/project/") ||
-                pathname.startsWith("/stage-") ||
-                pathname.startsWith("/evidence") ||
-                pathname.startsWith("/capital-continuum") ||
-                pathname.startsWith("/grant-lifecycle");
+              const isProgramsActive =
+                item.label === "Programs" && (
+                  pathname === item.href ||
+                  pathname.startsWith("/project/") ||
+                  pathname.startsWith("/stage-") ||
+                  pathname.startsWith("/evidence") ||
+                  pathname.startsWith("/capital-continuum") ||
+                  pathname.startsWith("/grant-lifecycle")
+                );
+              const isEcosystemActive =
+                item.label === "Ecosystem" && pathname.startsWith("/ecosystem");
+              const isActive = isProgramsActive || isEcosystemActive;
 
               return (
                 <Popover key={item.label} className="relative inline-flex py-1">

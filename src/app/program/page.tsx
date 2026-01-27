@@ -274,6 +274,21 @@ export default function ProgramPage() {
                         </p>
                     </div>
                 </div>
+
+                {/* Team narrative */}
+                <div className="mt-6 pt-6 border-t border-blue-200 flex items-start gap-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                        <span className="text-blue-500 text-sm">●</span>
+                    </div>
+                    <div className="flex-1">
+                        <p className="text-sm text-slate leading-relaxed">
+                            <strong>Exceptional Team:</strong> An unusual event brought together a diverse and complementary team — <em>a banker, an entrepreneur, agronomists and farming experts</em> — united by a unique vision to bring this technology to Africa.
+                        </p>
+                        <a href="/organization" className="inline-flex items-center gap-1 mt-2 text-xs font-bold text-primary hover:underline">
+                            Meet the team →
+                        </a>
+                    </div>
+                </div>
             </section>
 
             {/* Executive Summary - The Opportunity */}
@@ -286,6 +301,13 @@ export default function ProgramPage() {
                             <h2 className="mt-1 text-lg font-bold text-secondary">The Opportunity</h2>
                         </div>
                     </div>
+                </div>
+
+                {/* Business Opportunity - Why East Africa */}
+                <div className="mb-6 p-4 rounded-lg border border-primary/20 bg-white">
+                    <p className="text-sm text-slate leading-relaxed">
+                        <strong>East Africa presents a compelling entry point</strong>, with strong local demand for sustainable yield improvement and national research partners like <strong>NARO</strong> already engaged in field trials. With proven results and regulatory approvals, this model can be rapidly scaled across the continent to reach millions of farmers and unlock significant <em>sales, carbon credit and co-investment</em> opportunities.
+                    </p>
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2">
@@ -356,6 +378,364 @@ export default function ProgramPage() {
                 <p className="mt-4 text-[10px] text-slate/60 text-right">
                     Source: Mordor Intelligence - Africa Biostimulants Market
                 </p>
+            </section>
+
+            {/* Page 6: East Africa GDP and Agriculture Summary */}
+            <section className="mt-8 rounded-xl border border-mist bg-white p-6">
+                <div className="flex items-center gap-3 mb-4">
+                    <Image src="/icons/icon-globe-seedling.png" alt="" width={28} height={28} className="opacity-70" />
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/60">East Africa</p>
+                        <h2 className="text-lg font-bold text-secondary">GDP and Agriculture Summary</h2>
+                    </div>
+                </div>
+
+                <p className="text-sm text-slate leading-relaxed mb-6">
+                    We'll launch in <strong>Uganda</strong> in partnership with NARO and MAAIF, using it as our operational base to strategically scale across East Africa.
+                </p>
+
+                <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                        <thead>
+                            <tr className="border-b border-mist">
+                                <th className="text-left py-2 px-3 text-[10px] font-bold uppercase tracking-wider text-secondary/60">Country</th>
+                                <th className="text-center py-2 px-3 text-[10px] font-bold uppercase tracking-wider text-secondary/60">Ag % GDP</th>
+                                <th className="text-center py-2 px-3 text-[10px] font-bold uppercase tracking-wider text-secondary/60">Subsistence %</th>
+                                <th className="text-left py-2 px-3 text-[10px] font-bold uppercase tracking-wider text-secondary/60">Key Exports</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-mist/50">
+                                <td className="py-2 px-3 text-slate">Kenya</td>
+                                <td className="py-2 px-3 text-center text-slate">21%</td>
+                                <td className="py-2 px-3 text-center text-slate">32%</td>
+                                <td className="py-2 px-3 text-slate text-xs">Tea, flowers, coffee</td>
+                            </tr>
+                            <tr className="border-b border-mist/50">
+                                <td className="py-2 px-3 text-slate">Tanzania</td>
+                                <td className="py-2 px-3 text-center text-slate">23%</td>
+                                <td className="py-2 px-3 text-center text-slate">65%</td>
+                                <td className="py-2 px-3 text-slate text-xs">Tobacco, coffee, cashew</td>
+                            </tr>
+                            <tr className="border-b border-mist/50 bg-primary/5">
+                                <td className="py-2 px-3 font-bold text-secondary">Uganda</td>
+                                <td className="py-2 px-3 text-center font-bold text-secondary">25%</td>
+                                <td className="py-2 px-3 text-center font-bold text-secondary">66%</td>
+                                <td className="py-2 px-3 text-xs font-bold text-secondary">Coffee, cocoa</td>
+                            </tr>
+                            <tr>
+                                <td className="py-2 px-3 text-slate">Rwanda</td>
+                                <td className="py-2 px-3 text-center text-slate">25%</td>
+                                <td className="py-2 px-3 text-center text-slate">55%</td>
+                                <td className="py-2 px-3 text-slate text-xs">Tea, coffee</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p className="mt-4 text-[10px] text-slate/60 text-right">
+                    Source: World Bank WDI 2023, CIA Factbook 2024
+                </p>
+            </section>
+
+            {/* Page 7: Regulatory Strategy */}
+            <section className="mt-6 rounded-xl border border-blue-200 bg-blue-50/30 p-6">
+                <div className="flex items-center gap-3 mb-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                        <span className="text-blue-600 text-lg">→</span>
+                    </div>
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-blue-600">Regulatory Strategy</p>
+                        <h2 className="text-lg font-bold text-secondary">Uganda as Regional Precedent</h2>
+                    </div>
+                </div>
+
+                <p className="text-sm text-slate leading-relaxed">
+                    Once we secure regulatory approval in Uganda through <strong>UNBS</strong> and obtain the required commercial license, we will use that approval as a <strong>strong precedent</strong> to streamline subsequent government approvals across the wider East African region — improving efficiency, reducing time-to-market, and accelerating regional rollout.
+                </p>
+
+                <div className="mt-4 grid grid-cols-4 gap-2 text-center">
+                    {[
+                        { country: "Kenya", pop: "51M", gdp: "$108B" },
+                        { country: "Tanzania", pop: "56M", gdp: "$79B" },
+                        { country: "Uganda", pop: "49M", gdp: "$49B" },
+                        { country: "Rwanda", pop: "12M", gdp: "$14B" },
+                    ].map((c) => (
+                        <div key={c.country} className={`p-2 rounded-lg ${c.country === 'Uganda' ? 'bg-blue-100 border border-blue-200' : 'bg-white border border-mist'}`}>
+                            <p className={`text-xs font-bold ${c.country === 'Uganda' ? 'text-blue-700' : 'text-secondary'}`}>{c.country}</p>
+                            <p className="text-[10px] text-slate">{c.pop}</p>
+                            <p className="text-[10px] text-slate">{c.gdp}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Page 8: Pan-Africa Expansion Strategy */}
+            <section className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50/30 p-6">
+                <div className="flex items-center gap-3 mb-4">
+                    <Image src="/icons/icon-globe-seedling.png" alt="" width={28} height={28} className="opacity-70" />
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-emerald-600">5-Year Plan</p>
+                        <h2 className="text-lg font-bold text-secondary">Pan-Africa Expansion Strategy</h2>
+                    </div>
+                </div>
+
+                <p className="text-sm text-slate leading-relaxed mb-6">
+                    We've structured our Africa expansion strategy into <strong>four quarters/phases</strong>, recognizing the continent's significant geographic and cultural diversity — each quarter focusing on distinct markets, operating environments, and customer needs.
+                </p>
+
+                <div className="grid gap-3 md:grid-cols-4">
+                    <div className="p-4 rounded-lg bg-primary/10 border-2 border-primary/30">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-primary mb-1">Phase 1: East</p>
+                        <p className="text-xs font-bold text-secondary">Launch</p>
+                        <p className="text-[11px] text-slate mt-2">Uganda, Kenya, Rwanda, Tanzania, Ethiopia</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-white border border-mist">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-1">Phase 2: South</p>
+                        <p className="text-xs font-bold text-secondary">Expand</p>
+                        <p className="text-[11px] text-slate mt-2">South Africa, Botswana, Zambia, Zimbabwe</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-white border border-mist">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-1">Phase 3: West</p>
+                        <p className="text-xs font-bold text-secondary">Scale</p>
+                        <p className="text-[11px] text-slate mt-2">Nigeria, Ghana</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-white border border-mist">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-1">Phase 4: North</p>
+                        <p className="text-xs font-bold text-secondary">Complete</p>
+                        <p className="text-[11px] text-slate mt-2">Egypt, Tunisia, Morocco</p>
+                    </div>
+                </div>
+
+                <p className="mt-6 text-sm text-slate leading-relaxed p-4 bg-white rounded-lg border border-emerald-100">
+                    This broader pan-African rollout will be executed through a <strong>separate, dedicated five-year plan</strong> to ensure disciplined sequencing, regulatory alignment, and scalable execution.
+                </p>
+            </section>
+
+            {/* Page 9: Uganda Opportunity (Project-Level) */}
+            <section className="mt-8 rounded-xl border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-parchment p-6">
+                <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                            <span className="text-primary text-lg font-bold">UG</span>
+                        </div>
+                        <div>
+                            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary/60">First Project</p>
+                            <h2 className="text-lg font-bold text-secondary">Uganda Pilot</h2>
+                        </div>
+                    </div>
+                    <a href="/project/hisagen-uganda" className="text-xs font-bold text-primary hover:underline flex items-center gap-1">
+                        View Full Project →
+                    </a>
+                </div>
+
+                <p className="text-sm text-slate leading-relaxed mb-6">
+                    East Africa presents a compelling entry point, with strong local demand for sustainable yield improvement and national research partners like <strong>NARO</strong> already engaged in field trials. With proven results and regulatory approvals, this model can be rapidly scaled across the continent.
+                </p>
+
+                <div className="grid gap-4 md:grid-cols-3">
+                    <div className="p-4 rounded-lg bg-white border border-primary/20">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-2">Partnership</p>
+                        <p className="text-sm font-bold text-secondary">NARO + MAAIF</p>
+                        <p className="text-xs text-slate mt-1">National Agricultural Research Organization under Ministry of Agriculture</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-white border border-primary/20">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-2">Opportunity</p>
+                        <p className="text-sm font-bold text-secondary">Triple Revenue Stream</p>
+                        <p className="text-xs text-slate mt-1">Product sales + Carbon credits + Co-investment</p>
+                    </div>
+                    <div className="p-4 rounded-lg bg-white border border-primary/20">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-2">Scale Potential</p>
+                        <p className="text-sm font-bold text-secondary">Millions of Farmers</p>
+                        <p className="text-xs text-slate mt-1">Replicable model for continental rollout</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Page 10: Uganda Trials, Results and Next Steps */}
+            <section className="mt-6 rounded-xl border border-mist bg-white p-6">
+                <div className="flex items-center gap-3 mb-4">
+                    <Image src="/icons/icon-leaf-check.png" alt="" width={28} height={28} className="opacity-70" />
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/60">Field Trials</p>
+                        <h2 className="text-lg font-bold text-secondary">Uganda Trials, Results & Next Steps</h2>
+                    </div>
+                </div>
+
+                {/* Timeline */}
+                <div className="mb-6">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate/60 mb-3">2025 Trial Timeline</p>
+                    <div className="flex items-center gap-2 overflow-x-auto pb-2">
+                        <div className="flex-shrink-0 p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-center min-w-[100px]">
+                            <p className="text-[10px] font-bold text-emerald-700">Feb 2025</p>
+                            <p className="text-[11px] text-slate mt-1">Prep & Planting</p>
+                        </div>
+                        <span className="text-slate/40">→</span>
+                        <div className="flex-shrink-0 p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-center min-w-[100px]">
+                            <p className="text-[10px] font-bold text-emerald-700">Mar-Aug</p>
+                            <p className="text-[11px] text-slate mt-1">Data Collection</p>
+                        </div>
+                        <span className="text-slate/40">→</span>
+                        <div className="flex-shrink-0 p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-center min-w-[100px]">
+                            <p className="text-[10px] font-bold text-emerald-700">Sep 2025</p>
+                            <p className="text-[11px] text-slate mt-1">Harvest</p>
+                        </div>
+                        <span className="text-slate/40">→</span>
+                        <div className="flex-shrink-0 p-3 rounded-lg bg-primary/10 border border-primary/30 text-center min-w-[100px]">
+                            <p className="text-[10px] font-bold text-primary">Results</p>
+                            <p className="text-[11px] text-slate mt-1">Highly Positive</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Trial Scope */}
+                <div className="grid gap-4 md:grid-cols-2 mb-6">
+                    <div className="p-4 rounded-lg bg-parchment/30 border border-mist">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Crops Tested</p>
+                        <div className="flex flex-wrap gap-2">
+                            {["Maize", "Irish Potatoes", "Peanuts", "Sweet Potatoes"].map((crop) => (
+                                <span key={crop} className="text-xs bg-white px-2 py-1 rounded border border-mist text-secondary">{crop}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="p-4 rounded-lg bg-parchment/30 border border-mist">
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-2">Regions</p>
+                        <div className="flex flex-wrap gap-2">
+                            {["Western", "Northern", "Eastern", "Central"].map((region) => (
+                                <span key={region} className="text-xs bg-white px-2 py-1 rounded border border-mist text-secondary">{region} Uganda</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Results Quote */}
+                <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
+                    <p className="text-sm text-slate leading-relaxed italic">
+                        "The results from these initial trials were <strong>highly positive</strong>, demonstrating strong crop response and overall effectiveness of the Rhizolizer Duo product. This success has led to the current phase, which aims to secure official approval of the Rhizolizer product range for use in Uganda."
+                    </p>
+                </div>
+
+                {/* Field Photos - Pending */}
+                <div className="mt-4 p-4 rounded-lg bg-amber-50 border-2 border-amber-300 border-dashed">
+                    <div className="flex items-center gap-3">
+                        <span className="text-amber-500 text-lg">📷</span>
+                        <div>
+                            <p className="text-sm font-bold text-amber-700">Field Photos Needed</p>
+                            <p className="text-xs text-amber-600 mt-1">Request high-resolution field trial photos from HISAGEN team: crop rows, farmers, land preparation, product application, planting activities.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Pages 11-12: Uganda Regulatory Timeline */}
+            <section className="mt-6 rounded-xl border border-amber-200 bg-amber-50/30 p-6">
+                <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                        <div className="flex-shrink-0 w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
+                            <span className="text-amber-600 text-sm">📋</span>
+                        </div>
+                        <div>
+                            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-amber-600">Regulatory Path</p>
+                            <h2 className="text-lg font-bold text-secondary">Uganda Approvals Timeline</h2>
+                        </div>
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded bg-amber-100 text-amber-700">Q1 2026</span>
+                </div>
+
+                <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                        <thead>
+                            <tr className="border-b border-amber-200">
+                                <th className="text-left py-2 px-3 text-[10px] font-bold uppercase tracking-wider text-secondary/60">Milestone</th>
+                                <th className="text-left py-2 px-3 text-[10px] font-bold uppercase tracking-wider text-secondary/60">Timeline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {[
+                                { milestone: "Initial observation results submission to MAAIF", date: "Oct 2025" },
+                                { milestone: "Dossier compilation (technical data, trial results, safety & efficacy)", date: "Jan 2026" },
+                                { milestone: "Submission to MAAIF for registration", date: "Jan 2026" },
+                                { milestone: "MAAIF review process", date: "Jan-Feb 2026" },
+                                { milestone: "Response to queries / additional data requests", date: "Feb-Mar 2026" },
+                                { milestone: "Approval notification received", date: "Feb-Mar 2026" },
+                                { milestone: "Certificate & license issued", date: "Feb-Mar 2026" },
+                                { milestone: "Final labeling & packaging approval", date: "Mar 2026" },
+                                { milestone: "Market launch preparation", date: "Apr-Jun 2026", highlight: true },
+                            ].map((item, idx) => (
+                                <tr key={idx} className={`border-b border-amber-100/50 ${item.highlight ? 'bg-primary/10' : ''}`}>
+                                    <td className={`py-2 px-3 ${item.highlight ? 'font-bold text-secondary' : 'text-slate'}`}>{item.milestone}</td>
+                                    <td className={`py-2 px-3 ${item.highlight ? 'font-bold text-primary' : 'text-slate'}`}>{item.date}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="mt-4 flex items-center justify-between p-3 rounded-lg bg-white border border-amber-200">
+                    <p className="text-xs text-slate">
+                        <strong>Regulatory Bodies:</strong> UNBS (Standards) + NARO (Research) + MAAIF (Ministry)
+                    </p>
+                    <a href="/project/hisagen-uganda" className="text-xs font-bold text-primary hover:underline">
+                        Full Project Details →
+                    </a>
+                </div>
+            </section>
+
+            {/* Page 14: Glossary */}
+            <section className="mt-8 rounded-xl border border-mist bg-white p-6">
+                <div className="flex items-center gap-3 mb-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-slate/10 flex items-center justify-center">
+                        <span className="text-slate text-sm">📖</span>
+                    </div>
+                    <div>
+                        <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/60">Reference</p>
+                        <h2 className="text-lg font-bold text-secondary">Glossary</h2>
+                    </div>
+                </div>
+
+                <div>
+                    <table className="w-full text-sm">
+                        <thead>
+                            <tr className="border-b border-mist">
+                                <th className="text-left py-2 px-3 text-[10px] font-bold uppercase tracking-wider text-secondary/60">Term</th>
+                                <th className="text-left py-2 px-3 text-[10px] font-bold uppercase tracking-wider text-secondary/60">Definition</th>
+                                <th className="text-left py-2 px-3 text-[10px] font-bold uppercase tracking-wider text-secondary/60">Why It Matters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className="border-b border-mist/50">
+                                <td className="py-2 px-3 font-bold text-secondary align-top">NARO</td>
+                                <td className="py-2 px-3 text-slate align-top">National Agricultural Research Organisation — Uganda's public agricultural research body that coordinates R&D and provides technical oversight for trials.</td>
+                                <td className="py-2 px-3 text-xs text-slate/70 align-top">Adds credibility and technical validation for trial design, execution, and results.</td>
+                            </tr>
+                            <tr className="border-b border-mist/50">
+                                <td className="py-2 px-3 font-bold text-secondary align-top">UNBS</td>
+                                <td className="py-2 px-3 text-slate align-top">Uganda National Bureau of Standards — certifies products for quality, safety, and compliance before entering the market.</td>
+                                <td className="py-2 px-3 text-xs text-slate/70 align-top">Supports certification/standards compliance needed for commercialization and scale.</td>
+                            </tr>
+                            <tr className="border-b border-mist/50">
+                                <td className="py-2 px-3 font-bold text-secondary align-top">MAAIF</td>
+                                <td className="py-2 px-3 text-slate align-top">Ministry of Agriculture, Animal Industry and Fisheries — lead government ministry for agriculture policy and regulation of agricultural inputs.</td>
+                                <td className="py-2 px-3 text-xs text-slate/70 align-top">Key regulatory authority for approvals/registration pathways in Uganda.</td>
+                            </tr>
+                            <tr className="border-b border-mist/50">
+                                <td className="py-2 px-3 font-bold text-secondary align-top">EAC</td>
+                                <td className="py-2 px-3 text-slate align-top">East African Community — regional bloc of 8 Partner States: Burundi, DR Congo, Kenya, Rwanda, Somalia, South Sudan, Tanzania, Uganda.</td>
+                                <td className="py-2 px-3 text-xs text-slate/70 align-top">Provides regional scaling pathway once Uganda approvals are secured.</td>
+                            </tr>
+                            <tr className="border-b border-mist/50">
+                                <td className="py-2 px-3 font-bold text-secondary align-top">HISAGEN USA</td>
+                                <td className="py-2 px-3 text-slate align-top">U.S.-incorporated parent entity holding strategy, funding, IP/commercial agreements, and global coordination.</td>
+                                <td className="py-2 px-3 text-xs text-slate/70 align-top">Enables capital formation, governance, and partner/investor structure.</td>
+                            </tr>
+                            <tr>
+                                <td className="py-2 px-3 font-bold text-secondary align-top">HISAGEN Africa</td>
+                                <td className="py-2 px-3 text-slate align-top">Africa operating company responsible for execution: regulatory coordination, trials, distribution, farmer rollout, and regional scaling.</td>
+                                <td className="py-2 px-3 text-xs text-slate/70 align-top">Drives on-the-ground delivery and commercialization in East Africa.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
             {/* Key Decisions Tracker */}
