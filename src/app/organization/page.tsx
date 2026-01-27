@@ -40,19 +40,6 @@ const cedricTribute = {
     detail: "Cedric was our close friend and brought this team together. A Ugandan/Irish entrepreneur based in Uganda, he was a former national athlete (tennis) and Davis Cup Captain, serving as President of the Uganda Tennis Association. His vision united us around the opportunity to bring transformative agricultural technology to Africa."
 };
 
-const coreTeam = [
-    {
-        name: "Deep Six Consulting",
-        role: "Operational Oversight",
-        detail: "Strategic advisory, client relationship management, and local operational oversight. Starting with the Uganda flagship, Deep Six brings the 'ground-truth' experience required to navigate complex agricultural landscapes."
-    },
-    {
-        name: "Pandion Studio",
-        role: "Systems Architecture",
-        detail: "Engineering the frameworks, digital infrastructure, and capital models (Capital Continuum) required to translate landscape outcomes into institutional carbon assets."
-    }
-];
-
 const foundingPrinciples = [
     {
         title: "Steward-First",
@@ -132,25 +119,6 @@ export default function OrganizationPage() {
                             <p className="text-[10px] text-primary/80 font-medium mb-3">{director.credentials}</p>
                             <p className="text-sm text-slate leading-relaxed">
                                 {director.detail}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Core Partners */}
-            <section className="mt-16">
-                <div className="flex items-center gap-4 mb-8">
-                    <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-secondary">Core Partners</h2>
-                    <div className="h-px flex-1 bg-mist" />
-                </div>
-                <div className="grid gap-8 md:grid-cols-2">
-                    {coreTeam.map((team) => (
-                        <div key={team.name} className="p-8 rounded-2xl border border-mist bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-primary/20 transition-all duration-300 motion-reduce:transition-none motion-reduce:transform-none">
-                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-2">{team.role}</p>
-                            <h3 className="text-xl font-bold text-secondary mb-4">{team.name}</h3>
-                            <p className="text-sm text-slate leading-relaxed">
-                                {team.detail}
                             </p>
                         </div>
                     ))}
