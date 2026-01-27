@@ -139,16 +139,20 @@ export default function LogoPage() {
           </div>
         </section>
 
+        {/* What HISAGEN Does */}
+        <section className="bg-white border border-mist rounded-lg p-6">
+          <p className="text-lg text-ink">
+            <strong>What HISAGEN does:</strong> Science-backed soil regeneration for African smallholder farmers,
+            turning degraded land into productive, carbon-storing agriculture.
+          </p>
+        </section>
+
         {/* The Brief */}
         <section>
           <h2 className="text-2xl font-serif font-semibold text-ink mb-6">The Brief</h2>
           <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
-            <p className="text-sm text-slate mb-4">
-              <strong className="text-ink">What HISAGEN does:</strong> Science-backed soil regeneration for African smallholder farmers,
-              turning degraded land into productive, carbon-storing agriculture.
-            </p>
             <p className="text-lg text-ink mb-4">
-              <strong>Logo brief:</strong> A simplified symbol that communicates &quot;valuable soil science&quot;,
+              <strong>One sentence:</strong> A simplified symbol that communicates &quot;valuable soil science&quot;,
               working at 16px, feeling premium at pitch deck scale.
             </p>
             <div className="flex flex-wrap gap-2">
