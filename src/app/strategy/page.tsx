@@ -98,8 +98,8 @@ export default function StrategyPage() {
                 />
                 <div className="p-4 bg-secondary/5 rounded-lg border-l-4 border-primary">
                     <p className="text-sm text-secondary font-medium">
-                        A regenerative agricultural economy where land stewards earn sustainable income
-                        from verified carbon sequestration.
+                        A regenerative agricultural economy where land stewards benefit from improved yields
+                        and a share of verified carbon revenues.
                     </p>
                 </div>
                 <p className="text-[10px] text-slate/50 mt-3 flex items-center gap-1">
