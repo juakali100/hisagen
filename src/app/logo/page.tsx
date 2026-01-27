@@ -72,6 +72,94 @@ Background: Parchment #F7F8F5`,
 
       <div className="max-w-6xl mx-auto px-8 py-12 space-y-12">
 
+        {/* Working Notes - Idea Capture */}
+        <section className="bg-harvest/10 border-2 border-harvest/30 rounded-lg p-6">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-2xl">💡</span>
+            <h2 className="text-2xl font-serif font-semibold text-ink">Working Notes</h2>
+            <span className="px-2 py-0.5 bg-harvest/30 text-harvest text-xs rounded-full">Living Document</span>
+          </div>
+
+          {/* Keywords */}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-slate uppercase tracking-wider mb-3">Keywords & Themes</h3>
+            <div className="flex flex-wrap gap-2">
+              {[
+                'soil',
+                'roots',
+                'underground',
+                'carbon',
+                'regeneration',
+                'emergence',
+                'growth',
+                'science',
+                'precision',
+                'African soil',
+                'foundation',
+                'sequestration',
+                'layers',
+                'microbial',
+                'verified',
+              ].map((keyword) => (
+                <span key={keyword} className="px-3 py-1 bg-white border border-harvest/40 rounded-full text-sm text-ink">
+                  {keyword}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Rough Ideas */}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-slate uppercase tracking-wider mb-3">Rough Ideas & Concepts</h3>
+            <div className="bg-white rounded-lg p-4 space-y-3">
+              <div className="flex items-start gap-3">
+                <span className="text-primary">●</span>
+                <p className="text-sm text-ink"><strong>Roots reaching down</strong> — most logos show growth UP, but HISAGEN's story is about what happens BELOW the surface. Roots as the hero element.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-primary">●</span>
+                <p className="text-sm text-ink"><strong>Soil cross-section</strong> — layers visible, showing the hidden world beneath. Scientific diagram aesthetic.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-primary">●</span>
+                <p className="text-sm text-ink"><strong>Seedling + horizon line</strong> — the line represents both soil surface AND African landscape. Simple but meaningful.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-primary">●</span>
+                <p className="text-sm text-ink"><strong>Circle with roots</strong> — contained form (works as icon), but roots extend beyond or pierce the boundary. Tension between order and organic.</p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-slate/50">○</span>
+                <p className="text-sm text-slate italic">Add more ideas here...</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Visual References */}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-slate uppercase tracking-wider mb-3">Visual References & Inspiration</h3>
+            <div className="bg-white rounded-lg p-4">
+              <ul className="space-y-2 text-sm text-ink">
+                <li>• Botanical illustration precision — clean lines, scientific accuracy</li>
+                <li>• Soil science diagrams — layers, textures, cross-sections</li>
+                <li>• African textile patterns — geometric, meaningful, distinctive</li>
+                <li>• Carbon/chemistry symbols — molecular, structured, credible</li>
+                <li>• Woodcut/linocut aesthetic — bold, simple, timeless</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Quick Notes */}
+          <div>
+            <h3 className="text-sm font-semibold text-slate uppercase tracking-wider mb-3">Notes & Observations</h3>
+            <div className="bg-white rounded-lg p-4 text-sm text-ink space-y-2">
+              <p><strong>From Keir:</strong> (capture feedback here)</p>
+              <p><strong>Competitor gaps:</strong> Nobody owns &quot;soil&quot; visually — most use leaves, trees, globes. This is the whitespace.</p>
+              <p><strong>Technical note:</strong> Must work at 16px for favicon. Test all concepts at small size early.</p>
+            </div>
+          </div>
+        </section>
+
         {/* Current State */}
         <section>
           <h2 className="text-2xl font-serif font-semibold text-ink mb-6">Current State: Wordmark Only</h2>
