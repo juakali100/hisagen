@@ -638,28 +638,46 @@ export default function PilotPage() {
             <span className="text-secondary font-bold text-sm">📍</span>
           </div>
           <div className="flex-1">
-            <div className="flex items-center gap-3 mb-2">
+            <div className="flex items-center gap-3 mb-3">
               <h3 className="text-sm font-bold text-secondary">Latest Status Update</h3>
               <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-secondary/20 text-secondary">
                 Feb 5, 2026
               </span>
             </div>
-            <div className="grid md:grid-cols-2 gap-4">
+
+            {/* Summary context */}
+            <p className="text-xs text-slate mb-4 leading-relaxed">
+              Product samples have reached Uganda and entered the formal UNBS approval process. The team is collecting the latest yield and field data
+              from trials while awaiting regulatory confirmation. Timeline running approximately 3 weeks behind original schedule, with Locus AG USA
+              remaining fully committed to the partnership.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-4">
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Regulatory Progress</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Regulatory Pathway</p>
                 <ul className="space-y-1 text-xs text-slate">
                   <li className="flex gap-2"><span className="text-emerald-500">✓</span> Samples arrived in Uganda</li>
-                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Submitted to UNBS for formal approval</li>
+                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Submitted to UNBS</li>
                   <li className="flex gap-2"><span className="text-secondary">○</span> Awaiting UNBS confirmation</li>
-                  <li className="flex gap-2"><span className="text-secondary">○</span> Collecting yield/field data from trials</li>
+                  <li className="flex gap-2"><span className="text-slate-300">◇</span> MAAIF submission (next)</li>
                 </ul>
               </div>
               <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Timeline & Support</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Field Operations</p>
                 <ul className="space-y-1 text-xs text-slate">
-                  <li className="flex gap-2"><span className="text-amber-500">⚠</span> Running ~3 weeks behind schedule</li>
-                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Locus US team fully supportive</li>
-                  <li className="flex gap-2"><span className="text-secondary">○</span> Uganda team call scheduled</li>
+                  <li className="flex gap-2"><span className="text-secondary">○</span> Collecting latest yield data</li>
+                  <li className="flex gap-2"><span className="text-secondary">○</span> Gathering field trial results</li>
+                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Uganda team call scheduled</li>
+                  <li className="flex gap-2"><span className="text-amber-500">⚠</span> ~3 weeks behind schedule</li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Strategic Focus</p>
+                <ul className="space-y-1 text-xs text-slate">
+                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Locus USA fully supportive</li>
+                  <li className="flex gap-2"><span className="text-blue-500">→</span> Farmer impact as lead story</li>
+                  <li className="flex gap-2"><span className="text-blue-500">→</span> Yields & income first</li>
+                  <li className="flex gap-2"><span className="text-slate-400">◇</span> Carbon credits: phase 2</li>
                 </ul>
               </div>
             </div>
