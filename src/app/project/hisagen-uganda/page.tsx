@@ -158,7 +158,7 @@ const L5_corporate = {
     },
     {
       element: "Revenue Model",
-      content: "70%+ carbon revenue to farmers; HISAGEN retains aggregation/MRV margin",
+      content: "Carbon credits as secondary revenue stream (structure TBC pending market development and certification pathway)",
     },
   ],
 };
@@ -191,7 +191,7 @@ const enablers = [
     name: "Social Sustainability",
     icon: "👥",
     items: [
-      "Farmer-first economics (70%+ revenue share)",
+      "Farmer-first economics (improved yields, income, resilience)",
       "Gender inclusion in aggregation",
       "Community-level capacity building",
       "Transparent pricing and contracts",
@@ -387,12 +387,12 @@ const capitalStages = [
         description: "Steady-state operations with predictable cashflows",
         milestones: [
           "1M+ tCO2e sequestered annually",
-          "Sustainable farmer income stream (70%+ to farmers)",
+          "Sustainable farmer income stream (product + yield benefits)",
           "Multi-year track record established",
           "Institutional-grade reporting and governance",
         ],
         capitalIn: "Commercial debt, carbon-backed facilities",
-        revenueOut: "Carbon credits, product sales, crop yields → farmer payments (70%+)",
+        revenueOut: "Carbon credits, product sales, improved crop yields",
         mrvHorizontal: "Continuous landscape monitoring, annual verification",
         traceabilityVertical: "Real-time farm → payment tracking",
         reporting: "Institutional reports, CSRD-ready data",
