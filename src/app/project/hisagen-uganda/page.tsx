@@ -185,28 +185,76 @@ const verticalFlows = {
   },
 };
 
-// Cross-cutting Enablers
+// Cross-cutting Enablers (inspired by Cultivo Social Framework)
 const enablers = [
   {
     name: "Social Sustainability",
     icon: "👥",
-    description: "Primary focus: practical socio-economic impact for subsistence farmers",
-    items: [
-      "Better plant health and more resilient crops",
-      "Improved yields and increased farmer income",
-      "Gender inclusion in farmer networks",
-      "Community-level capacity building",
-      "Transparent pricing and fair trade principles",
+    description: "Placing farmers at the center of soil regeneration",
+    pillars: [
+      {
+        name: "Engagement",
+        color: "emerald",
+        items: [
+          "Farmer network formation and recruitment",
+          "Community buy-in and participation",
+          "Communication and feedback channels",
+          "Gender-inclusive outreach",
+        ],
+      },
+      {
+        name: "Safeguarding",
+        color: "blue",
+        items: [
+          "Fair and transparent contracts",
+          "Clear pricing mechanisms",
+          "Grievance and dispute resolution (TBC)",
+          "Opt-out rights and flexibility",
+        ],
+      },
+      {
+        name: "Impact Monitoring",
+        color: "purple",
+        items: [
+          "Baseline: income, yields, food security, gender %",
+          "Tracking: changes over time, attribution",
+          "Reporting: integrated with environmental MRV",
+        ],
+      },
     ],
   },
   {
     name: "Enabling Systems",
     icon: "⚙️",
-    items: [
-      "Locus AG biologicals technology",
-      "Digital farmer registry",
-      "Mobile-based data collection",
-      "Aggregation network infrastructure",
+    description: "The infrastructure that makes the project work",
+    pillars: [
+      {
+        name: "Science & Evidence",
+        color: "amber",
+        items: [
+          "NARO trial data and field research",
+          "Locus AG agronomic science",
+          "Soil carbon measurement protocols",
+        ],
+      },
+      {
+        name: "Standards & Certification",
+        color: "slate",
+        items: [
+          "Verra VM0042 pathway (future)",
+          "Product registration (UNBS, MAAIF)",
+          "Social safeguards alignment (TBC)",
+        ],
+      },
+      {
+        name: "Coordination",
+        color: "cyan",
+        items: [
+          "HISAGEN-NARO-Locus AG network",
+          "Carbon Zero Marketplace (future)",
+          "Funder and partner relationships",
+        ],
+      },
     ],
   },
 ];
@@ -266,7 +314,7 @@ const capitalStages = [
         mrvHorizontal: "Baseline research, Locus AG product specs",
         traceabilityVertical: "—",
         reporting: "Internal documentation",
-        social: "Founding team formation, Locus AG partnership",
+        social: "Engagement approach defined; local partner relationships established",
       },
       {
         phase: "Phase 1",
@@ -286,7 +334,7 @@ const capitalStages = [
         mrvHorizontal: "Yield measurements, soil sampling, trial protocols",
         traceabilityVertical: "Trial site → data collection",
         reporting: "NARO trial reports",
-        social: "NARO research partnership, trial farmer engagement",
+        social: "Trial farmer consent model; initial community engagement; social context documented",
       },
       {
         phase: "Phase 2",
@@ -308,7 +356,7 @@ const capitalStages = [
         mrvHorizontal: "Yield data compilation, field data synthesis",
         traceabilityVertical: "UNBS product batch tracking",
         reporting: "Regulatory dossiers (UNBS, MAAIF)",
-        social: "Government relationship building, market access preparation",
+        social: "Safeguarding framework design; contract templates drafted; early adopter identification",
       },
       {
         phase: "Phase 3",
@@ -327,7 +375,7 @@ const capitalStages = [
         mrvHorizontal: "Baseline SOC measurements, practice verification",
         traceabilityVertical: "Farmer → aggregator registration",
         reporting: "Funder reports, grant compliance",
-        social: "Farmer network formation, initial training, income benefits begin",
+        social: "Farmer recruitment (gender targets); training delivery; BASELINE DATA COLLECTION (income, yields, food security)",
       },
     ],
   },
@@ -356,7 +404,7 @@ const capitalStages = [
         mrvHorizontal: "Ground-truth sampling, satellite validation",
         traceabilityVertical: "Farm → credit provenance chain",
         reporting: "Verra PDD, impact investor reports",
-        social: "5,000+ farmers engaged, gender inclusion programs, capacity building",
+        social: "5,000+ farmers enrolled; gender tracking active; safeguarding mechanisms operational; FIRST IMPACT MEASUREMENT",
       },
       {
         phase: "Phase 5",
@@ -375,7 +423,7 @@ const capitalStages = [
         mrvHorizontal: "Continuous SOC monitoring, verification audits",
         traceabilityVertical: "Full chain of custody (farm → registry)",
         reporting: "Verra registry, buyer reports, audit trails",
-        social: "50,000+ farmer livelihoods improved, community aggregation hubs",
+        social: "50,000+ farmers; documented livelihood improvements; grievance mechanisms tested; community hubs established",
       },
     ],
   },
@@ -404,7 +452,7 @@ const capitalStages = [
         mrvHorizontal: "Continuous landscape monitoring, annual verification",
         traceabilityVertical: "Real-time farm → payment tracking",
         reporting: "Institutional reports, CSRD-ready data",
-        social: "Sustainable farmer income streams, transparent benefit-sharing",
+        social: "Mature social framework; continuous impact monitoring; transparent benefit flows; institutional-grade social reporting",
       },
       {
         phase: "Phase 7",
@@ -422,7 +470,7 @@ const capitalStages = [
         mrvHorizontal: "MRV protocol replication, new baselines",
         traceabilityVertical: "Cross-border value chain tracking",
         reporting: "Multi-jurisdiction disclosure, regional dashboards",
-        social: "New community engagement, social model replication, just transition",
+        social: "Social framework adapted to new geography; engagement playbook replicated; just transition considerations",
       },
     ],
   },
@@ -451,7 +499,7 @@ const capitalStages = [
         mrvHorizontal: "Pan-African monitoring network",
         traceabilityVertical: "Global replication playbook",
         reporting: "Institutional dashboards, ESG integration, CSRD/ISSB",
-        social: "Pan-African farmer network, scalable community impact model",
+        social: "Pan-African social impact network; scalable engagement/safeguarding/monitoring model; global replication blueprint",
       },
     ],
   },
@@ -780,25 +828,50 @@ export default function PilotPage() {
           <h2 className="mt-2 text-3xl font-bold text-secondary">Enablers & Actors</h2>
         </div>
 
-        {/* Enablers */}
+        {/* Enablers - Pillar-based structure */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {enablers.map((enabler) => (
             <div key={enabler.name} className="rounded-2xl border border-mist bg-white p-6">
-              <div className="flex items-center gap-3 mb-3">
+              <div className="flex items-center gap-3 mb-2">
                 <span className="text-2xl">{enabler.icon}</span>
                 <h3 className="text-lg font-bold text-secondary">{enabler.name}</h3>
               </div>
               {enabler.description && (
-                <p className="text-xs text-primary font-medium mb-3 italic">{enabler.description}</p>
+                <p className="text-xs text-primary font-medium mb-4 italic">{enabler.description}</p>
               )}
-              <ul className="space-y-2">
-                {enabler.items.map((item, i) => (
-                  <li key={i} className="text-xs text-slate flex gap-2">
-                    <span className="text-secondary">•</span>
-                    {item}
-                  </li>
+
+              {/* Three Pillars */}
+              <div className="space-y-4">
+                {enabler.pillars.map((pillar) => (
+                  <div key={pillar.name} className="border-l-2 border-slate-200 pl-3">
+                    <p className={`text-[10px] font-bold uppercase tracking-widest mb-1.5 ${
+                      pillar.color === "emerald" ? "text-emerald-600" :
+                      pillar.color === "blue" ? "text-blue-600" :
+                      pillar.color === "purple" ? "text-purple-600" :
+                      pillar.color === "amber" ? "text-amber-600" :
+                      pillar.color === "cyan" ? "text-cyan-600" :
+                      "text-slate-600"
+                    }`}>
+                      {pillar.name}
+                    </p>
+                    <ul className="space-y-0.5">
+                      {pillar.items.map((item, i) => (
+                        <li key={i} className="text-[11px] text-slate flex gap-2">
+                          <span className={`${
+                            pillar.color === "emerald" ? "text-emerald-400" :
+                            pillar.color === "blue" ? "text-blue-400" :
+                            pillar.color === "purple" ? "text-purple-400" :
+                            pillar.color === "amber" ? "text-amber-400" :
+                            pillar.color === "cyan" ? "text-cyan-400" :
+                            "text-slate-400"
+                          }`}>•</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
