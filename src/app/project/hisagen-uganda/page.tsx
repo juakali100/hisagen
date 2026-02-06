@@ -266,6 +266,7 @@ const capitalStages = [
         mrvHorizontal: "Baseline research, Locus AG product specs",
         traceabilityVertical: "—",
         reporting: "Internal documentation",
+        social: "Founding team formation, Locus AG partnership",
       },
       {
         phase: "Phase 1",
@@ -285,6 +286,7 @@ const capitalStages = [
         mrvHorizontal: "Yield measurements, soil sampling, trial protocols",
         traceabilityVertical: "Trial site → data collection",
         reporting: "NARO trial reports",
+        social: "NARO research partnership, trial farmer engagement",
       },
       {
         phase: "Phase 2",
@@ -306,6 +308,7 @@ const capitalStages = [
         mrvHorizontal: "Yield data compilation, field data synthesis",
         traceabilityVertical: "UNBS product batch tracking",
         reporting: "Regulatory dossiers (UNBS, MAAIF)",
+        social: "Government relationship building, market access preparation",
       },
       {
         phase: "Phase 3",
@@ -324,6 +327,7 @@ const capitalStages = [
         mrvHorizontal: "Baseline SOC measurements, practice verification",
         traceabilityVertical: "Farmer → aggregator registration",
         reporting: "Funder reports, grant compliance",
+        social: "Farmer network formation, initial training, income benefits begin",
       },
     ],
   },
@@ -352,6 +356,7 @@ const capitalStages = [
         mrvHorizontal: "Ground-truth sampling, satellite validation",
         traceabilityVertical: "Farm → credit provenance chain",
         reporting: "Verra PDD, impact investor reports",
+        social: "5,000+ farmers engaged, gender inclusion programs, capacity building",
       },
       {
         phase: "Phase 5",
@@ -370,6 +375,7 @@ const capitalStages = [
         mrvHorizontal: "Continuous SOC monitoring, verification audits",
         traceabilityVertical: "Full chain of custody (farm → registry)",
         reporting: "Verra registry, buyer reports, audit trails",
+        social: "50,000+ farmer livelihoods improved, community aggregation hubs",
       },
     ],
   },
@@ -398,6 +404,7 @@ const capitalStages = [
         mrvHorizontal: "Continuous landscape monitoring, annual verification",
         traceabilityVertical: "Real-time farm → payment tracking",
         reporting: "Institutional reports, CSRD-ready data",
+        social: "Sustainable farmer income streams, transparent benefit-sharing",
       },
       {
         phase: "Phase 7",
@@ -415,6 +422,7 @@ const capitalStages = [
         mrvHorizontal: "MRV protocol replication, new baselines",
         traceabilityVertical: "Cross-border value chain tracking",
         reporting: "Multi-jurisdiction disclosure, regional dashboards",
+        social: "New community engagement, social model replication, just transition",
       },
     ],
   },
@@ -443,6 +451,7 @@ const capitalStages = [
         mrvHorizontal: "Pan-African monitoring network",
         traceabilityVertical: "Global replication playbook",
         reporting: "Institutional dashboards, ESG integration, CSRD/ISSB",
+        social: "Pan-African farmer network, scalable community impact model",
       },
     ],
   },
@@ -946,7 +955,7 @@ export default function PilotPage() {
 
                                 <p className="text-xs text-slate mb-3">{phase.description}</p>
 
-                                <div className="grid md:grid-cols-3 gap-4">
+                                <div className="grid md:grid-cols-4 gap-4">
                                   {/* Milestones */}
                                   <div>
                                     <p className="text-[9px] font-bold uppercase tracking-widest text-secondary/60 mb-1">
@@ -999,6 +1008,17 @@ export default function PilotPage() {
                                         <span className="text-[8px] bg-slate-100 text-slate-600 px-1 rounded font-medium whitespace-nowrap">REPORT</span>
                                         <span className="text-[10px] text-slate">{phase.reporting}</span>
                                       </div>
+                                    </div>
+                                  </div>
+
+                                  {/* Social Sustainability */}
+                                  <div className="space-y-2">
+                                    <p className="text-[9px] font-bold uppercase tracking-widest text-pink-600/80 mb-1">
+                                      Social
+                                    </p>
+                                    <div className="flex gap-2 items-start">
+                                      <span className="text-[8px] bg-pink-100 text-pink-700 px-1 rounded font-medium whitespace-nowrap">👥</span>
+                                      <span className="text-[10px] text-slate">{phase.social}</span>
                                     </div>
                                   </div>
                                 </div>
