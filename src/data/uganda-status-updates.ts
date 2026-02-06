@@ -22,7 +22,7 @@ export interface StatusUpdate {
   strategic: {
     items: Array<{
       text: string;
-      status: 'complete' | 'in-progress' | 'direction' | 'future';
+      status: 'complete' | 'in-progress' | 'pending' | 'direction' | 'future';
     }>;
   };
 }
