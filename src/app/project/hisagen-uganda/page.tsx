@@ -667,7 +667,7 @@ export default function PilotPage() {
                 <ul className="space-y-1 text-xs text-slate">
                   <li className="flex gap-2"><span className="text-secondary">○</span> Collecting latest yield data</li>
                   <li className="flex gap-2"><span className="text-secondary">○</span> Gathering field trial results</li>
-                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Uganda team call scheduled</li>
+                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Uganda call: confirm timeline</li>
                   <li className="flex gap-2"><span className="text-amber-500">⚠</span> ~3 weeks behind schedule</li>
                 </ul>
               </div>
