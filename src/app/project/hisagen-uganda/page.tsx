@@ -260,6 +260,7 @@ const capitalStages = [
           "Uganda identified as launch market",
         ],
         funding: "Sweat equity, director investment",
+        data: "Technology documentation, Locus AG product specs, baseline research",
       },
       {
         phase: "Phase 1",
@@ -275,6 +276,7 @@ const capitalStages = [
           "Results: 'Highly positive' (quantitative data pending)",
         ],
         funding: "Director investment, in-kind NARO contribution",
+        data: "Yield measurements, soil sampling protocols, trial data across 4 crops/regions",
       },
       {
         phase: "Phase 2",
@@ -292,6 +294,7 @@ const capitalStages = [
           "Apr 2026: Product labeling finalization",
         ],
         funding: "Director investment, seeking grant support",
+        data: "Yield data compilation, UNBS documentation, regulatory dossier, field data synthesis",
       },
       {
         phase: "Phase 3",
@@ -306,6 +309,7 @@ const capitalStages = [
           "Carbon MRV baseline establishment",
         ],
         funding: "Grant funding, carbon pre-purchase",
+        data: "Baseline SOC measurements, farmer registration, practice verification setup",
       },
     ],
   },
@@ -330,6 +334,7 @@ const capitalStages = [
           "First carbon credit registration (Verra VM0042)",
         ],
         funding: "Carbon prepayment, impact investment",
+        data: "MRV infrastructure deployment, satellite validation, ground-truth sampling network",
       },
       {
         phase: "Phase 5",
@@ -344,6 +349,7 @@ const capitalStages = [
           "Expand to 50,000+ hectares",
         ],
         funding: "Carbon finance, working capital facilities",
+        data: "Verra registry submission, verification audits, carbon credit documentation",
       },
     ],
   },
@@ -368,6 +374,7 @@ const capitalStages = [
           "Institutional-grade reporting and governance",
         ],
         funding: "Commercial debt, carbon-backed facilities",
+        data: "Continuous MRV, annual verification cycles, farmer payment tracking",
       },
       {
         phase: "Phase 7",
@@ -381,6 +388,7 @@ const capitalStages = [
           "Regional hub infrastructure",
         ],
         funding: "Preferred equity, regional development finance",
+        data: "MRV protocol replication, new geography baselines, cross-border data systems",
       },
     ],
   },
@@ -405,6 +413,7 @@ const capitalStages = [
           "Blueprint for global replication",
         ],
         funding: "Green bonds, institutional equity",
+        data: "Institutional-grade reporting, real-time dashboards, global replication playbook",
       },
     ],
   },
@@ -905,7 +914,7 @@ export default function PilotPage() {
 
                                 <p className="text-xs text-slate mb-3">{phase.description}</p>
 
-                                <div className="grid md:grid-cols-2 gap-4">
+                                <div className="grid md:grid-cols-3 gap-4">
                                   <div>
                                     <p className="text-[9px] font-bold uppercase tracking-widest text-secondary/60 mb-1">
                                       Milestones
@@ -926,6 +935,12 @@ export default function PilotPage() {
                                       Funding
                                     </p>
                                     <p className="text-[11px] text-slate italic">{phase.funding}</p>
+                                  </div>
+                                  <div>
+                                    <p className="text-[9px] font-bold uppercase tracking-widest text-primary/60 mb-1">
+                                      Data / MRV
+                                    </p>
+                                    <p className="text-[11px] text-slate italic">{phase.data}</p>
                                   </div>
                                 </div>
                               </div>
