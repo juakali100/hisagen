@@ -163,24 +163,72 @@ const L5_corporate = {
   ],
 };
 
-// Vertical Flows
+// Vertical Flows (aligned with Pandion framework)
 const verticalFlows = {
-  capitalFlow: {
-    title: "Capital Flow",
-    description: "Funding progression from grants to carbon markets",
-    stages: [
-      { stage: "IN", label: "Concessional", items: ["Grants", "Philanthropy", "Director investment"], status: "active" },
-      { stage: "THROUGH", label: "Blended", items: ["Carbon prepayment", "Impact loans"], status: "planned" },
-      { stage: "OUT", label: "Commercial", items: ["Carbon credits", "Premium pricing"], status: "future" },
+  capitalFlows: {
+    title: "Capital Flows",
+    description: "Capital flowing into nature. Revenue flowing to land stewards.",
+    flows: [
+      {
+        direction: "IN",
+        label: "Capital In",
+        color: "emerald",
+        description: "Investment and de-risking capital",
+        items: [
+          { name: "Concessional", detail: "Grants, philanthropy, director investment", status: "active" },
+          { name: "Blended", detail: "Carbon prepayment, impact loans, guarantees", status: "planned" },
+          { name: "Commercial", detail: "Green bonds, institutional debt", status: "future" },
+        ],
+      },
+      {
+        direction: "OUT",
+        label: "Revenue Out",
+        color: "amber",
+        description: "Value flowing to land stewards",
+        items: [
+          { name: "Product Sales", detail: "Rhizolizer product revenue", status: "planned" },
+          { name: "Yield Benefits", detail: "Improved farmer income from crops", status: "planned" },
+          { name: "Carbon Credits", detail: "Secondary revenue stream (TBC)", status: "future" },
+        ],
+      },
     ],
   },
-  dataFlow: {
-    title: "Data Flow",
-    description: "MRV and reporting infrastructure",
-    layers: [
-      { layer: "Collection", items: ["Soil sampling", "Yield measurement", "Practice verification"] },
-      { layer: "Processing", items: ["SOC calculation", "Satellite validation", "eDNA analysis"] },
-      { layer: "Reporting", items: ["Verra registry", "Funder reports", "Farmer dashboards"] },
+  dataFlows: {
+    title: "Data Flows",
+    description: "Evidence moving up through the system",
+    flows: [
+      {
+        type: "MRV",
+        label: "MRV Systems",
+        color: "blue",
+        orientation: "Horizontal (landscape)",
+        description: "Evidence for ecosystem outcomes",
+        items: ["Soil carbon sampling", "Yield measurements", "Satellite monitoring", "Ground-truth verification"],
+      },
+      {
+        type: "TRACE",
+        label: "Traceability",
+        color: "purple",
+        orientation: "Vertical (value chain)",
+        description: "Evidence for sourcing claims",
+        items: ["Farmer registration", "Product batch tracking", "Chain of custody", "Credit provenance"],
+      },
+      {
+        type: "DISCLOSURE",
+        label: "Disclosure Data",
+        color: "slate",
+        orientation: "Regulatory compliance",
+        description: "Evidence for reporting requirements",
+        items: ["Funder reports", "Verra registry submissions", "CSRD-ready data (future)", "Impact dashboards"],
+      },
+      {
+        type: "IMPACT",
+        label: "Impact Evidence",
+        color: "pink",
+        orientation: "Outcome claims",
+        description: "Evidence that interventions work",
+        items: ["Additionality assessment", "Baseline vs actuals", "Social impact metrics", "Attribution analysis"],
+      },
     ],
   },
 };
@@ -771,46 +819,69 @@ export default function PilotPage() {
           <p className="text-xs uppercase tracking-[0.3em] font-bold text-secondary">Vertical Flows</p>
           <h2 className="mt-2 text-3xl font-bold text-secondary">Capital & Data</h2>
           <p className="mt-3 text-sm text-slate max-w-2xl leading-relaxed">
-            Two critical flows run through all layers: how capital moves in and value flows out, and how data enables trust and verification.
+            Capital flowing into nature, revenue flowing to land stewards. Evidence moving up through MRV, traceability, disclosure, and impact measurement.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {/* Capital Flow */}
+          {/* Capital Flows */}
           <div className="rounded-2xl border border-secondary/20 bg-secondary/5 p-6">
-            <h3 className="text-lg font-bold text-secondary mb-2">{verticalFlows.capitalFlow.title}</h3>
-            <p className="text-xs text-slate mb-4">{verticalFlows.capitalFlow.description}</p>
-            <div className="space-y-3">
-              {verticalFlows.capitalFlow.stages.map((stage) => (
-                <div key={stage.stage} className={`p-3 rounded-lg border ${
-                  stage.status === "active" ? "border-secondary bg-white" :
-                  stage.status === "planned" ? "border-slate-200 bg-slate-50" : "border-slate-100 bg-slate-50/50 opacity-60"
-                }`}>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-secondary/60">{stage.stage}</span>
-                    <span className="text-xs font-bold text-secondary">{stage.label}</span>
-                    {stage.status === "active" && (
-                      <span className="px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-widest rounded bg-secondary text-parchment">Now</span>
-                    )}
+            <h3 className="text-lg font-bold text-secondary mb-1">{verticalFlows.capitalFlows.title}</h3>
+            <p className="text-xs text-slate mb-4 italic">{verticalFlows.capitalFlows.description}</p>
+            <div className="space-y-4">
+              {verticalFlows.capitalFlows.flows.map((flow) => (
+                <div key={flow.direction}>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${
+                      flow.color === "emerald" ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700"
+                    }`}>
+                      {flow.direction}
+                    </span>
+                    <span className="text-sm font-bold text-secondary">{flow.label}</span>
                   </div>
-                  <p className="text-[11px] text-slate">{stage.items.join(" • ")}</p>
+                  <p className="text-[10px] text-slate/70 mb-2">{flow.description}</p>
+                  <div className="space-y-1.5">
+                    {flow.items.map((item) => (
+                      <div key={item.name} className={`p-2 rounded-lg border ${
+                        item.status === "active" ? "border-secondary/30 bg-white" :
+                        item.status === "planned" ? "border-slate-200 bg-slate-50" : "border-slate-100 bg-slate-50/50 opacity-60"
+                      }`}>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[11px] font-medium text-secondary">{item.name}</span>
+                          {item.status === "active" && (
+                            <span className="px-1.5 py-0.5 text-[7px] font-bold uppercase rounded bg-secondary text-parchment">Now</span>
+                          )}
+                        </div>
+                        <p className="text-[10px] text-slate">{item.detail}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Data Flow */}
+          {/* Data Flows */}
           <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6">
-            <h3 className="text-lg font-bold text-secondary mb-2">{verticalFlows.dataFlow.title}</h3>
-            <p className="text-xs text-slate mb-4">{verticalFlows.dataFlow.description}</p>
+            <h3 className="text-lg font-bold text-secondary mb-1">{verticalFlows.dataFlows.title}</h3>
+            <p className="text-xs text-slate mb-4 italic">{verticalFlows.dataFlows.description}</p>
             <div className="space-y-3">
-              {verticalFlows.dataFlow.layers.map((layer, i) => (
-                <div key={layer.layer} className="p-3 rounded-lg border border-primary/20 bg-white">
+              {verticalFlows.dataFlows.flows.map((flow) => (
+                <div key={flow.type} className="p-3 rounded-lg border border-primary/10 bg-white">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="w-5 h-5 rounded-full bg-primary/20 text-primary text-[10px] font-bold flex items-center justify-center">{i + 1}</span>
-                    <span className="text-xs font-bold text-secondary">{layer.layer}</span>
+                    <span className={`text-[8px] font-bold uppercase px-1.5 py-0.5 rounded ${
+                      flow.color === "blue" ? "bg-blue-100 text-blue-700" :
+                      flow.color === "purple" ? "bg-purple-100 text-purple-700" :
+                      flow.color === "pink" ? "bg-pink-100 text-pink-700" :
+                      "bg-slate-100 text-slate-600"
+                    }`}>
+                      {flow.type}
+                    </span>
+                    <span className="text-xs font-bold text-secondary">{flow.label}</span>
                   </div>
-                  <p className="text-[11px] text-slate">{layer.items.join(" • ")}</p>
+                  <p className="text-[9px] text-primary/70 mb-1">{flow.orientation}</p>
+                  <p className="text-[10px] text-slate/70 mb-2">{flow.description}</p>
+                  <p className="text-[10px] text-slate">{flow.items.join(" • ")}</p>
                 </div>
               ))}
             </div>
