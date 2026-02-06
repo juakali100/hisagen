@@ -10,7 +10,7 @@ const partnerships = [
         role: "Soil Science & Data",
         status: "confirmed",
         statusLabel: "Active",
-        deliverables: ["Rhizolizer® Deployment", "Yield Improvement (15-30%)", "SOC Accumulation"],
+        deliverables: ["Rhizolizer® Deployment", "Yield Improvement (15-30%)", "Plant Health Data"],
         color: "bg-emerald-50",
         border: "border-emerald-200"
     },
@@ -31,21 +31,21 @@ const outcomeTargets = [
     {
         phase: "Short-Term",
         timeline: "Year 1-2",
-        targets: ["5,000 hectares under management", "15-30% yield improvement", "First Verra VM0042 credits issued"],
+        targets: ["5,000 hectares under management", "15-30% yield improvement for farmers", "Soil health data collection established"],
         status: "active",
         progress: "In Progress"
     },
     {
         phase: "Medium-Term",
         timeline: "Year 3-5",
-        targets: ["50,000+ hectares", "70%+ carbon revenue to farmers", "Second geography deployed"],
+        targets: ["50,000+ hectares", "Measurable farmer income improvement", "Second geography deployed"],
         status: "upcoming",
         progress: "Planned"
     },
     {
         phase: "Long-Term",
         timeline: "Year 5-10",
-        targets: ["1M+ tCO2e verified annually", "Model proven for global replication", "Sustainable farmer income stream"],
+        targets: ["4M+ farmers reached", "Model proven for global replication", "Sustainable farmer livelihoods established"],
         status: "future",
         progress: "Vision"
     }
@@ -130,7 +130,7 @@ export default function ProgramPage() {
                 <div className="bg-secondary p-6 text-white">
                     <div className="flex items-center justify-between">
                         <div>
-                            <p className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-70">Agri-Carbon Program</p>
+                            <p className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-70">Regenerative Agriculture Program</p>
                             <h1 className="mt-2 text-2xl font-bold tracking-tight">Program Overview & Status</h1>
                         </div>
                         <div className="text-right">
@@ -236,9 +236,9 @@ export default function ProgramPage() {
                     <div className="p-4 rounded-lg bg-white border border-emerald-100">
                         <div className="flex items-center gap-2 mb-2">
                             <Image src="/icons/icon-sequester.png" alt="" width={20} height={20} className="opacity-60" />
-                            <p className="text-xs font-bold text-secondary">Sequester Carbon</p>
+                            <p className="text-xs font-bold text-secondary">Build Resilient Crops</p>
                         </div>
-                        <p className="text-[11px] text-slate leading-relaxed">Healthier soil biology stores carbon in the ground, creating carbon credit opportunities while fighting climate change.</p>
+                        <p className="text-[11px] text-slate leading-relaxed">Healthier soil biology produces stronger plants that better withstand drought, pests, and climate stress — protecting farmer harvests.</p>
                     </div>
                     <div className="p-4 rounded-lg bg-white border border-emerald-100">
                         <div className="flex items-center gap-2 mb-2">
@@ -332,7 +332,7 @@ export default function ProgramPage() {
                 {/* Business Opportunity - Why East Africa */}
                 <div className="mb-6 p-4 rounded-lg border border-primary/20 bg-white">
                     <p className="text-sm text-slate leading-relaxed">
-                        <strong>East Africa presents a compelling entry point</strong>, with strong local demand for sustainable yield improvement and national research partners like <strong>NARO</strong> already engaged in field trials. With proven results and regulatory approvals, this model can be rapidly scaled across the continent to reach millions of farmers and unlock significant <em>sales, carbon credit and co-investment</em> opportunities.
+                        <strong>East Africa presents a compelling entry point</strong>, with strong local demand for sustainable yield improvement and national research partners like <strong>NARO</strong> already engaged in field trials. With proven results and regulatory approvals, this model can be rapidly scaled across the continent to improve livelihoods for millions of smallholder farmers.
                     </p>
                 </div>
 
@@ -556,7 +556,7 @@ export default function ProgramPage() {
                 </div>
 
                 <p className="text-sm text-slate leading-relaxed mb-6">
-                    East Africa presents a compelling entry point, with strong local demand for sustainable yield improvement and national research partners like <strong>NARO</strong> already engaged in field trials. With proven results and regulatory approvals, this model can be rapidly scaled across the continent.
+                    East Africa presents a compelling entry point, with strong local demand for sustainable yield improvement and national research partners like <strong>NARO</strong> already engaged in field trials. With proven results and regulatory approvals, this farmer-first model can be rapidly scaled to improve livelihoods across the continent.
                 </p>
 
                 <div className="grid gap-4 md:grid-cols-3">
@@ -566,9 +566,9 @@ export default function ProgramPage() {
                         <p className="text-xs text-slate mt-1">National Agricultural Research Organization under Ministry of Agriculture</p>
                     </div>
                     <div className="p-4 rounded-lg bg-white border border-primary/20">
-                        <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-2">Opportunity</p>
-                        <p className="text-sm font-bold text-secondary">Triple Revenue Stream</p>
-                        <p className="text-xs text-slate mt-1">Product sales + Carbon credits + Co-investment</p>
+                        <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-2">Farmer Impact</p>
+                        <p className="text-sm font-bold text-secondary">Better Livelihoods</p>
+                        <p className="text-xs text-slate mt-1">Improved yields + Reduced input costs + Resilient crops</p>
                     </div>
                     <div className="p-4 rounded-lg bg-white border border-primary/20">
                         <p className="text-[10px] font-bold uppercase tracking-widest text-primary/60 mb-2">Scale Potential</p>
@@ -989,23 +989,23 @@ export default function ProgramPage() {
                 <div className="flex items-center justify-between mb-6">
                     <div>
                         <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40">The Farmer Journey</p>
-                        <h2 className="mt-1 text-lg font-bold text-secondary">From Soil Health to Dual Income</h2>
+                        <h2 className="mt-1 text-lg font-bold text-secondary">Better Plant Health → Better Livelihoods</h2>
                     </div>
                     <span className="text-[10px] border border-emerald-200 bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded uppercase tracking-widest font-bold">Core Model</span>
                 </div>
 
                 <p className="text-sm text-slate mb-6 max-w-2xl">
-                    Smallholder farmers gain two revenue streams: improved crop yields from healthier soil, plus carbon credit income from the carbon their soil sequesters.
+                    Smallholder farmers see immediate benefits: healthier plants, more resilient crops, improved yields, and increased income. As soil health data accumulates, future revenue opportunities from carbon markets may become available.
                 </p>
 
                 {/* Simplified journey */}
                 <div className="grid gap-3 md:grid-cols-5">
                     {[
-                        { stage: "1", title: "Soil Health", outcome: "Foundation", color: "bg-emerald-50 border-emerald-200" },
-                        { stage: "2", title: "Better Yields", outcome: "+15-30%", color: "bg-emerald-50 border-emerald-200" },
-                        { stage: "3", title: "Carbon Building", outcome: "SOC accrues", color: "bg-amber-50 border-amber-200" },
-                        { stage: "4", title: "Verification", outcome: "VM0042", color: "bg-blue-50 border-blue-200" },
-                        { stage: "5", title: "Carbon Revenue", outcome: "70%+ to farmer", color: "bg-primary/10 border-primary/30" },
+                        { stage: "1", title: "Better Soil", outcome: "Foundation", color: "bg-emerald-50 border-emerald-200" },
+                        { stage: "2", title: "Healthier Plants", outcome: "Stronger crops", color: "bg-emerald-50 border-emerald-200" },
+                        { stage: "3", title: "Higher Yields", outcome: "+15-30%", color: "bg-emerald-50 border-emerald-200" },
+                        { stage: "4", title: "More Income", outcome: "Improved livelihood", color: "bg-primary/10 border-primary/30" },
+                        { stage: "5", title: "Future Revenue", outcome: "Carbon potential", color: "bg-slate-50 border-slate-200" },
                     ].map((step, idx) => (
                         <div key={idx} className={`p-4 rounded-xl border ${step.color} text-center`}>
                             <span className="text-[10px] font-bold text-slate/50">Stage {step.stage}</span>
@@ -1015,37 +1015,43 @@ export default function ProgramPage() {
                     ))}
                 </div>
 
-                {/* Dual Income Summary */}
-                <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-emerald-50 to-primary/10 border border-emerald-200/50">
+                {/* Primary Value Summary */}
+                <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-emerald-50 to-emerald-100/50 border border-emerald-200/50">
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center">
                         <div className="px-3 py-2 bg-white rounded-lg border border-emerald-200 shadow-sm">
-                            <p className="text-xs font-bold text-emerald-700">Crop Revenue</p>
+                            <p className="text-xs font-bold text-emerald-700">Better Plant Health</p>
+                            <p className="text-[10px] text-slate">Stronger, resilient crops</p>
+                        </div>
+                        <span className="text-xl font-bold text-secondary">→</span>
+                        <div className="px-3 py-2 bg-white rounded-lg border border-emerald-300 shadow-sm">
+                            <p className="text-xs font-bold text-emerald-700">Higher Yields</p>
                             <p className="text-[10px] text-slate">↑ 15-30%</p>
                         </div>
-                        <span className="text-xl font-bold text-secondary">+</span>
-                        <div className="px-3 py-2 bg-white rounded-lg border border-primary/30 shadow-sm">
-                            <p className="text-xs font-bold text-primary">Carbon Revenue</p>
-                            <p className="text-[10px] text-slate">70%+ to farmer</p>
-                        </div>
-                        <span className="text-xl font-bold text-secondary">=</span>
+                        <span className="text-xl font-bold text-secondary">→</span>
                         <div className="px-3 py-2 bg-secondary rounded-lg shadow-sm">
-                            <p className="text-xs font-bold text-white">Dual Income</p>
+                            <p className="text-xs font-bold text-white">More Income</p>
                         </div>
                     </div>
+                    <p className="text-[10px] text-slate text-center mt-3">
+                        Future potential: Carbon credits as secondary revenue stream once field data established (12-18 month horizon)
+                    </p>
                 </div>
             </section>
 
-            {/* Market Context - Demoted */}
+            {/* Market Context - Future Opportunity */}
             <section className="mt-8 p-6 rounded-xl border border-mist bg-parchment/20">
                 <div className="flex items-center justify-between mb-4">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40">Market Context</p>
-                    <span className="text-[10px] text-slate">Reference data</span>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-secondary/40">Future Opportunity</p>
+                    <span className="text-[10px] text-slate">12-18 month horizon</span>
                 </div>
+                <p className="text-sm text-slate mb-4">
+                    As soil health data accumulates and certification pathways are assessed, carbon credits may provide a secondary revenue stream for farmers.
+                </p>
                 <div className="grid gap-4 md:grid-cols-3">
                     {[
-                        { metric: "$648M", label: "Market by 2034", detail: "31.9% CAGR" },
-                        { metric: "285%", label: "Soil Carbon Growth", detail: "2024 YoY" },
-                        { metric: "$15-40", label: "Per Tonne Premium", detail: "vs $4.80 avg" },
+                        { metric: "$648M", label: "Soil Carbon Market", detail: "by 2034" },
+                        { metric: "285%", label: "Sector Growth", detail: "2024 YoY" },
+                        { metric: "$15-40", label: "Quality Premium", detail: "per tonne" },
                     ].map((d) => (
                         <div key={d.label} className="p-4 rounded-lg border border-mist bg-white text-center">
                             <p className="text-xl font-black text-secondary">{d.metric}</p>
