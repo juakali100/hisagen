@@ -190,11 +190,13 @@ const enablers = [
   {
     name: "Social Sustainability",
     icon: "👥",
+    description: "Primary focus: practical socio-economic impact for subsistence farmers",
     items: [
-      "Farmer-first economics (improved yields, income, resilience)",
-      "Gender inclusion in aggregation",
+      "Better plant health and more resilient crops",
+      "Improved yields and increased farmer income",
+      "Gender inclusion in farmer networks",
       "Community-level capacity building",
-      "Transparent pricing and contracts",
+      "Transparent pricing and fair trade principles",
     ],
   },
   {
@@ -773,10 +775,13 @@ export default function PilotPage() {
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {enablers.map((enabler) => (
             <div key={enabler.name} className="rounded-2xl border border-mist bg-white p-6">
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-3">
                 <span className="text-2xl">{enabler.icon}</span>
                 <h3 className="text-lg font-bold text-secondary">{enabler.name}</h3>
               </div>
+              {enabler.description && (
+                <p className="text-xs text-primary font-medium mb-3 italic">{enabler.description}</p>
+              )}
               <ul className="space-y-2">
                 {enabler.items.map((item, i) => (
                   <li key={i} className="text-xs text-slate flex gap-2">
