@@ -259,17 +259,12 @@ const enablers = [
   },
 ];
 
-// Actors
+// Actors (ordered from landscape → market: value creation flows upward)
 const actors = [
   {
-    category: "Demand Side",
-    description: "Carbon credit buyers",
-    entities: ["Corporate off-takers (SBTi commitments)", "Compliance markets (future)", "Insetting buyers"],
-  },
-  {
-    category: "Enablers",
-    description: "Funders and technical partners",
-    entities: ["Grant funders (climate/agriculture)", "Locus AG (technology)", "MRV providers", "Carbon standards bodies"],
+    category: "Value Creators",
+    description: "Where value originates",
+    entities: ["Smallholder farmers (4M+ households)", "Extension workers", "Community leaders"],
   },
   {
     category: "Connectors",
@@ -277,9 +272,14 @@ const actors = [
     entities: ["HISAGEN Africa (local entity)", "NARO (research)", "Agri-dealers (distribution)"],
   },
   {
-    category: "Value Creators",
-    description: "On-ground implementation",
-    entities: ["Smallholder farmers (4M+ households)", "Extension workers", "Community leaders"],
+    category: "Enablers",
+    description: "Funders and technical partners",
+    entities: ["Grant funders (climate/agriculture)", "Locus AG (technology)", "MRV providers", "Carbon standards bodies"],
+  },
+  {
+    category: "Demand Side",
+    description: "Market pull",
+    entities: ["Corporate off-takers (SBTi commitments)", "Compliance markets (future)", "Insetting buyers"],
   },
 ];
 
