@@ -279,15 +279,17 @@ const capitalStages = [
       {
         phase: "Phase 2",
         name: "Regulatory Approval",
-        period: "Oct 2025 - Q1 2026",
+        period: "Oct 2025 - Q2 2026",
         status: "active",
-        description: "Securing market authorization",
+        description: "Securing market authorization (~3 weeks behind original schedule)",
         milestones: [
-          "Oct 2025: Initial UNBS submission",
-          "Jan 2026: MAAIF dossier submission",
-          "Jan-Feb 2026: Review period",
-          "Feb-Mar 2026: Approval expected",
-          "Mar 2026: Product labeling finalization",
+          "✓ Oct 2025: Initial UNBS submission",
+          "✓ Jan 2026: Latest samples arrived in Uganda",
+          "✓ Feb 2026: Submitted to UNBS for formal approval",
+          "Feb 2026: Awaiting UNBS confirmation/feedback",
+          "Feb 2026: Collecting latest yield and field data from trials",
+          "Mar-Apr 2026: MAAIF approval expected",
+          "Apr 2026: Product labeling finalization",
         ],
         funding: "Director investment, seeking grant support",
       },
@@ -419,10 +421,10 @@ const pillarScores = [
 
 // Quick reference stats (shown in header area)
 const quickStats = [
-  { label: "Current Phase", value: "Phase 2: Regulatory Approval" },
-  { label: "Target Hectares", value: "50,000+ by 2030" },
-  { label: "Farmer Base", value: "4M+ smallholders" },
-  { label: "Carbon Standard", value: "Verra VM0042" },
+  { label: "Current Phase", value: "Phase 2: UNBS Approval" },
+  { label: "Status", value: "Samples submitted, awaiting feedback" },
+  { label: "Timeline", value: "~3 weeks behind schedule" },
+  { label: "Last Update", value: "Feb 5, 2026" },
 ];
 
 export default function PilotPage() {
@@ -484,6 +486,42 @@ export default function PilotPage() {
             <p className="mt-1 text-sm text-secondary font-medium">{stat.value}</p>
           </div>
         ))}
+      </section>
+
+      {/* Latest Status Update */}
+      <section className="mt-6 rounded-xl border-2 border-secondary/30 bg-secondary/5 p-6">
+        <div className="flex items-start gap-4">
+          <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0">
+            <span className="text-secondary font-bold text-sm">📍</span>
+          </div>
+          <div className="flex-1">
+            <div className="flex items-center gap-3 mb-2">
+              <h3 className="text-sm font-bold text-secondary">Latest Status Update</h3>
+              <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-secondary/20 text-secondary">
+                Feb 5, 2026
+              </span>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Regulatory Progress</p>
+                <ul className="space-y-1 text-xs text-slate">
+                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Samples arrived in Uganda</li>
+                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Submitted to UNBS for formal approval</li>
+                  <li className="flex gap-2"><span className="text-secondary">○</span> Awaiting UNBS confirmation</li>
+                  <li className="flex gap-2"><span className="text-secondary">○</span> Collecting yield/field data from trials</li>
+                </ul>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Timeline & Support</p>
+                <ul className="space-y-1 text-xs text-slate">
+                  <li className="flex gap-2"><span className="text-amber-500">⚠</span> Running ~3 weeks behind schedule</li>
+                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Locus US team fully supportive</li>
+                  <li className="flex gap-2"><span className="text-secondary">○</span> Uganda team call scheduled</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* =========================================================================
