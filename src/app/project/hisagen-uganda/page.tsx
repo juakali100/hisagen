@@ -676,78 +676,24 @@ export default function PilotPage() {
           <p className="text-xs uppercase tracking-[0.3em] font-bold text-secondary">Sustainability Framework</p>
           <h2 className="mt-2 text-3xl font-bold text-secondary">Five Layers Applied</h2>
           <p className="mt-3 text-sm text-slate max-w-2xl leading-relaxed">
-            Understanding the Uganda pilot through concentric sustainability layers — from planetary science to corporate implementation.
+            Understanding the Uganda pilot through the sustainability framework — from corporate action down to the planetary foundations that make it possible.
           </p>
         </div>
 
-        {/* L1: Planetary Foundations */}
-        <div className="mb-8 rounded-2xl border border-blue-200 bg-blue-50/30 p-6">
+        {/* L5: Corporate Action */}
+        <div className="mb-8 rounded-2xl border border-violet-200 bg-violet-50/30 p-6">
           <div className="flex items-center gap-3 mb-4">
-            <span className="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-sm font-bold">L1</span>
+            <span className="w-10 h-10 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center text-sm font-bold">L5</span>
             <div>
-              <h3 className="text-lg font-bold text-secondary">{L1_planetary.title}</h3>
-              <p className="text-xs text-slate">{L1_planetary.description}</p>
+              <h3 className="text-lg font-bold text-secondary">{L5_corporate.title}</h3>
+              <p className="text-xs text-slate">{L5_corporate.description}</p>
             </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-4">
-            {L1_planetary.items.map((item) => (
-              <div key={item.topic} className="p-4 rounded-xl bg-white border border-blue-100">
-                <p className="text-xs font-bold uppercase tracking-widest text-blue-700 mb-2">{item.topic}</p>
+          <div className="grid md:grid-cols-2 gap-4">
+            {L5_corporate.elements.map((item) => (
+              <div key={item.element} className="p-4 rounded-xl bg-white border border-violet-100">
+                <p className="text-xs font-bold uppercase tracking-widest text-violet-700 mb-2">{item.element}</p>
                 <p className="text-xs text-slate leading-relaxed">{item.content}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* L2: Landscape & Jurisdiction */}
-        <div className="mb-8 rounded-2xl border border-emerald-200 bg-emerald-50/30 p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm font-bold">L2</span>
-            <div>
-              <h3 className="text-lg font-bold text-secondary">{L2_landscape.title}</h3>
-              <p className="text-xs text-slate">{L2_landscape.description}</p>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-3 gap-4">
-            {L2_landscape.pillars.map((pillar) => (
-              <div key={pillar.name} className="p-4 rounded-xl bg-white border border-emerald-100">
-                <p className="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-1">{pillar.name}</p>
-                <p className="text-[10px] text-slate/70 mb-3">{pillar.subtitle}</p>
-                <div className="space-y-2">
-                  {pillar.items.map((item) => (
-                    <div key={item.label} className="flex justify-between text-xs">
-                      <span className="text-slate/70">{item.label}</span>
-                      <span className="text-slate font-medium text-right max-w-[60%]">{item.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* L3: Ecosystem Services */}
-        <div className="mb-8 rounded-2xl border border-teal-200 bg-teal-50/30 p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-10 h-10 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-sm font-bold">L3</span>
-            <div>
-              <h3 className="text-lg font-bold text-secondary">{L3_ecosystem.title}</h3>
-              <p className="text-xs text-slate">{L3_ecosystem.description}</p>
-            </div>
-          </div>
-          <div className="grid md:grid-cols-3 gap-4">
-            {L3_ecosystem.services.map((category) => (
-              <div key={category.category} className="p-4 rounded-xl bg-white border border-teal-100">
-                <p className="text-xs font-bold uppercase tracking-widest text-teal-700 mb-3">{category.category}</p>
-                <div className="space-y-3">
-                  {category.items.map((item) => (
-                    <div key={item.service}>
-                      <p className="text-xs font-medium text-secondary">{item.service}</p>
-                      <p className="text-[10px] text-slate">{item.target}</p>
-                      <p className="text-[9px] text-slate/60 italic">Measured: {item.measurement}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
@@ -790,19 +736,73 @@ export default function PilotPage() {
           </div>
         </div>
 
-        {/* L5: Corporate Action */}
-        <div className="mb-8 rounded-2xl border border-violet-200 bg-violet-50/30 p-6">
+        {/* L3: Ecosystem Services */}
+        <div className="mb-8 rounded-2xl border border-teal-200 bg-teal-50/30 p-6">
           <div className="flex items-center gap-3 mb-4">
-            <span className="w-10 h-10 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center text-sm font-bold">L5</span>
+            <span className="w-10 h-10 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-sm font-bold">L3</span>
             <div>
-              <h3 className="text-lg font-bold text-secondary">{L5_corporate.title}</h3>
-              <p className="text-xs text-slate">{L5_corporate.description}</p>
+              <h3 className="text-lg font-bold text-secondary">{L3_ecosystem.title}</h3>
+              <p className="text-xs text-slate">{L3_ecosystem.description}</p>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-4">
-            {L5_corporate.elements.map((item) => (
-              <div key={item.element} className="p-4 rounded-xl bg-white border border-violet-100">
-                <p className="text-xs font-bold uppercase tracking-widest text-violet-700 mb-2">{item.element}</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            {L3_ecosystem.services.map((category) => (
+              <div key={category.category} className="p-4 rounded-xl bg-white border border-teal-100">
+                <p className="text-xs font-bold uppercase tracking-widest text-teal-700 mb-3">{category.category}</p>
+                <div className="space-y-3">
+                  {category.items.map((item) => (
+                    <div key={item.service}>
+                      <p className="text-xs font-medium text-secondary">{item.service}</p>
+                      <p className="text-[10px] text-slate">{item.target}</p>
+                      <p className="text-[9px] text-slate/60 italic">Measured: {item.measurement}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* L2: Landscape & Jurisdiction */}
+        <div className="mb-8 rounded-2xl border border-emerald-200 bg-emerald-50/30 p-6">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm font-bold">L2</span>
+            <div>
+              <h3 className="text-lg font-bold text-secondary">{L2_landscape.title}</h3>
+              <p className="text-xs text-slate">{L2_landscape.description}</p>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            {L2_landscape.pillars.map((pillar) => (
+              <div key={pillar.name} className="p-4 rounded-xl bg-white border border-emerald-100">
+                <p className="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-1">{pillar.name}</p>
+                <p className="text-[10px] text-slate/70 mb-3">{pillar.subtitle}</p>
+                <div className="space-y-2">
+                  {pillar.items.map((item) => (
+                    <div key={item.label} className="flex justify-between text-xs">
+                      <span className="text-slate/70">{item.label}</span>
+                      <span className="text-slate font-medium text-right max-w-[60%]">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* L1: Planetary Foundations */}
+        <div className="mb-8 rounded-2xl border border-blue-200 bg-blue-50/30 p-6">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center text-sm font-bold">L1</span>
+            <div>
+              <h3 className="text-lg font-bold text-secondary">{L1_planetary.title}</h3>
+              <p className="text-xs text-slate">{L1_planetary.description}</p>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-4">
+            {L1_planetary.items.map((item) => (
+              <div key={item.topic} className="p-4 rounded-xl bg-white border border-blue-100">
+                <p className="text-xs font-bold uppercase tracking-widest text-blue-700 mb-2">{item.topic}</p>
                 <p className="text-xs text-slate leading-relaxed">{item.content}</p>
               </div>
             ))}
