@@ -259,8 +259,11 @@ const capitalStages = [
           "HISAGEN USA + HISAGEN Africa entity structure defined",
           "Uganda identified as launch market",
         ],
-        funding: "Sweat equity, director investment",
-        data: "Technology documentation, Locus AG product specs, baseline research",
+        capitalIn: "Sweat equity, director investment",
+        revenueOut: "—",
+        mrvHorizontal: "Baseline research, Locus AG product specs",
+        traceabilityVertical: "—",
+        reporting: "Internal documentation",
       },
       {
         phase: "Phase 1",
@@ -275,8 +278,11 @@ const capitalStages = [
           "Trial data collection completed",
           "Results: 'Highly positive' (quantitative data pending)",
         ],
-        funding: "Director investment, in-kind NARO contribution",
-        data: "Yield measurements, soil sampling protocols, trial data across 4 crops/regions",
+        capitalIn: "Director investment, in-kind NARO contribution",
+        revenueOut: "—",
+        mrvHorizontal: "Yield measurements, soil sampling, trial protocols",
+        traceabilityVertical: "Trial site → data collection",
+        reporting: "NARO trial reports",
       },
       {
         phase: "Phase 2",
@@ -293,8 +299,11 @@ const capitalStages = [
           "Mar-Apr 2026: MAAIF approval expected",
           "Apr 2026: Product labeling finalization",
         ],
-        funding: "Director investment, seeking grant support",
-        data: "Yield data compilation, UNBS documentation, regulatory dossier, field data synthesis",
+        capitalIn: "Director investment, seeking grant support",
+        revenueOut: "—",
+        mrvHorizontal: "Yield data compilation, field data synthesis",
+        traceabilityVertical: "UNBS product batch tracking",
+        reporting: "Regulatory dossiers (UNBS, MAAIF)",
       },
       {
         phase: "Phase 3",
@@ -308,8 +317,11 @@ const capitalStages = [
           "Farmer network expansion",
           "Carbon MRV baseline establishment",
         ],
-        funding: "Grant funding, carbon pre-purchase",
-        data: "Baseline SOC measurements, farmer registration, practice verification setup",
+        capitalIn: "Grant funding, carbon pre-purchase",
+        revenueOut: "Product sales (initial)",
+        mrvHorizontal: "Baseline SOC measurements, practice verification",
+        traceabilityVertical: "Farmer → aggregator registration",
+        reporting: "Funder reports, grant compliance",
       },
     ],
   },
@@ -333,8 +345,11 @@ const capitalStages = [
           "Deploy MRV infrastructure (ground-truth + satellite)",
           "First carbon credit registration (Verra VM0042)",
         ],
-        funding: "Carbon prepayment, impact investment",
-        data: "MRV infrastructure deployment, satellite validation, ground-truth sampling network",
+        capitalIn: "Carbon prepayment, impact investment",
+        revenueOut: "Pilot carbon credits, product revenue",
+        mrvHorizontal: "Ground-truth sampling, satellite validation",
+        traceabilityVertical: "Farm → credit provenance chain",
+        reporting: "Verra PDD, impact investor reports",
       },
       {
         phase: "Phase 5",
@@ -348,8 +363,11 @@ const capitalStages = [
           "Validate unit economics at scale",
           "Expand to 50,000+ hectares",
         ],
-        funding: "Carbon finance, working capital facilities",
-        data: "Verra registry submission, verification audits, carbon credit documentation",
+        capitalIn: "Carbon finance, working capital facilities",
+        revenueOut: "Verified carbon credits",
+        mrvHorizontal: "Continuous SOC monitoring, verification audits",
+        traceabilityVertical: "Full chain of custody (farm → registry)",
+        reporting: "Verra registry, buyer reports, audit trails",
       },
     ],
   },
@@ -373,8 +391,11 @@ const capitalStages = [
           "Multi-year track record established",
           "Institutional-grade reporting and governance",
         ],
-        funding: "Commercial debt, carbon-backed facilities",
-        data: "Continuous MRV, annual verification cycles, farmer payment tracking",
+        capitalIn: "Commercial debt, carbon-backed facilities",
+        revenueOut: "Carbon credits, farmer payments (70%+)",
+        mrvHorizontal: "Continuous landscape monitoring, annual verification",
+        traceabilityVertical: "Real-time farm → payment tracking",
+        reporting: "Institutional reports, CSRD-ready data",
       },
       {
         phase: "Phase 7",
@@ -387,8 +408,11 @@ const capitalStages = [
           "Proven playbook for new market entry",
           "Regional hub infrastructure",
         ],
-        funding: "Preferred equity, regional development finance",
-        data: "MRV protocol replication, new geography baselines, cross-border data systems",
+        capitalIn: "Preferred equity, regional development finance",
+        revenueOut: "Multi-geography carbon + product revenue",
+        mrvHorizontal: "MRV protocol replication, new baselines",
+        traceabilityVertical: "Cross-border value chain tracking",
+        reporting: "Multi-jurisdiction disclosure, regional dashboards",
       },
     ],
   },
@@ -412,8 +436,11 @@ const capitalStages = [
           "Green bond issuance potential",
           "Blueprint for global replication",
         ],
-        funding: "Green bonds, institutional equity",
-        data: "Institutional-grade reporting, real-time dashboards, global replication playbook",
+        capitalIn: "Green bonds, institutional equity",
+        revenueOut: "Institutional-scale carbon, platform revenue",
+        mrvHorizontal: "Pan-African monitoring network",
+        traceabilityVertical: "Global replication playbook",
+        reporting: "Institutional dashboards, ESG integration, CSRD/ISSB",
       },
     ],
   },
@@ -915,6 +942,7 @@ export default function PilotPage() {
                                 <p className="text-xs text-slate mb-3">{phase.description}</p>
 
                                 <div className="grid md:grid-cols-3 gap-4">
+                                  {/* Milestones */}
                                   <div>
                                     <p className="text-[9px] font-bold uppercase tracking-widest text-secondary/60 mb-1">
                                       Milestones
@@ -930,17 +958,43 @@ export default function PilotPage() {
                                       ))}
                                     </ul>
                                   </div>
-                                  <div>
+
+                                  {/* Capital Flows */}
+                                  <div className="space-y-2">
                                     <p className="text-[9px] font-bold uppercase tracking-widest text-secondary/60 mb-1">
-                                      Funding
+                                      Capital Flows
                                     </p>
-                                    <p className="text-[11px] text-slate italic">{phase.funding}</p>
+                                    <div className="space-y-1.5">
+                                      <div className="flex gap-2 items-start">
+                                        <span className="text-[9px] text-emerald-600 font-medium whitespace-nowrap">IN:</span>
+                                        <span className="text-[10px] text-slate">{phase.capitalIn}</span>
+                                      </div>
+                                      <div className="flex gap-2 items-start">
+                                        <span className="text-[9px] text-amber-600 font-medium whitespace-nowrap">OUT:</span>
+                                        <span className="text-[10px] text-slate">{phase.revenueOut}</span>
+                                      </div>
+                                    </div>
                                   </div>
-                                  <div>
+
+                                  {/* Data Architecture */}
+                                  <div className="space-y-2">
                                     <p className="text-[9px] font-bold uppercase tracking-widest text-primary/60 mb-1">
-                                      Data / MRV
+                                      Data Architecture
                                     </p>
-                                    <p className="text-[11px] text-slate italic">{phase.data}</p>
+                                    <div className="space-y-1.5">
+                                      <div className="flex gap-2 items-start">
+                                        <span className="text-[8px] bg-blue-100 text-blue-700 px-1 rounded font-medium whitespace-nowrap">MRV</span>
+                                        <span className="text-[10px] text-slate">{phase.mrvHorizontal}</span>
+                                      </div>
+                                      <div className="flex gap-2 items-start">
+                                        <span className="text-[8px] bg-purple-100 text-purple-700 px-1 rounded font-medium whitespace-nowrap">TRACE</span>
+                                        <span className="text-[10px] text-slate">{phase.traceabilityVertical}</span>
+                                      </div>
+                                      <div className="flex gap-2 items-start">
+                                        <span className="text-[8px] bg-slate-100 text-slate-600 px-1 rounded font-medium whitespace-nowrap">REPORT</span>
+                                        <span className="text-[10px] text-slate">{phase.reporting}</span>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
