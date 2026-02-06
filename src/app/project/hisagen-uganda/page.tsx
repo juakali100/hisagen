@@ -20,21 +20,21 @@ import {
 const L1_planetary = {
   title: "Planetary Foundations",
   layer: "L1",
-  description: "Global carbon cycle science and soil health fundamentals underpinning the project",
+  description: "Soil health science and agricultural fundamentals underpinning the project",
   items: [
     {
-      topic: "Carbon Cycle Science",
-      content: "Soil organic carbon (SOC) represents the largest terrestrial carbon pool. Agricultural soils have lost 50-70% of original carbon; restoration potential is 2-5 tCO2e/ha/year with regenerative practices.",
+      topic: "Soil Health Science",
+      content: "Healthy soils with balanced organic matter and microbial activity produce stronger, more resilient crops. Degraded agricultural soils can be restored through biological enhancement, improving both yields and long-term productivity.",
       status: "reference",
     },
     {
       topic: "Soil Microbiome",
-      content: "Endophytic bacteria (Locus AG technology) enhance root systems and carbon sequestration. Symbiotic relationship increases both yield and SOC accumulation.",
+      content: "Endophytic bacteria (Locus AG technology) enhance root systems, improve nutrient uptake, and increase plant resilience. Farmers see better plant health and improved yields from the symbiotic relationship.",
       status: "active",
     },
     {
-      topic: "Climate Context",
-      content: "East Africa faces 1.5-2°C warming by 2050. Agricultural adaptation through soil health is both mitigation (carbon storage) and resilience (water retention, yield stability).",
+      topic: "Climate Resilience",
+      content: "East Africa faces increasing climate variability. Healthier soils with better water retention help crops withstand drought and erratic rainfall - critical for subsistence farmer livelihoods.",
       status: "reference",
     },
   ],
@@ -53,7 +53,7 @@ const L2_landscape = {
         { label: "Country", value: "Uganda" },
         { label: "Agro-Ecological Zones", value: "4 target zones: Western, Northern, Eastern, Central" },
         { label: "Climate", value: "Tropical, bimodal rainfall (Mar-May, Sep-Nov)" },
-        { label: "Soil Types", value: "Ferralsols, Nitisols - high carbon sequestration potential" },
+        { label: "Soil Types", value: "Ferralsols, Nitisols - responsive to biological enhancement, high yield improvement potential" },
       ],
     },
     {
@@ -153,19 +153,19 @@ const L5_corporate = {
   elements: [
     {
       element: "Business Model",
-      content: "Full-stack agricultural carbon: biologicals → aggregation → MRV → credits → revenue share",
+      content: "Farmer-first regenerative agriculture: biologicals → improved yields → farmer income → soil health data → future carbon revenue",
     },
     {
       element: "Technology Partner",
-      content: "Locus AG (USA) - exclusive Africa distribution for endophytic biologicals",
+      content: "Locus AG (USA) - exclusive Africa distribution for endophytic biologicals that improve plant health and crop resilience",
     },
     {
-      element: "Carbon Standards",
-      content: "Verra VM0042 (Soil Carbon) alignment - methodology designed for agricultural SOC",
+      element: "Primary Value",
+      content: "Better plant health, more resilient crops, improved yields, and increased income for subsistence farmers",
     },
     {
-      element: "Revenue Model",
-      content: "Carbon credits as secondary revenue stream (structure TBC pending market development and certification pathway)",
+      element: "Future Revenue",
+      content: "Carbon credits as secondary revenue stream once field data established and certification pathway assessed (12-18 month horizon)",
     },
   ],
 };
@@ -183,7 +183,7 @@ const verticalFlows = {
         description: "Investment and de-risking capital",
         items: [
           { name: "Concessional", detail: "Grants, philanthropy, director investment", status: "active" },
-          { name: "Blended", detail: "Carbon prepayment, impact loans, guarantees", status: "planned" },
+          { name: "Blended", detail: "Impact loans, guarantees, outcome-based funding", status: "planned" },
           { name: "Commercial", detail: "Green bonds, institutional debt", status: "future" },
         ],
       },
@@ -210,7 +210,7 @@ const verticalFlows = {
         color: "blue",
         orientation: "Horizontal (landscape)",
         description: "Evidence for ecosystem outcomes",
-        items: ["Soil carbon sampling", "Yield measurements", "Satellite monitoring", "Ground-truth verification"],
+        items: ["Yield measurements", "Soil health sampling", "Satellite monitoring", "Ground-truth verification"],
       },
       {
         type: "TRACE",
@@ -218,7 +218,7 @@ const verticalFlows = {
         color: "purple",
         orientation: "Vertical (value chain)",
         description: "Evidence for sourcing claims",
-        items: ["Farmer registration", "Product batch tracking", "Chain of custody", "Credit provenance"],
+        items: ["Farmer registration", "Product batch tracking", "Chain of custody", "Impact attribution"],
       },
       {
         type: "DISCLOSURE",
@@ -593,7 +593,7 @@ export default function PilotPage() {
     <div className="mx-auto max-w-5xl text-ink">
       <StageBreadcrumb
         stage="Uganda Pilot"
-        trail={[{ label: "Agri-Carbon Program", href: "/program" }]}
+        trail={[{ label: "Regenerative Agriculture Program", href: "/program" }]}
       />
 
       {/* Hero Image */}
@@ -620,7 +620,7 @@ export default function PilotPage() {
           HISAGEN Uganda Pilot
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate italic">
-          "Proving the full-stack agricultural carbon model with 4 million smallholder farmers."
+          "Better plant health, resilient crops, improved yields, and more income for 4 million smallholder farmers."
         </p>
         <p className="mt-4 text-sm text-slate max-w-3xl leading-relaxed">
           This page documents the Uganda pilot through the <Link href="/strategy/sustainability-framework" className="text-secondary underline hover:text-primary">Sustainability Framework</Link> lens —
