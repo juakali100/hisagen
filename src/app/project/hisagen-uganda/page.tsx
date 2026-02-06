@@ -4,6 +4,13 @@ import { useState } from "react";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  ugandaStatusUpdates,
+  getLatestUpdate,
+  getHistoricalUpdates,
+  formatUpdateDate,
+  type StatusUpdate
+} from "../../../data/uganda-status-updates";
 
 // =============================================================================
 // SUSTAINABILITY FRAMEWORK - Uganda Pilot Application
@@ -632,58 +639,143 @@ export default function PilotPage() {
       </section>
 
       {/* Latest Status Update */}
-      <section className="mt-6 rounded-xl border-2 border-secondary/30 bg-secondary/5 p-6">
-        <div className="flex items-start gap-4">
-          <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0">
-            <span className="text-secondary font-bold text-sm">📍</span>
-          </div>
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-3">
-              <h3 className="text-sm font-bold text-secondary">Latest Status Update</h3>
-              <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-secondary/20 text-secondary">
-                Feb 5, 2026
-              </span>
-            </div>
+      {(() => {
+        const latestUpdate = getLatestUpdate();
+        const historicalUpdates = getHistoricalUpdates();
 
-            {/* Summary context */}
-            <p className="text-xs text-slate mb-4 leading-relaxed">
-              Product samples have reached Uganda and entered the formal UNBS approval process. The team is collecting the latest yield and field data
-              from trials while awaiting regulatory confirmation. Timeline running approximately 3 weeks behind original schedule, with Locus AG USA
-              remaining fully committed to the partnership.
-            </p>
+        const getStatusIcon = (status: string) => {
+          switch (status) {
+            case 'complete': return <span className="text-emerald-500">✓</span>;
+            case 'in-progress': return <span className="text-secondary">○</span>;
+            case 'pending': return <span className="text-secondary">○</span>;
+            case 'future': return <span className="text-slate-300">◇</span>;
+            case 'warning': return <span className="text-amber-500">⚠</span>;
+            case 'direction': return <span className="text-blue-500">→</span>;
+            default: return <span className="text-slate-400">•</span>;
+          }
+        };
 
-            <div className="grid md:grid-cols-3 gap-4">
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Regulatory Pathway</p>
-                <ul className="space-y-1 text-xs text-slate">
-                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Samples arrived in Uganda</li>
-                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Submitted to UNBS</li>
-                  <li className="flex gap-2"><span className="text-secondary">○</span> Awaiting UNBS confirmation</li>
-                  <li className="flex gap-2"><span className="text-slate-300">◇</span> MAAIF submission (next)</li>
-                </ul>
+        const getSourceIcon = (sourceType: string) => {
+          switch (sourceType) {
+            case 'email': return '✉️';
+            case 'call': return '📞';
+            case 'meeting': return '🤝';
+            default: return '📋';
+          }
+        };
+
+        return (
+          <>
+            <section className="mt-6 rounded-xl border-2 border-secondary/30 bg-secondary/5 p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                  <span className="text-secondary font-bold text-sm">📍</span>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-3">
+                    <h3 className="text-sm font-bold text-secondary">Latest Status Update</h3>
+                    <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-secondary/20 text-secondary">
+                      {formatUpdateDate(latestUpdate.date)}
+                    </span>
+                    <span className="text-xs text-slate/60">
+                      {getSourceIcon(latestUpdate.sourceType)} {latestUpdate.source}
+                    </span>
+                  </div>
+
+                  {/* Summary context */}
+                  <p className="text-xs text-slate mb-4 leading-relaxed">
+                    {latestUpdate.summary}
+                  </p>
+
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Regulatory Pathway</p>
+                      <ul className="space-y-1 text-xs text-slate">
+                        {latestUpdate.regulatory.items.map((item, i) => (
+                          <li key={i} className="flex gap-2">{getStatusIcon(item.status)} {item.text}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Field Operations</p>
+                      <ul className="space-y-1 text-xs text-slate">
+                        {latestUpdate.fieldOps.items.map((item, i) => (
+                          <li key={i} className="flex gap-2">{getStatusIcon(item.status)} {item.text}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Strategic Focus</p>
+                      <ul className="space-y-1 text-xs text-slate">
+                        {latestUpdate.strategic.items.map((item, i) => (
+                          <li key={i} className="flex gap-2">{getStatusIcon(item.status)} {item.text}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Field Operations</p>
-                <ul className="space-y-1 text-xs text-slate">
-                  <li className="flex gap-2"><span className="text-secondary">○</span> Collecting latest yield data</li>
-                  <li className="flex gap-2"><span className="text-secondary">○</span> Gathering field trial results</li>
-                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Uganda call: confirm timeline</li>
-                  <li className="flex gap-2"><span className="text-amber-500">⚠</span> ~3 weeks behind schedule</li>
-                </ul>
-              </div>
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-secondary/60 mb-1">Strategic Focus</p>
-                <ul className="space-y-1 text-xs text-slate">
-                  <li className="flex gap-2"><span className="text-emerald-500">✓</span> Locus USA fully supportive</li>
-                  <li className="flex gap-2"><span className="text-blue-500">→</span> Farmer impact as lead story</li>
-                  <li className="flex gap-2"><span className="text-blue-500">→</span> Yields & income first</li>
-                  <li className="flex gap-2"><span className="text-slate-400">◇</span> Carbon credits: phase 2</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </section>
+
+            {/* Update History - Collapsible */}
+            {historicalUpdates.length > 0 && (
+              <section className="mt-4">
+                <details className="group">
+                  <summary className="cursor-pointer list-none flex items-center gap-2 text-xs text-slate/70 hover:text-secondary transition-colors">
+                    <span className="group-open:rotate-90 transition-transform">▶</span>
+                    <span className="font-medium">Update History</span>
+                    <span className="text-slate/50">({historicalUpdates.length} previous updates)</span>
+                  </summary>
+
+                  <div className="mt-3 space-y-3 pl-4 border-l-2 border-mist">
+                    {historicalUpdates.map((update) => (
+                      <div key={update.id} className="rounded-lg border border-mist bg-white p-4">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-slate-100 text-slate-600">
+                            {formatUpdateDate(update.date)}
+                          </span>
+                          <span className="text-xs text-slate/60">
+                            {getSourceIcon(update.sourceType)} {update.source}
+                          </span>
+                        </div>
+                        <p className="text-xs text-slate leading-relaxed mb-3">
+                          {update.summary}
+                        </p>
+                        <div className="grid md:grid-cols-3 gap-3 text-[11px]">
+                          <div>
+                            <p className="text-[9px] font-bold uppercase tracking-widest text-slate/50 mb-1">Regulatory</p>
+                            <ul className="space-y-0.5 text-slate/80">
+                              {update.regulatory.items.slice(0, 3).map((item, i) => (
+                                <li key={i} className="flex gap-1.5">{getStatusIcon(item.status)} {item.text}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <p className="text-[9px] font-bold uppercase tracking-widest text-slate/50 mb-1">Field Ops</p>
+                            <ul className="space-y-0.5 text-slate/80">
+                              {update.fieldOps.items.slice(0, 3).map((item, i) => (
+                                <li key={i} className="flex gap-1.5">{getStatusIcon(item.status)} {item.text}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div>
+                            <p className="text-[9px] font-bold uppercase tracking-widest text-slate/50 mb-1">Strategic</p>
+                            <ul className="space-y-0.5 text-slate/80">
+                              {update.strategic.items.slice(0, 3).map((item, i) => (
+                                <li key={i} className="flex gap-1.5">{getStatusIcon(item.status)} {item.text}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </details>
+              </section>
+            )}
+          </>
+        );
+      })()}
 
       {/* =========================================================================
           SUSTAINABILITY FRAMEWORK - Applied to Uganda Pilot
