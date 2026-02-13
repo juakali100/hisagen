@@ -12,6 +12,7 @@ export const research: ResearchEntry[] = [
     date: '2026-01-17',
     title: 'Locus AG Carbon Deep Dive: CarbonNOW Program & Carbon Credit Mechanics',
     summary: 'Comprehensive analysis of Locus AG\'s CarbonNOW carbon farming program, additionality concepts, and carbon credit infrastructure. Key partner intelligence for understanding MRV and commercialization pathways.',
+    project: 'uganda-pilot',
     tags: ['Carbon', 'Locus AG', 'CarbonNOW', 'MRV', 'Research', 'Deep Dive'],
     file: 'research/2026/2026-01-17-locus-ag-carbon-deep-dive.md',
     synthesis: [
@@ -41,6 +42,7 @@ export const research: ResearchEntry[] = [
     date: '2026-01-16',
     title: 'HISAGEN Uganda Overview for Locus (44 pages)',
     summary: 'Comprehensive deck shared with Locus CEO. Pages 1-15: HISAGEN strategy, team, market data, Uganda trials, Q1 2026 approvals timeline. Pages 16-44: Locus AG agronomy overview with yield data.',
+    project: 'uganda-pilot',
     tags: ['Deck', 'Uganda', 'Locus AG', 'Timeline', 'Data'],
     file: 'research/2026/2026-01-16-deck-hisagen-uganda-overview-locus.pdf',
     pages: 44,
@@ -70,6 +72,7 @@ export const research: ResearchEntry[] = [
     date: '2026-01-16',
     title: 'Deck Extraction: HISAGEN Company & Strategy (pp 1-15)',
     summary: 'Raw markdown extraction of HISAGEN-specific content from 44-page deck. Team profiles, East Africa market data, Uganda trials, regulatory timeline.',
+    project: 'uganda-pilot',
     tags: ['Extraction', 'HISAGEN', 'Team', 'Strategy', 'Uganda', 'Timeline'],
     file: 'research/2026/2026-01-16-deck-extraction-hisagen.md',
     synthesis: [
@@ -103,6 +106,7 @@ export const research: ResearchEntry[] = [
     date: '2026-01-16',
     title: 'Deck Extraction: Locus AG Agronomy & Products (pp 16-44)',
     summary: 'Raw markdown extraction of Locus AG content from 44-page deck. Microorganism science, all product formulations, yield data across crops.',
+    project: 'uganda-pilot',
     tags: ['Extraction', 'Locus AG', 'Products', 'Yield Data', 'Agronomy'],
     file: 'research/2026/2026-01-16-deck-extraction-locus-ag.md',
     synthesis: [
@@ -167,6 +171,7 @@ export const research: ResearchEntry[] = [
     date: '2025-11-08',
     title: 'Workstream 1: Grant Landscape',
     summary: 'Initial findings from scanning 100+ global and regional climate/ag-tech funds.',
+    project: 'uganda-pilot',
     tags: ['Research', 'Grants', 'Landscape'],
     file: '03-pandion-business/operations/del/clients/deep-six-consulting/research/workstream-1-grant-landscape-findings.md',
     synthesis: [
@@ -184,6 +189,7 @@ export const research: ResearchEntry[] = [
     date: '2025-11-08',
     title: 'Workstream 2: AgriTecno Validation',
     summary: 'Due diligence on the proposed Kenya distribution partner and sector fit.',
+    project: 'uganda-pilot',
     tags: ['Due Diligence', 'Partners', 'Kenya'],
     file: '03-pandion-business/operations/del/clients/deep-six-consulting/research/workstream-2-agritecno-validation-findings.md',
     synthesis: [
@@ -201,6 +207,7 @@ export const research: ResearchEntry[] = [
     date: '2025-11-08',
     title: 'Workstream 3: Kenya Landscape Analysis',
     summary: "Mapping of Nyeri/Murang'a coffee and Nandi/Kericho tea regions for landscape scale.",
+    project: 'uganda-pilot',
     tags: ['Landscape', 'Kenya', 'Coffee/Tea'],
     file: '03-pandion-business/operations/del/clients/deep-six-consulting/research/workstream-3-kenya-landscape-findings.md',
     synthesis: [
@@ -232,6 +239,7 @@ export const research: ResearchEntry[] = [
     date: '2024-06-01',
     title: 'Locus AG Company Overview',
     summary: 'Technical brief on microbial solutions (Rhizolizer® Duo) and their impact on soil health/yields.',
+    project: 'uganda-pilot',
     tags: ['Technical', 'Locus AG', 'Product'],
     file: '03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/attachments/DSC-002-locus-ag-overview-jun24.pdf',
     synthesis: [

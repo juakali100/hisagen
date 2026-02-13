@@ -15,6 +15,7 @@ export const ecosystem: EcosystemEntry[] = [
     relationship: 'Founding partner - venture originator and strategic direction. Keir Garrett leads HISAGEN as co-founder.',
     tags: ['Strategy', 'Venture Builder'],
     engagement: 'active',
+    project: 'uganda-pilot',
     portalPage: '/ecosystem/deep-six',
     contacts: [
       { name: 'Keir Garrett', role: 'Founder / HISAGEN Co-founder' },
@@ -33,6 +34,7 @@ export const ecosystem: EcosystemEntry[] = [
     relationship: "Technology partner providing Rhizolizer® Duo microbial solutions. Licensed for Africa distribution through HISAGEN. Access to 'CarbonNOW' carbon credit methodology.",
     tags: ['Partner', 'Microbial', 'Agri-Carbon'],
     engagement: 'active',
+    project: 'uganda-pilot',
     portalPage: '/ecosystem/locus-ag',
     contacts: [
       { name: 'John Uhran', role: 'CEO' },
@@ -51,6 +53,7 @@ export const ecosystem: EcosystemEntry[] = [
     relationship: 'MRV methodology partner. Provides pathway to Verra/Gold Standard certification for carbon credits generated through HISAGEN programs.',
     tags: ['Accreditation', 'Standards', 'Validator'],
     engagement: 'active',
+    project: 'uganda-pilot',
     portalPage: '/ecosystem/3-degrees',
     createdAt: '2026-01-17',
     updatedAt: '2026-01-17',
@@ -66,6 +69,7 @@ export const ecosystem: EcosystemEntry[] = [
     relationship: 'Downstream marketplace for HISAGEN carbon credits. Owned by Keir, provides B2C channel for verified credits.',
     tags: ['Marketplace', 'Tech Upgrade'],
     engagement: 'active',
+    project: 'uganda-pilot',
     portalPage: '/ecosystem/czmp',
     createdAt: '2026-01-17',
     updatedAt: '2026-01-17',
@@ -81,6 +85,7 @@ export const ecosystem: EcosystemEntry[] = [
     relationship: 'Systems architect and operational support. Performance-based partnership model with success fees. Provides strategy, grants research, and operational tooling.',
     tags: ['Scaffolding', 'Strategy', 'Systems Architect'],
     engagement: 'active',
+    project: 'uganda-pilot',
     portalPage: '/ecosystem/pandion',
     contacts: [
       { name: 'Nick', role: 'Principal' },

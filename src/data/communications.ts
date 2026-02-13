@@ -14,6 +14,7 @@ export const communications: CommunicationEntry[] = [
     summary: 'Major milestone email: NARO trial results attached (19-slide PDF), invoice requested to HISAGEN LTD, logo concepts greenlit for development, website confirmed as regulatory requirement for UNBS/MAAIF applications.',
     from: 'Keir',
     to: 'Nic',
+    project: 'uganda-pilot',
     tags: ['Trial Results', 'NARO', 'Invoice', 'Logo', 'Regulatory', 'UNBS', 'MAAIF', 'Milestone'],
     synthesis: [
       'NARO trial results shared: 19-slide PDF by Ongua Fanuel (NARO-NARL Kawanda). Rhizolizer Duo +17-48% grain yield across 3 sites (Kawanda, Tororo, Bulindi). Outperformed NPK. All p < 0.05.',
@@ -36,6 +37,7 @@ export const communications: CommunicationEntry[] = [
     summary: 'Comprehensive status update with regulatory progress, strategic messaging pivot, and next steps alignment.',
     from: 'Keir',
     to: ['Nic', 'Scott Hermo'],
+    project: 'uganda-pilot',
     tags: ['Strategy', 'Uganda', 'Regulatory', 'Positioning', 'Domains'],
     synthesis: [
       'Regulatory: Samples arrived in Uganda, submitted to UNBS for formal approval. Collecting latest yield/field data. Call with Uganda team Tuesday.',
@@ -58,6 +60,7 @@ export const communications: CommunicationEntry[] = [
     summary: 'Website preview and logo concepts shared, with positive response from Keir and introduction of business partner Scott Hermo.',
     from: 'Nic',
     to: ['Keir', 'Scott Hermo'],
+    project: 'uganda-pilot',
     tags: ['Website', 'Logo', 'Portal', 'Scott Hermo', 'UNBS'],
     synthesis: [
       'Website preview shared: 6 pages live (Home, About, Program, Uganda, Rwanda, Contact). Mobile-responsive, Next.js stack.',
@@ -81,6 +84,7 @@ export const communications: CommunicationEntry[] = [
     from: 'Keir',
     to: 'Nic',
     participants: ['Keir', 'Nic'],
+    project: 'uganda-pilot',
     tags: ['Strategy', 'Portal', 'Capital Continuum', 'Grants', 'Carbon Market', 'Check-in'],
     synthesis: [
       'Carbon market context: US prices dropped ($25-42 to $12-15/tonne). Locus AG pivoted to full-price product with opt-in data program. EU/UK momentum continues (CSRD, SRS).',
@@ -104,6 +108,7 @@ export const communications: CommunicationEntry[] = [
     summary: 'Keir reported positive meeting with John Uhran (Locus CEO) confirming full support for Uganda roadmap and pan-African expansion strategy.',
     from: 'Keir',
     to: 'Nic',
+    project: 'uganda-pilot',
     tags: ['Locus AG', 'Uganda', 'Strategy', 'Milestone'],
     file: 'communications/2026/2026-01-16-email-keir-locus-ceo-meeting.md',
     synthesis: [
@@ -125,6 +130,7 @@ export const communications: CommunicationEntry[] = [
     summary: 'Introduced the HISAGEN founding stewardship portal to Keir - consolidating strategy, program model, capital framework, and evidence base into one coherent internal coordination hub.',
     from: 'Nic',
     to: 'Keir',
+    project: 'uganda-pilot',
     tags: ['Portal', 'Strategy', 'Coordination'],
     file: 'communications/2026/2026-01-16-email-nic-portal-introduction.md',
     synthesis: [
@@ -170,6 +176,7 @@ export const communications: CommunicationEntry[] = [
     summary: 'End-of-year update on operational progress and government relations.',
     from: 'Keir',
     to: 'Nic',
+    project: 'uganda-pilot',
     tags: ['WhatsApp', 'Timeline', 'Uganda'],
     synthesis: [
       'Progress remains strong on the Uganda microbes business development.',
@@ -188,6 +195,7 @@ export const communications: CommunicationEntry[] = [
     summary: 'Consolidated response defining the performance-based partnership model and role of Pandion as systems architect.',
     from: 'Pandion',
     to: 'Deep Six / HISAGEN',
+    project: 'uganda-pilot',
     tags: ['Partnership', 'Operating Model', 'Success Fee'],
     file: '03-pandion-business/operations/del/clients/deep-six-consulting/communications/drafts/2025-11-14-partnership-response-CONSOLIDATED.md',
     synthesis: [
@@ -208,6 +216,7 @@ export const communications: CommunicationEntry[] = [
     summary: "Keir's reply clarifying the early-stage nature of the project and the immediate shift toward a commercial/self-sustaining model in Uganda.",
     from: 'Keir',
     to: 'Nic',
+    project: 'uganda-pilot',
     tags: ['Pivot', 'Commercial', 'NARO', 'Kenya'],
     file: '03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-10-email-4-reply-commercial.md',
     attachments: [
@@ -234,6 +243,7 @@ export const communications: CommunicationEntry[] = [
     summary: 'Direct follow-up to Keir with a structured list of questions regarding pilot metrics, cost per farmer, and carbon credit ownership models.',
     from: 'Nic',
     to: 'Keir',
+    project: 'uganda-pilot',
     tags: ['Strategy', 'Inquiry', 'Corporate'],
     file: '03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-07-email-3-pandion-followup.md',
     synthesis: [
@@ -253,6 +263,7 @@ export const communications: CommunicationEntry[] = [
     summary: 'Technical and scientific background on Ken Alibek, Locus AG tech, and the Carbon Neutral Marketplace vision.',
     from: 'Keir',
     to: 'Nic',
+    project: 'uganda-pilot',
     tags: ['Partners', 'Scientific', 'Marketplace'],
     file: '03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-07-email-2-followup.md',
     synthesis: [
@@ -273,6 +284,7 @@ export const communications: CommunicationEntry[] = [
     summary: 'Overview from Keir on Locus AG partnership, Uganda pilot context, and sequencing of the four ventures.',
     from: 'Keir',
     to: 'Nic',
+    project: 'uganda-pilot',
     tags: ['Locus AG', 'Uganda', 'Operations'],
     file: '03-pandion-business/operations/del/clients/deep-six-consulting/communications/source-materials/2025-11-07-email-1-followup.md',
     attachments: [
@@ -308,6 +320,7 @@ export const communications: CommunicationEntry[] = [
     from: 'Keir',
     to: 'Nic',
     participants: ['Keir', 'Nic'],
+    project: 'uganda-pilot',
     tags: ['Strategy', 'Prioritization', 'Portfolio'],
     file: '03-pandion-business/operations/del/clients/deep-six-consulting/call-notes-2025-11-07.md',
     synthesis: [
