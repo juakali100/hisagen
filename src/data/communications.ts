@@ -24,6 +24,33 @@ export const communications: CommunicationEntry[] = [
       'Website = regulatory requirement: UNBS and MAAIF applications require official website and email addresses. Domain: hisagen.com (set up by Keir).',
       'Raw data offered: Keir indicated underlying trial data available if needed.',
     ],
+    attachments: [
+      {
+        title: 'NARO Trial Results — Rhizolizer Duo Multi-Site (19 slides)',
+        file: 'content/programs/agri-carbon/uganda-pilot/2026-02-trial-results/PRESENTATION OF RESULTS_HISAGEN.pdf',
+        format: 'PDF',
+      },
+      {
+        title: 'HISAGEN Logo Concept — Roots Variations',
+        file: 'brand/keir-logo-concepts/HISAGEN logo 2 variations roots.png',
+        format: 'Image',
+      },
+      {
+        title: 'HISAGEN Logo Concept 3',
+        file: 'brand/keir-logo-concepts/HISAGEN logo 3 .png',
+        format: 'Image',
+      },
+      {
+        title: 'HISAGEN Logo Concept 4',
+        file: 'brand/keir-logo-concepts/HISAGEN logo 4.png',
+        format: 'Image',
+      },
+      {
+        title: 'Nature-Inspired HISAGEN Logo Variations',
+        file: 'brand/keir-logo-concepts/Nature-inspired HISAGEN logo variations.png',
+        format: 'Image',
+      },
+    ],
     relatedIds: ['evidence-naro-5zone-trials-2025'],
     statusUpdate: {
       regulatory: {
@@ -212,6 +239,13 @@ export const communications: CommunicationEntry[] = [
       'Expansion strategy confirmed: Uganda first → East Africa → pan-African rollout.',
       'Locus USA remains fully committed, supportive, and engaged.',
       'Attached overview deck includes updated HISAGEN Uganda overview (14 pages) + Locus AG agronomy data (30 pages).',
+    ],
+    attachments: [
+      {
+        title: 'HISAGEN Uganda Overview + Locus AG Agronomy Data (44 pages)',
+        file: 'hisagen-knowledge-base/research/2026/2026-01-16-deck-hisagen-uganda-overview-locus.pdf',
+        format: 'PDF',
+      },
     ],
     relatedIds: ['research-2026-01-16-uganda-deck'],
     statusUpdate: {

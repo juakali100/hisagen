@@ -30,7 +30,7 @@ export type CommunicationSubtype = 'email' | 'call' | 'meeting' | 'whatsapp' | '
 export type Attachment = {
   title: string;
   file: string;
-  format: 'PDF' | 'Excel' | 'Doc' | 'Link';
+  format: 'PDF' | 'Excel' | 'Doc' | 'Image' | 'Presentation' | 'Link';
 };
 
 export type StatusItem = {

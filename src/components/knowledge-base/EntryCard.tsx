@@ -4,6 +4,7 @@ import Link from "next/link";
 import TagBadge from "./TagBadge";
 import {
   KnowledgeEntry,
+  Attachment,
   entryTypeColors,
   isCommunicationEntry,
   isResearchEntry,
@@ -107,6 +108,34 @@ export default function EntryCard({
             <span className="font-medium">{entry.from}</span>
             <span className="mx-1">→</span>
             <span>{Array.isArray(entry.to) ? entry.to.join(", ") : entry.to}</span>
+          </div>
+        )}
+
+        {/* Attachments (communications + research) */}
+        {isCommunicationEntry(entry) && entry.attachments && entry.attachments.length > 0 && !compact && (
+          <div className="mt-3 p-3 rounded-lg bg-amber-50/60 border border-amber-200/40">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700/70 mb-2 flex items-center gap-2">
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m18.375 12.739-7.693 7.693a4.5 4.5 0 0 1-6.364-6.364l10.94-10.94A3 3 0 1 1 19.5 7.372L8.552 18.32m.009-.01-.01.01m5.699-9.941-7.81 7.81a1.5 1.5 0 0 0 2.112 2.13" />
+              </svg>
+              {entry.attachments.length} {entry.attachments.length === 1 ? "Attachment" : "Attachments"}
+            </p>
+            <div className="space-y-1">
+              {entry.attachments.map((att: Attachment, idx: number) => (
+                <div key={idx} className="flex items-center gap-2 text-xs">
+                  <span className={`text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${
+                    att.format === 'PDF' ? 'bg-red-100 text-red-600' :
+                    att.format === 'Excel' ? 'bg-green-100 text-green-600' :
+                    att.format === 'Image' ? 'bg-violet-100 text-violet-600' :
+                    att.format === 'Presentation' ? 'bg-orange-100 text-orange-600' :
+                    'bg-slate-100 text-slate-600'
+                  }`}>
+                    {att.format}
+                  </span>
+                  <span className="text-slate/80">{att.title}</span>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 
