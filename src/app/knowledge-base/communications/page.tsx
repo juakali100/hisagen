@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { Suspense, useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { ChevronDownIcon, ArrowLeftIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, SelectableEntryCard, TagBadge, DateRangeFilter, filterByDateRange, useSelection } from "../../../components/knowledge-base";
+import { SearchBar, SelectableEntryCard, TagBadge, DateRangeFilter, filterByDateRange, ProjectFilter, useSelection } from "../../../components/knowledge-base";
 import type { DateRange } from "../../../components/knowledge-base";
 import {
   communications,
@@ -17,7 +18,17 @@ import {
 } from "../../../data";
 
 export default function CommunicationsPage() {
+  return (
+    <Suspense>
+      <CommunicationsContent />
+    </Suspense>
+  );
+}
+
+function CommunicationsContent() {
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeProject, setActiveProject] = useState<string | null>(searchParams.get("project"));
   const [activeSubtype, setActiveSubtype] = useState<CommunicationSubtype | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [dateRange, setDateRange] = useState<DateRange>(null);
@@ -29,6 +40,11 @@ export default function CommunicationsPage() {
   // Filter communications
   const filteredCommunications = useMemo(() => {
     let result = [...communications];
+
+    // Filter by project
+    if (activeProject) {
+      result = result.filter((c) => c.project === activeProject);
+    }
 
     // Filter by date range
     result = filterByDateRange(result, dateRange);
@@ -57,7 +73,7 @@ export default function CommunicationsPage() {
     }
 
     return result;
-  }, [searchQuery, activeSubtype, activeTags, dateRange]);
+  }, [searchQuery, activeProject, activeSubtype, activeTags, dateRange]);
 
   // Group by year
   const groupedByYear = useMemo(() => {
@@ -81,12 +97,13 @@ export default function CommunicationsPage() {
   // Clear filters
   const clearFilters = () => {
     setSearchQuery("");
+    setActiveProject(null);
     setActiveSubtype(null);
     setActiveTags([]);
     setDateRange(null);
   };
 
-  const isFiltering = searchQuery.trim() || activeSubtype || activeTags.length > 0 || dateRange;
+  const isFiltering = searchQuery.trim() || activeProject || activeSubtype || activeTags.length > 0 || dateRange;
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -134,6 +151,11 @@ export default function CommunicationsPage() {
           >
             Select all {isFiltering ? "filtered" : ""} ({filteredCommunications.length})
           </button>
+        </div>
+
+        {/* Project Filter */}
+        <div className="mt-6">
+          <ProjectFilter activeProject={activeProject} onProjectChange={setActiveProject} />
         </div>
       </section>
 

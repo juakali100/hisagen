@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { DocumentTextIcon, ClockIcon, SparklesIcon, ShareIcon } from "@heroicons/react/24/outline";
 import StageBreadcrumb from "../../components/StageBreadcrumb";
-import { SearchBar, SectionCard, EntryCard, TagBadge, useSelection } from "../../components/knowledge-base";
+import { SearchBar, SectionCard, EntryCard, TagBadge, ProjectFilter, useSelection } from "../../components/knowledge-base";
 import {
   communications,
   research,
@@ -19,19 +19,15 @@ import {
   getEntriesByProject,
 } from "../../data";
 
-const projectLabels: Record<string, string> = {
-  'uganda-pilot': 'Uganda',
-  'rwanda-pilot': 'Rwanda',
-};
-
 export default function ResourcesHub() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const { selectionCount } = useSelection();
 
-  // Available projects
-  const projects = getAvailableProjects();
+  // Helper to append project param to href
+  const projectHref = (base: string) =>
+    activeProject ? `${base}?project=${activeProject}` : base;
 
   // Stats (filtered by project)
   const stats = getKnowledgeBaseStats(activeProject);
@@ -112,36 +108,9 @@ export default function ResourcesHub() {
         </div>
 
         {/* Project Filter */}
-        {projects.length > 1 && (
-          <div className="mt-6 flex items-center gap-3">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-slate/40">
-              Project:
-            </span>
-            <button
-              onClick={() => setActiveProject(null)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                activeProject === null
-                  ? "bg-secondary text-white"
-                  : "bg-white border border-mist text-slate hover:border-secondary/30"
-              }`}
-            >
-              All Programs
-            </button>
-            {projects.map((project) => (
-              <button
-                key={project}
-                onClick={() => setActiveProject(activeProject === project ? null : project)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                  activeProject === project
-                    ? "bg-secondary text-white"
-                    : "bg-white border border-mist text-slate hover:border-secondary/30"
-                }`}
-              >
-                {projectLabels[project] || project}
-              </button>
-            ))}
-          </div>
-        )}
+        <div className="mt-6">
+          <ProjectFilter activeProject={activeProject} onProjectChange={setActiveProject} />
+        </div>
       </section>
 
       {/* Search Section */}
@@ -226,7 +195,7 @@ export default function ResourcesHub() {
                 title="Communications"
                 description="Emails, calls, meetings, and messages capturing key discussions and decisions."
                 count={stats.communications}
-                href="/knowledge-base/communications"
+                href={projectHref("/knowledge-base/communications")}
                 recentItems={recentCommunications}
               />
               <SectionCard
@@ -234,7 +203,7 @@ export default function ResourcesHub() {
                 title="Research"
                 description="Decks, reports, analysis, and market data informing strategy."
                 count={stats.research}
-                href="/knowledge-base/research"
+                href={projectHref("/knowledge-base/research")}
                 recentItems={recentResearch}
               />
               <SectionCard
@@ -242,7 +211,7 @@ export default function ResourcesHub() {
                 title="Evidence"
                 description="Trial data, MRV metrics, certifications, and verification records."
                 count={stats.evidence}
-                href="/knowledge-base/evidence"
+                href={projectHref("/knowledge-base/evidence")}
                 recentItems={[]}
               />
               <SectionCard
@@ -250,7 +219,7 @@ export default function ResourcesHub() {
                 title="Milestones"
                 description="Regulatory, commercial, and operational milestones tracking progress."
                 count={stats.milestones}
-                href="/knowledge-base/milestones"
+                href={projectHref("/knowledge-base/milestones")}
                 recentItems={recentMilestones}
               />
               <SectionCard
@@ -258,7 +227,7 @@ export default function ResourcesHub() {
                 title="Ecosystem"
                 description="Partner profiles, stakeholder relationships, and ecosystem mapping."
                 count={stats.ecosystem}
-                href="/ecosystem"
+                href={projectHref("/ecosystem")}
                 recentItems={[]}
               />
             </div>

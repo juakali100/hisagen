@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { Suspense, useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, SelectableEntryCard, TagBadge, DateRangeFilter, filterByDateRange, useSelection } from "../../../components/knowledge-base";
+import { SearchBar, SelectableEntryCard, TagBadge, DateRangeFilter, filterByDateRange, ProjectFilter, useSelection } from "../../../components/knowledge-base";
 import type { DateRange } from "../../../components/knowledge-base";
 import {
   research,
@@ -22,7 +23,17 @@ const subtypeLabels: Record<ResearchSubtype, string> = {
 };
 
 export default function ResearchPage() {
+  return (
+    <Suspense>
+      <ResearchContent />
+    </Suspense>
+  );
+}
+
+function ResearchContent() {
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeProject, setActiveProject] = useState<string | null>(searchParams.get("project"));
   const [activeSubtype, setActiveSubtype] = useState<ResearchSubtype | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [dateRange, setDateRange] = useState<DateRange>(null);
@@ -34,6 +45,11 @@ export default function ResearchPage() {
   // Filter research
   const filteredResearch = useMemo(() => {
     let result = [...research];
+
+    // Filter by project
+    if (activeProject) {
+      result = result.filter((r) => r.project === activeProject);
+    }
 
     // Filter by date range
     result = filterByDateRange(result, dateRange);
@@ -61,7 +77,7 @@ export default function ResearchPage() {
 
     // Sort by date descending
     return result.sort((a, b) => b.date.localeCompare(a.date));
-  }, [searchQuery, activeSubtype, activeTags, dateRange]);
+  }, [searchQuery, activeProject, activeSubtype, activeTags, dateRange]);
 
   // Handle tag click
   const handleTagClick = (tag: string) => {
@@ -73,12 +89,13 @@ export default function ResearchPage() {
   // Clear filters
   const clearFilters = () => {
     setSearchQuery("");
+    setActiveProject(null);
     setActiveSubtype(null);
     setActiveTags([]);
     setDateRange(null);
   };
 
-  const isFiltering = searchQuery.trim() || activeSubtype || activeTags.length > 0 || dateRange;
+  const isFiltering = searchQuery.trim() || activeProject || activeSubtype || activeTags.length > 0 || dateRange;
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -126,6 +143,11 @@ export default function ResearchPage() {
           >
             Select all {isFiltering ? "filtered" : ""} ({filteredResearch.length})
           </button>
+        </div>
+
+        {/* Project Filter */}
+        <div className="mt-6">
+          <ProjectFilter activeProject={activeProject} onProjectChange={setActiveProject} />
         </div>
       </section>
 

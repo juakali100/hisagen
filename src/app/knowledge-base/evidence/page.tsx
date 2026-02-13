@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeftIcon, BeakerIcon, MapPinIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, TagBadge, useSelection } from "../../../components/knowledge-base";
+import { SearchBar, TagBadge, ProjectFilter, useSelection } from "../../../components/knowledge-base";
 import {
   evidence,
-  getEvidenceByDataType,
   EvidenceSubtype,
   EvidenceDataType,
   EvidenceEntry,
@@ -42,16 +42,43 @@ const emptyStateDescriptions: Record<EvidenceDataType, string> = {
 };
 
 export default function EvidencePage() {
+  return (
+    <Suspense>
+      <EvidenceContent />
+    </Suspense>
+  );
+}
+
+function EvidenceContent() {
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeProject, setActiveProject] = useState<string | null>(searchParams.get("project"));
   const { selectAll, setSelectionMode, isSelected, toggle, isSelectionMode } = useSelection();
 
-  const evidenceByDataType = getEvidenceByDataType();
+  // Project-filtered evidence base
+  const projectEvidence = useMemo(() => {
+    if (!activeProject) return evidence;
+    return evidence.filter((e) => e.project === activeProject);
+  }, [activeProject]);
+
+  // Group by data type (respects project filter)
+  const evidenceByDataType = useMemo(() => {
+    const result: Record<EvidenceDataType, EvidenceEntry[]> = {
+      mrv: [], traceability: [], disclosure: [], impact: [],
+    };
+    for (const entry of projectEvidence) {
+      const dt = entry.dataType || subtypeToDataType[entry.subtype];
+      if (result[dt]) result[dt].push(entry);
+    }
+    return result;
+  }, [projectEvidence]);
+
   const ugandaPilotCount = evidence.filter(e => e.project === "uganda-pilot").length;
   const rwandaPilotCount = evidence.filter(e => e.project === "rwanda-pilot").length;
 
-  // Filter evidence by search query
+  // Filter evidence by search query (also respects project filter)
   const filteredEvidence = searchQuery
-    ? evidence.filter(
+    ? projectEvidence.filter(
         (e) =>
           e.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
           e.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -87,7 +114,7 @@ export default function EvidencePage() {
         {/* Stats */}
         <div className="mt-6 flex flex-wrap items-center gap-4">
           <div className="px-3 py-1.5 rounded-lg bg-white border border-mist">
-            <span className="text-lg font-bold text-secondary">{evidence.length}</span>
+            <span className="text-lg font-bold text-secondary">{projectEvidence.length}</span>
             <span className="ml-2 text-xs text-slate/60">Total Entries</span>
           </div>
           <div className="px-3 py-1.5 rounded-lg bg-white border border-mist">
@@ -96,17 +123,22 @@ export default function EvidencePage() {
             </span>
             <span className="ml-2 text-xs text-slate/60">Active Data Types</span>
           </div>
-          {evidence.length > 0 && (
+          {projectEvidence.length > 0 && (
             <button
               onClick={() => {
                 setSelectionMode(true);
-                selectAll(evidence);
+                selectAll(projectEvidence);
               }}
               className="px-3 py-1.5 rounded-lg bg-parchment border border-mist text-xs font-medium text-secondary hover:bg-secondary/10 transition-colors"
             >
-              Select all ({evidence.length})
+              Select all ({projectEvidence.length})
             </button>
           )}
+        </div>
+
+        {/* Project Filter */}
+        <div className="mt-6">
+          <ProjectFilter activeProject={activeProject} onProjectChange={setActiveProject} />
         </div>
       </section>
 

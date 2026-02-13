@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { Suspense, useState, useMemo } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, TagBadge, DateRangeFilter, filterByDateRange, useSelection } from "../../../components/knowledge-base";
+import { SearchBar, TagBadge, DateRangeFilter, filterByDateRange, ProjectFilter, useSelection } from "../../../components/knowledge-base";
 import type { DateRange } from "../../../components/knowledge-base";
 import {
   milestones,
@@ -26,7 +27,17 @@ const subtypeLabels: Record<MilestoneSubtype, string> = {
 const statusOrder: MilestoneStatus[] = ["in-progress", "planned", "blocked", "complete"];
 
 export default function MilestonesPage() {
+  return (
+    <Suspense>
+      <MilestonesContent />
+    </Suspense>
+  );
+}
+
+function MilestonesContent() {
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeProject, setActiveProject] = useState<string | null>(searchParams.get("project"));
   const [activeStatus, setActiveStatus] = useState<MilestoneStatus | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [dateRange, setDateRange] = useState<DateRange>(null);
@@ -38,6 +49,11 @@ export default function MilestonesPage() {
   // Filter milestones
   const filteredMilestones = useMemo(() => {
     let result = [...milestones];
+
+    // Filter by project
+    if (activeProject) {
+      result = result.filter((m) => m.project === activeProject);
+    }
 
     // Filter by date range
     result = filterByDateRange(result, dateRange);
@@ -64,7 +80,7 @@ export default function MilestonesPage() {
     }
 
     return result;
-  }, [searchQuery, activeStatus, activeTags, dateRange]);
+  }, [searchQuery, activeProject, activeStatus, activeTags, dateRange]);
 
   // Group filtered milestones by status
   const filteredByStatus = useMemo(() => {
@@ -85,12 +101,13 @@ export default function MilestonesPage() {
   // Clear filters
   const clearFilters = () => {
     setSearchQuery("");
+    setActiveProject(null);
     setActiveStatus(null);
     setActiveTags([]);
     setDateRange(null);
   };
 
-  const isFiltering = searchQuery.trim() || activeStatus || activeTags.length > 0 || dateRange;
+  const isFiltering = searchQuery.trim() || activeProject || activeStatus || activeTags.length > 0 || dateRange;
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -144,6 +161,11 @@ export default function MilestonesPage() {
           >
             Select all {isFiltering ? "filtered" : ""} ({filteredMilestones.length})
           </button>
+        </div>
+
+        {/* Project Filter */}
+        <div className="mt-6">
+          <ProjectFilter activeProject={activeProject} onProjectChange={setActiveProject} />
         </div>
       </section>
 
