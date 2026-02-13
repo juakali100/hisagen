@@ -3,16 +3,16 @@ import Link from "next/link";
 
 // Uganda Pilot Trial Data (HISAGEN's own field trials)
 const ugandaTrials = {
-  timeline: "Feb 2025 (prep) → Mar-Aug 2025 (data collection) → Sep 2025 (harvest)",
+  timeline: "2025 (trials across 3 sites) → Feb 2026 (NARO results received)",
   partner: "NARO (National Agricultural Research Organisation) under MAAIF",
   crops: [
-    { name: "Maize", icon: "🌽", regions: ["Western", "Northern", "Eastern", "Central"] },
+    { name: "Maize", icon: "🌽", regions: ["Kawanda", "Tororo", "Bulindi"] },
     { name: "Irish Potatoes", icon: "🥔", regions: ["Western", "Central"] },
     { name: "Peanuts", icon: "🥜", regions: ["Northern", "Eastern"] },
     { name: "Sweet Potatoes", icon: "🍠", regions: ["Eastern", "Central"] },
   ],
-  status: "Results submitted Oct 2025 - described as 'highly positive'",
-  nextSteps: "Full yield data pending NARO final report",
+  status: "NARO results confirmed: +17-48% grain yield, +35-65% biomass (3 sites, p < 0.05)",
+  nextSteps: "UNBS/MAAIF regulatory submissions in progress",
 };
 
 // Locus AG US Trial Data (Technology validation - NOT Uganda)
@@ -182,16 +182,17 @@ export default function EvidencePage() {
             </div>
           </div>
 
-          {/* Pending Data Notice */}
+          {/* NARO Trial Results */}
           <div className="mt-6 pt-4 border-t border-amber-200">
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-100/50 border border-dashed border-amber-300">
-              <span className="text-amber-600 text-lg">⏳</span>
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-100/50 border border-emerald-300">
+              <span className="text-emerald-600 text-lg">✅</span>
               <div>
-                <p className="font-semibold text-amber-800 text-sm">Quantitative Results Pending</p>
-                <p className="text-amber-700 text-xs mt-1">
-                  NARO trial results described as "highly positive." Full yield comparison data (treated vs control)
-                  will be available upon completion of NARO final report. This section will be updated with specific
-                  percentage improvements once data is released.
+                <p className="font-semibold text-emerald-800 text-sm">NARO Trial Results Confirmed (Feb 2026)</p>
+                <p className="text-emerald-700 text-xs mt-1">
+                  Independent NARO trials across 3 Uganda sites (Kawanda, Tororo, Bulindi) confirm Rhizolizer® Duo
+                  at recommended rate (0.5 oz) delivers <strong>+17-48% grain yield</strong> and <strong>+35-65% biomass improvement</strong> over
+                  untreated controls. Outperformed conventional NPK fertilizer at all sites. All results statistically
+                  significant (p &lt; 0.05). Higher dose (1.0 oz) showed no additional benefit — optimal cost efficiency confirmed.
                 </p>
               </div>
             </div>

@@ -118,16 +118,16 @@ export default function UgandaPilotPage() {
             <p className="text-xs text-slate/60">Evidence Entries</p>
           </div>
           <div className="p-4 rounded-xl bg-white border border-emerald-100">
-            <p className="text-2xl font-bold text-secondary">5</p>
-            <p className="text-xs text-slate/60">NARO Zones</p>
+            <p className="text-2xl font-bold text-secondary">3</p>
+            <p className="text-xs text-slate/60">NARO Sites</p>
           </div>
           <div className="p-4 rounded-xl bg-white border border-emerald-100">
             <p className="text-2xl font-bold text-secondary">10,000</p>
             <p className="text-xs text-slate/60">Target Farmers</p>
           </div>
           <div className="p-4 rounded-xl bg-white border border-emerald-100">
-            <p className="text-2xl font-bold text-emerald-600">+4-22%</p>
-            <p className="text-xs text-slate/60">Yield Range</p>
+            <p className="text-2xl font-bold text-emerald-600">+17-48%</p>
+            <p className="text-xs text-slate/60">Grain Yield (NARO)</p>
           </div>
         </div>
       </section>
@@ -365,14 +365,15 @@ export default function UgandaPilotPage() {
             </div>
 
             <div className="relative pl-12">
-              <div className="absolute left-2 w-4 h-4 rounded-full bg-blue-500 border-4 border-blue-100" />
-              <div className="p-4 rounded-xl bg-blue-50 border border-blue-100">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-blue-700">
-                  In Progress
+              <div className="absolute left-2 w-4 h-4 rounded-full bg-emerald-500 border-4 border-emerald-100" />
+              <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-100">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-emerald-700">
+                  Results Confirmed
                 </p>
-                <p className="text-sm font-bold text-secondary mt-1">NARO 5-Zone Independent Trials</p>
+                <p className="text-sm font-bold text-secondary mt-1">NARO Multi-Site Independent Trials</p>
                 <p className="text-xs text-slate mt-1">
-                  Independent validation by NARO across 5 agro-ecological zones (Results: Q1 2026)
+                  Independent NARO trials across Kawanda, Tororo, Bulindi: +17-48% grain yield, +35-65% biomass.
+                  Outperformed NPK. All results p &lt; 0.05. (Results received Feb 2026)
                 </p>
               </div>
             </div>

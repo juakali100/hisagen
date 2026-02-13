@@ -107,8 +107,8 @@ export default function EvidencePage() {
               </p>
               <div className="mt-4 flex items-center gap-6 text-xs text-slate/70">
                 <span>{evidenceByProject['uganda-pilot']?.length || 0} entries</span>
-                <span>5 NARO zones</span>
-                <span className="text-emerald-600 font-medium">+4-22% yield improvements</span>
+                <span>3 NARO sites (Kawanda, Tororo, Bulindi)</span>
+                <span className="text-emerald-600 font-medium">+17-48% grain yield (NARO validated)</span>
               </div>
             </div>
             <ArrowRightIcon className="size-5 text-slate/30 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all mt-2" />

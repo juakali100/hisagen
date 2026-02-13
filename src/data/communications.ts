@@ -6,6 +6,28 @@ import { CommunicationEntry } from '../types/knowledge-base';
 export const communications: CommunicationEntry[] = [
   // 2026
   {
+    id: 'comm-2026-02-12-keir-trial-results-invoice',
+    type: 'communication',
+    subtype: 'email',
+    date: '2026-02-12',
+    title: 'Keir → Nic: NARO Trial Results, Invoice Request & Logo Greenlight',
+    summary: 'Major milestone email: NARO trial results attached (19-slide PDF), invoice requested to HISAGEN LTD, logo concepts greenlit for development, website confirmed as regulatory requirement for UNBS/MAAIF applications.',
+    from: 'Keir',
+    to: 'Nic',
+    tags: ['Trial Results', 'NARO', 'Invoice', 'Logo', 'Regulatory', 'UNBS', 'MAAIF', 'Milestone'],
+    synthesis: [
+      'NARO trial results shared: 19-slide PDF by Ongua Fanuel (NARO-NARL Kawanda). Rhizolizer Duo +17-48% grain yield across 3 sites (Kawanda, Tororo, Bulindi). Outperformed NPK. All p < 0.05.',
+      'Invoice requested: "Send invoice to HISAGEN LTD" — first paid engagement confirmed.',
+      'Contract discussion initiated: Keir wants formal terms of service / agreement.',
+      'Logo greenlit: AI-generated concepts approved for professional development.',
+      'Website = regulatory requirement: UNBS and MAAIF applications require official website and email addresses. Domain: hisagen.com (set up by Keir).',
+      'Raw data offered: Keir indicated underlying trial data available if needed.',
+    ],
+    relatedIds: ['evidence-naro-5zone-trials-2025'],
+    createdAt: '2026-02-13',
+    updatedAt: '2026-02-13',
+  },
+  {
     id: 'comm-2026-02-05-keir-strategic-update',
     type: 'communication',
     subtype: 'email',

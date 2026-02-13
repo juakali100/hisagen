@@ -88,7 +88,7 @@ const L3_ecosystem = {
     {
       category: "Provisioning",
       items: [
-        { service: "Crop Yield", target: "20-30% increase with Locus AG biologicals", measurement: "Yield trials data" },
+        { service: "Crop Yield", target: "17-48% grain yield increase (NARO validated, 3 sites, p < 0.05)", measurement: "NARO independent trials (Kawanda, Tororo, Bulindi)" },
         { service: "Soil Fertility", target: "Reduced synthetic input dependency", measurement: "Input cost tracking" },
       ],
     },
@@ -382,7 +382,9 @@ const capitalStages = [
           "4 crops tested: Maize, Irish Potatoes, Peanuts, Sweet Potatoes",
           "4 regions: Western, Northern, Eastern, Central Uganda",
           "Trial data collection completed",
-          "Results: 'Highly positive' (quantitative data pending)",
+          "NARO results (Feb 2026): +17-48% grain yield, +35-65% biomass across Kawanda, Tororo, Bulindi",
+          "Outperformed NPK conventional fertilizer at all sites (p < 0.05)",
+          "Optimal dose confirmed: 0.5 oz (higher dose showed no additional benefit)",
         ],
         capitalIn: "Director investment, in-kind NARO contribution",
         revenueOut: "—",
@@ -401,8 +403,9 @@ const capitalStages = [
           "✓ Oct 2025: Initial UNBS submission",
           "✓ Jan 2026: Latest samples arrived in Uganda",
           "✓ Feb 2026: Submitted to UNBS for formal approval",
+          "✓ Feb 2026: NARO trial results received — evidence base for submissions",
+          "✓ Feb 2026: Website + email confirmed as UNBS/MAAIF requirement",
           "Feb 2026: Awaiting UNBS confirmation/feedback",
-          "Feb 2026: Collecting latest yield and field data from trials",
           "Mar-Apr 2026: MAAIF approval expected",
           "Apr 2026: Product labeling finalization",
         ],
@@ -572,9 +575,9 @@ const pillarScores = [
 // Quick reference stats (shown in header area)
 const quickStats = [
   { label: "Current Phase", value: "Phase 2: UNBS Approval" },
-  { label: "Status", value: "Samples submitted, awaiting feedback" },
-  { label: "Timeline", value: "~3 weeks behind schedule" },
-  { label: "Last Update", value: "Feb 5, 2026" },
+  { label: "Status", value: "Trial results received, invoicing active" },
+  { label: "Timeline", value: "UNBS/MAAIF in progress" },
+  { label: "Last Update", value: "Feb 12, 2026" },
 ];
 
 export default function PilotPage() {

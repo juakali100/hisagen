@@ -10,7 +10,7 @@ const partnerships = [
         role: "Soil Science & Data",
         status: "confirmed",
         statusLabel: "Active",
-        deliverables: ["Rhizolizer® Deployment", "Yield Improvement (15-30%)", "Plant Health Data"],
+        deliverables: ["Rhizolizer® Deployment", "Yield Improvement (17-48% validated)", "Plant Health Data"],
         color: "bg-emerald-50",
         border: "border-emerald-200"
     },
@@ -31,7 +31,7 @@ const outcomeTargets = [
     {
         phase: "Short-Term",
         timeline: "Year 1-2",
-        targets: ["5,000 hectares under management", "15-30% yield improvement for farmers", "Soil health data collection established"],
+        targets: ["5,000 hectares under management", "17-48% yield improvement for farmers (NARO validated)", "Soil health data collection established"],
         status: "active",
         progress: "In Progress"
     },
@@ -287,7 +287,7 @@ export default function ProgramPage() {
                     <div className="p-4 rounded-lg bg-white border border-blue-100">
                         <p className="text-sm font-bold text-secondary mb-2">Locus AG</p>
                         <p className="text-sm text-slate leading-relaxed">
-                            US-based agricultural biotechnology company with patented microbial products (Rhizolizer). Proven across American farms with 15-30% yield improvements. The technology works — now it's ready for new markets.
+                            US-based agricultural biotechnology company with patented microbial products (Rhizolizer). Proven across American farms and validated in Uganda through NARO multi-location trials showing 17-48% yield improvements. The technology works — and the data backs it up.
                         </p>
                         <a href="/ecosystem/locus-ag" className="inline-flex items-center gap-1 mt-3 text-xs font-bold text-emerald-600 hover:text-emerald-700 hover:underline">
                             View Full Locus AG Profile →
@@ -355,7 +355,7 @@ export default function ProgramPage() {
                             <h3 className="text-sm font-bold text-secondary">Proven & Scalable</h3>
                         </div>
                         <p className="text-sm text-slate leading-relaxed">
-                            Product has <strong>demonstrated success in the United States</strong> through Locus AG. Scalable production line ready to meet Africa demand.
+                            Product has <strong>demonstrated success in the United States</strong> through Locus AG, and now <strong>validated in Uganda</strong> through NARO multi-location trials across 3 agro-ecological zones. Scalable production line ready to meet Africa demand.
                         </p>
                     </div>
 
@@ -609,7 +609,7 @@ export default function ProgramPage() {
                         <span className="text-slate/40">→</span>
                         <div className="flex-shrink-0 p-3 rounded-lg bg-primary/10 border border-primary/30 text-center min-w-[100px]">
                             <p className="text-[10px] font-bold text-primary">Results</p>
-                            <p className="text-[11px] text-slate mt-1">Highly Positive</p>
+                            <p className="text-[11px] text-slate mt-1">+17-48% Yield</p>
                         </div>
                     </div>
                 </div>
@@ -637,7 +637,7 @@ export default function ProgramPage() {
                 {/* Results Quote */}
                 <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
                     <p className="text-sm text-slate leading-relaxed italic">
-                        "The results from these initial trials were <strong>highly positive</strong>, demonstrating strong crop response and overall effectiveness of the Rhizolizer Duo product. This success has led to the current phase, which aims to secure official approval of the Rhizolizer product range for use in Uganda."
+                        "NARO multi-location trials across Kawanda, Tororo, and Bulindi showed <strong>17-48% grain yield improvement</strong> and <strong>35-65% biomass increase</strong> with Rhizolizer Duo — outperforming conventional NPK fertilizer at all sites (p &lt; 0.05). This success has led to the current phase, which aims to secure official approval of the Rhizolizer product range for use in Uganda."
                     </p>
                 </div>
 
@@ -1003,7 +1003,7 @@ export default function ProgramPage() {
                     {[
                         { stage: "1", title: "Better Soil", outcome: "Foundation", color: "bg-emerald-50 border-emerald-200" },
                         { stage: "2", title: "Healthier Plants", outcome: "Stronger crops", color: "bg-emerald-50 border-emerald-200" },
-                        { stage: "3", title: "Higher Yields", outcome: "+15-30%", color: "bg-emerald-50 border-emerald-200" },
+                        { stage: "3", title: "Higher Yields", outcome: "+17-48%", color: "bg-emerald-50 border-emerald-200" },
                         { stage: "4", title: "More Income", outcome: "Improved livelihood", color: "bg-primary/10 border-primary/30" },
                         { stage: "5", title: "Future Revenue", outcome: "Carbon potential", color: "bg-slate-50 border-slate-200" },
                     ].map((step, idx) => (
@@ -1025,7 +1025,7 @@ export default function ProgramPage() {
                         <span className="text-xl font-bold text-secondary">→</span>
                         <div className="px-3 py-2 bg-white rounded-lg border border-emerald-300 shadow-sm">
                             <p className="text-xs font-bold text-emerald-700">Higher Yields</p>
-                            <p className="text-[10px] text-slate">↑ 15-30%</p>
+                            <p className="text-[10px] text-slate">↑ 17-48%</p>
                         </div>
                         <span className="text-xl font-bold text-secondary">→</span>
                         <div className="px-3 py-2 bg-secondary rounded-lg shadow-sm">

@@ -30,6 +30,38 @@ export interface StatusUpdate {
 export const ugandaStatusUpdates: StatusUpdate[] = [
   // Most recent first
   {
+    id: 'update-2026-02-12',
+    date: '2026-02-12',
+    source: 'Keir Austen-Brown',
+    sourceType: 'email',
+    summary: 'Major milestone: NARO trial results received showing +17-48% grain yield and +35-65% biomass improvement across 3 Uganda sites. Rhizolizer Duo outperformed conventional NPK fertilizer. Invoice requested to HISAGEN LTD — first paid engagement. Logo concepts greenlit. Website confirmed as regulatory requirement for UNBS/MAAIF applications.',
+    regulatory: {
+      items: [
+        { text: 'UNBS submission in progress', status: 'in-progress' },
+        { text: 'MAAIF submission pending UNBS outcome', status: 'pending' },
+        { text: 'Website required for UNBS/MAAIF applications', status: 'in-progress' },
+        { text: 'Official email addresses set up (hisagen.com)', status: 'complete' },
+      ],
+    },
+    fieldOps: {
+      items: [
+        { text: 'NARO trial results received (19-slide PDF)', status: 'complete' },
+        { text: 'Grain yield: +17-48% across 3 sites (p < 0.05)', status: 'complete' },
+        { text: 'Biomass: +35-65% improvement', status: 'complete' },
+        { text: 'Outperformed NPK conventional fertilizer', status: 'complete' },
+        { text: 'Raw data available from Keir if needed', status: 'pending' },
+      ],
+    },
+    strategic: {
+      items: [
+        { text: 'Invoice requested to HISAGEN LTD', status: 'complete' },
+        { text: 'Contract/terms of service discussion initiated', status: 'in-progress' },
+        { text: 'Logo concepts greenlit for professional development', status: 'in-progress' },
+        { text: 'Farmer-first yield story now data-backed', status: 'complete' },
+      ],
+    },
+  },
+  {
     id: 'update-2026-02-05',
     date: '2026-02-05',
     source: 'Keir Austen-Brown',
