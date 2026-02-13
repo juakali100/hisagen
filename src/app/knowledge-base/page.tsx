@@ -43,9 +43,9 @@ export default function ResourcesHub() {
     return searchEntries(searchQuery);
   }, [searchQuery]);
 
-  // Filter helper for project
+  // Filter helper for project (strict — only entries tagged to that project)
   const matchesProject = (entry: { project?: string }) =>
-    !activeProject || entry.project === activeProject || !entry.project || entry.project === 'global';
+    !activeProject || entry.project === activeProject;
 
   // Recent entries for each section (filtered by project)
   const recentCommunications = communications
