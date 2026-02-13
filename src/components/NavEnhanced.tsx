@@ -160,9 +160,11 @@ function getActiveSection(pathname: string): string | null {
 function NavFlyout({
   section,
   isActive,
+  alignRight = false,
 }: {
   section: NavSection;
   isActive: boolean;
+  alignRight?: boolean;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -205,7 +207,7 @@ function NavFlyout({
 
       {isOpen && (
         <div
-          className="absolute left-0 top-full z-50 pt-2"
+          className={`absolute top-full z-50 pt-2 ${alignRight ? "right-0" : "left-0"}`}
           onMouseEnter={open}
           onMouseLeave={close}
         >
@@ -326,11 +328,12 @@ export default function NavEnhanced() {
 
         {/* Navigation sections */}
         <div className="hidden md:flex flex-wrap items-center gap-x-1">
-          {navSections.map((section) => (
+          {navSections.map((section, idx) => (
             <NavFlyout
               key={section.label}
               section={section}
               isActive={activeSection === section.label}
+              alignRight={idx >= navSections.length - 2}
             />
           ))}
         </div>
