@@ -88,6 +88,26 @@ export const ecosystem: EcosystemEntry[] = [
     createdAt: '2026-01-17',
     updatedAt: '2026-01-17',
   },
+
+  // ===========================================
+  // RWANDA ECOSYSTEM
+  // ===========================================
+
+  {
+    id: 'eco-rab',
+    type: 'ecosystem',
+    subtype: 'regulator',
+    date: '2026-02-01',
+    title: 'Rwanda Agriculture Board (RAB)',
+    summary: 'National agricultural research and extension body for Rwanda. Key institutional partner for field trials and regulatory pathway. Equivalent role to NARO in Uganda.',
+    organization: 'Rwanda Agriculture Board',
+    relationship: 'Potential research and trials partner for Rwanda pilot. RAB oversees crop research, soil science, and agricultural extension — essential for in-country validation of Rhizolizer® Duo.',
+    tags: ['Rwanda', 'Regulator', 'Research', 'Partnership', 'Planning'],
+    engagement: 'potential',
+    project: 'rwanda-pilot',
+    createdAt: '2026-02-13',
+    updatedAt: '2026-02-13',
+  },
 ];
 
 // Helper: Get ecosystem by engagement level

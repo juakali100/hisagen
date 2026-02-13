@@ -137,6 +137,29 @@ export const communications: CommunicationEntry[] = [
     updatedAt: '2026-01-17',
   },
 
+  {
+    id: 'comm-2026-01-21-rwanda-expansion-discussion',
+    type: 'communication',
+    subtype: 'call',
+    date: '2026-01-21',
+    title: 'Keir ↔ Nic: Rwanda Expansion Scoping',
+    summary: 'Discussion on Rwanda as second pilot market. Coffee and tea identified as high-value target crops. RAB engagement to follow Uganda NARO model. Timeline: post-Uganda commercial launch.',
+    from: 'Keir',
+    to: 'Nic',
+    participants: ['Keir', 'Nic'],
+    tags: ['Rwanda', 'Expansion', 'Strategy', 'Coffee', 'Tea'],
+    project: 'rwanda-pilot',
+    synthesis: [
+      'Rwanda confirmed as priority second market after Uganda. Strategic alignment with East Africa expansion roadmap.',
+      'Target crops: coffee and tea (high-value export crops with strong sustainability demand from buyers). Maize also viable.',
+      'RAB (Rwanda Agriculture Board) identified as key institutional partner — equivalent to NARO in Uganda.',
+      'Regulatory pathway differs from Uganda: REMA (environment), RSB (standards), RAB (agriculture) — needs scoping.',
+      'Timeline dependent on Uganda commercial launch success. Earliest pilot design: Q3 2026.',
+    ],
+    createdAt: '2026-02-13',
+    updatedAt: '2026-02-13',
+  },
+
   // 2025
   {
     id: 'comm-2025-12-23-uganda-progress',

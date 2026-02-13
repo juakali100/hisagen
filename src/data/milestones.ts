@@ -66,6 +66,55 @@ export const milestones: MilestoneEntry[] = [
     createdAt: '2026-01-17',
     updatedAt: '2026-01-17',
   },
+
+  // ===========================================
+  // RWANDA PILOT - PLANNED
+  // ===========================================
+
+  {
+    id: 'milestone-2026-q2-rab-engagement',
+    type: 'milestone',
+    subtype: 'partnership',
+    date: '2026-02-01',
+    title: 'Rwanda Agriculture Board (RAB) Engagement',
+    summary: 'Initiate formal engagement with RAB to establish research partnership for Rhizolizer® Duo trials in Rwanda. Leveraging Uganda NARO success as proof point.',
+    tags: ['Rwanda', 'RAB', 'Partnership', 'Planning'],
+    status: 'planned',
+    targetDate: '2026-06-30',
+    project: 'rwanda-pilot',
+    createdAt: '2026-02-13',
+    updatedAt: '2026-02-13',
+  },
+  {
+    id: 'milestone-2026-q2-rwanda-regulatory-scoping',
+    type: 'milestone',
+    subtype: 'regulatory',
+    date: '2026-02-01',
+    title: 'Rwanda Regulatory Pathway Scoping',
+    summary: 'Map the regulatory requirements for bio-fertilizer registration in Rwanda (REMA, RSB, RAB). Identify differences from Uganda pathway and estimate timeline.',
+    tags: ['Rwanda', 'Regulatory', 'REMA', 'RSB', 'Scoping'],
+    status: 'planned',
+    targetDate: '2026-06-30',
+    project: 'rwanda-pilot',
+    dependencies: ['milestone-2026-q2-rab-engagement'],
+    createdAt: '2026-02-13',
+    updatedAt: '2026-02-13',
+  },
+  {
+    id: 'milestone-2026-q3-rwanda-pilot-design',
+    type: 'milestone',
+    subtype: 'operational',
+    date: '2026-02-01',
+    title: 'Rwanda Pilot Trial Design',
+    summary: 'Design field trial protocol for Rwanda pilot — crop selection (coffee, tea, maize), site selection, farmer recruitment approach. Building on Uganda trial methodology.',
+    tags: ['Rwanda', 'Trials', 'Design', 'Planning'],
+    status: 'planned',
+    targetDate: '2026-09-30',
+    project: 'rwanda-pilot',
+    dependencies: ['milestone-2026-q2-rab-engagement', 'milestone-2026-q2-rwanda-regulatory-scoping'],
+    createdAt: '2026-02-13',
+    updatedAt: '2026-02-13',
+  },
 ];
 
 // Helper: Get milestones by status

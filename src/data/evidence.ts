@@ -111,7 +111,7 @@ export const evidence: EvidenceEntry[] = [
     date: '2024-06-01',
     title: 'Locus AG Global Yield Validation Data',
     summary: 'Validated yield improvement data from Locus AG trials across multiple crops and geographies, demonstrating consistent performance of Rhizolizer® Duo.',
-    project: 'uganda-pilot',
+    project: 'global',
     location: 'Global - Locus AG trial sites',
     methodology: 'Multi-year, multi-geography field trials conducted by Locus AG with third-party verification.',
     metrics: [
@@ -172,7 +172,7 @@ export const evidence: EvidenceEntry[] = [
     date: '2025-01-01',
     title: 'Africa Bio-Stimulants Market Validation',
     summary: 'Market research validating the growth trajectory of agricultural bio-stimulants in Africa, supporting HISAGEN commercial strategy.',
-    project: 'uganda-pilot',
+    project: 'global',
     location: 'Africa-wide',
     period: {
       start: '2025-01-01',
@@ -189,6 +189,54 @@ export const evidence: EvidenceEntry[] = [
     relatedIds: ['research-2026-01-16-uganda-deck'],
     createdAt: '2026-01-17',
     updatedAt: '2026-01-17',
+  },
+
+  // ===========================================
+  // RWANDA PILOT - EARLY STAGE
+  // ===========================================
+
+  {
+    id: 'evidence-rwanda-feasibility-2026',
+    type: 'evidence',
+    subtype: 'trial-data',
+    dataType: 'mrv',
+    date: '2026-02-01',
+    title: 'Rwanda Pilot — Site Feasibility Assessment',
+    summary: 'Initial feasibility assessment for Rhizolizer® Duo deployment in Rwanda. Evaluating agro-ecological zones, crop suitability (coffee, tea, maize), and partnership pathways with Rwanda Agriculture Board (RAB).',
+    project: 'rwanda-pilot',
+    location: 'Rwanda — target zones TBC',
+    methodology: 'Desk-based assessment combining Locus AG crop compatibility data with Rwanda agro-ecological zone mapping. Field validation pending.',
+    metrics: [
+      { label: 'Assessment Status', value: 'Planning' },
+      { label: 'Target Crops', value: 'Coffee, Tea, Maize' },
+      { label: 'Priority Zones', value: 'TBC', change: 'Pending RAB engagement' },
+    ],
+    tags: ['Rwanda', 'Feasibility', 'Planning', 'Coffee', 'Tea'],
+    verified: false,
+    createdAt: '2026-02-13',
+    updatedAt: '2026-02-13',
+  },
+
+  {
+    id: 'evidence-rwanda-regulatory-landscape-2026',
+    type: 'evidence',
+    subtype: 'regulatory',
+    dataType: 'disclosure',
+    date: '2026-02-01',
+    title: 'Rwanda Regulatory Landscape — Initial Scoping',
+    summary: 'Preliminary mapping of Rwanda regulatory requirements for bio-fertilizer import and registration. Key bodies: REMA (environment), RSB (standards), RAB (agriculture). Process expected to differ from Uganda UNBS/MAAIF pathway.',
+    project: 'rwanda-pilot',
+    location: 'Rwanda',
+    methodology: 'Desk research and cross-referencing with Uganda regulatory experience.',
+    metrics: [
+      { label: 'Regulatory Bodies', value: '3', unit: '(REMA, RSB, RAB)' },
+      { label: 'Scoping Status', value: 'Initial' },
+      { label: 'Uganda Learnings', value: 'Applicable', change: 'Process differences expected' },
+    ],
+    tags: ['Rwanda', 'Regulatory', 'REMA', 'RSB', 'RAB', 'Scoping'],
+    verified: false,
+    createdAt: '2026-02-13',
+    updatedAt: '2026-02-13',
   },
 ];
 
@@ -226,6 +274,11 @@ export function getVerifiedEvidence(): EvidenceEntry[] {
 // Helper: Get evidence for Uganda pilot
 export function getUgandaPilotEvidence(): EvidenceEntry[] {
   return evidence.filter(entry => entry.project === 'uganda-pilot');
+}
+
+// Helper: Get evidence for Rwanda pilot
+export function getRwandaPilotEvidence(): EvidenceEntry[] {
+  return evidence.filter(entry => entry.project === 'rwanda-pilot');
 }
 
 // Helper: Get evidence grouped by data type (uses subtypeToDataType fallback)

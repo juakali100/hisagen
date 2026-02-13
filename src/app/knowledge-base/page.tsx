@@ -15,15 +15,26 @@ import {
   getRecentEntries,
   getAllTags,
   getKnowledgeBaseStats,
+  getAvailableProjects,
+  getEntriesByProject,
 } from "../../data";
+
+const projectLabels: Record<string, string> = {
+  'uganda-pilot': 'Uganda',
+  'rwanda-pilot': 'Rwanda',
+};
 
 export default function ResourcesHub() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTags, setActiveTags] = useState<string[]>([]);
+  const [activeProject, setActiveProject] = useState<string | null>(null);
   const { selectionCount } = useSelection();
 
-  // Stats
-  const stats = getKnowledgeBaseStats();
+  // Available projects
+  const projects = getAvailableProjects();
+
+  // Stats (filtered by project)
+  const stats = getKnowledgeBaseStats(activeProject);
   const allTags = getAllTags();
 
   // Search results
@@ -32,18 +43,25 @@ export default function ResourcesHub() {
     return searchEntries(searchQuery);
   }, [searchQuery]);
 
-  // Recent entries for each section
+  // Filter helper for project
+  const matchesProject = (entry: { project?: string }) =>
+    !activeProject || entry.project === activeProject || !entry.project || entry.project === 'global';
+
+  // Recent entries for each section (filtered by project)
   const recentCommunications = communications
+    .filter(matchesProject)
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 3)
     .map((c) => ({ title: c.title, date: c.date }));
 
   const recentResearch = research
+    .filter(matchesProject)
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 3)
     .map((r) => ({ title: r.title, date: r.date }));
 
   const recentMilestones = milestones
+    .filter(matchesProject)
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 3)
     .map((m) => ({ title: m.title, date: m.date }));
@@ -92,6 +110,38 @@ export default function ResourcesHub() {
             <span className="ml-2 text-xs text-slate/60">Tags</span>
           </div>
         </div>
+
+        {/* Project Filter */}
+        {projects.length > 1 && (
+          <div className="mt-6 flex items-center gap-3">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-slate/40">
+              Project:
+            </span>
+            <button
+              onClick={() => setActiveProject(null)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                activeProject === null
+                  ? "bg-secondary text-white"
+                  : "bg-white border border-mist text-slate hover:border-secondary/30"
+              }`}
+            >
+              All Programs
+            </button>
+            {projects.map((project) => (
+              <button
+                key={project}
+                onClick={() => setActiveProject(activeProject === project ? null : project)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                  activeProject === project
+                    ? "bg-secondary text-white"
+                    : "bg-white border border-mist text-slate hover:border-secondary/30"
+                }`}
+              >
+                {projectLabels[project] || project}
+              </button>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Search Section */}
@@ -327,7 +377,10 @@ export default function ResourcesHub() {
             </div>
 
             <div className="space-y-4">
-              {getRecentEntries(5).map((entry) => (
+              {getEntriesByProject(activeProject)
+                .sort((a, b) => b.date.localeCompare(a.date))
+                .slice(0, 5)
+                .map((entry) => (
                 <EntryCard
                   key={entry.id}
                   entry={entry}

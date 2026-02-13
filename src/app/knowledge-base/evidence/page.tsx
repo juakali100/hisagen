@@ -47,6 +47,7 @@ export default function EvidencePage() {
 
   const evidenceByDataType = getEvidenceByDataType();
   const ugandaPilotCount = evidence.filter(e => e.project === "uganda-pilot").length;
+  const rwandaPilotCount = evidence.filter(e => e.project === "rwanda-pilot").length;
 
   // Filter evidence by search query
   const filteredEvidence = searchQuery
@@ -205,6 +206,40 @@ export default function EvidencePage() {
                   </div>
                 </div>
                 <ArrowRightIcon className="size-5 text-slate/30 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all mt-2" />
+              </div>
+            </Link>
+          </section>
+
+          {/* Rwanda Pilot Card */}
+          <section className="mt-4">
+            <Link
+              href="/knowledge-base/evidence/rwanda-pilot"
+              className="block p-6 rounded-2xl bg-gradient-to-br from-amber-50 to-parchment/40 border border-amber-100 hover:border-amber-300 transition-all group"
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-amber-100 group-hover:bg-amber-200 transition-colors">
+                  <MapPinIcon className="size-6 text-amber-700" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-amber-100 text-amber-700">
+                      Early Stage
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-secondary group-hover:text-amber-700 transition-colors">
+                    Rwanda Pilot Evidence
+                  </h3>
+                  <p className="mt-2 text-sm text-slate">
+                    Planned expansion targeting coffee, tea, and maize. Feasibility assessment
+                    and RAB partnership scoping in progress.
+                  </p>
+                  <div className="mt-4 flex items-center gap-6 text-xs text-slate/70">
+                    <span>{rwandaPilotCount} entries</span>
+                    <span>Target crops: Coffee, Tea, Maize</span>
+                    <span className="text-amber-600 font-medium">Planning phase</span>
+                  </div>
+                </div>
+                <ArrowRightIcon className="size-5 text-slate/30 group-hover:text-amber-600 group-hover:translate-x-1 transition-all mt-2" />
               </div>
             </Link>
           </section>

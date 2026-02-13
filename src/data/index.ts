@@ -9,7 +9,7 @@ export * from '../types/knowledge-base';
 export { communications, getCommunicationsByYear, getCommunicationTags } from './communications';
 export { research, getResearchByYear, getResearchTags, getResearchBySubtype } from './research';
 export { ecosystem, getEcosystemByEngagement, getEcosystemTags, getEcosystemBySubtype } from './ecosystem';
-export { evidence, getEvidenceByProject, getEvidenceBySubtype, getEvidenceTags, getVerifiedEvidence, getUgandaPilotEvidence, getEvidenceByDataType } from './evidence';
+export { evidence, getEvidenceByProject, getEvidenceBySubtype, getEvidenceTags, getVerifiedEvidence, getUgandaPilotEvidence, getRwandaPilotEvidence, getEvidenceByDataType } from './evidence';
 export { milestones, getMilestonesByStatus, getMilestonesBySubtype, getMilestoneTags, getCriticalPathMilestones, getMilestonesByProject } from './milestones';
 
 // Import for combined operations
@@ -71,15 +71,52 @@ export function getRecentEntries(limit: number = 10): KnowledgeEntry[] {
     .slice(0, limit);
 }
 
-// Stats for dashboard
-export function getKnowledgeBaseStats() {
+// Get all unique projects
+export function getAvailableProjects(): string[] {
+  const projectSet = new Set<string>();
+  getAllEntries().forEach(entry => {
+    if (entry.project && entry.project !== 'global') projectSet.add(entry.project);
+  });
+  return Array.from(projectSet).sort();
+}
+
+// Filter entries by project (includes program-level entries with no project or 'global')
+export function getEntriesByProject(project: string | null): KnowledgeEntry[] {
+  if (!project) return getAllEntries();
+  return getAllEntries().filter(entry =>
+    entry.project === project || !entry.project || entry.project === 'global'
+  );
+}
+
+// Stats for dashboard (optionally filtered by project)
+export function getKnowledgeBaseStats(projectFilter?: string | null) {
+  const allEntries = projectFilter
+    ? getEntriesByProject(projectFilter)
+    : getAllEntries();
+
+  const filteredComms = projectFilter
+    ? communications.filter(c => c.project === projectFilter || !c.project || c.project === 'global')
+    : communications;
+  const filteredResearch = projectFilter
+    ? research.filter(r => r.project === projectFilter || !r.project || r.project === 'global')
+    : research;
+  const filteredEcosystem = projectFilter
+    ? ecosystem.filter(e => e.project === projectFilter || !e.project || e.project === 'global')
+    : ecosystem;
+  const filteredEvidence = projectFilter
+    ? evidence.filter(e => e.project === projectFilter || !e.project || e.project === 'global')
+    : evidence;
+  const filteredMilestones = projectFilter
+    ? milestones.filter(m => m.project === projectFilter || !m.project || m.project === 'global')
+    : milestones;
+
   return {
-    total: getAllEntries().length,
-    communications: communications.length,
-    research: research.length,
-    ecosystem: ecosystem.length,
-    evidence: evidence.length,
-    milestones: milestones.length,
-    uniqueTags: getAllTags().length,
+    total: allEntries.length,
+    communications: filteredComms.length,
+    research: filteredResearch.length,
+    ecosystem: filteredEcosystem.length,
+    evidence: filteredEvidence.length,
+    milestones: filteredMilestones.length,
+    uniqueTags: new Set(allEntries.flatMap(e => e.tags)).size,
   };
 }
