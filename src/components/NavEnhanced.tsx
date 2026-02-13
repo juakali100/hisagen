@@ -78,7 +78,6 @@ const navSections: NavSection[] = [
     label: "Strategy",
     href: "/strategy",
     items: [
-      { name: "Strategy & Governance", href: "/strategy", icon: "/icons/icon-shield.png" },
       { name: "Team & Organization", href: "/organization", icon: "/icons/icon-handshake.png" },
     ],
   },
@@ -97,7 +96,6 @@ const navSections: NavSection[] = [
     label: "Program",
     href: "/program",
     items: [
-      { name: "Program Overview", href: "/program", icon: "/icons/icon-globe-seedling.png" },
       { name: "Uganda Pilot", href: "/project/hisagen-uganda", icon: "/icons/icon-farmer.png", status: "active" },
       { name: "Rwanda", href: "/project/rwanda", icon: "/icons/icon-seedling.png", status: "planned" },
       { name: "Kenya", href: "/project/kenya", icon: "/icons/icon-leaf.png", status: "planned" },
