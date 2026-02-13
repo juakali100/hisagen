@@ -1,7 +1,7 @@
 // HISAGEN Knowledge Base - Communications Data
 // Migrated from intelligenceLedger (2026-01-17)
 
-import { CommunicationEntry } from '../types/knowledge-base';
+import { CommunicationEntry, StatusUpdateData } from '../types/knowledge-base';
 
 export const communications: CommunicationEntry[] = [
   // 2026
@@ -25,6 +25,33 @@ export const communications: CommunicationEntry[] = [
       'Raw data offered: Keir indicated underlying trial data available if needed.',
     ],
     relatedIds: ['evidence-naro-5zone-trials-2025'],
+    statusUpdate: {
+      regulatory: {
+        items: [
+          { text: 'UNBS submission in progress', status: 'in-progress' },
+          { text: 'MAAIF submission pending UNBS outcome', status: 'pending' },
+          { text: 'Website required for UNBS/MAAIF applications', status: 'in-progress' },
+          { text: 'Official email addresses set up (hisagen.com)', status: 'complete' },
+        ],
+      },
+      fieldOps: {
+        items: [
+          { text: 'NARO trial results received (19-slide PDF)', status: 'complete' },
+          { text: 'Grain yield: +17-48% across 3 sites (p < 0.05)', status: 'complete' },
+          { text: 'Biomass: +35-65% improvement', status: 'complete' },
+          { text: 'Outperformed NPK conventional fertilizer', status: 'complete' },
+          { text: 'Raw data available from Keir if needed', status: 'pending' },
+        ],
+      },
+      strategic: {
+        items: [
+          { text: 'Invoice requested to HISAGEN LTD', status: 'complete' },
+          { text: 'Contract/terms of service discussion initiated', status: 'in-progress' },
+          { text: 'Logo concepts greenlit for professional development', status: 'in-progress' },
+          { text: 'Farmer-first yield story now data-backed', status: 'complete' },
+        ],
+      },
+    },
     createdAt: '2026-02-13',
     updatedAt: '2026-02-13',
   },
@@ -48,6 +75,32 @@ export const communications: CommunicationEntry[] = [
       'Domains confirmed: hisagen.com, hisagen-africa.com, hisagen-usa.com (registered via Wix).',
       'Call requested Feb 11-13 to align on next steps.',
     ],
+    statusUpdate: {
+      regulatory: {
+        items: [
+          { text: 'Samples arrived in Uganda', status: 'complete' },
+          { text: 'Submitted to UNBS', status: 'complete' },
+          { text: 'Awaiting UNBS confirmation', status: 'in-progress' },
+          { text: 'MAAIF submission (next)', status: 'future' },
+        ],
+      },
+      fieldOps: {
+        items: [
+          { text: 'Collecting latest yield data', status: 'in-progress' },
+          { text: 'Gathering field trial results', status: 'in-progress' },
+          { text: 'Uganda call: confirm timeline', status: 'complete' },
+          { text: '~3 weeks behind schedule', status: 'warning' },
+        ],
+      },
+      strategic: {
+        items: [
+          { text: 'Locus USA fully supportive', status: 'complete' },
+          { text: 'Farmer impact as lead story', status: 'direction' },
+          { text: 'Yields & income first', status: 'direction' },
+          { text: 'Carbon credits: phase 2', status: 'future' },
+        ],
+      },
+    },
     createdAt: '2026-02-06',
     updatedAt: '2026-02-06',
   },
@@ -71,6 +124,27 @@ export const communications: CommunicationEntry[] = [
       'Uganda update: Samples sent for formal UNBS tests, then MAAIF approval submission.',
       'Access granted to both Keir and Scott for portal and preview site.',
     ],
+    statusUpdate: {
+      regulatory: {
+        items: [
+          { text: 'Samples sent for UNBS tests', status: 'complete' },
+          { text: 'MAAIF approval submission planned', status: 'pending' },
+        ],
+      },
+      fieldOps: {
+        items: [
+          { text: 'Scott Hermo engaged with Locus AG', status: 'complete' },
+          { text: 'Portal and preview site access granted', status: 'complete' },
+        ],
+      },
+      strategic: {
+        items: [
+          { text: 'Website direction approved', status: 'complete' },
+          { text: 'Logo concepts under review', status: 'in-progress' },
+          { text: 'Partnership model discussion ongoing', status: 'direction' },
+        ],
+      },
+    },
     createdAt: '2026-02-06',
     updatedAt: '2026-02-06',
   },
@@ -96,6 +170,28 @@ export const communications: CommunicationEntry[] = [
       'Domains: 2-3 domains secured (HISAGEN US, HISAGEN UG - UG to cover Africa expansion).',
       'Immediate asks confirmed: Website, logo rebrand, grant funding support.',
     ],
+    statusUpdate: {
+      regulatory: {
+        items: [
+          { text: 'UNBS certification pathway confirmed', status: 'complete' },
+          { text: '2-3 domains secured (HISAGEN US, UG)', status: 'complete' },
+        ],
+      },
+      fieldOps: {
+        items: [
+          { text: 'Portal site introduced', status: 'complete' },
+          { text: 'Capital Continuum framework mapped', status: 'complete' },
+          { text: '$2M budget estimate (Stage 1→2)', status: 'pending' },
+        ],
+      },
+      strategic: {
+        items: [
+          { text: 'Carbon market context understood', status: 'complete' },
+          { text: 'Subsidised pilot model confirmed', status: 'direction' },
+          { text: 'Website + logo + grants prioritised', status: 'direction' },
+        ],
+      },
+    },
     createdAt: '2026-01-22',
     updatedAt: '2026-01-22',
   },
@@ -118,6 +214,26 @@ export const communications: CommunicationEntry[] = [
       'Attached overview deck includes updated HISAGEN Uganda overview (14 pages) + Locus AG agronomy data (30 pages).',
     ],
     relatedIds: ['research-2026-01-16-uganda-deck'],
+    statusUpdate: {
+      regulatory: {
+        items: [
+          { text: 'Locus CEO meeting completed', status: 'complete' },
+          { text: 'Uganda roadmap approved by Locus', status: 'complete' },
+        ],
+      },
+      fieldOps: {
+        items: [
+          { text: 'HISAGEN Uganda overview (14 pages) shared', status: 'complete' },
+          { text: 'Locus AG agronomy data (30 pages) shared', status: 'complete' },
+        ],
+      },
+      strategic: {
+        items: [
+          { text: 'Pan-African expansion confirmed', status: 'direction' },
+          { text: 'Locus USA fully committed', status: 'complete' },
+        ],
+      },
+    },
     createdAt: '2026-01-17',
     updatedAt: '2026-01-17',
   },
@@ -183,6 +299,24 @@ export const communications: CommunicationEntry[] = [
       'Expect formal government approval for Uganda operations by mid-February 2026.',
       'Shifted focus to scheduling follow-up strategy sessions for early January.',
     ],
+    statusUpdate: {
+      regulatory: {
+        items: [
+          { text: 'Government approval on track', status: 'in-progress' },
+          { text: 'Target: mid-February 2026', status: 'pending' },
+        ],
+      },
+      fieldOps: {
+        items: [
+          { text: 'Uganda operations progressing', status: 'in-progress' },
+        ],
+      },
+      strategic: {
+        items: [
+          { text: 'Strategy sessions planned for Jan', status: 'pending' },
+        ],
+      },
+    },
     createdAt: '2026-01-17',
     updatedAt: '2026-01-17',
   },
@@ -350,4 +484,32 @@ export function getCommunicationTags(): string[] {
   const tagSet = new Set<string>();
   communications.forEach(comm => comm.tags.forEach(tag => tagSet.add(tag)));
   return Array.from(tagSet).sort();
+}
+
+// Helper: Get project status updates (comms with statusUpdate field, filtered by project)
+export function getProjectStatusUpdates(project: string): CommunicationEntry[] {
+  return communications
+    .filter(c => c.project === project && c.statusUpdate)
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+// Helper: Get latest project status update
+export function getLatestProjectStatus(project: string): CommunicationEntry | null {
+  const updates = getProjectStatusUpdates(project);
+  return updates.length > 0 ? updates[0] : null;
+}
+
+// Helper: Get historical project status updates (all except latest)
+export function getHistoricalProjectStatus(project: string): CommunicationEntry[] {
+  return getProjectStatusUpdates(project).slice(1);
+}
+
+// Helper: Format date for status update display
+export function formatStatusDate(dateStr: string): string {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
 }

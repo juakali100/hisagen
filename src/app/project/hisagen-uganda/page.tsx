@@ -5,12 +5,11 @@ import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ugandaStatusUpdates,
-  getLatestUpdate,
-  getHistoricalUpdates,
-  formatUpdateDate,
-  type StatusUpdate
-} from "../../../data/uganda-status-updates";
+  getLatestProjectStatus,
+  getHistoricalProjectStatus,
+  formatStatusDate,
+} from "../../../data/communications";
+import type { CommunicationEntry } from "../../../types/knowledge-base";
 
 // =============================================================================
 // SUSTAINABILITY FRAMEWORK - Uganda Pilot Application
@@ -643,8 +642,10 @@ export default function PilotPage() {
 
       {/* Latest Status Update */}
       {(() => {
-        const latestUpdate = getLatestUpdate();
-        const historicalUpdates = getHistoricalUpdates();
+        const latestComm = getLatestProjectStatus('uganda-pilot');
+        const historicalComms = getHistoricalProjectStatus('uganda-pilot');
+        if (!latestComm || !latestComm.statusUpdate) return null;
+        const latestUpdate = latestComm.statusUpdate;
 
         const getStatusIcon = (status: string) => {
           switch (status) {
@@ -658,11 +659,12 @@ export default function PilotPage() {
           }
         };
 
-        const getSourceIcon = (sourceType: string) => {
-          switch (sourceType) {
+        const getSourceIcon = (subtype: string) => {
+          switch (subtype) {
             case 'email': return '✉️';
             case 'call': return '📞';
             case 'meeting': return '🤝';
+            case 'whatsapp': return '💬';
             default: return '📋';
           }
         };
@@ -678,16 +680,16 @@ export default function PilotPage() {
                   <div className="flex items-center gap-3 mb-3">
                     <h3 className="text-sm font-bold text-secondary">Latest Status Update</h3>
                     <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-secondary/20 text-secondary">
-                      {formatUpdateDate(latestUpdate.date)}
+                      {formatStatusDate(latestComm.date)}
                     </span>
                     <span className="text-xs text-slate/60">
-                      {getSourceIcon(latestUpdate.sourceType)} {latestUpdate.source}
+                      {getSourceIcon(latestComm.subtype)} {latestComm.from}
                     </span>
                   </div>
 
                   {/* Summary context */}
                   <p className="text-xs text-slate mb-4 leading-relaxed">
-                    {latestUpdate.summary}
+                    {latestComm.summary}
                   </p>
 
                   <div className="grid md:grid-cols-3 gap-4">
@@ -721,57 +723,60 @@ export default function PilotPage() {
             </section>
 
             {/* Update History - Collapsible */}
-            {historicalUpdates.length > 0 && (
+            {historicalComms.length > 0 && (
               <section className="mt-4">
                 <details className="group">
                   <summary className="cursor-pointer list-none flex items-center gap-2 text-xs text-slate/70 hover:text-secondary transition-colors">
                     <span className="group-open:rotate-90 transition-transform">▶</span>
                     <span className="font-medium">Update History</span>
-                    <span className="text-slate/50">({historicalUpdates.length} previous updates)</span>
+                    <span className="text-slate/50">({historicalComms.length} previous updates)</span>
                   </summary>
 
                   <div className="mt-3 space-y-3 pl-4 border-l-2 border-mist">
-                    {historicalUpdates.map((update) => (
-                      <div key={update.id} className="rounded-lg border border-mist bg-white p-4">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-slate-100 text-slate-600">
-                            {formatUpdateDate(update.date)}
-                          </span>
-                          <span className="text-xs text-slate/60">
-                            {getSourceIcon(update.sourceType)} {update.source}
-                          </span>
+                    {historicalComms.map((comm) => {
+                      const su = comm.statusUpdate!;
+                      return (
+                        <div key={comm.id} className="rounded-lg border border-mist bg-white p-4">
+                          <div className="flex items-center gap-3 mb-2">
+                            <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest rounded-full bg-slate-100 text-slate-600">
+                              {formatStatusDate(comm.date)}
+                            </span>
+                            <span className="text-xs text-slate/60">
+                              {getSourceIcon(comm.subtype)} {comm.from}
+                            </span>
+                          </div>
+                          <p className="text-xs text-slate leading-relaxed mb-3">
+                            {comm.summary}
+                          </p>
+                          <div className="grid md:grid-cols-3 gap-3 text-[11px]">
+                            <div>
+                              <p className="text-[9px] font-bold uppercase tracking-widest text-slate/50 mb-1">Regulatory</p>
+                              <ul className="space-y-0.5 text-slate/80">
+                                {su.regulatory.items.slice(0, 3).map((item, i) => (
+                                  <li key={i} className="flex gap-1.5">{getStatusIcon(item.status)} {item.text}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div>
+                              <p className="text-[9px] font-bold uppercase tracking-widest text-slate/50 mb-1">Field Ops</p>
+                              <ul className="space-y-0.5 text-slate/80">
+                                {su.fieldOps.items.slice(0, 3).map((item, i) => (
+                                  <li key={i} className="flex gap-1.5">{getStatusIcon(item.status)} {item.text}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div>
+                              <p className="text-[9px] font-bold uppercase tracking-widest text-slate/50 mb-1">Strategic</p>
+                              <ul className="space-y-0.5 text-slate/80">
+                                {su.strategic.items.slice(0, 3).map((item, i) => (
+                                  <li key={i} className="flex gap-1.5">{getStatusIcon(item.status)} {item.text}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
                         </div>
-                        <p className="text-xs text-slate leading-relaxed mb-3">
-                          {update.summary}
-                        </p>
-                        <div className="grid md:grid-cols-3 gap-3 text-[11px]">
-                          <div>
-                            <p className="text-[9px] font-bold uppercase tracking-widest text-slate/50 mb-1">Regulatory</p>
-                            <ul className="space-y-0.5 text-slate/80">
-                              {update.regulatory.items.slice(0, 3).map((item, i) => (
-                                <li key={i} className="flex gap-1.5">{getStatusIcon(item.status)} {item.text}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div>
-                            <p className="text-[9px] font-bold uppercase tracking-widest text-slate/50 mb-1">Field Ops</p>
-                            <ul className="space-y-0.5 text-slate/80">
-                              {update.fieldOps.items.slice(0, 3).map((item, i) => (
-                                <li key={i} className="flex gap-1.5">{getStatusIcon(item.status)} {item.text}</li>
-                              ))}
-                            </ul>
-                          </div>
-                          <div>
-                            <p className="text-[9px] font-bold uppercase tracking-widest text-slate/50 mb-1">Strategic</p>
-                            <ul className="space-y-0.5 text-slate/80">
-                              {update.strategic.items.slice(0, 3).map((item, i) => (
-                                <li key={i} className="flex gap-1.5">{getStatusIcon(item.status)} {item.text}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </details>
               </section>

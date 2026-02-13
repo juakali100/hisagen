@@ -6,11 +6,10 @@ import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { ChevronDownIcon, ArrowLeftIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
-import { SearchBar, SelectableEntryCard, TagBadge, DateRangeFilter, filterByDateRange, ProjectFilter, useSelection } from "../../../components/knowledge-base";
+import { SearchBar, EntryCard, TagBadge, DateRangeFilter, filterByDateRange, ProjectFilter } from "../../../components/knowledge-base";
 import type { DateRange } from "../../../components/knowledge-base";
 import {
   communications,
-  getCommunicationsByYear,
   getCommunicationTags,
   CommunicationEntry,
   communicationSubtypeLabels,
@@ -32,8 +31,6 @@ function CommunicationsContent() {
   const [activeSubtype, setActiveSubtype] = useState<CommunicationSubtype | null>(null);
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [dateRange, setDateRange] = useState<DateRange>(null);
-  const { selectAll, selectionCount, setSelectionMode, isSelectionMode } = useSelection();
-
   const allTags = getCommunicationTags();
   const subtypes: CommunicationSubtype[] = ["email", "call", "meeting", "whatsapp", "document"];
 
@@ -75,17 +72,25 @@ function CommunicationsContent() {
     return result;
   }, [searchQuery, activeProject, activeSubtype, activeTags, dateRange]);
 
-  // Group by year
-  const groupedByYear = useMemo(() => {
-    return filteredCommunications.reduce((acc, comm) => {
-      const year = comm.date.split("-")[0];
-      if (!acc[year]) acc[year] = [];
-      acc[year].push(comm);
-      return acc;
-    }, {} as Record<string, CommunicationEntry[]>);
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+  ];
+
+  // Group by year → month
+  const groupedByYearMonth = useMemo(() => {
+    const result: Record<string, Record<string, CommunicationEntry[]>> = {};
+    for (const comm of filteredCommunications) {
+      const [year, monthNum] = comm.date.split("-");
+      if (!result[year]) result[year] = {};
+      const monthKey = monthNum; // "01", "02", etc.
+      if (!result[year][monthKey]) result[year][monthKey] = [];
+      result[year][monthKey].push(comm);
+    }
+    return result;
   }, [filteredCommunications]);
 
-  const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
+  const years = Object.keys(groupedByYearMonth).sort((a, b) => b.localeCompare(a));
 
   // Handle tag click
   const handleTagClick = (tag: string) => {
@@ -124,10 +129,14 @@ function CommunicationsContent() {
           Knowledge Base
         </p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          Communications
+          Pandion Advisory Communications
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate italic">
-          Emails, calls, meetings, and messages capturing key discussions and decisions across the HISAGEN project.
+          Emails, calls, meetings, and messages shared between HISAGEN (Keir/Scott) and Pandion (Nic) through the advisory relationship.
+        </p>
+        <p className="mt-3 max-w-2xl text-xs leading-relaxed text-slate/50">
+          Program-internal communications between HISAGEN team members, NARO, regulators, and other partners are managed separately.
+          Items shared with Pandion through the advisory channel are captured here.
         </p>
 
         {/* Stats */}
@@ -142,15 +151,6 @@ function CommunicationsContent() {
               <span className="ml-2 text-xs text-secondary/60">Matching</span>
             </div>
           )}
-          <button
-            onClick={() => {
-              setSelectionMode(true);
-              selectAll(filteredCommunications);
-            }}
-            className="px-3 py-1.5 rounded-lg bg-parchment border border-mist text-xs font-medium text-secondary hover:bg-secondary/10 transition-colors"
-          >
-            Select all {isFiltering ? "filtered" : ""} ({filteredCommunications.length})
-          </button>
         </div>
 
         {/* Project Filter */}
@@ -233,42 +233,74 @@ function CommunicationsContent() {
             No communications match your filters.
           </p>
         ) : (
-          years.map((year) => (
-            <Disclosure key={year} defaultOpen={year === years[0]}>
-              {({ open }) => (
-                <div className="rounded-xl border border-mist bg-parchment/20 overflow-hidden">
-                  <DisclosureButton className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-parchment/40 transition-colors">
-                    <div className="flex items-center gap-3">
-                      <span className="text-sm font-bold text-secondary">{year}</span>
-                      <span className="text-[10px] text-slate/60 font-medium">
-                        {groupedByYear[year].length}{" "}
-                        {groupedByYear[year].length === 1 ? "item" : "items"}
-                      </span>
-                    </div>
-                    <ChevronDownIcon
-                      className={`size-5 text-secondary/50 transition-transform duration-200 ${
-                        open ? "rotate-180" : ""
-                      }`}
-                    />
-                  </DisclosureButton>
-                  <DisclosurePanel className="px-4 pb-4">
-                    <div className="grid gap-4 pt-2">
-                      {groupedByYear[year]
-                        .sort((a, b) => b.date.localeCompare(a.date))
-                        .map((comm) => (
-                          <SelectableEntryCard
-                            key={comm.id}
-                            entry={comm}
-                            onTagClick={handleTagClick}
-                            showType={false}
-                          />
-                        ))}
-                    </div>
-                  </DisclosurePanel>
-                </div>
-              )}
-            </Disclosure>
-          ))
+          years.map((year) => {
+            const months = Object.keys(groupedByYearMonth[year]).sort((a, b) => b.localeCompare(a));
+            const yearTotal = months.reduce((sum, m) => sum + groupedByYearMonth[year][m].length, 0);
+
+            return (
+              <Disclosure key={year} defaultOpen={year === years[0]}>
+                {({ open }) => (
+                  <div className="rounded-xl border border-mist bg-parchment/20 overflow-hidden">
+                    <DisclosureButton className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-parchment/40 transition-colors">
+                      <div className="flex items-center gap-3">
+                        <span className="text-sm font-bold text-secondary">{year}</span>
+                        <span className="text-[10px] text-slate/60 font-medium">
+                          {yearTotal} {yearTotal === 1 ? "item" : "items"}
+                        </span>
+                      </div>
+                      <ChevronDownIcon
+                        className={`size-5 text-secondary/50 transition-transform duration-200 ${
+                          open ? "rotate-180" : ""
+                        }`}
+                      />
+                    </DisclosureButton>
+                    <DisclosurePanel className="px-4 pb-4 space-y-2 pt-2">
+                      {months.map((monthKey) => {
+                        const monthEntries = groupedByYearMonth[year][monthKey];
+                        const monthLabel = monthNames[parseInt(monthKey, 10) - 1];
+
+                        return (
+                          <Disclosure key={monthKey} defaultOpen={months.indexOf(monthKey) === 0}>
+                            {({ open: monthOpen }) => (
+                              <div className="rounded-lg border border-mist/60 bg-white/60 overflow-hidden">
+                                <DisclosureButton className="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-parchment/30 transition-colors">
+                                  <div className="flex items-center gap-3">
+                                    <span className="text-xs font-semibold text-secondary/80">{monthLabel}</span>
+                                    <span className="text-[10px] text-slate/50 font-medium">
+                                      {monthEntries.length} {monthEntries.length === 1 ? "item" : "items"}
+                                    </span>
+                                  </div>
+                                  <ChevronDownIcon
+                                    className={`size-4 text-secondary/30 transition-transform duration-200 ${
+                                      monthOpen ? "rotate-180" : ""
+                                    }`}
+                                  />
+                                </DisclosureButton>
+                                <DisclosurePanel className="px-3 pb-3">
+                                  <div className="grid gap-3 pt-1">
+                                    {monthEntries
+                                      .sort((a, b) => b.date.localeCompare(a.date))
+                                      .map((comm) => (
+                                        <EntryCard
+                                          key={comm.id}
+                                          entry={comm}
+                                          onTagClick={handleTagClick}
+                                          showType={false}
+                                        />
+                                      ))}
+                                  </div>
+                                </DisclosurePanel>
+                              </div>
+                            )}
+                          </Disclosure>
+                        );
+                      })}
+                    </DisclosurePanel>
+                  </div>
+                )}
+              </Disclosure>
+            );
+          })
         )}
       </section>
 

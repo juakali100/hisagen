@@ -192,8 +192,8 @@ export default function ResourcesHub() {
             <div className="grid gap-6 md:grid-cols-2">
               <SectionCard
                 type="communication"
-                title="Communications"
-                description="Emails, calls, meetings, and messages capturing key discussions and decisions."
+                title="Pandion Advisory Comms"
+                description="Emails, calls, and messages shared between HISAGEN and Pandion through the advisory relationship."
                 count={stats.communications}
                 href={projectHref("/knowledge-base/communications")}
                 recentItems={recentCommunications}

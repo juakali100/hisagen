@@ -6,7 +6,7 @@
 export * from '../types/knowledge-base';
 
 // Data exports
-export { communications, getCommunicationsByYear, getCommunicationTags } from './communications';
+export { communications, getCommunicationsByYear, getCommunicationTags, getProjectStatusUpdates, getLatestProjectStatus, getHistoricalProjectStatus, formatStatusDate } from './communications';
 export { research, getResearchByYear, getResearchTags, getResearchBySubtype } from './research';
 export { ecosystem, getEcosystemByEngagement, getEcosystemTags, getEcosystemBySubtype } from './ecosystem';
 export { evidence, getEvidenceByProject, getEvidenceBySubtype, getEvidenceTags, getVerifiedEvidence, getUgandaPilotEvidence, getRwandaPilotEvidence, getEvidenceByDataType } from './evidence';

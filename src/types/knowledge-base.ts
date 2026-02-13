@@ -33,6 +33,17 @@ export type Attachment = {
   format: 'PDF' | 'Excel' | 'Doc' | 'Link';
 };
 
+export type StatusItem = {
+  text: string;
+  status: 'complete' | 'in-progress' | 'pending' | 'future' | 'warning' | 'direction';
+};
+
+export type StatusUpdateData = {
+  regulatory: { items: StatusItem[] };
+  fieldOps: { items: StatusItem[] };
+  strategic: { items: StatusItem[] };
+};
+
 export type CommunicationEntry = BaseEntry & {
   type: 'communication';
   subtype: CommunicationSubtype;
@@ -41,6 +52,7 @@ export type CommunicationEntry = BaseEntry & {
   participants?: string[];              // For meetings
   synthesis: string[];                  // Key points extracted
   attachments?: Attachment[];
+  statusUpdate?: StatusUpdateData;      // Optional structured status for project pages
 };
 
 // ============================================
