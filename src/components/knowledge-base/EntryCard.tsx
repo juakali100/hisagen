@@ -112,32 +112,68 @@ export default function EntryCard({
         )}
 
         {/* Attachments (communications + research) */}
-        {isCommunicationEntry(entry) && entry.attachments && entry.attachments.length > 0 && !compact && (
-          <div className="mt-3 p-3 rounded-lg bg-amber-50/60 border border-amber-200/40">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700/70 mb-2 flex items-center gap-2">
-              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m18.375 12.739-7.693 7.693a4.5 4.5 0 0 1-6.364-6.364l10.94-10.94A3 3 0 1 1 19.5 7.372L8.552 18.32m.009-.01-.01.01m5.699-9.941-7.81 7.81a1.5 1.5 0 0 0 2.112 2.13" />
-              </svg>
-              {entry.attachments.length} {entry.attachments.length === 1 ? "Attachment" : "Attachments"}
-            </p>
-            <div className="space-y-1">
-              {entry.attachments.map((att: Attachment, idx: number) => (
-                <div key={idx} className="flex items-center gap-2 text-xs">
-                  <span className={`text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${
-                    att.format === 'PDF' ? 'bg-red-100 text-red-600' :
-                    att.format === 'Excel' ? 'bg-green-100 text-green-600' :
-                    att.format === 'Image' ? 'bg-violet-100 text-violet-600' :
-                    att.format === 'Presentation' ? 'bg-orange-100 text-orange-600' :
-                    'bg-slate-100 text-slate-600'
-                  }`}>
-                    {att.format}
-                  </span>
-                  <span className="text-slate/80">{att.title}</span>
-                </div>
-              ))}
+        {isCommunicationEntry(entry) && entry.attachments && entry.attachments.length > 0 && !compact && (() => {
+          const atts = entry.attachments!;
+          // Group by portalLink to deduplicate (e.g. 4 logo images → 1 link to /logo)
+          const grouped = atts.reduce<Record<string, Attachment[]>>((acc, att) => {
+            const key = att.portalLink || att.file;
+            if (!acc[key]) acc[key] = [];
+            acc[key].push(att);
+            return acc;
+          }, {});
+
+          return (
+            <div className="mt-3 p-3 rounded-lg bg-amber-50/60 border border-amber-200/40">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-amber-700/70 mb-2 flex items-center gap-2">
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m18.375 12.739-7.693 7.693a4.5 4.5 0 0 1-6.364-6.364l10.94-10.94A3 3 0 1 1 19.5 7.372L8.552 18.32m.009-.01-.01.01m5.699-9.941-7.81 7.81a1.5 1.5 0 0 0 2.112 2.13" />
+                </svg>
+                {atts.length} {atts.length === 1 ? "Attachment" : "Attachments"}
+              </p>
+              <div className="space-y-1.5">
+                {Object.entries(grouped).map(([key, items]) => {
+                  const first = items[0];
+                  const count = items.length;
+                  const hasLink = !!first.portalLink;
+                  const formatBadge = (
+                    <span className={`text-[8px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded flex-shrink-0 ${
+                      first.format === 'PDF' ? 'bg-red-100 text-red-600' :
+                      first.format === 'Excel' ? 'bg-green-100 text-green-600' :
+                      first.format === 'Image' ? 'bg-violet-100 text-violet-600' :
+                      first.format === 'Presentation' ? 'bg-orange-100 text-orange-600' :
+                      'bg-slate-100 text-slate-600'
+                    }`}>
+                      {first.format}
+                    </span>
+                  );
+
+                  const label = count > 1
+                    ? `${first.title.split('—')[0].split('Concept')[0].trim()} (${count} files)`
+                    : first.title;
+
+                  if (hasLink) {
+                    return (
+                      <Link key={key} href={first.portalLink!} className="flex items-center gap-2 text-xs group/att">
+                        {formatBadge}
+                        <span className="text-secondary/80 group-hover/att:text-secondary group-hover/att:underline underline-offset-2 transition-colors">
+                          {label}
+                        </span>
+                        <span className="text-[9px] text-secondary/40">→</span>
+                      </Link>
+                    );
+                  }
+
+                  return (
+                    <div key={key} className="flex items-center gap-2 text-xs">
+                      {formatBadge}
+                      <span className="text-slate/70">{label}</span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        )}
+          );
+        })()}
 
         {/* Milestone-specific: target date */}
         {isMilestoneEntry(entry) && entry.targetDate && (

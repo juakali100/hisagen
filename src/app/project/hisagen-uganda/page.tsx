@@ -9,7 +9,7 @@ import {
   getHistoricalProjectStatus,
   formatStatusDate,
 } from "../../../data/communications";
-import type { CommunicationEntry } from "../../../types/knowledge-base";
+import type { CommunicationEntry, Attachment } from "../../../types/knowledge-base";
 
 // =============================================================================
 // SUSTAINABILITY FRAMEWORK - Uganda Pilot Application
@@ -718,6 +718,58 @@ export default function PilotPage() {
                       </ul>
                     </div>
                   </div>
+
+                  {/* Attachments from source communication */}
+                  {latestComm.attachments && latestComm.attachments.length > 0 && (() => {
+                    // Deduplicate by portalLink
+                    const seen = new Set<string>();
+                    const unique = latestComm.attachments!.reduce<Attachment[]>((acc, att) => {
+                      const key = att.portalLink || att.file;
+                      if (!seen.has(key)) {
+                        seen.add(key);
+                        acc.push(att);
+                      }
+                      return acc;
+                    }, []);
+
+                    return (
+                      <div className="mt-4 pt-3 border-t border-secondary/10 flex items-center gap-3 flex-wrap">
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-secondary/40">
+                          Related files:
+                        </span>
+                        {unique.map((att, i) => (
+                          att.portalLink ? (
+                            <Link
+                              key={i}
+                              href={att.portalLink}
+                              className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-white border border-secondary/15 text-[10px] text-secondary/70 hover:text-secondary hover:border-secondary/40 transition-colors"
+                            >
+                              <span className={`text-[7px] font-bold uppercase px-1 py-0.5 rounded ${
+                                att.format === 'PDF' ? 'bg-red-100 text-red-600' :
+                                att.format === 'Image' ? 'bg-violet-100 text-violet-600' :
+                                att.format === 'Excel' ? 'bg-green-100 text-green-600' :
+                                'bg-slate-100 text-slate-600'
+                              }`}>
+                                {att.format}
+                              </span>
+                              {att.title.split('—')[0].split('(')[0].trim()}
+                              <span className="text-secondary/30">→</span>
+                            </Link>
+                          ) : (
+                            <span key={i} className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-white/50 border border-mist text-[10px] text-slate/60">
+                              <span className={`text-[7px] font-bold uppercase px-1 py-0.5 rounded ${
+                                att.format === 'PDF' ? 'bg-red-100 text-red-600' :
+                                'bg-slate-100 text-slate-600'
+                              }`}>
+                                {att.format}
+                              </span>
+                              {att.title.split('—')[0].split('(')[0].trim()}
+                            </span>
+                          )
+                        ))}
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
             </section>

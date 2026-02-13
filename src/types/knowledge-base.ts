@@ -31,6 +31,7 @@ export type Attachment = {
   title: string;
   file: string;
   format: 'PDF' | 'Excel' | 'Doc' | 'Image' | 'Presentation' | 'Link';
+  portalLink?: string;  // Link to portal page where this content is presented
 };
 
 export type StatusItem = {
