@@ -39,6 +39,15 @@ const coreNavigation: NavSection[] = [
     ],
   },
   {
+    section: "Knowledge Base",
+    description: "Intake funnel — capture, categorise, and process all incoming information",
+    tier: "primary",
+    items: [
+      { title: "Knowledge Base", href: "/knowledge-base", description: "Communications, research, evidence, milestones — the institutional source of truth" },
+      { title: "Ecosystem Partners", href: "/ecosystem", description: "Partner profiles, stakeholder relationships, ecosystem mapping" },
+    ],
+  },
+  {
     section: "Agri-Carbon Program",
     description: "Locus AG tech + smallholder aggregation + carbon credits",
     tier: "primary",
@@ -50,25 +59,6 @@ const coreNavigation: NavSection[] = [
     ],
   },
   {
-    section: "Frameworks",
-    description: "Playbooks and templates — project-agnostic, adapt as needed",
-    tier: "supporting",
-    items: [
-      { title: "Capital Continuum Framework", href: "/capital-continuum", description: "4-stage funding model — grants to carbon markets" },
-      { title: "Sustainability Framework", href: "/strategy/sustainability-framework", description: "5-Layer template — biosphere to corporate, flows, actors" },
-      { title: "Grant Lifecycle Methodology", href: "/grant-lifecycle", description: "11-stage grant process — Stage 1 playbook" },
-      { title: "Base Proposal Template", href: "/frameworks/base-proposal", description: "Grant proposal starting point — adapt per project and funder" },
-    ],
-  },
-  {
-    section: "Knowledge",
-    description: "Evidence, research, documentation",
-    tier: "supporting",
-    items: [
-      { title: "Knowledge Base", href: "/knowledge-base", description: "Research, milestones, evidence vault" },
-    ],
-  },
-  {
     section: "Communications & Brand",
     description: "External presence, brand identity, marketing materials",
     tier: "supporting",
@@ -76,6 +66,17 @@ const coreNavigation: NavSection[] = [
       { title: "Communications Hub", href: "/comms", description: "All comms functions — brand, website, social, PR, collateral" },
       { title: "Brand Guidelines", href: "/brand", description: "Visual identity, colors, typography, gap analysis" },
       { title: "Asset Library", href: "/assets", description: "Icons, photography — source of truth for all visual assets" },
+    ],
+  },
+  {
+    section: "Frameworks",
+    description: "Blueprints, methodologies, and reference tools",
+    tier: "supporting",
+    items: [
+      { title: "Frameworks Overview", href: "/frameworks", description: "All frameworks and methodologies in one place" },
+      { title: "Capital Continuum Framework", href: "/capital-continuum", description: "4-stage funding model — grants to carbon markets" },
+      { title: "Sustainability Framework", href: "/strategy/sustainability-framework", description: "5-Layer template — biosphere to corporate, flows, actors" },
+      { title: "Grant Lifecycle Methodology", href: "/grant-lifecycle", description: "11-stage grant process — Stage 1 playbook" },
     ],
   },
 ];
@@ -266,20 +267,20 @@ export default function HomePage() {
       {/* Quick Links Footer */}
       <section className="mt-10 py-6 border-t-2 border-secondary/20">
         <div className="flex flex-wrap gap-6 text-xs">
+          <Link href="/strategy" className="text-secondary hover:text-primary transition-colors">
+            Strategy
+          </Link>
           <Link href="/knowledge-base" className="text-secondary hover:text-primary transition-colors">
             Knowledge Base
           </Link>
+          <Link href="/program" className="text-secondary hover:text-primary transition-colors">
+            Program
+          </Link>
           <Link href="/comms" className="text-secondary hover:text-primary transition-colors">
-            Communications & Brand
+            Communications
           </Link>
-          <Link href="/stage-1" className="text-secondary hover:text-primary transition-colors">
-            Stage 1 Operations
-          </Link>
-          <Link href="/grant-lifecycle" className="text-secondary hover:text-primary transition-colors">
-            Grant Lifecycle
-          </Link>
-          <Link href="/knowledge-base/evidence" className="text-secondary hover:text-primary transition-colors">
-            Evidence Vault
+          <Link href="/frameworks" className="text-secondary hover:text-primary transition-colors">
+            Frameworks
           </Link>
         </div>
         <p className="text-[10px] text-slate/50 mt-4">
