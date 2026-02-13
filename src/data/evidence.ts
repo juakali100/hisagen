@@ -2,7 +2,7 @@
 // Structured trial data, MRV metrics, and verification records
 // Created: 2026-01-17
 
-import { EvidenceEntry } from '../types/knowledge-base';
+import { EvidenceEntry, EvidenceDataType, subtypeToDataType } from '../types/knowledge-base';
 
 export const evidence: EvidenceEntry[] = [
   // ===========================================
@@ -13,6 +13,7 @@ export const evidence: EvidenceEntry[] = [
     id: 'evidence-uganda-maize-phase1-2024',
     type: 'evidence',
     subtype: 'trial-data',
+    dataType: 'mrv',
     date: '2024-10-15',
     title: 'Uganda Maize Trial - Phase 1 Results',
     summary: 'Initial field trial of Rhizolizer® Duo on maize in Uganda, demonstrating promising yield improvements compared to control plots.',
@@ -39,6 +40,7 @@ export const evidence: EvidenceEntry[] = [
     id: 'evidence-uganda-maize-phase2-2025',
     type: 'evidence',
     subtype: 'trial-data',
+    dataType: 'mrv',
     date: '2025-05-01',
     title: 'Uganda Maize Trial - Phase 2 Data Collection',
     summary: 'Expanded field trials across multiple agro-ecological zones in Uganda. Standardized data collection using field sheets for yield comparison.',
@@ -66,6 +68,7 @@ export const evidence: EvidenceEntry[] = [
     id: 'evidence-naro-5zone-trials-2025',
     type: 'evidence',
     subtype: 'trial-data',
+    dataType: 'mrv',
     date: '2026-02-12',
     title: 'NARO Independent Multi-Site Trials — Results',
     summary: 'Independent trials by NARO across 3 Uganda sites (Kawanda, Tororo, Bulindi) validating Rhizolizer® Duo. Grain yield +17-48% over controls, biomass +35-65%. Outperformed NPK conventional fertilizer at all sites. All results statistically significant (p < 0.05).',
@@ -104,6 +107,7 @@ export const evidence: EvidenceEntry[] = [
     id: 'evidence-locus-global-yield-data',
     type: 'evidence',
     subtype: 'yield-data',
+    dataType: 'mrv',
     date: '2024-06-01',
     title: 'Locus AG Global Yield Validation Data',
     summary: 'Validated yield improvement data from Locus AG trials across multiple crops and geographies, demonstrating consistent performance of Rhizolizer® Duo.',
@@ -134,6 +138,7 @@ export const evidence: EvidenceEntry[] = [
     id: 'evidence-soc-baseline-2025',
     type: 'evidence',
     subtype: 'soil-data',
+    dataType: 'mrv',
     date: '2025-08-01',
     title: 'Uganda SOC Baseline Data Collection',
     summary: 'Soil Organic Carbon baseline measurements across pilot zones, establishing pre-treatment levels for carbon sequestration tracking.',
@@ -163,6 +168,7 @@ export const evidence: EvidenceEntry[] = [
     id: 'evidence-africa-biostimulants-market-2025',
     type: 'evidence',
     subtype: 'validation',
+    dataType: 'impact',
     date: '2025-01-01',
     title: 'Africa Bio-Stimulants Market Validation',
     summary: 'Market research validating the growth trajectory of agricultural bio-stimulants in Africa, supporting HISAGEN commercial strategy.',
@@ -220,4 +226,19 @@ export function getVerifiedEvidence(): EvidenceEntry[] {
 // Helper: Get evidence for Uganda pilot
 export function getUgandaPilotEvidence(): EvidenceEntry[] {
   return evidence.filter(entry => entry.project === 'uganda-pilot');
+}
+
+// Helper: Get evidence grouped by data type (uses subtypeToDataType fallback)
+export function getEvidenceByDataType(): Record<EvidenceDataType, EvidenceEntry[]> {
+  const result: Record<EvidenceDataType, EvidenceEntry[]> = {
+    mrv: [],
+    traceability: [],
+    disclosure: [],
+    impact: [],
+  };
+  evidence.forEach(entry => {
+    const dt = entry.dataType || subtypeToDataType[entry.subtype];
+    result[dt].push(entry);
+  });
+  return result;
 }

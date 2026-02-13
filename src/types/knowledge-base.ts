@@ -68,7 +68,9 @@ export type ResearchEntry = BaseEntry & {
 // Evidence Entry
 // ============================================
 
-export type EvidenceSubtype = 'trial-data' | 'mrv' | 'certification' | 'yield-data' | 'soil-data' | 'validation';
+export type EvidenceDataType = 'mrv' | 'traceability' | 'disclosure' | 'impact';
+
+export type EvidenceSubtype = 'trial-data' | 'mrv' | 'certification' | 'yield-data' | 'soil-data' | 'validation' | 'farmer-records' | 'product-tracking' | 'regulatory' | 'reporting' | 'additionality' | 'social';
 
 export type Metric = {
   label: string;
@@ -81,6 +83,7 @@ export type Metric = {
 export type EvidenceEntry = BaseEntry & {
   type: 'evidence';
   subtype: EvidenceSubtype;
+  dataType?: EvidenceDataType;          // 4-type data architecture classification
   project: string;                      // Required for evidence
   location?: string;                    // Geographic context
   period?: {                            // Time period covered
@@ -219,4 +222,44 @@ export const milestoneStatusColors: Record<MilestoneStatus, { bg: string; text: 
   'in-progress': { bg: 'bg-blue-100', text: 'text-blue-700' },
   complete: { bg: 'bg-emerald-100', text: 'text-emerald-700' },
   blocked: { bg: 'bg-red-100', text: 'text-red-700' },
+};
+
+// ============================================
+// Evidence Data Type Helpers
+// ============================================
+
+export const dataTypeLabels: Record<EvidenceDataType, string> = {
+  mrv: 'MRV',
+  traceability: 'Traceability',
+  disclosure: 'Disclosure',
+  impact: 'Impact',
+};
+
+export const dataTypeDescriptions: Record<EvidenceDataType, string> = {
+  mrv: 'Measurement, Reporting & Verification — trial data, soil carbon, yield metrics',
+  traceability: 'Traceability — farmer records, product tracking, supply chain',
+  disclosure: 'Disclosure — regulatory filings, certifications, reporting',
+  impact: 'Impact — market validation, social outcomes, additionality',
+};
+
+export const dataTypeColors: Record<EvidenceDataType, { bg: string; text: string; border: string; accent: string }> = {
+  mrv: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200', accent: 'bg-blue-100' },
+  traceability: { bg: 'bg-purple-50', text: 'text-purple-700', border: 'border-purple-200', accent: 'bg-purple-100' },
+  disclosure: { bg: 'bg-slate-50', text: 'text-slate-700', border: 'border-slate-200', accent: 'bg-slate-100' },
+  impact: { bg: 'bg-pink-50', text: 'text-pink-700', border: 'border-pink-200', accent: 'bg-pink-100' },
+};
+
+export const subtypeToDataType: Record<EvidenceSubtype, EvidenceDataType> = {
+  'trial-data': 'mrv',
+  mrv: 'mrv',
+  'yield-data': 'mrv',
+  'soil-data': 'mrv',
+  'farmer-records': 'traceability',
+  'product-tracking': 'traceability',
+  certification: 'disclosure',
+  regulatory: 'disclosure',
+  reporting: 'disclosure',
+  validation: 'impact',
+  additionality: 'impact',
+  social: 'impact',
 };

@@ -1501,7 +1501,7 @@ export default function PilotPage() {
 
         <div className="grid md:grid-cols-3 gap-4">
           <Link
-            href="/evidence"
+            href="/knowledge-base/evidence"
             className="p-6 rounded-xl border border-mist bg-white hover:border-secondary/30 hover:shadow-md transition-all group"
           >
             <p className="text-xs font-bold uppercase tracking-widest text-secondary mb-2">Evidence Vault</p>

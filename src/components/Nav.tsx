@@ -35,7 +35,7 @@ const navItems: NavItem[] = [
           { href: "/stage-2", label: "Stage 2: Implementation" },
           { href: "/stage-3", label: "Stage 3: Stabilization" },
           { href: "/stage-4", label: "Stage 4: Maturity" },
-          { href: "/evidence", label: "Evidence Review" },
+          { href: "/knowledge-base/evidence", label: "Evidence Review" },
         ],
       },
       {
@@ -58,7 +58,7 @@ const navItems: NavItem[] = [
         href: "/ecosystem/locus-ag",
         subItems: [
           { href: "/ecosystem/locus-ag", label: "Locus AG Profile" },
-          { href: "/evidence", label: "Yield Evidence" },
+          { href: "/knowledge-base/evidence", label: "Yield Evidence" },
         ],
       },
       {
@@ -107,6 +107,7 @@ export default function Nav() {
                   pathname.startsWith("/project/") ||
                   pathname.startsWith("/stage-") ||
                   pathname.startsWith("/evidence") ||
+                  pathname.startsWith("/knowledge-base/evidence") ||
                   pathname.startsWith("/capital-continuum") ||
                   pathname.startsWith("/grant-lifecycle")
                 );

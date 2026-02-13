@@ -5,7 +5,17 @@ import Link from "next/link";
 import { ArrowLeftIcon, BeakerIcon, MapPinIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
 import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import { SearchBar, TagBadge, useSelection } from "../../../components/knowledge-base";
-import { evidence, getEvidenceByProject, EvidenceSubtype } from "../../../data";
+import {
+  evidence,
+  getEvidenceByDataType,
+  EvidenceSubtype,
+  EvidenceDataType,
+  EvidenceEntry,
+  dataTypeLabels,
+  dataTypeDescriptions,
+  dataTypeColors,
+  subtypeToDataType,
+} from "../../../data";
 
 const subtypeLabels: Record<EvidenceSubtype, string> = {
   "trial-data": "Trial Data",
@@ -14,14 +24,39 @@ const subtypeLabels: Record<EvidenceSubtype, string> = {
   "yield-data": "Yield Data",
   "soil-data": "Soil Data",
   validation: "Validation",
+  "farmer-records": "Farmer Records",
+  "product-tracking": "Product Tracking",
+  regulatory: "Regulatory",
+  reporting: "Reporting",
+  additionality: "Additionality",
+  social: "Social",
+};
+
+const dataTypeOrder: EvidenceDataType[] = ["mrv", "traceability", "disclosure", "impact"];
+
+const emptyStateDescriptions: Record<EvidenceDataType, string> = {
+  mrv: "",
+  traceability: "Farmer registration records, input distribution logs, and product tracking will appear here as the supply chain scales.",
+  disclosure: "Regulatory filings (MAAIF, UNBS), carbon credit certifications, and ESG reporting will be captured here.",
+  impact: "",
 };
 
 export default function EvidencePage() {
   const [searchQuery, setSearchQuery] = useState("");
   const { selectAll, setSelectionMode, isSelected, toggle, isSelectionMode } = useSelection();
 
-  const evidenceByProject = getEvidenceByProject();
-  const projects = Object.keys(evidenceByProject);
+  const evidenceByDataType = getEvidenceByDataType();
+  const ugandaPilotCount = evidence.filter(e => e.project === "uganda-pilot").length;
+
+  // Filter evidence by search query
+  const filteredEvidence = searchQuery
+    ? evidence.filter(
+        (e) =>
+          e.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          e.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          e.tags.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()))
+      )
+    : null;
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
@@ -45,7 +80,7 @@ export default function EvidencePage() {
           Evidence
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate italic">
-          Trial data, MRV metrics, certifications, and verification records supporting HISAGEN's claims and milestones.
+          Trial data, MRV metrics, certifications, and verification records — organised by HISAGEN&apos;s four data architecture types.
         </p>
 
         {/* Stats */}
@@ -55,8 +90,10 @@ export default function EvidencePage() {
             <span className="ml-2 text-xs text-slate/60">Total Entries</span>
           </div>
           <div className="px-3 py-1.5 rounded-lg bg-white border border-mist">
-            <span className="text-lg font-bold text-secondary">{projects.length}</span>
-            <span className="ml-2 text-xs text-slate/60">Projects</span>
+            <span className="text-lg font-bold text-secondary">
+              {dataTypeOrder.filter((dt) => evidenceByDataType[dt].length > 0).length}
+            </span>
+            <span className="ml-2 text-xs text-slate/60">Active Data Types</span>
           </div>
           {evidence.length > 0 && (
             <button
@@ -72,6 +109,30 @@ export default function EvidencePage() {
         </div>
       </section>
 
+      {/* Data Type Overview Grid */}
+      <section className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
+        {dataTypeOrder.map((dt) => {
+          const colors = dataTypeColors[dt];
+          const count = evidenceByDataType[dt].length;
+          return (
+            <div
+              key={dt}
+              className={`p-4 rounded-xl border ${colors.border} ${colors.bg}`}
+            >
+              <p className={`text-2xl font-bold ${count > 0 ? colors.text : "text-slate/30"}`}>
+                {count}
+              </p>
+              <p className={`text-xs font-bold uppercase tracking-widest ${colors.text}`}>
+                {dataTypeLabels[dt]}
+              </p>
+              {count === 0 && (
+                <p className="text-[10px] text-slate/40 mt-1">Coming soon</p>
+              )}
+            </div>
+          );
+        })}
+      </section>
+
       {/* Search */}
       <section className="mt-8">
         <SearchBar
@@ -82,182 +143,136 @@ export default function EvidencePage() {
         />
       </section>
 
-      {/* Featured Project: Uganda Pilot */}
-      <section className="mt-8">
-        <Link
-          href="/knowledge-base/evidence/uganda-pilot"
-          className="block p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-parchment/40 border border-emerald-100 hover:border-emerald-300 transition-all group"
-        >
-          <div className="flex items-start gap-4">
-            <div className="p-3 rounded-xl bg-emerald-100 group-hover:bg-emerald-200 transition-colors">
-              <MapPinIcon className="size-6 text-emerald-700" />
-            </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">
-                  Featured Project
-                </span>
-              </div>
-              <h3 className="text-xl font-bold text-secondary group-hover:text-emerald-700 transition-colors">
-                Uganda Pilot Evidence
-              </h3>
-              <p className="mt-2 text-sm text-slate">
-                Comprehensive evidence roll-up for the flagship 10,000 farmer implementation.
-                Includes maize trial data, yield validation, SOC baseline, and market analysis.
-              </p>
-              <div className="mt-4 flex items-center gap-6 text-xs text-slate/70">
-                <span>{evidenceByProject['uganda-pilot']?.length || 0} entries</span>
-                <span>3 NARO sites (Kawanda, Tororo, Bulindi)</span>
-                <span className="text-emerald-600 font-medium">+17-48% grain yield (NARO validated)</span>
-              </div>
-            </div>
-            <ArrowRightIcon className="size-5 text-slate/30 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all mt-2" />
-          </div>
-        </Link>
-      </section>
-
-      {/* Evidence Content */}
-      {evidence.length === 0 ? (
-        <section className="mt-12">
-          {/* Empty state - structured for future data */}
-          <div className="rounded-2xl border-2 border-dashed border-mist bg-parchment/20 p-12 text-center">
-            <BeakerIcon className="mx-auto size-12 text-secondary/30" />
-            <h2 className="mt-4 text-lg font-bold text-secondary">
-              Evidence Repository
-            </h2>
-            <p className="mt-2 text-sm text-slate max-w-md mx-auto">
-              Structured evidence entries will appear here as trial data, MRV metrics, and certifications are added to the knowledge base.
-            </p>
-
-            {/* Structure preview */}
-            <div className="mt-8 grid gap-4 md:grid-cols-3 max-w-2xl mx-auto">
-              <div className="p-4 rounded-xl bg-white border border-mist text-left">
-                <p className="text-[9px] font-bold uppercase tracking-widest text-emerald-600 mb-2">
-                  Uganda Pilot
-                </p>
-                <p className="text-xs text-slate">
-                  Maize, potato, and peanut trial data from NARO zones
-                </p>
-              </div>
-              <div className="p-4 rounded-xl bg-white border border-mist text-left">
-                <p className="text-[9px] font-bold uppercase tracking-widest text-emerald-600 mb-2">
-                  MRV Data
-                </p>
-                <p className="text-xs text-slate">
-                  Soil carbon measurements, yield comparisons, verification records
-                </p>
-              </div>
-              <div className="p-4 rounded-xl bg-white border border-mist text-left">
-                <p className="text-[9px] font-bold uppercase tracking-widest text-emerald-600 mb-2">
-                  Certifications
-                </p>
-                <p className="text-xs text-slate">
-                  MAAIF approval, UNBS registration, carbon credit validation
-                </p>
-              </div>
-            </div>
-
-            {/* Types reference */}
-            <div className="mt-8 pt-8 border-t border-mist">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate/40 mb-3">
-                Evidence Types
-              </p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {Object.entries(subtypeLabels).map(([key, label]) => (
-                  <span
-                    key={key}
-                    className="text-[10px] px-2 py-1 rounded bg-emerald-50 text-emerald-700"
-                  >
-                    {label}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      ) : (
+      {/* Search Results (if searching) */}
+      {filteredEvidence && (
         <section className="mt-8">
-          {/* Evidence entries grouped by project */}
-          {projects.map((project) => (
-            <div key={project} className="mb-8">
-              <div className="flex items-center gap-4 mb-4">
-                <h2 className="text-lg font-bold text-secondary capitalize">
-                  {project.replace("-", " ")}
-                </h2>
-                <div className="h-px flex-1 bg-mist" />
-                <span className="text-[10px] text-slate font-medium uppercase tracking-widest">
-                  {evidenceByProject[project].length} entries
-                </span>
-              </div>
-              <div className="grid gap-4">
-                {evidenceByProject[project].map((entry) => {
-                  const selected = isSelected(entry.id);
-                  return (
-                  <div
-                    key={entry.id}
-                    className={`relative group/selectable p-5 rounded-xl border border-mist bg-white ${selected ? "ring-2 ring-secondary/30" : ""}`}
-                  >
-                    {/* Selection checkbox */}
-                    <div
-                      className={`absolute left-3 top-3 z-10 transition-opacity ${
-                        isSelectionMode || selected ? "opacity-100" : "opacity-0 group-hover/selectable:opacity-100"
-                      }`}
-                    >
-                      <button
-                        onClick={() => toggle(entry)}
-                        className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
-                          selected
-                            ? "bg-secondary border-secondary text-white"
-                            : "bg-white border-slate/30 hover:border-secondary/50"
-                        }`}
-                      >
-                        {selected && (
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                          </svg>
-                        )}
-                      </button>
-                    </div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">
-                        {subtypeLabels[entry.subtype]}
-                      </span>
-                      <span className="text-[10px] text-slate/40">{entry.date}</span>
-                    </div>
-                    <h3 className="text-base font-bold text-secondary">{entry.title}</h3>
-                    <p className="mt-1 text-sm text-slate">{entry.summary}</p>
-                    {entry.metrics.length > 0 && (
-                      <div className="mt-4 grid gap-2 md:grid-cols-3">
-                        {entry.metrics.map((metric, idx) => (
-                          <div
-                            key={idx}
-                            className="p-3 rounded-lg bg-parchment/50 border border-mist"
-                          >
-                            <p className="text-[10px] text-slate/60">{metric.label}</p>
-                            <p className="text-lg font-bold text-secondary">
-                              {metric.value}
-                              {metric.unit && (
-                                <span className="text-sm font-normal ml-1">{metric.unit}</span>
-                              )}
-                            </p>
-                            {metric.change && (
-                              <p className="text-xs text-emerald-600">{metric.change}</p>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {entry.tags.map((tag) => (
-                        <TagBadge key={tag} tag={tag} />
-                      ))}
-                    </div>
-                  </div>
-                );})}
-              </div>
+          <div className="flex items-center gap-4 mb-4">
+            <h2 className="text-lg font-bold text-secondary">
+              Search Results
+            </h2>
+            <div className="h-px flex-1 bg-mist" />
+            <span className="text-[10px] text-slate font-medium uppercase tracking-widest">
+              {filteredEvidence.length} matches
+            </span>
+          </div>
+          {filteredEvidence.length === 0 ? (
+            <p className="text-sm text-slate/60 py-8 text-center">No evidence matches your search.</p>
+          ) : (
+            <div className="grid gap-4">
+              {filteredEvidence.map((entry) => (
+                <EvidenceCard
+                  key={entry.id}
+                  entry={entry}
+                  isSelected={isSelected(entry.id)}
+                  isSelectionMode={isSelectionMode}
+                  onToggle={() => toggle(entry)}
+                />
+              ))}
             </div>
-          ))}
+          )}
         </section>
+      )}
+
+      {/* Featured Project: Uganda Pilot */}
+      {!filteredEvidence && (
+        <>
+          <section className="mt-8">
+            <Link
+              href="/knowledge-base/evidence/uganda-pilot"
+              className="block p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-parchment/40 border border-emerald-100 hover:border-emerald-300 transition-all group"
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-emerald-100 group-hover:bg-emerald-200 transition-colors">
+                  <MapPinIcon className="size-6 text-emerald-700" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">
+                      Featured Project
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-secondary group-hover:text-emerald-700 transition-colors">
+                    Uganda Pilot Evidence
+                  </h3>
+                  <p className="mt-2 text-sm text-slate">
+                    Comprehensive evidence roll-up for the flagship 10,000 farmer implementation.
+                    Includes maize trial data, yield validation, SOC baseline, and market analysis.
+                  </p>
+                  <div className="mt-4 flex items-center gap-6 text-xs text-slate/70">
+                    <span>{ugandaPilotCount} entries</span>
+                    <span>3 NARO sites (Kawanda, Tororo, Bulindi)</span>
+                    <span className="text-emerald-600 font-medium">+17-48% grain yield (NARO validated)</span>
+                  </div>
+                </div>
+                <ArrowRightIcon className="size-5 text-slate/30 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all mt-2" />
+              </div>
+            </Link>
+          </section>
+
+          {/* Data Type Sections */}
+          {dataTypeOrder.map((dt) => {
+            const colors = dataTypeColors[dt];
+            const entries = evidenceByDataType[dt];
+            const isEmpty = entries.length === 0;
+
+            return (
+              <section key={dt} className="mt-10">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className={`w-3 h-3 rounded-full ${colors.accent} border ${colors.border}`} />
+                  <h2 className="text-lg font-bold text-secondary">
+                    {dataTypeLabels[dt]}
+                  </h2>
+                  <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${colors.accent} ${colors.text}`}>
+                    {entries.length} {entries.length === 1 ? "entry" : "entries"}
+                  </span>
+                  <div className="h-px flex-1 bg-mist" />
+                </div>
+
+                <p className="text-sm text-slate/60 mb-4">
+                  {dataTypeDescriptions[dt]}
+                </p>
+
+                {isEmpty ? (
+                  <div className={`rounded-xl border-2 border-dashed ${colors.border} ${colors.bg} p-8 text-center`}>
+                    <BeakerIcon className="mx-auto size-8 text-slate/20" />
+                    <p className="mt-3 text-sm font-medium text-slate/50">
+                      No {dataTypeLabels[dt].toLowerCase()} evidence yet
+                    </p>
+                    <p className="mt-1 text-xs text-slate/40 max-w-md mx-auto">
+                      {emptyStateDescriptions[dt]}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="grid gap-4">
+                    {entries.map((entry) => (
+                      <EvidenceCard
+                        key={entry.id}
+                        entry={entry}
+                        isSelected={isSelected(entry.id)}
+                        isSelectionMode={isSelectionMode}
+                        onToggle={() => toggle(entry)}
+                      />
+                    ))}
+                  </div>
+                )}
+              </section>
+            );
+          })}
+
+          {/* Strategic Gap Callout */}
+          <section className="mt-10 rounded-xl border border-mist bg-parchment/10 p-8 text-center border-dashed">
+            <p className="text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-2">Evidence Strategic Gap</p>
+            <h3 className="text-xl font-semibold text-secondary mb-4 italic">
+              &ldquo;How do we prove 10-year soil carbon permanence with 1-year pilot data?&rdquo;
+            </h3>
+            <p className="text-sm text-slate max-w-2xl mx-auto mb-6">
+              This is our most critical evidence challenge. We will use Gemini and deep literature review to synthesize proxy indicators that satisfy institutional carbon buyers.
+            </p>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-100 text-amber-700 text-[10px] rounded font-bold uppercase tracking-widest">
+              High Priority Research
+            </div>
+          </section>
+        </>
       )}
 
       {/* Knowledge Base Link */}
@@ -272,6 +287,87 @@ export default function EvidencePage() {
           </code> playbook to add new evidence.
         </p>
       </section>
+    </div>
+  );
+}
+
+// Extracted card component for reuse in search results and data type sections
+function EvidenceCard({
+  entry,
+  isSelected,
+  isSelectionMode,
+  onToggle,
+}: {
+  entry: EvidenceEntry;
+  isSelected: boolean;
+  isSelectionMode: boolean;
+  onToggle: () => void;
+}) {
+  const dt = entry.dataType || subtypeToDataType[entry.subtype];
+  const colors = dataTypeColors[dt];
+
+  return (
+    <div
+      className={`relative group/selectable p-5 rounded-xl border border-mist bg-white ${isSelected ? "ring-2 ring-secondary/30" : ""}`}
+    >
+      {/* Selection checkbox */}
+      <div
+        className={`absolute left-3 top-3 z-10 transition-opacity ${
+          isSelectionMode || isSelected ? "opacity-100" : "opacity-0 group-hover/selectable:opacity-100"
+        }`}
+      >
+        <button
+          onClick={onToggle}
+          className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+            isSelected
+              ? "bg-secondary border-secondary text-white"
+              : "bg-white border-slate/30 hover:border-secondary/50"
+          }`}
+        >
+          {isSelected && (
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+            </svg>
+          )}
+        </button>
+      </div>
+      <div className="flex items-center gap-3 mb-2">
+        <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${colors.accent} ${colors.text}`}>
+          {dataTypeLabels[dt]}
+        </span>
+        <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">
+          {subtypeLabels[entry.subtype]}
+        </span>
+        <span className="text-[10px] text-slate/40">{entry.date}</span>
+      </div>
+      <h3 className="text-base font-bold text-secondary">{entry.title}</h3>
+      <p className="mt-1 text-sm text-slate">{entry.summary}</p>
+      {entry.metrics.length > 0 && (
+        <div className="mt-4 grid gap-2 md:grid-cols-3">
+          {entry.metrics.map((metric, idx) => (
+            <div
+              key={idx}
+              className="p-3 rounded-lg bg-parchment/50 border border-mist"
+            >
+              <p className="text-[10px] text-slate/60">{metric.label}</p>
+              <p className="text-lg font-bold text-secondary">
+                {metric.value}
+                {metric.unit && (
+                  <span className="text-sm font-normal ml-1">{metric.unit}</span>
+                )}
+              </p>
+              {metric.change && (
+                <p className="text-xs text-emerald-600">{metric.change}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+      <div className="mt-3 flex flex-wrap gap-2">
+        {entry.tags.map((tag) => (
+          <TagBadge key={tag} tag={tag} />
+        ))}
+      </div>
     </div>
   );
 }

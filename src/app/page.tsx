@@ -278,7 +278,7 @@ export default function HomePage() {
           <Link href="/grant-lifecycle" className="text-secondary hover:text-primary transition-colors">
             Grant Lifecycle
           </Link>
-          <Link href="/evidence" className="text-secondary hover:text-primary transition-colors">
+          <Link href="/knowledge-base/evidence" className="text-secondary hover:text-primary transition-colors">
             Evidence Vault
           </Link>
         </div>

@@ -16,7 +16,11 @@ import {
   getUgandaPilotEvidence,
   EvidenceEntry,
   EvidenceSubtype,
+  EvidenceDataType,
   Metric,
+  dataTypeLabels,
+  dataTypeColors,
+  subtypeToDataType,
 } from "../../../../data";
 
 const subtypeLabels: Record<EvidenceSubtype, string> = {
@@ -26,6 +30,12 @@ const subtypeLabels: Record<EvidenceSubtype, string> = {
   "yield-data": "Yield Data",
   "soil-data": "Soil Data",
   validation: "Validation",
+  "farmer-records": "Farmer Records",
+  "product-tracking": "Product Tracking",
+  regulatory: "Regulatory",
+  reporting: "Reporting",
+  additionality: "Additionality",
+  social: "Social",
 };
 
 const subtypeIcons: Record<EvidenceSubtype, typeof BeakerIcon> = {
@@ -35,6 +45,12 @@ const subtypeIcons: Record<EvidenceSubtype, typeof BeakerIcon> = {
   "yield-data": ChartBarIcon,
   "soil-data": BeakerIcon,
   validation: CheckBadgeIcon,
+  "farmer-records": ChartBarIcon,
+  "product-tracking": ChartBarIcon,
+  regulatory: CheckBadgeIcon,
+  reporting: CheckBadgeIcon,
+  additionality: BeakerIcon,
+  social: BeakerIcon,
 };
 
 // Group metrics by type for summary display
@@ -68,13 +84,15 @@ export default function UgandaPilotPage() {
     return [...filteredEvidence].sort((a, b) => b.date.localeCompare(a.date));
   }, [filteredEvidence]);
 
-  // Group by subtype for summary
-  const evidenceBySubtype = useMemo(() => {
-    return ugandaEvidence.reduce((acc: Record<EvidenceSubtype, EvidenceEntry[]>, e: EvidenceEntry) => {
-      if (!acc[e.subtype]) acc[e.subtype] = [];
-      acc[e.subtype].push(e);
-      return acc;
-    }, {} as Record<EvidenceSubtype, EvidenceEntry[]>);
+  // Group by data type for summary
+  const evidenceByDataType = useMemo(() => {
+    const result: Partial<Record<EvidenceDataType, EvidenceEntry[]>> = {};
+    ugandaEvidence.forEach((e: EvidenceEntry) => {
+      const dt = e.dataType || subtypeToDataType[e.subtype];
+      if (!result[dt]) result[dt] = [];
+      result[dt]!.push(e);
+    });
+    return result;
   }, [ugandaEvidence]);
 
   return (
@@ -162,30 +180,33 @@ export default function UgandaPilotPage() {
         </section>
       )}
 
-      {/* Evidence Type Summary */}
+      {/* Evidence by Data Type Summary */}
       <section className="mt-8">
         <div className="flex items-center gap-4 mb-4">
-          <h2 className="text-lg font-bold text-secondary">Evidence by Type</h2>
+          <h2 className="text-lg font-bold text-secondary">Evidence by Data Type</h2>
           <div className="h-px flex-1 bg-mist" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {(Object.entries(evidenceBySubtype) as [EvidenceSubtype, EvidenceEntry[]][]).map(([subtype, entries]) => {
-            const Icon = subtypeIcons[subtype] || BeakerIcon;
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {(["mrv", "traceability", "disclosure", "impact"] as EvidenceDataType[]).map((dt) => {
+            const entries = evidenceByDataType[dt] || [];
+            const colors = dataTypeColors[dt];
             return (
               <div
-                key={subtype}
-                className="p-4 rounded-xl bg-white border border-mist hover:border-emerald-200 transition-colors"
+                key={dt}
+                className={`p-4 rounded-xl border ${colors.border} ${colors.bg} hover:shadow-sm transition-all`}
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-emerald-50">
-                    <Icon className="size-5 text-emerald-600" />
+                  <div className={`p-2 rounded-lg ${colors.accent}`}>
+                    <BeakerIcon className={`size-5 ${colors.text}`} />
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-secondary">
-                      {subtypeLabels[subtype]}
+                    <p className={`text-sm font-bold ${colors.text}`}>
+                      {dataTypeLabels[dt]}
                     </p>
-                    <p className="text-xs text-slate/60">{entries.length} entries</p>
+                    <p className="text-xs text-slate/60">
+                      {entries.length > 0 ? `${entries.length} entries` : "Coming soon"}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -242,6 +263,15 @@ export default function UgandaPilotPage() {
             <div className="flex items-start justify-between gap-4 mb-4">
               <div>
                 <div className="flex items-center gap-3 mb-2">
+                  {(() => {
+                    const dt = entry.dataType || subtypeToDataType[entry.subtype];
+                    const dtColors = dataTypeColors[dt];
+                    return (
+                      <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded ${dtColors.accent} ${dtColors.text}`}>
+                        {dataTypeLabels[dt]}
+                      </span>
+                    );
+                  })()}
                   <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-emerald-100 text-emerald-700">
                     {subtypeLabels[entry.subtype]}
                   </span>

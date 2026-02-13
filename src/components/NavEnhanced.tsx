@@ -77,7 +77,7 @@ const frameworks = [
 
 const knowledge = [
   { name: "Knowledge Base", href: "/knowledge-base", icon: "/icons/icon-vault.png" },
-  { name: "Evidence Vault", href: "/evidence", icon: "/icons/icon-leaf-check.png" },
+  { name: "Evidence Vault", href: "/knowledge-base/evidence", icon: "/icons/icon-leaf-check.png" },
   { name: "Ecosystem Partners", href: "/ecosystem", icon: "/icons/icon-deedling-circular.png" },
 ];
 
