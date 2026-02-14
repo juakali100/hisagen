@@ -88,6 +88,52 @@ export const communications: CommunicationEntry[] = [
     updatedAt: '2026-02-13',
   },
   {
+    id: 'comm-2026-02-06-nic-pivot-confirmation',
+    type: 'communication',
+    subtype: 'email',
+    date: '2026-02-06',
+    title: 'Nic → Keir: Pivot Confirmation & Domain Strategy',
+    summary: 'Reply confirming messaging pivot applied across portal and website, raising domain strategy question, and scheduling call for Feb 11.',
+    from: 'Nic',
+    to: 'Keir',
+    project: 'uganda-pilot',
+    tags: ['Messaging Pivot', 'Website', 'Portal', 'Domains', 'DNS', 'Grants'],
+    file: 'communications/2026-02-06-email-nic-pivot-confirmation.md',
+    synthesis: [
+      'Messaging pivot confirmed applied: portal and preview website updated. Lead story now farmer impact (plant health, yields, income). Carbon credits repositioned as secondary/future revenue stream.',
+      'Naming change executed throughout: "Agri-Carbon Program" → "Regenerative Agriculture Program".',
+      'Grant materials alignment deferred: concept note and base grant proposal to be updated once strategy and program direction more settled.',
+      'Domain strategy question raised: one main site with redirects, or separate regional sites? Recommended HISAGEN retain domain ownership. DNS advisory offered.',
+      'Call scheduling: Available Feb 11 up to 16:00 GMT (EST 09:00-11:00). Agenda: contract, website/logo finalization.',
+    ],
+    relatedIds: ['comm-2026-02-05-keir-strategic-update'],
+    statusUpdate: {
+      regulatory: {
+        items: [
+          { text: 'UNBS submission acknowledged — awaiting outcome', status: 'in-progress' },
+          { text: '~3 week delay accepted, regulatory timelines understood', status: 'in-progress' },
+        ],
+      },
+      fieldOps: {
+        items: [
+          { text: 'Portal updated with pivot messaging', status: 'complete' },
+          { text: 'Preview website updated with pivot messaging', status: 'complete' },
+          { text: 'Naming change applied throughout', status: 'complete' },
+        ],
+      },
+      strategic: {
+        items: [
+          { text: 'Farmer-first messaging pivot fully executed', status: 'complete' },
+          { text: 'Domain strategy question raised', status: 'in-progress' },
+          { text: 'Grant materials update deferred', status: 'future' },
+          { text: 'Call scheduled: Feb 11 (contract + next steps)', status: 'pending' },
+        ],
+      },
+    },
+    createdAt: '2026-02-14',
+    updatedAt: '2026-02-14',
+  },
+  {
     id: 'comm-2026-02-05-keir-strategic-update',
     type: 'communication',
     subtype: 'email',
