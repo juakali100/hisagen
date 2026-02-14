@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeftIcon, DocumentTextIcon, ClipboardDocumentIcon } from "@heroicons/react/20/solid";
-import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import { useSelection, EntryCard, TagBadge } from "../../../components/knowledge-base";
 import { entryTypeLabels } from "../../../types/knowledge-base";
 
@@ -204,7 +203,6 @@ export default function SynthesisPage() {
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb stage="Synthesis" />
 
       {/* Back link */}
       <Link

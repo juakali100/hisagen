@@ -10,7 +10,6 @@ import {
   BeakerIcon,
   ChartBarIcon,
 } from "@heroicons/react/20/solid";
-import StageBreadcrumb from "../../../../components/StageBreadcrumb";
 import { TagBadge, MetricsGrid } from "../../../../components/knowledge-base";
 import {
   getRwandaPilotEvidence,
@@ -73,7 +72,6 @@ export default function RwandaPilotPage() {
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb stage="Rwanda Pilot" />
 
       {/* Back link */}
       <Link

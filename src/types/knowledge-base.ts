@@ -207,7 +207,7 @@ export function isEcosystemEntry(entry: KnowledgeEntry): entry is EcosystemEntry
 // ============================================
 
 export const entryTypeLabels: Record<EntryType, string> = {
-  communication: 'Communications',
+  communication: 'Program Updates',
   research: 'Research',
   evidence: 'Evidence',
   milestone: 'Milestones',

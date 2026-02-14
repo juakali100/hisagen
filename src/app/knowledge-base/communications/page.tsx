@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { ChevronDownIcon, ArrowLeftIcon } from "@heroicons/react/20/solid";
-import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import { SearchBar, EntryCard, TagBadge, DateRangeFilter, filterByDateRange, ProjectFilter } from "../../../components/knowledge-base";
 import type { DateRange } from "../../../components/knowledge-base";
 import {
@@ -112,8 +111,6 @@ function CommunicationsContent() {
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb stage="Communications" />
-
       {/* Back link */}
       <Link
         href="/knowledge-base"
@@ -129,15 +126,20 @@ function CommunicationsContent() {
           Knowledge Base
         </p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          Pandion Advisory Communications
+          Program Updates
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate italic">
-          Emails, calls, meetings, and messages shared between HISAGEN (Keir/Scott) and Pandion (Nic) through the advisory relationship.
+          The top of the knowledge funnel. Program developments, field reports, regulatory progress, and strategic updates are captured here as they come in — then structured to inform portal pages, website content, funder reports, and proposals.
         </p>
-        <p className="mt-3 max-w-2xl text-xs leading-relaxed text-slate/50">
-          Program-internal communications between HISAGEN team members, NARO, regulators, and other partners are managed separately.
-          Items shared with Pandion through the advisory channel are captured here.
-        </p>
+
+        {/* Funnel explanation */}
+        <div className="mt-4 flex items-center gap-2 flex-wrap text-[10px] font-medium uppercase tracking-widest text-slate/40">
+          <span className="rounded bg-secondary/10 px-2 py-1 text-secondary/70">Updates In</span>
+          <span>&#8594;</span>
+          <span className="rounded bg-secondary/10 px-2 py-1 text-secondary/70">Structured &amp; Tagged</span>
+          <span>&#8594;</span>
+          <span className="rounded bg-secondary/10 px-2 py-1 text-secondary/70">Portal &middot; Website &middot; Reports</span>
+        </div>
 
         {/* Stats */}
         <div className="mt-6 flex flex-wrap items-center gap-4">
@@ -164,7 +166,7 @@ function CommunicationsContent() {
         <SearchBar
           value={searchQuery}
           onChange={setSearchQuery}
-          placeholder="Search communications..."
+          placeholder="Search program updates..."
           className="max-w-lg"
         />
 
@@ -230,7 +232,7 @@ function CommunicationsContent() {
       <section className="mt-8 space-y-4">
         {years.length === 0 ? (
           <p className="text-sm text-slate/60 italic py-8 text-center">
-            No communications match your filters.
+            No program updates match your filters.
           </p>
         ) : (
           years.map((year) => {

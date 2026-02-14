@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ClockIcon, ArrowLeftIcon, QuestionMarkCircleIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import { Timeline, SearchBar, TagBadge } from "../../../components/knowledge-base";
 import { getAllEntries, getAllTags, getKnowledgeBaseStats } from "../../../data";
 
@@ -54,10 +53,6 @@ export default function TimelinePage() {
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb
-        stage="Timeline"
-        trail={[{ label: "Knowledge Base", href: "/knowledge-base" }]}
-      />
 
       {/* Header Section */}
       <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">

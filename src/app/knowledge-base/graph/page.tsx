@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import GraphFilters from "../../../components/knowledge-base/GraphFilters";
 import { ArrowPathIcon, ArrowLeftIcon, QuestionMarkCircleIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import { graphData } from "@/data/relationships";
@@ -71,10 +70,6 @@ export default function RelationshipGraphPage() {
 
   return (
     <div className="mx-auto max-w-6xl text-ink">
-      <StageBreadcrumb
-        stage="Relationship Graph"
-        trail={[{ label: "Knowledge Base", href: "/knowledge-base" }]}
-      />
 
       {/* Header */}
       <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-6 mb-6">

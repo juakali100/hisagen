@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { DocumentTextIcon, ClockIcon, SparklesIcon, ShareIcon } from "@heroicons/react/24/outline";
-import StageBreadcrumb from "../../components/StageBreadcrumb";
 import { SearchBar, SectionCard, EntryCard, TagBadge, ProjectFilter, useSelection } from "../../components/knowledge-base";
 import {
   communications,
@@ -62,6 +61,18 @@ export default function ResourcesHub() {
     .slice(0, 3)
     .map((m) => ({ title: m.title, date: m.date }));
 
+  const recentEvidence = evidence
+    .filter(matchesProject)
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 3)
+    .map((e) => ({ title: e.title, date: e.date }));
+
+  const recentEcosystem = ecosystem
+    .filter(matchesProject)
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 3)
+    .map((e) => ({ title: e.title, date: e.date }));
+
   // Tag toggle handler
   const handleTagClick = (tag: string) => {
     setActiveTags((prev) =>
@@ -79,8 +90,6 @@ export default function ResourcesHub() {
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb stage="Knowledge Base" />
-
       {/* Header Section */}
       <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
@@ -192,8 +201,8 @@ export default function ResourcesHub() {
             <div className="grid gap-6 md:grid-cols-2">
               <SectionCard
                 type="communication"
-                title="Pandion Advisory Comms"
-                description="Emails, calls, and messages shared between HISAGEN and Pandion through the advisory relationship."
+                title="Program Updates"
+                description="Program developments, field reports, and strategic updates captured through the advisory relationship."
                 count={stats.communications}
                 href={projectHref("/knowledge-base/communications")}
                 recentItems={recentCommunications}
@@ -212,7 +221,7 @@ export default function ResourcesHub() {
                 description="Trial data, MRV metrics, certifications, and verification records."
                 count={stats.evidence}
                 href={projectHref("/knowledge-base/evidence")}
-                recentItems={[]}
+                recentItems={recentEvidence}
               />
               <SectionCard
                 type="milestone"
@@ -228,7 +237,7 @@ export default function ResourcesHub() {
                 description="Partner profiles, stakeholder relationships, and ecosystem mapping."
                 count={stats.ecosystem}
                 href={projectHref("/ecosystem")}
-                recentItems={[]}
+                recentItems={recentEcosystem}
               />
             </div>
           </section>

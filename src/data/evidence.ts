@@ -192,6 +192,110 @@ export const evidence: EvidenceEntry[] = [
   },
 
   // ===========================================
+  // UGANDA PILOT - TRACEABILITY
+  // ===========================================
+
+  {
+    id: 'evidence-uganda-farmer-registration-2025',
+    type: 'evidence',
+    subtype: 'farmer-records',
+    dataType: 'traceability',
+    date: '2025-09-01',
+    title: 'Uganda Farmer Registration — Pilot Zone Records',
+    summary: 'Smallholder farmer registration records from NARO pilot zones. Captures participant demographics, plot sizes, crop types, and baseline yields for traceability and impact measurement.',
+    project: 'uganda-pilot',
+    location: 'Uganda - Kawanda, Tororo, Bulindi pilot zones',
+    period: {
+      start: '2025-06-01',
+      end: '2025-09-01',
+    },
+    methodology: 'Field-based registration by NARO extension officers. Data captured via standardised field sheets.',
+    metrics: [
+      { label: 'Registration Status', value: 'Pilot complete' },
+      { label: 'Pilot Zones', value: 3, unit: 'zones' },
+      { label: 'Data Captured', value: 'Demographics, plot size, crop type, baseline yield' },
+    ],
+    tags: ['Uganda', 'Traceability', 'Farmer Records', 'NARO', 'Registration'],
+    verified: false,
+    createdAt: '2026-02-14',
+    updatedAt: '2026-02-14',
+  },
+
+  {
+    id: 'evidence-uganda-input-distribution-2025',
+    type: 'evidence',
+    subtype: 'product-tracking',
+    dataType: 'traceability',
+    date: '2025-07-01',
+    title: 'Uganda Input Distribution Tracking — Rhizolizer® Duo',
+    summary: 'Tracking of Rhizolizer® Duo distribution to pilot farmers across 3 NARO sites. Records product batch, quantity per farmer, application timing, and dosage compliance.',
+    project: 'uganda-pilot',
+    location: 'Uganda - Kawanda, Tororo, Bulindi',
+    period: {
+      start: '2025-06-01',
+      end: '2025-07-01',
+    },
+    methodology: 'Distribution log maintained by NARO field coordinators. Batch tracking from import through to farmer application.',
+    metrics: [
+      { label: 'Distribution Status', value: 'Complete' },
+      { label: 'Sites Supplied', value: 3, unit: 'NARO sites' },
+      { label: 'Tracking', value: 'Batch-to-farmer', change: 'Full chain recorded' },
+    ],
+    tags: ['Uganda', 'Traceability', 'Distribution', 'Rhizolizer', 'Supply Chain'],
+    verified: false,
+    createdAt: '2026-02-14',
+    updatedAt: '2026-02-14',
+  },
+
+  // ===========================================
+  // UGANDA PILOT - DISCLOSURE
+  // ===========================================
+
+  {
+    id: 'evidence-uganda-unbs-certification-2025',
+    type: 'evidence',
+    subtype: 'certification',
+    dataType: 'disclosure',
+    date: '2025-10-01',
+    title: 'UNBS Product Standards Submission — Rhizolizer® Duo',
+    summary: 'Submission to Uganda National Bureau of Standards (UNBS) for product certification of Rhizolizer® Duo bio-fertilizer. Includes product composition, safety data, and labelling compliance documentation.',
+    project: 'uganda-pilot',
+    location: 'Uganda - UNBS, Kampala',
+    methodology: 'Regulatory submission following UNBS bio-fertilizer standards. Dossier prepared with Locus AG technical support.',
+    metrics: [
+      { label: 'Submission Status', value: 'Filed' },
+      { label: 'Regulatory Body', value: 'UNBS' },
+      { label: 'Document Type', value: 'Product certification dossier' },
+    ],
+    tags: ['Uganda', 'Regulatory', 'UNBS', 'Certification', 'Disclosure'],
+    verified: false,
+    createdAt: '2026-02-14',
+    updatedAt: '2026-02-14',
+  },
+
+  {
+    id: 'evidence-uganda-maaif-registration-2026',
+    type: 'evidence',
+    subtype: 'regulatory',
+    dataType: 'disclosure',
+    date: '2026-01-15',
+    title: 'MAAIF Bio-Fertilizer Registration — Dossier Submission',
+    summary: 'Formal dossier submission to Ministry of Agriculture, Animal Industry and Fisheries (MAAIF) for Rhizolizer® Duo registration and market authorisation. Includes NARO trial results, product specifications, and proposed labelling.',
+    project: 'uganda-pilot',
+    location: 'Uganda - MAAIF, Entebbe',
+    methodology: 'Regulatory pathway per Uganda National Bio-Fertilizer Policy. Dossier compiled with NARO trial data and Locus AG product specifications.',
+    metrics: [
+      { label: 'Submission Status', value: 'Under review' },
+      { label: 'Regulatory Body', value: 'MAAIF' },
+      { label: 'Expected Timeline', value: 'Feb-Mar 2026', change: 'Approval notification pending' },
+    ],
+    tags: ['Uganda', 'Regulatory', 'MAAIF', 'Registration', 'Disclosure', 'Q1-2026'],
+    verified: false,
+    createdAt: '2026-02-14',
+    updatedAt: '2026-02-14',
+  },
+
+  // ===========================================
   // RWANDA PILOT - EARLY STAGE
   // ===========================================
 

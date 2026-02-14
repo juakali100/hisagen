@@ -4,7 +4,6 @@ import { Suspense, useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeftIcon, BeakerIcon, MapPinIcon, ArrowRightIcon } from "@heroicons/react/20/solid";
-import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import { SearchBar, TagBadge, ProjectFilter, useSelection } from "../../../components/knowledge-base";
 import {
   evidence,
@@ -88,7 +87,6 @@ function EvidenceContent() {
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb stage="Evidence" />
 
       {/* Back link */}
       <Link

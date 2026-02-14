@@ -1,20 +1,13 @@
-﻿import StageBreadcrumb from "../../../components/StageBreadcrumb";
-
 export default function CommsSummaryPage() {
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb
-        stage="Knowledge Base"
-        trail={[{ label: "Overview", href: "/" }, { label: "Knowledge Base", href: "/knowledge-base" }, { label: "Comms Summary" }]}
-      />
-
       <section className="rounded-2xl border border-mist bg-parchment/40 px-8 py-12">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary">Knowledge Base</p>
         <h1 className="mt-4 text-4xl font-semibold leading-tight text-secondary">
-          Comms summary
+          Program Updates Summary
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate">
-          Consolidated summary of HISAGEN communications and key updates.
+          Consolidated summary of HISAGEN program developments and key updates.
         </p>
       </section>
 

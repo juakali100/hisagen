@@ -29,7 +29,7 @@ const exampleQuestions = [
   "What is the status of the Uganda pilot?",
   "Who is Locus AG and what's our relationship?",
   "What yield improvements have we seen in trials?",
-  "Summarize recent communications with partners",
+  "Summarize recent program updates",
   "What are the key milestones for 2026?",
 ];
 

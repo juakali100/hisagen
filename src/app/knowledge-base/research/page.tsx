@@ -4,7 +4,6 @@ import { Suspense, useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/20/solid";
-import StageBreadcrumb from "../../../components/StageBreadcrumb";
 import { SearchBar, SelectableEntryCard, TagBadge, DateRangeFilter, filterByDateRange, ProjectFilter, useSelection } from "../../../components/knowledge-base";
 import type { DateRange } from "../../../components/knowledge-base";
 import {
@@ -99,7 +98,6 @@ function ResearchContent() {
 
   return (
     <div className="mx-auto max-w-5xl text-ink">
-      <StageBreadcrumb stage="Research" />
 
       {/* Back link */}
       <Link

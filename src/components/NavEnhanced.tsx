@@ -49,7 +49,7 @@ const routeLabels: Record<string, string> = {
   "frameworks": "Frameworks",
   "base-proposal": "Base Proposal",
   "start-here": "Start Here",
-  "communications": "Communications",
+  "communications": "Program Updates",
   "research": "Research",
   "milestones": "Milestones",
   "uganda-pilot": "Uganda Pilot",
@@ -85,7 +85,7 @@ const navSections: NavSection[] = [
     label: "Knowledge",
     href: "/knowledge-base",
     items: [
-      { name: "Communications", href: "/knowledge-base/communications", icon: "/icons/icon-handshake.png" },
+      { name: "Program Updates", href: "/knowledge-base/communications", icon: "/icons/icon-handshake.png" },
       { name: "Research", href: "/knowledge-base/research", icon: "/icons/icon-certificate.png" },
       { name: "Evidence", href: "/knowledge-base/evidence", icon: "/icons/icon-leaf-check.png" },
       { name: "Milestones", href: "/knowledge-base/milestones", icon: "/icons/icon-graph.png" },
