@@ -30,6 +30,7 @@ export const communications: CommunicationEntry[] = [
         file: 'content/programs/agri-carbon/uganda-pilot/2026-02-trial-results/PRESENTATION OF RESULTS_HISAGEN.pdf',
         format: 'PDF',
         portalLink: '/knowledge-base/evidence/uganda-pilot',
+        sourceUrl: '/documents/uganda-pilot/NARO-trial-results-rhizolizer-duo-2026.pdf',
       },
       {
         title: 'HISAGEN Logo Concept — Roots Variations',

@@ -2,7 +2,7 @@
 // Structured trial data, MRV metrics, and verification records
 // Created: 2026-01-17
 
-import { EvidenceEntry, EvidenceDataType, subtypeToDataType } from '../types/knowledge-base';
+import { EvidenceEntry, EvidenceDataType, subtypeToDataType, SourceFile } from '../types/knowledge-base';
 
 export const evidence: EvidenceEntry[] = [
   // ===========================================
@@ -95,6 +95,15 @@ export const evidence: EvidenceEntry[] = [
     verified: true,
     verifiedBy: 'NARO Uganda (Ongua Fanuel, NARO-NARL Kawanda)',
     file: 'content/programs/agri-carbon/uganda-pilot/2026-02-trial-results/TRIAL-RESULTS-SYNTHESIS.md',
+    sourceFiles: [
+      {
+        title: 'NARO Trial Results — Rhizolizer Duo Multi-Site (19 slides)',
+        url: '/documents/uganda-pilot/NARO-trial-results-rhizolizer-duo-2026.pdf',
+        format: 'PDF',
+        description: 'Independent NARO trial presentation by Ongua Fanuel, NARO-NARL Kawanda',
+        sizeKb: 740,
+      },
+    ],
     createdAt: '2026-01-17',
     updatedAt: '2026-02-13',
   },

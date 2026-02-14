@@ -27,11 +27,20 @@ export type BaseEntry = {
 
 export type CommunicationSubtype = 'email' | 'call' | 'meeting' | 'whatsapp' | 'document';
 
+export type SourceFile = {
+  title: string;
+  url: string;
+  format: 'PDF' | 'Excel' | 'Doc' | 'Image' | 'Presentation' | 'Link';
+  description?: string;
+  sizeKb?: number;
+};
+
 export type Attachment = {
   title: string;
   file: string;
   format: 'PDF' | 'Excel' | 'Doc' | 'Image' | 'Presentation' | 'Link';
   portalLink?: string;  // Link to portal page where this content is presented
+  sourceUrl?: string;   // Direct link to downloadable source file in /documents/
 };
 
 export type StatusItem = {
@@ -107,6 +116,7 @@ export type EvidenceEntry = BaseEntry & {
   metrics: Metric[];
   verified?: boolean;                   // Third-party verification
   verifiedBy?: string;
+  sourceFiles?: SourceFile[];           // Direct links to source documents
 };
 
 // ============================================

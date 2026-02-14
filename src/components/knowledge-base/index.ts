@@ -17,6 +17,9 @@ export { default as MetricCard, MetricsGrid } from "./MetricCard";
 export { default as MetricsTable, CompactMetricsList } from "./MetricsTable";
 export { default as YieldComparison, metricsToYieldData } from "./YieldComparison";
 
+// Source File Components
+export { default as SourceFileLink } from "./SourceFileLink";
+
 // Timeline Components
 export { default as Timeline } from "./Timeline";
 

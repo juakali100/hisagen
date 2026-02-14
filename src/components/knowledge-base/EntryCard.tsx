@@ -151,15 +151,32 @@ export default function EntryCard({
                     ? `${first.title.split('—')[0].split('Concept')[0].trim()} (${count} files)`
                     : first.title;
 
-                  if (hasLink) {
+                  const hasSource = !!first.sourceUrl;
+
+                  if (hasLink || hasSource) {
                     return (
-                      <Link key={key} href={first.portalLink!} className="flex items-center gap-2 text-xs group/att">
+                      <div key={key} className="flex items-center gap-3 text-xs">
                         {formatBadge}
-                        <span className="text-secondary/80 group-hover/att:text-secondary group-hover/att:underline underline-offset-2 transition-colors">
-                          {label}
+                        <span className="text-slate/70">{label}</span>
+                        <span className="flex items-center gap-2 ml-auto">
+                          {hasLink && (
+                            <Link href={first.portalLink!} className="inline-flex items-center gap-1 text-secondary/60 hover:text-secondary transition-colors group/att">
+                              <span className="group-hover/att:underline underline-offset-2">Analysis</span>
+                              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                              </svg>
+                            </Link>
+                          )}
+                          {hasSource && (
+                            <a href={first.sourceUrl!} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-secondary/60 hover:text-secondary transition-colors group/src">
+                              <span className="group-hover/src:underline underline-offset-2">Source</span>
+                              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                              </svg>
+                            </a>
+                          )}
                         </span>
-                        <span className="text-[9px] text-secondary/40">→</span>
-                      </Link>
+                      </div>
                     );
                   }
 
