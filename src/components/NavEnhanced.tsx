@@ -312,8 +312,15 @@ export default function NavEnhanced() {
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            className="text-lg font-bold text-white hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-secondary rounded-md"
+            className="flex items-center gap-2 text-lg font-bold text-white hover:text-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-secondary rounded-md"
           >
+            <Image
+              src="/logos/hisagen-logo-v1-light.png"
+              alt="HISAGEN logo"
+              width={32}
+              height={32}
+              className="object-contain"
+            />
             HISAGEN
           </Link>
           <div className="hidden sm:flex items-center gap-2">

@@ -6,6 +6,7 @@
  */
 
 import Link from "next/link";
+import Image from "next/image";
 
 interface NavItem {
   title: string;
@@ -95,11 +96,20 @@ export default function HomePage() {
       <header className="bg-primary text-white">
         <div className="mx-auto max-w-5xl px-6 py-8">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/60 mb-1">
-                Internal Portal
-              </p>
-              <h1 className="text-2xl font-serif font-bold">HISAGEN</h1>
+            <div className="flex items-center gap-4">
+              <Image
+                src="/logos/hisagen-logo-v1-light.png"
+                alt="HISAGEN logo"
+                width={64}
+                height={64}
+                className="object-contain"
+              />
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/60 mb-1">
+                  Internal Portal
+                </p>
+                <h1 className="text-2xl font-serif font-bold">HISAGEN</h1>
+              </div>
             </div>
             <div className="flex items-center gap-3">
               <span className="px-3 py-1 text-xs rounded-full bg-secondary text-white font-medium">
