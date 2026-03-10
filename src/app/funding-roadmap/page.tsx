@@ -12,7 +12,6 @@ import {
   applicationTimeline,
   landscapeStats,
   grantPhases,
-  strategicRecommendations,
   keirActionItems,
 } from "../../data/funding-landscape";
 import type { CuratedFunder, GrantPhase, PhaseStatus } from "../../data/funding-landscape";
@@ -490,39 +489,22 @@ function PhaseAccordion({ phase, isOpen, onToggle }: { phase: GrantPhase; isOpen
 
 function ForProfitConstraintBanner() {
   return (
-    <div className="mb-6 rounded-2xl border-2 border-red-200 bg-red-50/50 p-6">
-      <div className="flex items-start gap-3 mb-4">
-        <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
-          <svg className="w-4 h-4 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+    <div className="mb-6 rounded-xl border border-amber-200 bg-amber-50/40 px-5 py-4">
+      <div className="flex items-start gap-3">
+        <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center shrink-0 mt-0.5">
+          <svg className="w-3 h-3 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
         <div>
-          <h3 className="text-sm font-bold text-red-800 mb-1">For-Profit Eligibility Constraint</h3>
-          <p className="text-xs text-red-700 leading-relaxed">
-            Both HISAGEN entities are for-profit limited companies. This disqualifies HISAGEN from
-            the majority of traditional grant funders, which require nonprofit/NGO/501(c)(3) status.
-            <strong> 8 of 11 scored funders are ineligible</strong> for direct application.
-            Only {eligibleFunders.length} funders explicitly accept for-profit applicants.
+          <p className="text-xs text-amber-900 leading-relaxed">
+            <strong>Note:</strong> Both HISAGEN entities are for-profit limited companies. Traditional grant funders
+            (nonprofit/NGO-only) are largely ineligible. The pipeline below focuses on funders that explicitly
+            accept for-profit applicants &mdash; venture philanthropy, DFI windows, government innovation programmes,
+            and impact-focused accelerators.
           </p>
         </div>
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-        {strategicRecommendations.map((rec) => (
-          <div key={rec.id} className="p-4 rounded-xl bg-white border border-red-100">
-            <h4 className="text-xs font-bold text-secondary mb-1">{rec.title}</h4>
-            <p className="text-[11px] text-slate leading-relaxed mb-2">{rec.description}</p>
-            <p className="text-[10px] font-medium text-primary">{rec.impact}</p>
-          </div>
-        ))}
-      </div>
-
-      <p className="mt-4 text-[10px] text-red-600 font-medium">
-        This is the most important strategic decision for Keir to make. It determines whether HISAGEN
-        pursues the traditional grant route (via nonprofit entity), the partner route, or pivots
-        to for-profit-friendly capital sources.
-      </p>
     </div>
   );
 }
