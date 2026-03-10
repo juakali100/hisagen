@@ -12,7 +12,7 @@
 **Tagline:**
 > HISAGEN is a strategic platform born from the intersection of agricultural operations and systems design.
 
-**Full Name:** High Impact Soil/Seed Application for Greener Environments
+**Full Name:** High Impact Soil (or Seed) Application for a Greener Environment
 
 ---
 

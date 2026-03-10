@@ -523,7 +523,7 @@ export const communications: CommunicationEntry[] = [
       },
     ],
     synthesis: [
-      'Follow-up from initial phone call confirming HISAGEN (High Impact Soil/Seed Application for Greener Environments) incorporation.',
+      'Follow-up from initial phone call confirming HISAGEN (High Impact Soil (or Seed) Application for a Greener Environment) incorporation.',
       "Keir is actively in talks with potential investors but currently cash-constrained ('hold onto the day job for now').",
       'Partnership with Locus AG confirmed, starting with a test pilot of microbial products in Uganda.',
       'Core strategy: Leverage Scope 3 carbon credits via CarbonNow to record, capture, and trade credits.',

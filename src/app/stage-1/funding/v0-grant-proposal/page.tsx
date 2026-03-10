@@ -24,7 +24,7 @@ export default function V0GrantProposalPage() {
           HISAGEN Grant Funding Proposal
         </h1>
         <p className="mt-4 text-base text-slate italic">
-          High Impact Seed Application for Greener Environments
+          High Impact Soil (or Seed) Application for a Greener Environment
         </p>
         <p className="mt-6 text-lg text-slate leading-relaxed max-w-3xl">
           Foundation grant proposal with research-backed Statement of Need and full evidence citations.
@@ -102,7 +102,7 @@ export default function V0GrantProposalPage() {
           <div>
             <h3 className="text-base font-bold text-secondary mb-3">The Challenge</h3>
             <p className="text-base text-slate leading-relaxed">
-              HISAGEN (High Impact Seed Application for Greener Environments) addresses the critical challenge
+              HISAGEN (High Impact Soil (or Seed) Application for a Greener Environment) addresses the critical challenge
               facing smallholder farmers in East Africa: declining soil fertility, increasing fertilizer costs, and
               vulnerability to climate change impacts that threaten food security and farmer livelihoods.
             </p>

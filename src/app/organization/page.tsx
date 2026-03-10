@@ -70,7 +70,7 @@ export default function OrganizationPage() {
                 </p>
                 <div className="mt-8 pt-6 border-t border-mist/50">
                     <p className="text-[10px] text-slate/60 uppercase tracking-[0.3em] text-center">
-                        High Impact Soil/Seed Application for Greener Environments
+                        High Impact Soil (or Seed) Application for a Greener Environment
                     </p>
                 </div>
             </section>
