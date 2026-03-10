@@ -496,7 +496,7 @@ export const grantPhases: GrantPhase[] = [
     name: "Landscape Scanning",
     status: "complete",
     statusLabel: "Complete",
-    description: "Phase B: traditional grant landscape (11 funders, 4 categories). Phase F: for-profit-friendly scan (7 new funders across venture philanthropy, DFIs, accelerators, government programmes).",
+    description: "40 funders researched, 18 shortlisted and scored across 8 categories including traditional grants, venture philanthropy, DFI windows, accelerators, and government innovation programmes.",
   },
   {
     number: 3,
@@ -517,7 +517,7 @@ export const grantPhases: GrantPhase[] = [
     name: "Due Diligence &amp; Eligibility",
     status: "complete",
     statusLabel: "Complete",
-    description: "For-profit eligibility filter applied (Phase E). 8 of 11 traditional funders ineligible. Phase F scan discovered 7 for-profit-friendly funders. Pipeline rebuilt: 6 Tier 1, 4 Tier 2.",
+    description: "For-profit eligibility filter applied. Traditional grant funders largely ineligible. Pipeline rebuilt around for-profit-friendly capital: 6 Tier 1, 4 Tier 2 eligible funders.",
   },
   {
     number: 6,
@@ -663,7 +663,7 @@ export const strategicRecommendations: StrategicRecommendation[] = [
     id: "for-profit-capital",
     title: "Pursue For-Profit-Friendly Capital (Active)",
     description:
-      "Phase F scan complete. Venture philanthropy (DRK, Echoing Green), DFI windows (START II, Acumen/ARAF), government programmes (DIV, SBIR), and accelerators (Village Capital) form a $500K-$4.5M+ pipeline. These funders are designed for companies like HISAGEN.",
+      "Venture philanthropy (DRK, Echoing Green), DFI windows (START II, Acumen/ARAF), government programmes (DIV, SBIR), and accelerators (Village Capital) form a $500K-$4.5M+ pipeline. These funders are designed for companies like HISAGEN.",
     impact: "Active pipeline: 6 Tier 1 + 4 Tier 2 eligible funders. START II and Acumen/ARAF actionable immediately.",
   },
   {
