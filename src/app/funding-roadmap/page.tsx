@@ -157,8 +157,8 @@ function Phase2Content() {
           <p className="text-[10px] uppercase tracking-widest text-slate/60 mt-1">Researched</p>
         </div>
         <div className="p-3 rounded-lg border border-mist bg-white text-center">
-          <p className="text-2xl font-bold text-secondary">{landscapeStats.totalShortlisted}</p>
-          <p className="text-[10px] uppercase tracking-widest text-slate/60 mt-1">Shortlisted</p>
+          <p className="text-2xl font-bold text-secondary">{landscapeStats.totalScored}</p>
+          <p className="text-[10px] uppercase tracking-widest text-slate/60 mt-1">Scored</p>
         </div>
         <div className="p-3 rounded-lg border-2 border-emerald-200 bg-emerald-50 text-center">
           <p className="text-2xl font-bold text-emerald-700">{landscapeStats.eligibleTier1Count}</p>

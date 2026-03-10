@@ -1,9 +1,9 @@
 // HISAGEN Funding Landscape Data
 // Source of truth: HISAGEN-FUNDER-PIPELINE.md (delivery/grants-fundraising/02-landscape-scanning/)
-// Phase E: for-profit eligibility filter (2026-03-10) — 8 of 11 traditional funders ineligible
-// Phase F: for-profit-friendly scan (2026-03-10) — 7 new funders from venture philanthropy, DFIs, accelerators, govt programmes
+// Phase E: for-profit eligibility filter — 8 of 11 traditional funders ineligible
+// Phase F: for-profit-friendly scan — verified funders only (removed Village Capital, SBIR/STTR; reclassified START II, DIV)
 // Sync chain: Pipeline tracker -> this file -> page renders
-// Last synced: 2026-03-10 (Phase F)
+// Last synced: 2026-03-10 (post-verification)
 
 export type FunderTier = "tier1" | "tier2";
 export type FunderCategory =
@@ -14,7 +14,6 @@ export type FunderCategory =
   | "accelerator"
   | "venture-philanthropy"
   | "dfi-private-sector"
-  | "government-innovation"
   | "impact-fund";
 
 export type EligibilityStatus =
@@ -184,44 +183,25 @@ const allFundersRaw: CuratedFunder[] = [
   // --- TIER 1 (Phase F: for-profit-friendly scan) ---
   {
     id: "start-ii",
-    name: "Uganda START II (Strengthening Agricultural Resilience Through Trade)",
+    name: "Uganda START II (Support to Agricultural Revitalization & Transformation)",
     shortName: "START II",
-    tier: "tier1",
+    tier: "tier2",
     category: "dfi-private-sector",
-    grantRange: "EUR 50,000 - 200,000",
-    grantMin: 50000,
-    grantMax: 200000,
-    currency: "EUR",
-    deadline: "Rolling (current round open)",
-    deadlineNote: "EU-funded via GIZ. Active now \u2014 rolling applications. Check Uganda registration requirements.",
-    applyVia: "HISAGEN Africa Ltd (must be registered in Uganda)",
-    whyStrongFit:
-      "EU-funded programme explicitly targeting private sector agribusinesses in Uganda. Grants, not loans. Bio-fertilizer improving smallholder yields is exactly the mandate. Active NOW with rolling applications.",
-    process: "Application through GIZ Uganda. Requires Uganda-registered entity.",
-    url: "https://www.startfacility.org",
-    eligibility: "eligible",
-    eligibilityNote: "Explicitly targets for-profit agribusinesses. HISAGEN Africa Ltd qualifies. Active rolling applications.",
-    score: 4.35,
-  },
-  {
-    id: "village-capital",
-    name: "Village Capital (VilCap) Africa Agtech Programme",
-    shortName: "Village Capital",
-    tier: "tier1",
-    category: "accelerator",
-    grantRange: "$50,000 - $100,000 (investment, not grant)",
-    grantMin: 50000,
-    grantMax: 100000,
+    grantRange: "UGX 20M-80M reimbursable grant (~$5K-$21K) + UGX 20M-40M TA grant (~$5K-$11K)",
+    grantMin: 5000,
+    grantMax: 21000,
     currency: "USD",
-    deadlineNote: "Monitor for next Africa ag-tech cohort (typically Q2-Q3)",
-    applyVia: "HISAGEN USA Inc. or HISAGEN Africa Ltd",
+    deadline: "Rolling (open year-round)",
+    deadlineNote: "EU-funded via UNCDF. Rolling applications at start.go.ug. Also offers concessional loans via UDB (12% p.a., separate track).",
+    applyVia: "HISAGEN Africa Ltd (must be Uganda-registered, 2+ years operating, 2-100 employees)",
     whyStrongFit:
-      "Venture-first accelerator model \u2014 explicitly funds for-profit companies. 12-week programme + investment. Past Africa cohorts included ag-tech and climate resilience. Peer-selection model (entrepreneurs choose who gets funded).",
-    process: "Competitive application when cohort opens. 12-week programme.",
-    url: "https://vilcap.com",
+      "EU/UNCDF programme targeting agribusiness SMEs in Uganda. For-profit eligible. Offers reimbursable grants (zero-interest, repay principal in 6-18 months), TA grants for certifications, BDS support, and concessional loan linkage via UDB.",
+    process: "Online application at start.go.ug. 4-stage selection: longlisting, shortlisting, due diligence, proposal development. 25% equity contribution required.",
+    consideration: "Primary products are loans (12% via UDB) and reimbursable grants (zero-interest, repay principal). True grants only for TA (certifications, compliance). Not the large grant programme originally assessed.",
+    url: "https://www.psfuganda.org/projects/start-ii-facility.html",
     eligibility: "eligible",
-    eligibilityNote: "For-profit by design. Investment model (equity/convertible note), not grant. Monitor for next Africa ag-tech cohort.",
-    score: 4.35,
+    eligibilityNote: "For-profit eligible. But primarily loans and reimbursable grants, not outright grants. TA grants ($5-11K) for certifications only. Requires 2+ years operating history.",
+    score: 3.10,
   },
   {
     id: "acumen-araf",
@@ -229,39 +209,41 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "Acumen/ARAF",
     tier: "tier1",
     category: "impact-fund",
-    grantRange: "$250,000 - $1,500,000",
-    grantMin: 250000,
-    grantMax: 1500000,
+    grantRange: "$300,000 - $3,000,000 (equity/quasi-equity)",
+    grantMin: 300000,
+    grantMax: 3000000,
     currency: "USD",
-    deadlineNote: "Pipeline-driven. Proactive outreach recommended.",
+    deadlineNote: "Pipeline-driven. No open application. ARAF II ($120M) just began deploying — timing favourable.",
     applyVia: "HISAGEN Africa Ltd (East Africa focus)",
     whyStrongFit:
-      "GCF-backed fund explicitly targeting for-profit early-stage agribusinesses building climate resilience in East Africa. Patient capital (7-10 year horizon). Previous investments include Ugandan agribusinesses.",
-    process: "Pipeline-driven \u2014 no open application window. Requires direct outreach to Acumen East Africa team.",
-    url: "https://acumen.org/investment/acumen-resilient-agriculture-fund/",
+      "GCF-backed fund ($58M Fund I, $120M Fund II approved Oct 2024) explicitly targeting for-profit early-stage agribusinesses building climate resilience in East Africa. Patient capital (5-10 year). 11 portfolio companies include Ugandan agribusinesses. Verified: Uganda explicitly included, for-profit by design.",
+    process: "Pipeline-driven \u2014 no open application. Contact investment team directly (arafund.com/investment-team). ARAF II entering deployment phase 2025-2026.",
+    consideration: "This is equity investment, not a grant. ARAF takes minority equity stake. Minimum $300K \u2014 HISAGEN needs to demonstrate capacity to deploy this capital productively.",
+    url: "https://arafund.com/",
     eligibility: "eligible",
-    eligibilityNote: "Explicitly funds for-profit agribusinesses. Patient capital. Requires proactive outreach to Acumen East Africa.",
+    eligibilityNote: "Verified: for-profit agribusinesses in Uganda explicitly eligible. Equity investment (not grant). ARAF II just started deploying \u2014 actively sourcing deals.",
     score: 4.35,
   },
   {
     id: "div-fund",
-    name: "Development Innovation Ventures (DIV) Fund",
+    name: "DIV Fund (formerly USAID Development Innovation Ventures)",
     shortName: "DIV Fund",
-    tier: "tier1",
-    category: "government-innovation",
+    tier: "tier2",
+    category: "venture-philanthropy",
     grantRange: "$25,000 - $200,000 (Stage 1 Pilot)",
     grantMin: 25000,
     grantMax: 200000,
     currency: "USD",
-    deadlineNote: "Monitor for next call. Previously USAID \u2014 now operates via INVEST mechanism.",
+    deadlineNote: "USAID DIV eliminated Jan 2025. Relaunched Feb 2026 as independent nonprofit (div.fund). Applications expected mid-2026.",
     applyVia: "HISAGEN USA Inc.",
     whyStrongFit:
-      "Tiered evidence-based funding ($25K pilot \u2192 $200K test \u2192 $15M scale). Explicitly accepts for-profit. HISAGEN's NARO trial data positions well for Stage 1 entry. $48M in commitments to date.",
-    process: "Open competition when calls announced. Evidence of impact required.",
-    url: "https://www.usaid.gov/div",
-    eligibility: "eligible",
-    eligibilityNote: "Accepts for-profit. Status uncertain post-USAID reorganisation \u2014 monitor for updated call schedule.",
-    score: 4.30,
+      "Same team (Nobel laureate Michael Kremer as Scientific Director), same evidence-based model ($25K pilot, $200K test, $15M scale). $48M raised from private donors. For-profit eligible. HISAGEN's NARO trial data fits Stage 1.",
+    process: "Applications expected to open mid-2026. Monitor div.fund for announcements.",
+    consideration: "USAID version shut down Jan 2025 (Trump admin). New nonprofit version launched Feb 19, 2026 with private funding. Smaller budget ($48M total vs $40M+/year). Not yet accepting applications.",
+    url: "https://www.div.fund/",
+    eligibility: "conditional",
+    eligibilityNote: "Likely accepts for-profit (same model). Not yet accepting applications \u2014 expected mid-2026. Monitor div.fund.",
+    score: 3.60,
   },
   {
     id: "draper-richards-kaplan",
@@ -269,19 +251,20 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "DRK Foundation",
     tier: "tier1",
     category: "venture-philanthropy",
-    grantRange: "$100,000/year for 3 years ($300,000 total)",
+    grantRange: "Up to $300,000 over 3 years + $500K in-kind support",
     grantMin: 100000,
     grantMax: 300000,
     currency: "USD",
-    deadline: "Rolling applications",
-    deadlineNote: "Rolling. Highly competitive (~2,500 applications, 10-12 selected/year).",
+    deadline: "Rolling applications (year-round)",
+    deadlineNote: "Rolling. ~2,500 applications/year, 10-12 selected. 8-10 week initial review, 3-6 months total process.",
     applyVia: "HISAGEN USA Inc.",
     whyStrongFit:
-      "3-year unrestricted venture philanthropy. Explicitly accepts for-profit: 'We look for exceptional leaders... regardless of whether they've chosen a for-profit or nonprofit structure.' Past portfolio includes ag-tech and climate companies.",
-    process: "Online application. Multi-stage review. Board-level decision.",
+      "Verified: explicitly accepts for-profit. Quote: 'impact first, mission-driven for-profit entities, including C corporations, B corporations.' $188M assets, 280 organisations funded. Recent portfolio: Mati Carbon (2025, soil restoration for smallholders in Africa \u2014 nearly identical to HISAGEN). Africa + agriculture = priority sectors.",
+    process: "Online application at drkfoundation.org/apply. Multi-stage: 20% advance to interviews, <10% to diligence, board decision. DRK takes board seat for 3 years.",
+    consideration: "For for-profits: investment capital (not grant). Terms negotiated case-by-case. DRK takes board seat + expects weekly conversations. Total package ~$800K (cash + in-kind). Seed to Series A stage.",
     url: "https://www.drkfoundation.org/apply/",
     eligibility: "eligible",
-    eligibilityNote: "Explicitly accepts for-profit. Unrestricted $100K/year for 3 years. Highly competitive.",
+    eligibilityNote: "Verified: for-profit explicitly accepted. Investment capital for for-profits (not grant). Board seat required. Mati Carbon (2025) = direct precedent for HISAGEN's model.",
     score: 4.10,
   },
   // --- TIER 2 ---
@@ -341,33 +324,14 @@ const allFundersRaw: CuratedFunder[] = [
     eligibilityNote: "Accepts private sector with 25% co-financing. No current open call — monitor monthly.",
     score: 3.75,
   },
-  // --- TIER 2 (Phase F: for-profit-friendly scan) ---
-  {
-    id: "sbir-sttr",
-    name: "SBIR/STTR (Small Business Innovation Research)",
-    shortName: "SBIR/STTR",
-    tier: "tier2",
-    category: "government-innovation",
-    grantRange: "$50,000 - $275,000 (Phase I)",
-    grantMin: 50000,
-    grantMax: 275000,
-    currency: "USD",
-    deadlineNote: "Multiple agencies (USDA, EPA, DOE). Each has own cycle. Check SBIR.gov.",
-    applyVia: "HISAGEN USA Inc. (US small business required)",
-    whyStrongFit:
-      "US government's primary for-profit R&D grant programme. USDA and EPA have relevant topic areas (agricultural innovation, environmental technology). Non-dilutive. HISAGEN USA Inc. qualifies as small business.",
-    process: "Competitive application per agency topic. Phase I ($50-275K) \u2192 Phase II ($500K-1.5M).",
-    url: "https://www.sbir.gov",
-    eligibility: "eligible",
-    eligibilityNote: "For-profit by design. Requires US entity (HISAGEN USA Inc.) and principal R&D in US. May need US-based research component.",
-    score: 3.50,
-  },
+  // Village Capital removed: Uganda ineligible, training programme not investment
+  // SBIR/STTR removed: programme expired Sep 2025, domestic R&D requirement blocks Uganda work
   {
     id: "eic-accelerator",
     name: "European Innovation Council (EIC) Accelerator",
     shortName: "EIC Accelerator",
     tier: "tier2",
-    category: "government-innovation",
+    category: "accelerator",
     grantRange: "EUR 500,000 - 2,500,000 (grant) + equity",
     grantMin: 500000,
     grantMax: 2500000,
@@ -496,7 +460,7 @@ export const grantPhases: GrantPhase[] = [
     name: "Landscape Scanning",
     status: "complete",
     statusLabel: "Complete",
-    description: "40 funders researched, 18 shortlisted and scored across 8 categories including traditional grants, venture philanthropy, DFI windows, accelerators, and government innovation programmes.",
+    description: "40 funders researched, 15 scored across 7 categories. Traditional grants, venture philanthropy, DFI windows, and impact funds. All leads verified against primary sources.",
   },
   {
     number: 3,
@@ -517,7 +481,7 @@ export const grantPhases: GrantPhase[] = [
     name: "Due Diligence &amp; Eligibility",
     status: "complete",
     statusLabel: "Complete",
-    description: "For-profit eligibility filter applied. Traditional grant funders largely ineligible. Pipeline rebuilt around for-profit-friendly capital: 6 Tier 1, 4 Tier 2 eligible funders.",
+    description: "For-profit eligibility filter applied. Traditional grant funders largely ineligible. Pipeline rebuilt around verified for-profit-friendly capital: 3 Tier 1, 3 Tier 2 eligible + 3 conditional.",
   },
   {
     number: 6,
@@ -536,14 +500,7 @@ export const applicationTimeline: TimelineEntry[] = [
   // IMMEDIATE (Mar 2026)
   {
     when: "Mar 2026",
-    what: "Register on START platform and prepare application",
-    funder: "Uganda START II",
-    funderId: "start-ii",
-    urgency: "urgent",
-  },
-  {
-    when: "Mar 2026",
-    what: "Initiate contact with Acumen East Africa team",
+    what: "Contact Acumen East Africa investment team (ARAF II actively sourcing)",
     funder: "Acumen/ARAF",
     funderId: "acumen-araf",
     urgency: "urgent",
@@ -565,29 +522,22 @@ export const applicationTimeline: TimelineEntry[] = [
   // SHORT TERM (Apr-Jun 2026)
   {
     when: "Apr 2026",
-    what: "Apply to DRK Foundation (rolling applications)",
+    what: "Apply to DRK Foundation (rolling, review Mati Carbon precedent)",
     funder: "DRK Foundation",
     funderId: "draper-richards-kaplan",
     urgency: "high",
   },
   {
     when: "Q2 2026",
-    what: "Monitor for Africa ag-tech cohort opening",
-    funder: "Village Capital",
-    funderId: "village-capital",
-    urgency: "high",
-  },
-  {
-    when: "Q2 2026",
-    what: "Monitor for DIV call (check post-USAID status)",
-    funder: "DIV Fund",
+    what: "Monitor div.fund for application opening",
+    funder: "DIV Fund (new nonprofit)",
     funderId: "div-fund",
     urgency: "medium",
   },
   // SUMMER 2026
   {
     when: "Jul\u2013Aug 2026",
-    what: "Prepare fellowship application",
+    what: "Prepare fellowship application (recoverable grant for for-profits)",
     funder: "Echoing Green (Sep cycle or early 2027)",
     funderId: "echoing-green",
     urgency: "high",
@@ -607,13 +557,6 @@ export const applicationTimeline: TimelineEntry[] = [
     funderId: "ifad",
     urgency: "medium",
   },
-  {
-    when: "Ongoing",
-    what: "Check SBIR.gov for USDA/EPA topics",
-    funder: "SBIR/STTR",
-    funderId: "sbir-sttr",
-    urgency: "low",
-  },
 ];
 
 // ─────────────────────────────────────────────────────────────
@@ -622,26 +565,14 @@ export const applicationTimeline: TimelineEntry[] = [
 
 export const landscapeStats = {
   totalResearched: 40,
-  totalShortlisted: 18, // 11 Phase B + 7 Phase F
-  // Phase B: traditional grant landscape
-  phaseB: {
-    scored: 11,
-    eligibleAfterFilter: 3,
-    ineligible: 8,
-  },
-  // Phase F: for-profit-friendly scan
-  phaseF: {
-    newFunders: 7,
-    tier1Added: 5,
-    tier2Added: 2,
-  },
-  // Combined pipeline (eligible + conditional only)
-  eligibleTier1Count: 6,
-  eligibleTier2Count: 4,
-  conditionalCount: 2,
-  ineligibleCount: 8,
-  deprioritisedCount: 1,
-  eligiblePipelineValue: "$500K - $4.5M+",
+  totalScored: 15, // 11 original + 4 verified for-profit-friendly (Village Capital + SBIR removed)
+  // Post-verification pipeline
+  eligibleTier1Count: 3, // Echoing Green, ARAF, DRK
+  eligibleTier2Count: 3, // Mulago, IFAD, START II
+  conditionalCount: 3, // AAAP/YouthADAPT, EIC Accelerator, DIV Fund
+  ineligibleCount: 5, // CFH, AFCIA, AfDB TAAT, Rockefeller FILab, TrustAfrica, Noel Buxton
+  deprioritisedCount: 1, // Climate Finance Lab
+  eligiblePipelineValue: "$400K - $3.6M",
   categories: [
     "Climate Adaptation Funds",
     "Agricultural & Food Security Foundations",
@@ -649,8 +580,7 @@ export const landscapeStats = {
     "UK Trusts & Foundations",
     "Venture Philanthropy",
     "DFI Private Sector Windows",
-    "Government Innovation Programmes",
-    "Impact Funds & Accelerators",
+    "Impact Funds",
   ],
 };
 
@@ -661,24 +591,24 @@ export const landscapeStats = {
 export const strategicRecommendations: StrategicRecommendation[] = [
   {
     id: "for-profit-capital",
-    title: "Pursue For-Profit-Friendly Capital (Active)",
+    title: "Pursue Verified For-Profit-Friendly Capital (Active)",
     description:
-      "Venture philanthropy (DRK, Echoing Green), DFI windows (START II, Acumen/ARAF), government programmes (DIV, SBIR), and accelerators (Village Capital) form a $500K-$4.5M+ pipeline. These funders are designed for companies like HISAGEN.",
-    impact: "Active pipeline: 6 Tier 1 + 4 Tier 2 eligible funders. START II and Acumen/ARAF actionable immediately.",
+      "Venture philanthropy (DRK Foundation, Echoing Green), impact funds (Acumen/ARAF), and the new DIV Fund form the core pipeline. All verified against primary sources. DRK and ARAF are the strongest immediate opportunities.",
+    impact: "Verified pipeline: 3 Tier 1 + 3 Tier 2 eligible, 3 conditional. $400K-$3.6M potential. ARAF and DRK actionable now.",
   },
   {
     id: "partner-led",
     title: "Partner-Led Applications (Secondary)",
     description:
       "NARO or university as lead applicant, HISAGEN as implementing partner. Opens some doors (AfDB TAAT, CFH Foundation) but dependent on relationship and slower.",
-    impact: "Partial access to 2-3 traditional funders. Lower priority given for-profit-friendly pipeline now exists.",
+    impact: "Partial access to 2-3 traditional funders via partner route.",
   },
   {
     id: "nonprofit-entity",
     title: "Establish a Nonprofit Entity (Deferred)",
     description:
-      "Create HISAGEN Foundation or Uganda-registered NGO for grant-eligible research work. Would reopen 8 traditional funders. But takes months and may not be a priority given for-profit pipeline.",
-    impact: "Would add $370K-$7.7M traditional pipeline. Deferred pending Keir's view on entity structure.",
+      "Create HISAGEN Foundation or Uganda-registered NGO for grant-eligible research work. Would reopen traditional grant funders. But takes months and may not be a priority.",
+    impact: "Deferred pending Keir's view on entity structure.",
   },
 ];
 
@@ -688,17 +618,17 @@ export const strategicRecommendations: StrategicRecommendation[] = [
 
 export const keirActionItems: KeirAction[] = [
   {
-    id: "start-ii-register",
-    action: "Register on START II platform and confirm HISAGEN Africa Ltd eligibility for current round.",
-    funder: "Uganda START II",
+    id: "acumen-outreach",
+    action: "Contact Acumen East Africa investment team \u2014 ARAF II ($120M) just started deploying. Pipeline-driven, no open application. Direct outreach required.",
+    funder: "Acumen/ARAF",
     byWhen: "This week",
     status: "not-started",
   },
   {
-    id: "acumen-outreach",
-    action: "Initiate contact with Acumen East Africa team \u2014 ARAF is pipeline-driven, needs direct outreach.",
-    funder: "Acumen/ARAF",
-    byWhen: "This week",
+    id: "drk-application",
+    action: "Review DRK Foundation application at drkfoundation.org/apply. Rolling applications. Review Mati Carbon portfolio company (2025, soil restoration for smallholders in Africa \u2014 near-identical model). Note: DRK takes board seat for 3 years.",
+    funder: "DRK Foundation",
+    byWhen: "End of March",
     status: "not-started",
   },
   {
@@ -712,20 +642,6 @@ export const keirActionItems: KeirAction[] = [
     id: "mulago-network",
     action: "Research Mulago network connections \u2014 any contacts through Locus AG, NARO, or ag-tech circles?",
     funder: "Mulago Foundation",
-    byWhen: "End of March",
-    status: "not-started",
-  },
-  {
-    id: "drk-application",
-    action: "Review DRK Foundation application requirements \u2014 rolling applications, strong fit for 3-year venture philanthropy.",
-    funder: "DRK Foundation",
-    byWhen: "April 2026",
-    status: "not-started",
-  },
-  {
-    id: "div-status",
-    action: "Check DIV Fund status post-USAID reorganisation \u2014 is the programme still active?",
-    funder: "DIV Fund",
     byWhen: "End of March",
     status: "not-started",
   },
