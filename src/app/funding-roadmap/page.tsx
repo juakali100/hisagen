@@ -5,69 +5,21 @@ import Link from "next/link";
 import {
   tier1Funders,
   tier2Funders,
+  eligibleFunders,
+  conditionalFunders,
+  ineligibleFunders,
+  deprioritisedFunders,
   applicationTimeline,
   landscapeStats,
+  grantPhases,
+  strategicRecommendations,
+  keirActionItems,
 } from "../../data/funding-landscape";
-import type { CuratedFunder } from "../../data/funding-landscape";
+import type { CuratedFunder, GrantPhase, PhaseStatus } from "../../data/funding-landscape";
 
 // ─────────────────────────────────────────────────────────────
-// Types & Data
+// Style Maps
 // ─────────────────────────────────────────────────────────────
-
-type PhaseStatus = "complete" | "active" | "in-progress" | "not-started" | "foundation-ready";
-
-interface Phase {
-  number: number;
-  name: string;
-  status: PhaseStatus;
-  statusLabel: string;
-  description: string;
-}
-
-const phases: Phase[] = [
-  {
-    number: 1,
-    name: "Vision &amp; Strategy",
-    status: "complete",
-    statusLabel: "Substantial",
-    description: "Theory of Change, funding strategy, adaptation narrative, and programme goals.",
-  },
-  {
-    number: 2,
-    name: "Landscape Scanning",
-    status: "complete",
-    statusLabel: "Complete",
-    description: "Funder identification, scoring, tiering, and category mapping across 4 priority categories.",
-  },
-  {
-    number: 3,
-    name: "Case for Support",
-    status: "active",
-    statusLabel: "Active &mdash; Draft",
-    description: "Master Case for Support and funder-adapted versions for grant applications.",
-  },
-  {
-    number: 4,
-    name: "Donor Engagement",
-    status: "in-progress",
-    statusLabel: "In Progress",
-    description: "Outreach planning, relationship building, warm introductions, and Keir action items.",
-  },
-  {
-    number: 5,
-    name: "Due Diligence",
-    status: "not-started",
-    statusLabel: "Not Started",
-    description: "Eligibility checks, compliance verification, and go/no-go decisions per funder.",
-  },
-  {
-    number: 6,
-    name: "Proposal Development",
-    status: "foundation-ready",
-    statusLabel: "Foundation Ready",
-    description: "Specific proposals tailored per funder, based on CfS and engagement outcomes.",
-  },
-];
 
 const statusStyle: Record<PhaseStatus, string> = {
   "complete": "bg-emerald-100 text-emerald-700 border-emerald-200",
@@ -92,22 +44,49 @@ const urgencyColor: Record<string, string> = {
   low: "bg-slate-100 text-slate-600 border-slate-200",
 };
 
+const eligibilityBadge: Record<string, { label: string; className: string }> = {
+  eligible: { label: "Eligible", className: "bg-emerald-100 text-emerald-700 border-emerald-200" },
+  conditional: { label: "Conditional", className: "bg-amber-100 text-amber-700 border-amber-200" },
+  ineligible: { label: "Ineligible", className: "bg-red-100 text-red-600 border-red-200" },
+  deprioritised: { label: "Deprioritised", className: "bg-slate-100 text-slate-500 border-slate-200" },
+  reclassified: { label: "Reclassified", className: "bg-slate-100 text-slate-500 border-slate-200" },
+};
+
 // ─────────────────────────────────────────────────────────────
-// Accordion Section Components
+// Funder Card Components
 // ─────────────────────────────────────────────────────────────
 
 function FunderCardCompact({ funder }: { funder: CuratedFunder }) {
+  const badge = eligibilityBadge[funder.eligibility];
+  const isInactive = funder.eligibility === "ineligible" || funder.eligibility === "deprioritised";
+
   return (
-    <div className="rounded-xl border border-mist bg-white p-5 hover:shadow-sm transition-shadow">
-      <div className="flex items-start justify-between mb-2">
-        <span
-          className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-primary/10 text-primary"
-          dangerouslySetInnerHTML={{ __html: categoryLabel[funder.category] || funder.category }}
-        />
-        <span className="text-xs font-bold text-accent">{funder.grantRange}</span>
+    <div className={`rounded-xl border p-5 transition-shadow ${
+      isInactive
+        ? "border-slate-200 bg-slate-50/50 opacity-70"
+        : "border-mist bg-white hover:shadow-sm"
+    }`}>
+      <div className="flex items-start justify-between mb-2 gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
+          <span
+            className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-primary/10 text-primary"
+            dangerouslySetInnerHTML={{ __html: categoryLabel[funder.category] || funder.category }}
+          />
+          <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border ${badge.className}`}>
+            {badge.label}
+          </span>
+        </div>
+        <span className="text-xs font-bold text-accent shrink-0">{funder.grantRange}</span>
       </div>
-      <h4 className="text-sm font-bold text-secondary mb-1">{funder.name}</h4>
-      <p className="text-xs text-slate leading-relaxed mb-3">{funder.whyStrongFit}</p>
+      <h4 className={`text-sm font-bold mb-1 ${isInactive ? "text-slate-400" : "text-secondary"}`}>{funder.name}</h4>
+      <p className="text-xs text-slate leading-relaxed mb-2">{funder.whyStrongFit}</p>
+      {funder.eligibilityNote && (
+        <div className={`p-2 rounded text-[10px] leading-relaxed mb-2 ${
+          isInactive ? "bg-red-50 border border-red-100 text-red-700" : "bg-emerald-50 border border-emerald-100 text-emerald-700"
+        }`}>
+          {funder.eligibilityNote}
+        </div>
+      )}
       <div className="flex items-center justify-between pt-3 border-t border-mist text-xs">
         <span className="text-slate/70">{funder.applyVia}</span>
         <span className="font-medium text-secondary">{funder.deadline || funder.deadlineNote || "TBC"}</span>
@@ -120,6 +99,30 @@ function FunderCardCompact({ funder }: { funder: CuratedFunder }) {
     </div>
   );
 }
+
+function FunderCardMini({ funder }: { funder: CuratedFunder }) {
+  const badge = eligibilityBadge[funder.eligibility];
+  const isInactive = funder.eligibility === "ineligible" || funder.eligibility === "deprioritised";
+
+  return (
+    <div className={`rounded-lg border p-4 ${
+      isInactive ? "border-slate-200 bg-slate-50/50 opacity-60" : "border-mist bg-white"
+    }`}>
+      <div className="flex items-center gap-2 mb-1">
+        <h5 className={`text-sm font-bold ${isInactive ? "text-slate-400" : "text-secondary"}`}>{funder.shortName}</h5>
+        <span className={`text-[8px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border ${badge.className}`}>
+          {badge.label}
+        </span>
+      </div>
+      <p className="text-xs text-slate mb-1">{funder.grantRange}</p>
+      <p className="text-[11px] text-slate/70 leading-relaxed">{funder.eligibilityNote}</p>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Phase Content Components
+// ─────────────────────────────────────────────────────────────
 
 function Phase1Content() {
   return (
@@ -148,8 +151,8 @@ function Phase1Content() {
 function Phase2Content() {
   return (
     <div className="space-y-6">
-      {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+      {/* Stats — show both pre- and post-filter */}
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
         <div className="p-3 rounded-lg border border-mist bg-white text-center">
           <p className="text-2xl font-bold text-secondary">{landscapeStats.totalResearched}+</p>
           <p className="text-[10px] uppercase tracking-widest text-slate/60 mt-1">Researched</p>
@@ -158,51 +161,84 @@ function Phase2Content() {
           <p className="text-2xl font-bold text-secondary">{landscapeStats.totalShortlisted}</p>
           <p className="text-[10px] uppercase tracking-widest text-slate/60 mt-1">Shortlisted</p>
         </div>
-        <div className="p-3 rounded-lg border-2 border-primary/30 bg-primary/5 text-center">
-          <p className="text-2xl font-bold text-primary">{landscapeStats.tier1Count}</p>
-          <p className="text-[10px] uppercase tracking-widest text-primary/70 mt-1">Tier 1 Priority</p>
+        <div className="p-3 rounded-lg border-2 border-emerald-200 bg-emerald-50 text-center">
+          <p className="text-2xl font-bold text-emerald-700">{landscapeStats.eligibleTier1Count}</p>
+          <p className="text-[10px] uppercase tracking-widest text-emerald-600 mt-1">Tier 1 Eligible</p>
         </div>
-        <div className="p-3 rounded-lg border border-mist bg-white text-center">
-          <p className="text-2xl font-bold text-secondary">{landscapeStats.totalPipelineValue}</p>
-          <p className="text-[10px] uppercase tracking-widest text-slate/60 mt-1">Pipeline Value</p>
+        <div className="p-3 rounded-lg border-2 border-emerald-200 bg-emerald-50 text-center">
+          <p className="text-2xl font-bold text-emerald-700">{landscapeStats.eligibleTier2Count}</p>
+          <p className="text-[10px] uppercase tracking-widest text-emerald-600 mt-1">Tier 2 Eligible</p>
+        </div>
+        <div className="p-3 rounded-lg border-2 border-primary/30 bg-primary/5 text-center">
+          <p className="text-lg font-bold text-primary">{landscapeStats.eligiblePipelineValue}</p>
+          <p className="text-[10px] uppercase tracking-widest text-primary/70 mt-1">Eligible Value</p>
         </div>
       </div>
 
-      {/* Tier 1 Funders */}
+      {/* Eligible Funders — prominent */}
       <div>
         <div className="flex items-center gap-2 mb-3">
-          <div className="w-2 h-2 rounded-full bg-primary" />
+          <div className="w-2 h-2 rounded-full bg-emerald-500" />
           <h5 className="text-xs font-bold text-secondary uppercase tracking-widest">
-            Tier 1: Priority Pursue
+            Eligible Funders (For-Profit Accepted)
           </h5>
-          <span className="text-xs text-slate/60">{landscapeStats.tier1PipelineValue}</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {tier1Funders.map((funder) => (
+          {eligibleFunders.map((funder) => (
             <FunderCardCompact key={funder.id} funder={funder} />
           ))}
         </div>
       </div>
 
-      {/* Tier 2 Funders */}
+      {/* Conditional */}
+      {conditionalFunders.length > 0 && (
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-2 h-2 rounded-full bg-amber-400" />
+            <h5 className="text-xs font-bold text-secondary uppercase tracking-widest">
+              Conditional Eligibility
+            </h5>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {conditionalFunders.map((funder) => (
+              <FunderCardCompact key={funder.id} funder={funder} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Ineligible — collapsed/greyed */}
       <div>
         <div className="flex items-center gap-2 mb-3">
-          <div className="w-2 h-2 rounded-full bg-accent" />
-          <h5 className="text-xs font-bold text-secondary uppercase tracking-widest">
-            Tier 2: Strong Fit
+          <div className="w-2 h-2 rounded-full bg-red-300" />
+          <h5 className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+            Ineligible (For-Profit Cannot Apply Directly)
           </h5>
-          <span className="text-xs text-slate/60">{landscapeStats.tier2PipelineValue}</span>
+          <span className="text-[10px] text-slate/50">{ineligibleFunders.length} funders</span>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {tier2Funders.map((funder) => (
-            <div key={funder.id} className="rounded-lg border border-mist bg-white p-4">
-              <h5 className="text-sm font-bold text-secondary mb-1">{funder.shortName}</h5>
-              <p className="text-xs text-slate mb-2">{funder.grantRange}</p>
-              <p className="text-[11px] text-slate/70 leading-relaxed">{funder.whyStrongFit}</p>
-            </div>
+          {ineligibleFunders.map((funder) => (
+            <FunderCardMini key={funder.id} funder={funder} />
           ))}
         </div>
       </div>
+
+      {/* Deprioritised */}
+      {deprioritisedFunders.length > 0 && (
+        <div>
+          <div className="flex items-center gap-2 mb-3">
+            <div className="w-2 h-2 rounded-full bg-slate-300" />
+            <h5 className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+              Deprioritised
+            </h5>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {deprioritisedFunders.map((funder) => (
+              <FunderCardMini key={funder.id} funder={funder} />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -212,7 +248,7 @@ function Phase3Content() {
     <div className="space-y-4">
       <p className="text-sm text-slate leading-relaxed">
         Master Case for Support drafted (8 sections, ~23,000 words) plus Foundation Summary
-        for quick-read format. Ready for Keir review and funder adaptation.
+        for quick-read format. Base Proposal created (10 reusable blocks). Ready for Keir review and funder adaptation.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {[
@@ -231,7 +267,7 @@ function Phase3Content() {
         <p className="text-xs text-slate">
           <strong className="text-secondary">Next:</strong> Review funding tier amounts with Keir
           ($50&ndash;75K / $150&ndash;250K / $500K&ndash;1M) and begin funder-specific adaptations
-          starting with CFH Foundation concept note and AAAP consortium approach.
+          starting with Echoing Green fellowship narrative.
         </p>
       </div>
     </div>
@@ -242,39 +278,40 @@ function Phase4Content() {
   return (
     <div className="space-y-4">
       <p className="text-sm text-slate leading-relaxed">
-        Approach strategy defined for all 5 Tier 1 funders. 3 are open-application
-        (no warm path needed). Warm paths identified for consortium opportunities.
+        Approach strategy defined for eligible funders. Post-eligibility filter, only {eligibleFunders.length} funders
+        are directly accessible, plus {conditionalFunders.length} conditional.
       </p>
+
+      {/* Eligible funder approaches */}
       <div className="space-y-2">
-        {[
-          { funder: "CFH Foundation", approach: "Open application", note: "Online portal. Most accessible. Jun 15 concept note.", urgency: "medium" as const },
-          { funder: "AFCIA", approach: "Via UNDP Uganda", note: "Contact UNDP country office. Keir/Daniel to lead.", urgency: "high" as const },
-          { funder: "AAAP (GCA)", approach: "Consortium (NARO)", note: "EUR 500K min requires consortium. NARO is existing relationship.", urgency: "high" as const },
-          { funder: "Echoing Green", approach: "Open application", note: "Fellowship. Opens Sep 2026. Via HISAGEN USA.", urgency: "low" as const },
-          { funder: "AfDB TAAT", approach: "Monitor for CFP", note: "No open route currently. Perfect mandate alignment.", urgency: "low" as const },
-        ].map((item) => (
-          <div key={item.funder} className="flex items-center gap-4 p-3 rounded-lg border border-mist bg-white">
-            <div className="flex-1">
-              <p className="text-sm font-bold text-secondary">{item.funder}</p>
-              <p className="text-xs text-slate" dangerouslySetInnerHTML={{ __html: item.note }} />
+        {[...eligibleFunders, ...conditionalFunders].map((funder) => {
+          const badge = eligibilityBadge[funder.eligibility];
+          return (
+            <div key={funder.id} className="flex items-center gap-4 p-3 rounded-lg border border-mist bg-white">
+              <div className="flex-1">
+                <p className="text-sm font-bold text-secondary">{funder.shortName}</p>
+                <p className="text-xs text-slate">{funder.process || funder.applyVia}</p>
+              </div>
+              <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border shrink-0 ${badge.className}`}>
+                {badge.label}
+              </span>
+              <span className="text-xs text-slate/60 shrink-0">{funder.deadline || funder.deadlineNote || "TBC"}</span>
             </div>
-            <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded shrink-0 bg-slate-100 text-slate-600">
-              {item.approach}
-            </span>
-            <span className={`text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border shrink-0 ${urgencyColor[item.urgency]}`}>
-              {item.urgency}
-            </span>
-          </div>
-        ))}
+          );
+        })}
       </div>
+
+      {/* Keir action items — from data */}
       <div className="p-4 rounded-lg bg-amber-50 border border-amber-100">
         <h5 className="text-xs font-bold text-amber-800 mb-2">Keir Action Items</h5>
         <ul className="space-y-1 text-xs text-amber-700">
-          <li>&bull; Contact UNDP Uganda re: AFCIA timing and process</li>
-          <li>&bull; Confirm NARO willingness for AAAP consortium</li>
-          <li>&bull; Review CfS funding tier amounts</li>
-          <li>&bull; Provide Uganda team contacts for in-country coordination</li>
-          <li>&bull; Confirm Locus AG letter of support availability</li>
+          {keirActionItems.map((item) => (
+            <li key={item.id}>
+              &bull; {item.action}
+              {item.funder && <span className="text-amber-500"> ({item.funder})</span>}
+              <span className="text-amber-400"> &mdash; {item.byWhen}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
@@ -284,25 +321,46 @@ function Phase4Content() {
 function Phase5Content() {
   return (
     <div className="space-y-4">
-      <p className="text-sm text-slate leading-relaxed">
-        Eligibility checks will be run against each Tier 1 funder before proposal work begins.
-        This phase produces a go/no-go decision for each opportunity.
-      </p>
+      <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-200">
+        <p className="text-sm font-bold text-emerald-800 mb-1">For-Profit Eligibility Filter Applied</p>
+        <p className="text-xs text-emerald-700 leading-relaxed">
+          Both HISAGEN entities are for-profit limited companies. Applied eligibility filter across all
+          11 scored funders on 2026-03-10. Result: <strong>8 of 11 ineligible</strong> for direct application.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="p-3 rounded-lg border-2 border-emerald-200 bg-emerald-50 text-center">
+          <p className="text-2xl font-bold text-emerald-700">{eligibleFunders.length}</p>
+          <p className="text-[10px] uppercase tracking-widest text-emerald-600 mt-1">Eligible</p>
+        </div>
+        <div className="p-3 rounded-lg border border-amber-200 bg-amber-50 text-center">
+          <p className="text-2xl font-bold text-amber-700">{conditionalFunders.length}</p>
+          <p className="text-[10px] uppercase tracking-widest text-amber-600 mt-1">Conditional</p>
+        </div>
+        <div className="p-3 rounded-lg border border-red-200 bg-red-50 text-center">
+          <p className="text-2xl font-bold text-red-600">{ineligibleFunders.length}</p>
+          <p className="text-[10px] uppercase tracking-widest text-red-500 mt-1">Ineligible</p>
+        </div>
+        <div className="p-3 rounded-lg border border-slate-200 bg-slate-50 text-center">
+          <p className="text-2xl font-bold text-slate-500">{deprioritisedFunders.length}</p>
+          <p className="text-[10px] uppercase tracking-widest text-slate-400 mt-1">Deprioritised</p>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {[
-          { check: "Entity Eligibility", desc: "Which HISAGEN entity (USA or Africa) is eligible to apply?" },
-          { check: "Compliance Requirements", desc: "Registration, audit history, governance standards met?" },
-          { check: "Capacity Assessment", desc: "Can HISAGEN deliver the proposed scope with current team?" },
+          { check: "Entity Eligibility", desc: "Both HISAGEN entities are for-profit. Most traditional grant funders require nonprofit/NGO/501(c)(3) status.", result: "8 of 11 ineligible" },
+          { check: "Eligible Pipeline", desc: "Echoing Green (Tier 1), Mulago Foundation (Tier 2), IFAD (Tier 2). All explicitly accept for-profit applicants.", result: `${landscapeStats.eligiblePipelineValue}` },
+          { check: "Conditional", desc: "AAAP/YouthADAPT requires founder aged 18-35. Keir must confirm age eligibility.", result: "Pending Keir" },
         ].map((item) => (
-          <div key={item.check} className="p-4 rounded-lg border border-dashed border-slate-200 bg-slate-50/50">
-            <h5 className="text-xs font-bold text-slate-500 mb-1">{item.check}</h5>
-            <p className="text-[11px] text-slate/70">{item.desc}</p>
+          <div key={item.check} className="p-4 rounded-lg border border-mist bg-white">
+            <h5 className="text-xs font-bold text-secondary mb-1">{item.check}</h5>
+            <p className="text-[11px] text-slate/70 mb-2">{item.desc}</p>
+            <p className="text-xs font-bold text-primary">{item.result}</p>
           </div>
         ))}
       </div>
-      <p className="text-xs text-slate/60 italic">
-        Planned for Q2 2026, prioritising CFH Foundation and AAAP first.
-      </p>
     </div>
   );
 }
@@ -311,14 +369,14 @@ function Phase6Content() {
   return (
     <div className="space-y-4">
       <p className="text-sm text-slate leading-relaxed">
-        V0 Grant Proposal exists as a comprehensive base document. Funder-specific proposals
-        will be developed from the CfS and adapted using the audience guide methodology.
+        Base Proposal created (10 reusable blocks). Funder-specific proposals
+        will be developed for eligible funders only.
       </p>
 
-      {/* Application Timeline */}
+      {/* Application Timeline — eligible funders only */}
       <div>
         <h5 className="text-xs font-bold text-secondary uppercase tracking-widest mb-3">
-          Application Timeline
+          Application Timeline (Eligible Funders)
         </h5>
         <div className="rounded-xl border border-mist bg-white overflow-hidden">
           <div className="divide-y divide-mist">
@@ -342,10 +400,11 @@ function Phase6Content() {
         </div>
       </div>
 
-      <div className="p-4 rounded-lg bg-amber-50 border border-amber-200">
-        <p className="text-xs text-amber-800">
-          <strong>Most Urgent:</strong> AFCIA &mdash; contact UNDP Uganda to confirm timing and process.
-          AAAP concept note due May 15, 2026. CFH Foundation concept note due June 15, 2026.
+      <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
+        <p className="text-xs text-slate">
+          <strong className="text-secondary">Priority:</strong> Echoing Green is the only directly accessible,
+          high-scoring, for-profit-eligible Tier 1 opportunity. Prepare fellowship application Jul&ndash;Aug 2026.
+          Mulago requires referral pathway &mdash; start network building now.
         </p>
       </div>
     </div>
@@ -365,7 +424,7 @@ const phaseContentMap: Record<number, () => React.ReactNode> = {
 // Accordion Component
 // ─────────────────────────────────────────────────────────────
 
-function PhaseAccordion({ phase, isOpen, onToggle }: { phase: Phase; isOpen: boolean; onToggle: () => void }) {
+function PhaseAccordion({ phase, isOpen, onToggle }: { phase: GrantPhase; isOpen: boolean; onToggle: () => void }) {
   const PhaseContent = phaseContentMap[phase.number];
 
   return (
@@ -426,6 +485,49 @@ function PhaseAccordion({ phase, isOpen, onToggle }: { phase: Phase; isOpen: boo
 }
 
 // ─────────────────────────────────────────────────────────────
+// For-Profit Constraint Banner
+// ─────────────────────────────────────────────────────────────
+
+function ForProfitConstraintBanner() {
+  return (
+    <div className="mb-6 rounded-2xl border-2 border-red-200 bg-red-50/50 p-6">
+      <div className="flex items-start gap-3 mb-4">
+        <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
+          <svg className="w-4 h-4 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+          </svg>
+        </div>
+        <div>
+          <h3 className="text-sm font-bold text-red-800 mb-1">For-Profit Eligibility Constraint</h3>
+          <p className="text-xs text-red-700 leading-relaxed">
+            Both HISAGEN entities are for-profit limited companies. This disqualifies HISAGEN from
+            the majority of traditional grant funders, which require nonprofit/NGO/501(c)(3) status.
+            <strong> 8 of 11 scored funders are ineligible</strong> for direct application.
+            Only {eligibleFunders.length} funders explicitly accept for-profit applicants.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        {strategicRecommendations.map((rec) => (
+          <div key={rec.id} className="p-4 rounded-xl bg-white border border-red-100">
+            <h4 className="text-xs font-bold text-secondary mb-1">{rec.title}</h4>
+            <p className="text-[11px] text-slate leading-relaxed mb-2">{rec.description}</p>
+            <p className="text-[10px] font-medium text-primary">{rec.impact}</p>
+          </div>
+        ))}
+      </div>
+
+      <p className="mt-4 text-[10px] text-red-600 font-medium">
+        This is the most important strategic decision for Keir to make. It determines whether HISAGEN
+        pursues the traditional grant route (via nonprofit entity), the partner route, or pivots
+        to for-profit-friendly capital sources.
+      </p>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
 // Page
 // ─────────────────────────────────────────────────────────────
 
@@ -442,7 +544,7 @@ export default function CapitalStrategyPage() {
     });
   };
 
-  const expandAll = () => setOpenPhases(new Set([1, 2, 3, 4, 5, 6]));
+  const expandAll = () => setOpenPhases(new Set(grantPhases.map((p) => p.number)));
   const collapseAll = () => setOpenPhases(new Set());
 
   return (
@@ -535,8 +637,8 @@ export default function CapitalStrategyPage() {
                   impact data. The primary capital source for incubation-stage projects.
                 </p>
                 <div className="flex flex-wrap gap-x-6 gap-y-1 text-xs text-primary font-medium">
-                  <span>&rarr; {landscapeStats.totalPipelineValue} pipeline value</span>
-                  <span>&rarr; 5 Tier 1 funders identified</span>
+                  <span>&rarr; {landscapeStats.eligiblePipelineValue} eligible pipeline</span>
+                  <span>&rarr; {landscapeStats.eligibleTier1Count} Tier 1 + {landscapeStats.eligibleTier2Count} Tier 2 eligible</span>
                   <span>&rarr; 6-phase methodology below</span>
                 </div>
               </div>
@@ -641,8 +743,8 @@ export default function CapitalStrategyPage() {
                   HISAGEN&rsquo;s dual-entity structure and farmer livelihood mission align strongly with impact mandates.
                 </p>
                 <div className="flex flex-wrap gap-x-6 gap-y-1 text-xs text-slate/70 font-medium">
-                  <span>&rarr; Mulago Foundation ($100K fellowship + $340K portfolio)</span>
-                  <span>&rarr; Rockefeller FILab ($100K first round, follow-on to $2.5M)</span>
+                  <span>&rarr; Mulago Foundation ($100K fellowship + $340K portfolio) &mdash; for-profit eligible</span>
+                  <span>&rarr; IFAD (up to $1.5M, 25% co-financing) &mdash; for-profit eligible</span>
                 </div>
               </div>
               <div className="md:w-48 shrink-0 p-3 rounded-xl bg-parchment/40 border border-mist">
@@ -759,6 +861,9 @@ export default function CapitalStrategyPage() {
         {/* ── Tab: Grants & Philanthropy ───────────────────── */}
         {activePathway === "grants" && (
           <div>
+            {/* For-profit constraint banner — most important thing */}
+            <ForProfitConstraintBanner />
+
             <div className="mb-6 p-4 rounded-xl bg-primary/5 border border-primary/20">
               <h3 className="text-sm font-bold text-secondary mb-1">Grant Fundraising Process</h3>
               <p className="text-xs text-slate leading-relaxed">
@@ -770,7 +875,7 @@ export default function CapitalStrategyPage() {
             <div className="flex items-center justify-between mb-4">
               {/* Phase progress bar */}
               <div className="flex items-center gap-1">
-                {phases.map((phase) => (
+                {grantPhases.map((phase) => (
                   <div key={phase.number} className="flex items-center">
                     <div className={`w-6 h-1.5 rounded-full ${
                       phase.status === "complete" ? "bg-emerald-400" :
@@ -801,7 +906,7 @@ export default function CapitalStrategyPage() {
             </div>
 
             <div className="space-y-3">
-              {phases.map((phase) => (
+              {grantPhases.map((phase) => (
                 <PhaseAccordion
                   key={phase.number}
                   phase={phase}
@@ -901,7 +1006,6 @@ export default function CapitalStrategyPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Current state */}
               <div className="rounded-xl border-2 border-secondary/20 bg-white p-5">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-primary/10 text-primary">
@@ -931,7 +1035,6 @@ export default function CapitalStrategyPage() {
                 </div>
               </div>
 
-              {/* Typical VC process */}
               <div className="rounded-xl border border-dashed border-slate-200 bg-slate-50/50 p-5">
                 <h4 className="text-xs font-bold text-slate-500 mb-2">Typical Seed / VC Process</h4>
                 <div className="space-y-3">
@@ -954,7 +1057,6 @@ export default function CapitalStrategyPage() {
               </div>
             </div>
 
-            {/* How grant evidence feeds VC */}
             <div className="p-4 rounded-xl border border-mist bg-white">
               <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate/50 mb-2">
                 How Grant Evidence Feeds the Investor Case
@@ -974,7 +1076,6 @@ export default function CapitalStrategyPage() {
               </div>
             </div>
 
-            {/* Placeholder for Keir input */}
             <div className="p-5 rounded-xl border-2 border-dashed border-amber-200 bg-amber-50/50">
               <h4 className="text-xs font-bold text-amber-800 mb-2">For Discussion: Keir&rsquo;s Seed Funding Approach</h4>
               <p className="text-xs text-amber-700 leading-relaxed mb-3">
@@ -1005,33 +1106,40 @@ export default function CapitalStrategyPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Relevant funders from pipeline */}
               <div className="rounded-xl border border-mist bg-white p-5">
                 <h4 className="text-xs font-bold text-secondary uppercase tracking-widest mb-3">
-                  Pipeline Opportunities (Tier 2)
+                  Pipeline Opportunities
                 </h4>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-sm font-bold text-secondary">Mulago Foundation</p>
+                    <div className="flex items-center gap-2 mb-1">
+                      <p className="text-sm font-bold text-secondary">Mulago Foundation</p>
+                      <span className="text-[8px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700 border border-emerald-200">
+                        For-profit eligible
+                      </span>
+                    </div>
                     <p className="text-xs text-primary font-medium mb-1">$100K fellowship + potential $340K portfolio</p>
                     <p className="text-[11px] text-slate leading-relaxed">
-                      Referral-sourced only (no direct applications). Aug&ndash;Oct cycle.
-                      ~60% of fellows convert to long-term portfolio. Excellent fit for HISAGEN&rsquo;s
-                      profile but requires network building.
+                      Explicitly funds for-profits. Referral-sourced only (no direct applications). Aug&ndash;Oct cycle.
+                      ~60% of fellows convert to long-term portfolio.
                     </p>
                   </div>
                   <div className="border-t border-mist pt-4">
-                    <p className="text-sm font-bold text-secondary">Rockefeller Foundation Innovation Lab</p>
-                    <p className="text-xs text-primary font-medium mb-1">$100K first round, follow-on to $2.5M</p>
-                    <p className="text-[11px] text-slate leading-relaxed">
-                      Food security innovation focus. Q3 2026 expected opening. Strong growth
-                      ladder if initial funding secured.
+                    <div className="flex items-center gap-2 mb-1">
+                      <p className="text-sm font-bold text-slate-400 line-through">Rockefeller Foundation Innovation Lab</p>
+                      <span className="text-[8px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded bg-red-100 text-red-600 border border-red-200">
+                        Ineligible
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate/50 font-medium mb-1">$100K first round, follow-on to $2.5M</p>
+                    <p className="text-[11px] text-slate/50 leading-relaxed">
+                      Nonprofit/community organisations only. Previously listed as Tier 2 opportunity &mdash;
+                      ineligible for HISAGEN&rsquo;s for-profit entities.
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Typical impact investing process */}
               <div className="rounded-xl border border-dashed border-slate-200 bg-slate-50/50 p-5">
                 <h4 className="text-xs font-bold text-slate-500 mb-2">Typical Impact Investment Process</h4>
                 <div className="space-y-3">
@@ -1084,19 +1192,24 @@ export default function CapitalStrategyPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="rounded-xl border border-mist bg-white p-5">
                 <h4 className="text-xs font-bold text-secondary uppercase tracking-widest mb-3">
-                  Pipeline Opportunity (Tier 2)
+                  Pipeline Opportunity
                 </h4>
-                <p className="text-sm font-bold text-secondary">Climate Finance Lab</p>
-                <p className="text-xs text-primary font-medium mb-1">$150,000 &ndash; $250,000 (milestone-based)</p>
+                <div className="flex items-center gap-2 mb-1">
+                  <p className="text-sm font-bold text-slate-400">Climate Finance Lab</p>
+                  <span className="text-[8px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 border border-slate-200">
+                    Deprioritised
+                  </span>
+                </div>
+                <p className="text-xs text-slate/60 font-medium mb-1">$150,000 &ndash; $250,000 (milestone-based)</p>
                 <p className="text-[11px] text-slate leading-relaxed mb-3">
-                  Viable if bio-fertilizer distribution is structured as an investable financial
-                  instrument with carbon credit upside. Requires blended finance mechanism framing,
-                  not a standard project grant application.
+                  Accepts for-profit applicants but funds <strong>financial instruments</strong>, not
+                  projects or operations. Misaligned unless HISAGEN proposes a blended finance vehicle.
+                  2026 cycle closed (Nov 2025 deadline).
                 </p>
                 <div className="p-3 rounded-lg bg-amber-50 border border-amber-100">
                   <p className="text-[10px] text-amber-800">
                     <strong>Key barrier:</strong> Requires financial instrument framing &mdash;
-                    this is a stretch at Stage 1 but becomes natural at Stage 2 when commercial
+                    this is a stretch at Stage 1. Could become viable at Stage 2 when commercial
                     revenue streams are established.
                   </p>
                 </div>

@@ -13,8 +13,17 @@ export { evidence, getEvidenceByProject, getEvidenceBySubtype, getEvidenceTags, 
 export { milestones, getMilestonesByStatus, getMilestonesBySubtype, getMilestoneTags, getCriticalPathMilestones, getMilestonesByProject } from './milestones';
 
 // Funding landscape exports
-export { tier1Funders, tier2Funders, allCuratedFunders, getFunderById, getFundersByCategory, applicationTimeline, landscapeStats } from './funding-landscape';
-export type { CuratedFunder, FunderCategory, TimelineEntry } from './funding-landscape';
+export {
+  tier1Funders, tier2Funders, allCuratedFunders,
+  eligibleFunders, conditionalFunders, ineligibleFunders, deprioritisedFunders,
+  getFunderById, getFundersByCategory,
+  grantPhases, applicationTimeline, landscapeStats,
+  strategicRecommendations, keirActionItems,
+} from './funding-landscape';
+export type {
+  CuratedFunder, FunderCategory, TimelineEntry, EligibilityStatus,
+  GrantPhase, PhaseStatus, StrategicRecommendation, KeirAction,
+} from './funding-landscape';
 
 // Import for combined operations
 import { communications } from './communications';
