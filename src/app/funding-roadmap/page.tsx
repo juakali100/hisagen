@@ -541,6 +541,7 @@ function PipelineOverview() {
   const [filterCapitalSource, setFilterCapitalSource] = useState<string>("all");
   const [filterCategory, setFilterCategory] = useState<string>("all");
   const [filterTier, setFilterTier] = useState<string>("all");
+  const [showIneligible, setShowIneligible] = useState(false);
 
   const handleSort = (key: SortKey) => {
     if (sortKey === key) {
@@ -557,8 +558,15 @@ function PipelineOverview() {
     </span>
   );
 
+  // Count ineligible for toggle label
+  const ineligibleCount = allCuratedFunders.filter(
+    (f) => f.eligibility === "ineligible" || f.eligibility === "deprioritised"
+  ).length;
+
   // Filter
   let filtered = allCuratedFunders.filter((f) => {
+    // Hide ineligible/deprioritised unless toggle is on
+    if (!showIneligible && (f.eligibility === "ineligible" || f.eligibility === "deprioritised")) return false;
     if (filterEligibility !== "all" && f.eligibility !== filterEligibility) return false;
     if (filterCapitalSource !== "all" && f.capitalSource !== filterCapitalSource) return false;
     if (filterCategory !== "all" && f.category !== filterCategory) return false;
@@ -617,7 +625,7 @@ function PipelineOverview() {
             <div className="flex items-center gap-3 mb-0.5">
               <h3 className="text-base font-bold text-secondary">Pipeline Overview</h3>
               <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded border bg-primary/10 text-primary border-primary/20">
-                {allCuratedFunders.length} Funders
+                {allCuratedFunders.length - ineligibleCount} Active{showIneligible ? ` + ${ineligibleCount} Ineligible` : ""}
               </span>
               {activeFilters > 0 && (
                 <span className="text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-amber-100 text-amber-700">
@@ -696,8 +704,27 @@ function PipelineOverview() {
                     Clear filters
                   </button>
                 )}
-                <span className="ml-auto text-[10px] text-slate/50 self-center">
-                  {filtered.length} of {allCuratedFunders.length} shown
+                <label className="ml-auto flex items-center gap-2 cursor-pointer self-center">
+                  <span className="text-[10px] text-slate/50">
+                    Show {ineligibleCount} ineligible
+                  </span>
+                  <button
+                    onClick={() => setShowIneligible(!showIneligible)}
+                    className={`relative inline-flex h-4 w-7 items-center rounded-full transition-colors ${
+                      showIneligible ? "bg-primary" : "bg-slate-200"
+                    }`}
+                    role="switch"
+                    aria-checked={showIneligible}
+                  >
+                    <span
+                      className={`inline-block h-3 w-3 transform rounded-full bg-white transition-transform ${
+                        showIneligible ? "translate-x-3.5" : "translate-x-0.5"
+                      }`}
+                    />
+                  </button>
+                </label>
+                <span className="text-[10px] text-slate/50 self-center">
+                  {filtered.length} shown
                 </span>
               </div>
 
