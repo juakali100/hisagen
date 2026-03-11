@@ -7,6 +7,7 @@
 // Last synced: 2026-03-10 (post cross-validation expansion)
 
 export type FunderTier = "tier1" | "tier2";
+// Legacy — kept for backward compat, replaced by orgType + thematicFocus
 export type FunderCategory =
   | "climate-adaptation"
   | "agricultural-food"
@@ -16,6 +17,24 @@ export type FunderCategory =
   | "venture-philanthropy"
   | "dfi-private-sector"
   | "impact-fund";
+
+export type OrgType =
+  | "foundation"
+  | "trust"
+  | "multilateral"
+  | "government-programme"
+  | "impact-fund"
+  | "venture-philanthropy"
+  | "accelerator"
+  | "prize-programme";
+
+export type ThematicFocus =
+  | "climate-adaptation"
+  | "agriculture-food-security"
+  | "social-enterprise"
+  | "innovation-technology"
+  | "financial-inclusion"
+  | "general-development";
 
 export type EligibilityStatus =
   | "eligible"
@@ -61,7 +80,9 @@ export interface CuratedFunder {
   name: string;
   shortName: string;
   tier: FunderTier;
-  category: FunderCategory;
+  category: FunderCategory; // legacy — use orgType + thematicFocus
+  orgType: OrgType;
+  thematicFocus: ThematicFocus;
   capitalSource: CapitalSource;
   fundingMechanism: FundingMechanism;
   costToCompany: CostToCompany;
@@ -127,6 +148,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "CFH Foundation",
     tier: "tier1",
     category: "us-foundation",
+    orgType: "foundation",
+    thematicFocus: "agriculture-food-security",
     capitalSource: "grants",
     fundingMechanism: "grant",
     costToCompany: "non-dilutive",
@@ -151,6 +174,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "AFCIA",
     tier: "tier1",
     category: "climate-adaptation",
+    orgType: "multilateral",
+    thematicFocus: "climate-adaptation",
     capitalSource: "grants",
     fundingMechanism: "programme-grant",
     costToCompany: "non-dilutive",
@@ -173,6 +198,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "AAAP/YouthADAPT",
     tier: "tier1",
     category: "climate-adaptation",
+    orgType: "multilateral",
+    thematicFocus: "climate-adaptation",
     capitalSource: "grants",
     fundingMechanism: "programme-grant",
     costToCompany: "non-dilutive",
@@ -197,6 +224,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "Echoing Green",
     tier: "tier1",
     category: "us-foundation",
+    orgType: "foundation",
+    thematicFocus: "social-enterprise",
     capitalSource: "grants",
     fundingMechanism: "recoverable-grant",
     costToCompany: "conditionally-repayable",
@@ -222,6 +251,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "AfDB TAAT",
     tier: "tier1",
     category: "climate-adaptation",
+    orgType: "multilateral",
+    thematicFocus: "agriculture-food-security",
     capitalSource: "grants",
     fundingMechanism: "programme-grant",
     costToCompany: "non-dilutive",
@@ -244,6 +275,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "START II",
     tier: "tier2",
     category: "dfi-private-sector",
+    orgType: "government-programme",
+    thematicFocus: "agriculture-food-security",
     capitalSource: "debt",
     fundingMechanism: "reimbursable-grant",
     costToCompany: "repayable",
@@ -270,6 +303,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "Acumen/ARAF",
     tier: "tier1",
     category: "impact-fund",
+    orgType: "impact-fund",
+    thematicFocus: "climate-adaptation",
     capitalSource: "equity",
     fundingMechanism: "equity",
     costToCompany: "dilutive",
@@ -295,6 +330,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "DIV Fund",
     tier: "tier2",
     category: "venture-philanthropy",
+    orgType: "foundation",
+    thematicFocus: "innovation-technology",
     capitalSource: "grants",
     fundingMechanism: "grant",
     costToCompany: "non-dilutive",
@@ -320,6 +357,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "DRK Foundation",
     tier: "tier1",
     category: "venture-philanthropy",
+    orgType: "venture-philanthropy",
+    thematicFocus: "social-enterprise",
     capitalSource: "grants",
     fundingMechanism: "equity",
     costToCompany: "dilutive",
@@ -350,6 +389,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "World Food Prize",
     tier: "tier2",
     category: "accelerator",
+    orgType: "prize-programme",
+    thematicFocus: "agriculture-food-security",
     capitalSource: "grants",
     fundingMechanism: "prize",
     costToCompany: "non-dilutive",
@@ -376,6 +417,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "Mulago",
     tier: "tier2",
     category: "us-foundation",
+    orgType: "foundation",
+    thematicFocus: "social-enterprise",
     capitalSource: "impact",
     fundingMechanism: "fellowship",
     costToCompany: "non-dilutive",
@@ -399,6 +442,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "Rockefeller FILab",
     tier: "tier2",
     category: "us-foundation",
+    orgType: "foundation",
+    thematicFocus: "innovation-technology",
     capitalSource: "impact",
     fundingMechanism: "design-grant",
     costToCompany: "non-dilutive",
@@ -421,6 +466,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "IFAD",
     tier: "tier2",
     category: "agricultural-food",
+    orgType: "multilateral",
+    thematicFocus: "agriculture-food-security",
     capitalSource: "grants",
     fundingMechanism: "programme-grant",
     costToCompany: "non-dilutive",
@@ -444,6 +491,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "WFP Innovation",
     tier: "tier2",
     category: "agricultural-food",
+    orgType: "multilateral",
+    thematicFocus: "agriculture-food-security",
     capitalSource: "grants",
     fundingMechanism: "grant",
     costToCompany: "non-dilutive",
@@ -470,6 +519,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "Hello Tomorrow",
     tier: "tier2",
     category: "accelerator",
+    orgType: "accelerator",
+    thematicFocus: "innovation-technology",
     capitalSource: "grants",
     fundingMechanism: "prize",
     costToCompany: "non-dilutive",
@@ -498,6 +549,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "Katapult Africa",
     tier: "tier2",
     category: "accelerator",
+    orgType: "accelerator",
+    thematicFocus: "social-enterprise",
     capitalSource: "equity",
     fundingMechanism: "equity",
     costToCompany: "dilutive",
@@ -524,6 +577,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "GoGettaz",
     tier: "tier2",
     category: "accelerator",
+    orgType: "prize-programme",
+    thematicFocus: "agriculture-food-security",
     capitalSource: "grants",
     fundingMechanism: "prize",
     costToCompany: "non-dilutive",
@@ -548,6 +603,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "FINCA Ventures",
     tier: "tier2",
     category: "impact-fund",
+    orgType: "impact-fund",
+    thematicFocus: "financial-inclusion",
     capitalSource: "equity",
     fundingMechanism: "equity",
     costToCompany: "dilutive",
@@ -572,6 +629,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "EIC Accelerator",
     tier: "tier2",
     category: "accelerator",
+    orgType: "government-programme",
+    thematicFocus: "innovation-technology",
     capitalSource: "blended",
     fundingMechanism: "blended",
     costToCompany: "mixed",
@@ -596,6 +655,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "TrustAfrica",
     tier: "tier2",
     category: "agricultural-food",
+    orgType: "foundation",
+    thematicFocus: "agriculture-food-security",
     capitalSource: "grants",
     fundingMechanism: "grant",
     costToCompany: "non-dilutive",
@@ -618,6 +679,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "Climate Finance Lab",
     tier: "tier2",
     category: "climate-adaptation",
+    orgType: "foundation",
+    thematicFocus: "climate-adaptation",
     capitalSource: "blended",
     fundingMechanism: "design-grant",
     costToCompany: "non-dilutive",
@@ -640,6 +703,8 @@ const allFundersRaw: CuratedFunder[] = [
     shortName: "Noel Buxton Trust",
     tier: "tier2",
     category: "uk-trust",
+    orgType: "trust",
+    thematicFocus: "general-development",
     capitalSource: "grants",
     fundingMechanism: "grant",
     costToCompany: "non-dilutive",
@@ -679,6 +744,26 @@ export const capitalSourceLabels: Record<CapitalSource, string> = {
   equity: "Equity & VC",
   impact: "Impact Investing",
   blended: "Blended Finance",
+};
+
+export const orgTypeLabels: Record<OrgType, string> = {
+  "foundation": "Foundation",
+  "trust": "Trust",
+  "multilateral": "Multilateral Agency",
+  "government-programme": "Government Programme",
+  "impact-fund": "Impact Fund",
+  "venture-philanthropy": "Venture Philanthropy",
+  "accelerator": "Accelerator",
+  "prize-programme": "Prize Programme",
+};
+
+export const thematicFocusLabels: Record<ThematicFocus, string> = {
+  "climate-adaptation": "Climate Adaptation",
+  "agriculture-food-security": "Agriculture & Food Security",
+  "social-enterprise": "Social Enterprise",
+  "innovation-technology": "Innovation & Technology",
+  "financial-inclusion": "Financial Inclusion",
+  "general-development": "General Development",
 };
 
 export const fundingMechanismLabels: Record<FundingMechanism, string> = {

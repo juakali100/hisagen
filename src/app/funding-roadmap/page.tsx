@@ -15,6 +15,8 @@ import {
   grantPhases,
   keirActionItems,
   categoryLabels,
+  orgTypeLabels,
+  thematicFocusLabels,
   capitalSourceLabels,
   fundingMechanismLabels,
   costToCompanyLabels,
@@ -25,6 +27,8 @@ import type {
   GrantPhase,
   PhaseStatus,
   FunderCategory,
+  OrgType,
+  ThematicFocus,
   CapitalSource,
   FundingMechanism,
   CostToCompany,
@@ -543,7 +547,8 @@ function PipelineOverview() {
   const [sortDir, setSortDir] = useState<SortDir>("desc");
   const [filterEligibility, setFilterEligibility] = useState<string>("all");
   const [filterCapitalSource, setFilterCapitalSource] = useState<string>("all");
-  const [filterCategory, setFilterCategory] = useState<string>("all");
+  const [filterOrgType, setFilterOrgType] = useState<string>("all");
+  const [filterThematicFocus, setFilterThematicFocus] = useState<string>("all");
   const [filterTier, setFilterTier] = useState<string>("all");
   const [showIneligible, setShowIneligible] = useState(false);
 
@@ -573,7 +578,8 @@ function PipelineOverview() {
     if (!showIneligible && (f.eligibility === "ineligible" || f.eligibility === "deprioritised")) return false;
     if (filterEligibility !== "all" && f.eligibility !== filterEligibility) return false;
     if (filterCapitalSource !== "all" && f.capitalSource !== filterCapitalSource) return false;
-    if (filterCategory !== "all" && f.category !== filterCategory) return false;
+    if (filterOrgType !== "all" && f.orgType !== filterOrgType) return false;
+    if (filterThematicFocus !== "all" && f.thematicFocus !== filterThematicFocus) return false;
     if (filterTier !== "all" && f.tier !== filterTier) return false;
     return true;
   });
@@ -601,10 +607,11 @@ function PipelineOverview() {
   });
 
   // Unique values for filter dropdowns
-  const uniqueCategories = [...new Set(allCuratedFunders.map((f) => f.category))];
+  const uniqueOrgTypes = [...new Set(allCuratedFunders.map((f) => f.orgType))];
+  const uniqueThematicFocuses = [...new Set(allCuratedFunders.map((f) => f.thematicFocus))];
   const uniqueCapitalSources = [...new Set(allCuratedFunders.map((f) => f.capitalSource))];
 
-  const activeFilters = [filterEligibility, filterCapitalSource, filterCategory, filterTier].filter((f) => f !== "all").length;
+  const activeFilters = [filterEligibility, filterCapitalSource, filterOrgType, filterThematicFocus, filterTier].filter((f) => f !== "all").length;
 
   return (
     <section className="mt-12">
@@ -677,13 +684,23 @@ function PipelineOverview() {
                   ))}
                 </select>
                 <select
-                  value={filterCategory}
-                  onChange={(e) => setFilterCategory(e.target.value)}
+                  value={filterOrgType}
+                  onChange={(e) => setFilterOrgType(e.target.value)}
                   className="text-xs border border-mist rounded-lg px-3 py-1.5 bg-white text-secondary focus:outline-none focus:border-primary"
                 >
-                  <option value="all">All Funder Types</option>
-                  {uniqueCategories.map((cat) => (
-                    <option key={cat} value={cat}>{categoryLabels[cat]}</option>
+                  <option value="all">All Org Types</option>
+                  {uniqueOrgTypes.map((ot) => (
+                    <option key={ot} value={ot}>{orgTypeLabels[ot]}</option>
+                  ))}
+                </select>
+                <select
+                  value={filterThematicFocus}
+                  onChange={(e) => setFilterThematicFocus(e.target.value)}
+                  className="text-xs border border-mist rounded-lg px-3 py-1.5 bg-white text-secondary focus:outline-none focus:border-primary"
+                >
+                  <option value="all">All Thematic Focus</option>
+                  {uniqueThematicFocuses.map((tf) => (
+                    <option key={tf} value={tf}>{thematicFocusLabels[tf]}</option>
                   ))}
                 </select>
                 <select
@@ -700,7 +717,8 @@ function PipelineOverview() {
                     onClick={() => {
                       setFilterEligibility("all");
                       setFilterCapitalSource("all");
-                      setFilterCategory("all");
+                      setFilterOrgType("all");
+                      setFilterThematicFocus("all");
                       setFilterTier("all");
                     }}
                     className="text-[10px] font-bold uppercase tracking-widest text-red-500 hover:text-red-700 px-2 py-1.5 transition-colors"
@@ -756,7 +774,10 @@ function PipelineOverview() {
                         Tier <SortIcon col="tier" />
                       </th>
                       <th className="text-left px-2 py-2.5 font-bold text-secondary uppercase tracking-widest text-[10px] whitespace-nowrap">
-                        Funder Type
+                        Org Type
+                      </th>
+                      <th className="text-left px-2 py-2.5 font-bold text-secondary uppercase tracking-widest text-[10px] whitespace-nowrap">
+                        Focus
                       </th>
                       <th className="text-left px-2 py-2.5 font-bold text-secondary uppercase tracking-widest text-[10px] whitespace-nowrap">
                         Capital Source
@@ -829,8 +850,11 @@ function PipelineOverview() {
                               {funder.tier === "tier1" ? "T1" : "T2"}
                             </span>
                           </td>
-                          <td className="px-2 py-2.5 text-slate/70 whitespace-nowrap">
-                            {categoryLabel[funder.category] || funder.category}
+                          <td className="px-2 py-2.5 text-slate/70 whitespace-nowrap text-[10px]">
+                            {orgTypeLabels[funder.orgType]}
+                          </td>
+                          <td className="px-2 py-2.5 text-slate/70 whitespace-nowrap text-[10px]">
+                            {thematicFocusLabels[funder.thematicFocus]}
                           </td>
                           <td className="px-2 py-2.5 whitespace-nowrap">
                             <span className={`text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${
@@ -884,7 +908,7 @@ function PipelineOverview() {
                     })}
                     {filtered.length === 0 && (
                       <tr>
-                        <td colSpan={11} className="text-center py-8 text-slate/50">
+                        <td colSpan={12} className="text-center py-8 text-slate/50">
                           No funders match the selected filters.
                         </td>
                       </tr>
@@ -921,6 +945,32 @@ function PipelineOverview() {
 // ─────────────────────────────────────────────────────────────
 
 const glossarySections = [
+  {
+    title: "Organisation Types",
+    description: "What kind of entity the funder is",
+    terms: [
+      { term: "Foundation", definition: "A private or public charitable organisation that provides grants, fellowships, or investments. Funded by endowments, donations, or corporate backing. Examples: Echoing Green, Mulago, CFH Foundation." },
+      { term: "Trust", definition: "A UK legal structure similar to a foundation, typically established to distribute funds for charitable purposes. Usually smaller, with focused geographic or thematic mandates. Example: Noel Buxton Trust." },
+      { term: "Multilateral Agency", definition: "An international organisation funded by multiple governments, operating through the UN system or multilateral development banks. Examples: IFAD (UN), WFP, AfDB, UNDP. Typically offers programme grants with significant reporting requirements." },
+      { term: "Government Programme", definition: "A funding programme backed by government or intergovernmental budgets (EU, USAID, national development agencies). May offer grants, loans, or blended instruments. Examples: EIC Accelerator (EU), START II (EU/UNCDF)." },
+      { term: "Impact Fund", definition: "An investment fund designed to generate measurable social or environmental impact alongside financial returns. Takes equity stakes in companies. Examples: Acumen/ARAF, FINCA Ventures." },
+      { term: "Venture Philanthropy", definition: "Applies venture capital principles to philanthropy \u2014 long-term engagement, capacity building, and performance measurement. May provide grants or investment capital depending on the recipient\u2019s structure. Example: DRK Foundation." },
+      { term: "Accelerator", definition: "A structured programme offering funding, mentorship, and network access over a fixed period (typically 3\u20136 months). May be non-dilutive or equity-based. Examples: Hello Tomorrow, Katapult Africa." },
+      { term: "Prize Programme", definition: "A competitive challenge that awards funding to winners based on innovation, impact, or business potential. Always non-dilutive. Examples: World Food Prize, GoGettaz Agripreneur Prize." },
+    ],
+  },
+  {
+    title: "Thematic Focus",
+    description: "What the funder primarily funds",
+    terms: [
+      { term: "Climate Adaptation", definition: "Funders focused on building resilience to climate change impacts \u2014 drought-resistant agriculture, water management, climate-smart technologies. Directly aligned with HISAGEN\u2019s bio-stimulant work." },
+      { term: "Agriculture & Food Security", definition: "Funders targeting food production, smallholder farming, agricultural technology, and food system resilience. The broadest relevant category for HISAGEN." },
+      { term: "Social Enterprise", definition: "Funders backing mission-driven businesses that prioritise social or environmental impact alongside financial sustainability. Not sector-specific \u2014 they fund the business model, not the theme." },
+      { term: "Innovation & Technology", definition: "Funders focused on novel technologies, deep tech, and evidence-based innovation across sectors. HISAGEN\u2019s bio-stimulant R&D and NARO trial data are the relevant angle." },
+      { term: "Financial Inclusion", definition: "Funders targeting access to financial services for underserved populations \u2014 microfinance, rural banking, agricultural credit. Relevant to HISAGEN\u2019s farmer economics model." },
+      { term: "General Development", definition: "Broad development funders without a narrow thematic mandate. Typically support poverty reduction, capacity building, or community development across multiple sectors." },
+    ],
+  },
   {
     title: "Funding Mechanisms",
     description: "How the capital is deployed to HISAGEN",
