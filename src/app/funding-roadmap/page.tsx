@@ -16,6 +16,8 @@ import {
   keirActionItems,
   categoryLabels,
   capitalSourceLabels,
+  fundingMechanismLabels,
+  costToCompanyLabels,
   pipelineStatusLabels,
 } from "../../data/funding-landscape";
 import type {
@@ -24,6 +26,8 @@ import type {
   PhaseStatus,
   FunderCategory,
   CapitalSource,
+  FundingMechanism,
+  CostToCompany,
   EligibilityStatus,
   PipelineStatus,
 } from "../../data/funding-landscape";
@@ -757,6 +761,12 @@ function PipelineOverview() {
                       <th className="text-left px-2 py-2.5 font-bold text-secondary uppercase tracking-widest text-[10px] whitespace-nowrap">
                         Capital Source
                       </th>
+                      <th className="text-left px-2 py-2.5 font-bold text-secondary uppercase tracking-widest text-[10px] whitespace-nowrap">
+                        Mechanism
+                      </th>
+                      <th className="text-center px-2 py-2.5 font-bold text-secondary uppercase tracking-widest text-[10px] whitespace-nowrap">
+                        Cost to HISAGEN
+                      </th>
                       <th className="text-center px-2 py-2.5 font-bold text-secondary uppercase tracking-widest text-[10px] whitespace-nowrap">
                         Eligibility
                       </th>
@@ -833,6 +843,20 @@ function PipelineOverview() {
                               {capitalSourceShort[funder.capitalSource]}
                             </span>
                           </td>
+                          <td className="px-2 py-2.5 text-slate/70 whitespace-nowrap text-[10px]">
+                            {fundingMechanismLabels[funder.fundingMechanism]}
+                          </td>
+                          <td className="text-center px-2 py-2.5">
+                            <span className={`text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${
+                              funder.costToCompany === "non-dilutive" ? "bg-emerald-50 text-emerald-700" :
+                              funder.costToCompany === "dilutive" ? "bg-red-50 text-red-700" :
+                              funder.costToCompany === "repayable" ? "bg-amber-50 text-amber-700" :
+                              funder.costToCompany === "conditionally-repayable" ? "bg-amber-50 text-amber-600" :
+                              "bg-purple-50 text-purple-700"
+                            }`}>
+                              {costToCompanyLabels[funder.costToCompany]}
+                            </span>
+                          </td>
                           <td className="text-center px-2 py-2.5">
                             <span className={`text-[9px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border ${eBadge.className}`}>
                               {eBadge.label}
@@ -860,7 +884,7 @@ function PipelineOverview() {
                     })}
                     {filtered.length === 0 && (
                       <tr>
-                        <td colSpan={9} className="text-center py-8 text-slate/50">
+                        <td colSpan={11} className="text-center py-8 text-slate/50">
                           No funders match the selected filters.
                         </td>
                       </tr>

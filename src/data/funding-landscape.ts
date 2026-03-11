@@ -26,6 +26,25 @@ export type EligibilityStatus =
 
 export type CapitalSource = "grants" | "debt" | "equity" | "impact" | "blended";
 
+export type FundingMechanism =
+  | "grant"
+  | "programme-grant"
+  | "prize"
+  | "fellowship"
+  | "recoverable-grant"
+  | "equity"
+  | "concessional-loan"
+  | "reimbursable-grant"
+  | "design-grant"
+  | "blended";
+
+export type CostToCompany =
+  | "non-dilutive"
+  | "dilutive"
+  | "repayable"
+  | "conditionally-repayable"
+  | "mixed";
+
 export type PipelineStatus =
   | "not-started"
   | "researching"
@@ -44,6 +63,8 @@ export interface CuratedFunder {
   tier: FunderTier;
   category: FunderCategory;
   capitalSource: CapitalSource;
+  fundingMechanism: FundingMechanism;
+  costToCompany: CostToCompany;
   pipelineStatus: PipelineStatus;
   grantRange: string;
   grantMin?: number;
@@ -107,6 +128,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier1",
     category: "us-foundation",
     capitalSource: "grants",
+    fundingMechanism: "grant",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "$25,000 - $50,000",
     grantMin: 25000,
@@ -129,6 +152,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier1",
     category: "climate-adaptation",
     capitalSource: "grants",
+    fundingMechanism: "programme-grant",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "Up to $250,000",
     grantMax: 250000,
@@ -149,6 +174,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier1",
     category: "climate-adaptation",
     capitalSource: "grants",
+    fundingMechanism: "programme-grant",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "Up to $30,000 (YouthADAPT)",
     grantMax: 30000,
@@ -171,6 +198,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier1",
     category: "us-foundation",
     capitalSource: "grants",
+    fundingMechanism: "recoverable-grant",
+    costToCompany: "conditionally-repayable",
     pipelineStatus: "not-started",
     grantRange: "$100,000 (unrestricted) + 18 months support",
     grantMin: 100000,
@@ -194,6 +223,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier1",
     category: "climate-adaptation",
     capitalSource: "grants",
+    fundingMechanism: "programme-grant",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "Variable (via Calls for Proposals)",
     currency: "USD",
@@ -214,6 +245,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "dfi-private-sector",
     capitalSource: "debt",
+    fundingMechanism: "reimbursable-grant",
+    costToCompany: "repayable",
     pipelineStatus: "not-started",
     grantRange: "UGX 20M-80M reimbursable grant (~$5K-$21K) + UGX 20M-40M TA grant (~$5K-$11K)",
     grantMin: 5000,
@@ -238,6 +271,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier1",
     category: "impact-fund",
     capitalSource: "equity",
+    fundingMechanism: "equity",
+    costToCompany: "dilutive",
     pipelineStatus: "not-started",
     grantRange: "$300,000 - $3,000,000 (equity/quasi-equity)",
     grantMin: 300000,
@@ -261,6 +296,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "venture-philanthropy",
     capitalSource: "grants",
+    fundingMechanism: "grant",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "$25,000 - $200,000 (Stage 1 Pilot)",
     grantMin: 25000,
@@ -284,6 +321,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier1",
     category: "venture-philanthropy",
     capitalSource: "grants",
+    fundingMechanism: "equity",
+    costToCompany: "dilutive",
     pipelineStatus: "not-started",
     grantRange: "Up to $300,000 over 3 years + $500K in-kind support",
     grantMin: 100000,
@@ -312,6 +351,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "accelerator",
     capitalSource: "grants",
+    fundingMechanism: "prize",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "$50,000 (1st place), $10,000 (2nd), $5,000 (3rd)",
     grantMin: 5000,
@@ -336,6 +377,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "us-foundation",
     capitalSource: "impact",
+    fundingMechanism: "fellowship",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "$100K fellowship, potential $340K portfolio",
     grantMin: 100000,
@@ -357,6 +400,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "us-foundation",
     capitalSource: "impact",
+    fundingMechanism: "design-grant",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "$100K first round, follow-on to $2.5M",
     grantMin: 100000,
@@ -377,6 +422,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "agricultural-food",
     capitalSource: "grants",
+    fundingMechanism: "programme-grant",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "Up to $1.5M",
     grantMax: 1500000,
@@ -398,6 +445,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "agricultural-food",
     capitalSource: "grants",
+    fundingMechanism: "grant",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "Up to $100,000 (equity-free)",
     grantMin: 10000,
@@ -422,6 +471,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "accelerator",
     capitalSource: "grants",
+    fundingMechanism: "prize",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "\u20AC100,000 grand prize (equity-free)",
     grantMin: 0,
@@ -448,6 +499,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "accelerator",
     capitalSource: "equity",
+    fundingMechanism: "equity",
+    costToCompany: "dilutive",
     pipelineStatus: "not-started",
     grantRange: "\u20AC150,000 - \u20AC500,000",
     grantMin: 150000,
@@ -472,6 +525,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "accelerator",
     capitalSource: "grants",
+    fundingMechanism: "prize",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "$50,000 grand prize + $60,000 impact awards",
     grantMin: 10000,
@@ -494,6 +549,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "impact-fund",
     capitalSource: "equity",
+    fundingMechanism: "equity",
+    costToCompany: "dilutive",
     pipelineStatus: "not-started",
     grantRange: "$100,000 - $500,000 (patient equity or convertible notes)",
     grantMin: 100000,
@@ -516,6 +573,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "accelerator",
     capitalSource: "blended",
+    fundingMechanism: "blended",
+    costToCompany: "mixed",
     pipelineStatus: "not-started",
     grantRange: "EUR 500,000 - 2,500,000 (grant) + equity",
     grantMin: 500000,
@@ -538,6 +597,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "agricultural-food",
     capitalSource: "grants",
+    fundingMechanism: "grant",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "$20,000 - $30,000",
     grantMin: 20000,
@@ -558,6 +619,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "climate-adaptation",
     capitalSource: "blended",
+    fundingMechanism: "design-grant",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "$150,000 - $250,000 (milestone-based)",
     grantMin: 150000,
@@ -578,6 +641,8 @@ const allFundersRaw: CuratedFunder[] = [
     tier: "tier2",
     category: "uk-trust",
     capitalSource: "grants",
+    fundingMechanism: "grant",
+    costToCompany: "non-dilutive",
     pipelineStatus: "not-started",
     grantRange: "GBP 5,000/year for up to 3 years",
     grantMin: 5000,
@@ -614,6 +679,27 @@ export const capitalSourceLabels: Record<CapitalSource, string> = {
   equity: "Equity & VC",
   impact: "Impact Investing",
   blended: "Blended Finance",
+};
+
+export const fundingMechanismLabels: Record<FundingMechanism, string> = {
+  "grant": "Grant",
+  "programme-grant": "Programme Grant",
+  "prize": "Prize / Award",
+  "fellowship": "Fellowship",
+  "recoverable-grant": "Recoverable Grant",
+  "equity": "Equity Investment",
+  "concessional-loan": "Concessional Loan",
+  "reimbursable-grant": "Reimbursable Grant",
+  "design-grant": "Design Grant",
+  "blended": "Blended (Grant + Equity)",
+};
+
+export const costToCompanyLabels: Record<CostToCompany, string> = {
+  "non-dilutive": "Non-Dilutive",
+  "dilutive": "Dilutive (Equity Stake)",
+  "repayable": "Repayable",
+  "conditionally-repayable": "Conditionally Repayable",
+  "mixed": "Mixed (Part Dilutive)",
 };
 
 export const pipelineStatusLabels: Record<PipelineStatus, string> = {
